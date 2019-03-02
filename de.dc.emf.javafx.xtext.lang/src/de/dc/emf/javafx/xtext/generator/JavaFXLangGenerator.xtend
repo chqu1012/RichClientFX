@@ -3,63 +3,25 @@
  */
 package de.dc.emf.javafx.xtext.generator
 
-import de.dc.emf.javafx.model.javafx.ProjectFX
-import de.dc.emf.javafx.model.javafx.TableViewFX
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import de.dc.emf.javafx.model.javafx.TableColumnFX
 
-/**
- * Generates code from your model files on save.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
- */
 class JavaFXLangGenerator extends AbstractGenerator {
 
+	TemplateSwitch templates = new TemplateSwitch
+	FilePathSwitch filePathFinder = new FilePathSwitch
+	EnableGeneratorSwitch checkGenerator = new EnableGeneratorSwitch
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		resource.allContents.filter[it instanceof TableViewFX].forEach[content|
-			val table = content as TableViewFX
-			val code = generate(table)
-			val project = content.eContainer as ProjectFX
-			fsa.generateFile(project.packagePath.replace('.', '/')+'/controls/'+table.name.toFirstUpper+'.java', code)
+		resource.allContents.forEach[content|
+			val code = templates.doSwitch(content)
+			val path = filePathFinder.doSwitch(content)
+			val isGeneratorEnabled = checkGenerator.doSwitch(content)
+			if (isGeneratorEnabled) {
+				fsa.generateFile(path, code)
+			}
 		]
 	}
-	
-	def generate(TableColumnFX view)'''
-	«val packagePath = (view.eContainer as ProjectFX).packagePath»
-	«val table = view.eContainer as TableViewFX»
-	«val model = table.usedModel»
-	package «packagePath».controls.cell;
-	
-	import «packagePath».model.*;
-	import javafx.scene.control.*;
-	
-	«val name = model.name.toFirstUpper»
-	public class «name»NameColumnCellFeatures extends TableCell<«name», «name»> {
-	
-		@Override
-		protected void updateItem(«name» item, boolean empty) {
-			super.updateItem(item, empty);
-			if (item==null && empty) {
-				setText(null);
-			}else {
-				setText(item.getName());
-			}
-		}
-	}
-	'''
-	
-	def generate(TableViewFX view)'''
-	«val packagePath = (view.eContainer as ProjectFX).packagePath»
-	package «packagePath».controls;
-	
-	import javafx.scene.control.*;
-	
-	«val model = '''«IF view.usedModel!==null»«view.usedModel.name»«ELSE»Object«ENDIF»'''»
-	public class «view.name.toFirstUpper» extends TableView<«model»>{
-		
-	}
-	'''
 }

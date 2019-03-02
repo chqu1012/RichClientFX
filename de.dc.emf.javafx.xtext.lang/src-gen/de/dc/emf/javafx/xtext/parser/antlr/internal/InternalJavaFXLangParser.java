@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ProjectFX'", "'{'", "'packagePath'", "'controls'", "','", "'}'", "'models'", "'ModelFX'", "'attributes'", "'TableViewFX'", "'usedModel'", "'columns'", "'TableColumnFX'", "'width'", "'-'", "'AttributeFX'", "'type'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ProjectFX'", "'{'", "'packagePath'", "'controls'", "','", "'}'", "'models'", "'class'", "'TableViewFX'", "'name:'", "'usedModel:'", "'TableColumnFX'", "'('", "'width:'", "'attribute:'", "')'", "'-'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -765,33 +765,29 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModelFX"
-    // InternalJavaFXLang.g:328:1: ruleModelFX returns [EObject current=null] : ( () otherlv_1= 'ModelFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'attributes' otherlv_5= '{' ( (lv_attributes_6_0= ruleAttributeFX ) ) (otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) ;
+    // InternalJavaFXLang.g:328:1: ruleModelFX returns [EObject current=null] : ( () otherlv_1= 'class' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' ( ( (lv_attributes_4_0= ruleAttributeFX ) ) ( (lv_attributes_5_0= ruleAttributeFX ) )* )? otherlv_6= '}' ) ;
     public final EObject ruleModelFX() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_9=null;
-        Token otherlv_10=null;
+        Token otherlv_6=null;
         AntlrDatatypeRuleToken lv_name_2_0 = null;
 
-        EObject lv_attributes_6_0 = null;
+        EObject lv_attributes_4_0 = null;
 
-        EObject lv_attributes_8_0 = null;
+        EObject lv_attributes_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalJavaFXLang.g:334:2: ( ( () otherlv_1= 'ModelFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'attributes' otherlv_5= '{' ( (lv_attributes_6_0= ruleAttributeFX ) ) (otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) )
-            // InternalJavaFXLang.g:335:2: ( () otherlv_1= 'ModelFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'attributes' otherlv_5= '{' ( (lv_attributes_6_0= ruleAttributeFX ) ) (otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
+            // InternalJavaFXLang.g:334:2: ( ( () otherlv_1= 'class' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' ( ( (lv_attributes_4_0= ruleAttributeFX ) ) ( (lv_attributes_5_0= ruleAttributeFX ) )* )? otherlv_6= '}' ) )
+            // InternalJavaFXLang.g:335:2: ( () otherlv_1= 'class' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' ( ( (lv_attributes_4_0= ruleAttributeFX ) ) ( (lv_attributes_5_0= ruleAttributeFX ) )* )? otherlv_6= '}' )
             {
-            // InternalJavaFXLang.g:335:2: ( () otherlv_1= 'ModelFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'attributes' otherlv_5= '{' ( (lv_attributes_6_0= ruleAttributeFX ) ) (otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
-            // InternalJavaFXLang.g:336:3: () otherlv_1= 'ModelFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'attributes' otherlv_5= '{' ( (lv_attributes_6_0= ruleAttributeFX ) ) (otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) ) )* otherlv_9= '}' )? otherlv_10= '}'
+            // InternalJavaFXLang.g:335:2: ( () otherlv_1= 'class' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' ( ( (lv_attributes_4_0= ruleAttributeFX ) ) ( (lv_attributes_5_0= ruleAttributeFX ) )* )? otherlv_6= '}' )
+            // InternalJavaFXLang.g:336:3: () otherlv_1= 'class' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' ( ( (lv_attributes_4_0= ruleAttributeFX ) ) ( (lv_attributes_5_0= ruleAttributeFX ) )* )? otherlv_6= '}'
             {
             // InternalJavaFXLang.g:336:3: ()
             // InternalJavaFXLang.g:337:4: 
@@ -806,7 +802,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,18,FOLLOW_3); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getModelFXAccess().getModelFXKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getModelFXAccess().getClassKeyword_1());
             		
             // InternalJavaFXLang.g:347:3: ( (lv_name_2_0= ruleEString ) )
             // InternalJavaFXLang.g:348:4: (lv_name_2_0= ruleEString )
@@ -843,36 +839,28 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getModelFXAccess().getLeftCurlyBracketKeyword_3());
             		
-            // InternalJavaFXLang.g:370:3: (otherlv_4= 'attributes' otherlv_5= '{' ( (lv_attributes_6_0= ruleAttributeFX ) ) (otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) ) )* otherlv_9= '}' )?
+            // InternalJavaFXLang.g:370:3: ( ( (lv_attributes_4_0= ruleAttributeFX ) ) ( (lv_attributes_5_0= ruleAttributeFX ) )* )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==19) ) {
+            if ( ((LA8_0>=RULE_STRING && LA8_0<=RULE_ID)) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // InternalJavaFXLang.g:371:4: otherlv_4= 'attributes' otherlv_5= '{' ( (lv_attributes_6_0= ruleAttributeFX ) ) (otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) ) )* otherlv_9= '}'
+                    // InternalJavaFXLang.g:371:4: ( (lv_attributes_4_0= ruleAttributeFX ) ) ( (lv_attributes_5_0= ruleAttributeFX ) )*
                     {
-                    otherlv_4=(Token)match(input,19,FOLLOW_4); 
-
-                    				newLeafNode(otherlv_4, grammarAccess.getModelFXAccess().getAttributesKeyword_4_0());
-                    			
-                    otherlv_5=(Token)match(input,12,FOLLOW_13); 
-
-                    				newLeafNode(otherlv_5, grammarAccess.getModelFXAccess().getLeftCurlyBracketKeyword_4_1());
-                    			
-                    // InternalJavaFXLang.g:379:4: ( (lv_attributes_6_0= ruleAttributeFX ) )
-                    // InternalJavaFXLang.g:380:5: (lv_attributes_6_0= ruleAttributeFX )
+                    // InternalJavaFXLang.g:371:4: ( (lv_attributes_4_0= ruleAttributeFX ) )
+                    // InternalJavaFXLang.g:372:5: (lv_attributes_4_0= ruleAttributeFX )
                     {
-                    // InternalJavaFXLang.g:380:5: (lv_attributes_6_0= ruleAttributeFX )
-                    // InternalJavaFXLang.g:381:6: lv_attributes_6_0= ruleAttributeFX
+                    // InternalJavaFXLang.g:372:5: (lv_attributes_4_0= ruleAttributeFX )
+                    // InternalJavaFXLang.g:373:6: lv_attributes_4_0= ruleAttributeFX
                     {
 
-                    						newCompositeNode(grammarAccess.getModelFXAccess().getAttributesAttributeFXParserRuleCall_4_2_0());
+                    						newCompositeNode(grammarAccess.getModelFXAccess().getAttributesAttributeFXParserRuleCall_4_0_0());
                     					
-                    pushFollow(FOLLOW_8);
-                    lv_attributes_6_0=ruleAttributeFX();
+                    pushFollow(FOLLOW_12);
+                    lv_attributes_4_0=ruleAttributeFX();
 
                     state._fsp--;
 
@@ -883,7 +871,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
                     						add(
                     							current,
                     							"attributes",
-                    							lv_attributes_6_0,
+                    							lv_attributes_4_0,
                     							"de.dc.emf.javafx.xtext.JavaFXLang.AttributeFX");
                     						afterParserOrEnumRuleCall();
                     					
@@ -893,53 +881,43 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJavaFXLang.g:398:4: (otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) ) )*
+                    // InternalJavaFXLang.g:390:4: ( (lv_attributes_5_0= ruleAttributeFX ) )*
                     loop7:
                     do {
                         int alt7=2;
                         int LA7_0 = input.LA(1);
 
-                        if ( (LA7_0==15) ) {
+                        if ( ((LA7_0>=RULE_STRING && LA7_0<=RULE_ID)) ) {
                             alt7=1;
                         }
 
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalJavaFXLang.g:399:5: otherlv_7= ',' ( (lv_attributes_8_0= ruleAttributeFX ) )
+                    	    // InternalJavaFXLang.g:391:5: (lv_attributes_5_0= ruleAttributeFX )
                     	    {
-                    	    otherlv_7=(Token)match(input,15,FOLLOW_13); 
-
-                    	    					newLeafNode(otherlv_7, grammarAccess.getModelFXAccess().getCommaKeyword_4_3_0());
-                    	    				
-                    	    // InternalJavaFXLang.g:403:5: ( (lv_attributes_8_0= ruleAttributeFX ) )
-                    	    // InternalJavaFXLang.g:404:6: (lv_attributes_8_0= ruleAttributeFX )
-                    	    {
-                    	    // InternalJavaFXLang.g:404:6: (lv_attributes_8_0= ruleAttributeFX )
-                    	    // InternalJavaFXLang.g:405:7: lv_attributes_8_0= ruleAttributeFX
+                    	    // InternalJavaFXLang.g:391:5: (lv_attributes_5_0= ruleAttributeFX )
+                    	    // InternalJavaFXLang.g:392:6: lv_attributes_5_0= ruleAttributeFX
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getModelFXAccess().getAttributesAttributeFXParserRuleCall_4_3_1_0());
-                    	    						
-                    	    pushFollow(FOLLOW_8);
-                    	    lv_attributes_8_0=ruleAttributeFX();
+                    	    						newCompositeNode(grammarAccess.getModelFXAccess().getAttributesAttributeFXParserRuleCall_4_1_0());
+                    	    					
+                    	    pushFollow(FOLLOW_12);
+                    	    lv_attributes_5_0=ruleAttributeFX();
 
                     	    state._fsp--;
 
 
-                    	    							if (current==null) {
-                    	    								current = createModelElementForParent(grammarAccess.getModelFXRule());
-                    	    							}
-                    	    							add(
-                    	    								current,
-                    	    								"attributes",
-                    	    								lv_attributes_8_0,
-                    	    								"de.dc.emf.javafx.xtext.JavaFXLang.AttributeFX");
-                    	    							afterParserOrEnumRuleCall();
-                    	    						
-
-                    	    }
-
+                    	    						if (current==null) {
+                    	    							current = createModelElementForParent(grammarAccess.getModelFXRule());
+                    	    						}
+                    	    						add(
+                    	    							current,
+                    	    							"attributes",
+                    	    							lv_attributes_5_0,
+                    	    							"de.dc.emf.javafx.xtext.JavaFXLang.AttributeFX");
+                    	    						afterParserOrEnumRuleCall();
+                    	    					
 
                     	    }
 
@@ -952,19 +930,15 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_9=(Token)match(input,16,FOLLOW_11); 
-
-                    				newLeafNode(otherlv_9, grammarAccess.getModelFXAccess().getRightCurlyBracketKeyword_4_4());
-                    			
 
                     }
                     break;
 
             }
 
-            otherlv_10=(Token)match(input,16,FOLLOW_2); 
+            otherlv_6=(Token)match(input,16,FOLLOW_2); 
 
-            			newLeafNode(otherlv_10, grammarAccess.getModelFXAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(otherlv_6, grammarAccess.getModelFXAccess().getRightCurlyBracketKeyword_5());
             		
 
             }
@@ -989,7 +963,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTableViewFX"
-    // InternalJavaFXLang.g:436:1: entryRuleTableViewFX returns [EObject current=null] : iv_ruleTableViewFX= ruleTableViewFX EOF ;
+    // InternalJavaFXLang.g:418:1: entryRuleTableViewFX returns [EObject current=null] : iv_ruleTableViewFX= ruleTableViewFX EOF ;
     public final EObject entryRuleTableViewFX() throws RecognitionException {
         EObject current = null;
 
@@ -997,8 +971,8 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJavaFXLang.g:436:52: (iv_ruleTableViewFX= ruleTableViewFX EOF )
-            // InternalJavaFXLang.g:437:2: iv_ruleTableViewFX= ruleTableViewFX EOF
+            // InternalJavaFXLang.g:418:52: (iv_ruleTableViewFX= ruleTableViewFX EOF )
+            // InternalJavaFXLang.g:419:2: iv_ruleTableViewFX= ruleTableViewFX EOF
             {
              newCompositeNode(grammarAccess.getTableViewFXRule()); 
             pushFollow(FOLLOW_1);
@@ -1025,37 +999,34 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTableViewFX"
-    // InternalJavaFXLang.g:443:1: ruleTableViewFX returns [EObject current=null] : ( () otherlv_1= 'TableViewFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'usedModel' ( ( ruleEString ) ) )? (otherlv_6= 'columns' otherlv_7= '{' ( (lv_columns_8_0= ruleTableColumnFX ) ) (otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) ) )* otherlv_11= '}' )? otherlv_12= '}' ) ;
+    // InternalJavaFXLang.g:425:1: ruleTableViewFX returns [EObject current=null] : ( () otherlv_1= 'TableViewFX' otherlv_2= '{' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'usedModel:' ( ( ruleEString ) ) )? ( ( (lv_columns_7_0= ruleTableColumnFX ) ) ( (lv_columns_8_0= ruleTableColumnFX ) )* )? otherlv_9= '}' ) ;
     public final EObject ruleTableViewFX() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
+        Token otherlv_2=null;
         Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        Token otherlv_7=null;
+        Token otherlv_5=null;
         Token otherlv_9=null;
-        Token otherlv_11=null;
-        Token otherlv_12=null;
-        AntlrDatatypeRuleToken lv_name_2_0 = null;
+        AntlrDatatypeRuleToken lv_name_4_0 = null;
+
+        EObject lv_columns_7_0 = null;
 
         EObject lv_columns_8_0 = null;
-
-        EObject lv_columns_10_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalJavaFXLang.g:449:2: ( ( () otherlv_1= 'TableViewFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'usedModel' ( ( ruleEString ) ) )? (otherlv_6= 'columns' otherlv_7= '{' ( (lv_columns_8_0= ruleTableColumnFX ) ) (otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) ) )* otherlv_11= '}' )? otherlv_12= '}' ) )
-            // InternalJavaFXLang.g:450:2: ( () otherlv_1= 'TableViewFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'usedModel' ( ( ruleEString ) ) )? (otherlv_6= 'columns' otherlv_7= '{' ( (lv_columns_8_0= ruleTableColumnFX ) ) (otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) ) )* otherlv_11= '}' )? otherlv_12= '}' )
+            // InternalJavaFXLang.g:431:2: ( ( () otherlv_1= 'TableViewFX' otherlv_2= '{' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'usedModel:' ( ( ruleEString ) ) )? ( ( (lv_columns_7_0= ruleTableColumnFX ) ) ( (lv_columns_8_0= ruleTableColumnFX ) )* )? otherlv_9= '}' ) )
+            // InternalJavaFXLang.g:432:2: ( () otherlv_1= 'TableViewFX' otherlv_2= '{' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'usedModel:' ( ( ruleEString ) ) )? ( ( (lv_columns_7_0= ruleTableColumnFX ) ) ( (lv_columns_8_0= ruleTableColumnFX ) )* )? otherlv_9= '}' )
             {
-            // InternalJavaFXLang.g:450:2: ( () otherlv_1= 'TableViewFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'usedModel' ( ( ruleEString ) ) )? (otherlv_6= 'columns' otherlv_7= '{' ( (lv_columns_8_0= ruleTableColumnFX ) ) (otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) ) )* otherlv_11= '}' )? otherlv_12= '}' )
-            // InternalJavaFXLang.g:451:3: () otherlv_1= 'TableViewFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'usedModel' ( ( ruleEString ) ) )? (otherlv_6= 'columns' otherlv_7= '{' ( (lv_columns_8_0= ruleTableColumnFX ) ) (otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) ) )* otherlv_11= '}' )? otherlv_12= '}'
+            // InternalJavaFXLang.g:432:2: ( () otherlv_1= 'TableViewFX' otherlv_2= '{' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'usedModel:' ( ( ruleEString ) ) )? ( ( (lv_columns_7_0= ruleTableColumnFX ) ) ( (lv_columns_8_0= ruleTableColumnFX ) )* )? otherlv_9= '}' )
+            // InternalJavaFXLang.g:433:3: () otherlv_1= 'TableViewFX' otherlv_2= '{' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'usedModel:' ( ( ruleEString ) ) )? ( ( (lv_columns_7_0= ruleTableColumnFX ) ) ( (lv_columns_8_0= ruleTableColumnFX ) )* )? otherlv_9= '}'
             {
-            // InternalJavaFXLang.g:451:3: ()
-            // InternalJavaFXLang.g:452:4: 
+            // InternalJavaFXLang.g:433:3: ()
+            // InternalJavaFXLang.g:434:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1065,46 +1036,56 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,20,FOLLOW_3); 
+            otherlv_1=(Token)match(input,19,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getTableViewFXAccess().getTableViewFXKeyword_1());
             		
-            // InternalJavaFXLang.g:462:3: ( (lv_name_2_0= ruleEString ) )
-            // InternalJavaFXLang.g:463:4: (lv_name_2_0= ruleEString )
+            otherlv_2=(Token)match(input,12,FOLLOW_13); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getTableViewFXAccess().getLeftCurlyBracketKeyword_2());
+            		
+            // InternalJavaFXLang.g:448:3: (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) )
+            // InternalJavaFXLang.g:449:4: otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) )
             {
-            // InternalJavaFXLang.g:463:4: (lv_name_2_0= ruleEString )
-            // InternalJavaFXLang.g:464:5: lv_name_2_0= ruleEString
+            otherlv_3=(Token)match(input,20,FOLLOW_3); 
+
+            				newLeafNode(otherlv_3, grammarAccess.getTableViewFXAccess().getNameKeyword_3_0());
+            			
+            // InternalJavaFXLang.g:453:4: ( (lv_name_4_0= ruleEString ) )
+            // InternalJavaFXLang.g:454:5: (lv_name_4_0= ruleEString )
+            {
+            // InternalJavaFXLang.g:454:5: (lv_name_4_0= ruleEString )
+            // InternalJavaFXLang.g:455:6: lv_name_4_0= ruleEString
             {
 
-            					newCompositeNode(grammarAccess.getTableViewFXAccess().getNameEStringParserRuleCall_2_0());
-            				
-            pushFollow(FOLLOW_4);
-            lv_name_2_0=ruleEString();
+            						newCompositeNode(grammarAccess.getTableViewFXAccess().getNameEStringParserRuleCall_3_1_0());
+            					
+            pushFollow(FOLLOW_14);
+            lv_name_4_0=ruleEString();
 
             state._fsp--;
 
 
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getTableViewFXRule());
-            					}
-            					set(
-            						current,
-            						"name",
-            						lv_name_2_0,
-            						"de.dc.emf.javafx.xtext.JavaFXLang.EString");
-            					afterParserOrEnumRuleCall();
-            				
+            						if (current==null) {
+            							current = createModelElementForParent(grammarAccess.getTableViewFXRule());
+            						}
+            						set(
+            							current,
+            							"name",
+            							lv_name_4_0,
+            							"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+            						afterParserOrEnumRuleCall();
+            					
 
             }
 
 
             }
 
-            otherlv_3=(Token)match(input,12,FOLLOW_14); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getTableViewFXAccess().getLeftCurlyBracketKeyword_3());
-            		
-            // InternalJavaFXLang.g:485:3: (otherlv_4= 'usedModel' ( ( ruleEString ) ) )?
+            }
+
+            // InternalJavaFXLang.g:473:3: (otherlv_5= 'usedModel:' ( ( ruleEString ) ) )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1113,17 +1094,17 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalJavaFXLang.g:486:4: otherlv_4= 'usedModel' ( ( ruleEString ) )
+                    // InternalJavaFXLang.g:474:4: otherlv_5= 'usedModel:' ( ( ruleEString ) )
                     {
-                    otherlv_4=(Token)match(input,21,FOLLOW_3); 
+                    otherlv_5=(Token)match(input,21,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_4, grammarAccess.getTableViewFXAccess().getUsedModelKeyword_4_0());
+                    				newLeafNode(otherlv_5, grammarAccess.getTableViewFXAccess().getUsedModelKeyword_4_0());
                     			
-                    // InternalJavaFXLang.g:490:4: ( ( ruleEString ) )
-                    // InternalJavaFXLang.g:491:5: ( ruleEString )
+                    // InternalJavaFXLang.g:478:4: ( ( ruleEString ) )
+                    // InternalJavaFXLang.g:479:5: ( ruleEString )
                     {
-                    // InternalJavaFXLang.g:491:5: ( ruleEString )
-                    // InternalJavaFXLang.g:492:6: ruleEString
+                    // InternalJavaFXLang.g:479:5: ( ruleEString )
+                    // InternalJavaFXLang.g:480:6: ruleEString
                     {
 
                     						if (current==null) {
@@ -1153,7 +1134,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJavaFXLang.g:507:3: (otherlv_6= 'columns' otherlv_7= '{' ( (lv_columns_8_0= ruleTableColumnFX ) ) (otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) ) )* otherlv_11= '}' )?
+            // InternalJavaFXLang.g:495:3: ( ( (lv_columns_7_0= ruleTableColumnFX ) ) ( (lv_columns_8_0= ruleTableColumnFX ) )* )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1162,27 +1143,19 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalJavaFXLang.g:508:4: otherlv_6= 'columns' otherlv_7= '{' ( (lv_columns_8_0= ruleTableColumnFX ) ) (otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) ) )* otherlv_11= '}'
+                    // InternalJavaFXLang.g:496:4: ( (lv_columns_7_0= ruleTableColumnFX ) ) ( (lv_columns_8_0= ruleTableColumnFX ) )*
                     {
-                    otherlv_6=(Token)match(input,22,FOLLOW_4); 
-
-                    				newLeafNode(otherlv_6, grammarAccess.getTableViewFXAccess().getColumnsKeyword_5_0());
-                    			
-                    otherlv_7=(Token)match(input,12,FOLLOW_16); 
-
-                    				newLeafNode(otherlv_7, grammarAccess.getTableViewFXAccess().getLeftCurlyBracketKeyword_5_1());
-                    			
-                    // InternalJavaFXLang.g:516:4: ( (lv_columns_8_0= ruleTableColumnFX ) )
-                    // InternalJavaFXLang.g:517:5: (lv_columns_8_0= ruleTableColumnFX )
+                    // InternalJavaFXLang.g:496:4: ( (lv_columns_7_0= ruleTableColumnFX ) )
+                    // InternalJavaFXLang.g:497:5: (lv_columns_7_0= ruleTableColumnFX )
                     {
-                    // InternalJavaFXLang.g:517:5: (lv_columns_8_0= ruleTableColumnFX )
-                    // InternalJavaFXLang.g:518:6: lv_columns_8_0= ruleTableColumnFX
+                    // InternalJavaFXLang.g:497:5: (lv_columns_7_0= ruleTableColumnFX )
+                    // InternalJavaFXLang.g:498:6: lv_columns_7_0= ruleTableColumnFX
                     {
 
-                    						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_2_0());
+                    						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_0_0());
                     					
-                    pushFollow(FOLLOW_8);
-                    lv_columns_8_0=ruleTableColumnFX();
+                    pushFollow(FOLLOW_15);
+                    lv_columns_7_0=ruleTableColumnFX();
 
                     state._fsp--;
 
@@ -1193,7 +1166,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
                     						add(
                     							current,
                     							"columns",
-                    							lv_columns_8_0,
+                    							lv_columns_7_0,
                     							"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1203,53 +1176,43 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJavaFXLang.g:535:4: (otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) ) )*
+                    // InternalJavaFXLang.g:515:4: ( (lv_columns_8_0= ruleTableColumnFX ) )*
                     loop10:
                     do {
                         int alt10=2;
                         int LA10_0 = input.LA(1);
 
-                        if ( (LA10_0==15) ) {
+                        if ( (LA10_0==22) ) {
                             alt10=1;
                         }
 
 
                         switch (alt10) {
                     	case 1 :
-                    	    // InternalJavaFXLang.g:536:5: otherlv_9= ',' ( (lv_columns_10_0= ruleTableColumnFX ) )
+                    	    // InternalJavaFXLang.g:516:5: (lv_columns_8_0= ruleTableColumnFX )
                     	    {
-                    	    otherlv_9=(Token)match(input,15,FOLLOW_16); 
-
-                    	    					newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getCommaKeyword_5_3_0());
-                    	    				
-                    	    // InternalJavaFXLang.g:540:5: ( (lv_columns_10_0= ruleTableColumnFX ) )
-                    	    // InternalJavaFXLang.g:541:6: (lv_columns_10_0= ruleTableColumnFX )
-                    	    {
-                    	    // InternalJavaFXLang.g:541:6: (lv_columns_10_0= ruleTableColumnFX )
-                    	    // InternalJavaFXLang.g:542:7: lv_columns_10_0= ruleTableColumnFX
+                    	    // InternalJavaFXLang.g:516:5: (lv_columns_8_0= ruleTableColumnFX )
+                    	    // InternalJavaFXLang.g:517:6: lv_columns_8_0= ruleTableColumnFX
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_3_1_0());
-                    	    						
-                    	    pushFollow(FOLLOW_8);
-                    	    lv_columns_10_0=ruleTableColumnFX();
+                    	    						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_1_0());
+                    	    					
+                    	    pushFollow(FOLLOW_15);
+                    	    lv_columns_8_0=ruleTableColumnFX();
 
                     	    state._fsp--;
 
 
-                    	    							if (current==null) {
-                    	    								current = createModelElementForParent(grammarAccess.getTableViewFXRule());
-                    	    							}
-                    	    							add(
-                    	    								current,
-                    	    								"columns",
-                    	    								lv_columns_10_0,
-                    	    								"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
-                    	    							afterParserOrEnumRuleCall();
-                    	    						
-
-                    	    }
-
+                    	    						if (current==null) {
+                    	    							current = createModelElementForParent(grammarAccess.getTableViewFXRule());
+                    	    						}
+                    	    						add(
+                    	    							current,
+                    	    							"columns",
+                    	    							lv_columns_8_0,
+                    	    							"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
+                    	    						afterParserOrEnumRuleCall();
+                    	    					
 
                     	    }
 
@@ -1262,19 +1225,15 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_11=(Token)match(input,16,FOLLOW_11); 
-
-                    				newLeafNode(otherlv_11, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_5_4());
-                    			
 
                     }
                     break;
 
             }
 
-            otherlv_12=(Token)match(input,16,FOLLOW_2); 
+            otherlv_9=(Token)match(input,16,FOLLOW_2); 
 
-            			newLeafNode(otherlv_12, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_6());
+            			newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_6());
             		
 
             }
@@ -1299,7 +1258,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTableColumnFX"
-    // InternalJavaFXLang.g:573:1: entryRuleTableColumnFX returns [EObject current=null] : iv_ruleTableColumnFX= ruleTableColumnFX EOF ;
+    // InternalJavaFXLang.g:543:1: entryRuleTableColumnFX returns [EObject current=null] : iv_ruleTableColumnFX= ruleTableColumnFX EOF ;
     public final EObject entryRuleTableColumnFX() throws RecognitionException {
         EObject current = null;
 
@@ -1307,8 +1266,8 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJavaFXLang.g:573:54: (iv_ruleTableColumnFX= ruleTableColumnFX EOF )
-            // InternalJavaFXLang.g:574:2: iv_ruleTableColumnFX= ruleTableColumnFX EOF
+            // InternalJavaFXLang.g:543:54: (iv_ruleTableColumnFX= ruleTableColumnFX EOF )
+            // InternalJavaFXLang.g:544:2: iv_ruleTableColumnFX= ruleTableColumnFX EOF
             {
              newCompositeNode(grammarAccess.getTableColumnFXRule()); 
             pushFollow(FOLLOW_1);
@@ -1335,31 +1294,33 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTableColumnFX"
-    // InternalJavaFXLang.g:580:1: ruleTableColumnFX returns [EObject current=null] : ( () otherlv_1= 'TableColumnFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'width' ( (lv_width_5_0= ruleEInt ) ) )? otherlv_6= '}' ) ;
+    // InternalJavaFXLang.g:550:1: ruleTableColumnFX returns [EObject current=null] : ( () otherlv_1= 'TableColumnFX' otherlv_2= '(' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'width:' ( (lv_width_6_0= ruleEInt ) ) )? (otherlv_7= 'attribute:' ( ( ruleEString ) ) )? otherlv_9= ')' ) ;
     public final EObject ruleTableColumnFX() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
+        Token otherlv_2=null;
         Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_name_2_0 = null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
+        AntlrDatatypeRuleToken lv_name_4_0 = null;
 
-        AntlrDatatypeRuleToken lv_width_5_0 = null;
+        AntlrDatatypeRuleToken lv_width_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalJavaFXLang.g:586:2: ( ( () otherlv_1= 'TableColumnFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'width' ( (lv_width_5_0= ruleEInt ) ) )? otherlv_6= '}' ) )
-            // InternalJavaFXLang.g:587:2: ( () otherlv_1= 'TableColumnFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'width' ( (lv_width_5_0= ruleEInt ) ) )? otherlv_6= '}' )
+            // InternalJavaFXLang.g:556:2: ( ( () otherlv_1= 'TableColumnFX' otherlv_2= '(' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'width:' ( (lv_width_6_0= ruleEInt ) ) )? (otherlv_7= 'attribute:' ( ( ruleEString ) ) )? otherlv_9= ')' ) )
+            // InternalJavaFXLang.g:557:2: ( () otherlv_1= 'TableColumnFX' otherlv_2= '(' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'width:' ( (lv_width_6_0= ruleEInt ) ) )? (otherlv_7= 'attribute:' ( ( ruleEString ) ) )? otherlv_9= ')' )
             {
-            // InternalJavaFXLang.g:587:2: ( () otherlv_1= 'TableColumnFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'width' ( (lv_width_5_0= ruleEInt ) ) )? otherlv_6= '}' )
-            // InternalJavaFXLang.g:588:3: () otherlv_1= 'TableColumnFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'width' ( (lv_width_5_0= ruleEInt ) ) )? otherlv_6= '}'
+            // InternalJavaFXLang.g:557:2: ( () otherlv_1= 'TableColumnFX' otherlv_2= '(' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'width:' ( (lv_width_6_0= ruleEInt ) ) )? (otherlv_7= 'attribute:' ( ( ruleEString ) ) )? otherlv_9= ')' )
+            // InternalJavaFXLang.g:558:3: () otherlv_1= 'TableColumnFX' otherlv_2= '(' (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) ) (otherlv_5= 'width:' ( (lv_width_6_0= ruleEInt ) ) )? (otherlv_7= 'attribute:' ( ( ruleEString ) ) )? otherlv_9= ')'
             {
-            // InternalJavaFXLang.g:588:3: ()
-            // InternalJavaFXLang.g:589:4: 
+            // InternalJavaFXLang.g:558:3: ()
+            // InternalJavaFXLang.g:559:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1369,46 +1330,56 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,23,FOLLOW_3); 
+            otherlv_1=(Token)match(input,22,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getTableColumnFXAccess().getTableColumnFXKeyword_1());
             		
-            // InternalJavaFXLang.g:599:3: ( (lv_name_2_0= ruleEString ) )
-            // InternalJavaFXLang.g:600:4: (lv_name_2_0= ruleEString )
+            otherlv_2=(Token)match(input,23,FOLLOW_13); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getTableColumnFXAccess().getLeftParenthesisKeyword_2());
+            		
+            // InternalJavaFXLang.g:573:3: (otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) ) )
+            // InternalJavaFXLang.g:574:4: otherlv_3= 'name:' ( (lv_name_4_0= ruleEString ) )
             {
-            // InternalJavaFXLang.g:600:4: (lv_name_2_0= ruleEString )
-            // InternalJavaFXLang.g:601:5: lv_name_2_0= ruleEString
+            otherlv_3=(Token)match(input,20,FOLLOW_3); 
+
+            				newLeafNode(otherlv_3, grammarAccess.getTableColumnFXAccess().getNameKeyword_3_0());
+            			
+            // InternalJavaFXLang.g:578:4: ( (lv_name_4_0= ruleEString ) )
+            // InternalJavaFXLang.g:579:5: (lv_name_4_0= ruleEString )
+            {
+            // InternalJavaFXLang.g:579:5: (lv_name_4_0= ruleEString )
+            // InternalJavaFXLang.g:580:6: lv_name_4_0= ruleEString
             {
 
-            					newCompositeNode(grammarAccess.getTableColumnFXAccess().getNameEStringParserRuleCall_2_0());
-            				
-            pushFollow(FOLLOW_4);
-            lv_name_2_0=ruleEString();
+            						newCompositeNode(grammarAccess.getTableColumnFXAccess().getNameEStringParserRuleCall_3_1_0());
+            					
+            pushFollow(FOLLOW_17);
+            lv_name_4_0=ruleEString();
 
             state._fsp--;
 
 
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getTableColumnFXRule());
-            					}
-            					set(
-            						current,
-            						"name",
-            						lv_name_2_0,
-            						"de.dc.emf.javafx.xtext.JavaFXLang.EString");
-            					afterParserOrEnumRuleCall();
-            				
+            						if (current==null) {
+            							current = createModelElementForParent(grammarAccess.getTableColumnFXRule());
+            						}
+            						set(
+            							current,
+            							"name",
+            							lv_name_4_0,
+            							"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+            						afterParserOrEnumRuleCall();
+            					
 
             }
 
 
             }
 
-            otherlv_3=(Token)match(input,12,FOLLOW_17); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getTableColumnFXAccess().getLeftCurlyBracketKeyword_3());
-            		
-            // InternalJavaFXLang.g:622:3: (otherlv_4= 'width' ( (lv_width_5_0= ruleEInt ) ) )?
+            }
+
+            // InternalJavaFXLang.g:598:3: (otherlv_5= 'width:' ( (lv_width_6_0= ruleEInt ) ) )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1417,23 +1388,23 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalJavaFXLang.g:623:4: otherlv_4= 'width' ( (lv_width_5_0= ruleEInt ) )
+                    // InternalJavaFXLang.g:599:4: otherlv_5= 'width:' ( (lv_width_6_0= ruleEInt ) )
                     {
-                    otherlv_4=(Token)match(input,24,FOLLOW_18); 
+                    otherlv_5=(Token)match(input,24,FOLLOW_18); 
 
-                    				newLeafNode(otherlv_4, grammarAccess.getTableColumnFXAccess().getWidthKeyword_4_0());
+                    				newLeafNode(otherlv_5, grammarAccess.getTableColumnFXAccess().getWidthKeyword_4_0());
                     			
-                    // InternalJavaFXLang.g:627:4: ( (lv_width_5_0= ruleEInt ) )
-                    // InternalJavaFXLang.g:628:5: (lv_width_5_0= ruleEInt )
+                    // InternalJavaFXLang.g:603:4: ( (lv_width_6_0= ruleEInt ) )
+                    // InternalJavaFXLang.g:604:5: (lv_width_6_0= ruleEInt )
                     {
-                    // InternalJavaFXLang.g:628:5: (lv_width_5_0= ruleEInt )
-                    // InternalJavaFXLang.g:629:6: lv_width_5_0= ruleEInt
+                    // InternalJavaFXLang.g:604:5: (lv_width_6_0= ruleEInt )
+                    // InternalJavaFXLang.g:605:6: lv_width_6_0= ruleEInt
                     {
 
                     						newCompositeNode(grammarAccess.getTableColumnFXAccess().getWidthEIntParserRuleCall_4_1_0());
                     					
-                    pushFollow(FOLLOW_11);
-                    lv_width_5_0=ruleEInt();
+                    pushFollow(FOLLOW_19);
+                    lv_width_6_0=ruleEInt();
 
                     state._fsp--;
 
@@ -1444,7 +1415,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"width",
-                    							lv_width_5_0,
+                    							lv_width_6_0,
                     							"de.dc.emf.javafx.xtext.JavaFXLang.EInt");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1460,9 +1431,58 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,16,FOLLOW_2); 
+            // InternalJavaFXLang.g:623:3: (otherlv_7= 'attribute:' ( ( ruleEString ) ) )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            			newLeafNode(otherlv_6, grammarAccess.getTableColumnFXAccess().getRightCurlyBracketKeyword_5());
+            if ( (LA13_0==25) ) {
+                alt13=1;
+            }
+            switch (alt13) {
+                case 1 :
+                    // InternalJavaFXLang.g:624:4: otherlv_7= 'attribute:' ( ( ruleEString ) )
+                    {
+                    otherlv_7=(Token)match(input,25,FOLLOW_3); 
+
+                    				newLeafNode(otherlv_7, grammarAccess.getTableColumnFXAccess().getAttributeKeyword_5_0());
+                    			
+                    // InternalJavaFXLang.g:628:4: ( ( ruleEString ) )
+                    // InternalJavaFXLang.g:629:5: ( ruleEString )
+                    {
+                    // InternalJavaFXLang.g:629:5: ( ruleEString )
+                    // InternalJavaFXLang.g:630:6: ruleEString
+                    {
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getTableColumnFXRule());
+                    						}
+                    					
+
+                    						newCompositeNode(grammarAccess.getTableColumnFXAccess().getUsedAttributeAttributeFXCrossReference_5_1_0());
+                    					
+                    pushFollow(FOLLOW_20);
+                    ruleEString();
+
+                    state._fsp--;
+
+
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_9=(Token)match(input,26,FOLLOW_2); 
+
+            			newLeafNode(otherlv_9, grammarAccess.getTableColumnFXAccess().getRightParenthesisKeyword_6());
             		
 
             }
@@ -1487,7 +1507,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalJavaFXLang.g:655:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalJavaFXLang.g:653:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -1495,8 +1515,8 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJavaFXLang.g:655:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalJavaFXLang.g:656:2: iv_ruleEInt= ruleEInt EOF
+            // InternalJavaFXLang.g:653:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalJavaFXLang.g:654:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -1523,7 +1543,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalJavaFXLang.g:662:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // InternalJavaFXLang.g:660:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1534,24 +1554,24 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJavaFXLang.g:668:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // InternalJavaFXLang.g:669:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalJavaFXLang.g:666:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalJavaFXLang.g:667:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // InternalJavaFXLang.g:669:2: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // InternalJavaFXLang.g:670:3: (kw= '-' )? this_INT_1= RULE_INT
+            // InternalJavaFXLang.g:667:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalJavaFXLang.g:668:3: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // InternalJavaFXLang.g:670:3: (kw= '-' )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalJavaFXLang.g:668:3: (kw= '-' )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA13_0==25) ) {
-                alt13=1;
+            if ( (LA14_0==27) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // InternalJavaFXLang.g:671:4: kw= '-'
+                    // InternalJavaFXLang.g:669:4: kw= '-'
                     {
-                    kw=(Token)match(input,25,FOLLOW_19); 
+                    kw=(Token)match(input,27,FOLLOW_21); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
@@ -1592,7 +1612,7 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAttributeFX"
-    // InternalJavaFXLang.g:688:1: entryRuleAttributeFX returns [EObject current=null] : iv_ruleAttributeFX= ruleAttributeFX EOF ;
+    // InternalJavaFXLang.g:686:1: entryRuleAttributeFX returns [EObject current=null] : iv_ruleAttributeFX= ruleAttributeFX EOF ;
     public final EObject entryRuleAttributeFX() throws RecognitionException {
         EObject current = null;
 
@@ -1600,8 +1620,8 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJavaFXLang.g:688:52: (iv_ruleAttributeFX= ruleAttributeFX EOF )
-            // InternalJavaFXLang.g:689:2: iv_ruleAttributeFX= ruleAttributeFX EOF
+            // InternalJavaFXLang.g:686:52: (iv_ruleAttributeFX= ruleAttributeFX EOF )
+            // InternalJavaFXLang.g:687:2: iv_ruleAttributeFX= ruleAttributeFX EOF
             {
              newCompositeNode(grammarAccess.getAttributeFXRule()); 
             pushFollow(FOLLOW_1);
@@ -1628,31 +1648,27 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttributeFX"
-    // InternalJavaFXLang.g:695:1: ruleAttributeFX returns [EObject current=null] : ( () otherlv_1= 'AttributeFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'type' ( (lv_type_5_0= ruleEString ) ) )? otherlv_6= '}' ) ;
+    // InternalJavaFXLang.g:693:1: ruleAttributeFX returns [EObject current=null] : ( () ( (lv_type_1_0= ruleEString ) ) ( (lv_name_2_0= ruleEString ) ) ) ;
     public final EObject ruleAttributeFX() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_name_2_0 = null;
+        AntlrDatatypeRuleToken lv_type_1_0 = null;
 
-        AntlrDatatypeRuleToken lv_type_5_0 = null;
+        AntlrDatatypeRuleToken lv_name_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalJavaFXLang.g:701:2: ( ( () otherlv_1= 'AttributeFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'type' ( (lv_type_5_0= ruleEString ) ) )? otherlv_6= '}' ) )
-            // InternalJavaFXLang.g:702:2: ( () otherlv_1= 'AttributeFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'type' ( (lv_type_5_0= ruleEString ) ) )? otherlv_6= '}' )
+            // InternalJavaFXLang.g:699:2: ( ( () ( (lv_type_1_0= ruleEString ) ) ( (lv_name_2_0= ruleEString ) ) ) )
+            // InternalJavaFXLang.g:700:2: ( () ( (lv_type_1_0= ruleEString ) ) ( (lv_name_2_0= ruleEString ) ) )
             {
-            // InternalJavaFXLang.g:702:2: ( () otherlv_1= 'AttributeFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'type' ( (lv_type_5_0= ruleEString ) ) )? otherlv_6= '}' )
-            // InternalJavaFXLang.g:703:3: () otherlv_1= 'AttributeFX' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'type' ( (lv_type_5_0= ruleEString ) ) )? otherlv_6= '}'
+            // InternalJavaFXLang.g:700:2: ( () ( (lv_type_1_0= ruleEString ) ) ( (lv_name_2_0= ruleEString ) ) )
+            // InternalJavaFXLang.g:701:3: () ( (lv_type_1_0= ruleEString ) ) ( (lv_name_2_0= ruleEString ) )
             {
-            // InternalJavaFXLang.g:703:3: ()
-            // InternalJavaFXLang.g:704:4: 
+            // InternalJavaFXLang.g:701:3: ()
+            // InternalJavaFXLang.g:702:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1662,20 +1678,47 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,26,FOLLOW_3); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getAttributeFXAccess().getAttributeFXKeyword_1());
-            		
-            // InternalJavaFXLang.g:714:3: ( (lv_name_2_0= ruleEString ) )
-            // InternalJavaFXLang.g:715:4: (lv_name_2_0= ruleEString )
+            // InternalJavaFXLang.g:708:3: ( (lv_type_1_0= ruleEString ) )
+            // InternalJavaFXLang.g:709:4: (lv_type_1_0= ruleEString )
             {
-            // InternalJavaFXLang.g:715:4: (lv_name_2_0= ruleEString )
-            // InternalJavaFXLang.g:716:5: lv_name_2_0= ruleEString
+            // InternalJavaFXLang.g:709:4: (lv_type_1_0= ruleEString )
+            // InternalJavaFXLang.g:710:5: lv_type_1_0= ruleEString
+            {
+
+            					newCompositeNode(grammarAccess.getAttributeFXAccess().getTypeEStringParserRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_3);
+            lv_type_1_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getAttributeFXRule());
+            					}
+            					set(
+            						current,
+            						"type",
+            						lv_type_1_0,
+            						"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalJavaFXLang.g:727:3: ( (lv_name_2_0= ruleEString ) )
+            // InternalJavaFXLang.g:728:4: (lv_name_2_0= ruleEString )
+            {
+            // InternalJavaFXLang.g:728:4: (lv_name_2_0= ruleEString )
+            // InternalJavaFXLang.g:729:5: lv_name_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getAttributeFXAccess().getNameEStringParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_2);
             lv_name_2_0=ruleEString();
 
             state._fsp--;
@@ -1697,66 +1740,6 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FOLLOW_20); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getAttributeFXAccess().getLeftCurlyBracketKeyword_3());
-            		
-            // InternalJavaFXLang.g:737:3: (otherlv_4= 'type' ( (lv_type_5_0= ruleEString ) ) )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
-
-            if ( (LA14_0==27) ) {
-                alt14=1;
-            }
-            switch (alt14) {
-                case 1 :
-                    // InternalJavaFXLang.g:738:4: otherlv_4= 'type' ( (lv_type_5_0= ruleEString ) )
-                    {
-                    otherlv_4=(Token)match(input,27,FOLLOW_3); 
-
-                    				newLeafNode(otherlv_4, grammarAccess.getAttributeFXAccess().getTypeKeyword_4_0());
-                    			
-                    // InternalJavaFXLang.g:742:4: ( (lv_type_5_0= ruleEString ) )
-                    // InternalJavaFXLang.g:743:5: (lv_type_5_0= ruleEString )
-                    {
-                    // InternalJavaFXLang.g:743:5: (lv_type_5_0= ruleEString )
-                    // InternalJavaFXLang.g:744:6: lv_type_5_0= ruleEString
-                    {
-
-                    						newCompositeNode(grammarAccess.getAttributeFXAccess().getTypeEStringParserRuleCall_4_1_0());
-                    					
-                    pushFollow(FOLLOW_11);
-                    lv_type_5_0=ruleEString();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getAttributeFXRule());
-                    						}
-                    						set(
-                    							current,
-                    							"type",
-                    							lv_type_5_0,
-                    							"de.dc.emf.javafx.xtext.JavaFXLang.EString");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_6=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getAttributeFXAccess().getRightCurlyBracketKeyword_5());
-            		
 
             }
 
@@ -1789,19 +1772,20 @@ public class InternalJavaFXLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000036000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000034000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000018000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000030000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000090000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010030L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000610000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000410000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001010000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000002000040L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000008010000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000007000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008000040L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000006000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000040L});
 
 }

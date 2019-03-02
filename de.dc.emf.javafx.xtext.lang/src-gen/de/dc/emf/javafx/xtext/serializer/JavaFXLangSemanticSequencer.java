@@ -18,7 +18,9 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -59,10 +61,19 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     AttributeFX returns AttributeFX
 	 *
 	 * Constraint:
-	 *     (name=EString type=EString?)
+	 *     (type=EString name=EString)
 	 */
 	protected void sequence_AttributeFX(ISerializationContext context, AttributeFX semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.ATTRIBUTE_FX__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.ATTRIBUTE_FX__TYPE));
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAttributeFXAccess().getTypeEStringParserRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getAttributeFXAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -95,7 +106,7 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TableColumnFX returns TableColumnFX
 	 *
 	 * Constraint:
-	 *     (name=EString width=EInt?)
+	 *     (name=EString width=EInt? usedAttribute=[AttributeFX|EString]?)
 	 */
 	protected void sequence_TableColumnFX(ISerializationContext context, TableColumnFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

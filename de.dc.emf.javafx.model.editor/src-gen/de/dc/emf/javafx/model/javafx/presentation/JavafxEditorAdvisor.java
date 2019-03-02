@@ -541,6 +541,7 @@ public final class JavafxEditorAdvisor extends WorkbenchAdvisor {
 	public void initialize(IWorkbenchConfigurer configurer) {
 		super.initialize(configurer);
 		configurer.setSaveAndRestore(true);
+		org.eclipse.ui.ide.IDE.registerAdapters();
 	}
 
 	/**

@@ -1,12 +1,18 @@
-ProjectFX "TableViewFXProject"{ 
-	packagePath "de.dc.emf.javafx.model.res"
+ProjectFX HelloWorld{
+	packagePath 'de.dc.emf.javafx.model.res'
+	
 	controls{
-		TableViewFX "HelloTableViewFX"{
-			columns{
-				TableColumnFX "name"{ 
-				} 
-			}
+		TableViewFX{
+			name: PersonTableView
+			usedModel: Person
+			TableColumnFX(name:'Age' width:300 attribute:"Person.age")
+			TableColumnFX(name:'Name' width:300 attribute:"Person.name")
+		}
+	}
+	models{
+		class Person{
+			'String' 'name'
+			'int' 'age'
 		}
 	}
 }
-

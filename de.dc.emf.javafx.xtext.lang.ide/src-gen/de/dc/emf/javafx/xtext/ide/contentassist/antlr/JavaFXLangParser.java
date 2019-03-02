@@ -40,16 +40,16 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_6_3(), "rule__ProjectFX__Group_6_3__0");
 			builder.put(grammarAccess.getModelFXAccess().getGroup(), "rule__ModelFX__Group__0");
 			builder.put(grammarAccess.getModelFXAccess().getGroup_4(), "rule__ModelFX__Group_4__0");
-			builder.put(grammarAccess.getModelFXAccess().getGroup_4_3(), "rule__ModelFX__Group_4_3__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup(), "rule__TableViewFX__Group__0");
+			builder.put(grammarAccess.getTableViewFXAccess().getGroup_3(), "rule__TableViewFX__Group_3__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_4(), "rule__TableViewFX__Group_4__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_5(), "rule__TableViewFX__Group_5__0");
-			builder.put(grammarAccess.getTableViewFXAccess().getGroup_5_3(), "rule__TableViewFX__Group_5_3__0");
 			builder.put(grammarAccess.getTableColumnFXAccess().getGroup(), "rule__TableColumnFX__Group__0");
+			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_3(), "rule__TableColumnFX__Group_3__0");
 			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_4(), "rule__TableColumnFX__Group_4__0");
+			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_5(), "rule__TableColumnFX__Group_5__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getAttributeFXAccess().getGroup(), "rule__AttributeFX__Group__0");
-			builder.put(grammarAccess.getAttributeFXAccess().getGroup_4(), "rule__AttributeFX__Group_4__0");
 			builder.put(grammarAccess.getProjectFXAccess().getNameAssignment_2(), "rule__ProjectFX__NameAssignment_2");
 			builder.put(grammarAccess.getProjectFXAccess().getPackagePathAssignment_4_1(), "rule__ProjectFX__PackagePathAssignment_4_1");
 			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_5_2(), "rule__ProjectFX__ControlsAssignment_5_2");
@@ -57,16 +57,17 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_2(), "rule__ProjectFX__ModelsAssignment_6_2");
 			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_3_1(), "rule__ProjectFX__ModelsAssignment_6_3_1");
 			builder.put(grammarAccess.getModelFXAccess().getNameAssignment_2(), "rule__ModelFX__NameAssignment_2");
-			builder.put(grammarAccess.getModelFXAccess().getAttributesAssignment_4_2(), "rule__ModelFX__AttributesAssignment_4_2");
-			builder.put(grammarAccess.getModelFXAccess().getAttributesAssignment_4_3_1(), "rule__ModelFX__AttributesAssignment_4_3_1");
-			builder.put(grammarAccess.getTableViewFXAccess().getNameAssignment_2(), "rule__TableViewFX__NameAssignment_2");
+			builder.put(grammarAccess.getModelFXAccess().getAttributesAssignment_4_0(), "rule__ModelFX__AttributesAssignment_4_0");
+			builder.put(grammarAccess.getModelFXAccess().getAttributesAssignment_4_1(), "rule__ModelFX__AttributesAssignment_4_1");
+			builder.put(grammarAccess.getTableViewFXAccess().getNameAssignment_3_1(), "rule__TableViewFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getTableViewFXAccess().getUsedModelAssignment_4_1(), "rule__TableViewFX__UsedModelAssignment_4_1");
-			builder.put(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_2(), "rule__TableViewFX__ColumnsAssignment_5_2");
-			builder.put(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_3_1(), "rule__TableViewFX__ColumnsAssignment_5_3_1");
-			builder.put(grammarAccess.getTableColumnFXAccess().getNameAssignment_2(), "rule__TableColumnFX__NameAssignment_2");
+			builder.put(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_0(), "rule__TableViewFX__ColumnsAssignment_5_0");
+			builder.put(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_1(), "rule__TableViewFX__ColumnsAssignment_5_1");
+			builder.put(grammarAccess.getTableColumnFXAccess().getNameAssignment_3_1(), "rule__TableColumnFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getTableColumnFXAccess().getWidthAssignment_4_1(), "rule__TableColumnFX__WidthAssignment_4_1");
+			builder.put(grammarAccess.getTableColumnFXAccess().getUsedAttributeAssignment_5_1(), "rule__TableColumnFX__UsedAttributeAssignment_5_1");
+			builder.put(grammarAccess.getAttributeFXAccess().getTypeAssignment_1(), "rule__AttributeFX__TypeAssignment_1");
 			builder.put(grammarAccess.getAttributeFXAccess().getNameAssignment_2(), "rule__AttributeFX__NameAssignment_2");
-			builder.put(grammarAccess.getAttributeFXAccess().getTypeAssignment_4_1(), "rule__AttributeFX__TypeAssignment_4_1");
 		}
 	}
 	

@@ -1,14 +1,22 @@
 package de.dc.emf.javafx.model.res.model;
 
-public class Person {
+public class Person{
 
 	private String name;
-
-	public String getName() {
+	private int age;
+	
+	public String getName(){
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getAge(){
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 }
