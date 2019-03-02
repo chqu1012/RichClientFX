@@ -5,3 +5,6 @@
 /.PatchSwitch.java._trace
 /.FilePathSwitch.java._trace
 /.EnableGeneratorSwitch.java._trace
+/.EnumCollectorSwitch.java._trace
+/.TableColumnSwitch.java._trace
+/.TableColumnPathSwitch.java._trace

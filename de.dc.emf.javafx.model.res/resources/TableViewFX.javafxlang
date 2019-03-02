@@ -16,7 +16,7 @@ ProjectFX HelloWorld{
 			TableColumnFX(name: 'Gender' attribute: "Contact.gender")
 		}
 	}
-	models{
+	models{ 
 		class Person{
 			'String' 'name'
 			'int' 'age'

@@ -19,6 +19,16 @@ class TemplateSwitch extends JavafxSwitch<String>{
 		private «field.type» «field.name.toFirstLower»;
 		«ENDFOR»
 		
+		public «object.name.toFirstUpper»(){
+		}
+		
+		«val parameters = object.attributes.map[it.type+' '+it.name.toFirstLower].reduce[p1, p2|p1+', '+p2]»
+		public «object.name.toFirstUpper»(«parameters»){
+			«FOR field : object.attributes»
+			this.«field.name.toFirstLower»=«field.name.toFirstLower»;
+			«ENDFOR»
+		}
+		
 		«FOR field : object.attributes»
 		public «field.type» get«field.name.toFirstUpper()»(){
 			return «field.name.toFirstLower»;
@@ -38,6 +48,8 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	import «packagePath».controls.cell.*;
 	import «packagePath».model.*;
 	import javafx.scene.control.*;
+	import javafx.beans.value.ObservableValue;
+	import javafx.util.Callback;
 	
 	«val model = '''«IF object.usedModel!==null»«object.usedModel.name»«ELSE»Object«ENDIF»'''»
 	«val modelName = object.usedModel.name.toFirstUpper»
@@ -49,20 +61,14 @@ class TemplateSwitch extends JavafxSwitch<String>{
 		
 		public Base«object.name.toFirstUpper»() {
 			«FOR column : object.columns»
-			«column.name.toFirstLower»Column = createColumn("«column.name.toFirstUpper»", «column.width», create«column.name.toFirstUpper»CellFeatures());
+			«column.name.toFirstLower»Column = createColumn("«column.name.toFirstUpper»", «column.width»,  new Base«modelName»CellFeatures(«modelName»Type.«column.usedAttribute.name.toFirstUpper»));
 			«ENDFOR»
 		}
 	
-		«FOR column : object.columns»
-		protected Base«modelName»«column.name.toFirstUpper»CellFeatures create«column.name.toFirstUpper»CellFeatures() {
-			return new Base«modelName»«column.name.toFirstUpper»CellFeatures();
-		}
-		«ENDFOR»
-	
-		protected TableColumn<«model»,«model»> createColumn(String name, double width, TableCell<«model», «model»> cellFeatures) {
+		protected TableColumn<«model»,«model»> createColumn(String name, double width, Callback<TableColumn.CellDataFeatures<«model»,«model»>, ObservableValue<«model»>> cellFeatures) {
 			TableColumn<«model», «model»> column = new TableColumn<«model», «model»>(name);
 			column.setPrefWidth(width);
-			column.setCellFactory(view -> cellFeatures);
+			column.setCellValueFactory(cellFeatures);
 			getColumns().add(column);
 			return column;
 		}

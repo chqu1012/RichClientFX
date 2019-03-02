@@ -10,6 +10,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 @SuppressWarnings("all")
@@ -47,23 +51,73 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     }
     _builder.append("\t");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public ");
+    String _firstUpper_1 = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper_1, "\t");
+    _builder.append("(){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    final Function1<AttributeFX, String> _function = (AttributeFX it) -> {
+      String _type_1 = it.getType();
+      String _plus = (_type_1 + " ");
+      String _firstLower_1 = StringExtensions.toFirstLower(it.getName());
+      return (_plus + _firstLower_1);
+    };
+    final Function2<String, String, String> _function_1 = (String p1, String p2) -> {
+      return ((p1 + ", ") + p2);
+    };
+    final String parameters = IterableExtensions.<String>reduce(ListExtensions.<AttributeFX, String>map(object.getAttributes(), _function), _function_1);
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("public ");
+    String _firstUpper_2 = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper_2, "\t");
+    _builder.append("(");
+    _builder.append(parameters, "\t");
+    _builder.append("){");
+    _builder.newLineIfNotEmpty();
     {
       EList<AttributeFX> _attributes_1 = object.getAttributes();
       for(final AttributeFX field_1 : _attributes_1) {
+        _builder.append("\t\t");
+        _builder.append("this.");
+        String _firstLower_1 = StringExtensions.toFirstLower(field_1.getName());
+        _builder.append(_firstLower_1, "\t\t");
+        _builder.append("=");
+        String _firstLower_2 = StringExtensions.toFirstLower(field_1.getName());
+        _builder.append(_firstLower_2, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<AttributeFX> _attributes_2 = object.getAttributes();
+      for(final AttributeFX field_2 : _attributes_2) {
         _builder.append("\t");
         _builder.append("public ");
-        String _type_1 = field_1.getType();
+        String _type_1 = field_2.getType();
         _builder.append(_type_1, "\t");
         _builder.append(" get");
-        String _firstUpper_1 = StringExtensions.toFirstUpper(field_1.getName());
-        _builder.append(_firstUpper_1, "\t");
+        String _firstUpper_3 = StringExtensions.toFirstUpper(field_2.getName());
+        _builder.append(_firstUpper_3, "\t");
         _builder.append("(){");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("return ");
-        String _firstLower_1 = StringExtensions.toFirstLower(field_1.getName());
-        _builder.append(_firstLower_1, "\t\t");
+        String _firstLower_3 = StringExtensions.toFirstLower(field_2.getName());
+        _builder.append(_firstLower_3, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -72,24 +126,24 @@ public class TemplateSwitch extends JavafxSwitch<String> {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("public void set");
-        String _firstUpper_2 = StringExtensions.toFirstUpper(field_1.getName());
-        _builder.append(_firstUpper_2, "\t");
+        String _firstUpper_4 = StringExtensions.toFirstUpper(field_2.getName());
+        _builder.append(_firstUpper_4, "\t");
         _builder.append("(");
-        String _type_2 = field_1.getType();
+        String _type_2 = field_2.getType();
         _builder.append(_type_2, "\t");
         _builder.append(" ");
-        String _firstLower_2 = StringExtensions.toFirstLower(field_1.getName());
-        _builder.append(_firstLower_2, "\t");
+        String _firstLower_4 = StringExtensions.toFirstLower(field_2.getName());
+        _builder.append(_firstLower_4, "\t");
         _builder.append(") {");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("this.");
-        String _firstLower_3 = StringExtensions.toFirstLower(field_1.getName());
-        _builder.append(_firstLower_3, "\t\t");
+        String _firstLower_5 = StringExtensions.toFirstLower(field_2.getName());
+        _builder.append(_firstLower_5, "\t\t");
         _builder.append(" = ");
-        String _firstLower_4 = StringExtensions.toFirstLower(field_1.getName());
-        _builder.append(_firstLower_4, "\t\t");
+        String _firstLower_6 = StringExtensions.toFirstLower(field_2.getName());
+        _builder.append(_firstLower_6, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -122,6 +176,10 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.append(".model.*;");
     _builder.newLineIfNotEmpty();
     _builder.append("import javafx.scene.control.*;");
+    _builder.newLine();
+    _builder.append("import javafx.beans.value.ObservableValue;");
+    _builder.newLine();
+    _builder.append("import javafx.util.Callback;");
     _builder.newLine();
     _builder.newLine();
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -183,10 +241,14 @@ public class TemplateSwitch extends JavafxSwitch<String> {
         _builder.append("\", ");
         int _width = column_1.getWidth();
         _builder.append(_width, "\t\t");
-        _builder.append(", create");
-        String _firstUpper_3 = StringExtensions.toFirstUpper(column_1.getName());
+        _builder.append(",  new Base");
+        _builder.append(modelName, "\t\t");
+        _builder.append("CellFeatures(");
+        _builder.append(modelName, "\t\t");
+        _builder.append("Type.");
+        String _firstUpper_3 = StringExtensions.toFirstUpper(column_1.getUsedAttribute().getName());
         _builder.append(_firstUpper_3, "\t\t");
-        _builder.append("CellFeatures());");
+        _builder.append("));");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -194,43 +256,18 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
-    {
-      EList<TableColumnFX> _columns_2 = object.getColumns();
-      for(final TableColumnFX column_2 : _columns_2) {
-        _builder.append("\t");
-        _builder.append("protected Base");
-        _builder.append(modelName, "\t");
-        String _firstUpper_4 = StringExtensions.toFirstUpper(column_2.getName());
-        _builder.append(_firstUpper_4, "\t");
-        _builder.append("CellFeatures create");
-        String _firstUpper_5 = StringExtensions.toFirstUpper(column_2.getName());
-        _builder.append(_firstUpper_5, "\t");
-        _builder.append("CellFeatures() {");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("return new Base");
-        _builder.append(modelName, "\t\t");
-        String _firstUpper_6 = StringExtensions.toFirstUpper(column_2.getName());
-        _builder.append(_firstUpper_6, "\t\t");
-        _builder.append("CellFeatures();");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("}");
-        _builder.newLine();
-      }
-    }
-    _builder.newLine();
     _builder.append("\t");
     _builder.append("protected TableColumn<");
     _builder.append(model, "\t");
     _builder.append(",");
     _builder.append(model, "\t");
-    _builder.append("> createColumn(String name, double width, TableCell<");
+    _builder.append("> createColumn(String name, double width, Callback<TableColumn.CellDataFeatures<");
     _builder.append(model, "\t");
-    _builder.append(", ");
+    _builder.append(",");
     _builder.append(model, "\t");
-    _builder.append("> cellFeatures) {");
+    _builder.append(">, ObservableValue<");
+    _builder.append(model, "\t");
+    _builder.append(">> cellFeatures) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("TableColumn<");
@@ -247,7 +284,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.append("column.setPrefWidth(width);");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("column.setCellFactory(view -> cellFeatures);");
+    _builder.append("column.setCellValueFactory(cellFeatures);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("getColumns().add(column);");

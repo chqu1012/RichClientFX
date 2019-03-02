@@ -14,6 +14,9 @@ class JavaFXLangGenerator extends AbstractGenerator {
 	FilePathSwitch filePathFinder = new FilePathSwitch
 	EnableGeneratorSwitch checkGenerator = new EnableGeneratorSwitch
 	
+	TableColumnSwitch tableColumnGenerator = new TableColumnSwitch
+	TableColumnPathSwitch tableColumnPathGenerator = new TableColumnPathSwitch
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.forEach[content|
 			val code = templates.doSwitch(content)
@@ -21,6 +24,15 @@ class JavaFXLangGenerator extends AbstractGenerator {
 			val isGeneratorEnabled = checkGenerator.doSwitch(content)
 			if (isGeneratorEnabled) {
 				fsa.generateFile(path, code)
+			}
+		]
+		
+		resource.allContents.forEach[element|
+			println(element)
+			val code = tableColumnGenerator.doSwitch(element)
+			val path = tableColumnPathGenerator.doSwitch(element)
+			if (code!==null && path!==null) {
+				fsa.generateFile(path, code);
 			}
 		]
 	}

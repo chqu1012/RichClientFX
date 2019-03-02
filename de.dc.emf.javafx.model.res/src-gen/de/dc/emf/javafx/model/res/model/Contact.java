@@ -6,6 +6,15 @@ public class Contact{
 	private int age;
 	private Boolean gender;
 	
+	public Contact(){
+	}
+	
+	public Contact(String name, int age, Boolean gender){
+		this.name=name;
+		this.age=age;
+		this.gender=gender;
+	}
+	
 	public String getName(){
 		return name;
 	}
