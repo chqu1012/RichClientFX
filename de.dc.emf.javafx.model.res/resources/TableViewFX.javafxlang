@@ -1,0 +1,12 @@
+ProjectFX "TableViewFXProject"{ 
+	packagePath "de.dc.emf.javafx.model.res"
+	controls{
+		TableViewFX "HelloTableViewFX"{
+			columns{
+				TableColumnFX "name"{ 
+				} 
+			}
+		}
+	}
+}
+
