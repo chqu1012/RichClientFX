@@ -6,19 +6,19 @@ import javafx.scene.control.*;
 
 public abstract class BasePersonTableView extends TableView<Person>{
 	
-	protected TableColumn<Person, Person> ageColumn;
 	protected TableColumn<Person, Person> nameColumn;
+	protected TableColumn<Person, Person> ageColumn;
 	
 	public BasePersonTableView() {
-		ageColumn = createColumn("Age", 300, createAgeCellFeatures());
 		nameColumn = createColumn("Name", 300, createNameCellFeatures());
+		ageColumn = createColumn("Age", 300, createAgeCellFeatures());
 	}
 
-	protected BaseAgeCellFeatures createAgeCellFeatures() {
-		return new BaseAgeCellFeatures();
+	protected BasePersonNameCellFeatures createNameCellFeatures() {
+		return new BasePersonNameCellFeatures();
 	}
-	protected BaseNameCellFeatures createNameCellFeatures() {
-		return new BaseNameCellFeatures();
+	protected BasePersonAgeCellFeatures createAgeCellFeatures() {
+		return new BasePersonAgeCellFeatures();
 	}
 
 	protected TableColumn<Person,Person> createColumn(String name, double width, TableCell<Person, Person> cellFeatures) {

@@ -27,9 +27,13 @@ public class FilePathSwitch extends JavafxSwitch<String> {
   @Override
   public String caseTableColumnFX(final TableColumnFX object) {
     StringConcatenation _builder = new StringConcatenation();
+    EObject _eContainer = object.eContainer();
+    final String modelName = StringExtensions.toFirstUpper(((TableViewFX) _eContainer).getUsedModel().getName());
+    _builder.newLineIfNotEmpty();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
     _builder.append("/controls/cell/Base");
+    _builder.append(modelName);
     String _firstUpper = StringExtensions.toFirstUpper(object.getUsedAttribute().getName());
     _builder.append(_firstUpper);
     _builder.append("CellFeatures.java");

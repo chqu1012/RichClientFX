@@ -137,6 +137,8 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     }
     final String model = _builder_1.toString();
     _builder.newLineIfNotEmpty();
+    final String modelName = StringExtensions.toFirstUpper(object.getUsedModel().getName());
+    _builder.newLineIfNotEmpty();
     _builder.append("public abstract class Base");
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
@@ -197,6 +199,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
       for(final TableColumnFX column_2 : _columns_2) {
         _builder.append("\t");
         _builder.append("protected Base");
+        _builder.append(modelName, "\t");
         String _firstUpper_4 = StringExtensions.toFirstUpper(column_2.getName());
         _builder.append(_firstUpper_4, "\t");
         _builder.append("CellFeatures create");
@@ -207,6 +210,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("return new Base");
+        _builder.append(modelName, "\t\t");
         String _firstUpper_6 = StringExtensions.toFirstUpper(column_2.getName());
         _builder.append(_firstUpper_6, "\t\t");
         _builder.append("CellFeatures();");
@@ -295,8 +299,10 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     final String name = _builder_1.toString();
     _builder.newLineIfNotEmpty();
     _builder.append("public class Base");
-    String _firstUpper_1 = StringExtensions.toFirstUpper(object.getUsedAttribute().getName());
+    String _firstUpper_1 = StringExtensions.toFirstUpper(model.getName());
     _builder.append(_firstUpper_1);
+    String _firstUpper_2 = StringExtensions.toFirstUpper(object.getUsedAttribute().getName());
+    _builder.append(_firstUpper_2);
     _builder.append("CellFeatures extends TableCell<");
     _builder.append(name);
     _builder.append(", ");
@@ -326,8 +332,8 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("setText(String.valueOf(item.get");
-    String _firstUpper_2 = StringExtensions.toFirstUpper(object.getName());
-    _builder.append(_firstUpper_2, "\t\t\t");
+    String _firstUpper_3 = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper_3, "\t\t\t");
     _builder.append("()));");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");

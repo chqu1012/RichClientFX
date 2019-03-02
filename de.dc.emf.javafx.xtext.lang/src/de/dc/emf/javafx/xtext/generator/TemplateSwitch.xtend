@@ -40,6 +40,7 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	import javafx.scene.control.*;
 	
 	«val model = '''«IF object.usedModel!==null»«object.usedModel.name»«ELSE»Object«ENDIF»'''»
+	«val modelName = object.usedModel.name.toFirstUpper»
 	public abstract class Base«object.name.toFirstUpper» extends TableView<«model»>{
 		
 		«FOR column : object.columns»
@@ -53,8 +54,8 @@ class TemplateSwitch extends JavafxSwitch<String>{
 		}
 	
 		«FOR column : object.columns»
-		protected Base«column.name.toFirstUpper»CellFeatures create«column.name.toFirstUpper»CellFeatures() {
-			return new Base«column.name.toFirstUpper»CellFeatures();
+		protected Base«modelName»«column.name.toFirstUpper»CellFeatures create«column.name.toFirstUpper»CellFeatures() {
+			return new Base«modelName»«column.name.toFirstUpper»CellFeatures();
 		}
 		«ENDFOR»
 	
@@ -78,7 +79,7 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	import javafx.scene.control.*;
 	
 	«val name = '''«IF model.name.isNullOrEmpty»Object«ELSE»«model.name.toFirstUpper»«ENDIF»'''»
-	public class Base«object.usedAttribute.name.toFirstUpper»CellFeatures extends TableCell<«name», «name»> {
+	public class Base«model.name.toFirstUpper»«object.usedAttribute.name.toFirstUpper»CellFeatures extends TableCell<«name», «name»> {
 	
 		@Override
 		protected void updateItem(«name» item, boolean empty) {

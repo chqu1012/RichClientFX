@@ -5,14 +5,26 @@ ProjectFX HelloWorld{
 		TableViewFX{
 			name: PersonTableView
 			usedModel: Person
-			TableColumnFX(name:'Age' width:300 attribute:"Person.age")
 			TableColumnFX(name:'Name' width:300 attribute:"Person.name")
+			TableColumnFX(name:'Age' width:300 attribute:"Person.age")
+		},
+		TableViewFX{
+			name: ContactTableView
+			usedModel: Contact
+			TableColumnFX(name: 'Name' attribute: "Contact.name")
+			TableColumnFX(name: 'Age' attribute: "Contact.age")
+			TableColumnFX(name: 'Gender' attribute: "Contact.gender")
 		}
 	}
 	models{
 		class Person{
 			'String' 'name'
 			'int' 'age'
+		},
+		class Contact{
+			'String' name
+			'int' age
+			'Boolean' gender
 		}
 	}
 }
