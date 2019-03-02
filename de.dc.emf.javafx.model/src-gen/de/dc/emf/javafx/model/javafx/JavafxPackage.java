@@ -278,13 +278,22 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_COLUMN_FX__WIDTH = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Used Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN_FX__USED_ATTRIBUTE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Table Column FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int TABLE_COLUMN_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Table Column FX</em>' class.
@@ -515,6 +524,17 @@ public interface JavafxPackage extends EPackage {
 	EAttribute getTableColumnFX_Width();
 
 	/**
+	 * Returns the meta object for the reference '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getUsedAttribute <em>Used Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Used Attribute</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#getUsedAttribute()
+	 * @see #getTableColumnFX()
+	 * @generated
+	 */
+	EReference getTableColumnFX_UsedAttribute();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ModelFX <em>Model FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -684,6 +704,14 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE_COLUMN_FX__WIDTH = eINSTANCE.getTableColumnFX_Width();
+
+		/**
+		 * The meta object literal for the '<em><b>Used Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_COLUMN_FX__USED_ATTRIBUTE = eINSTANCE.getTableColumnFX_UsedAttribute();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ModelFXImpl <em>Model FX</em>}' class.

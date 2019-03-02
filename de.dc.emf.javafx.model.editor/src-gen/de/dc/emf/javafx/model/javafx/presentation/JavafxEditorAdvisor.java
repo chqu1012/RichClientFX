@@ -265,11 +265,12 @@ public final class JavafxEditorAdvisor extends WorkbenchAdvisor {
 		 * Creates the 'Edit' menu.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @generated
+		 * @generated not
 		 */
 		protected IMenuManager createEditMenu(IWorkbenchWindow window) {
 			IMenuManager menu = new MenuManager(getString("_UI_Menu_Edit_label"), IWorkbenchActionConstants.M_EDIT);
 			menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_START));
+			menu.add(new GroupMarker(IWorkbenchActionConstants.FIND_EXT));
 
 			addToMenuAndRegister(menu, ActionFactory.UNDO.create(window));
 			addToMenuAndRegister(menu, ActionFactory.REDO.create(window));

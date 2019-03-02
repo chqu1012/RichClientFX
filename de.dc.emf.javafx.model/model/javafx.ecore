@@ -20,6 +20,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TableColumnFX" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="200"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedAttribute" eType="#//AttributeFX"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFX" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"

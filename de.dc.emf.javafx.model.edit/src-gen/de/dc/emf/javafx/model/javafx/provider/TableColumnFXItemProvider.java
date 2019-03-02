@@ -45,6 +45,7 @@ public class TableColumnFXItemProvider extends NamedElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addWidthPropertyDescriptor(object);
+			addUsedAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -63,6 +64,21 @@ public class TableColumnFXItemProvider extends NamedElementItemProvider {
 								"_UI_TableColumnFX_type"),
 						JavafxPackage.Literals.TABLE_COLUMN_FX__WIDTH, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Used Attribute feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUsedAttributePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_TableColumnFX_usedAttribute_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_TableColumnFX_usedAttribute_feature",
+								"_UI_TableColumnFX_type"),
+						JavafxPackage.Literals.TABLE_COLUMN_FX__USED_ATTRIBUTE, true, false, true, null, null, null));
 	}
 
 	/**

@@ -252,6 +252,15 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTableColumnFX_UsedAttribute() {
+		return (EReference) tableColumnFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModelFX() {
 		return modelFXEClass;
 	}
@@ -328,6 +337,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 
 		tableColumnFXEClass = createEClass(TABLE_COLUMN_FX);
 		createEAttribute(tableColumnFXEClass, TABLE_COLUMN_FX__WIDTH);
+		createEReference(tableColumnFXEClass, TABLE_COLUMN_FX__USED_ATTRIBUTE);
 
 		modelFXEClass = createEClass(MODEL_FX);
 		createEReference(modelFXEClass, MODEL_FX__ATTRIBUTES);
@@ -406,6 +416,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableColumnFX_Width(), ecorePackage.getEInt(), "width", "200", 0, 1, TableColumnFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableColumnFX_UsedAttribute(), this.getAttributeFX(), null, "usedAttribute", null, 0, 1,
+				TableColumnFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelFXEClass, ModelFX.class, "ModelFX", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelFX_Attributes(), this.getAttributeFX(), null, "attributes", null, 0, -1, ModelFX.class,
