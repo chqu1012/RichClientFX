@@ -15,9 +15,9 @@ class EnableGeneratorSwitch extends JavafxSwitch<Boolean>{
 	override caseControlFX(ControlFX object) {false}
 	override caseNamedElement(NamedElement object) {false}
 	override caseProjectFX(ProjectFX object) {false}
+	override caseTableColumnFX(TableColumnFX object) {false}
 	
 	override caseModelFX(ModelFX object) {true}
-	override caseTableColumnFX(TableColumnFX object) {true}
 	override caseTableViewFX(TableViewFX object) {true}
 					
 }

@@ -32,12 +32,12 @@ public class EnableGeneratorSwitch extends JavafxSwitch<Boolean> {
   }
   
   @Override
-  public Boolean caseModelFX(final ModelFX object) {
-    return Boolean.valueOf(true);
+  public Boolean caseTableColumnFX(final TableColumnFX object) {
+    return Boolean.valueOf(false);
   }
   
   @Override
-  public Boolean caseTableColumnFX(final TableColumnFX object) {
+  public Boolean caseModelFX(final ModelFX object) {
     return Boolean.valueOf(true);
   }
   

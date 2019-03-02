@@ -1,10 +1,9 @@
 package de.dc.emf.javafx.xtext.generator
 
-import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import de.dc.emf.javafx.model.javafx.ModelFX
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
-import de.dc.emf.javafx.model.javafx.TableColumnFX
+import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import org.eclipse.emf.ecore.util.EcoreUtil
 
 class TemplateSwitch extends JavafxSwitch<String>{
@@ -75,27 +74,4 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	}
 	'''	
 	
-	override caseTableColumnFX(TableColumnFX object)'''
-	«val packagePath = (EcoreUtil.getRootContainer(object.eContainer) as ProjectFX).packagePath»
-	«val table = object.eContainer as TableViewFX»
-	«val model = table.usedModel»
-	package «packagePath».controls.cell;
-	
-	import «packagePath».model.*;
-	import javafx.scene.control.*;
-	
-	«val name = '''«IF model.name.isNullOrEmpty»Object«ELSE»«model.name.toFirstUpper»«ENDIF»'''»
-	public class Base«model.name.toFirstUpper»«object.usedAttribute.name.toFirstUpper»CellFeatures extends TableCell<«name», «name»> {
-	
-		@Override
-		protected void updateItem(«name» item, boolean empty) {
-			super.updateItem(item, empty);
-			if (item==null && empty) {
-				setText(null);
-			}else {
-				setText(String.valueOf(item.get«object.name.toFirstUpper»()));
-			}
-		}
-	}
-	'''
 }
