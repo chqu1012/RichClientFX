@@ -3,7 +3,7 @@ package de.dc.emf.javafx.model.res.controls.cell;
 import de.dc.emf.javafx.model.res.model.*;
 import javafx.scene.control.*;
 
-public class BaseAgeCellFeatures extends TableCell<Person, Person> {
+public class BasePersonAgeCellFeatures extends TableCell<Person, Person> {
 
 	@Override
 	protected void updateItem(Person item, boolean empty) {
