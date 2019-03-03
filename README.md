@@ -58,3 +58,5 @@ ProjectFX ContactProject{
 ## ChangeLog
 
 ## Download
+* ![v0.8.1](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.xtext.lang.update/build/v0.8.1.zip)
+* ![v0.8.0](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.xtext.lang.update/build/v0.8.0.zip)
