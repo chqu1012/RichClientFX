@@ -1,6 +1,8 @@
 package de.dc.emf.javafx.xtext.generator;
 
 import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.Bean;
+import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
@@ -19,7 +21,169 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 @SuppressWarnings("all")
 public class TemplateSwitch extends JavafxSwitch<String> {
   @Override
-  public String caseModelFX(final ModelFX object) {
+  public String caseDerivedBean(final DerivedBean object) {
+    StringConcatenation _builder = new StringConcatenation();
+    EObject _rootContainer = EcoreUtil.getRootContainer(object.eContainer());
+    final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("package ");
+    _builder.append(packagePath, "\t");
+    _builder.append(".model;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public abstract class Base");
+    String _firstUpper = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper, "\t");
+    _builder.append("<T>{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<AttributeFX> _attributes = object.getAttributes();
+      for(final AttributeFX field : _attributes) {
+        _builder.append("\t\t");
+        _builder.append("private ");
+        String _type = field.getType();
+        _builder.append(_type, "\t\t");
+        _builder.append(" ");
+        String _firstLower = StringExtensions.toFirstLower(field.getName());
+        _builder.append(_firstLower, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public Base");
+    String _firstUpper_1 = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper_1, "\t\t");
+    _builder.append("(){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public Base");
+    String _firstUpper_2 = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper_2, "\t\t");
+    _builder.append("(T t) {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("map(t);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    final Function1<AttributeFX, String> _function = (AttributeFX it) -> {
+      String _type_1 = it.getType();
+      String _plus = (_type_1 + " ");
+      String _firstLower_1 = StringExtensions.toFirstLower(it.getName());
+      return (_plus + _firstLower_1);
+    };
+    final Function2<String, String, String> _function_1 = (String p1, String p2) -> {
+      return ((p1 + ", ") + p2);
+    };
+    final String parameters = IterableExtensions.<String>reduce(ListExtensions.<AttributeFX, String>map(object.getAttributes(), _function), _function_1);
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("public Base");
+    String _firstUpper_3 = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper_3, "\t\t");
+    _builder.append("(");
+    _builder.append(parameters, "\t\t");
+    _builder.append("){");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<AttributeFX> _attributes_1 = object.getAttributes();
+      for(final AttributeFX field_1 : _attributes_1) {
+        _builder.append("\t\t\t");
+        _builder.append("this.");
+        String _firstLower_1 = StringExtensions.toFirstLower(field_1.getName());
+        _builder.append(_firstLower_1, "\t\t\t");
+        _builder.append("=");
+        String _firstLower_2 = StringExtensions.toFirstLower(field_1.getName());
+        _builder.append(_firstLower_2, "\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("protected abstract void map(T t);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    {
+      EList<AttributeFX> _attributes_2 = object.getAttributes();
+      for(final AttributeFX field_2 : _attributes_2) {
+        _builder.append("\t\t");
+        _builder.append("public ");
+        String _type_1 = field_2.getType();
+        _builder.append(_type_1, "\t\t");
+        _builder.append(" get");
+        String _firstUpper_4 = StringExtensions.toFirstUpper(field_2.getName());
+        _builder.append(_firstUpper_4, "\t\t");
+        _builder.append("(){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("return ");
+        String _firstLower_3 = StringExtensions.toFirstLower(field_2.getName());
+        _builder.append(_firstLower_3, "\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("public void set");
+        String _firstUpper_5 = StringExtensions.toFirstUpper(field_2.getName());
+        _builder.append(_firstUpper_5, "\t\t");
+        _builder.append("(");
+        String _type_2 = field_2.getType();
+        _builder.append(_type_2, "\t\t");
+        _builder.append(" ");
+        String _firstLower_4 = StringExtensions.toFirstLower(field_2.getName());
+        _builder.append(_firstLower_4, "\t\t");
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("this.");
+        String _firstLower_5 = StringExtensions.toFirstLower(field_2.getName());
+        _builder.append(_firstLower_5, "\t\t\t");
+        _builder.append(" = ");
+        String _firstLower_6 = StringExtensions.toFirstLower(field_2.getName());
+        _builder.append(_firstLower_6, "\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  @Override
+  public String caseBean(final Bean object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object.eContainer());
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();

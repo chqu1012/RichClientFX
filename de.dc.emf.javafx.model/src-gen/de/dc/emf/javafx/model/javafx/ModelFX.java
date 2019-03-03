@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getModelFX()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ModelFX extends NamedElement {

@@ -5,10 +5,50 @@ import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
 import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import org.eclipse.emf.ecore.util.EcoreUtil
+import de.dc.emf.javafx.model.javafx.Bean
+import de.dc.emf.javafx.model.javafx.DerivedBean
 
 class TemplateSwitch extends JavafxSwitch<String>{
 	
-	override caseModelFX(ModelFX object)'''
+	override caseDerivedBean(DerivedBean object)'''
+	«val packagePath = (EcoreUtil.getRootContainer(object.eContainer) as ProjectFX).packagePath»
+		package «packagePath».model;
+		
+		public abstract class Base«object.name.toFirstUpper»<T>{
+		
+			«FOR field : object.attributes»
+			private «field.type» «field.name.toFirstLower»;
+			«ENDFOR»
+			
+			public Base«object.name.toFirstUpper»(){
+			}
+			
+			public Base«object.name.toFirstUpper»(T t) {
+				map(t);
+			}
+			
+			«val parameters = object.attributes.map[it.type+' '+it.name.toFirstLower].reduce[p1, p2|p1+', '+p2]»
+			public Base«object.name.toFirstUpper»(«parameters»){
+				«FOR field : object.attributes»
+				this.«field.name.toFirstLower»=«field.name.toFirstLower»;
+				«ENDFOR»
+			}
+			
+			protected abstract void map(T t);
+			
+			«FOR field : object.attributes»
+			public «field.type» get«field.name.toFirstUpper()»(){
+				return «field.name.toFirstLower»;
+			}
+
+			public void set«field.name.toFirstUpper»(«field.type» «field.name.toFirstLower») {
+				this.«field.name.toFirstLower» = «field.name.toFirstLower»;
+			}
+			«ENDFOR»
+		}
+	'''
+	
+	override caseBean(Bean object)'''
 	«val packagePath = (EcoreUtil.getRootContainer(object.eContainer) as ProjectFX).packagePath»
 	package «packagePath».model;
 	

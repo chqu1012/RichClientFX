@@ -64,10 +64,12 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createTableViewFX();
 		case JavafxPackage.TABLE_COLUMN_FX:
 			return createTableColumnFX();
-		case JavafxPackage.MODEL_FX:
-			return createModelFX();
 		case JavafxPackage.ATTRIBUTE_FX:
 			return createAttributeFX();
+		case JavafxPackage.BEAN:
+			return createBean();
+		case JavafxPackage.DERIVED_BEAN:
+			return createDerivedBean();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -118,9 +120,9 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelFX createModelFX() {
-		ModelFXImpl modelFX = new ModelFXImpl();
-		return modelFX;
+	public AttributeFX createAttributeFX() {
+		AttributeFXImpl attributeFX = new AttributeFXImpl();
+		return attributeFX;
 	}
 
 	/**
@@ -128,9 +130,19 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AttributeFX createAttributeFX() {
-		AttributeFXImpl attributeFX = new AttributeFXImpl();
-		return attributeFX;
+	public Bean createBean() {
+		BeanImpl bean = new BeanImpl();
+		return bean;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DerivedBean createDerivedBean() {
+		DerivedBeanImpl derivedBean = new DerivedBeanImpl();
+		return derivedBean;
 	}
 
 	/**

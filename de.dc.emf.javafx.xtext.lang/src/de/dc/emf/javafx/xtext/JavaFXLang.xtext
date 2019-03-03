@@ -10,28 +10,36 @@ ProjectFX returns ProjectFX:
 	name=EString
 	'{'
 		('packagePath' packagePath=EString)?
-		('controls' '{' controls+=ControlFX ( "," controls+=ControlFX)* '}' )?
-		('models' '{' models+=ModelFX ( "," models+=ModelFX)* '}' )?
+		('controls' '{' controls+=ControlFX (controls+=ControlFX)* '}' )?
+		('models' '{' models+=ModelFX (models+=ModelFX)* '}' )?
 	'}';
 
 ControlFX returns ControlFX:
 	TableViewFX;
 
-
-
-
 EString returns ecore::EString:
 	STRING | ID;
 
 ModelFX returns ModelFX:
-	{ModelFX}
+	DerivedBean | Bean
+;
+
+DerivedBean returns DerivedBean:
+	{DerivedBean}
+	'class' name=EString '{'
+		('instanceType:' instanceType=EString)
+		(attributes+=AttributeFX (attributes+=AttributeFX)*)?
+	'}';
+
+Bean returns Bean:
+	{Bean}
 	'class' name=EString '{'
 		(attributes+=AttributeFX (attributes+=AttributeFX)*)?
 	'}';
 
 TableViewFX returns TableViewFX:
 	{TableViewFX}
-	'TableViewFX' '{'
+	'TableView' '{'
 		('name:' name=EString)
 		('usedModel:' usedModel=[ModelFX|EString])?
 		(columns+=TableColumnFX (columns+=TableColumnFX)*)?
@@ -40,7 +48,7 @@ TableViewFX returns TableViewFX:
 
 TableColumnFX returns TableColumnFX:
 	{TableColumnFX}
-	'TableColumnFX'
+	'Column'
 	'('
 		('name:' name=EString)
 		('width:' width=EInt)? 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import de.dc.emf.javafx.model.res.controls.ContactTableView;
 import de.dc.emf.javafx.model.res.model.Contact;
+import de.dc.emf.javafx.model.res.model.Person;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.scene.Scene;
@@ -21,7 +22,7 @@ public class ContactApplication extends Application{
 		ContactTableView contactTableView = new ContactTableView();
 		List<Contact> contacts = new ArrayList<>();
 		for (int i = 0; i < 20; i++) {
-			contacts.add(new Contact("Test", 11, false));
+			contacts.add(new Contact(new Person("Test", 11)));
 		}
 		contactTableView.setItems(FXCollections.observableArrayList(contacts));
 		Scene scene = new Scene(contactTableView, 600, 600);

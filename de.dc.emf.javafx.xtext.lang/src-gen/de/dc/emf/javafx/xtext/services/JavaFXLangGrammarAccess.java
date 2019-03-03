@@ -41,20 +41,16 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Assignment cControlsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
 		private final RuleCall cControlsControlFXParserRuleCall_5_2_0 = (RuleCall)cControlsAssignment_5_2.eContents().get(0);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cControlsAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cControlsControlFXParserRuleCall_5_3_1_0 = (RuleCall)cControlsAssignment_5_3_1.eContents().get(0);
+		private final Assignment cControlsAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cControlsControlFXParserRuleCall_5_3_0 = (RuleCall)cControlsAssignment_5_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cModelsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
 		private final Assignment cModelsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
 		private final RuleCall cModelsModelFXParserRuleCall_6_2_0 = (RuleCall)cModelsAssignment_6_2.eContents().get(0);
-		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
-		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cModelsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cModelsModelFXParserRuleCall_6_3_1_0 = (RuleCall)cModelsAssignment_6_3_1.eContents().get(0);
+		private final Assignment cModelsAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
+		private final RuleCall cModelsModelFXParserRuleCall_6_3_0 = (RuleCall)cModelsAssignment_6_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
@@ -62,13 +58,13 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	{ProjectFX}
 		//	'ProjectFX'
 		//	name=EString
-		//	'{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX ("," controls+=ControlFX)* '}')?
-		//	('models' '{' models+=ModelFX ("," models+=ModelFX)* '}')?
+		//	'{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
+		//	models+=ModelFX models+=ModelFX* '}')?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ProjectFX} 'ProjectFX' name=EString '{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX (","
-		//controls+=ControlFX)* '}')? ('models' '{' models+=ModelFX ("," models+=ModelFX)* '}')? '}'
+		//{ProjectFX} 'ProjectFX' name=EString '{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX
+		//controls+=ControlFX* '}')? ('models' '{' models+=ModelFX models+=ModelFX* '}')? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{ProjectFX}
@@ -98,7 +94,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getPackagePathEStringParserRuleCall_4_1_0() { return cPackagePathEStringParserRuleCall_4_1_0; }
 		
-		//('controls' '{' controls+=ControlFX ("," controls+=ControlFX)* '}')?
+		//('controls' '{' controls+=ControlFX controls+=ControlFX* '}')?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'controls'
@@ -113,22 +109,16 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//ControlFX
 		public RuleCall getControlsControlFXParserRuleCall_5_2_0() { return cControlsControlFXParserRuleCall_5_2_0; }
 		
-		//("," controls+=ControlFX)*
-		public Group getGroup_5_3() { return cGroup_5_3; }
-		
-		//","
-		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
-		
-		//controls+=ControlFX
-		public Assignment getControlsAssignment_5_3_1() { return cControlsAssignment_5_3_1; }
+		//controls+=ControlFX*
+		public Assignment getControlsAssignment_5_3() { return cControlsAssignment_5_3; }
 		
 		//ControlFX
-		public RuleCall getControlsControlFXParserRuleCall_5_3_1_0() { return cControlsControlFXParserRuleCall_5_3_1_0; }
+		public RuleCall getControlsControlFXParserRuleCall_5_3_0() { return cControlsControlFXParserRuleCall_5_3_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_4() { return cRightCurlyBracketKeyword_5_4; }
 		
-		//('models' '{' models+=ModelFX ("," models+=ModelFX)* '}')?
+		//('models' '{' models+=ModelFX models+=ModelFX* '}')?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'models'
@@ -143,17 +133,11 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//ModelFX
 		public RuleCall getModelsModelFXParserRuleCall_6_2_0() { return cModelsModelFXParserRuleCall_6_2_0; }
 		
-		//("," models+=ModelFX)*
-		public Group getGroup_6_3() { return cGroup_6_3; }
-		
-		//","
-		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
-		
-		//models+=ModelFX
-		public Assignment getModelsAssignment_6_3_1() { return cModelsAssignment_6_3_1; }
+		//models+=ModelFX*
+		public Assignment getModelsAssignment_6_3() { return cModelsAssignment_6_3; }
 		
 		//ModelFX
-		public RuleCall getModelsModelFXParserRuleCall_6_3_1_0() { return cModelsModelFXParserRuleCall_6_3_1_0; }
+		public RuleCall getModelsModelFXParserRuleCall_6_3_0() { return cModelsModelFXParserRuleCall_6_3_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
@@ -193,8 +177,101 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ModelFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.ModelFX");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDerivedBeanParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBeanParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ModelFX:
+		//	DerivedBean | Bean;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DerivedBean | Bean
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//DerivedBean
+		public RuleCall getDerivedBeanParserRuleCall_0() { return cDerivedBeanParserRuleCall_0; }
+		
+		//Bean
+		public RuleCall getBeanParserRuleCall_1() { return cBeanParserRuleCall_1; }
+	}
+	public class DerivedBeanElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.DerivedBean");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cModelFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cDerivedBeanAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cClassKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cInstanceTypeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cInstanceTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cInstanceTypeEStringParserRuleCall_4_1_0 = (RuleCall)cInstanceTypeAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Assignment cAttributesAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cAttributesAttributeFXParserRuleCall_5_0_0 = (RuleCall)cAttributesAssignment_5_0.eContents().get(0);
+		private final Assignment cAttributesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cAttributesAttributeFXParserRuleCall_5_1_0 = (RuleCall)cAttributesAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//DerivedBean:
+		//	{DerivedBean}
+		//	'class' name=EString '{' ('instanceType:' instanceType=EString) (attributes+=AttributeFX attributes+=AttributeFX*)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{DerivedBean} 'class' name=EString '{' ('instanceType:' instanceType=EString) (attributes+=AttributeFX
+		//attributes+=AttributeFX*)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{DerivedBean}
+		public Action getDerivedBeanAction_0() { return cDerivedBeanAction_0; }
+		
+		//'class'
+		public Keyword getClassKeyword_1() { return cClassKeyword_1; }
+		
+		//name=EString
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//'instanceType:' instanceType=EString
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'instanceType:'
+		public Keyword getInstanceTypeKeyword_4_0() { return cInstanceTypeKeyword_4_0; }
+		
+		//instanceType=EString
+		public Assignment getInstanceTypeAssignment_4_1() { return cInstanceTypeAssignment_4_1; }
+		
+		//EString
+		public RuleCall getInstanceTypeEStringParserRuleCall_4_1_0() { return cInstanceTypeEStringParserRuleCall_4_1_0; }
+		
+		//(attributes+=AttributeFX attributes+=AttributeFX*)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//attributes+=AttributeFX
+		public Assignment getAttributesAssignment_5_0() { return cAttributesAssignment_5_0; }
+		
+		//AttributeFX
+		public RuleCall getAttributesAttributeFXParserRuleCall_5_0_0() { return cAttributesAttributeFXParserRuleCall_5_0_0; }
+		
+		//attributes+=AttributeFX*
+		public Assignment getAttributesAssignment_5_1() { return cAttributesAssignment_5_1; }
+		
+		//AttributeFX
+		public RuleCall getAttributesAttributeFXParserRuleCall_5_1_0() { return cAttributesAttributeFXParserRuleCall_5_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class BeanElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.Bean");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBeanAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cClassKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
@@ -206,17 +283,17 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributesAttributeFXParserRuleCall_4_1_0 = (RuleCall)cAttributesAssignment_4_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//ModelFX:
-		//	{ModelFX}
+		//Bean:
+		//	{Bean}
 		//	'class' name=EString '{' (attributes+=AttributeFX attributes+=AttributeFX*)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ModelFX} 'class' name=EString '{' (attributes+=AttributeFX attributes+=AttributeFX*)? '}'
+		//{Bean} 'class' name=EString '{' (attributes+=AttributeFX attributes+=AttributeFX*)? '}'
 		public Group getGroup() { return cGroup; }
 		
-		//{ModelFX}
-		public Action getModelFXAction_0() { return cModelFXAction_0; }
+		//{Bean}
+		public Action getBeanAction_0() { return cBeanAction_0; }
 		
 		//'class'
 		public Keyword getClassKeyword_1() { return cClassKeyword_1; }
@@ -252,7 +329,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.TableViewFX");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTableViewFXAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cTableViewFXKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cTableViewKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
@@ -272,20 +349,20 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TableViewFX:
 		//	{TableViewFX}
-		//	'TableViewFX' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? (columns+=TableColumnFX
+		//	'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? (columns+=TableColumnFX
 		//	columns+=TableColumnFX*)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TableViewFX} 'TableViewFX' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])?
-		//(columns+=TableColumnFX columns+=TableColumnFX*)? '}'
+		//{TableViewFX} 'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? (columns+=TableColumnFX
+		//columns+=TableColumnFX*)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{TableViewFX}
 		public Action getTableViewFXAction_0() { return cTableViewFXAction_0; }
 		
-		//'TableViewFX'
-		public Keyword getTableViewFXKeyword_1() { return cTableViewFXKeyword_1; }
+		//'TableView'
+		public Keyword getTableViewKeyword_1() { return cTableViewKeyword_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -339,7 +416,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTableColumnFXAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cTableColumnFXKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cColumnKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
@@ -358,20 +435,20 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TableColumnFX:
 		//	{TableColumnFX}
-		//	'TableColumnFX'
+		//	'Column'
 		//	'(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:' usedAttribute=[AttributeFX|EString])?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TableColumnFX} 'TableColumnFX' '(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:'
+		//{TableColumnFX} 'Column' '(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:'
 		//usedAttribute=[AttributeFX|EString])? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//{TableColumnFX}
 		public Action getTableColumnFXAction_0() { return cTableColumnFXAction_0; }
 		
-		//'TableColumnFX'
-		public Keyword getTableColumnFXKeyword_1() { return cTableColumnFXKeyword_1; }
+		//'Column'
+		public Keyword getColumnKeyword_1() { return cColumnKeyword_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
@@ -474,6 +551,8 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	private final ControlFXElements pControlFX;
 	private final EStringElements pEString;
 	private final ModelFXElements pModelFX;
+	private final DerivedBeanElements pDerivedBean;
+	private final BeanElements pBean;
 	private final TableViewFXElements pTableViewFX;
 	private final TableColumnFXElements pTableColumnFX;
 	private final EIntElements pEInt;
@@ -492,6 +571,8 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pControlFX = new ControlFXElements();
 		this.pEString = new EStringElements();
 		this.pModelFX = new ModelFXElements();
+		this.pDerivedBean = new DerivedBeanElements();
+		this.pBean = new BeanElements();
 		this.pTableViewFX = new TableViewFXElements();
 		this.pTableColumnFX = new TableColumnFXElements();
 		this.pEInt = new EIntElements();
@@ -529,8 +610,8 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	{ProjectFX}
 	//	'ProjectFX'
 	//	name=EString
-	//	'{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX ("," controls+=ControlFX)* '}')?
-	//	('models' '{' models+=ModelFX ("," models+=ModelFX)* '}')?
+	//	'{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
+	//	models+=ModelFX models+=ModelFX* '}')?
 	//	'}';
 	public ProjectFXElements getProjectFXAccess() {
 		return pProjectFX;
@@ -561,9 +642,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ModelFX:
-	//	{ModelFX}
-	//	'class' name=EString '{' (attributes+=AttributeFX attributes+=AttributeFX*)?
-	//	'}';
+	//	DerivedBean | Bean;
 	public ModelFXElements getModelFXAccess() {
 		return pModelFX;
 	}
@@ -572,9 +651,33 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelFXAccess().getRule();
 	}
 	
+	//DerivedBean:
+	//	{DerivedBean}
+	//	'class' name=EString '{' ('instanceType:' instanceType=EString) (attributes+=AttributeFX attributes+=AttributeFX*)?
+	//	'}';
+	public DerivedBeanElements getDerivedBeanAccess() {
+		return pDerivedBean;
+	}
+	
+	public ParserRule getDerivedBeanRule() {
+		return getDerivedBeanAccess().getRule();
+	}
+	
+	//Bean:
+	//	{Bean}
+	//	'class' name=EString '{' (attributes+=AttributeFX attributes+=AttributeFX*)?
+	//	'}';
+	public BeanElements getBeanAccess() {
+		return pBean;
+	}
+	
+	public ParserRule getBeanRule() {
+		return getBeanAccess().getRule();
+	}
+	
 	//TableViewFX:
 	//	{TableViewFX}
-	//	'TableViewFX' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? (columns+=TableColumnFX
+	//	'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? (columns+=TableColumnFX
 	//	columns+=TableColumnFX*)?
 	//	'}';
 	public TableViewFXElements getTableViewFXAccess() {
@@ -587,7 +690,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//TableColumnFX:
 	//	{TableColumnFX}
-	//	'TableColumnFX'
+	//	'Column'
 	//	'(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:' usedAttribute=[AttributeFX|EString])?
 	//	')';
 	public TableColumnFXElements getTableColumnFXAccess() {

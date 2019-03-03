@@ -33,5 +33,9 @@
     <genClasses ecoreClass="javafx.ecore#//AttributeFX">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//AttributeFX/type"/>
     </genClasses>
+    <genClasses ecoreClass="javafx.ecore#//Bean"/>
+    <genClasses ecoreClass="javafx.ecore#//DerivedBean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//DerivedBean/instanceType"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

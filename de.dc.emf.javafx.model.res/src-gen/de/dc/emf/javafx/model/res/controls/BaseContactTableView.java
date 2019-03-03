@@ -13,7 +13,7 @@ public abstract class BaseContactTableView extends TableView<Contact>{
 	protected TableColumn<Contact, Contact> genderColumn;
 	
 	public BaseContactTableView() {
-		nameColumn = createColumn("Name", 200,  new BaseContactCellFeatures(ContactType.Name));
+		nameColumn = createColumn("Name", 100,  new BaseContactCellFeatures(ContactType.Name));
 		ageColumn = createColumn("Age", 200,  new BaseContactCellFeatures(ContactType.Age));
 		genderColumn = createColumn("Gender", 200,  new BaseContactCellFeatures(ContactType.Gender));
 	}

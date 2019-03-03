@@ -5,8 +5,9 @@ package de.dc.emf.javafx.xtext.serializer;
 
 import com.google.inject.Inject;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.Bean;
+import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
-import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
@@ -39,8 +40,11 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case JavafxPackage.ATTRIBUTE_FX:
 				sequence_AttributeFX(context, (AttributeFX) semanticObject); 
 				return; 
-			case JavafxPackage.MODEL_FX:
-				sequence_ModelFX(context, (ModelFX) semanticObject); 
+			case JavafxPackage.BEAN:
+				sequence_Bean(context, (Bean) semanticObject); 
+				return; 
+			case JavafxPackage.DERIVED_BEAN:
+				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
 				return; 
 			case JavafxPackage.PROJECT_FX:
 				sequence_ProjectFX(context, (ProjectFX) semanticObject); 
@@ -79,12 +83,26 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     ModelFX returns ModelFX
+	 *     ModelFX returns Bean
+	 *     Bean returns Bean
 	 *
 	 * Constraint:
 	 *     (name=EString (attributes+=AttributeFX attributes+=AttributeFX*)?)
 	 */
-	protected void sequence_ModelFX(ISerializationContext context, ModelFX semanticObject) {
+	protected void sequence_Bean(ISerializationContext context, Bean semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ModelFX returns DerivedBean
+	 *     DerivedBean returns DerivedBean
+	 *
+	 * Constraint:
+	 *     (name=EString instanceType=EString (attributes+=AttributeFX attributes+=AttributeFX*)?)
+	 */
+	protected void sequence_DerivedBean(ISerializationContext context, DerivedBean semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

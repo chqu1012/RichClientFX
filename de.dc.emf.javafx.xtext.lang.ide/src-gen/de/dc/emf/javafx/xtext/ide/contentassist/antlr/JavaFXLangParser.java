@@ -32,14 +32,16 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, JavaFXLangGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
+			builder.put(grammarAccess.getModelFXAccess().getAlternatives(), "rule__ModelFX__Alternatives");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup(), "rule__ProjectFX__Group__0");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_4(), "rule__ProjectFX__Group_4__0");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_5(), "rule__ProjectFX__Group_5__0");
-			builder.put(grammarAccess.getProjectFXAccess().getGroup_5_3(), "rule__ProjectFX__Group_5_3__0");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_6(), "rule__ProjectFX__Group_6__0");
-			builder.put(grammarAccess.getProjectFXAccess().getGroup_6_3(), "rule__ProjectFX__Group_6_3__0");
-			builder.put(grammarAccess.getModelFXAccess().getGroup(), "rule__ModelFX__Group__0");
-			builder.put(grammarAccess.getModelFXAccess().getGroup_4(), "rule__ModelFX__Group_4__0");
+			builder.put(grammarAccess.getDerivedBeanAccess().getGroup(), "rule__DerivedBean__Group__0");
+			builder.put(grammarAccess.getDerivedBeanAccess().getGroup_4(), "rule__DerivedBean__Group_4__0");
+			builder.put(grammarAccess.getDerivedBeanAccess().getGroup_5(), "rule__DerivedBean__Group_5__0");
+			builder.put(grammarAccess.getBeanAccess().getGroup(), "rule__Bean__Group__0");
+			builder.put(grammarAccess.getBeanAccess().getGroup_4(), "rule__Bean__Group_4__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup(), "rule__TableViewFX__Group__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_3(), "rule__TableViewFX__Group_3__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_4(), "rule__TableViewFX__Group_4__0");
@@ -53,12 +55,16 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProjectFXAccess().getNameAssignment_2(), "rule__ProjectFX__NameAssignment_2");
 			builder.put(grammarAccess.getProjectFXAccess().getPackagePathAssignment_4_1(), "rule__ProjectFX__PackagePathAssignment_4_1");
 			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_5_2(), "rule__ProjectFX__ControlsAssignment_5_2");
-			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_5_3_1(), "rule__ProjectFX__ControlsAssignment_5_3_1");
+			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_5_3(), "rule__ProjectFX__ControlsAssignment_5_3");
 			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_2(), "rule__ProjectFX__ModelsAssignment_6_2");
-			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_3_1(), "rule__ProjectFX__ModelsAssignment_6_3_1");
-			builder.put(grammarAccess.getModelFXAccess().getNameAssignment_2(), "rule__ModelFX__NameAssignment_2");
-			builder.put(grammarAccess.getModelFXAccess().getAttributesAssignment_4_0(), "rule__ModelFX__AttributesAssignment_4_0");
-			builder.put(grammarAccess.getModelFXAccess().getAttributesAssignment_4_1(), "rule__ModelFX__AttributesAssignment_4_1");
+			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_3(), "rule__ProjectFX__ModelsAssignment_6_3");
+			builder.put(grammarAccess.getDerivedBeanAccess().getNameAssignment_2(), "rule__DerivedBean__NameAssignment_2");
+			builder.put(grammarAccess.getDerivedBeanAccess().getInstanceTypeAssignment_4_1(), "rule__DerivedBean__InstanceTypeAssignment_4_1");
+			builder.put(grammarAccess.getDerivedBeanAccess().getAttributesAssignment_5_0(), "rule__DerivedBean__AttributesAssignment_5_0");
+			builder.put(grammarAccess.getDerivedBeanAccess().getAttributesAssignment_5_1(), "rule__DerivedBean__AttributesAssignment_5_1");
+			builder.put(grammarAccess.getBeanAccess().getNameAssignment_2(), "rule__Bean__NameAssignment_2");
+			builder.put(grammarAccess.getBeanAccess().getAttributesAssignment_4_0(), "rule__Bean__AttributesAssignment_4_0");
+			builder.put(grammarAccess.getBeanAccess().getAttributesAssignment_4_1(), "rule__Bean__AttributesAssignment_4_1");
 			builder.put(grammarAccess.getTableViewFXAccess().getNameAssignment_3_1(), "rule__TableViewFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getTableViewFXAccess().getUsedModelAssignment_4_1(), "rule__TableViewFX__UsedModelAssignment_4_1");
 			builder.put(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_0(), "rule__TableViewFX__ColumnsAssignment_5_0");

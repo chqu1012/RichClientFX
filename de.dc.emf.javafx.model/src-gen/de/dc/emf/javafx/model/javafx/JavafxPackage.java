@@ -397,6 +397,107 @@ public interface JavafxPackage extends EPackage {
 	int ATTRIBUTE_FX_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.BeanImpl <em>Bean</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.BeanImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBean()
+	 * @generated
+	 */
+	int BEAN = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEAN__NAME = MODEL_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEAN__ATTRIBUTES = MODEL_FX__ATTRIBUTES;
+
+	/**
+	 * The number of structural features of the '<em>Bean</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEAN_FEATURE_COUNT = MODEL_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Bean</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEAN_OPERATION_COUNT = MODEL_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.DerivedBeanImpl <em>Derived Bean</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.DerivedBeanImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getDerivedBean()
+	 * @generated
+	 */
+	int DERIVED_BEAN = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_BEAN__NAME = MODEL_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_BEAN__ATTRIBUTES = MODEL_FX__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Instance Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_BEAN__INSTANCE_TYPE = MODEL_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Derived Bean</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_BEAN_FEATURE_COUNT = MODEL_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Derived Bean</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_BEAN_OPERATION_COUNT = MODEL_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ProjectFX <em>Project FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -577,6 +678,37 @@ public interface JavafxPackage extends EPackage {
 	EAttribute getAttributeFX_Type();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.Bean <em>Bean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bean</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Bean
+	 * @generated
+	 */
+	EClass getBean();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.DerivedBean <em>Derived Bean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Derived Bean</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.DerivedBean
+	 * @generated
+	 */
+	EClass getDerivedBean();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.DerivedBean#getInstanceType <em>Instance Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Instance Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.DerivedBean#getInstanceType()
+	 * @see #getDerivedBean()
+	 * @generated
+	 */
+	EAttribute getDerivedBean_InstanceType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -748,6 +880,34 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE_FX__TYPE = eINSTANCE.getAttributeFX_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BeanImpl <em>Bean</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BeanImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBean()
+		 * @generated
+		 */
+		EClass BEAN = eINSTANCE.getBean();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.DerivedBeanImpl <em>Derived Bean</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.DerivedBeanImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getDerivedBean()
+		 * @generated
+		 */
+		EClass DERIVED_BEAN = eINSTANCE.getDerivedBean();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DERIVED_BEAN__INSTANCE_TYPE = eINSTANCE.getDerivedBean_InstanceType();
 
 	}
 

@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ModelFXImpl extends NamedElementImpl implements ModelFX {
+public abstract class ModelFXImpl extends NamedElementImpl implements ModelFX {
 	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

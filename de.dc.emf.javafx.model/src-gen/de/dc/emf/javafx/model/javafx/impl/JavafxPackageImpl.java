@@ -3,7 +3,9 @@
 package de.dc.emf.javafx.model.javafx.impl;
 
 import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.ControlFX;
+import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.JavafxFactory;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.ModelFX;
@@ -74,6 +76,20 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass attributeFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass beanEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass derivedBeanEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -297,6 +313,33 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBean() {
+		return beanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDerivedBean() {
+		return derivedBeanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDerivedBean_InstanceType() {
+		return (EAttribute) derivedBeanEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JavafxFactory getJavafxFactory() {
 		return (JavafxFactory) getEFactoryInstance();
 	}
@@ -344,6 +387,11 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 
 		attributeFXEClass = createEClass(ATTRIBUTE_FX);
 		createEAttribute(attributeFXEClass, ATTRIBUTE_FX__TYPE);
+
+		beanEClass = createEClass(BEAN);
+
+		derivedBeanEClass = createEClass(DERIVED_BEAN);
+		createEAttribute(derivedBeanEClass, DERIVED_BEAN__INSTANCE_TYPE);
 	}
 
 	/**
@@ -381,6 +429,8 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		tableColumnFXEClass.getESuperTypes().add(this.getNamedElement());
 		modelFXEClass.getESuperTypes().add(this.getNamedElement());
 		attributeFXEClass.getESuperTypes().add(this.getNamedElement());
+		beanEClass.getESuperTypes().add(this.getModelFX());
+		derivedBeanEClass.getESuperTypes().add(this.getModelFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(projectFXEClass, ProjectFX.class, "ProjectFX", !IS_ABSTRACT, !IS_INTERFACE,
@@ -420,7 +470,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				TableColumnFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(modelFXEClass, ModelFX.class, "ModelFX", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(modelFXEClass, ModelFX.class, "ModelFX", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelFX_Attributes(), this.getAttributeFX(), null, "attributes", null, 0, -1, ModelFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -429,6 +479,14 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttributeFX_Type(), ecorePackage.getEString(), "type", null, 0, 1, AttributeFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(beanEClass, Bean.class, "Bean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(derivedBeanEClass, DerivedBean.class, "DerivedBean", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDerivedBean_InstanceType(), ecorePackage.getEString(), "instanceType", null, 0, 1,
+				DerivedBean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -58,15 +58,6 @@ public interface JavafxFactory extends EFactory {
 	TableColumnFX createTableColumnFX();
 
 	/**
-	 * Returns a new object of class '<em>Model FX</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model FX</em>'.
-	 * @generated
-	 */
-	ModelFX createModelFX();
-
-	/**
 	 * Returns a new object of class '<em>Attribute FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,6 +65,24 @@ public interface JavafxFactory extends EFactory {
 	 * @generated
 	 */
 	AttributeFX createAttributeFX();
+
+	/**
+	 * Returns a new object of class '<em>Bean</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bean</em>'.
+	 * @generated
+	 */
+	Bean createBean();
+
+	/**
+	 * Returns a new object of class '<em>Derived Bean</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Derived Bean</em>'.
+	 * @generated
+	 */
+	DerivedBean createDerivedBean();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -202,8 +202,11 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
 				JavafxFactory.eINSTANCE.createTableViewFX()));
 
+		newChildDescriptors.add(
+				createChildParameter(JavafxPackage.Literals.PROJECT_FX__MODELS, JavafxFactory.eINSTANCE.createBean()));
+
 		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__MODELS,
-				JavafxFactory.eINSTANCE.createModelFX()));
+				JavafxFactory.eINSTANCE.createDerivedBean()));
 	}
 
 }

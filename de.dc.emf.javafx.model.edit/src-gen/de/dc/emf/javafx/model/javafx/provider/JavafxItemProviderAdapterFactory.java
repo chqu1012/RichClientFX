@@ -165,29 +165,6 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.ModelFX} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModelFXItemProvider modelFXItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.ModelFX}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModelFXAdapter() {
-		if (modelFXItemProvider == null) {
-			modelFXItemProvider = new ModelFXItemProvider(this);
-		}
-
-		return modelFXItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.AttributeFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,6 +185,52 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 		}
 
 		return attributeFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.Bean} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BeanItemProvider beanItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.Bean}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBeanAdapter() {
+		if (beanItemProvider == null) {
+			beanItemProvider = new BeanItemProvider(this);
+		}
+
+		return beanItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.DerivedBean} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DerivedBeanItemProvider derivedBeanItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.DerivedBean}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDerivedBeanAdapter() {
+		if (derivedBeanItemProvider == null) {
+			derivedBeanItemProvider = new DerivedBeanItemProvider(this);
+		}
+
+		return derivedBeanItemProvider;
 	}
 
 	/**
@@ -317,10 +340,12 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			tableViewFXItemProvider.dispose();
 		if (tableColumnFXItemProvider != null)
 			tableColumnFXItemProvider.dispose();
-		if (modelFXItemProvider != null)
-			modelFXItemProvider.dispose();
 		if (attributeFXItemProvider != null)
 			attributeFXItemProvider.dispose();
+		if (beanItemProvider != null)
+			beanItemProvider.dispose();
+		if (derivedBeanItemProvider != null)
+			derivedBeanItemProvider.dispose();
 	}
 
 }

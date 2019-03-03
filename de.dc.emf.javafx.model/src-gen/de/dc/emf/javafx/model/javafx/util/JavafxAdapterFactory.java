@@ -102,6 +102,16 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseBean(Bean object) {
+			return createBeanAdapter();
+		}
+
+		@Override
+		public Adapter caseDerivedBean(DerivedBean object) {
+			return createDerivedBeanAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -215,6 +225,34 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAttributeFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.Bean <em>Bean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.Bean
+	 * @generated
+	 */
+	public Adapter createBeanAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.DerivedBean <em>Derived Bean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.DerivedBean
+	 * @generated
+	 */
+	public Adapter createDerivedBeanAdapter() {
 		return null;
 	}
 

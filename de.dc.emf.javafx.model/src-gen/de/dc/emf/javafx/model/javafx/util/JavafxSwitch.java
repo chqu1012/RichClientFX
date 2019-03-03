@@ -129,6 +129,28 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case JavafxPackage.BEAN: {
+			Bean bean = (Bean) theEObject;
+			T result = caseBean(bean);
+			if (result == null)
+				result = caseModelFX(bean);
+			if (result == null)
+				result = caseNamedElement(bean);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.DERIVED_BEAN: {
+			DerivedBean derivedBean = (DerivedBean) theEObject;
+			T result = caseDerivedBean(derivedBean);
+			if (result == null)
+				result = caseModelFX(derivedBean);
+			if (result == null)
+				result = caseNamedElement(derivedBean);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -236,6 +258,36 @@ public class JavafxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAttributeFX(AttributeFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bean</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bean</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBean(Bean object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Derived Bean</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Derived Bean</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDerivedBean(DerivedBean object) {
 		return null;
 	}
 

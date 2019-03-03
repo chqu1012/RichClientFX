@@ -22,11 +22,15 @@
         defaultValueLiteral="200"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usedAttribute" eType="#//AttributeFX"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelFX" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ModelFX" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//AttributeFX" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeFX" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bean" eSuperTypes="#//ModelFX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DerivedBean" eSuperTypes="#//ModelFX">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
