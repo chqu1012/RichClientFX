@@ -12,7 +12,7 @@ ProjectFX ContactProject{
 		}
 	}
 	
-	models{
+	models{ 
 		class Contact{
 			String forename
 			String familyName
