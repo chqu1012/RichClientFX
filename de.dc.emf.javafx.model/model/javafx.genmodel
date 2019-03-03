@@ -10,10 +10,20 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Javafx" basePackage="de.dc.emf.javafx.model" disposableProviderFactory="true"
       multipleEditorPages="false" ecorePackage="javafx.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javafx.ecore#//BindingType">
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/StringProperty"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/IntegerProperty"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/DoubleProperty"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/FloatProperty"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/BooleanProperty"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/ObjectProperty"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/ObservableList"/>
+    </genEnums>
     <genClasses ecoreClass="javafx.ecore#//ProjectFX">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/controls"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ProjectFX/packagePath"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/models"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/bindings"/>
     </genClasses>
     <genClasses ecoreClass="javafx.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//NamedElement/name"/>
@@ -36,6 +46,14 @@
     <genClasses ecoreClass="javafx.ecore#//Bean"/>
     <genClasses ecoreClass="javafx.ecore#//DerivedBean">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//DerivedBean/instanceType"/>
+    </genClasses>
+    <genClasses ecoreClass="javafx.ecore#//Binding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//Binding/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference javafx.ecore#//Binding/property"/>
+    </genClasses>
+    <genClasses ecoreClass="javafx.ecore#//BindingProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//BindingProperty/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//BindingProperty/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

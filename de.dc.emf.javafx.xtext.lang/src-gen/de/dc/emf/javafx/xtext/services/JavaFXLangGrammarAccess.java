@@ -10,6 +10,8 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -18,6 +20,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -52,19 +55,28 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cModelsAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
 		private final RuleCall cModelsModelFXParserRuleCall_6_3_0 = (RuleCall)cModelsAssignment_6_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cBindingsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cBindingsAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cBindingsBindingParserRuleCall_7_2_0 = (RuleCall)cBindingsAssignment_7_2.eContents().get(0);
+		private final Assignment cBindingsAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cBindingsBindingParserRuleCall_7_3_0 = (RuleCall)cBindingsAssignment_7_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ProjectFX:
 		//	{ProjectFX}
 		//	'ProjectFX'
 		//	name=EString
 		//	'{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
-		//	models+=ModelFX models+=ModelFX* '}')?
+		//	models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ProjectFX} 'ProjectFX' name=EString '{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX
-		//controls+=ControlFX* '}')? ('models' '{' models+=ModelFX models+=ModelFX* '}')? '}'
+		//controls+=ControlFX* '}')? ('models' '{' models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding
+		//bindings+=Binding* '}')? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{ProjectFX}
@@ -142,8 +154,120 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
 		
+		//('bindings' '{' bindings+=Binding bindings+=Binding* '}')?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'bindings'
+		public Keyword getBindingsKeyword_7_0() { return cBindingsKeyword_7_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
+		
+		//bindings+=Binding
+		public Assignment getBindingsAssignment_7_2() { return cBindingsAssignment_7_2; }
+		
+		//Binding
+		public RuleCall getBindingsBindingParserRuleCall_7_2_0() { return cBindingsBindingParserRuleCall_7_2_0; }
+		
+		//bindings+=Binding*
+		public Assignment getBindingsAssignment_7_3() { return cBindingsAssignment_7_3; }
+		
+		//Binding
+		public RuleCall getBindingsBindingParserRuleCall_7_3_0() { return cBindingsBindingParserRuleCall_7_3_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+	public class BindingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.Binding");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBindingAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cBindingKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cPropertyAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cPropertyBindingPropertyParserRuleCall_4_0_0 = (RuleCall)cPropertyAssignment_4_0.eContents().get(0);
+		private final Assignment cPropertyAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cPropertyBindingPropertyParserRuleCall_4_1_0 = (RuleCall)cPropertyAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Binding:
+		//	{Binding}
+		//	'binding' name=EString '{' (property+=BindingProperty property+=BindingProperty*)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Binding} 'binding' name=EString '{' (property+=BindingProperty property+=BindingProperty*)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{Binding}
+		public Action getBindingAction_0() { return cBindingAction_0; }
+		
+		//'binding'
+		public Keyword getBindingKeyword_1() { return cBindingKeyword_1; }
+		
+		//name=EString
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//(property+=BindingProperty property+=BindingProperty*)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//property+=BindingProperty
+		public Assignment getPropertyAssignment_4_0() { return cPropertyAssignment_4_0; }
+		
+		//BindingProperty
+		public RuleCall getPropertyBindingPropertyParserRuleCall_4_0_0() { return cPropertyBindingPropertyParserRuleCall_4_0_0; }
+		
+		//property+=BindingProperty*
+		public Assignment getPropertyAssignment_4_1() { return cPropertyAssignment_4_1; }
+		
+		//BindingProperty
+		public RuleCall getPropertyBindingPropertyParserRuleCall_4_1_0() { return cPropertyBindingPropertyParserRuleCall_4_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class BindingPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.BindingProperty");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBindingPropertyAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeBindinTypeEnumRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		
+		//BindingProperty:
+		//	{BindingProperty} type=BindinType name=EString;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{BindingProperty} type=BindinType name=EString
+		public Group getGroup() { return cGroup; }
+		
+		//{BindingProperty}
+		public Action getBindingPropertyAction_0() { return cBindingPropertyAction_0; }
+		
+		//type=BindinType
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//BindinType
+		public RuleCall getTypeBindinTypeEnumRuleCall_1_0() { return cTypeBindinTypeEnumRuleCall_1_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 	}
 	public class ControlFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.ControlFX");
@@ -546,8 +670,79 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 	}
 	
+	public class BindinTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.BindinType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cBooleanPropertyEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cBooleanPropertyBooleanPropertyKeyword_0_0 = (Keyword)cBooleanPropertyEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cDoublePropertyEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cDoublePropertyDoublePropertyKeyword_1_0 = (Keyword)cDoublePropertyEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cFloatPropertyEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cFloatPropertyFloatPropertyKeyword_2_0 = (Keyword)cFloatPropertyEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cIntegerPropertyEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cIntegerPropertyIntegerPropertyKeyword_3_0 = (Keyword)cIntegerPropertyEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cObservableListEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cObservableListObservableListKeyword_4_0 = (Keyword)cObservableListEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cObjectPropertyEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cObjectPropertyObjectPropertyKeyword_5_0 = (Keyword)cObjectPropertyEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cStringPropertyEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cStringPropertyStringPropertyKeyword_6_0 = (Keyword)cStringPropertyEnumLiteralDeclaration_6.eContents().get(0);
+		
+		//enum BindinType returns BindingType:
+		//	BooleanProperty | DoubleProperty | FloatProperty | IntegerProperty | ObservableList | ObjectProperty |
+		//	StringProperty;
+		public EnumRule getRule() { return rule; }
+		
+		//BooleanProperty | DoubleProperty | FloatProperty | IntegerProperty | ObservableList | ObjectProperty | StringProperty
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//BooleanProperty
+		public EnumLiteralDeclaration getBooleanPropertyEnumLiteralDeclaration_0() { return cBooleanPropertyEnumLiteralDeclaration_0; }
+		
+		//"BooleanProperty"
+		public Keyword getBooleanPropertyBooleanPropertyKeyword_0_0() { return cBooleanPropertyBooleanPropertyKeyword_0_0; }
+		
+		//DoubleProperty
+		public EnumLiteralDeclaration getDoublePropertyEnumLiteralDeclaration_1() { return cDoublePropertyEnumLiteralDeclaration_1; }
+		
+		//"DoubleProperty"
+		public Keyword getDoublePropertyDoublePropertyKeyword_1_0() { return cDoublePropertyDoublePropertyKeyword_1_0; }
+		
+		//FloatProperty
+		public EnumLiteralDeclaration getFloatPropertyEnumLiteralDeclaration_2() { return cFloatPropertyEnumLiteralDeclaration_2; }
+		
+		//"FloatProperty"
+		public Keyword getFloatPropertyFloatPropertyKeyword_2_0() { return cFloatPropertyFloatPropertyKeyword_2_0; }
+		
+		//IntegerProperty
+		public EnumLiteralDeclaration getIntegerPropertyEnumLiteralDeclaration_3() { return cIntegerPropertyEnumLiteralDeclaration_3; }
+		
+		//"IntegerProperty"
+		public Keyword getIntegerPropertyIntegerPropertyKeyword_3_0() { return cIntegerPropertyIntegerPropertyKeyword_3_0; }
+		
+		//ObservableList
+		public EnumLiteralDeclaration getObservableListEnumLiteralDeclaration_4() { return cObservableListEnumLiteralDeclaration_4; }
+		
+		//"ObservableList"
+		public Keyword getObservableListObservableListKeyword_4_0() { return cObservableListObservableListKeyword_4_0; }
+		
+		//ObjectProperty
+		public EnumLiteralDeclaration getObjectPropertyEnumLiteralDeclaration_5() { return cObjectPropertyEnumLiteralDeclaration_5; }
+		
+		//"ObjectProperty"
+		public Keyword getObjectPropertyObjectPropertyKeyword_5_0() { return cObjectPropertyObjectPropertyKeyword_5_0; }
+		
+		//StringProperty
+		public EnumLiteralDeclaration getStringPropertyEnumLiteralDeclaration_6() { return cStringPropertyEnumLiteralDeclaration_6; }
+		
+		//"StringProperty"
+		public Keyword getStringPropertyStringPropertyKeyword_6_0() { return cStringPropertyStringPropertyKeyword_6_0; }
+	}
 	
 	private final ProjectFXElements pProjectFX;
+	private final BindingElements pBinding;
+	private final BindingPropertyElements pBindingProperty;
+	private final BindinTypeElements eBindinType;
 	private final ControlFXElements pControlFX;
 	private final EStringElements pEString;
 	private final ModelFXElements pModelFX;
@@ -568,6 +763,9 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pProjectFX = new ProjectFXElements();
+		this.pBinding = new BindingElements();
+		this.pBindingProperty = new BindingPropertyElements();
+		this.eBindinType = new BindinTypeElements();
 		this.pControlFX = new ControlFXElements();
 		this.pEString = new EStringElements();
 		this.pModelFX = new ModelFXElements();
@@ -611,7 +809,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	'ProjectFX'
 	//	name=EString
 	//	'{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
-	//	models+=ModelFX models+=ModelFX* '}')?
+	//	models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')?
 	//	'}';
 	public ProjectFXElements getProjectFXAccess() {
 		return pProjectFX;
@@ -619,6 +817,39 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getProjectFXRule() {
 		return getProjectFXAccess().getRule();
+	}
+	
+	//Binding:
+	//	{Binding}
+	//	'binding' name=EString '{' (property+=BindingProperty property+=BindingProperty*)?
+	//	'}';
+	public BindingElements getBindingAccess() {
+		return pBinding;
+	}
+	
+	public ParserRule getBindingRule() {
+		return getBindingAccess().getRule();
+	}
+	
+	//BindingProperty:
+	//	{BindingProperty} type=BindinType name=EString;
+	public BindingPropertyElements getBindingPropertyAccess() {
+		return pBindingProperty;
+	}
+	
+	public ParserRule getBindingPropertyRule() {
+		return getBindingPropertyAccess().getRule();
+	}
+	
+	//enum BindinType returns BindingType:
+	//	BooleanProperty | DoubleProperty | FloatProperty | IntegerProperty | ObservableList | ObjectProperty |
+	//	StringProperty;
+	public BindinTypeElements getBindinTypeAccess() {
+		return eBindinType;
+	}
+	
+	public EnumRule getBindinTypeRule() {
+		return getBindinTypeAccess().getRule();
 	}
 	
 	//ControlFX:

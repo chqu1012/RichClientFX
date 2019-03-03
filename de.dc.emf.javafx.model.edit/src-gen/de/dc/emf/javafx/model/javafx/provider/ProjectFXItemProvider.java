@@ -114,6 +114,7 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JavafxPackage.Literals.PROJECT_FX__CONTROLS);
 			childrenFeatures.add(JavafxPackage.Literals.PROJECT_FX__MODELS);
+			childrenFeatures.add(JavafxPackage.Literals.PROJECT_FX__BINDINGS);
 		}
 		return childrenFeatures;
 	}
@@ -182,6 +183,7 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 			return;
 		case JavafxPackage.PROJECT_FX__CONTROLS:
 		case JavafxPackage.PROJECT_FX__MODELS:
+		case JavafxPackage.PROJECT_FX__BINDINGS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -207,6 +209,9 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__MODELS,
 				JavafxFactory.eINSTANCE.createDerivedBean()));
+
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__BINDINGS,
+				JavafxFactory.eINSTANCE.createBinding()));
 	}
 
 }

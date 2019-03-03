@@ -8,6 +8,10 @@ import de.dc.emf.javafx.model.javafx.NamedElement
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableColumnFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
+import de.dc.emf.javafx.model.javafx.Binding
+import de.dc.emf.javafx.model.javafx.Bean
+import de.dc.emf.javafx.model.javafx.DerivedBean
+import de.dc.emf.javafx.model.javafx.BindingProperty
 
 class EnableGeneratorSwitch extends JavafxSwitch<Boolean>{
 	
@@ -16,7 +20,11 @@ class EnableGeneratorSwitch extends JavafxSwitch<Boolean>{
 	override caseNamedElement(NamedElement object) {false}
 	override caseProjectFX(ProjectFX object) {false}
 	override caseTableColumnFX(TableColumnFX object) {false}
-	
+	override caseBindingProperty(BindingProperty object) {false}
+		
+	override caseDerivedBean(DerivedBean object) {true}
+	override caseBean(Bean object) {true}
+	override caseBinding(Binding object) {true}
 	override caseModelFX(ModelFX object) {true}
 	override caseTableViewFX(TableViewFX object) {true}
 					

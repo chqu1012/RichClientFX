@@ -12,7 +12,24 @@ ProjectFX returns ProjectFX:
 		('packagePath' packagePath=EString)?
 		('controls' '{' controls+=ControlFX (controls+=ControlFX)* '}' )?
 		('models' '{' models+=ModelFX (models+=ModelFX)* '}' )?
+		('bindings' '{' bindings+=Binding(bindings+=Binding)* '}' )?
 	'}';
+
+Binding returns Binding:
+	{Binding}
+	'binding' name=EString '{'
+		(property+=BindingProperty (property+=BindingProperty)* )?
+	'}'
+;
+
+BindingProperty returns BindingProperty:
+	{BindingProperty}
+	type=BindinType name=EString
+;
+
+enum BindinType returns BindingType:
+	BooleanProperty | DoubleProperty | FloatProperty | IntegerProperty | ObservableList | ObjectProperty | StringProperty
+;
 
 ControlFX returns ControlFX:
 	TableViewFX;

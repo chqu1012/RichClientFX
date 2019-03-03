@@ -2,6 +2,7 @@
  */
 package de.dc.emf.javafx.model.javafx.impl;
 
+import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.ModelFX;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ProjectFXImpl#getControls <em>Controls</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ProjectFXImpl#getPackagePath <em>Package Path</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ProjectFXImpl#getModels <em>Models</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ProjectFXImpl#getBindings <em>Bindings</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,6 +79,16 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * @ordered
 	 */
 	protected EList<ModelFX> models;
+
+	/**
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Binding> bindings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,6 +161,18 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Binding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentEList<Binding>(Binding.class, this, JavafxPackage.PROJECT_FX__BINDINGS);
+		}
+		return bindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -156,6 +180,8 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 			return ((InternalEList<?>) getControls()).basicRemove(otherEnd, msgs);
 		case JavafxPackage.PROJECT_FX__MODELS:
 			return ((InternalEList<?>) getModels()).basicRemove(otherEnd, msgs);
+		case JavafxPackage.PROJECT_FX__BINDINGS:
+			return ((InternalEList<?>) getBindings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -174,6 +200,8 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 			return getPackagePath();
 		case JavafxPackage.PROJECT_FX__MODELS:
 			return getModels();
+		case JavafxPackage.PROJECT_FX__BINDINGS:
+			return getBindings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,6 +226,10 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 			getModels().clear();
 			getModels().addAll((Collection<? extends ModelFX>) newValue);
 			return;
+		case JavafxPackage.PROJECT_FX__BINDINGS:
+			getBindings().clear();
+			getBindings().addAll((Collection<? extends Binding>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -219,6 +251,9 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 		case JavafxPackage.PROJECT_FX__MODELS:
 			getModels().clear();
 			return;
+		case JavafxPackage.PROJECT_FX__BINDINGS:
+			getBindings().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -237,6 +272,8 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 			return PACKAGE_PATH_EDEFAULT == null ? packagePath != null : !PACKAGE_PATH_EDEFAULT.equals(packagePath);
 		case JavafxPackage.PROJECT_FX__MODELS:
 			return models != null && !models.isEmpty();
+		case JavafxPackage.PROJECT_FX__BINDINGS:
+			return bindings != null && !bindings.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

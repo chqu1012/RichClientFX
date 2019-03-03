@@ -6,6 +6,8 @@ package de.dc.emf.javafx.xtext.serializer;
 import com.google.inject.Inject;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.Bean;
+import de.dc.emf.javafx.model.javafx.Binding;
+import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
@@ -42,6 +44,12 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case JavafxPackage.BEAN:
 				sequence_Bean(context, (Bean) semanticObject); 
+				return; 
+			case JavafxPackage.BINDING:
+				sequence_Binding(context, (Binding) semanticObject); 
+				return; 
+			case JavafxPackage.BINDING_PROPERTY:
+				sequence_BindingProperty(context, (BindingProperty) semanticObject); 
 				return; 
 			case JavafxPackage.DERIVED_BEAN:
 				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
@@ -96,6 +104,39 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     BindingProperty returns BindingProperty
+	 *
+	 * Constraint:
+	 *     (type=BindinType name=EString)
+	 */
+	protected void sequence_BindingProperty(ISerializationContext context, BindingProperty semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.BINDING_PROPERTY__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.BINDING_PROPERTY__TYPE));
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.BINDING_PROPERTY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.BINDING_PROPERTY__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBindingPropertyAccess().getTypeBindinTypeEnumRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getBindingPropertyAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Binding returns Binding
+	 *
+	 * Constraint:
+	 *     (name=EString (property+=BindingProperty property+=BindingProperty*)?)
+	 */
+	protected void sequence_Binding(ISerializationContext context, Binding semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ModelFX returns DerivedBean
 	 *     DerivedBean returns DerivedBean
 	 *
@@ -112,7 +153,13 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ProjectFX returns ProjectFX
 	 *
 	 * Constraint:
-	 *     (name=EString packagePath=EString? (controls+=ControlFX controls+=ControlFX*)? (models+=ModelFX models+=ModelFX*)?)
+	 *     (
+	 *         name=EString 
+	 *         packagePath=EString? 
+	 *         (controls+=ControlFX controls+=ControlFX*)? 
+	 *         (models+=ModelFX models+=ModelFX*)? 
+	 *         (bindings+=Binding bindings+=Binding*)?
+	 *     )
 	 */
 	protected void sequence_ProjectFX(ISerializationContext context, ProjectFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

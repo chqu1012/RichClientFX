@@ -234,6 +234,52 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.Binding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BindingItemProvider bindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.Binding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBindingAdapter() {
+		if (bindingItemProvider == null) {
+			bindingItemProvider = new BindingItemProvider(this);
+		}
+
+		return bindingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.BindingProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BindingPropertyItemProvider bindingPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.BindingProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBindingPropertyAdapter() {
+		if (bindingPropertyItemProvider == null) {
+			bindingPropertyItemProvider = new BindingPropertyItemProvider(this);
+		}
+
+		return bindingPropertyItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,6 +392,10 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			beanItemProvider.dispose();
 		if (derivedBeanItemProvider != null)
 			derivedBeanItemProvider.dispose();
+		if (bindingItemProvider != null)
+			bindingItemProvider.dispose();
+		if (bindingPropertyItemProvider != null)
+			bindingPropertyItemProvider.dispose();
 	}
 
 }

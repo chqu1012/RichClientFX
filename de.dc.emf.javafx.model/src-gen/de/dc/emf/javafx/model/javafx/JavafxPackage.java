@@ -4,6 +4,7 @@ package de.dc.emf.javafx.model.javafx;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -140,13 +141,22 @@ public interface JavafxPackage extends EPackage {
 	int PROJECT_FX__MODELS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_FX__BINDINGS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Project FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PROJECT_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Project FX</em>' class.
@@ -498,6 +508,108 @@ public interface JavafxPackage extends EPackage {
 	int DERIVED_BEAN_OPERATION_COUNT = MODEL_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.BindingImpl <em>Binding</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.BindingImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBinding()
+	 * @generated
+	 */
+	int BINDING = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING__PROPERTY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Binding</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Binding</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.BindingPropertyImpl <em>Binding Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.BindingPropertyImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingProperty()
+	 * @generated
+	 */
+	int BINDING_PROPERTY = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_PROPERTY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_PROPERTY__TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Binding Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_PROPERTY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Binding Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_PROPERTY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.BindingType <em>Binding Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.BindingType
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingType()
+	 * @generated
+	 */
+	int BINDING_TYPE = 11;
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ProjectFX <em>Project FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -539,6 +651,17 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProjectFX_Models();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.ProjectFX#getBindings <em>Bindings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bindings</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ProjectFX#getBindings()
+	 * @see #getProjectFX()
+	 * @generated
+	 */
+	EReference getProjectFX_Bindings();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.NamedElement <em>Named Element</em>}'.
@@ -709,6 +832,80 @@ public interface JavafxPackage extends EPackage {
 	EAttribute getDerivedBean_InstanceType();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.Binding <em>Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binding</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Binding
+	 * @generated
+	 */
+	EClass getBinding();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.Binding#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Binding#getName()
+	 * @see #getBinding()
+	 * @generated
+	 */
+	EAttribute getBinding_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.Binding#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Property</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Binding#getProperty()
+	 * @see #getBinding()
+	 * @generated
+	 */
+	EReference getBinding_Property();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.BindingProperty <em>Binding Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binding Property</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BindingProperty
+	 * @generated
+	 */
+	EClass getBindingProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.BindingProperty#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BindingProperty#getName()
+	 * @see #getBindingProperty()
+	 * @generated
+	 */
+	EAttribute getBindingProperty_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.BindingProperty#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BindingProperty#getType()
+	 * @see #getBindingProperty()
+	 * @generated
+	 */
+	EAttribute getBindingProperty_Type();
+
+	/**
+	 * Returns the meta object for enum '{@link de.dc.emf.javafx.model.javafx.BindingType <em>Binding Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Binding Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BindingType
+	 * @generated
+	 */
+	EEnum getBindingType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -764,6 +961,14 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROJECT_FX__MODELS = eINSTANCE.getProjectFX_Models();
+
+		/**
+		 * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT_FX__BINDINGS = eINSTANCE.getProjectFX_Bindings();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -908,6 +1113,68 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DERIVED_BEAN__INSTANCE_TYPE = eINSTANCE.getDerivedBean_InstanceType();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BindingImpl <em>Binding</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BindingImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBinding()
+		 * @generated
+		 */
+		EClass BINDING = eINSTANCE.getBinding();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINDING__NAME = eINSTANCE.getBinding_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINDING__PROPERTY = eINSTANCE.getBinding_Property();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BindingPropertyImpl <em>Binding Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BindingPropertyImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingProperty()
+		 * @generated
+		 */
+		EClass BINDING_PROPERTY = eINSTANCE.getBindingProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINDING_PROPERTY__NAME = eINSTANCE.getBindingProperty_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINDING_PROPERTY__TYPE = eINSTANCE.getBindingProperty_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.BindingType <em>Binding Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.BindingType
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingType()
+		 * @generated
+		 */
+		EEnum BINDING_TYPE = eINSTANCE.getBindingType();
 
 	}
 

@@ -5,6 +5,7 @@ package de.dc.emf.javafx.model.javafx.impl;
 import de.dc.emf.javafx.model.javafx.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -70,8 +71,42 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createBean();
 		case JavafxPackage.DERIVED_BEAN:
 			return createDerivedBean();
+		case JavafxPackage.BINDING:
+			return createBinding();
+		case JavafxPackage.BINDING_PROPERTY:
+			return createBindingProperty();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+		case JavafxPackage.BINDING_TYPE:
+			return createBindingTypeFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+		case JavafxPackage.BINDING_TYPE:
+			return convertBindingTypeToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -143,6 +178,48 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	public DerivedBean createDerivedBean() {
 		DerivedBeanImpl derivedBean = new DerivedBeanImpl();
 		return derivedBean;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Binding createBinding() {
+		BindingImpl binding = new BindingImpl();
+		return binding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BindingProperty createBindingProperty() {
+		BindingPropertyImpl bindingProperty = new BindingPropertyImpl();
+		return bindingProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BindingType createBindingTypeFromString(EDataType eDataType, String initialValue) {
+		BindingType result = BindingType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBindingTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

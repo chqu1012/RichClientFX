@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.dc.emf.javafx.model.javafx.ProjectFX#getControls <em>Controls</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.ProjectFX#getPackagePath <em>Package Path</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.ProjectFX#getModels <em>Models</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.ProjectFX#getBindings <em>Bindings</em>}</li>
  * </ul>
  *
  * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getProjectFX()
@@ -80,5 +81,21 @@ public interface ProjectFX extends NamedElement {
 	 * @generated
 	 */
 	EList<ModelFX> getModels();
+
+	/**
+	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
+	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.Binding}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bindings</em>' containment reference list.
+	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getProjectFX_Bindings()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Binding> getBindings();
 
 } // ProjectFX

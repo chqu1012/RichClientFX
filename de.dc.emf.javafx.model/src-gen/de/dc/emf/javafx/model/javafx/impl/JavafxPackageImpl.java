@@ -4,6 +4,9 @@ package de.dc.emf.javafx.model.javafx.impl;
 
 import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.Bean;
+import de.dc.emf.javafx.model.javafx.Binding;
+import de.dc.emf.javafx.model.javafx.BindingProperty;
+import de.dc.emf.javafx.model.javafx.BindingType;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.JavafxFactory;
@@ -16,6 +19,7 @@ import de.dc.emf.javafx.model.javafx.TableViewFX;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -90,6 +94,27 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass derivedBeanEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bindingPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum bindingTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -189,6 +214,15 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 */
 	public EReference getProjectFX_Models() {
 		return (EReference) projectFXEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProjectFX_Bindings() {
+		return (EReference) projectFXEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -340,6 +374,69 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBinding() {
+		return bindingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBinding_Name() {
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBinding_Property() {
+		return (EReference) bindingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBindingProperty() {
+		return bindingPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBindingProperty_Name() {
+		return (EAttribute) bindingPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBindingProperty_Type() {
+		return (EAttribute) bindingPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBindingType() {
+		return bindingTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JavafxFactory getJavafxFactory() {
 		return (JavafxFactory) getEFactoryInstance();
 	}
@@ -368,6 +465,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEReference(projectFXEClass, PROJECT_FX__CONTROLS);
 		createEAttribute(projectFXEClass, PROJECT_FX__PACKAGE_PATH);
 		createEReference(projectFXEClass, PROJECT_FX__MODELS);
+		createEReference(projectFXEClass, PROJECT_FX__BINDINGS);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -392,6 +490,17 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 
 		derivedBeanEClass = createEClass(DERIVED_BEAN);
 		createEAttribute(derivedBeanEClass, DERIVED_BEAN__INSTANCE_TYPE);
+
+		bindingEClass = createEClass(BINDING);
+		createEAttribute(bindingEClass, BINDING__NAME);
+		createEReference(bindingEClass, BINDING__PROPERTY);
+
+		bindingPropertyEClass = createEClass(BINDING_PROPERTY);
+		createEAttribute(bindingPropertyEClass, BINDING_PROPERTY__NAME);
+		createEAttribute(bindingPropertyEClass, BINDING_PROPERTY__TYPE);
+
+		// Create enums
+		bindingTypeEEnum = createEEnum(BINDING_TYPE);
 	}
 
 	/**
@@ -444,6 +553,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		initEReference(getProjectFX_Models(), this.getModelFX(), null, "models", null, 0, -1, ProjectFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProjectFX_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, ProjectFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -487,6 +599,30 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		initEAttribute(getDerivedBean_InstanceType(), ecorePackage.getEString(), "instanceType", null, 0, 1,
 				DerivedBean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBinding_Name(), ecorePackage.getEString(), "name", null, 0, 1, Binding.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinding_Property(), this.getBindingProperty(), null, "property", null, 0, -1, Binding.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bindingPropertyEClass, BindingProperty.class, "BindingProperty", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBindingProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, BindingProperty.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBindingProperty_Type(), this.getBindingType(), "type", null, 0, 1, BindingProperty.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(bindingTypeEEnum, BindingType.class, "BindingType");
+		addEEnumLiteral(bindingTypeEEnum, BindingType.STRING_PROPERTY);
+		addEEnumLiteral(bindingTypeEEnum, BindingType.INTEGER_PROPERTY);
+		addEEnumLiteral(bindingTypeEEnum, BindingType.DOUBLE_PROPERTY);
+		addEEnumLiteral(bindingTypeEEnum, BindingType.FLOAT_PROPERTY);
+		addEEnumLiteral(bindingTypeEEnum, BindingType.BOOLEAN_PROPERTY);
+		addEEnumLiteral(bindingTypeEEnum, BindingType.OBJECT_PROPERTY);
+		addEEnumLiteral(bindingTypeEEnum, BindingType.OBSERVABLE_LIST);
 
 		// Create resource
 		createResource(eNS_URI);

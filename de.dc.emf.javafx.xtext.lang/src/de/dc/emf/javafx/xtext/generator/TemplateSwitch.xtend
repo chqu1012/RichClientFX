@@ -7,6 +7,8 @@ import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import org.eclipse.emf.ecore.util.EcoreUtil
 import de.dc.emf.javafx.model.javafx.Bean
 import de.dc.emf.javafx.model.javafx.DerivedBean
+import de.dc.emf.javafx.model.javafx.Binding
+import de.dc.emf.javafx.model.javafx.BindingType
 
 class TemplateSwitch extends JavafxSwitch<String>{
 	
@@ -114,4 +116,39 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	}
 	'''	
 	
+	override caseBinding(Binding object)'''
+	«val packagePath = (EcoreUtil.getRootContainer(object) as ProjectFX).packagePath»
+	package «packagePath».binding;
+	
+	import javafx.beans.property.*;
+	import javafx.collections.*;
+	
+	public class «object.name.toFirstUpper»{
+	
+		«FOR property : object.property»
+		«IF property.type==BindingType.OBSERVABLE_LIST»
+		private ObservableList «property.name.toFirstLower» = FXCollections.observableArrayList();
+		«ELSE»
+		private «property.type» «property.name.toFirstLower» = new Simple«property.type»();	
+		«ENDIF»
+		«ENDFOR»
+		
+		«FOR property : object.property»
+		public void set«property.name.toFirstUpper»(«property.type.toString.replace('Property', '')» «property.name.toFirstLower.replace('Property', '')») {
+			«property.name.toFirstLower».set(«property.name.toFirstLower.replace('Property', '')»);
+		}
+		
+		public «property.type.toString.replace('Property', '')» get«property.name.toFirstUpper»() {
+			return «property.name.toFirstLower».get();
+		}
+		
+		public «property.type» get«property.name.toFirstUpper.replace('Property', '')»() {
+			return «property.name.toFirstLower»;
+		}
+		public void set«property.name.toFirstUpper.replace('Property', '')»(«property.type.toString.replace('Property', '')» «property.name.toFirstLower.replace('Property', '')») {
+			this.«property.name.toFirstLower».set(«property.name.toFirstLower.replace('Property', '')»);
+		}
+		«ENDFOR»
+	}
+	'''
 }

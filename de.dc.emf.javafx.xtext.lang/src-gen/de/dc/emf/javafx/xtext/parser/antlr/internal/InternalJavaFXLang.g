@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -239,10 +240,223 @@ ruleProjectFX returns [EObject current=null]
 				newLeafNode(otherlv_15, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_6_4());
 			}
 		)?
-		otherlv_16='}'
+		(
+			otherlv_16='bindings'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getProjectFXAccess().getBindingsKeyword_7_0());
+			}
+			otherlv_17='{'
+			{
+				newLeafNode(otherlv_17, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_7_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProjectFXAccess().getBindingsBindingParserRuleCall_7_2_0());
+					}
+					lv_bindings_18_0=ruleBinding
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
+						}
+						add(
+							$current,
+							"bindings",
+							lv_bindings_18_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.Binding");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProjectFXAccess().getBindingsBindingParserRuleCall_7_3_0());
+					}
+					lv_bindings_19_0=ruleBinding
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
+						}
+						add(
+							$current,
+							"bindings",
+							lv_bindings_19_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.Binding");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			otherlv_20='}'
+			{
+				newLeafNode(otherlv_20, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_7_4());
+			}
+		)?
+		otherlv_21='}'
 		{
-			newLeafNode(otherlv_16, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_21, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_8());
 		}
+	)
+;
+
+// Entry rule entryRuleBinding
+entryRuleBinding returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBindingRule()); }
+	iv_ruleBinding=ruleBinding
+	{ $current=$iv_ruleBinding.current; }
+	EOF;
+
+// Rule Binding
+ruleBinding returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getBindingAccess().getBindingAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='binding'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getBindingAccess().getBindingKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBindingAccess().getNameEStringParserRuleCall_2_0());
+				}
+				lv_name_2_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBindingRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_2_0,
+						"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='{'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getBindingAccess().getLeftCurlyBracketKeyword_3());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBindingAccess().getPropertyBindingPropertyParserRuleCall_4_0_0());
+					}
+					lv_property_4_0=ruleBindingProperty
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBindingRule());
+						}
+						add(
+							$current,
+							"property",
+							lv_property_4_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.BindingProperty");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBindingAccess().getPropertyBindingPropertyParserRuleCall_4_1_0());
+					}
+					lv_property_5_0=ruleBindingProperty
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBindingRule());
+						}
+						add(
+							$current,
+							"property",
+							lv_property_5_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.BindingProperty");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
+		otherlv_6='}'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getBindingAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleBindingProperty
+entryRuleBindingProperty returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBindingPropertyRule()); }
+	iv_ruleBindingProperty=ruleBindingProperty
+	{ $current=$iv_ruleBindingProperty.current; }
+	EOF;
+
+// Rule BindingProperty
+ruleBindingProperty returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getBindingPropertyAccess().getBindingPropertyAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBindingPropertyAccess().getTypeBindinTypeEnumRuleCall_1_0());
+				}
+				lv_type_1_0=ruleBindinType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBindingPropertyRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_1_0,
+						"de.dc.emf.javafx.xtext.JavaFXLang.BindinType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBindingPropertyAccess().getNameEStringParserRuleCall_2_0());
+				}
+				lv_name_2_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBindingPropertyRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_2_0,
+						"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -888,6 +1102,73 @@ ruleAttributeFX returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
+		)
+	)
+;
+
+// Rule BindinType
+ruleBindinType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='BooleanProperty'
+			{
+				$current = grammarAccess.getBindinTypeAccess().getBooleanPropertyEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getBindinTypeAccess().getBooleanPropertyEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='DoubleProperty'
+			{
+				$current = grammarAccess.getBindinTypeAccess().getDoublePropertyEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getBindinTypeAccess().getDoublePropertyEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='FloatProperty'
+			{
+				$current = grammarAccess.getBindinTypeAccess().getFloatPropertyEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getBindinTypeAccess().getFloatPropertyEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='IntegerProperty'
+			{
+				$current = grammarAccess.getBindinTypeAccess().getIntegerPropertyEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getBindinTypeAccess().getIntegerPropertyEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='ObservableList'
+			{
+				$current = grammarAccess.getBindinTypeAccess().getObservableListEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getBindinTypeAccess().getObservableListEnumLiteralDeclaration_4());
+			}
+		)
+		    |
+		(
+			enumLiteral_5='ObjectProperty'
+			{
+				$current = grammarAccess.getBindinTypeAccess().getObjectPropertyEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getBindinTypeAccess().getObjectPropertyEnumLiteralDeclaration_5());
+			}
+		)
+		    |
+		(
+			enumLiteral_6='StringProperty'
+			{
+				$current = grammarAccess.getBindinTypeAccess().getStringPropertyEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getBindinTypeAccess().getStringPropertyEnumLiteralDeclaration_6());
+			}
 		)
 	)
 ;

@@ -85,6 +85,24 @@ public interface JavafxFactory extends EFactory {
 	DerivedBean createDerivedBean();
 
 	/**
+	 * Returns a new object of class '<em>Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binding</em>'.
+	 * @generated
+	 */
+	Binding createBinding();
+
+	/**
+	 * Returns a new object of class '<em>Binding Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binding Property</em>'.
+	 * @generated
+	 */
+	BindingProperty createBindingProperty();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

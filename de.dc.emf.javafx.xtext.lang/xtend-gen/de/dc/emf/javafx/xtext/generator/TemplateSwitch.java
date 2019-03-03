@@ -1,7 +1,11 @@
 package de.dc.emf.javafx.xtext.generator;
 
+import com.google.common.base.Objects;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.Bean;
+import de.dc.emf.javafx.model.javafx.Binding;
+import de.dc.emf.javafx.model.javafx.BindingProperty;
+import de.dc.emf.javafx.model.javafx.BindingType;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
@@ -459,6 +463,161 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  @Override
+  public String caseBinding(final Binding object) {
+    StringConcatenation _builder = new StringConcatenation();
+    EObject _rootContainer = EcoreUtil.getRootContainer(object);
+    final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
+    _builder.newLineIfNotEmpty();
+    _builder.append("package ");
+    _builder.append(packagePath);
+    _builder.append(".binding;");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("import javafx.beans.property.*;");
+    _builder.newLine();
+    _builder.append("import javafx.collections.*;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _firstUpper = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper);
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    {
+      EList<BindingProperty> _property = object.getProperty();
+      for(final BindingProperty property : _property) {
+        {
+          BindingType _type = property.getType();
+          boolean _equals = Objects.equal(_type, BindingType.OBSERVABLE_LIST);
+          if (_equals) {
+            _builder.append("\t");
+            _builder.append("private ObservableList ");
+            String _firstLower = StringExtensions.toFirstLower(property.getName());
+            _builder.append(_firstLower, "\t");
+            _builder.append(" = FXCollections.observableArrayList();");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t");
+            _builder.append("private ");
+            BindingType _type_1 = property.getType();
+            _builder.append(_type_1, "\t");
+            _builder.append(" ");
+            String _firstLower_1 = StringExtensions.toFirstLower(property.getName());
+            _builder.append(_firstLower_1, "\t");
+            _builder.append(" = new Simple");
+            BindingType _type_2 = property.getType();
+            _builder.append(_type_2, "\t");
+            _builder.append("();\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<BindingProperty> _property_1 = object.getProperty();
+      for(final BindingProperty property_1 : _property_1) {
+        _builder.append("\t");
+        _builder.append("public void set");
+        String _firstUpper_1 = StringExtensions.toFirstUpper(property_1.getName());
+        _builder.append(_firstUpper_1, "\t");
+        _builder.append("(");
+        String _replace = property_1.getType().toString().replace("Property", "");
+        _builder.append(_replace, "\t");
+        _builder.append(" ");
+        String _replace_1 = StringExtensions.toFirstLower(property_1.getName()).replace("Property", "");
+        _builder.append(_replace_1, "\t");
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        String _firstLower_2 = StringExtensions.toFirstLower(property_1.getName());
+        _builder.append(_firstLower_2, "\t\t");
+        _builder.append(".set(");
+        String _replace_2 = StringExtensions.toFirstLower(property_1.getName()).replace("Property", "");
+        _builder.append(_replace_2, "\t\t");
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("public ");
+        String _replace_3 = property_1.getType().toString().replace("Property", "");
+        _builder.append(_replace_3, "\t");
+        _builder.append(" get");
+        String _firstUpper_2 = StringExtensions.toFirstUpper(property_1.getName());
+        _builder.append(_firstUpper_2, "\t");
+        _builder.append("() {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("return ");
+        String _firstLower_3 = StringExtensions.toFirstLower(property_1.getName());
+        _builder.append(_firstLower_3, "\t\t");
+        _builder.append(".get();");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("public ");
+        BindingType _type_3 = property_1.getType();
+        _builder.append(_type_3, "\t");
+        _builder.append(" get");
+        String _replace_4 = StringExtensions.toFirstUpper(property_1.getName()).replace("Property", "");
+        _builder.append(_replace_4, "\t");
+        _builder.append("() {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("return ");
+        String _firstLower_4 = StringExtensions.toFirstLower(property_1.getName());
+        _builder.append(_firstLower_4, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("public void set");
+        String _replace_5 = StringExtensions.toFirstUpper(property_1.getName()).replace("Property", "");
+        _builder.append(_replace_5, "\t");
+        _builder.append("(");
+        String _replace_6 = property_1.getType().toString().replace("Property", "");
+        _builder.append(_replace_6, "\t");
+        _builder.append(" ");
+        String _replace_7 = StringExtensions.toFirstLower(property_1.getName()).replace("Property", "");
+        _builder.append(_replace_7, "\t");
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("this.");
+        String _firstLower_5 = StringExtensions.toFirstLower(property_1.getName());
+        _builder.append(_firstLower_5, "\t\t");
+        _builder.append(".set(");
+        String _replace_8 = StringExtensions.toFirstLower(property_1.getName()).replace("Property", "");
+        _builder.append(_replace_8, "\t\t");
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
     _builder.append("}");
     _builder.newLine();
     return _builder.toString();

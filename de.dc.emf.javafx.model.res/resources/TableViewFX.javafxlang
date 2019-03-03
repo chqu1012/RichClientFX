@@ -24,8 +24,8 @@ ProjectFX HelloWorld{
 				width: 100 
 				attribute: "Contact.name"
 			)
-			Column(
-				name: Age 
+			Column( 
+				name: Age  
 				attribute: "Contact.age"
 			)
 			Column(
@@ -34,7 +34,7 @@ ProjectFX HelloWorld{
 			)
 		}
 	}
-	models{ 
+	models{   
 		class Person{
 			String name
 			int age
@@ -44,6 +44,15 @@ ProjectFX HelloWorld{
 			String name
 			Integer age
 			Boolean gender
+		}
+	}
+	
+	bindings{  
+		binding FormBinding{
+			StringProperty nameProperty
+			IntegerProperty ageProperty
+			BooleanProperty genderProperty
+			ObjectProperty obProperty
 		}
 	}
 }

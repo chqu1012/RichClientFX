@@ -1,7 +1,11 @@
 package de.dc.emf.javafx.xtext.generator;
 
 import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.Bean;
+import de.dc.emf.javafx.model.javafx.Binding;
+import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.ControlFX;
+import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.NamedElement;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
@@ -34,6 +38,26 @@ public class EnableGeneratorSwitch extends JavafxSwitch<Boolean> {
   @Override
   public Boolean caseTableColumnFX(final TableColumnFX object) {
     return Boolean.valueOf(false);
+  }
+  
+  @Override
+  public Boolean caseBindingProperty(final BindingProperty object) {
+    return Boolean.valueOf(false);
+  }
+  
+  @Override
+  public Boolean caseDerivedBean(final DerivedBean object) {
+    return Boolean.valueOf(true);
+  }
+  
+  @Override
+  public Boolean caseBean(final Bean object) {
+    return Boolean.valueOf(true);
+  }
+  
+  @Override
+  public Boolean caseBinding(final Binding object) {
+    return Boolean.valueOf(true);
   }
   
   @Override

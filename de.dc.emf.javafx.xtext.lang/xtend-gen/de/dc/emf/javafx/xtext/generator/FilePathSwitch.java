@@ -1,6 +1,7 @@
 package de.dc.emf.javafx.xtext.generator;
 
 import de.dc.emf.javafx.model.javafx.Bean;
+import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
@@ -59,6 +60,18 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
     _builder.append("/model/Base");
+    String _firstUpper = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper);
+    _builder.append(".java");
+    return _builder.toString();
+  }
+  
+  @Override
+  public String caseBinding(final Binding object) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _package = FilePathSwitch.getPackage(object);
+    _builder.append(_package);
+    _builder.append("/binding/");
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");

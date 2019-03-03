@@ -33,10 +33,15 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, JavaFXLangGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getModelFXAccess().getAlternatives(), "rule__ModelFX__Alternatives");
+			builder.put(grammarAccess.getBindinTypeAccess().getAlternatives(), "rule__BindinType__Alternatives");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup(), "rule__ProjectFX__Group__0");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_4(), "rule__ProjectFX__Group_4__0");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_5(), "rule__ProjectFX__Group_5__0");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_6(), "rule__ProjectFX__Group_6__0");
+			builder.put(grammarAccess.getProjectFXAccess().getGroup_7(), "rule__ProjectFX__Group_7__0");
+			builder.put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
+			builder.put(grammarAccess.getBindingAccess().getGroup_4(), "rule__Binding__Group_4__0");
+			builder.put(grammarAccess.getBindingPropertyAccess().getGroup(), "rule__BindingProperty__Group__0");
 			builder.put(grammarAccess.getDerivedBeanAccess().getGroup(), "rule__DerivedBean__Group__0");
 			builder.put(grammarAccess.getDerivedBeanAccess().getGroup_4(), "rule__DerivedBean__Group_4__0");
 			builder.put(grammarAccess.getDerivedBeanAccess().getGroup_5(), "rule__DerivedBean__Group_5__0");
@@ -58,6 +63,13 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_5_3(), "rule__ProjectFX__ControlsAssignment_5_3");
 			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_2(), "rule__ProjectFX__ModelsAssignment_6_2");
 			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_3(), "rule__ProjectFX__ModelsAssignment_6_3");
+			builder.put(grammarAccess.getProjectFXAccess().getBindingsAssignment_7_2(), "rule__ProjectFX__BindingsAssignment_7_2");
+			builder.put(grammarAccess.getProjectFXAccess().getBindingsAssignment_7_3(), "rule__ProjectFX__BindingsAssignment_7_3");
+			builder.put(grammarAccess.getBindingAccess().getNameAssignment_2(), "rule__Binding__NameAssignment_2");
+			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_0(), "rule__Binding__PropertyAssignment_4_0");
+			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_1(), "rule__Binding__PropertyAssignment_4_1");
+			builder.put(grammarAccess.getBindingPropertyAccess().getTypeAssignment_1(), "rule__BindingProperty__TypeAssignment_1");
+			builder.put(grammarAccess.getBindingPropertyAccess().getNameAssignment_2(), "rule__BindingProperty__NameAssignment_2");
 			builder.put(grammarAccess.getDerivedBeanAccess().getNameAssignment_2(), "rule__DerivedBean__NameAssignment_2");
 			builder.put(grammarAccess.getDerivedBeanAccess().getInstanceTypeAssignment_4_1(), "rule__DerivedBean__InstanceTypeAssignment_4_1");
 			builder.put(grammarAccess.getDerivedBeanAccess().getAttributesAssignment_5_0(), "rule__DerivedBean__AttributesAssignment_5_0");
