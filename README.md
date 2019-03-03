@@ -17,6 +17,14 @@ Running application
 - [x] Code Generation via DSL
 - [ ] Code Generation via EMF Editor
 - [x] Update Site for Eclipse Installation
+- [ ] Eclipse JavaFX Preview
+- [ ] Code Generation of TreeView
+- [ ] Code Generation of TreeTableView
+- [ ] Code Generation of ListView
+- [ ] Code Generation of Custom forms
+- [ ] FXML Code Generation
+- [ ] High complex Binding
+- [ ] DSL directly to CompilationUnit 
 
 ## use example
 * Define TableView dsl
