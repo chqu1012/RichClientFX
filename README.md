@@ -28,7 +28,7 @@ Running application
 
 ## use example
 * Define TableView dsl
-```
+```java
 ProjectFX ContactProject{
 	packagePath 'de.dc.emf.javafx.xtext.demo.contact'
 	
@@ -38,7 +38,7 @@ ProjectFX ContactProject{
 			usedModel: Contact
 			Column(	name:forename 	width:100 	attribute:"Contact.forename")
 			Column(	name:familyName width:100 	attribute:"Contact.familyName")
-			Column(	name:age 					attribute:"Contact.age")
+			Column(	name:age 			attribute:"Contact.age")
 			Column(	name:address 	width:50 	attribute:"Contact.address")
 		}
 	}
