@@ -1,4 +1,4 @@
-# de.dc.emf.javafx.xtext.lang
+# JavaFX Control Generator
 Eclipse Editor for geneerating JavaFX Controls by defining meta informations in EMF or in Xtext DSL.
 
 ## Features
