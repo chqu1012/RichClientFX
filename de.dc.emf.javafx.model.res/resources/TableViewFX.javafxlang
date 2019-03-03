@@ -5,33 +5,15 @@ ProjectFX HelloWorld{
 		TableView{
 			name: PersonTableView
 			usedModel: Person
-			Column(
-				name: Name 
-				width: 300 
-				attribute:"Person.name"
-			)
-			Column(
-				name: Age 
-				width: 300 
-				attribute:"Person.age"
-			)
+			Column(name: Name width: 300 attribute:"Person.name")
+			Column(name: Age width: 300 attribute:"Person.age")
 		}
 		TableView{
 			name: ContactTableView
 			usedModel: Contact
-			Column(
-				name: Name 
-				width: 100 
-				attribute: "Contact.name"
-			)
-			Column( 
-				name: Age  
-				attribute: "Contact.age"
-			)
-			Column(
-				name: Gender 
-				attribute: "Contact.gender"
-			)
+			Column(name: Name width: 100 attribute: "Contact.name")
+			Column(name: Age attribute: "Contact.age")
+			Column(name: Gender attribute: "Contact.gender")
 		}
 	}
 	models{   
