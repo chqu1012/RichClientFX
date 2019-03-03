@@ -1,14 +1,13 @@
 package de.dc.emf.javafx.xtext.generator
 
-import de.dc.emf.javafx.model.javafx.ModelFX
+import de.dc.emf.javafx.model.javafx.Bean
+import de.dc.emf.javafx.model.javafx.Binding
+import de.dc.emf.javafx.model.javafx.BindingType
+import de.dc.emf.javafx.model.javafx.DerivedBean
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
 import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import org.eclipse.emf.ecore.util.EcoreUtil
-import de.dc.emf.javafx.model.javafx.Bean
-import de.dc.emf.javafx.model.javafx.DerivedBean
-import de.dc.emf.javafx.model.javafx.Binding
-import de.dc.emf.javafx.model.javafx.BindingType
 
 class TemplateSwitch extends JavafxSwitch<String>{
 	

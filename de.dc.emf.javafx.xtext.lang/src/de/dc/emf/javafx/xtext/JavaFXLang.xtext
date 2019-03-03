@@ -59,6 +59,7 @@ TableViewFX returns TableViewFX:
 	'TableView' '{'
 		('name:' name=EString)
 		('usedModel:' usedModel=[ModelFX|EString])?
+		('usedFilter:' useFilter=EBoolean)?
 		(columns+=TableColumnFX (columns+=TableColumnFX)*)?
 	'}'
 ;
@@ -70,7 +71,11 @@ TableColumnFX returns TableColumnFX:
 		('name:' name=EString)
 		('width:' width=EInt)? 
 		('attribute:' usedAttribute=[AttributeFX|EString])?
+		('useFilter:' useFilter=EBoolean)? 
 	')';
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
 
 EInt returns ecore::EInt:
 	'-'? INT;

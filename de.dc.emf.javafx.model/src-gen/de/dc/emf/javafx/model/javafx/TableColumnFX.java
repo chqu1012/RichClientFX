@@ -19,7 +19,7 @@ package de.dc.emf.javafx.model.javafx;
  * @model
  * @generated
  */
-public interface TableColumnFX extends NamedElement {
+public interface TableColumnFX extends NamedElement, FilteredElement {
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
 	 * The default value is <code>"200"</code>.

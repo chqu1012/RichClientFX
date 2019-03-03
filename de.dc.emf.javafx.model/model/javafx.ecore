@@ -10,16 +10,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
         eType="#//Binding" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlFX" abstract="true" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TableViewFX" eSuperTypes="#//ControlFX">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//TableColumnFX" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="usedModel" eType="#//ModelFX"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableColumnFX" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="TableColumnFX" eSuperTypes="#//NamedElement #//FilteredElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="200"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usedAttribute" eType="#//AttributeFX"/>
@@ -44,6 +36,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BindingType"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableViewFX" eSuperTypes="#//ControlFX #//FilteredElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
+        eType="#//TableColumnFX" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedModel" eType="#//ModelFX"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BindingType">
     <eLiterals name="StringProperty"/>
     <eLiterals name="IntegerProperty" value="1"/>
@@ -52,5 +49,11 @@
     <eLiterals name="BooleanProperty" value="4"/>
     <eLiterals name="ObjectProperty" value="5"/>
     <eLiterals name="ObservableList" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilteredElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

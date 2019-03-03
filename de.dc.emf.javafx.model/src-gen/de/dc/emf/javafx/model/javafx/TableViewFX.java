@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TableViewFX extends ControlFX {
+public interface TableViewFX extends ControlFX, FilteredElement {
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
 	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.TableColumnFX}.

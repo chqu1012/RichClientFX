@@ -853,12 +853,37 @@ ruleTableViewFX returns [EObject current=null]
 			)
 		)?
 		(
+			otherlv_7='usedFilter:'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getTableViewFXAccess().getUsedFilterKeyword_5_0());
+			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getUseFilterEBooleanParserRuleCall_5_1_0());
 					}
-					lv_columns_7_0=ruleTableColumnFX
+					lv_useFilter_8_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
+						}
+						set(
+							$current,
+							"useFilter",
+							lv_useFilter_8_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_0_0());
+					}
+					lv_columns_9_0=ruleTableColumnFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
@@ -866,7 +891,7 @@ ruleTableViewFX returns [EObject current=null]
 						add(
 							$current,
 							"columns",
-							lv_columns_7_0,
+							lv_columns_9_0,
 							"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
 						afterParserOrEnumRuleCall();
 					}
@@ -875,9 +900,9 @@ ruleTableViewFX returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_1_0());
 					}
-					lv_columns_8_0=ruleTableColumnFX
+					lv_columns_10_0=ruleTableColumnFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
@@ -885,16 +910,16 @@ ruleTableViewFX returns [EObject current=null]
 						add(
 							$current,
 							"columns",
-							lv_columns_8_0,
+							lv_columns_10_0,
 							"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
 		)?
-		otherlv_9='}'
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_11, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -1002,9 +1027,64 @@ ruleTableColumnFX returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_9=')'
+		(
+			otherlv_9='useFilter:'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getTableColumnFXAccess().getUseFilterKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTableColumnFXAccess().getUseFilterEBooleanParserRuleCall_6_1_0());
+					}
+					lv_useFilter_10_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTableColumnFXRule());
+						}
+						set(
+							$current,
+							"useFilter",
+							lv_useFilter_10_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_11=')'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getTableColumnFXAccess().getRightParenthesisKeyword_6());
+			newLeafNode(otherlv_11, grammarAccess.getTableColumnFXAccess().getRightParenthesisKeyword_7());
+		}
+	)
+;
+
+// Entry rule entryRuleEBoolean
+entryRuleEBoolean returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEBooleanRule()); }
+	iv_ruleEBoolean=ruleEBoolean
+	{ $current=$iv_ruleEBoolean.current.getText(); }
+	EOF;
+
+// Rule EBoolean
+ruleEBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='true'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getEBooleanAccess().getTrueKeyword_0());
+		}
+		    |
+		kw='false'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getEBooleanAccess().getFalseKeyword_1());
 		}
 	)
 ;

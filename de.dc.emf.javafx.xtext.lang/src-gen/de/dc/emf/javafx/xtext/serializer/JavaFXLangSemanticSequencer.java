@@ -171,7 +171,7 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TableColumnFX returns TableColumnFX
 	 *
 	 * Constraint:
-	 *     (name=EString width=EInt? usedAttribute=[AttributeFX|EString]?)
+	 *     (name=EString width=EInt? usedAttribute=[AttributeFX|EString]? useFilter=EBoolean?)
 	 */
 	protected void sequence_TableColumnFX(ISerializationContext context, TableColumnFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -184,7 +184,7 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TableViewFX returns TableViewFX
 	 *
 	 * Constraint:
-	 *     (name=EString usedModel=[ModelFX|EString]? (columns+=TableColumnFX columns+=TableColumnFX*)?)
+	 *     (name=EString usedModel=[ModelFX|EString]? useFilter=EBoolean? (columns+=TableColumnFX columns+=TableColumnFX*)?)
 	 */
 	protected void sequence_TableViewFX(ISerializationContext context, TableViewFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

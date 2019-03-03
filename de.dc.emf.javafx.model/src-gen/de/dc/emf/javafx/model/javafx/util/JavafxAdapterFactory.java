@@ -72,18 +72,8 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseNamedElement(NamedElement object) {
-			return createNamedElementAdapter();
-		}
-
-		@Override
 		public Adapter caseControlFX(ControlFX object) {
 			return createControlFXAdapter();
-		}
-
-		@Override
-		public Adapter caseTableViewFX(TableViewFX object) {
-			return createTableViewFXAdapter();
 		}
 
 		@Override
@@ -119,6 +109,21 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBindingProperty(BindingProperty object) {
 			return createBindingPropertyAdapter();
+		}
+
+		@Override
+		public Adapter caseTableViewFX(TableViewFX object) {
+			return createTableViewFXAdapter();
+		}
+
+		@Override
+		public Adapter caseNamedElement(NamedElement object) {
+			return createNamedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseFilteredElement(FilteredElement object) {
+			return createFilteredElementAdapter();
 		}
 
 		@Override
@@ -165,6 +170,20 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.FilteredElement <em>Filtered Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.FilteredElement
+	 * @generated
+	 */
+	public Adapter createFilteredElementAdapter() {
 		return null;
 	}
 

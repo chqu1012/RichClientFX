@@ -75,13 +75,6 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JavafxPackage.NAMED_ELEMENT: {
-			NamedElement namedElement = (NamedElement) theEObject;
-			T result = caseNamedElement(namedElement);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case JavafxPackage.CONTROL_FX: {
 			ControlFX controlFX = (ControlFX) theEObject;
 			T result = caseControlFX(controlFX);
@@ -91,22 +84,13 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JavafxPackage.TABLE_VIEW_FX: {
-			TableViewFX tableViewFX = (TableViewFX) theEObject;
-			T result = caseTableViewFX(tableViewFX);
-			if (result == null)
-				result = caseControlFX(tableViewFX);
-			if (result == null)
-				result = caseNamedElement(tableViewFX);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case JavafxPackage.TABLE_COLUMN_FX: {
 			TableColumnFX tableColumnFX = (TableColumnFX) theEObject;
 			T result = caseTableColumnFX(tableColumnFX);
 			if (result == null)
 				result = caseNamedElement(tableColumnFX);
+			if (result == null)
+				result = caseFilteredElement(tableColumnFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -165,6 +149,33 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case JavafxPackage.TABLE_VIEW_FX: {
+			TableViewFX tableViewFX = (TableViewFX) theEObject;
+			T result = caseTableViewFX(tableViewFX);
+			if (result == null)
+				result = caseControlFX(tableViewFX);
+			if (result == null)
+				result = caseFilteredElement(tableViewFX);
+			if (result == null)
+				result = caseNamedElement(tableViewFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.NAMED_ELEMENT: {
+			NamedElement namedElement = (NamedElement) theEObject;
+			T result = caseNamedElement(namedElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.FILTERED_ELEMENT: {
+			FilteredElement filteredElement = (FilteredElement) theEObject;
+			T result = caseFilteredElement(filteredElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -197,6 +208,21 @@ public class JavafxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Filtered Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Filtered Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFilteredElement(FilteredElement object) {
 		return null;
 	}
 

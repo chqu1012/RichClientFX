@@ -25,14 +25,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/models"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/bindings"/>
     </genClasses>
-    <genClasses ecoreClass="javafx.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//NamedElement/name"/>
-    </genClasses>
     <genClasses ecoreClass="javafx.ecore#//ControlFX"/>
-    <genClasses ecoreClass="javafx.ecore#//TableViewFX">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//TableViewFX/columns"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//TableViewFX/usedModel"/>
-    </genClasses>
     <genClasses ecoreClass="javafx.ecore#//TableColumnFX">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//TableColumnFX/width"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//TableColumnFX/usedAttribute"/>
@@ -54,6 +47,16 @@
     <genClasses ecoreClass="javafx.ecore#//BindingProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//BindingProperty/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//BindingProperty/type"/>
+    </genClasses>
+    <genClasses ecoreClass="javafx.ecore#//TableViewFX">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//TableViewFX/columns"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//TableViewFX/usedModel"/>
+    </genClasses>
+    <genClasses ecoreClass="javafx.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javafx.ecore#//FilteredElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//FilteredElement/useFilter"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

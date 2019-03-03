@@ -380,10 +380,6 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	public void dispose() {
 		if (projectFXItemProvider != null)
 			projectFXItemProvider.dispose();
-		if (namedElementItemProvider != null)
-			namedElementItemProvider.dispose();
-		if (tableViewFXItemProvider != null)
-			tableViewFXItemProvider.dispose();
 		if (tableColumnFXItemProvider != null)
 			tableColumnFXItemProvider.dispose();
 		if (attributeFXItemProvider != null)
@@ -396,6 +392,10 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			bindingItemProvider.dispose();
 		if (bindingPropertyItemProvider != null)
 			bindingPropertyItemProvider.dispose();
+		if (tableViewFXItemProvider != null)
+			tableViewFXItemProvider.dispose();
+		if (namedElementItemProvider != null)
+			namedElementItemProvider.dispose();
 	}
 
 }

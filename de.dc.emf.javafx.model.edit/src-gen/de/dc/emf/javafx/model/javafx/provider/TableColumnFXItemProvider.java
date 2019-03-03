@@ -44,10 +44,27 @@ public class TableColumnFXItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addUseFilterPropertyDescriptor(object);
 			addWidthPropertyDescriptor(object);
 			addUsedAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Use Filter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUseFilterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_FilteredElement_useFilter_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_FilteredElement_useFilter_feature",
+								"_UI_FilteredElement_type"),
+						JavafxPackage.Literals.FILTERED_ELEMENT__USE_FILTER, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -127,6 +144,7 @@ public class TableColumnFXItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TableColumnFX.class)) {
+		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
 		case JavafxPackage.TABLE_COLUMN_FX__WIDTH:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

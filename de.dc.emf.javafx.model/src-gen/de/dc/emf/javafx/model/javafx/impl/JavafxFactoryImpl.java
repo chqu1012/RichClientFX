@@ -59,10 +59,6 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 		switch (eClass.getClassifierID()) {
 		case JavafxPackage.PROJECT_FX:
 			return createProjectFX();
-		case JavafxPackage.NAMED_ELEMENT:
-			return createNamedElement();
-		case JavafxPackage.TABLE_VIEW_FX:
-			return createTableViewFX();
 		case JavafxPackage.TABLE_COLUMN_FX:
 			return createTableColumnFX();
 		case JavafxPackage.ATTRIBUTE_FX:
@@ -75,6 +71,10 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createBinding();
 		case JavafxPackage.BINDING_PROPERTY:
 			return createBindingProperty();
+		case JavafxPackage.TABLE_VIEW_FX:
+			return createTableViewFX();
+		case JavafxPackage.NAMED_ELEMENT:
+			return createNamedElement();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

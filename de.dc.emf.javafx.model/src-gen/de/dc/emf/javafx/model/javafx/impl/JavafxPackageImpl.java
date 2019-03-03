@@ -9,6 +9,7 @@ import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.BindingType;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
+import de.dc.emf.javafx.model.javafx.FilteredElement;
 import de.dc.emf.javafx.model.javafx.JavafxFactory;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.ModelFX;
@@ -45,6 +46,13 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass namedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass filteredElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,6 +249,24 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 */
 	public EAttribute getNamedElement_Name() {
 		return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFilteredElement() {
+		return filteredElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFilteredElement_UseFilter() {
+		return (EAttribute) filteredElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -467,14 +493,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEReference(projectFXEClass, PROJECT_FX__MODELS);
 		createEReference(projectFXEClass, PROJECT_FX__BINDINGS);
 
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
-
 		controlFXEClass = createEClass(CONTROL_FX);
-
-		tableViewFXEClass = createEClass(TABLE_VIEW_FX);
-		createEReference(tableViewFXEClass, TABLE_VIEW_FX__COLUMNS);
-		createEReference(tableViewFXEClass, TABLE_VIEW_FX__USED_MODEL);
 
 		tableColumnFXEClass = createEClass(TABLE_COLUMN_FX);
 		createEAttribute(tableColumnFXEClass, TABLE_COLUMN_FX__WIDTH);
@@ -498,6 +517,16 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		bindingPropertyEClass = createEClass(BINDING_PROPERTY);
 		createEAttribute(bindingPropertyEClass, BINDING_PROPERTY__NAME);
 		createEAttribute(bindingPropertyEClass, BINDING_PROPERTY__TYPE);
+
+		tableViewFXEClass = createEClass(TABLE_VIEW_FX);
+		createEReference(tableViewFXEClass, TABLE_VIEW_FX__COLUMNS);
+		createEReference(tableViewFXEClass, TABLE_VIEW_FX__USED_MODEL);
+
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+
+		filteredElementEClass = createEClass(FILTERED_ELEMENT);
+		createEAttribute(filteredElementEClass, FILTERED_ELEMENT__USE_FILTER);
 
 		// Create enums
 		bindingTypeEEnum = createEEnum(BINDING_TYPE);
@@ -534,12 +563,14 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		// Add supertypes to classes
 		projectFXEClass.getESuperTypes().add(this.getNamedElement());
 		controlFXEClass.getESuperTypes().add(this.getNamedElement());
-		tableViewFXEClass.getESuperTypes().add(this.getControlFX());
 		tableColumnFXEClass.getESuperTypes().add(this.getNamedElement());
+		tableColumnFXEClass.getESuperTypes().add(this.getFilteredElement());
 		modelFXEClass.getESuperTypes().add(this.getNamedElement());
 		attributeFXEClass.getESuperTypes().add(this.getNamedElement());
 		beanEClass.getESuperTypes().add(this.getModelFX());
 		derivedBeanEClass.getESuperTypes().add(this.getModelFX());
+		tableViewFXEClass.getESuperTypes().add(this.getControlFX());
+		tableViewFXEClass.getESuperTypes().add(this.getFilteredElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(projectFXEClass, ProjectFX.class, "ProjectFX", !IS_ABSTRACT, !IS_INTERFACE,
@@ -557,22 +588,8 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(controlFXEClass, ControlFX.class, "ControlFX", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(tableViewFXEClass, TableViewFX.class, "TableViewFX", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTableViewFX_Columns(), this.getTableColumnFX(), null, "columns", null, 0, -1,
-				TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTableViewFX_UsedModel(), this.getModelFX(), null, "usedModel", null, 0, 1, TableViewFX.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableColumnFXEClass, TableColumnFX.class, "TableColumnFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -613,6 +630,26 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBindingProperty_Type(), this.getBindingType(), "type", null, 0, 1, BindingProperty.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableViewFXEClass, TableViewFX.class, "TableViewFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTableViewFX_Columns(), this.getTableColumnFX(), null, "columns", null, 0, -1,
+				TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableViewFX_UsedModel(), this.getModelFX(), null, "usedModel", null, 0, 1, TableViewFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(filteredElementEClass, FilteredElement.class, "FilteredElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFilteredElement_UseFilter(), ecorePackage.getEBoolean(), "useFilter", null, 0, 1,
+				FilteredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(bindingTypeEEnum, BindingType.class, "BindingType");

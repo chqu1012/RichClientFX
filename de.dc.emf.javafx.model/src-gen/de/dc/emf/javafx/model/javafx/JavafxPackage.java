@@ -65,7 +65,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 1;
+	int NAMED_ELEMENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -175,7 +175,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getControlFX()
 	 * @generated
 	 */
-	int CONTROL_FX = 2;
+	int CONTROL_FX = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -212,52 +212,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTableViewFX()
 	 * @generated
 	 */
-	int TABLE_VIEW_FX = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_VIEW_FX__NAME = CONTROL_FX__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_VIEW_FX__COLUMNS = CONTROL_FX_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Used Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Table View FX</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Table View FX</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_VIEW_FX_OPERATION_COUNT = CONTROL_FX_OPERATION_COUNT + 0;
+	int TABLE_VIEW_FX = 9;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl <em>Table Column FX</em>}' class.
@@ -267,7 +222,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTableColumnFX()
 	 * @generated
 	 */
-	int TABLE_COLUMN_FX = 4;
+	int TABLE_COLUMN_FX = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -279,13 +234,22 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_COLUMN_FX__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN_FX__USE_FILTER = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FX__WIDTH = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int TABLE_COLUMN_FX__WIDTH = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Used Attribute</b></em>' reference.
@@ -294,7 +258,7 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FX__USED_ATTRIBUTE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int TABLE_COLUMN_FX__USED_ATTRIBUTE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Table Column FX</em>' class.
@@ -303,7 +267,7 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TABLE_COLUMN_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Table Column FX</em>' class.
@@ -322,7 +286,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getModelFX()
 	 * @generated
 	 */
-	int MODEL_FX = 5;
+	int MODEL_FX = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -368,7 +332,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAttributeFX()
 	 * @generated
 	 */
-	int ATTRIBUTE_FX = 6;
+	int ATTRIBUTE_FX = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -414,7 +378,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBean()
 	 * @generated
 	 */
-	int BEAN = 7;
+	int BEAN = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -460,7 +424,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getDerivedBean()
 	 * @generated
 	 */
-	int DERIVED_BEAN = 8;
+	int DERIVED_BEAN = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -515,7 +479,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBinding()
 	 * @generated
 	 */
-	int BINDING = 9;
+	int BINDING = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -561,7 +525,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingProperty()
 	 * @generated
 	 */
-	int BINDING_PROPERTY = 10;
+	int BINDING_PROPERTY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -600,6 +564,97 @@ public interface JavafxPackage extends EPackage {
 	int BINDING_PROPERTY_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX__NAME = CONTROL_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX__USE_FILTER = CONTROL_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX__COLUMNS = CONTROL_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Used Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Table View FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Table View FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX_OPERATION_COUNT = CONTROL_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredElementImpl <em>Filtered Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.FilteredElementImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredElement()
+	 * @generated
+	 */
+	int FILTERED_ELEMENT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_ELEMENT__USE_FILTER = 0;
+
+	/**
+	 * The number of structural features of the '<em>Filtered Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Filtered Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.BindingType <em>Binding Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,7 +662,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingType()
 	 * @generated
 	 */
-	int BINDING_TYPE = 11;
+	int BINDING_TYPE = 12;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ProjectFX <em>Project FX</em>}'.
@@ -683,6 +738,27 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNamedElement_Name();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.FilteredElement <em>Filtered Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filtered Element</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.FilteredElement
+	 * @generated
+	 */
+	EClass getFilteredElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.FilteredElement#isUseFilter <em>Use Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Filter</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.FilteredElement#isUseFilter()
+	 * @see #getFilteredElement()
+	 * @generated
+	 */
+	EAttribute getFilteredElement_UseFilter();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ControlFX <em>Control FX</em>}'.
@@ -987,6 +1063,24 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredElementImpl <em>Filtered Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.FilteredElementImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredElement()
+		 * @generated
+		 */
+		EClass FILTERED_ELEMENT = eINSTANCE.getFilteredElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTERED_ELEMENT__USE_FILTER = eINSTANCE.getFilteredElement_UseFilter();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ControlFXImpl <em>Control FX</em>}' class.

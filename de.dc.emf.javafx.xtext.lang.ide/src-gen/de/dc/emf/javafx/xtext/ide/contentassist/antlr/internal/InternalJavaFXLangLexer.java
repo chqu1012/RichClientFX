@@ -16,8 +16,11 @@ public class InternalJavaFXLangLexer extends Lexer {
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
+    public static final int T__37=37;
     public static final int T__16=16;
+    public static final int T__38=38;
     public static final int T__17=17;
+    public static final int T__39=39;
     public static final int T__18=18;
     public static final int T__11=11;
     public static final int T__33=33;
@@ -44,6 +47,7 @@ public class InternalJavaFXLangLexer extends Lexer {
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
+    public static final int T__40=40;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -65,10 +69,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__11;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:11:7: ( 'BooleanProperty' )
-            // InternalJavaFXLang.g:11:9: 'BooleanProperty'
+            // InternalJavaFXLang.g:11:7: ( 'true' )
+            // InternalJavaFXLang.g:11:9: 'true'
             {
-            match("BooleanProperty"); 
+            match("true"); 
 
 
             }
@@ -86,10 +90,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:12:7: ( 'DoubleProperty' )
-            // InternalJavaFXLang.g:12:9: 'DoubleProperty'
+            // InternalJavaFXLang.g:12:7: ( 'false' )
+            // InternalJavaFXLang.g:12:9: 'false'
             {
-            match("DoubleProperty"); 
+            match("false"); 
 
 
             }
@@ -107,10 +111,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:13:7: ( 'FloatProperty' )
-            // InternalJavaFXLang.g:13:9: 'FloatProperty'
+            // InternalJavaFXLang.g:13:7: ( 'BooleanProperty' )
+            // InternalJavaFXLang.g:13:9: 'BooleanProperty'
             {
-            match("FloatProperty"); 
+            match("BooleanProperty"); 
 
 
             }
@@ -128,10 +132,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:14:7: ( 'IntegerProperty' )
-            // InternalJavaFXLang.g:14:9: 'IntegerProperty'
+            // InternalJavaFXLang.g:14:7: ( 'DoubleProperty' )
+            // InternalJavaFXLang.g:14:9: 'DoubleProperty'
             {
-            match("IntegerProperty"); 
+            match("DoubleProperty"); 
 
 
             }
@@ -149,10 +153,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:15:7: ( 'ObservableList' )
-            // InternalJavaFXLang.g:15:9: 'ObservableList'
+            // InternalJavaFXLang.g:15:7: ( 'FloatProperty' )
+            // InternalJavaFXLang.g:15:9: 'FloatProperty'
             {
-            match("ObservableList"); 
+            match("FloatProperty"); 
 
 
             }
@@ -170,10 +174,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:16:7: ( 'ObjectProperty' )
-            // InternalJavaFXLang.g:16:9: 'ObjectProperty'
+            // InternalJavaFXLang.g:16:7: ( 'IntegerProperty' )
+            // InternalJavaFXLang.g:16:9: 'IntegerProperty'
             {
-            match("ObjectProperty"); 
+            match("IntegerProperty"); 
 
 
             }
@@ -191,10 +195,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:17:7: ( 'StringProperty' )
-            // InternalJavaFXLang.g:17:9: 'StringProperty'
+            // InternalJavaFXLang.g:17:7: ( 'ObservableList' )
+            // InternalJavaFXLang.g:17:9: 'ObservableList'
             {
-            match("StringProperty"); 
+            match("ObservableList"); 
 
 
             }
@@ -212,10 +216,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:18:7: ( 'ProjectFX' )
-            // InternalJavaFXLang.g:18:9: 'ProjectFX'
+            // InternalJavaFXLang.g:18:7: ( 'ObjectProperty' )
+            // InternalJavaFXLang.g:18:9: 'ObjectProperty'
             {
-            match("ProjectFX"); 
+            match("ObjectProperty"); 
 
 
             }
@@ -233,10 +237,11 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:19:7: ( '{' )
-            // InternalJavaFXLang.g:19:9: '{'
+            // InternalJavaFXLang.g:19:7: ( 'StringProperty' )
+            // InternalJavaFXLang.g:19:9: 'StringProperty'
             {
-            match('{'); 
+            match("StringProperty"); 
+
 
             }
 
@@ -253,10 +258,11 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:20:7: ( '}' )
-            // InternalJavaFXLang.g:20:9: '}'
+            // InternalJavaFXLang.g:20:7: ( 'ProjectFX' )
+            // InternalJavaFXLang.g:20:9: 'ProjectFX'
             {
-            match('}'); 
+            match("ProjectFX"); 
+
 
             }
 
@@ -273,11 +279,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:21:7: ( 'packagePath' )
-            // InternalJavaFXLang.g:21:9: 'packagePath'
+            // InternalJavaFXLang.g:21:7: ( '{' )
+            // InternalJavaFXLang.g:21:9: '{'
             {
-            match("packagePath"); 
-
+            match('{'); 
 
             }
 
@@ -294,11 +299,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:22:7: ( 'controls' )
-            // InternalJavaFXLang.g:22:9: 'controls'
+            // InternalJavaFXLang.g:22:7: ( '}' )
+            // InternalJavaFXLang.g:22:9: '}'
             {
-            match("controls"); 
-
+            match('}'); 
 
             }
 
@@ -315,10 +319,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:23:7: ( 'models' )
-            // InternalJavaFXLang.g:23:9: 'models'
+            // InternalJavaFXLang.g:23:7: ( 'packagePath' )
+            // InternalJavaFXLang.g:23:9: 'packagePath'
             {
-            match("models"); 
+            match("packagePath"); 
 
 
             }
@@ -336,10 +340,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:24:7: ( 'bindings' )
-            // InternalJavaFXLang.g:24:9: 'bindings'
+            // InternalJavaFXLang.g:24:7: ( 'controls' )
+            // InternalJavaFXLang.g:24:9: 'controls'
             {
-            match("bindings"); 
+            match("controls"); 
 
 
             }
@@ -357,10 +361,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:25:7: ( 'binding' )
-            // InternalJavaFXLang.g:25:9: 'binding'
+            // InternalJavaFXLang.g:25:7: ( 'models' )
+            // InternalJavaFXLang.g:25:9: 'models'
             {
-            match("binding"); 
+            match("models"); 
 
 
             }
@@ -378,10 +382,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:26:7: ( 'class' )
-            // InternalJavaFXLang.g:26:9: 'class'
+            // InternalJavaFXLang.g:26:7: ( 'bindings' )
+            // InternalJavaFXLang.g:26:9: 'bindings'
             {
-            match("class"); 
+            match("bindings"); 
 
 
             }
@@ -399,10 +403,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:27:7: ( 'instanceType:' )
-            // InternalJavaFXLang.g:27:9: 'instanceType:'
+            // InternalJavaFXLang.g:27:7: ( 'binding' )
+            // InternalJavaFXLang.g:27:9: 'binding'
             {
-            match("instanceType:"); 
+            match("binding"); 
 
 
             }
@@ -420,10 +424,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:28:7: ( 'TableView' )
-            // InternalJavaFXLang.g:28:9: 'TableView'
+            // InternalJavaFXLang.g:28:7: ( 'class' )
+            // InternalJavaFXLang.g:28:9: 'class'
             {
-            match("TableView"); 
+            match("class"); 
 
 
             }
@@ -441,10 +445,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:29:7: ( 'name:' )
-            // InternalJavaFXLang.g:29:9: 'name:'
+            // InternalJavaFXLang.g:29:7: ( 'instanceType:' )
+            // InternalJavaFXLang.g:29:9: 'instanceType:'
             {
-            match("name:"); 
+            match("instanceType:"); 
 
 
             }
@@ -462,10 +466,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:30:7: ( 'usedModel:' )
-            // InternalJavaFXLang.g:30:9: 'usedModel:'
+            // InternalJavaFXLang.g:30:7: ( 'TableView' )
+            // InternalJavaFXLang.g:30:9: 'TableView'
             {
-            match("usedModel:"); 
+            match("TableView"); 
 
 
             }
@@ -483,10 +487,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:31:7: ( 'Column' )
-            // InternalJavaFXLang.g:31:9: 'Column'
+            // InternalJavaFXLang.g:31:7: ( 'name:' )
+            // InternalJavaFXLang.g:31:9: 'name:'
             {
-            match("Column"); 
+            match("name:"); 
 
 
             }
@@ -504,10 +508,11 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:32:7: ( '(' )
-            // InternalJavaFXLang.g:32:9: '('
+            // InternalJavaFXLang.g:32:7: ( 'usedModel:' )
+            // InternalJavaFXLang.g:32:9: 'usedModel:'
             {
-            match('('); 
+            match("usedModel:"); 
+
 
             }
 
@@ -524,10 +529,11 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:33:7: ( ')' )
-            // InternalJavaFXLang.g:33:9: ')'
+            // InternalJavaFXLang.g:33:7: ( 'usedFilter:' )
+            // InternalJavaFXLang.g:33:9: 'usedFilter:'
             {
-            match(')'); 
+            match("usedFilter:"); 
+
 
             }
 
@@ -544,10 +550,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:34:7: ( 'width:' )
-            // InternalJavaFXLang.g:34:9: 'width:'
+            // InternalJavaFXLang.g:34:7: ( 'Column' )
+            // InternalJavaFXLang.g:34:9: 'Column'
             {
-            match("width:"); 
+            match("Column"); 
 
 
             }
@@ -565,11 +571,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:35:7: ( 'attribute:' )
-            // InternalJavaFXLang.g:35:9: 'attribute:'
+            // InternalJavaFXLang.g:35:7: ( '(' )
+            // InternalJavaFXLang.g:35:9: '('
             {
-            match("attribute:"); 
-
+            match('('); 
 
             }
 
@@ -586,10 +591,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:36:7: ( '-' )
-            // InternalJavaFXLang.g:36:9: '-'
+            // InternalJavaFXLang.g:36:7: ( ')' )
+            // InternalJavaFXLang.g:36:9: ')'
             {
-            match('-'); 
+            match(')'); 
 
             }
 
@@ -601,15 +606,98 @@ public class InternalJavaFXLangLexer extends Lexer {
     }
     // $ANTLR end "T__36"
 
+    // $ANTLR start "T__37"
+    public final void mT__37() throws RecognitionException {
+        try {
+            int _type = T__37;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalJavaFXLang.g:37:7: ( 'width:' )
+            // InternalJavaFXLang.g:37:9: 'width:'
+            {
+            match("width:"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__37"
+
+    // $ANTLR start "T__38"
+    public final void mT__38() throws RecognitionException {
+        try {
+            int _type = T__38;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalJavaFXLang.g:38:7: ( 'attribute:' )
+            // InternalJavaFXLang.g:38:9: 'attribute:'
+            {
+            match("attribute:"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__38"
+
+    // $ANTLR start "T__39"
+    public final void mT__39() throws RecognitionException {
+        try {
+            int _type = T__39;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalJavaFXLang.g:39:7: ( 'useFilter:' )
+            // InternalJavaFXLang.g:39:9: 'useFilter:'
+            {
+            match("useFilter:"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__39"
+
+    // $ANTLR start "T__40"
+    public final void mT__40() throws RecognitionException {
+        try {
+            int _type = T__40;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalJavaFXLang.g:40:7: ( '-' )
+            // InternalJavaFXLang.g:40:9: '-'
+            {
+            match('-'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__40"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3253:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalJavaFXLang.g:3253:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJavaFXLang.g:3491:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalJavaFXLang.g:3491:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalJavaFXLang.g:3253:11: ( '^' )?
+            // InternalJavaFXLang.g:3491:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -618,7 +706,7 @@ public class InternalJavaFXLangLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalJavaFXLang.g:3253:11: '^'
+                    // InternalJavaFXLang.g:3491:11: '^'
                     {
                     match('^'); 
 
@@ -636,7 +724,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalJavaFXLang.g:3253:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJavaFXLang.g:3491:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -685,10 +773,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3255:10: ( ( '0' .. '9' )+ )
-            // InternalJavaFXLang.g:3255:12: ( '0' .. '9' )+
+            // InternalJavaFXLang.g:3493:10: ( ( '0' .. '9' )+ )
+            // InternalJavaFXLang.g:3493:12: ( '0' .. '9' )+
             {
-            // InternalJavaFXLang.g:3255:12: ( '0' .. '9' )+
+            // InternalJavaFXLang.g:3493:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -702,7 +790,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalJavaFXLang.g:3255:13: '0' .. '9'
+            	    // InternalJavaFXLang.g:3493:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -734,10 +822,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3257:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalJavaFXLang.g:3257:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalJavaFXLang.g:3495:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalJavaFXLang.g:3495:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalJavaFXLang.g:3257:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalJavaFXLang.g:3495:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -755,10 +843,10 @@ public class InternalJavaFXLangLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalJavaFXLang.g:3257:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalJavaFXLang.g:3495:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalJavaFXLang.g:3257:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalJavaFXLang.g:3495:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -774,7 +862,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalJavaFXLang.g:3257:21: '\\\\' .
+                    	    // InternalJavaFXLang.g:3495:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -782,7 +870,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalJavaFXLang.g:3257:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalJavaFXLang.g:3495:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -807,10 +895,10 @@ public class InternalJavaFXLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalJavaFXLang.g:3257:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalJavaFXLang.g:3495:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalJavaFXLang.g:3257:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalJavaFXLang.g:3495:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -826,7 +914,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalJavaFXLang.g:3257:54: '\\\\' .
+                    	    // InternalJavaFXLang.g:3495:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -834,7 +922,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalJavaFXLang.g:3257:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalJavaFXLang.g:3495:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -877,12 +965,12 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3259:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalJavaFXLang.g:3259:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalJavaFXLang.g:3497:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalJavaFXLang.g:3497:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalJavaFXLang.g:3259:24: ( options {greedy=false; } : . )*
+            // InternalJavaFXLang.g:3497:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -907,7 +995,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalJavaFXLang.g:3259:52: .
+            	    // InternalJavaFXLang.g:3497:52: .
             	    {
             	    matchAny(); 
 
@@ -937,12 +1025,12 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3261:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalJavaFXLang.g:3261:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalJavaFXLang.g:3499:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalJavaFXLang.g:3499:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalJavaFXLang.g:3261:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalJavaFXLang.g:3499:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -955,7 +1043,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalJavaFXLang.g:3261:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalJavaFXLang.g:3499:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -975,7 +1063,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalJavaFXLang.g:3261:40: ( ( '\\r' )? '\\n' )?
+            // InternalJavaFXLang.g:3499:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -984,9 +1072,9 @@ public class InternalJavaFXLangLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalJavaFXLang.g:3261:41: ( '\\r' )? '\\n'
+                    // InternalJavaFXLang.g:3499:41: ( '\\r' )? '\\n'
                     {
-                    // InternalJavaFXLang.g:3261:41: ( '\\r' )?
+                    // InternalJavaFXLang.g:3499:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -995,7 +1083,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalJavaFXLang.g:3261:41: '\\r'
+                            // InternalJavaFXLang.g:3499:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1027,10 +1115,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3263:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalJavaFXLang.g:3263:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJavaFXLang.g:3501:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalJavaFXLang.g:3501:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalJavaFXLang.g:3263:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJavaFXLang.g:3501:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1084,8 +1172,8 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3265:16: ( . )
-            // InternalJavaFXLang.g:3265:18: .
+            // InternalJavaFXLang.g:3503:16: ( . )
+            // InternalJavaFXLang.g:3503:18: .
             {
             matchAny(); 
 
@@ -1100,8 +1188,8 @@ public class InternalJavaFXLangLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalJavaFXLang.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=33;
+        // InternalJavaFXLang.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=37;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -1287,49 +1375,77 @@ public class InternalJavaFXLangLexer extends Lexer {
                 }
                 break;
             case 27 :
-                // InternalJavaFXLang.g:1:166: RULE_ID
+                // InternalJavaFXLang.g:1:166: T__37
+                {
+                mT__37(); 
+
+                }
+                break;
+            case 28 :
+                // InternalJavaFXLang.g:1:172: T__38
+                {
+                mT__38(); 
+
+                }
+                break;
+            case 29 :
+                // InternalJavaFXLang.g:1:178: T__39
+                {
+                mT__39(); 
+
+                }
+                break;
+            case 30 :
+                // InternalJavaFXLang.g:1:184: T__40
+                {
+                mT__40(); 
+
+                }
+                break;
+            case 31 :
+                // InternalJavaFXLang.g:1:190: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 28 :
-                // InternalJavaFXLang.g:1:174: RULE_INT
+            case 32 :
+                // InternalJavaFXLang.g:1:198: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 29 :
-                // InternalJavaFXLang.g:1:183: RULE_STRING
+            case 33 :
+                // InternalJavaFXLang.g:1:207: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 30 :
-                // InternalJavaFXLang.g:1:195: RULE_ML_COMMENT
+            case 34 :
+                // InternalJavaFXLang.g:1:219: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 31 :
-                // InternalJavaFXLang.g:1:211: RULE_SL_COMMENT
+            case 35 :
+                // InternalJavaFXLang.g:1:235: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 32 :
-                // InternalJavaFXLang.g:1:227: RULE_WS
+            case 36 :
+                // InternalJavaFXLang.g:1:251: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 33 :
-                // InternalJavaFXLang.g:1:235: RULE_ANY_OTHER
+            case 37 :
+                // InternalJavaFXLang.g:1:259: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1343,86 +1459,84 @@ public class InternalJavaFXLangLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\7\41\2\uffff\11\41\2\uffff\2\41\1\uffff\1\37\2\uffff\3\37\2\uffff\1\41\1\uffff\6\41\2\uffff\12\41\2\uffff\2\41\6\uffff\62\41\1\u0084\4\41\1\uffff\16\41\1\uffff\1\u0097\4\41\1\u009c\1\uffff\13\41\1\uffff\1\u00a9\3\41\1\uffff\12\41\1\u00b7\1\u00b8\1\uffff\13\41\1\u00c4\1\41\2\uffff\1\41\1\u00c7\11\41\1\uffff\2\41\3\uffff\7\41\1\u00da\10\41\1\uffff\3\41\1\u00e6\4\41\1\uffff\1\41\1\u00ec\1\uffff\1\41\1\u00ee\1\u00ef\1\u00f0\1\u00f1\1\uffff\1\u00f2\5\uffff";
+        "\1\uffff\11\43\2\uffff\11\43\2\uffff\2\43\1\uffff\1\41\2\uffff\3\41\2\uffff\1\43\1\uffff\10\43\2\uffff\12\43\2\uffff\2\43\6\uffff\26\43\1\157\26\43\1\uffff\1\u0087\12\43\1\u0092\4\43\1\uffff\6\43\1\uffff\12\43\1\uffff\1\u00a7\6\43\1\u00ae\1\uffff\13\43\1\uffff\1\u00bb\5\43\1\uffff\12\43\1\u00cb\1\u00cc\1\uffff\15\43\1\u00da\1\43\2\uffff\1\43\1\u00dd\13\43\1\uffff\2\43\2\uffff\1\43\2\uffff\7\43\1\u00f3\1\43\1\uffff\7\43\1\uffff\3\43\1\u00ff\4\43\1\uffff\1\43\1\u0105\1\uffff\1\43\1\u0107\1\u0108\1\u0109\1\u010a\1\uffff\1\u010b\5\uffff";
     static final String DFA12_eofS =
-        "\u00f3\uffff";
+        "\u010c\uffff";
     static final String DFA12_minS =
-        "\1\0\2\157\1\154\1\156\1\142\1\164\1\162\2\uffff\1\141\1\154\1\157\1\151\1\156\2\141\1\163\1\157\2\uffff\1\151\1\164\1\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\157\1\uffff\1\165\1\157\1\164\1\152\1\162\1\157\2\uffff\1\143\1\156\1\141\1\144\1\156\1\163\1\142\1\155\1\145\1\154\2\uffff\1\144\1\164\6\uffff\1\154\1\142\1\141\3\145\1\151\1\152\1\153\1\164\1\163\1\145\1\144\1\164\1\154\1\145\1\144\1\165\1\164\1\162\1\145\1\154\1\164\1\147\1\162\1\143\1\156\1\145\1\141\1\162\1\163\1\154\1\151\1\141\1\145\1\72\1\115\1\155\1\150\1\151\1\141\1\145\1\120\1\145\1\166\1\164\1\147\1\143\1\147\1\157\1\60\1\163\2\156\1\126\1\uffff\1\157\1\156\1\72\1\142\1\156\1\120\2\162\1\141\2\120\1\164\1\145\1\154\1\uffff\1\60\1\147\1\143\1\151\1\144\1\60\1\uffff\1\165\1\120\1\162\1\157\1\120\1\142\2\162\1\106\1\120\1\163\1\uffff\1\60\3\145\1\uffff\1\164\1\162\1\157\1\160\1\162\1\154\2\157\1\130\1\141\2\60\1\uffff\1\124\1\167\1\154\1\145\1\157\1\160\1\145\1\157\1\145\2\160\1\60\1\164\2\uffff\1\171\1\60\2\72\1\160\1\145\1\162\1\160\1\114\2\145\1\uffff\1\150\1\160\3\uffff\1\145\1\162\1\164\1\145\1\151\2\162\1\60\1\145\1\162\1\164\1\171\1\162\1\163\2\164\1\uffff\1\72\1\164\1\171\1\60\2\164\2\171\1\uffff\1\171\1\60\1\uffff\1\171\4\60\1\uffff\1\60\5\uffff";
+        "\1\0\1\162\1\141\2\157\1\154\1\156\1\142\1\164\1\162\2\uffff\1\141\1\154\1\157\1\151\1\156\2\141\1\163\1\157\2\uffff\1\151\1\164\1\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\165\1\uffff\1\154\1\157\1\165\1\157\1\164\1\152\1\162\1\157\2\uffff\1\143\1\156\1\141\1\144\1\156\1\163\1\142\1\155\1\145\1\154\2\uffff\1\144\1\164\6\uffff\1\145\1\163\1\154\1\142\1\141\3\145\1\151\1\152\1\153\1\164\1\163\1\145\1\144\1\164\1\154\1\145\1\106\1\165\1\164\1\162\1\60\2\145\1\154\1\164\1\147\1\162\1\143\1\156\1\145\1\141\1\162\1\163\1\154\1\151\1\141\1\145\1\72\1\106\1\151\1\155\1\150\1\151\1\uffff\1\60\1\141\1\145\1\120\1\145\1\166\1\164\1\147\1\143\1\147\1\157\1\60\1\163\2\156\1\126\1\uffff\1\157\1\151\1\154\1\156\1\72\1\142\1\uffff\1\156\1\120\2\162\1\141\2\120\1\164\1\145\1\154\1\uffff\1\60\1\147\1\143\1\151\1\144\1\154\1\164\1\60\1\uffff\1\165\1\120\1\162\1\157\1\120\1\142\2\162\1\106\1\120\1\163\1\uffff\1\60\3\145\1\164\1\145\1\uffff\1\164\1\162\1\157\1\160\1\162\1\154\2\157\1\130\1\141\2\60\1\uffff\1\124\1\167\1\154\1\145\1\162\1\145\1\157\1\160\1\145\1\157\1\145\2\160\1\60\1\164\2\uffff\1\171\1\60\1\72\1\162\2\72\1\160\1\145\1\162\1\160\1\114\2\145\1\uffff\1\150\1\160\2\uffff\1\72\2\uffff\1\145\1\162\1\164\1\145\1\151\2\162\1\60\1\145\1\uffff\1\162\1\164\1\171\1\162\1\163\2\164\1\uffff\1\72\1\164\1\171\1\60\2\164\2\171\1\uffff\1\171\1\60\1\uffff\1\171\4\60\1\uffff\1\60\5\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\2\157\1\154\1\156\1\142\1\164\1\162\2\uffff\1\141\2\157\1\151\1\156\2\141\1\163\1\157\2\uffff\1\151\1\164\1\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\157\1\uffff\1\165\1\157\1\164\1\163\1\162\1\157\2\uffff\1\143\1\156\1\141\1\144\1\156\1\163\1\142\1\155\1\145\1\154\2\uffff\1\144\1\164\6\uffff\1\154\1\142\1\141\3\145\1\151\1\152\1\153\1\164\1\163\1\145\1\144\1\164\1\154\1\145\1\144\1\165\1\164\1\162\1\145\1\154\1\164\1\147\1\162\1\143\1\156\1\145\1\141\1\162\1\163\1\154\1\151\1\141\1\145\1\72\1\115\1\155\1\150\1\151\1\141\1\145\1\120\1\145\1\166\1\164\1\147\1\143\1\147\1\157\1\172\1\163\2\156\1\126\1\uffff\1\157\1\156\1\72\1\142\1\156\1\120\2\162\1\141\2\120\1\164\1\145\1\154\1\uffff\1\172\1\147\1\143\1\151\1\144\1\172\1\uffff\1\165\1\120\1\162\1\157\1\120\1\142\2\162\1\106\1\120\1\163\1\uffff\1\172\3\145\1\uffff\1\164\1\162\1\157\1\160\1\162\1\154\2\157\1\130\1\141\2\172\1\uffff\1\124\1\167\1\154\1\145\1\157\1\160\1\145\1\157\1\145\2\160\1\172\1\164\2\uffff\1\171\1\172\2\72\1\160\1\145\1\162\1\160\1\114\2\145\1\uffff\1\150\1\160\3\uffff\1\145\1\162\1\164\1\145\1\151\2\162\1\172\1\145\1\162\1\164\1\171\1\162\1\163\2\164\1\uffff\1\72\1\164\1\171\1\172\2\164\2\171\1\uffff\1\171\1\172\1\uffff\1\171\4\172\1\uffff\1\172\5\uffff";
+        "\1\uffff\1\162\1\141\2\157\1\154\1\156\1\142\1\164\1\162\2\uffff\1\141\2\157\1\151\1\156\2\141\1\163\1\157\2\uffff\1\151\1\164\1\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\165\1\uffff\1\154\1\157\1\165\1\157\1\164\1\163\1\162\1\157\2\uffff\1\143\1\156\1\141\1\144\1\156\1\163\1\142\1\155\1\145\1\154\2\uffff\1\144\1\164\6\uffff\1\145\1\163\1\154\1\142\1\141\3\145\1\151\1\152\1\153\1\164\1\163\1\145\1\144\1\164\1\154\1\145\1\144\1\165\1\164\1\162\1\172\2\145\1\154\1\164\1\147\1\162\1\143\1\156\1\145\1\141\1\162\1\163\1\154\1\151\1\141\1\145\1\72\1\115\1\151\1\155\1\150\1\151\1\uffff\1\172\1\141\1\145\1\120\1\145\1\166\1\164\1\147\1\143\1\147\1\157\1\172\1\163\2\156\1\126\1\uffff\1\157\1\151\1\154\1\156\1\72\1\142\1\uffff\1\156\1\120\2\162\1\141\2\120\1\164\1\145\1\154\1\uffff\1\172\1\147\1\143\1\151\1\144\1\154\1\164\1\172\1\uffff\1\165\1\120\1\162\1\157\1\120\1\142\2\162\1\106\1\120\1\163\1\uffff\1\172\3\145\1\164\1\145\1\uffff\1\164\1\162\1\157\1\160\1\162\1\154\2\157\1\130\1\141\2\172\1\uffff\1\124\1\167\1\154\1\145\1\162\1\145\1\157\1\160\1\145\1\157\1\145\2\160\1\172\1\164\2\uffff\1\171\1\172\1\72\1\162\2\72\1\160\1\145\1\162\1\160\1\114\2\145\1\uffff\1\150\1\160\2\uffff\1\72\2\uffff\1\145\1\162\1\164\1\145\1\151\2\162\1\172\1\145\1\uffff\1\162\1\164\1\171\1\162\1\163\2\164\1\uffff\1\72\1\164\1\171\1\172\2\164\2\171\1\uffff\1\171\1\172\1\uffff\1\171\4\172\1\uffff\1\172\5\uffff";
     static final String DFA12_acceptS =
-        "\10\uffff\1\11\1\12\11\uffff\1\26\1\27\2\uffff\1\32\1\uffff\1\33\1\34\3\uffff\1\40\1\41\1\uffff\1\33\6\uffff\1\11\1\12\12\uffff\1\26\1\27\2\uffff\1\32\1\34\1\35\1\36\1\37\1\40\67\uffff\1\23\16\uffff\1\20\6\uffff\1\30\13\uffff\1\15\4\uffff\1\25\14\uffff\1\17\15\uffff\1\14\1\16\13\uffff\1\10\2\uffff\1\22\1\24\1\31\20\uffff\1\13\10\uffff\1\21\2\uffff\1\3\5\uffff\1\2\1\uffff\1\5\1\6\1\7\1\1\1\4";
+        "\12\uffff\1\13\1\14\11\uffff\1\31\1\32\2\uffff\1\36\1\uffff\1\37\1\40\3\uffff\1\44\1\45\1\uffff\1\37\10\uffff\1\13\1\14\12\uffff\1\31\1\32\2\uffff\1\36\1\40\1\41\1\42\1\43\1\44\55\uffff\1\1\20\uffff\1\25\6\uffff\1\2\12\uffff\1\22\10\uffff\1\33\13\uffff\1\17\6\uffff\1\30\14\uffff\1\21\17\uffff\1\16\1\20\15\uffff\1\12\2\uffff\1\24\1\26\1\uffff\1\35\1\34\11\uffff\1\27\7\uffff\1\15\10\uffff\1\23\2\uffff\1\5\5\uffff\1\4\1\uffff\1\7\1\10\1\11\1\3\1\6";
     static final String DFA12_specialS =
-        "\1\2\32\uffff\1\0\1\1\u00d6\uffff}>";
+        "\1\0\34\uffff\1\2\1\1\u00ed\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\37\2\36\2\37\1\36\22\37\1\36\1\37\1\33\4\37\1\34\1\23\1\24\3\37\1\27\1\37\1\35\12\32\7\37\1\31\1\1\1\22\1\2\1\31\1\3\2\31\1\4\5\31\1\5\1\7\2\31\1\6\1\17\6\31\3\37\1\30\1\31\1\37\1\26\1\15\1\13\5\31\1\16\3\31\1\14\1\20\1\31\1\12\4\31\1\21\1\31\1\25\3\31\1\10\1\37\1\11\uff82\37",
-            "\1\40",
+            "\11\41\2\40\2\41\1\40\22\41\1\40\1\41\1\35\4\41\1\36\1\25\1\26\3\41\1\31\1\41\1\37\12\34\7\41\1\33\1\3\1\24\1\4\1\33\1\5\2\33\1\6\5\33\1\7\1\11\2\33\1\10\1\21\6\33\3\41\1\32\1\33\1\41\1\30\1\17\1\15\2\33\1\2\2\33\1\20\3\33\1\16\1\22\1\33\1\14\3\33\1\1\1\23\1\33\1\27\3\33\1\12\1\41\1\13\uff82\41",
             "\1\42",
-            "\1\43",
             "\1\44",
             "\1\45",
             "\1\46",
             "\1\47",
-            "",
-            "",
+            "\1\50",
+            "\1\51",
             "\1\52",
-            "\1\54\2\uffff\1\53",
-            "\1\55",
+            "\1\53",
+            "",
+            "",
             "\1\56",
-            "\1\57",
-            "\1\60",
+            "\1\60\2\uffff\1\57",
             "\1\61",
             "\1\62",
             "\1\63",
-            "",
-            "",
+            "\1\64",
+            "\1\65",
             "\1\66",
             "\1\67",
             "",
-            "\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
+            "\1\72",
+            "\1\73",
+            "",
+            "\32\43\4\uffff\1\43\1\uffff\32\43",
             "",
             "",
-            "\0\72",
-            "\0\72",
-            "\1\73\4\uffff\1\74",
+            "\0\76",
+            "\0\76",
+            "\1\77\4\uffff\1\100",
             "",
             "",
-            "\1\76",
+            "\1\102",
             "",
-            "\1\77",
-            "\1\100",
-            "\1\101",
-            "\1\103\10\uffff\1\102",
+            "\1\103",
             "\1\104",
             "\1\105",
-            "",
-            "",
             "\1\106",
             "\1\107",
-            "\1\110",
-            "\1\111",
+            "\1\111\10\uffff\1\110",
             "\1\112",
             "\1\113",
+            "",
+            "",
             "\1\114",
             "\1\115",
             "\1\116",
             "\1\117",
-            "",
-            "",
             "\1\120",
             "\1\121",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\122",
             "\1\123",
             "\1\124",
             "\1\125",
+            "",
+            "",
             "\1\126",
             "\1\127",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\130",
             "\1\131",
             "\1\132",
@@ -1441,12 +1555,11 @@ public class InternalJavaFXLangLexer extends Lexer {
             "\1\147",
             "\1\150",
             "\1\151",
-            "\1\152",
-            "\1\153",
+            "\1\153\35\uffff\1\152",
             "\1\154",
             "\1\155",
             "\1\156",
-            "\1\157",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "\1\160",
             "\1\161",
             "\1\162",
@@ -1464,15 +1577,14 @@ public class InternalJavaFXLangLexer extends Lexer {
             "\1\176",
             "\1\177",
             "\1\u0080",
-            "\1\u0081",
-            "\1\u0082",
+            "\1\u0082\6\uffff\1\u0081",
             "\1\u0083",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0084",
             "\1\u0085",
             "\1\u0086",
-            "\1\u0087",
-            "\1\u0088",
             "",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u0088",
             "\1\u0089",
             "\1\u008a",
             "\1\u008b",
@@ -1482,18 +1594,18 @@ public class InternalJavaFXLangLexer extends Lexer {
             "\1\u008f",
             "\1\u0090",
             "\1\u0091",
-            "\1\u0092",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "\1\u0093",
             "\1\u0094",
             "\1\u0095",
             "\1\u0096",
             "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0097",
             "\1\u0098",
             "\1\u0099",
             "\1\u009a",
             "\1\u009b",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u009c",
             "",
             "\1\u009d",
             "\1\u009e",
@@ -1505,15 +1617,16 @@ public class InternalJavaFXLangLexer extends Lexer {
             "\1\u00a4",
             "\1\u00a5",
             "\1\u00a6",
-            "\1\u00a7",
             "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\22\41\1\u00a8\7\41",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u00a8",
+            "\1\u00a9",
             "\1\u00aa",
             "\1\u00ab",
             "\1\u00ac",
-            "",
             "\1\u00ad",
-            "\1\u00ae",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "",
             "\1\u00af",
             "\1\u00b0",
             "\1\u00b1",
@@ -1522,41 +1635,36 @@ public class InternalJavaFXLangLexer extends Lexer {
             "\1\u00b4",
             "\1\u00b5",
             "\1\u00b6",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "",
+            "\1\u00b7",
+            "\1\u00b8",
             "\1\u00b9",
-            "\1\u00ba",
-            "\1\u00bb",
+            "",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\22\43\1\u00ba\7\43",
             "\1\u00bc",
             "\1\u00bd",
             "\1\u00be",
             "\1\u00bf",
             "\1\u00c0",
+            "",
             "\1\u00c1",
             "\1\u00c2",
             "\1\u00c3",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00c4",
             "\1\u00c5",
-            "",
-            "",
             "\1\u00c6",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00c7",
             "\1\u00c8",
             "\1\u00c9",
             "\1\u00ca",
-            "\1\u00cb",
-            "\1\u00cc",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "",
             "\1\u00cd",
             "\1\u00ce",
             "\1\u00cf",
             "\1\u00d0",
-            "",
             "\1\u00d1",
             "\1\u00d2",
-            "",
-            "",
-            "",
             "\1\u00d3",
             "\1\u00d4",
             "\1\u00d5",
@@ -1564,35 +1672,68 @@ public class InternalJavaFXLangLexer extends Lexer {
             "\1\u00d7",
             "\1\u00d8",
             "\1\u00d9",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "\1\u00db",
+            "",
+            "",
             "\1\u00dc",
-            "\1\u00dd",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "\1\u00de",
             "\1\u00df",
             "\1\u00e0",
             "\1\u00e1",
             "\1\u00e2",
-            "",
             "\1\u00e3",
             "\1\u00e4",
             "\1\u00e5",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00e6",
             "\1\u00e7",
             "\1\u00e8",
+            "",
             "\1\u00e9",
             "\1\u00ea",
             "",
+            "",
             "\1\u00eb",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "",
+            "",
+            "\1\u00ec",
             "\1\u00ed",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00ee",
+            "\1\u00ef",
+            "\1\u00f0",
+            "\1\u00f1",
+            "\1\u00f2",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u00f4",
             "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00f5",
+            "\1\u00f6",
+            "\1\u00f7",
+            "\1\u00f8",
+            "\1\u00f9",
+            "\1\u00fa",
+            "\1\u00fb",
+            "",
+            "\1\u00fc",
+            "\1\u00fd",
+            "\1\u00fe",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u0100",
+            "\1\u0101",
+            "\1\u0102",
+            "\1\u0103",
+            "",
+            "\1\u0104",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "",
+            "\1\u0106",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "",
+            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "",
             "",
             "",
@@ -1630,97 +1771,101 @@ public class InternalJavaFXLangLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_27 = input.LA(1);
+                        int LA12_0 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_27>='\u0000' && LA12_27<='\uFFFF')) ) {s = 58;}
+                        if ( (LA12_0=='t') ) {s = 1;}
 
-                        else s = 31;
+                        else if ( (LA12_0=='f') ) {s = 2;}
+
+                        else if ( (LA12_0=='B') ) {s = 3;}
+
+                        else if ( (LA12_0=='D') ) {s = 4;}
+
+                        else if ( (LA12_0=='F') ) {s = 5;}
+
+                        else if ( (LA12_0=='I') ) {s = 6;}
+
+                        else if ( (LA12_0=='O') ) {s = 7;}
+
+                        else if ( (LA12_0=='S') ) {s = 8;}
+
+                        else if ( (LA12_0=='P') ) {s = 9;}
+
+                        else if ( (LA12_0=='{') ) {s = 10;}
+
+                        else if ( (LA12_0=='}') ) {s = 11;}
+
+                        else if ( (LA12_0=='p') ) {s = 12;}
+
+                        else if ( (LA12_0=='c') ) {s = 13;}
+
+                        else if ( (LA12_0=='m') ) {s = 14;}
+
+                        else if ( (LA12_0=='b') ) {s = 15;}
+
+                        else if ( (LA12_0=='i') ) {s = 16;}
+
+                        else if ( (LA12_0=='T') ) {s = 17;}
+
+                        else if ( (LA12_0=='n') ) {s = 18;}
+
+                        else if ( (LA12_0=='u') ) {s = 19;}
+
+                        else if ( (LA12_0=='C') ) {s = 20;}
+
+                        else if ( (LA12_0=='(') ) {s = 21;}
+
+                        else if ( (LA12_0==')') ) {s = 22;}
+
+                        else if ( (LA12_0=='w') ) {s = 23;}
+
+                        else if ( (LA12_0=='a') ) {s = 24;}
+
+                        else if ( (LA12_0=='-') ) {s = 25;}
+
+                        else if ( (LA12_0=='^') ) {s = 26;}
+
+                        else if ( (LA12_0=='A'||LA12_0=='E'||(LA12_0>='G' && LA12_0<='H')||(LA12_0>='J' && LA12_0<='N')||(LA12_0>='Q' && LA12_0<='R')||(LA12_0>='U' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='d' && LA12_0<='e')||(LA12_0>='g' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='l')||LA12_0=='o'||(LA12_0>='q' && LA12_0<='s')||LA12_0=='v'||(LA12_0>='x' && LA12_0<='z')) ) {s = 27;}
+
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 28;}
+
+                        else if ( (LA12_0=='\"') ) {s = 29;}
+
+                        else if ( (LA12_0=='\'') ) {s = 30;}
+
+                        else if ( (LA12_0=='/') ) {s = 31;}
+
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 32;}
+
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<=',')||LA12_0=='.'||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 33;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_28 = input.LA(1);
+                        int LA12_30 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_28>='\u0000' && LA12_28<='\uFFFF')) ) {s = 58;}
+                        if ( ((LA12_30>='\u0000' && LA12_30<='\uFFFF')) ) {s = 62;}
 
-                        else s = 31;
+                        else s = 33;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_0 = input.LA(1);
+                        int LA12_29 = input.LA(1);
 
                         s = -1;
-                        if ( (LA12_0=='B') ) {s = 1;}
+                        if ( ((LA12_29>='\u0000' && LA12_29<='\uFFFF')) ) {s = 62;}
 
-                        else if ( (LA12_0=='D') ) {s = 2;}
-
-                        else if ( (LA12_0=='F') ) {s = 3;}
-
-                        else if ( (LA12_0=='I') ) {s = 4;}
-
-                        else if ( (LA12_0=='O') ) {s = 5;}
-
-                        else if ( (LA12_0=='S') ) {s = 6;}
-
-                        else if ( (LA12_0=='P') ) {s = 7;}
-
-                        else if ( (LA12_0=='{') ) {s = 8;}
-
-                        else if ( (LA12_0=='}') ) {s = 9;}
-
-                        else if ( (LA12_0=='p') ) {s = 10;}
-
-                        else if ( (LA12_0=='c') ) {s = 11;}
-
-                        else if ( (LA12_0=='m') ) {s = 12;}
-
-                        else if ( (LA12_0=='b') ) {s = 13;}
-
-                        else if ( (LA12_0=='i') ) {s = 14;}
-
-                        else if ( (LA12_0=='T') ) {s = 15;}
-
-                        else if ( (LA12_0=='n') ) {s = 16;}
-
-                        else if ( (LA12_0=='u') ) {s = 17;}
-
-                        else if ( (LA12_0=='C') ) {s = 18;}
-
-                        else if ( (LA12_0=='(') ) {s = 19;}
-
-                        else if ( (LA12_0==')') ) {s = 20;}
-
-                        else if ( (LA12_0=='w') ) {s = 21;}
-
-                        else if ( (LA12_0=='a') ) {s = 22;}
-
-                        else if ( (LA12_0=='-') ) {s = 23;}
-
-                        else if ( (LA12_0=='^') ) {s = 24;}
-
-                        else if ( (LA12_0=='A'||LA12_0=='E'||(LA12_0>='G' && LA12_0<='H')||(LA12_0>='J' && LA12_0<='N')||(LA12_0>='Q' && LA12_0<='R')||(LA12_0>='U' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='d' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='l')||LA12_0=='o'||(LA12_0>='q' && LA12_0<='t')||LA12_0=='v'||(LA12_0>='x' && LA12_0<='z')) ) {s = 25;}
-
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 26;}
-
-                        else if ( (LA12_0=='\"') ) {s = 27;}
-
-                        else if ( (LA12_0=='\'') ) {s = 28;}
-
-                        else if ( (LA12_0=='/') ) {s = 29;}
-
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 30;}
-
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<=',')||LA12_0=='.'||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 31;}
+                        else s = 33;
 
                         if ( s>=0 ) return s;
                         break;

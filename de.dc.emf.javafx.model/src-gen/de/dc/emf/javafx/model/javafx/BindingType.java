@@ -78,13 +78,13 @@ public enum BindingType implements Enumerator {
 	 */
 	OBJECT_PROPERTY(5, "ObjectProperty", "ObjectProperty"),
 	/**
-	* The '<em><b>Observable List</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>Observable List</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #OBSERVABLE_LIST_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #OBSERVABLE_LIST_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	OBSERVABLE_LIST(6, "ObservableList", "ObservableList");
 
 	/**

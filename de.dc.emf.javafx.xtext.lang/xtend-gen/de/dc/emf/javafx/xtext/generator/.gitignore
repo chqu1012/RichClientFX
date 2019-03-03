@@ -8,3 +8,6 @@
 /.EnumCollectorSwitch.java._trace
 /.TableColumnSwitch.java._trace
 /.TableColumnPathSwitch.java._trace
+/.FilteredElementSwitch.java._trace
+/.FilteredElementEnabler.java._trace
+/.FilteredElementPathSwitch.java._trace

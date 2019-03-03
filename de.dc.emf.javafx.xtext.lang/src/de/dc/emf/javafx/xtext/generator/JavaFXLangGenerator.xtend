@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import de.dc.emf.javafx.model.javafx.FilteredElement
 
 class JavaFXLangGenerator extends AbstractGenerator {
 
@@ -16,6 +17,10 @@ class JavaFXLangGenerator extends AbstractGenerator {
 	
 	TableColumnSwitch tableColumnGenerator = new TableColumnSwitch
 	TableColumnPathSwitch tableColumnPathGenerator = new TableColumnPathSwitch
+	
+	FilteredElementPathSwitch filteredElementPathSwitcher = new FilteredElementPathSwitch
+	FilteredElementEnabler filteredElementEnabler = new FilteredElementEnabler
+	FilteredElementSwitch filteredElementSwitcher = new FilteredElementSwitch
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.forEach[content|
@@ -28,11 +33,21 @@ class JavaFXLangGenerator extends AbstractGenerator {
 		]
 		
 		resource.allContents.forEach[element|
-			println(element)
 			val code = tableColumnGenerator.doSwitch(element)
 			val path = tableColumnPathGenerator.doSwitch(element)
 			if (code!==null && path!==null) {
 				fsa.generateFile(path, code);
+			}
+		]
+		
+		resource.allContents.filter[it instanceof FilteredElement].forEach[element|
+			val code = filteredElementSwitcher.doSwitch(element)
+			val path = filteredElementPathSwitcher.doSwitch(element)
+			val isEnabled = filteredElementEnabler.doSwitch(element)
+			if (code!==null && path!==null) {
+				if (isEnabled) {
+					fsa.generateFile(path, code);
+				}
 			}
 		]
 	}

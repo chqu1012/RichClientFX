@@ -465,21 +465,25 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cUsedModelModelFXCrossReference_4_1_0 = (CrossReference)cUsedModelAssignment_4_1.eContents().get(0);
 		private final RuleCall cUsedModelModelFXEStringParserRuleCall_4_1_0_1 = (RuleCall)cUsedModelModelFXCrossReference_4_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Assignment cColumnsAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
-		private final RuleCall cColumnsTableColumnFXParserRuleCall_5_0_0 = (RuleCall)cColumnsAssignment_5_0.eContents().get(0);
-		private final Assignment cColumnsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cColumnsTableColumnFXParserRuleCall_5_1_0 = (RuleCall)cColumnsAssignment_5_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cUsedFilterKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cUseFilterAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cUseFilterEBooleanParserRuleCall_5_1_0 = (RuleCall)cUseFilterAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Assignment cColumnsAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cColumnsTableColumnFXParserRuleCall_6_0_0 = (RuleCall)cColumnsAssignment_6_0.eContents().get(0);
+		private final Assignment cColumnsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cColumnsTableColumnFXParserRuleCall_6_1_0 = (RuleCall)cColumnsAssignment_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//TableViewFX:
 		//	{TableViewFX}
-		//	'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? (columns+=TableColumnFX
-		//	columns+=TableColumnFX*)?
+		//	'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? ('usedFilter:'
+		//	useFilter=EBoolean)? (columns+=TableColumnFX columns+=TableColumnFX*)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TableViewFX} 'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? (columns+=TableColumnFX
-		//columns+=TableColumnFX*)? '}'
+		//{TableViewFX} 'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? ('usedFilter:'
+		//useFilter=EBoolean)? (columns+=TableColumnFX columns+=TableColumnFX*)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{TableViewFX}
@@ -518,23 +522,35 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getUsedModelModelFXEStringParserRuleCall_4_1_0_1() { return cUsedModelModelFXEStringParserRuleCall_4_1_0_1; }
 		
-		//(columns+=TableColumnFX columns+=TableColumnFX*)?
+		//('usedFilter:' useFilter=EBoolean)?
 		public Group getGroup_5() { return cGroup_5; }
 		
+		//'usedFilter:'
+		public Keyword getUsedFilterKeyword_5_0() { return cUsedFilterKeyword_5_0; }
+		
+		//useFilter=EBoolean
+		public Assignment getUseFilterAssignment_5_1() { return cUseFilterAssignment_5_1; }
+		
+		//EBoolean
+		public RuleCall getUseFilterEBooleanParserRuleCall_5_1_0() { return cUseFilterEBooleanParserRuleCall_5_1_0; }
+		
+		//(columns+=TableColumnFX columns+=TableColumnFX*)?
+		public Group getGroup_6() { return cGroup_6; }
+		
 		//columns+=TableColumnFX
-		public Assignment getColumnsAssignment_5_0() { return cColumnsAssignment_5_0; }
+		public Assignment getColumnsAssignment_6_0() { return cColumnsAssignment_6_0; }
 		
 		//TableColumnFX
-		public RuleCall getColumnsTableColumnFXParserRuleCall_5_0_0() { return cColumnsTableColumnFXParserRuleCall_5_0_0; }
+		public RuleCall getColumnsTableColumnFXParserRuleCall_6_0_0() { return cColumnsTableColumnFXParserRuleCall_6_0_0; }
 		
 		//columns+=TableColumnFX*
-		public Assignment getColumnsAssignment_5_1() { return cColumnsAssignment_5_1; }
+		public Assignment getColumnsAssignment_6_1() { return cColumnsAssignment_6_1; }
 		
 		//TableColumnFX
-		public RuleCall getColumnsTableColumnFXParserRuleCall_5_1_0() { return cColumnsTableColumnFXParserRuleCall_5_1_0; }
+		public RuleCall getColumnsTableColumnFXParserRuleCall_6_1_0() { return cColumnsTableColumnFXParserRuleCall_6_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class TableColumnFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
@@ -555,17 +571,22 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cUsedAttributeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final CrossReference cUsedAttributeAttributeFXCrossReference_5_1_0 = (CrossReference)cUsedAttributeAssignment_5_1.eContents().get(0);
 		private final RuleCall cUsedAttributeAttributeFXEStringParserRuleCall_5_1_0_1 = (RuleCall)cUsedAttributeAttributeFXCrossReference_5_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cUseFilterKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cUseFilterAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cUseFilterEBooleanParserRuleCall_6_1_0 = (RuleCall)cUseFilterAssignment_6_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//TableColumnFX:
 		//	{TableColumnFX}
 		//	'Column'
-		//	'(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:' usedAttribute=[AttributeFX|EString])?
+		//	'(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:' usedAttribute=[AttributeFX|EString])? ('useFilter:'
+		//	useFilter=EBoolean)?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TableColumnFX} 'Column' '(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:'
-		//usedAttribute=[AttributeFX|EString])? ')'
+		//usedAttribute=[AttributeFX|EString])? ('useFilter:' useFilter=EBoolean)? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//{TableColumnFX}
@@ -616,8 +637,39 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getUsedAttributeAttributeFXEStringParserRuleCall_5_1_0_1() { return cUsedAttributeAttributeFXEStringParserRuleCall_5_1_0_1; }
 		
+		//('useFilter:' useFilter=EBoolean)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'useFilter:'
+		public Keyword getUseFilterKeyword_6_0() { return cUseFilterKeyword_6_0; }
+		
+		//useFilter=EBoolean
+		public Assignment getUseFilterAssignment_6_1() { return cUseFilterAssignment_6_1; }
+		
+		//EBoolean
+		public RuleCall getUseFilterEBooleanParserRuleCall_6_1_0() { return cUseFilterEBooleanParserRuleCall_6_1_0; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+	}
+	public class EBooleanElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.EBoolean");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//EBoolean ecore::EBoolean:
+		//	'true' | 'false';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'true' | 'false'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'true'
+		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
+		
+		//'false'
+		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.EInt");
@@ -750,6 +802,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	private final BeanElements pBean;
 	private final TableViewFXElements pTableViewFX;
 	private final TableColumnFXElements pTableColumnFX;
+	private final EBooleanElements pEBoolean;
 	private final EIntElements pEInt;
 	private final AttributeFXElements pAttributeFX;
 	
@@ -773,6 +826,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pBean = new BeanElements();
 		this.pTableViewFX = new TableViewFXElements();
 		this.pTableColumnFX = new TableColumnFXElements();
+		this.pEBoolean = new EBooleanElements();
 		this.pEInt = new EIntElements();
 		this.pAttributeFX = new AttributeFXElements();
 	}
@@ -908,8 +962,8 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//TableViewFX:
 	//	{TableViewFX}
-	//	'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? (columns+=TableColumnFX
-	//	columns+=TableColumnFX*)?
+	//	'TableView' '{' ('name:' name=EString) ('usedModel:' usedModel=[ModelFX|EString])? ('usedFilter:'
+	//	useFilter=EBoolean)? (columns+=TableColumnFX columns+=TableColumnFX*)?
 	//	'}';
 	public TableViewFXElements getTableViewFXAccess() {
 		return pTableViewFX;
@@ -922,7 +976,8 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	//TableColumnFX:
 	//	{TableColumnFX}
 	//	'Column'
-	//	'(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:' usedAttribute=[AttributeFX|EString])?
+	//	'(' ('name:' name=EString) ('width:' width=EInt)? ('attribute:' usedAttribute=[AttributeFX|EString])? ('useFilter:'
+	//	useFilter=EBoolean)?
 	//	')';
 	public TableColumnFXElements getTableColumnFXAccess() {
 		return pTableColumnFX;
@@ -930,6 +985,16 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTableColumnFXRule() {
 		return getTableColumnFXAccess().getRule();
+	}
+	
+	//EBoolean ecore::EBoolean:
+	//	'true' | 'false';
+	public EBooleanElements getEBooleanAccess() {
+		return pEBoolean;
+	}
+	
+	public ParserRule getEBooleanRule() {
+		return getEBooleanAccess().getRule();
 	}
 	
 	//EInt ecore::EInt:

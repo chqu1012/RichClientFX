@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.dc.emf.javafx.xtext.lang.feature_0.8.1.201903031307.jar" id="de.dc.emf.javafx.xtext.lang.feature" version="0.8.1.201903031307">
+      <category name="de.dc.emf.javafx.xtext.lang.update"/>
+   </feature>
+   <category-def name="de.dc.emf.javafx.xtext.lang.update" label="JavaFX Control Generator"/>
+</site>
