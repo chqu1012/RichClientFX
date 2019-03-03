@@ -1,5 +1,5 @@
 # JavaFX Control Generator
-Eclipse Editor for geneerating JavaFX Controls by defining meta informations in EMF or in Xtext DSL.
+Eclipse Editor for generating JavaFX Controls by defining meta informations in EMF or in Xtext DSL.
 
 Overview of code generation
 
