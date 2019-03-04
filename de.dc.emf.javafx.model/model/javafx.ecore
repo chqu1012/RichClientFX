@@ -58,6 +58,29 @@
   <eClassifiers xsi:type="ecore:EClass" name="FilteredElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="useFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChartFX" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChartFX" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=" "/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titleSide" eType="#//Orientation"
+        defaultValueLiteral="Top"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showLegend" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legendSide" eType="#//Orientation"
+        defaultValueLiteral="Bottom"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xAxisType" eType="#//AxisType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yAxisType" eType="#//AxisType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xAxisLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yAxisLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LineChartFX" eSuperTypes="#//ChartFX"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
+    <eLiterals name="Left"/>
+    <eLiterals name="Right" value="1"/>
+    <eLiterals name="Top" value="2"/>
+    <eLiterals name="Bottom" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AxisType">
+    <eLiterals name="Number"/>
+    <eLiterals name="Category" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

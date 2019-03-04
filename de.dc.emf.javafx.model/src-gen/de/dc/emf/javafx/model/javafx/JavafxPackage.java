@@ -150,13 +150,22 @@ public interface JavafxPackage extends EPackage {
 	int PROJECT_FX__BINDINGS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Charts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_FX__CHARTS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Project FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PROJECT_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Project FX</em>' class.
@@ -655,6 +664,224 @@ public interface JavafxPackage extends EPackage {
 	int FILTERED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.ChartFXImpl <em>Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.ChartFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartFX()
+	 * @generated
+	 */
+	int CHART_FX = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__TITLE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__TITLE_SIDE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__SHOW_LEGEND = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Legend Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__LEGEND_SIDE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__XAXIS_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__YAXIS_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__XAXIS_LABEL = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__YAXIS_LABEL = NAMED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of structural features of the '<em>Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of operations of the '<em>Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.LineChartFXImpl <em>Line Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.LineChartFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getLineChartFX()
+	 * @generated
+	 */
+	int LINE_CHART_FX = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__NAME = CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__TITLE = CHART_FX__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Title Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__TITLE_SIDE = CHART_FX__TITLE_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__SHOW_LEGEND = CHART_FX__SHOW_LEGEND;
+
+	/**
+	 * The feature id for the '<em><b>Legend Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__LEGEND_SIDE = CHART_FX__LEGEND_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__XAXIS_TYPE = CHART_FX__XAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__YAXIS_TYPE = CHART_FX__YAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__XAXIS_LABEL = CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The number of structural features of the '<em>Line Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX_FEATURE_COUNT = CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Line Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.BindingType <em>Binding Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -662,7 +889,27 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingType()
 	 * @generated
 	 */
-	int BINDING_TYPE = 12;
+	int BINDING_TYPE = 14;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.Orientation <em>Orientation</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.Orientation
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getOrientation()
+	 * @generated
+	 */
+	int ORIENTATION = 15;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.AxisType <em>Axis Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.AxisType
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAxisType()
+	 * @generated
+	 */
+	int AXIS_TYPE = 16;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ProjectFX <em>Project FX</em>}'.
@@ -719,6 +966,17 @@ public interface JavafxPackage extends EPackage {
 	EReference getProjectFX_Bindings();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.ProjectFX#getCharts <em>Charts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Charts</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ProjectFX#getCharts()
+	 * @see #getProjectFX()
+	 * @generated
+	 */
+	EReference getProjectFX_Charts();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -759,6 +1017,114 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFilteredElement_UseFilter();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ChartFX <em>Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chart FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX
+	 * @generated
+	 */
+	EClass getChartFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ChartFX#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getTitle()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ChartFX#getTitleSide <em>Title Side</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title Side</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getTitleSide()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_TitleSide();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ChartFX#isShowLegend <em>Show Legend</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Legend</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#isShowLegend()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_ShowLegend();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ChartFX#getLegendSide <em>Legend Side</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Legend Side</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getLegendSide()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_LegendSide();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ChartFX#getXAxisType <em>XAxis Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>XAxis Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getXAxisType()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_XAxisType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ChartFX#getYAxisType <em>YAxis Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>YAxis Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getYAxisType()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_YAxisType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ChartFX#getXAxisLabel <em>XAxis Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>XAxis Label</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getXAxisLabel()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_XAxisLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ChartFX#getYAxisLabel <em>YAxis Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>YAxis Label</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getYAxisLabel()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_YAxisLabel();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.LineChartFX <em>Line Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line Chart FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.LineChartFX
+	 * @generated
+	 */
+	EClass getLineChartFX();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ControlFX <em>Control FX</em>}'.
@@ -982,6 +1348,26 @@ public interface JavafxPackage extends EPackage {
 	EEnum getBindingType();
 
 	/**
+	 * Returns the meta object for enum '{@link de.dc.emf.javafx.model.javafx.Orientation <em>Orientation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Orientation</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Orientation
+	 * @generated
+	 */
+	EEnum getOrientation();
+
+	/**
+	 * Returns the meta object for enum '{@link de.dc.emf.javafx.model.javafx.AxisType <em>Axis Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Axis Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.AxisType
+	 * @generated
+	 */
+	EEnum getAxisType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1047,6 +1433,14 @@ public interface JavafxPackage extends EPackage {
 		EReference PROJECT_FX__BINDINGS = eINSTANCE.getProjectFX_Bindings();
 
 		/**
+		 * The meta object literal for the '<em><b>Charts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT_FX__CHARTS = eINSTANCE.getProjectFX_Charts();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1081,6 +1475,90 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILTERED_ELEMENT__USE_FILTER = eINSTANCE.getFilteredElement_UseFilter();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ChartFXImpl <em>Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.ChartFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartFX()
+		 * @generated
+		 */
+		EClass CHART_FX = eINSTANCE.getChartFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__TITLE = eINSTANCE.getChartFX_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Title Side</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__TITLE_SIDE = eINSTANCE.getChartFX_TitleSide();
+
+		/**
+		 * The meta object literal for the '<em><b>Show Legend</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__SHOW_LEGEND = eINSTANCE.getChartFX_ShowLegend();
+
+		/**
+		 * The meta object literal for the '<em><b>Legend Side</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__LEGEND_SIDE = eINSTANCE.getChartFX_LegendSide();
+
+		/**
+		 * The meta object literal for the '<em><b>XAxis Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__XAXIS_TYPE = eINSTANCE.getChartFX_XAxisType();
+
+		/**
+		 * The meta object literal for the '<em><b>YAxis Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__YAXIS_TYPE = eINSTANCE.getChartFX_YAxisType();
+
+		/**
+		 * The meta object literal for the '<em><b>XAxis Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__XAXIS_LABEL = eINSTANCE.getChartFX_XAxisLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>YAxis Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__YAXIS_LABEL = eINSTANCE.getChartFX_YAxisLabel();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.LineChartFXImpl <em>Line Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.LineChartFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getLineChartFX()
+		 * @generated
+		 */
+		EClass LINE_CHART_FX = eINSTANCE.getLineChartFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ControlFXImpl <em>Control FX</em>}' class.
@@ -1269,6 +1747,26 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum BINDING_TYPE = eINSTANCE.getBindingType();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.Orientation <em>Orientation</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.Orientation
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getOrientation()
+		 * @generated
+		 */
+		EEnum ORIENTATION = eINSTANCE.getOrientation();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.AxisType <em>Axis Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.AxisType
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAxisType()
+		 * @generated
+		 */
+		EEnum AXIS_TYPE = eINSTANCE.getAxisType();
 
 	}
 

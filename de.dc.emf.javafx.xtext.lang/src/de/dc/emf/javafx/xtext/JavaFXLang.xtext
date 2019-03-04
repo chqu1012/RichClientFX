@@ -13,7 +13,29 @@ ProjectFX returns ProjectFX:
 		('controls' '{' controls+=ControlFX (controls+=ControlFX)* '}' )?
 		('models' '{' models+=ModelFX (models+=ModelFX)* '}' )?
 		('bindings' '{' bindings+=Binding(bindings+=Binding)* '}' )?
+		('charts' '{' charts+=ChartFX(charts+=ChartFX)* '}' )?
 	'}';
+
+ChartFX returns ChartFX:
+	LineChartFX
+;
+
+LineChartFX returns LineChartFX:
+	{LineChartFX}
+	'LineChart' '{'
+		'name:' name=EString
+		('legendSide:' legendSide=Orientation)?
+		('showLegend:' showLegend=EBoolean)?
+		('title:' title=EString)?
+		('titleSide:' titleSide=Orientation)?
+		('xAxisLabel:' xAxisLabel=EString)?
+		('yAxisLabel:' yAxisLabel=EString)?
+	'}'
+;
+
+enum Orientation returns Orientation:
+	Bottom | Left | Right | Top
+;
 
 Binding returns Binding:
 	{Binding}

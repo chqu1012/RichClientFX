@@ -1,0 +1,17 @@
+ProjectFX ContactProject{
+	packagePath 'de.dc.emf.javafx.xtext.demo.chart'
+	 
+	charts{
+		LineChart{
+			name: BudgetChart
+		}   
+
+		LineChart{
+			name: BudgetChartOther
+			legendSide:Left
+			title:"Other Budget Chart"
+			xAxisLabel:"Budget"
+			yAxisLabel:"Month"
+		}   
+	}
+}

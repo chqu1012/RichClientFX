@@ -119,6 +119,29 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.LineChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LineChartFXItemProvider lineChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.LineChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLineChartFXAdapter() {
+		if (lineChartFXItemProvider == null) {
+			lineChartFXItemProvider = new LineChartFXItemProvider(this);
+		}
+
+		return lineChartFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.TableViewFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,6 +419,8 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			tableViewFXItemProvider.dispose();
 		if (namedElementItemProvider != null)
 			namedElementItemProvider.dispose();
+		if (lineChartFXItemProvider != null)
+			lineChartFXItemProvider.dispose();
 	}
 
 }

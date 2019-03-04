@@ -2,11 +2,13 @@ package de.dc.emf.javafx.xtext.generator;
 
 import com.google.common.base.Objects;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.AxisType;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.BindingType;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
+import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
@@ -636,6 +638,139 @@ public class TemplateSwitch extends JavafxSwitch<String> {
         _builder.newLine();
       }
     }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  @Override
+  public String caseLineChartFX(final LineChartFX object) {
+    StringConcatenation _builder = new StringConcatenation();
+    EObject _rootContainer = EcoreUtil.getRootContainer(object.eContainer());
+    final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
+    _builder.newLineIfNotEmpty();
+    _builder.append("package ");
+    _builder.append(packagePath);
+    _builder.append(".chart;");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("import javafx.geometry.*;");
+    _builder.newLine();
+    _builder.append("import javafx.scene.chart.*;");
+    _builder.newLine();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    {
+      AxisType _xAxisType = object.getXAxisType();
+      boolean _equals = Objects.equal(_xAxisType, AxisType.CATEGORY);
+      if (_equals) {
+        _builder_1.append("String");
+      } else {
+        _builder_1.append("Number");
+      }
+    }
+    final String xAxisType = _builder_1.toString();
+    _builder.newLineIfNotEmpty();
+    StringConcatenation _builder_2 = new StringConcatenation();
+    {
+      AxisType _yAxisType = object.getYAxisType();
+      boolean _equals_1 = Objects.equal(_yAxisType, AxisType.CATEGORY);
+      if (_equals_1) {
+        _builder_2.append("String");
+      } else {
+        _builder_2.append("Number");
+      }
+    }
+    final String yAxisType = _builder_2.toString();
+    _builder.newLineIfNotEmpty();
+    StringConcatenation _builder_3 = new StringConcatenation();
+    {
+      AxisType _xAxisType_1 = object.getXAxisType();
+      boolean _equals_2 = Objects.equal(_xAxisType_1, AxisType.CATEGORY);
+      if (_equals_2) {
+        _builder_3.append("Category");
+      } else {
+        _builder_3.append("Number");
+      }
+    }
+    final String xAxis = _builder_3.toString();
+    _builder.newLineIfNotEmpty();
+    StringConcatenation _builder_4 = new StringConcatenation();
+    {
+      AxisType _yAxisType_1 = object.getYAxisType();
+      boolean _equals_3 = Objects.equal(_yAxisType_1, AxisType.CATEGORY);
+      if (_equals_3) {
+        _builder_4.append("Category");
+      } else {
+        _builder_4.append("Number");
+      }
+    }
+    final String yAxis = _builder_4.toString();
+    _builder.newLineIfNotEmpty();
+    _builder.append("public class ");
+    String _firstUpper = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper);
+    _builder.append(" extends LineChart<");
+    _builder.append(xAxisType);
+    _builder.append(", ");
+    _builder.append(yAxisType);
+    _builder.append("> {");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public ");
+    String _firstUpper_1 = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper_1, "\t");
+    _builder.append("() {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("super(new ");
+    _builder.append(xAxis, "\t\t");
+    _builder.append("Axis(), new ");
+    _builder.append(yAxis, "\t\t");
+    _builder.append("Axis());");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    final String side = object.getLegendSide().toString().toUpperCase();
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("setLegendSide(Side.");
+    _builder.append(side, "\t\t");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("setLegendVisible(");
+    boolean _isShowLegend = object.isShowLegend();
+    _builder.append(_isShowLegend, "\t\t");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("setTitle(\"");
+    String _title = object.getTitle();
+    _builder.append(_title, "\t\t");
+    _builder.append("\");\t\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("setTitleSide(Side.");
+    _builder.append(side, "\t\t");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("getXAxis().setLabel(\"");
+    String _xAxisLabel = object.getXAxisLabel();
+    _builder.append(_xAxisLabel, "\t\t");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("getYAxis().setLabel(\"");
+    String _yAxisLabel = object.getYAxisLabel();
+    _builder.append(_yAxisLabel, "\t\t");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder.toString();

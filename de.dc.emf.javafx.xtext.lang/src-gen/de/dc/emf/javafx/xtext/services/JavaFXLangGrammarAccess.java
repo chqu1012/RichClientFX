@@ -63,20 +63,29 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBindingsAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
 		private final RuleCall cBindingsBindingParserRuleCall_7_3_0 = (RuleCall)cBindingsAssignment_7_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cChartsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cChartsAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cChartsChartFXParserRuleCall_8_2_0 = (RuleCall)cChartsAssignment_8_2.eContents().get(0);
+		private final Assignment cChartsAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
+		private final RuleCall cChartsChartFXParserRuleCall_8_3_0 = (RuleCall)cChartsAssignment_8_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//ProjectFX:
 		//	{ProjectFX}
 		//	'ProjectFX'
 		//	name=EString
 		//	'{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
-		//	models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')?
+		//	models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')? ('charts' '{'
+		//	charts+=ChartFX charts+=ChartFX* '}')?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ProjectFX} 'ProjectFX' name=EString '{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX
 		//controls+=ControlFX* '}')? ('models' '{' models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding
-		//bindings+=Binding* '}')? '}'
+		//bindings+=Binding* '}')? ('charts' '{' charts+=ChartFX charts+=ChartFX* '}')? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{ProjectFX}
@@ -178,8 +187,185 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
 		
+		//('charts' '{' charts+=ChartFX charts+=ChartFX* '}')?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'charts'
+		public Keyword getChartsKeyword_8_0() { return cChartsKeyword_8_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_8_1() { return cLeftCurlyBracketKeyword_8_1; }
+		
+		//charts+=ChartFX
+		public Assignment getChartsAssignment_8_2() { return cChartsAssignment_8_2; }
+		
+		//ChartFX
+		public RuleCall getChartsChartFXParserRuleCall_8_2_0() { return cChartsChartFXParserRuleCall_8_2_0; }
+		
+		//charts+=ChartFX*
+		public Assignment getChartsAssignment_8_3() { return cChartsAssignment_8_3; }
+		
+		//ChartFX
+		public RuleCall getChartsChartFXParserRuleCall_8_3_0() { return cChartsChartFXParserRuleCall_8_3_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_8_4() { return cRightCurlyBracketKeyword_8_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+	public class ChartFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.ChartFX");
+		private final RuleCall cLineChartFXParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//ChartFX:
+		//	LineChartFX;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//LineChartFX
+		public RuleCall getLineChartFXParserRuleCall() { return cLineChartFXParserRuleCall; }
+	}
+	public class LineChartFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.LineChartFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cLineChartFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLineChartKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLegendSideKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cLegendSideAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cLegendSideOrientationEnumRuleCall_5_1_0 = (RuleCall)cLegendSideAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cShowLegendKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cShowLegendAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cShowLegendEBooleanParserRuleCall_6_1_0 = (RuleCall)cShowLegendAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cTitleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cTitleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cTitleEStringParserRuleCall_7_1_0 = (RuleCall)cTitleAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cTitleSideKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cTitleSideAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cTitleSideOrientationEnumRuleCall_8_1_0 = (RuleCall)cTitleSideAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cXAxisLabelKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cXAxisLabelAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cXAxisLabelEStringParserRuleCall_9_1_0 = (RuleCall)cXAxisLabelAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cYAxisLabelKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cYAxisLabelAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cYAxisLabelEStringParserRuleCall_10_1_0 = (RuleCall)cYAxisLabelAssignment_10_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		
+		//LineChartFX:
+		//	{LineChartFX}
+		//	'LineChart' '{'
+		//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('yAxisLabel:'
+		//	yAxisLabel=EString)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{LineChartFX} 'LineChart' '{' 'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:'
+		//showLegend=EBoolean)? ('title:' title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:'
+		//xAxisLabel=EString)? ('yAxisLabel:' yAxisLabel=EString)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{LineChartFX}
+		public Action getLineChartFXAction_0() { return cLineChartFXAction_0; }
+		
+		//'LineChart'
+		public Keyword getLineChartKeyword_1() { return cLineChartKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'name:'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//('legendSide:' legendSide=Orientation)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'legendSide:'
+		public Keyword getLegendSideKeyword_5_0() { return cLegendSideKeyword_5_0; }
+		
+		//legendSide=Orientation
+		public Assignment getLegendSideAssignment_5_1() { return cLegendSideAssignment_5_1; }
+		
+		//Orientation
+		public RuleCall getLegendSideOrientationEnumRuleCall_5_1_0() { return cLegendSideOrientationEnumRuleCall_5_1_0; }
+		
+		//('showLegend:' showLegend=EBoolean)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'showLegend:'
+		public Keyword getShowLegendKeyword_6_0() { return cShowLegendKeyword_6_0; }
+		
+		//showLegend=EBoolean
+		public Assignment getShowLegendAssignment_6_1() { return cShowLegendAssignment_6_1; }
+		
+		//EBoolean
+		public RuleCall getShowLegendEBooleanParserRuleCall_6_1_0() { return cShowLegendEBooleanParserRuleCall_6_1_0; }
+		
+		//('title:' title=EString)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'title:'
+		public Keyword getTitleKeyword_7_0() { return cTitleKeyword_7_0; }
+		
+		//title=EString
+		public Assignment getTitleAssignment_7_1() { return cTitleAssignment_7_1; }
+		
+		//EString
+		public RuleCall getTitleEStringParserRuleCall_7_1_0() { return cTitleEStringParserRuleCall_7_1_0; }
+		
+		//('titleSide:' titleSide=Orientation)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'titleSide:'
+		public Keyword getTitleSideKeyword_8_0() { return cTitleSideKeyword_8_0; }
+		
+		//titleSide=Orientation
+		public Assignment getTitleSideAssignment_8_1() { return cTitleSideAssignment_8_1; }
+		
+		//Orientation
+		public RuleCall getTitleSideOrientationEnumRuleCall_8_1_0() { return cTitleSideOrientationEnumRuleCall_8_1_0; }
+		
+		//('xAxisLabel:' xAxisLabel=EString)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'xAxisLabel:'
+		public Keyword getXAxisLabelKeyword_9_0() { return cXAxisLabelKeyword_9_0; }
+		
+		//xAxisLabel=EString
+		public Assignment getXAxisLabelAssignment_9_1() { return cXAxisLabelAssignment_9_1; }
+		
+		//EString
+		public RuleCall getXAxisLabelEStringParserRuleCall_9_1_0() { return cXAxisLabelEStringParserRuleCall_9_1_0; }
+		
+		//('yAxisLabel:' yAxisLabel=EString)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'yAxisLabel:'
+		public Keyword getYAxisLabelKeyword_10_0() { return cYAxisLabelKeyword_10_0; }
+		
+		//yAxisLabel=EString
+		public Assignment getYAxisLabelAssignment_10_1() { return cYAxisLabelAssignment_10_1; }
+		
+		//EString
+		public RuleCall getYAxisLabelEStringParserRuleCall_10_1_0() { return cYAxisLabelEStringParserRuleCall_10_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
 	public class BindingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.Binding");
@@ -722,6 +908,49 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 	}
 	
+	public class OrientationElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.Orientation");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cBottomEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cBottomBottomKeyword_0_0 = (Keyword)cBottomEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cLeftEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cLeftLeftKeyword_1_0 = (Keyword)cLeftEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cRightEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cRightRightKeyword_2_0 = (Keyword)cRightEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cTopEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cTopTopKeyword_3_0 = (Keyword)cTopEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum Orientation:
+		//	Bottom | Left | Right | Top;
+		public EnumRule getRule() { return rule; }
+		
+		//Bottom | Left | Right | Top
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Bottom
+		public EnumLiteralDeclaration getBottomEnumLiteralDeclaration_0() { return cBottomEnumLiteralDeclaration_0; }
+		
+		//"Bottom"
+		public Keyword getBottomBottomKeyword_0_0() { return cBottomBottomKeyword_0_0; }
+		
+		//Left
+		public EnumLiteralDeclaration getLeftEnumLiteralDeclaration_1() { return cLeftEnumLiteralDeclaration_1; }
+		
+		//"Left"
+		public Keyword getLeftLeftKeyword_1_0() { return cLeftLeftKeyword_1_0; }
+		
+		//Right
+		public EnumLiteralDeclaration getRightEnumLiteralDeclaration_2() { return cRightEnumLiteralDeclaration_2; }
+		
+		//"Right"
+		public Keyword getRightRightKeyword_2_0() { return cRightRightKeyword_2_0; }
+		
+		//Top
+		public EnumLiteralDeclaration getTopEnumLiteralDeclaration_3() { return cTopEnumLiteralDeclaration_3; }
+		
+		//"Top"
+		public Keyword getTopTopKeyword_3_0() { return cTopTopKeyword_3_0; }
+	}
 	public class BindinTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.BindinType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -792,6 +1021,9 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final ProjectFXElements pProjectFX;
+	private final ChartFXElements pChartFX;
+	private final LineChartFXElements pLineChartFX;
+	private final OrientationElements eOrientation;
 	private final BindingElements pBinding;
 	private final BindingPropertyElements pBindingProperty;
 	private final BindinTypeElements eBindinType;
@@ -816,6 +1048,9 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pProjectFX = new ProjectFXElements();
+		this.pChartFX = new ChartFXElements();
+		this.pLineChartFX = new LineChartFXElements();
+		this.eOrientation = new OrientationElements();
 		this.pBinding = new BindingElements();
 		this.pBindingProperty = new BindingPropertyElements();
 		this.eBindinType = new BindinTypeElements();
@@ -863,7 +1098,8 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	'ProjectFX'
 	//	name=EString
 	//	'{' ('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
-	//	models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')?
+	//	models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')? ('charts' '{'
+	//	charts+=ChartFX charts+=ChartFX* '}')?
 	//	'}';
 	public ProjectFXElements getProjectFXAccess() {
 		return pProjectFX;
@@ -871,6 +1107,41 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getProjectFXRule() {
 		return getProjectFXAccess().getRule();
+	}
+	
+	//ChartFX:
+	//	LineChartFX;
+	public ChartFXElements getChartFXAccess() {
+		return pChartFX;
+	}
+	
+	public ParserRule getChartFXRule() {
+		return getChartFXAccess().getRule();
+	}
+	
+	//LineChartFX:
+	//	{LineChartFX}
+	//	'LineChart' '{'
+	//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('yAxisLabel:'
+	//	yAxisLabel=EString)?
+	//	'}';
+	public LineChartFXElements getLineChartFXAccess() {
+		return pLineChartFX;
+	}
+	
+	public ParserRule getLineChartFXRule() {
+		return getLineChartFXAccess().getRule();
+	}
+	
+	//enum Orientation:
+	//	Bottom | Left | Right | Top;
+	public OrientationElements getOrientationAccess() {
+		return eOrientation;
+	}
+	
+	public EnumRule getOrientationRule() {
+		return getOrientationAccess().getRule();
 	}
 	
 	//Binding:

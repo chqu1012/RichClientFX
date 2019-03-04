@@ -292,9 +292,297 @@ ruleProjectFX returns [EObject current=null]
 				newLeafNode(otherlv_20, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_7_4());
 			}
 		)?
-		otherlv_21='}'
+		(
+			otherlv_21='charts'
+			{
+				newLeafNode(otherlv_21, grammarAccess.getProjectFXAccess().getChartsKeyword_8_0());
+			}
+			otherlv_22='{'
+			{
+				newLeafNode(otherlv_22, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_8_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProjectFXAccess().getChartsChartFXParserRuleCall_8_2_0());
+					}
+					lv_charts_23_0=ruleChartFX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
+						}
+						add(
+							$current,
+							"charts",
+							lv_charts_23_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.ChartFX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProjectFXAccess().getChartsChartFXParserRuleCall_8_3_0());
+					}
+					lv_charts_24_0=ruleChartFX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
+						}
+						add(
+							$current,
+							"charts",
+							lv_charts_24_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.ChartFX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			otherlv_25='}'
+			{
+				newLeafNode(otherlv_25, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_8_4());
+			}
+		)?
+		otherlv_26='}'
 		{
-			newLeafNode(otherlv_21, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_26, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_9());
+		}
+	)
+;
+
+// Entry rule entryRuleChartFX
+entryRuleChartFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getChartFXRule()); }
+	iv_ruleChartFX=ruleChartFX
+	{ $current=$iv_ruleChartFX.current; }
+	EOF;
+
+// Rule ChartFX
+ruleChartFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	{
+		newCompositeNode(grammarAccess.getChartFXAccess().getLineChartFXParserRuleCall());
+	}
+	this_LineChartFX_0=ruleLineChartFX
+	{
+		$current = $this_LineChartFX_0.current;
+		afterParserOrEnumRuleCall();
+	}
+;
+
+// Entry rule entryRuleLineChartFX
+entryRuleLineChartFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLineChartFXRule()); }
+	iv_ruleLineChartFX=ruleLineChartFX
+	{ $current=$iv_ruleLineChartFX.current; }
+	EOF;
+
+// Rule LineChartFX
+ruleLineChartFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getLineChartFXAccess().getLineChartFXAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='LineChart'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getLineChartFXAccess().getLineChartKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getLineChartFXAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='name:'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getLineChartFXAccess().getNameKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLineChartFXAccess().getNameEStringParserRuleCall_4_0());
+				}
+				lv_name_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_4_0,
+						"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_5='legendSide:'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getLineChartFXAccess().getLegendSideKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getLegendSideOrientationEnumRuleCall_5_1_0());
+					}
+					lv_legendSide_6_0=ruleOrientation
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						set(
+							$current,
+							"legendSide",
+							lv_legendSide_6_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.Orientation");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_7='showLegend:'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getLineChartFXAccess().getShowLegendKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getShowLegendEBooleanParserRuleCall_6_1_0());
+					}
+					lv_showLegend_8_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						set(
+							$current,
+							"showLegend",
+							lv_showLegend_8_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='title:'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getLineChartFXAccess().getTitleKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getTitleEStringParserRuleCall_7_1_0());
+					}
+					lv_title_10_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						set(
+							$current,
+							"title",
+							lv_title_10_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='titleSide:'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getLineChartFXAccess().getTitleSideKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getTitleSideOrientationEnumRuleCall_8_1_0());
+					}
+					lv_titleSide_12_0=ruleOrientation
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						set(
+							$current,
+							"titleSide",
+							lv_titleSide_12_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.Orientation");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_13='xAxisLabel:'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getLineChartFXAccess().getXAxisLabelKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getXAxisLabelEStringParserRuleCall_9_1_0());
+					}
+					lv_xAxisLabel_14_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						set(
+							$current,
+							"xAxisLabel",
+							lv_xAxisLabel_14_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_15='yAxisLabel:'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getLineChartFXAccess().getYAxisLabelKeyword_10_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getYAxisLabelEStringParserRuleCall_10_1_0());
+					}
+					lv_yAxisLabel_16_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						set(
+							$current,
+							"yAxisLabel",
+							lv_yAxisLabel_16_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_17='}'
+		{
+			newLeafNode(otherlv_17, grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_11());
 		}
 	)
 ;
@@ -1182,6 +1470,49 @@ ruleAttributeFX returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
+		)
+	)
+;
+
+// Rule Orientation
+ruleOrientation returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='Bottom'
+			{
+				$current = grammarAccess.getOrientationAccess().getBottomEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getOrientationAccess().getBottomEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='Left'
+			{
+				$current = grammarAccess.getOrientationAccess().getLeftEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getOrientationAccess().getLeftEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='Right'
+			{
+				$current = grammarAccess.getOrientationAccess().getRightEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getOrientationAccess().getRightEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='Top'
+			{
+				$current = grammarAccess.getOrientationAccess().getTopEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getOrientationAccess().getTopEnumLiteralDeclaration_3());
+			}
 		)
 	)
 ;

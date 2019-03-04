@@ -4,10 +4,12 @@ import de.dc.emf.javafx.model.javafx.Bean
 import de.dc.emf.javafx.model.javafx.Binding
 import de.dc.emf.javafx.model.javafx.BindingType
 import de.dc.emf.javafx.model.javafx.DerivedBean
+import de.dc.emf.javafx.model.javafx.LineChartFX
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
 import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import org.eclipse.emf.ecore.util.EcoreUtil
+import de.dc.emf.javafx.model.javafx.AxisType
 
 class TemplateSwitch extends JavafxSwitch<String>{
 	
@@ -152,6 +154,32 @@ class TemplateSwitch extends JavafxSwitch<String>{
 			«propertyName».set(«property.name.toFirstLower.replace('Property', '')»);
 		}
 		«ENDFOR»
+	}
+	'''
+	
+	override caseLineChartFX(LineChartFX object)'''
+	«val packagePath = (EcoreUtil.getRootContainer(object.eContainer) as ProjectFX).packagePath»
+	package «packagePath».chart;
+	
+	import javafx.geometry.*;
+	import javafx.scene.chart.*;
+	«val xAxisType = '''«IF object.XAxisType==AxisType.CATEGORY»String«ELSE»Number«ENDIF»'''»
+	«val yAxisType = '''«IF object.YAxisType==AxisType.CATEGORY»String«ELSE»Number«ENDIF»'''»
+	«val xAxis = '''«IF object.XAxisType==AxisType.CATEGORY»Category«ELSE»Number«ENDIF»'''»
+	«val yAxis = '''«IF object.YAxisType==AxisType.CATEGORY»Category«ELSE»Number«ENDIF»'''»
+	public class «object.name.toFirstUpper» extends LineChart<«xAxisType», «yAxisType»> {
+	
+		public «object.name.toFirstUpper»() {
+			super(new «xAxis»Axis(), new «yAxis»Axis());
+			«val side = object.legendSide.toString.toUpperCase»
+			setLegendSide(Side.«side»);
+			setLegendVisible(«object.showLegend»);
+			setTitle("«object.title»");		
+			setTitleSide(Side.«side»);
+			
+			getXAxis().setLabel("«object.XAxisLabel»");
+			getYAxis().setLabel("«object.YAxisLabel»");
+		}
 	}
 	'''
 }

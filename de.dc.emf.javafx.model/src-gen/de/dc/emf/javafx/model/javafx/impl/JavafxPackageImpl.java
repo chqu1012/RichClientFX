@@ -3,17 +3,21 @@
 package de.dc.emf.javafx.model.javafx.impl;
 
 import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.AxisType;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.BindingType;
+import de.dc.emf.javafx.model.javafx.ChartFX;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredElement;
 import de.dc.emf.javafx.model.javafx.JavafxFactory;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
+import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.NamedElement;
+import de.dc.emf.javafx.model.javafx.Orientation;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
@@ -53,6 +57,20 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass filteredElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lineChartFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,6 +141,20 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EEnum bindingTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum orientationEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum axisTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -238,6 +270,15 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProjectFX_Charts() {
+		return (EReference) projectFXEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -267,6 +308,96 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 */
 	public EAttribute getFilteredElement_UseFilter() {
 		return (EAttribute) filteredElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChartFX() {
+		return chartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFX_Title() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFX_TitleSide() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFX_ShowLegend() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFX_LegendSide() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFX_XAxisType() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFX_YAxisType() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFX_XAxisLabel() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFX_YAxisLabel() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLineChartFX() {
+		return lineChartFXEClass;
 	}
 
 	/**
@@ -463,6 +594,24 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getOrientation() {
+		return orientationEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAxisType() {
+		return axisTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JavafxFactory getJavafxFactory() {
 		return (JavafxFactory) getEFactoryInstance();
 	}
@@ -492,6 +641,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEAttribute(projectFXEClass, PROJECT_FX__PACKAGE_PATH);
 		createEReference(projectFXEClass, PROJECT_FX__MODELS);
 		createEReference(projectFXEClass, PROJECT_FX__BINDINGS);
+		createEReference(projectFXEClass, PROJECT_FX__CHARTS);
 
 		controlFXEClass = createEClass(CONTROL_FX);
 
@@ -528,8 +678,22 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		filteredElementEClass = createEClass(FILTERED_ELEMENT);
 		createEAttribute(filteredElementEClass, FILTERED_ELEMENT__USE_FILTER);
 
+		chartFXEClass = createEClass(CHART_FX);
+		createEAttribute(chartFXEClass, CHART_FX__TITLE);
+		createEAttribute(chartFXEClass, CHART_FX__TITLE_SIDE);
+		createEAttribute(chartFXEClass, CHART_FX__SHOW_LEGEND);
+		createEAttribute(chartFXEClass, CHART_FX__LEGEND_SIDE);
+		createEAttribute(chartFXEClass, CHART_FX__XAXIS_TYPE);
+		createEAttribute(chartFXEClass, CHART_FX__YAXIS_TYPE);
+		createEAttribute(chartFXEClass, CHART_FX__XAXIS_LABEL);
+		createEAttribute(chartFXEClass, CHART_FX__YAXIS_LABEL);
+
+		lineChartFXEClass = createEClass(LINE_CHART_FX);
+
 		// Create enums
 		bindingTypeEEnum = createEEnum(BINDING_TYPE);
+		orientationEEnum = createEEnum(ORIENTATION);
+		axisTypeEEnum = createEEnum(AXIS_TYPE);
 	}
 
 	/**
@@ -571,6 +735,8 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		derivedBeanEClass.getESuperTypes().add(this.getModelFX());
 		tableViewFXEClass.getESuperTypes().add(this.getControlFX());
 		tableViewFXEClass.getESuperTypes().add(this.getFilteredElement());
+		chartFXEClass.getESuperTypes().add(this.getNamedElement());
+		lineChartFXEClass.getESuperTypes().add(this.getChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(projectFXEClass, ProjectFX.class, "ProjectFX", !IS_ABSTRACT, !IS_INTERFACE,
@@ -585,6 +751,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProjectFX_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, ProjectFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProjectFX_Charts(), this.getChartFX(), null, "charts", null, 0, -1, ProjectFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -651,6 +820,27 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				FilteredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
+		initEClass(chartFXEClass, ChartFX.class, "ChartFX", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChartFX_Title(), ecorePackage.getEString(), "title", " ", 0, 1, ChartFX.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFX_TitleSide(), this.getOrientation(), "titleSide", "Top", 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFX_ShowLegend(), ecorePackage.getEBoolean(), "showLegend", "true", 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFX_LegendSide(), this.getOrientation(), "legendSide", "Bottom", 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFX_XAxisType(), this.getAxisType(), "xAxisType", null, 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFX_YAxisType(), this.getAxisType(), "yAxisType", null, 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFX_XAxisLabel(), ecorePackage.getEString(), "xAxisLabel", null, 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFX_YAxisLabel(), ecorePackage.getEString(), "yAxisLabel", null, 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lineChartFXEClass, LineChartFX.class, "LineChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(bindingTypeEEnum, BindingType.class, "BindingType");
 		addEEnumLiteral(bindingTypeEEnum, BindingType.STRING_PROPERTY);
@@ -660,6 +850,16 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		addEEnumLiteral(bindingTypeEEnum, BindingType.BOOLEAN_PROPERTY);
 		addEEnumLiteral(bindingTypeEEnum, BindingType.OBJECT_PROPERTY);
 		addEEnumLiteral(bindingTypeEEnum, BindingType.OBSERVABLE_LIST);
+
+		initEEnum(orientationEEnum, Orientation.class, "Orientation");
+		addEEnumLiteral(orientationEEnum, Orientation.LEFT);
+		addEEnumLiteral(orientationEEnum, Orientation.RIGHT);
+		addEEnumLiteral(orientationEEnum, Orientation.TOP);
+		addEEnumLiteral(orientationEEnum, Orientation.BOTTOM);
+
+		initEEnum(axisTypeEEnum, AxisType.class, "AxisType");
+		addEEnumLiteral(axisTypeEEnum, AxisType.NUMBER);
+		addEEnumLiteral(axisTypeEEnum, AxisType.CATEGORY);
 
 		// Create resource
 		createResource(eNS_URI);

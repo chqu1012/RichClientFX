@@ -19,6 +19,16 @@
       <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/ObjectProperty"/>
       <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//BindingType/ObservableList"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javafx.ecore#//Orientation">
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//Orientation/Left"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//Orientation/Right"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//Orientation/Top"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//Orientation/Bottom"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javafx.ecore#//AxisType">
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//AxisType/Number"/>
+      <genEnumLiterals ecoreEnumLiteral="javafx.ecore#//AxisType/Category"/>
+    </genEnums>
     <genClasses ecoreClass="javafx.ecore#//ProjectFX">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/controls"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ProjectFX/packagePath"/>
@@ -59,7 +69,16 @@
     <genClasses image="false" ecoreClass="javafx.ecore#//FilteredElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//FilteredElement/useFilter"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="javafx.ecore#//ChartFX"/>
+    <genClasses image="false" ecoreClass="javafx.ecore#//ChartFX">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/titleSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/showLegend"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/legendSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/xAxisType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/yAxisType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/xAxisLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/yAxisLabel"/>
+    </genClasses>
     <genClasses ecoreClass="javafx.ecore#//LineChartFX"/>
   </genPackages>
 </genmodel:GenModel>

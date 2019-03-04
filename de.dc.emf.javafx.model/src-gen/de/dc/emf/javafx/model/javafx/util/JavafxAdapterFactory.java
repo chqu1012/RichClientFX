@@ -127,6 +127,16 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseChartFX(ChartFX object) {
+			return createChartFXAdapter();
+		}
+
+		@Override
+		public Adapter caseLineChartFX(LineChartFX object) {
+			return createLineChartFXAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -184,6 +194,34 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFilteredElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.ChartFX <em>Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX
+	 * @generated
+	 */
+	public Adapter createChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.LineChartFX <em>Line Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.LineChartFX
+	 * @generated
+	 */
+	public Adapter createLineChartFXAdapter() {
 		return null;
 	}
 

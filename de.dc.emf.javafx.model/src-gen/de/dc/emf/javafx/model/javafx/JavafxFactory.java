@@ -40,6 +40,15 @@ public interface JavafxFactory extends EFactory {
 	NamedElement createNamedElement();
 
 	/**
+	 * Returns a new object of class '<em>Line Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line Chart FX</em>'.
+	 * @generated
+	 */
+	LineChartFX createLineChartFX();
+
+	/**
 	 * Returns a new object of class '<em>Table View FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,6 +3,7 @@
 package de.dc.emf.javafx.model.javafx.impl;
 
 import de.dc.emf.javafx.model.javafx.Binding;
+import de.dc.emf.javafx.model.javafx.ChartFX;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.ModelFX;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ProjectFXImpl#getPackagePath <em>Package Path</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ProjectFXImpl#getModels <em>Models</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ProjectFXImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ProjectFXImpl#getCharts <em>Charts</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +91,16 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * @ordered
 	 */
 	protected EList<Binding> bindings;
+
+	/**
+	 * The cached value of the '{@link #getCharts() <em>Charts</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ChartFX> charts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +185,18 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ChartFX> getCharts() {
+		if (charts == null) {
+			charts = new EObjectContainmentEList<ChartFX>(ChartFX.class, this, JavafxPackage.PROJECT_FX__CHARTS);
+		}
+		return charts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -182,6 +206,8 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 			return ((InternalEList<?>) getModels()).basicRemove(otherEnd, msgs);
 		case JavafxPackage.PROJECT_FX__BINDINGS:
 			return ((InternalEList<?>) getBindings()).basicRemove(otherEnd, msgs);
+		case JavafxPackage.PROJECT_FX__CHARTS:
+			return ((InternalEList<?>) getCharts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,6 +228,8 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 			return getModels();
 		case JavafxPackage.PROJECT_FX__BINDINGS:
 			return getBindings();
+		case JavafxPackage.PROJECT_FX__CHARTS:
+			return getCharts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,6 +258,10 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 			getBindings().clear();
 			getBindings().addAll((Collection<? extends Binding>) newValue);
 			return;
+		case JavafxPackage.PROJECT_FX__CHARTS:
+			getCharts().clear();
+			getCharts().addAll((Collection<? extends ChartFX>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -254,6 +286,9 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 		case JavafxPackage.PROJECT_FX__BINDINGS:
 			getBindings().clear();
 			return;
+		case JavafxPackage.PROJECT_FX__CHARTS:
+			getCharts().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -274,6 +309,8 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 			return models != null && !models.isEmpty();
 		case JavafxPackage.PROJECT_FX__BINDINGS:
 			return bindings != null && !bindings.isEmpty();
+		case JavafxPackage.PROJECT_FX__CHARTS:
+			return charts != null && !charts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

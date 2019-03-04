@@ -75,6 +75,8 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createTableViewFX();
 		case JavafxPackage.NAMED_ELEMENT:
 			return createNamedElement();
+		case JavafxPackage.LINE_CHART_FX:
+			return createLineChartFX();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -90,6 +92,10 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 		switch (eDataType.getClassifierID()) {
 		case JavafxPackage.BINDING_TYPE:
 			return createBindingTypeFromString(eDataType, initialValue);
+		case JavafxPackage.ORIENTATION:
+			return createOrientationFromString(eDataType, initialValue);
+		case JavafxPackage.AXIS_TYPE:
+			return createAxisTypeFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +111,10 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 		switch (eDataType.getClassifierID()) {
 		case JavafxPackage.BINDING_TYPE:
 			return convertBindingTypeToString(eDataType, instanceValue);
+		case JavafxPackage.ORIENTATION:
+			return convertOrientationToString(eDataType, instanceValue);
+		case JavafxPackage.AXIS_TYPE:
+			return convertAxisTypeToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -128,6 +138,16 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	public NamedElement createNamedElement() {
 		NamedElementImpl namedElement = new NamedElementImpl();
 		return namedElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LineChartFX createLineChartFX() {
+		LineChartFXImpl lineChartFX = new LineChartFXImpl();
+		return lineChartFX;
 	}
 
 	/**
@@ -219,6 +239,50 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * @generated
 	 */
 	public String convertBindingTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Orientation createOrientationFromString(EDataType eDataType, String initialValue) {
+		Orientation result = Orientation.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOrientationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AxisType createAxisTypeFromString(EDataType eDataType, String initialValue) {
+		AxisType result = AxisType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAxisTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

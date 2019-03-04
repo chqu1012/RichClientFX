@@ -10,6 +10,7 @@ import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
+import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
@@ -53,6 +54,9 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case JavafxPackage.DERIVED_BEAN:
 				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
+				return; 
+			case JavafxPackage.LINE_CHART_FX:
+				sequence_LineChartFX(context, (LineChartFX) semanticObject); 
 				return; 
 			case JavafxPackage.PROJECT_FX:
 				sequence_ProjectFX(context, (ProjectFX) semanticObject); 
@@ -150,6 +154,27 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     ChartFX returns LineChartFX
+	 *     LineChartFX returns LineChartFX
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         legendSide=Orientation? 
+	 *         showLegend=EBoolean? 
+	 *         title=EString? 
+	 *         titleSide=Orientation? 
+	 *         xAxisLabel=EString? 
+	 *         yAxisLabel=EString?
+	 *     )
+	 */
+	protected void sequence_LineChartFX(ISerializationContext context, LineChartFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ProjectFX returns ProjectFX
 	 *
 	 * Constraint:
@@ -158,7 +183,8 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         packagePath=EString? 
 	 *         (controls+=ControlFX controls+=ControlFX*)? 
 	 *         (models+=ModelFX models+=ModelFX*)? 
-	 *         (bindings+=Binding bindings+=Binding*)?
+	 *         (bindings+=Binding bindings+=Binding*)? 
+	 *         (charts+=ChartFX charts+=ChartFX*)?
 	 *     )
 	 */
 	protected void sequence_ProjectFX(ISerializationContext context, ProjectFX semanticObject) {
