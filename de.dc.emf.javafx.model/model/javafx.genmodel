@@ -24,6 +24,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ProjectFX/packagePath"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/models"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/bindings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javafx.ecore#//ProjectFX/charts"/>
     </genClasses>
     <genClasses ecoreClass="javafx.ecore#//ControlFX"/>
     <genClasses ecoreClass="javafx.ecore#//TableColumnFX">
@@ -58,5 +59,7 @@
     <genClasses image="false" ecoreClass="javafx.ecore#//FilteredElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//FilteredElement/useFilter"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="javafx.ecore#//ChartFX"/>
+    <genClasses ecoreClass="javafx.ecore#//LineChartFX"/>
   </genPackages>
 </genmodel:GenModel>

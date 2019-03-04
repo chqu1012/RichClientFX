@@ -19,6 +19,15 @@ ProjectFX ContactProject{
 			int age
 			boolean gender
 			String address
-		} 
+		}   
+	}
+	
+	bindings{
+		binding ContactBinding{
+			StringProperty name
+			DoubleProperty age
+			BooleanProperty gender
+			StringProperty addressProperty
+		}
 	}
 }

@@ -5,65 +5,65 @@ import javafx.collections.*;
 
 public class FormBinding{
 
-	private StringProperty nameProperty = new SimpleStringProperty();	
-	private IntegerProperty ageProperty = new SimpleIntegerProperty();	
-	private BooleanProperty genderProperty = new SimpleBooleanProperty();	
-	private ObjectProperty obProperty = new SimpleObjectProperty();	
+	private StringProperty namePropertyProperty = new SimpleStringProperty();	
+	private IntegerProperty agePropertyProperty = new SimpleIntegerProperty();	
+	private BooleanProperty genderPropertyProperty = new SimpleBooleanProperty();	
+	private ObjectProperty obPropertyProperty = new SimpleObjectProperty();	
 	
-	public void setNameProperty(String name) {
-		nameProperty.set(name);
+	public void setNamePropertyProperty(String name) {
+		this.namePropertyProperty.set(name);
 	}
 	
-	public String getNameProperty() {
-		return nameProperty.get();
+	public StringProperty getNamePropertyProperty() {
+		return this.namePropertyProperty;
 	}
 	
-	public StringProperty getName() {
-		return nameProperty;
+	public String getName() {
+		return this.namePropertyProperty.get();
 	}
 	public void setName(String name) {
-		this.nameProperty.set(name);
+		this.namePropertyProperty.set(name);
 	}
-	public void setAgeProperty(Integer age) {
-		ageProperty.set(age);
-	}
-	
-	public Integer getAgeProperty() {
-		return ageProperty.get();
+	public void setAgePropertyProperty(Integer age) {
+		this.agePropertyProperty.set(age);
 	}
 	
-	public IntegerProperty getAge() {
-		return ageProperty;
+	public IntegerProperty getAgePropertyProperty() {
+		return this.agePropertyProperty;
+	}
+	
+	public Integer getAge() {
+		return this.agePropertyProperty.get();
 	}
 	public void setAge(Integer age) {
-		this.ageProperty.set(age);
+		this.agePropertyProperty.set(age);
 	}
-	public void setGenderProperty(Boolean gender) {
-		genderProperty.set(gender);
-	}
-	
-	public Boolean getGenderProperty() {
-		return genderProperty.get();
+	public void setGenderPropertyProperty(Boolean gender) {
+		this.genderPropertyProperty.set(gender);
 	}
 	
-	public BooleanProperty getGender() {
-		return genderProperty;
+	public BooleanProperty getGenderPropertyProperty() {
+		return this.genderPropertyProperty;
+	}
+	
+	public Boolean getGender() {
+		return this.genderPropertyProperty.get();
 	}
 	public void setGender(Boolean gender) {
-		this.genderProperty.set(gender);
+		this.genderPropertyProperty.set(gender);
 	}
-	public void setObProperty(Object ob) {
-		obProperty.set(ob);
-	}
-	
-	public Object getObProperty() {
-		return obProperty.get();
+	public void setObPropertyProperty(Object ob) {
+		this.obPropertyProperty.set(ob);
 	}
 	
-	public ObjectProperty getOb() {
-		return obProperty;
+	public ObjectProperty getObPropertyProperty() {
+		return this.obPropertyProperty;
+	}
+	
+	public Object getOb() {
+		return this.obPropertyProperty.get();
 	}
 	public void setOb(Object ob) {
-		this.obProperty.set(ob);
+		this.obPropertyProperty.set(ob);
 	}
 }

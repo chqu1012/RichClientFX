@@ -128,24 +128,28 @@ class TemplateSwitch extends JavafxSwitch<String>{
 		«IF property.type==BindingType.OBSERVABLE_LIST»
 		private ObservableList «property.name.toFirstLower» = FXCollections.observableArrayList();
 		«ELSE»
-		private «property.type» «property.name.toFirstLower» = new Simple«property.type»();	
+		«val propertyName = '''«property.type» «property.name.toFirstLower.replace('Property', '')»Property'''»
+		private «propertyName» = new Simple«property.type»();	
 		«ENDIF»
 		«ENDFOR»
 		
 		«FOR property : object.property»
-		public void set«property.name.toFirstUpper»(«property.type.toString.replace('Property', '')» «property.name.toFirstLower.replace('Property', '')») {
-			«property.name.toFirstLower».set(«property.name.toFirstLower.replace('Property', '')»);
+		«val propertyMethodName = '''«property.name.toFirstUpper.replace('Property', '')»Property'''»
+		«val propertyName = '''this.«property.name.toFirstLower.replace('Property', '')»Property'''»
+		«val fieldMethodName = '''«property.name.toFirstUpper.replace('Property', '')»'''»
+		public void set«propertyMethodName»(«property.type.toString.replace('Property', '')» «property.name.toFirstLower.replace('Property', '')») {
+			«propertyName».set(«property.name.toFirstLower.replace('Property', '')»);
 		}
 		
-		public «property.type.toString.replace('Property', '')» get«property.name.toFirstUpper»() {
-			return «property.name.toFirstLower».get();
+		public «property.type.toString» get«propertyMethodName»() {
+			return «propertyName»;
 		}
 		
-		public «property.type» get«property.name.toFirstUpper.replace('Property', '')»() {
-			return «property.name.toFirstLower»;
+		public «property.type.toString.toFirstUpper.replace('Property', '')» get«fieldMethodName»() {
+			return «propertyName».get();
 		}
-		public void set«property.name.toFirstUpper.replace('Property', '')»(«property.type.toString.replace('Property', '')» «property.name.toFirstLower.replace('Property', '')») {
-			this.«property.name.toFirstLower».set(«property.name.toFirstLower.replace('Property', '')»);
+		public void set«fieldMethodName»(«property.type.toString.replace('Property', '')» «property.name.toFirstLower.replace('Property', '')») {
+			«propertyName».set(«property.name.toFirstLower.replace('Property', '')»);
 		}
 		«ENDFOR»
 	}
