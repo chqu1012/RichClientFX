@@ -22,6 +22,7 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	import «packagePath».controls.cell.*;
 	import javafx.beans.binding.Bindings;
 	import javafx.collections.*;
+	import javafx.collections.*;
 	import javafx.beans.value.*;
 	import javafx.util.*;
 	import javafx.collections.transformation.FilteredList;
@@ -189,13 +190,17 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	import «packagePath».controls.cell.*;
 	import «packagePath».model.*;
 	import javafx.scene.control.*;
+	import javafx.collections.*;
 	import javafx.beans.value.ObservableValue;
+	import javafx.collections.transformation.*;
 	import javafx.util.Callback;
 	
 	«val model = '''«IF object.usedModel!==null»«object.usedModel.name»«ELSE»Object«ENDIF»'''»
 	«val modelName = object.usedModel.name.toFirstUpper»
 	public class Base«object.name.toFirstUpper» extends TableView<«model»>{
 		
+		protected ObservableList<«model»> masterData = FXCollections.observableArrayList();
+		protected FilteredList<«model»> filteredMasterData = new FilteredList<>(masterData, p->true);
 		«FOR column : object.columns»
 		protected TableColumn<«model», «model»> «column.name.toFirstLower»Column;
 		«ENDFOR»
@@ -212,6 +217,10 @@ class TemplateSwitch extends JavafxSwitch<String>{
 			column.setCellValueFactory(cellFeatures);
 			getColumns().add(column);
 			return column;
+		}
+		
+		public FilteredList<«model»> getFilteredList(){
+			return filteredMasterData;
 		}
 	}
 	'''	

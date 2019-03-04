@@ -1,7 +1,7 @@
 ProjectFX ContactProject{
 	packagePath 'de.dc.emf.javafx.xtext.demo.contact'
 
- 	controls{
+ 	controls{ 
 		TableView { 
 			name: ContactTableView
 			usedModel: Contact
@@ -18,7 +18,7 @@ ProjectFX ContactProject{
 			Column(	name:familyName width:100 	attribute:"Contact.familyName" useFilter:true)
 			Column(	name:age 					attribute:"Contact.age" useFilter:true)
 			Column(	name:address 	width:50 	attribute:"Contact.address" useFilter:true)
-		}
+		} 
 	}
 	 
 	models{ 

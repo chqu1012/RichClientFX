@@ -50,6 +50,8 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("import javafx.collections.*;");
     _builder.newLine();
+    _builder.append("import javafx.collections.*;");
+    _builder.newLine();
     _builder.append("import javafx.beans.value.*;");
     _builder.newLine();
     _builder.append("import javafx.util.*;");
@@ -713,7 +715,11 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLineIfNotEmpty();
     _builder.append("import javafx.scene.control.*;");
     _builder.newLine();
+    _builder.append("import javafx.collections.*;");
+    _builder.newLine();
     _builder.append("import javafx.beans.value.ObservableValue;");
+    _builder.newLine();
+    _builder.append("import javafx.collections.transformation.*;");
     _builder.newLine();
     _builder.append("import javafx.util.Callback;");
     _builder.newLine();
@@ -742,6 +748,16 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("protected ObservableList<");
+    _builder.append(model, "\t");
+    _builder.append("> masterData = FXCollections.observableArrayList();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("protected FilteredList<");
+    _builder.append(model, "\t");
+    _builder.append("> filteredMasterData = new FilteredList<>(masterData, p->true);");
+    _builder.newLineIfNotEmpty();
     {
       EList<TableColumnFX> _columns = object.getColumns();
       for(final TableColumnFX column : _columns) {
@@ -827,6 +843,19 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return column;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public FilteredList<");
+    _builder.append(model, "\t");
+    _builder.append("> getFilteredList(){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("return filteredMasterData;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
