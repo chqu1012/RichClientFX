@@ -3,6 +3,10 @@
  */
 package de.dc.emf.javafx.xtext.validation
 
+import de.dc.emf.javafx.model.javafx.ProjectFX
+import org.eclipse.xtext.validation.Check
+import de.dc.emf.javafx.model.javafx.JavafxPackage
+import de.dc.emf.javafx.model.javafx.NamedElement
 
 /**
  * This class contains custom validation rules. 
@@ -11,8 +15,9 @@ package de.dc.emf.javafx.xtext.validation
  */
 class JavaFXLangValidator extends AbstractJavaFXLangValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
+	public static val INVALID_NAME = 'invalidName'
+	public static val EMPTY = 'isEmpty'
+
 //	@Check
 //	def checkGreetingStartsWithCapital(Greeting greeting) {
 //		if (!Character.isUpperCase(greeting.name.charAt(0))) {
@@ -22,4 +27,17 @@ class JavaFXLangValidator extends AbstractJavaFXLangValidator {
 //		}
 //	}
 	
+	@Check
+	def checkPackagePathNotEmpty(ProjectFX project){
+		if (project.packagePath.isNullOrEmpty) {
+			error("Project Package Path should not be empty!", JavafxPackage.Literals.PROJECT_FX__PACKAGE_PATH, EMPTY);
+		}
+	}
+	
+	@Check
+	def checkNamedElement(NamedElement element){
+		if (element.name.isNullOrEmpty) {
+			error(element.class.simpleName+" element name should not be empty!", JavafxPackage.Literals.NAMED_ELEMENT__NAME, EMPTY);
+		}
+	}
 }
