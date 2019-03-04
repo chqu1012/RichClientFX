@@ -13,6 +13,6 @@ ProjectFX ContactProject{
 			titleSide:Top
 			xAxisLabel:"Budget"
 			yAxisLabel:"Month"
-		}  
+		}
 	}
 }

@@ -3,16 +3,17 @@
  */
 package de.dc.emf.javafx.xtext.generator
 
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.AbstractGenerator
-import org.eclipse.xtext.generator.IFileSystemAccess2
-import org.eclipse.xtext.generator.IGeneratorContext
-import de.dc.emf.javafx.model.javafx.FilteredElement
+import com.google.inject.Inject
 import de.dc.emf.javafx.model.javafx.ChartFX
 import de.dc.emf.javafx.model.javafx.NamedElement
 import de.dc.emf.javafx.model.javafx.ProjectFX
-import org.eclipse.emf.ecore.util.EcoreUtil
 import de.dc.emf.javafx.model.javafx.TableViewFX
+import de.dc.emf.javafx.xtext.configuration.SourceOutputConfigurationProvider
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.xtext.generator.AbstractGenerator
+import org.eclipse.xtext.generator.IFileSystemAccess2
+import org.eclipse.xtext.generator.IGeneratorContext
 
 class JavaFXLangGenerator extends AbstractGenerator {
 
@@ -43,6 +44,7 @@ class JavaFXLangGenerator extends AbstractGenerator {
 			}
 		]
 		
+		
 		resource.allContents.filter[it instanceof ChartFX || it instanceof TableViewFX].forEach[element|
 			val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath.replace('.', '/')
 			val code = applicationSwitch.doSwitch(element)
@@ -51,7 +53,7 @@ class JavaFXLangGenerator extends AbstractGenerator {
 			val isGeneratorEnabled = checkGenerator.doSwitch(element)
 			if (code!==null && path!==null) {
 				if (isGeneratorEnabled) {
-					fsa.generateFile(path, code)
+					fsa.generateFile(path, SourceOutputConfigurationProvider.DEFAULT_SRC, code)
 				}
 			}
 		]	

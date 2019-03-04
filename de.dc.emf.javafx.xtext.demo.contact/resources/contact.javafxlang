@@ -19,7 +19,7 @@ ProjectFX ContactProject{
 			Column(	name:age 					attribute:"Contact.age" useFilter:true)
 			Column(	name:address 	width:50 	attribute:"Contact.address" useFilter:true)
 		}
-	} 
+	}
 	 
 	models{
 		class Contact{
