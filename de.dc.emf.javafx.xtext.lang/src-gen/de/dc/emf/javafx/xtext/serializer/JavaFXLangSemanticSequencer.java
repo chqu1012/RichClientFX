@@ -182,7 +182,9 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         title=EString? 
 	 *         titleSide=Orientation? 
 	 *         xAxisLabel=EString? 
-	 *         yAxisLabel=EString?
+	 *         xAxisType=AxisType? 
+	 *         yAxisLabel=EString? 
+	 *         yAxisType=AxisType?
 	 *     )
 	 */
 	protected void sequence_LineChartFX(ISerializationContext context, LineChartFX semanticObject) {

@@ -556,16 +556,41 @@ ruleLineChartFX returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_15='yAxisLabel:'
+			otherlv_15='xAxisType:'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getLineChartFXAccess().getYAxisLabelKeyword_10_0());
+				newLeafNode(otherlv_15, grammarAccess.getLineChartFXAccess().getXAxisTypeKeyword_10_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLineChartFXAccess().getYAxisLabelEStringParserRuleCall_10_1_0());
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0());
 					}
-					lv_yAxisLabel_16_0=ruleEString
+					lv_xAxisType_16_0=ruleAxisType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						set(
+							$current,
+							"xAxisType",
+							lv_xAxisType_16_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.AxisType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_17='yAxisLabel:'
+			{
+				newLeafNode(otherlv_17, grammarAccess.getLineChartFXAccess().getYAxisLabelKeyword_11_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0());
+					}
+					lv_yAxisLabel_18_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
@@ -573,16 +598,41 @@ ruleLineChartFX returns [EObject current=null]
 						set(
 							$current,
 							"yAxisLabel",
-							lv_yAxisLabel_16_0,
+							lv_yAxisLabel_18_0,
 							"de.dc.emf.javafx.xtext.JavaFXLang.EString");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_17='}'
+		(
+			otherlv_19='yAxisType:'
+			{
+				newLeafNode(otherlv_19, grammarAccess.getLineChartFXAccess().getYAxisTypeKeyword_12_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0());
+					}
+					lv_yAxisType_20_0=ruleAxisType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						set(
+							$current,
+							"yAxisType",
+							lv_yAxisType_20_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.AxisType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_21='}'
 		{
-			newLeafNode(otherlv_17, grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_11());
+			newLeafNode(otherlv_21, grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_13());
 		}
 	)
 ;
@@ -1606,6 +1656,33 @@ ruleAttributeFX returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
+		)
+	)
+;
+
+// Rule AxisType
+ruleAxisType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='Category'
+			{
+				$current = grammarAccess.getAxisTypeAccess().getCategoryEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getAxisTypeAccess().getCategoryEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='Number'
+			{
+				$current = grammarAccess.getAxisTypeAccess().getNumberEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getAxisTypeAccess().getNumberEnumLiteralDeclaration_1());
+			}
 		)
 	)
 ;

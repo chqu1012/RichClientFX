@@ -10,7 +10,7 @@ ProjectFX ContactProject{
 			Column(	name:age 					attribute:"Contact.age")
 			Column(	name:address 	width:50 	attribute:"Contact.address")
 		}
-
+ 
 		FilteredTableView{
 			name: FilteredContactTableView
 			usedModel: Contact

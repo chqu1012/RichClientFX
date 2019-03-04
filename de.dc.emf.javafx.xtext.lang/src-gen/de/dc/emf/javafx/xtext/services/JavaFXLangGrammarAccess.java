@@ -255,23 +255,32 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cXAxisLabelAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
 		private final RuleCall cXAxisLabelEStringParserRuleCall_9_1_0 = (RuleCall)cXAxisLabelAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cYAxisLabelKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cYAxisLabelAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final RuleCall cYAxisLabelEStringParserRuleCall_10_1_0 = (RuleCall)cYAxisLabelAssignment_10_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cXAxisTypeKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cXAxisTypeAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cXAxisTypeAxisTypeEnumRuleCall_10_1_0 = (RuleCall)cXAxisTypeAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cYAxisLabelKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cYAxisLabelAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cYAxisLabelEStringParserRuleCall_11_1_0 = (RuleCall)cYAxisLabelAssignment_11_1.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cYAxisTypeKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cYAxisTypeAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cYAxisTypeAxisTypeEnumRuleCall_12_1_0 = (RuleCall)cYAxisTypeAssignment_12_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//LineChartFX:
 		//	{LineChartFX}
 		//	'LineChart' '{'
 		//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
-		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('yAxisLabel:'
-		//	yAxisLabel=EString)?
+		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+		//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{LineChartFX} 'LineChart' '{' 'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:'
 		//showLegend=EBoolean)? ('title:' title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:'
-		//xAxisLabel=EString)? ('yAxisLabel:' yAxisLabel=EString)? '}'
+		//xAxisLabel=EString)? ('xAxisType:' xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:'
+		//yAxisType=AxisType)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{LineChartFX}
@@ -352,20 +361,44 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getXAxisLabelEStringParserRuleCall_9_1_0() { return cXAxisLabelEStringParserRuleCall_9_1_0; }
 		
-		//('yAxisLabel:' yAxisLabel=EString)?
+		//('xAxisType:' xAxisType=AxisType)?
 		public Group getGroup_10() { return cGroup_10; }
 		
+		//'xAxisType:'
+		public Keyword getXAxisTypeKeyword_10_0() { return cXAxisTypeKeyword_10_0; }
+		
+		//xAxisType=AxisType
+		public Assignment getXAxisTypeAssignment_10_1() { return cXAxisTypeAssignment_10_1; }
+		
+		//AxisType
+		public RuleCall getXAxisTypeAxisTypeEnumRuleCall_10_1_0() { return cXAxisTypeAxisTypeEnumRuleCall_10_1_0; }
+		
+		//('yAxisLabel:' yAxisLabel=EString)?
+		public Group getGroup_11() { return cGroup_11; }
+		
 		//'yAxisLabel:'
-		public Keyword getYAxisLabelKeyword_10_0() { return cYAxisLabelKeyword_10_0; }
+		public Keyword getYAxisLabelKeyword_11_0() { return cYAxisLabelKeyword_11_0; }
 		
 		//yAxisLabel=EString
-		public Assignment getYAxisLabelAssignment_10_1() { return cYAxisLabelAssignment_10_1; }
+		public Assignment getYAxisLabelAssignment_11_1() { return cYAxisLabelAssignment_11_1; }
 		
 		//EString
-		public RuleCall getYAxisLabelEStringParserRuleCall_10_1_0() { return cYAxisLabelEStringParserRuleCall_10_1_0; }
+		public RuleCall getYAxisLabelEStringParserRuleCall_11_1_0() { return cYAxisLabelEStringParserRuleCall_11_1_0; }
+		
+		//('yAxisType:' yAxisType=AxisType)?
+		public Group getGroup_12() { return cGroup_12; }
+		
+		//'yAxisType:'
+		public Keyword getYAxisTypeKeyword_12_0() { return cYAxisTypeKeyword_12_0; }
+		
+		//yAxisType=AxisType
+		public Assignment getYAxisTypeAssignment_12_1() { return cYAxisTypeAssignment_12_1; }
+		
+		//AxisType
+		public RuleCall getYAxisTypeAxisTypeEnumRuleCall_12_1_0() { return cYAxisTypeAxisTypeEnumRuleCall_12_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
 	}
 	public class BindingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.Binding");
@@ -1003,6 +1036,33 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 	}
 	
+	public class AxisTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.AxisType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cCategoryEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cCategoryCategoryKeyword_0_0 = (Keyword)cCategoryEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cNumberEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cNumberNumberKeyword_1_0 = (Keyword)cNumberEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum AxisType:
+		//	Category | Number;
+		public EnumRule getRule() { return rule; }
+		
+		//Category | Number
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Category
+		public EnumLiteralDeclaration getCategoryEnumLiteralDeclaration_0() { return cCategoryEnumLiteralDeclaration_0; }
+		
+		//"Category"
+		public Keyword getCategoryCategoryKeyword_0_0() { return cCategoryCategoryKeyword_0_0; }
+		
+		//Number
+		public EnumLiteralDeclaration getNumberEnumLiteralDeclaration_1() { return cNumberEnumLiteralDeclaration_1; }
+		
+		//"Number"
+		public Keyword getNumberNumberKeyword_1_0() { return cNumberNumberKeyword_1_0; }
+	}
 	public class OrientationElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.Orientation");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1118,6 +1178,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	private final ProjectFXElements pProjectFX;
 	private final ChartFXElements pChartFX;
 	private final LineChartFXElements pLineChartFX;
+	private final AxisTypeElements eAxisType;
 	private final OrientationElements eOrientation;
 	private final BindingElements pBinding;
 	private final BindingPropertyElements pBindingProperty;
@@ -1146,6 +1207,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pProjectFX = new ProjectFXElements();
 		this.pChartFX = new ChartFXElements();
 		this.pLineChartFX = new LineChartFXElements();
+		this.eAxisType = new AxisTypeElements();
 		this.eOrientation = new OrientationElements();
 		this.pBinding = new BindingElements();
 		this.pBindingProperty = new BindingPropertyElements();
@@ -1220,8 +1282,8 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	{LineChartFX}
 	//	'LineChart' '{'
 	//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
-	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('yAxisLabel:'
-	//	yAxisLabel=EString)?
+	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+	//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
 	//	'}';
 	public LineChartFXElements getLineChartFXAccess() {
 		return pLineChartFX;
@@ -1229,6 +1291,16 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getLineChartFXRule() {
 		return getLineChartFXAccess().getRule();
+	}
+	
+	//enum AxisType:
+	//	Category | Number;
+	public AxisTypeElements getAxisTypeAccess() {
+		return eAxisType;
+	}
+	
+	public EnumRule getAxisTypeRule() {
+		return getAxisTypeAccess().getRule();
 	}
 	
 	//enum Orientation:

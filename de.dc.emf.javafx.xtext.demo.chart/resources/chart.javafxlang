@@ -14,5 +14,12 @@ ProjectFX ContactProject{
 			xAxisLabel:"Budget"
 			yAxisLabel:"Month"
 		}
+		
+		LineChart{
+			name: StudentsOverviewChart
+			title:"Students in the year 2019"
+			xAxisType: Category
+			yAxisType: Number 
+		}
 	}
 }

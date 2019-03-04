@@ -449,6 +449,22 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Rule AxisType
+ruleAxisType
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getAxisTypeAccess().getAlternatives()); }
+		(rule__AxisType__Alternatives)
+		{ after(grammarAccess.getAxisTypeAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Rule Orientation
 ruleOrientation
 	@init {
@@ -559,6 +575,27 @@ rule__EBoolean__Alternatives
 		{ before(grammarAccess.getEBooleanAccess().getFalseKeyword_1()); }
 		'false'
 		{ after(grammarAccess.getEBooleanAccess().getFalseKeyword_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__AxisType__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getAxisTypeAccess().getCategoryEnumLiteralDeclaration_0()); }
+		('Category')
+		{ after(grammarAccess.getAxisTypeAccess().getCategoryEnumLiteralDeclaration_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getAxisTypeAccess().getNumberEnumLiteralDeclaration_1()); }
+		('Number')
+		{ after(grammarAccess.getAxisTypeAccess().getNumberEnumLiteralDeclaration_1()); }
 	)
 ;
 finally {
@@ -1816,6 +1853,7 @@ rule__LineChartFX__Group__11
 	}
 :
 	rule__LineChartFX__Group__11__Impl
+	rule__LineChartFX__Group__12
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1827,9 +1865,62 @@ rule__LineChartFX__Group__11__Impl
 	}
 :
 (
-	{ before(grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_11()); }
+	{ before(grammarAccess.getLineChartFXAccess().getGroup_11()); }
+	(rule__LineChartFX__Group_11__0)?
+	{ after(grammarAccess.getLineChartFXAccess().getGroup_11()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group__12
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__LineChartFX__Group__12__Impl
+	rule__LineChartFX__Group__13
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group__12__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getLineChartFXAccess().getGroup_12()); }
+	(rule__LineChartFX__Group_12__0)?
+	{ after(grammarAccess.getLineChartFXAccess().getGroup_12()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group__13
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__LineChartFX__Group__13__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group__13__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_13()); }
 	'}'
-	{ after(grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_11()); }
+	{ after(grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_13()); }
 )
 ;
 finally {
@@ -2125,9 +2216,9 @@ rule__LineChartFX__Group_10__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getLineChartFXAccess().getYAxisLabelKeyword_10_0()); }
-	'yAxisLabel:'
-	{ after(grammarAccess.getLineChartFXAccess().getYAxisLabelKeyword_10_0()); }
+	{ before(grammarAccess.getLineChartFXAccess().getXAxisTypeKeyword_10_0()); }
+	'xAxisType:'
+	{ after(grammarAccess.getLineChartFXAccess().getXAxisTypeKeyword_10_0()); }
 )
 ;
 finally {
@@ -2151,9 +2242,117 @@ rule__LineChartFX__Group_10__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getLineChartFXAccess().getYAxisLabelAssignment_10_1()); }
-	(rule__LineChartFX__YAxisLabelAssignment_10_1)
-	{ after(grammarAccess.getLineChartFXAccess().getYAxisLabelAssignment_10_1()); }
+	{ before(grammarAccess.getLineChartFXAccess().getXAxisTypeAssignment_10_1()); }
+	(rule__LineChartFX__XAxisTypeAssignment_10_1)
+	{ after(grammarAccess.getLineChartFXAccess().getXAxisTypeAssignment_10_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__LineChartFX__Group_11__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__LineChartFX__Group_11__0__Impl
+	rule__LineChartFX__Group_11__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group_11__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getLineChartFXAccess().getYAxisLabelKeyword_11_0()); }
+	'yAxisLabel:'
+	{ after(grammarAccess.getLineChartFXAccess().getYAxisLabelKeyword_11_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group_11__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__LineChartFX__Group_11__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group_11__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getLineChartFXAccess().getYAxisLabelAssignment_11_1()); }
+	(rule__LineChartFX__YAxisLabelAssignment_11_1)
+	{ after(grammarAccess.getLineChartFXAccess().getYAxisLabelAssignment_11_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__LineChartFX__Group_12__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__LineChartFX__Group_12__0__Impl
+	rule__LineChartFX__Group_12__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group_12__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getLineChartFXAccess().getYAxisTypeKeyword_12_0()); }
+	'yAxisType:'
+	{ after(grammarAccess.getLineChartFXAccess().getYAxisTypeKeyword_12_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group_12__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__LineChartFX__Group_12__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__Group_12__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getLineChartFXAccess().getYAxisTypeAssignment_12_1()); }
+	(rule__LineChartFX__YAxisTypeAssignment_12_1)
+	{ after(grammarAccess.getLineChartFXAccess().getYAxisTypeAssignment_12_1()); }
 )
 ;
 finally {
@@ -4561,15 +4760,45 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LineChartFX__YAxisLabelAssignment_10_1
+rule__LineChartFX__XAxisTypeAssignment_10_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getLineChartFXAccess().getYAxisLabelEStringParserRuleCall_10_1_0()); }
+		{ before(grammarAccess.getLineChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); }
+		ruleAxisType
+		{ after(grammarAccess.getLineChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__YAxisLabelAssignment_11_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getLineChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); }
 		ruleEString
-		{ after(grammarAccess.getLineChartFXAccess().getYAxisLabelEStringParserRuleCall_10_1_0()); }
+		{ after(grammarAccess.getLineChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LineChartFX__YAxisTypeAssignment_12_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getLineChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); }
+		ruleAxisType
+		{ after(grammarAccess.getLineChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); }
 	)
 ;
 finally {
