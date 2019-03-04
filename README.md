@@ -29,7 +29,7 @@ Running application
 - [ ] High complex Binding
 - [ ] DSL directly to CompilationUnit 
 
-## use example
+## Used Example
 * Define TableView dsl
 ```java
 ProjectFX ContactProject{
@@ -45,6 +45,36 @@ ProjectFX ContactProject{
 			Column(	name:address 	width:50 	attribute:"Contact.address")
 		}
 	}
+	
+	models{
+		class Contact{
+			String forename
+			String familyName
+			int age
+			boolean gender
+			String address
+		} 
+	}
+}
+```
+### How to define a FilteredTableViewFX
+
+Each Filter columns as activate the filter by ```useFilter: true```
+
+```
+ProjectFX ContactProject{
+	packagePath 'de.dc.emf.javafx.xtext.demo.contact'
+	
+	controls{
+		FilteredTableView {
+			name: ContactTableView
+			usedModel: Contact
+			Column(	name:forename 	width:100 	attribute:"Contact.forename" useFilter:true)
+			Column(	name:familyName width:100 	attribute:"Contact.familyName" useFilter:true)
+			Column(	name:age 			attribute:"Contact.age" useFilter:true)
+			Column(	name:address 	width:50 	attribute:"Contact.address" useFilter:true)
+		}
+	}   
 	
 	models{
 		class Contact{
