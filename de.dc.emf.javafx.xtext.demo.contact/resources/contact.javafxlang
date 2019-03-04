@@ -9,7 +9,7 @@ ProjectFX ContactProject{
 			Column(	name:familyName width:100 	attribute:"Contact.familyName")
 			Column(	name:age 					attribute:"Contact.age")
 			Column(	name:address 	width:50 	attribute:"Contact.address")
-		} 
+		}
 
 		FilteredTableView{
 			name: FilteredContactTableView
@@ -21,7 +21,7 @@ ProjectFX ContactProject{
 		}
 	}
 	 
-	models{
+	models{ 
 		class Contact{
 			String forename
 			String familyName

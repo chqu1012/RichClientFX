@@ -29,7 +29,7 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	import javafx.scene.layout.*;
 	«val tableName = object.name.toFirstUpper»
 	«val modelName = object.usedModel.name.toFirstUpper»
-	public class «tableName» extends VBox {
+	public class Base«tableName» extends VBox {
 	
 		«FOR column : object.columns»
 		protected TableColumn<«modelName», «modelName»> «column.name.toFirstLower»Column;
@@ -42,7 +42,7 @@ class TemplateSwitch extends JavafxSwitch<String>{
 		private ObservableList<«modelName»> «modelName.toFirstLower»List = FXCollections.observableArrayList();
 		private FilteredList<«modelName»> «modelName.toFirstLower»FilteredList = new FilteredList<>(«modelName.toFirstLower»List, p->true);
 		
-		public «tableName»() {
+		public Base«tableName»() {
 			initSearchText();
 			initTableView();
 			initCountOfItemsLabel();
@@ -194,13 +194,13 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	
 	«val model = '''«IF object.usedModel!==null»«object.usedModel.name»«ELSE»Object«ENDIF»'''»
 	«val modelName = object.usedModel.name.toFirstUpper»
-	public class «object.name.toFirstUpper» extends TableView<«model»>{
+	public class Base«object.name.toFirstUpper» extends TableView<«model»>{
 		
 		«FOR column : object.columns»
 		protected TableColumn<«model», «model»> «column.name.toFirstLower»Column;
 		«ENDFOR»
 		
-		public «object.name.toFirstUpper»() {
+		public Base«object.name.toFirstUpper»() {
 			«FOR column : object.columns»
 			«column.name.toFirstLower»Column = createColumn("«column.name.toFirstUpper»", «column.width»,  new Base«modelName»CellFeatures(«modelName»Type.«column.usedAttribute.name.toFirstUpper»));
 			«ENDFOR»
@@ -268,9 +268,9 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	«val yAxisType = '''«IF object.YAxisType==AxisType.CATEGORY»String«ELSE»Number«ENDIF»'''»
 	«val xAxis = '''«IF object.XAxisType==AxisType.CATEGORY»Category«ELSE»Number«ENDIF»'''»
 	«val yAxis = '''«IF object.YAxisType==AxisType.CATEGORY»Category«ELSE»Number«ENDIF»'''»
-	public class «object.name.toFirstUpper» extends LineChart<«xAxisType», «yAxisType»> {
+	public class Base«object.name.toFirstUpper» extends LineChart<«xAxisType», «yAxisType»> {
 	
-		public «object.name.toFirstUpper»() {
+		public Base«object.name.toFirstUpper»() {
 			super(new «xAxis»Axis(), new «yAxis»Axis());
 			setLegendSide(Side.«object.legendSide.toString.toUpperCase»);
 			setLegendVisible(«object.showLegend»);

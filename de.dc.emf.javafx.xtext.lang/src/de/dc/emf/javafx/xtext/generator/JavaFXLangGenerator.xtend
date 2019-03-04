@@ -18,7 +18,11 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class JavaFXLangGenerator extends AbstractGenerator {
 
 	TemplateSwitch templates = new TemplateSwitch
+	ExtendedTemplateSwitch extendedTemplates = new ExtendedTemplateSwitch
+	
 	FilePathSwitch filePathFinder = new FilePathSwitch
+	ExtendedFilePathSwitch extendedFilePathFinder = new ExtendedFilePathSwitch
+	
 	EnableGeneratorSwitch checkGenerator = new EnableGeneratorSwitch
 	
 	TableColumnSwitch tableColumnGenerator = new TableColumnSwitch
@@ -29,10 +33,17 @@ class JavaFXLangGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.forEach[content|
 			val code = templates.doSwitch(content)
+			val extendedCode = extendedTemplates.doSwitch(content)
+			
 			val path = filePathFinder.doSwitch(content)
+			val extendedPath = extendedFilePathFinder.doSwitch(content)
+			
 			val isGeneratorEnabled = checkGenerator.doSwitch(content)
 			if (isGeneratorEnabled) {
 				fsa.generateFile(path, code)
+				if (code!==null && extendedCode!==null) {
+					fsa.generateFile(extendedPath, SourceOutputConfigurationProvider.DEFAULT_SRC,extendedCode)
+				}
 			}
 		]
 		

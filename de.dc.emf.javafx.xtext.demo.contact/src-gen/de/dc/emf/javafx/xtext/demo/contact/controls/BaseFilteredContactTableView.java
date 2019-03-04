@@ -9,7 +9,7 @@ import javafx.util.*;
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-public class FilteredContactTableView extends VBox {
+public class BaseFilteredContactTableView extends VBox {
 
 	protected TableColumn<Contact, Contact> forenameColumn;
 	protected TableColumn<Contact, Contact> familyNameColumn;
@@ -23,7 +23,7 @@ public class FilteredContactTableView extends VBox {
 	private ObservableList<Contact> contactList = FXCollections.observableArrayList();
 	private FilteredList<Contact> contactFilteredList = new FilteredList<>(contactList, p->true);
 	
-	public FilteredContactTableView() {
+	public BaseFilteredContactTableView() {
 		initSearchText();
 		initTableView();
 		initCountOfItemsLabel();

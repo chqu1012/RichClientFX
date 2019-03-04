@@ -64,7 +64,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLineIfNotEmpty();
     final String modelName = StringExtensions.toFirstUpper(object.getUsedModel().getName());
     _builder.newLineIfNotEmpty();
-    _builder.append("public class ");
+    _builder.append("public class Base");
     _builder.append(tableName);
     _builder.append(" extends VBox {");
     _builder.newLineIfNotEmpty();
@@ -125,7 +125,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public ");
+    _builder.append("public Base");
     _builder.append(tableName, "\t");
     _builder.append("() {");
     _builder.newLineIfNotEmpty();
@@ -733,7 +733,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLineIfNotEmpty();
     final String modelName = StringExtensions.toFirstUpper(object.getUsedModel().getName());
     _builder.newLineIfNotEmpty();
-    _builder.append("public class ");
+    _builder.append("public class Base");
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(" extends TableView<");
@@ -760,7 +760,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public ");
+    _builder.append("public Base");
     String _firstUpper_1 = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper_1, "\t");
     _builder.append("() {");
@@ -1075,7 +1075,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     }
     final String yAxis = _builder_4.toString();
     _builder.newLineIfNotEmpty();
-    _builder.append("public class ");
+    _builder.append("public class Base");
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(" extends LineChart<");
@@ -1086,7 +1086,7 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public ");
+    _builder.append("public Base");
     String _firstUpper_1 = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper_1, "\t");
     _builder.append("() {");
