@@ -9,6 +9,8 @@
         eType="#//ModelFX" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
         eType="#//Binding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="charts" upperBound="-1"
+        eType="#//ChartFX" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlFX" abstract="true" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="TableColumnFX" eSuperTypes="#//NamedElement #//FilteredElement">
@@ -56,4 +58,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="FilteredElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="useFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChartFX" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LineChartFX" eSuperTypes="#//ChartFX"/>
 </ecore:EPackage>
