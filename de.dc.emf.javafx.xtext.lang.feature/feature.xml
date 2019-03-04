@@ -2,7 +2,7 @@
 <feature
       id="de.dc.emf.javafx.xtext.lang.feature"
       label="JavaFX Lang Feature"
-      version="0.8.1.qualifier">
+      version="0.8.2.qualifier">
 
    <plugin
          id="de.dc.emf.javafx.xtext.lang"

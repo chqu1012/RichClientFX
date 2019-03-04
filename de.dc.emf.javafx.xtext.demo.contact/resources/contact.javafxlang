@@ -2,7 +2,7 @@ ProjectFX ContactProject{
 	packagePath 'de.dc.emf.javafx.xtext.demo.contact'
 
  	controls{
-		TableView {
+		TableView { 
 			name: ContactTableView
 			usedModel: Contact
 			Column(	name:forename 	width:100 	attribute:"Contact.forename")
