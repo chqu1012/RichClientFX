@@ -163,6 +163,8 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	
 	import javafx.geometry.*;
 	import javafx.scene.chart.*;
+	import java.util.*;
+	
 	«val xAxisType = '''«IF object.XAxisType==AxisType.CATEGORY»String«ELSE»Number«ENDIF»'''»
 	«val yAxisType = '''«IF object.YAxisType==AxisType.CATEGORY»String«ELSE»Number«ENDIF»'''»
 	«val xAxis = '''«IF object.XAxisType==AxisType.CATEGORY»Category«ELSE»Number«ENDIF»'''»
@@ -171,14 +173,21 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	
 		public «object.name.toFirstUpper»() {
 			super(new «xAxis»Axis(), new «yAxis»Axis());
-			«val side = object.legendSide.toString.toUpperCase»
-			setLegendSide(Side.«side»);
+			setLegendSide(Side.«object.legendSide.toString.toUpperCase»);
 			setLegendVisible(«object.showLegend»);
 			setTitle("«object.title»");		
-			setTitleSide(Side.«side»);
+			setTitleSide(Side.«object.titleSide.toString.toUpperCase»);
 			
 			getXAxis().setLabel("«object.XAxisLabel»");
 			getYAxis().setLabel("«object.YAxisLabel»");
+		}
+		
+		public void createSeries(String name, List<Data<«xAxisType», «yAxisType»>> list) {
+			XYChart.Series<«xAxisType», «yAxisType»> series = new XYChart.Series<«xAxisType», «yAxisType»>();
+	        series.setName(name);		
+	
+	        series.getData().addAll(list);
+	        getData().add(series);
 		}
 	}
 	'''

@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import de.dc.emf.javafx.model.javafx.FilteredElement
+import de.dc.emf.javafx.model.javafx.ChartFX
 
 class JavaFXLangGenerator extends AbstractGenerator {
 
@@ -21,6 +22,8 @@ class JavaFXLangGenerator extends AbstractGenerator {
 	FilteredElementPathSwitch filteredElementPathSwitcher = new FilteredElementPathSwitch
 	FilteredElementEnabler filteredElementEnabler = new FilteredElementEnabler
 	FilteredElementSwitch filteredElementSwitcher = new FilteredElementSwitch
+	
+	ApplicationSwitch applicationSwitch = new ApplicationSwitch
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.forEach[content|
@@ -50,5 +53,12 @@ class JavaFXLangGenerator extends AbstractGenerator {
 				}
 			}
 		]
+		
+		resource.allContents.filter[it instanceof ChartFX].forEach[element|
+			val code = applicationSwitch.doSwitch(element)
+			val name = "demo/"+(element as ChartFX).name.toFirstUpper+"Application.java"
+			val path = FilePathSwitch.getPackage(element)+"/"+name
+			fsa.generateFile(path, code)
+		]	
 	}
 }
