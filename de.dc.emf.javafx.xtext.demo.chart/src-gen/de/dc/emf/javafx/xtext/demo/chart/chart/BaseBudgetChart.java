@@ -4,17 +4,17 @@ import javafx.geometry.*;
 import javafx.scene.chart.*;
 import java.util.*;
 
-public class BudgetChartOther extends LineChart<Number, Number> {
+public class BaseBudgetChart extends LineChart<Number, Number> {
 
-	public BudgetChartOther() {
+	public BaseBudgetChart() {
 		super(new NumberAxis(), new NumberAxis());
-		setLegendSide(Side.TOP);
+		setLegendSide(Side.BOTTOM);
 		setLegendVisible(true);
-		setTitle("Other Budget Chart");		
+		setTitle(" ");		
 		setTitleSide(Side.TOP);
 		
-		getXAxis().setLabel("Budget");
-		getYAxis().setLabel("Month");
+		getXAxis().setLabel("");
+		getYAxis().setLabel("");
 	}
 	
 	public void createSeries(String name, List<Data<Number, Number>> list) {

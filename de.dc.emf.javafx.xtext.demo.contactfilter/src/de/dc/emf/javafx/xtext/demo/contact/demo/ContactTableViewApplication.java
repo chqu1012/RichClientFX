@@ -19,13 +19,21 @@ public class ContactTableViewApplication extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		ContactTableView contactTableView = new ContactTableView();
 		List<Contact> masterData = new ArrayList<>();
-		for (int i = 0; i < 20; i++) {
-			masterData.add(new Contact());
-		}
+
+		prepareData(masterData);
+
 		contactTableView.setItems(FXCollections.observableArrayList(masterData));
 		Scene scene = new Scene(contactTableView, 600, 600);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+	}
+
+	private void prepareData(List<Contact> masterData) {
+		masterData.add(new Contact("Bilbo", "Beutlin", 22, true, "Neverworld"));
+		for (int i = 0; i < 20; i++) {
+			masterData.add(new Contact("Peter", "Jackson", 12, false, ""));
+		}
+		masterData.add(new Contact("Ralf", "Renner", 31, true, "Wallstreet"));
 	}
 
 }
