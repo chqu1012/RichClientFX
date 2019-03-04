@@ -22,6 +22,9 @@ Running application
 - [ ] Code Generation of TreeTableView
 - [ ] Code Generation of ListView
 - [ ] Code Generation of Custom forms
+- [ ] Code Generation of LineChart
+- [ ] Code Generation of PieChart
+- [ ] Code Generation of AreaChart
 - [ ] FXML Code Generation
 - [ ] High complex Binding
 - [ ] DSL directly to CompilationUnit 
