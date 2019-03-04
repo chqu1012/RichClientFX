@@ -65,7 +65,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 10;
+	int NAMED_ELEMENT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -243,22 +243,13 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_COLUMN_FX__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_COLUMN_FX__USE_FILTER = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FX__WIDTH = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int TABLE_COLUMN_FX__WIDTH = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Used Attribute</b></em>' reference.
@@ -267,7 +258,16 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FX__USED_ATTRIBUTE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TABLE_COLUMN_FX__USED_ATTRIBUTE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN_FX__USE_FILTER = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Table Column FX</em>' class.
@@ -582,22 +582,13 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_VIEW_FX__NAME = CONTROL_FX__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_VIEW_FX__USE_FILTER = CONTROL_FX_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_VIEW_FX__COLUMNS = CONTROL_FX_FEATURE_COUNT + 1;
+	int TABLE_VIEW_FX__COLUMNS = CONTROL_FX_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Used Model</b></em>' reference.
@@ -606,7 +597,7 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 2;
+	int TABLE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Table View FX</em>' class.
@@ -615,7 +606,7 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 3;
+	int TABLE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Table View FX</em>' class.
@@ -627,6 +618,70 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_VIEW_FX_OPERATION_COUNT = CONTROL_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredTableViewFXImpl <em>Filtered Table View FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.FilteredTableViewFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredTableViewFX()
+	 * @generated
+	 */
+	int FILTERED_TABLE_VIEW_FX = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_TABLE_VIEW_FX__NAME = CONTROL_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_TABLE_VIEW_FX__USE_FILTER = CONTROL_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_TABLE_VIEW_FX__COLUMNS = CONTROL_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Used Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_TABLE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Filtered Table View FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_TABLE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Filtered Table View FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_TABLE_VIEW_FX_OPERATION_COUNT = CONTROL_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredElementImpl <em>Filtered Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -634,7 +689,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredElement()
 	 * @generated
 	 */
-	int FILTERED_ELEMENT = 11;
+	int FILTERED_ELEMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
@@ -671,7 +726,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartFX()
 	 * @generated
 	 */
-	int CHART_FX = 12;
+	int CHART_FX = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -780,7 +835,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getLineChartFX()
 	 * @generated
 	 */
-	int LINE_CHART_FX = 13;
+	int LINE_CHART_FX = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -882,6 +937,551 @@ public interface JavafxPackage extends EPackage {
 	int LINE_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.PieChartFXImpl <em>Pie Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.PieChartFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getPieChartFX()
+	 * @generated
+	 */
+	int PIE_CHART_FX = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__NAME = CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__TITLE = CHART_FX__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Title Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__TITLE_SIDE = CHART_FX__TITLE_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__SHOW_LEGEND = CHART_FX__SHOW_LEGEND;
+
+	/**
+	 * The feature id for the '<em><b>Legend Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__LEGEND_SIDE = CHART_FX__LEGEND_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__XAXIS_TYPE = CHART_FX__XAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__YAXIS_TYPE = CHART_FX__YAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__XAXIS_LABEL = CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The number of structural features of the '<em>Pie Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX_FEATURE_COUNT = CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Pie Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.AreaChartFXImpl <em>Area Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.AreaChartFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAreaChartFX()
+	 * @generated
+	 */
+	int AREA_CHART_FX = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__NAME = CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__TITLE = CHART_FX__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Title Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__TITLE_SIDE = CHART_FX__TITLE_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__SHOW_LEGEND = CHART_FX__SHOW_LEGEND;
+
+	/**
+	 * The feature id for the '<em><b>Legend Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__LEGEND_SIDE = CHART_FX__LEGEND_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__XAXIS_TYPE = CHART_FX__XAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__YAXIS_TYPE = CHART_FX__YAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__XAXIS_LABEL = CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The number of structural features of the '<em>Area Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX_FEATURE_COUNT = CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Area Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.BubbleChartFXImpl <em>Bubble Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.BubbleChartFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBubbleChartFX()
+	 * @generated
+	 */
+	int BUBBLE_CHART_FX = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__NAME = CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__TITLE = CHART_FX__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Title Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__TITLE_SIDE = CHART_FX__TITLE_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__SHOW_LEGEND = CHART_FX__SHOW_LEGEND;
+
+	/**
+	 * The feature id for the '<em><b>Legend Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__LEGEND_SIDE = CHART_FX__LEGEND_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__XAXIS_TYPE = CHART_FX__XAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__YAXIS_TYPE = CHART_FX__YAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__XAXIS_LABEL = CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The number of structural features of the '<em>Bubble Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX_FEATURE_COUNT = CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Bubble Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.ScatterChartFXImpl <em>Scatter Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.ScatterChartFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getScatterChartFX()
+	 * @generated
+	 */
+	int SCATTER_CHART_FX = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__NAME = CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__TITLE = CHART_FX__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Title Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__TITLE_SIDE = CHART_FX__TITLE_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__SHOW_LEGEND = CHART_FX__SHOW_LEGEND;
+
+	/**
+	 * The feature id for the '<em><b>Legend Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__LEGEND_SIDE = CHART_FX__LEGEND_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__XAXIS_TYPE = CHART_FX__XAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__YAXIS_TYPE = CHART_FX__YAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__XAXIS_LABEL = CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The number of structural features of the '<em>Scatter Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX_FEATURE_COUNT = CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Scatter Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.BarChartFXImpl <em>Bar Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.BarChartFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBarChartFX()
+	 * @generated
+	 */
+	int BAR_CHART_FX = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__NAME = CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__TITLE = CHART_FX__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Title Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__TITLE_SIDE = CHART_FX__TITLE_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__SHOW_LEGEND = CHART_FX__SHOW_LEGEND;
+
+	/**
+	 * The feature id for the '<em><b>Legend Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__LEGEND_SIDE = CHART_FX__LEGEND_SIDE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__XAXIS_TYPE = CHART_FX__XAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__YAXIS_TYPE = CHART_FX__YAXIS_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__XAXIS_LABEL = CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The number of structural features of the '<em>Bar Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX_FEATURE_COUNT = CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Bar Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.BindingType <em>Binding Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -889,7 +1489,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingType()
 	 * @generated
 	 */
-	int BINDING_TYPE = 14;
+	int BINDING_TYPE = 20;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.Orientation <em>Orientation</em>}' enum.
@@ -899,7 +1499,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 15;
+	int ORIENTATION = 21;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.AxisType <em>Axis Type</em>}' enum.
@@ -909,7 +1509,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAxisType()
 	 * @generated
 	 */
-	int AXIS_TYPE = 16;
+	int AXIS_TYPE = 22;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ProjectFX <em>Project FX</em>}'.
@@ -1127,6 +1727,56 @@ public interface JavafxPackage extends EPackage {
 	EClass getLineChartFX();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.PieChartFX <em>Pie Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pie Chart FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.PieChartFX
+	 * @generated
+	 */
+	EClass getPieChartFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.AreaChartFX <em>Area Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Area Chart FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.AreaChartFX
+	 * @generated
+	 */
+	EClass getAreaChartFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.BubbleChartFX <em>Bubble Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bubble Chart FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BubbleChartFX
+	 * @generated
+	 */
+	EClass getBubbleChartFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ScatterChartFX <em>Scatter Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scatter Chart FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ScatterChartFX
+	 * @generated
+	 */
+	EClass getScatterChartFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.BarChartFX <em>Bar Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bar Chart FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BarChartFX
+	 * @generated
+	 */
+	EClass getBarChartFX();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ControlFX <em>Control FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1169,6 +1819,16 @@ public interface JavafxPackage extends EPackage {
 	EReference getTableViewFX_UsedModel();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.FilteredTableViewFX <em>Filtered Table View FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filtered Table View FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.FilteredTableViewFX
+	 * @generated
+	 */
+	EClass getFilteredTableViewFX();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.TableColumnFX <em>Table Column FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1199,6 +1859,17 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTableColumnFX_UsedAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter <em>Use Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Filter</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter()
+	 * @see #getTableColumnFX()
+	 * @generated
+	 */
+	EAttribute getTableColumnFX_UseFilter();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ModelFX <em>Model FX</em>}'.
@@ -1561,6 +2232,56 @@ public interface JavafxPackage extends EPackage {
 		EClass LINE_CHART_FX = eINSTANCE.getLineChartFX();
 
 		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.PieChartFXImpl <em>Pie Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.PieChartFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getPieChartFX()
+		 * @generated
+		 */
+		EClass PIE_CHART_FX = eINSTANCE.getPieChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.AreaChartFXImpl <em>Area Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.AreaChartFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAreaChartFX()
+		 * @generated
+		 */
+		EClass AREA_CHART_FX = eINSTANCE.getAreaChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BubbleChartFXImpl <em>Bubble Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BubbleChartFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBubbleChartFX()
+		 * @generated
+		 */
+		EClass BUBBLE_CHART_FX = eINSTANCE.getBubbleChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ScatterChartFXImpl <em>Scatter Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.ScatterChartFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getScatterChartFX()
+		 * @generated
+		 */
+		EClass SCATTER_CHART_FX = eINSTANCE.getScatterChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BarChartFXImpl <em>Bar Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BarChartFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBarChartFX()
+		 * @generated
+		 */
+		EClass BAR_CHART_FX = eINSTANCE.getBarChartFX();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ControlFXImpl <em>Control FX</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1597,6 +2318,16 @@ public interface JavafxPackage extends EPackage {
 		EReference TABLE_VIEW_FX__USED_MODEL = eINSTANCE.getTableViewFX_UsedModel();
 
 		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredTableViewFXImpl <em>Filtered Table View FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.FilteredTableViewFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredTableViewFX()
+		 * @generated
+		 */
+		EClass FILTERED_TABLE_VIEW_FX = eINSTANCE.getFilteredTableViewFX();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl <em>Table Column FX</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1621,6 +2352,14 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_COLUMN_FX__USED_ATTRIBUTE = eINSTANCE.getTableColumnFX_UsedAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_COLUMN_FX__USE_FILTER = eINSTANCE.getTableColumnFX_UseFilter();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ModelFXImpl <em>Model FX</em>}' class.

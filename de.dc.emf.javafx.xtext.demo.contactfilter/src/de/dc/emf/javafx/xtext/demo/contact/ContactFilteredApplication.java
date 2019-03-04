@@ -3,7 +3,7 @@ package de.dc.emf.javafx.xtext.demo.contact;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.dc.emf.javafx.xtext.demo.contact.controls.FilteredContactTableView;
+import de.dc.emf.javafx.xtext.demo.contact.controls.ContactTableView;
 import de.dc.emf.javafx.xtext.demo.contact.model.Contact;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -18,7 +18,7 @@ public class ContactFilteredApplication extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		FilteredContactTableView contactTableView = new FilteredContactTableView();
+		ContactTableView contactTableView = new ContactTableView();
 
 		List<Contact> contacts = new ArrayList<>();
 		for (int i = 0; i < 20; i++) {

@@ -13,13 +13,14 @@ package de.dc.emf.javafx.model.javafx;
  * <ul>
  *   <li>{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getWidth <em>Width</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getUsedAttribute <em>Used Attribute</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter <em>Use Filter</em>}</li>
  * </ul>
  *
  * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getTableColumnFX()
  * @model
  * @generated
  */
-public interface TableColumnFX extends NamedElement, FilteredElement {
+public interface TableColumnFX extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
 	 * The default value is <code>"200"</code>.
@@ -72,5 +73,31 @@ public interface TableColumnFX extends NamedElement, FilteredElement {
 	 * @generated
 	 */
 	void setUsedAttribute(AttributeFX value);
+
+	/**
+	 * Returns the value of the '<em><b>Use Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Use Filter</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Use Filter</em>' attribute.
+	 * @see #setUseFilter(boolean)
+	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getTableColumnFX_UseFilter()
+	 * @model
+	 * @generated
+	 */
+	boolean isUseFilter();
+
+	/**
+	 * Sets the value of the '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter <em>Use Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Use Filter</em>' attribute.
+	 * @see #isUseFilter()
+	 * @generated
+	 */
+	void setUseFilter(boolean value);
 
 } // TableColumnFX

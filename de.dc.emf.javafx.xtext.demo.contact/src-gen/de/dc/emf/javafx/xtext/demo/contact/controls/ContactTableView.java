@@ -6,14 +6,14 @@ import javafx.scene.control.*;
 import javafx.beans.value.ObservableValue;
 import javafx.util.Callback;
 
-public abstract class BaseContactTableView extends TableView<Contact>{
+public class ContactTableView extends TableView<Contact>{
 	
 	protected TableColumn<Contact, Contact> forenameColumn;
 	protected TableColumn<Contact, Contact> familyNameColumn;
 	protected TableColumn<Contact, Contact> ageColumn;
 	protected TableColumn<Contact, Contact> addressColumn;
 	
-	public BaseContactTableView() {
+	public ContactTableView() {
 		forenameColumn = createColumn("Forename", 100,  new BaseContactCellFeatures(ContactType.Forename));
 		familyNameColumn = createColumn("FamilyName", 100,  new BaseContactCellFeatures(ContactType.FamilyName));
 		ageColumn = createColumn("Age", 200,  new BaseContactCellFeatures(ContactType.Age));

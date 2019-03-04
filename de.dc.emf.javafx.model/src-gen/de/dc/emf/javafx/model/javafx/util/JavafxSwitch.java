@@ -90,8 +90,6 @@ public class JavafxSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(tableColumnFX);
 			if (result == null)
-				result = caseFilteredElement(tableColumnFX);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -155,9 +153,22 @@ public class JavafxSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseControlFX(tableViewFX);
 			if (result == null)
-				result = caseFilteredElement(tableViewFX);
-			if (result == null)
 				result = caseNamedElement(tableViewFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.FILTERED_TABLE_VIEW_FX: {
+			FilteredTableViewFX filteredTableViewFX = (FilteredTableViewFX) theEObject;
+			T result = caseFilteredTableViewFX(filteredTableViewFX);
+			if (result == null)
+				result = caseFilteredElement(filteredTableViewFX);
+			if (result == null)
+				result = caseTableViewFX(filteredTableViewFX);
+			if (result == null)
+				result = caseControlFX(filteredTableViewFX);
+			if (result == null)
+				result = caseNamedElement(filteredTableViewFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -192,6 +203,61 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = caseChartFX(lineChartFX);
 			if (result == null)
 				result = caseNamedElement(lineChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.PIE_CHART_FX: {
+			PieChartFX pieChartFX = (PieChartFX) theEObject;
+			T result = casePieChartFX(pieChartFX);
+			if (result == null)
+				result = caseChartFX(pieChartFX);
+			if (result == null)
+				result = caseNamedElement(pieChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.AREA_CHART_FX: {
+			AreaChartFX areaChartFX = (AreaChartFX) theEObject;
+			T result = caseAreaChartFX(areaChartFX);
+			if (result == null)
+				result = caseChartFX(areaChartFX);
+			if (result == null)
+				result = caseNamedElement(areaChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.BUBBLE_CHART_FX: {
+			BubbleChartFX bubbleChartFX = (BubbleChartFX) theEObject;
+			T result = caseBubbleChartFX(bubbleChartFX);
+			if (result == null)
+				result = caseChartFX(bubbleChartFX);
+			if (result == null)
+				result = caseNamedElement(bubbleChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.SCATTER_CHART_FX: {
+			ScatterChartFX scatterChartFX = (ScatterChartFX) theEObject;
+			T result = caseScatterChartFX(scatterChartFX);
+			if (result == null)
+				result = caseChartFX(scatterChartFX);
+			if (result == null)
+				result = caseNamedElement(scatterChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.BAR_CHART_FX: {
+			BarChartFX barChartFX = (BarChartFX) theEObject;
+			T result = caseBarChartFX(barChartFX);
+			if (result == null)
+				result = caseChartFX(barChartFX);
+			if (result == null)
+				result = caseNamedElement(barChartFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -277,6 +343,81 @@ public class JavafxSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pie Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pie Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePieChartFX(PieChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Area Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Area Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAreaChartFX(AreaChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bubble Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bubble Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBubbleChartFX(BubbleChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scatter Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scatter Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseScatterChartFX(ScatterChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bar Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bar Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBarChartFX(BarChartFX object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Control FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -303,6 +444,21 @@ public class JavafxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTableViewFX(TableViewFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Filtered Table View FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Filtered Table View FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFilteredTableViewFX(FilteredTableViewFX object) {
 		return null;
 	}
 

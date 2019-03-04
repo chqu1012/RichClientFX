@@ -2,23 +2,29 @@
  */
 package de.dc.emf.javafx.model.javafx.impl;
 
+import de.dc.emf.javafx.model.javafx.AreaChartFX;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.AxisType;
+import de.dc.emf.javafx.model.javafx.BarChartFX;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.BindingType;
+import de.dc.emf.javafx.model.javafx.BubbleChartFX;
 import de.dc.emf.javafx.model.javafx.ChartFX;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredElement;
+import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.JavafxFactory;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.NamedElement;
 import de.dc.emf.javafx.model.javafx.Orientation;
+import de.dc.emf.javafx.model.javafx.PieChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
+import de.dc.emf.javafx.model.javafx.ScatterChartFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
 
@@ -77,6 +83,41 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass pieChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass areaChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bubbleChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scatterChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass barChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass controlFXEClass = null;
 
 	/**
@@ -85,6 +126,13 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass tableViewFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass filteredTableViewFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -405,6 +453,51 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPieChartFX() {
+		return pieChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAreaChartFX() {
+		return areaChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBubbleChartFX() {
+		return bubbleChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getScatterChartFX() {
+		return scatterChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBarChartFX() {
+		return barChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getControlFX() {
 		return controlFXEClass;
 	}
@@ -441,6 +534,15 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFilteredTableViewFX() {
+		return filteredTableViewFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTableColumnFX() {
 		return tableColumnFXEClass;
 	}
@@ -461,6 +563,15 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 */
 	public EReference getTableColumnFX_UsedAttribute() {
 		return (EReference) tableColumnFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableColumnFX_UseFilter() {
+		return (EAttribute) tableColumnFXEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -648,6 +759,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		tableColumnFXEClass = createEClass(TABLE_COLUMN_FX);
 		createEAttribute(tableColumnFXEClass, TABLE_COLUMN_FX__WIDTH);
 		createEReference(tableColumnFXEClass, TABLE_COLUMN_FX__USED_ATTRIBUTE);
+		createEAttribute(tableColumnFXEClass, TABLE_COLUMN_FX__USE_FILTER);
 
 		modelFXEClass = createEClass(MODEL_FX);
 		createEReference(modelFXEClass, MODEL_FX__ATTRIBUTES);
@@ -672,6 +784,8 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEReference(tableViewFXEClass, TABLE_VIEW_FX__COLUMNS);
 		createEReference(tableViewFXEClass, TABLE_VIEW_FX__USED_MODEL);
 
+		filteredTableViewFXEClass = createEClass(FILTERED_TABLE_VIEW_FX);
+
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
@@ -689,6 +803,16 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEAttribute(chartFXEClass, CHART_FX__YAXIS_LABEL);
 
 		lineChartFXEClass = createEClass(LINE_CHART_FX);
+
+		pieChartFXEClass = createEClass(PIE_CHART_FX);
+
+		areaChartFXEClass = createEClass(AREA_CHART_FX);
+
+		bubbleChartFXEClass = createEClass(BUBBLE_CHART_FX);
+
+		scatterChartFXEClass = createEClass(SCATTER_CHART_FX);
+
+		barChartFXEClass = createEClass(BAR_CHART_FX);
 
 		// Create enums
 		bindingTypeEEnum = createEEnum(BINDING_TYPE);
@@ -728,15 +852,21 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		projectFXEClass.getESuperTypes().add(this.getNamedElement());
 		controlFXEClass.getESuperTypes().add(this.getNamedElement());
 		tableColumnFXEClass.getESuperTypes().add(this.getNamedElement());
-		tableColumnFXEClass.getESuperTypes().add(this.getFilteredElement());
 		modelFXEClass.getESuperTypes().add(this.getNamedElement());
 		attributeFXEClass.getESuperTypes().add(this.getNamedElement());
 		beanEClass.getESuperTypes().add(this.getModelFX());
 		derivedBeanEClass.getESuperTypes().add(this.getModelFX());
 		tableViewFXEClass.getESuperTypes().add(this.getControlFX());
-		tableViewFXEClass.getESuperTypes().add(this.getFilteredElement());
+		filteredTableViewFXEClass.getESuperTypes().add(this.getControlFX());
+		filteredTableViewFXEClass.getESuperTypes().add(this.getFilteredElement());
+		filteredTableViewFXEClass.getESuperTypes().add(this.getTableViewFX());
 		chartFXEClass.getESuperTypes().add(this.getNamedElement());
 		lineChartFXEClass.getESuperTypes().add(this.getChartFX());
+		pieChartFXEClass.getESuperTypes().add(this.getChartFX());
+		areaChartFXEClass.getESuperTypes().add(this.getChartFX());
+		bubbleChartFXEClass.getESuperTypes().add(this.getChartFX());
+		scatterChartFXEClass.getESuperTypes().add(this.getChartFX());
+		barChartFXEClass.getESuperTypes().add(this.getChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(projectFXEClass, ProjectFX.class, "ProjectFX", !IS_ABSTRACT, !IS_INTERFACE,
@@ -767,6 +897,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		initEReference(getTableColumnFX_UsedAttribute(), this.getAttributeFX(), null, "usedAttribute", null, 0, 1,
 				TableColumnFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumnFX_UseFilter(), ecorePackage.getEBoolean(), "useFilter", null, 0, 1,
+				TableColumnFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelFXEClass, ModelFX.class, "ModelFX", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelFX_Attributes(), this.getAttributeFX(), null, "attributes", null, 0, -1, ModelFX.class,
@@ -809,12 +942,15 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(filteredTableViewFXEClass, FilteredTableViewFX.class, "FilteredTableViewFX", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(filteredElementEClass, FilteredElement.class, "FilteredElement", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(filteredElementEClass, FilteredElement.class, "FilteredElement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFilteredElement_UseFilter(), ecorePackage.getEBoolean(), "useFilter", null, 0, 1,
 				FilteredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -839,6 +975,21 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineChartFXEClass, LineChartFX.class, "LineChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pieChartFXEClass, PieChartFX.class, "PieChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(areaChartFXEClass, AreaChartFX.class, "AreaChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bubbleChartFXEClass, BubbleChartFX.class, "BubbleChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(scatterChartFXEClass, ScatterChartFX.class, "ScatterChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(barChartFXEClass, BarChartFX.class, "BarChartFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals

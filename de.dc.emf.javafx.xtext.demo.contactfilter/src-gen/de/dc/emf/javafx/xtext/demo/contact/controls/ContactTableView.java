@@ -1,32 +1,51 @@
 package de.dc.emf.javafx.xtext.demo.contact.controls;
 
 import de.dc.emf.javafx.xtext.demo.contact.model.*;
+import de.dc.emf.javafx.xtext.demo.contact.controls.cell.*;
 import javafx.beans.binding.Bindings;
 import javafx.collections.*;
+import javafx.beans.value.*;
+import javafx.util.*;
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-public class FilteredContactTableView extends VBox {
+public class ContactTableView extends VBox {
 
-	private boolean showFilterText = true;	
-	private boolean showCountOfItemsLabel = true;	
+	protected TableColumn<Contact, Contact> forenameColumn;
+	protected TableColumn<Contact, Contact> familyNameColumn;
+	protected TableColumn<Contact, Contact> ageColumn;
+	protected TableColumn<Contact, Contact> addressColumn;
+	protected boolean showFilterText = true;	
+	protected boolean showCountOfItemsLabel = true;	
 	private TextField searchText;
-	private ContactTableView contactTableView;
+	private TableView<Contact> contactTableView;
 	
 	private ObservableList<Contact> contactList = FXCollections.observableArrayList();
 	private FilteredList<Contact> contactFilteredList = new FilteredList<>(contactList, p->true);
 	
-	public FilteredContactTableView() {
+	public ContactTableView() {
 		initSearchText();
 		initTableView();
 		initCountOfItemsLabel();
 	}
 
 	private void initTableView() {
-		contactTableView = new ContactTableView();
+		contactTableView = new TableView<Contact>();
 		contactTableView.setItems(contactFilteredList);
 		VBox.setVgrow(contactTableView, Priority.ALWAYS);
 		getChildren().add(contactTableView);
+		forenameColumn = createColumn("Forename", 100,  new BaseContactCellFeatures(ContactType.Forename));
+		familyNameColumn = createColumn("FamilyName", 100,  new BaseContactCellFeatures(ContactType.FamilyName));
+		ageColumn = createColumn("Age", 200,  new BaseContactCellFeatures(ContactType.Age));
+		addressColumn = createColumn("Address", 50,  new BaseContactCellFeatures(ContactType.Address));
+	}
+
+	protected TableColumn<Contact,Contact> createColumn(String name, double width, Callback<TableColumn.CellDataFeatures<Contact,Contact>, ObservableValue<Contact>> cellFeatures) {
+		TableColumn<Contact, Contact> column = new TableColumn<Contact, Contact>(name);
+		column.setPrefWidth(width);
+		column.setCellValueFactory(cellFeatures);
+		contactTableView.getColumns().add(column);
+		return column;
 	}
 
 	private void initSearchText() {

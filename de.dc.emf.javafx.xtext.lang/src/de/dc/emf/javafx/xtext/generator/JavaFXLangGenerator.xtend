@@ -9,6 +9,10 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import de.dc.emf.javafx.model.javafx.FilteredElement
 import de.dc.emf.javafx.model.javafx.ChartFX
+import de.dc.emf.javafx.model.javafx.NamedElement
+import de.dc.emf.javafx.model.javafx.ProjectFX
+import org.eclipse.emf.ecore.util.EcoreUtil
+import de.dc.emf.javafx.model.javafx.TableViewFX
 
 class JavaFXLangGenerator extends AbstractGenerator {
 
@@ -18,10 +22,6 @@ class JavaFXLangGenerator extends AbstractGenerator {
 	
 	TableColumnSwitch tableColumnGenerator = new TableColumnSwitch
 	TableColumnPathSwitch tableColumnPathGenerator = new TableColumnPathSwitch
-	
-	FilteredElementPathSwitch filteredElementPathSwitcher = new FilteredElementPathSwitch
-	FilteredElementEnabler filteredElementEnabler = new FilteredElementEnabler
-	FilteredElementSwitch filteredElementSwitcher = new FilteredElementSwitch
 	
 	ApplicationSwitch applicationSwitch = new ApplicationSwitch
 	
@@ -43,22 +43,17 @@ class JavaFXLangGenerator extends AbstractGenerator {
 			}
 		]
 		
-		resource.allContents.filter[it instanceof FilteredElement].forEach[element|
-			val code = filteredElementSwitcher.doSwitch(element)
-			val path = filteredElementPathSwitcher.doSwitch(element)
-			val isEnabled = filteredElementEnabler.doSwitch(element)
+		resource.allContents.filter[it instanceof ChartFX || it instanceof TableViewFX].forEach[element|
+			val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath.replace('.', '/')
+			val code = applicationSwitch.doSwitch(element)
+			val name = "demo/"+(element as NamedElement).name.toFirstUpper+"Application.java"
+			val path = packagePath+"/"+name
+			val isGeneratorEnabled = checkGenerator.doSwitch(element)
 			if (code!==null && path!==null) {
-				if (isEnabled) {
-					fsa.generateFile(path, code);
+				if (isGeneratorEnabled) {
+					fsa.generateFile(path, code)
 				}
 			}
-		]
-		
-		resource.allContents.filter[it instanceof ChartFX].forEach[element|
-			val code = applicationSwitch.doSwitch(element)
-			val name = "demo/"+(element as ChartFX).name.toFirstUpper+"Application.java"
-			val path = FilePathSwitch.getPackage(element)+"/"+name
-			fsa.generateFile(path, code)
 		]	
 	}
 }

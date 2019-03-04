@@ -13,10 +13,11 @@
         eType="#//ChartFX" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlFX" abstract="true" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TableColumnFX" eSuperTypes="#//NamedElement #//FilteredElement">
+  <eClassifiers xsi:type="ecore:EClass" name="TableColumnFX" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="200"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usedAttribute" eType="#//AttributeFX"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFX" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
@@ -38,11 +39,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BindingType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableViewFX" eSuperTypes="#//ControlFX #//FilteredElement">
+  <eClassifiers xsi:type="ecore:EClass" name="TableViewFX" eSuperTypes="#//ControlFX">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//TableColumnFX" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usedModel" eType="#//ModelFX"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilteredTableViewFX" eSuperTypes="#//ControlFX #//FilteredElement #//TableViewFX"/>
   <eClassifiers xsi:type="ecore:EEnum" name="BindingType">
     <eLiterals name="StringProperty"/>
     <eLiterals name="IntegerProperty" value="1"/>
@@ -55,7 +57,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FilteredElement" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="FilteredElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="useFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChartFX" abstract="true" eSuperTypes="#//NamedElement">
@@ -73,6 +75,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="yAxisLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LineChartFX" eSuperTypes="#//ChartFX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PieChartFX" eSuperTypes="#//ChartFX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AreaChartFX" eSuperTypes="#//ChartFX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BubbleChartFX" eSuperTypes="#//ChartFX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ScatterChartFX" eSuperTypes="#//ChartFX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BarChartFX" eSuperTypes="#//ChartFX"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
     <eLiterals name="Left"/>
     <eLiterals name="Right" value="1"/>

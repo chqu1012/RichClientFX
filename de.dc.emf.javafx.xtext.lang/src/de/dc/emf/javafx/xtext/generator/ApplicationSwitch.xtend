@@ -5,8 +5,44 @@ import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import org.eclipse.emf.ecore.util.EcoreUtil
 import de.dc.emf.javafx.model.javafx.AxisType
+import de.dc.emf.javafx.model.javafx.TableViewFX
 
 class ApplicationSwitch extends JavafxSwitch<String>{
+	
+	override caseTableViewFX(TableViewFX object)'''
+	«val packagePath = (EcoreUtil.getRootContainer(object) as ProjectFX).packagePath»
+	package «packagePath».demo;
+	
+	import java.util.*;
+	
+	import «packagePath».controls.*;
+	import «packagePath».model.*;
+	import javafx.application.*;
+	import javafx.collections.*;
+	import javafx.scene.*;
+	import javafx.stage.*;
+	
+	public class «object.name.toFirstUpper»Application extends Application{
+	
+		public static void main(String[] args) {
+			launch(args);
+		}
+		
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+			«object.name.toFirstUpper» «object.name.toFirstLower» = new «object.name.toFirstUpper»();
+			List<«object.usedModel.name.toFirstUpper»> masterData = new ArrayList<>();
+			for (int i = 0; i < 20; i++) {
+				masterData.add(new «object.usedModel.name.toFirstUpper»());
+			}
+			«object.name.toFirstLower».setItems(FXCollections.observableArrayList(masterData));
+			Scene scene = new Scene(«object.name.toFirstLower», 600, 600);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		}
+	
+	}
+	'''
 	
 	override caseLineChartFX(LineChartFX object)'''
 	«val packagePath = (EcoreUtil.getRootContainer(object) as ProjectFX).packagePath»

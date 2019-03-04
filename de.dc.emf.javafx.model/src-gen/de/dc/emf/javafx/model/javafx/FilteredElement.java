@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getFilteredElement()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface FilteredElement extends EObject {

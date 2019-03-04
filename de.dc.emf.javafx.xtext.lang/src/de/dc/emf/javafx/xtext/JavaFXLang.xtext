@@ -54,7 +54,17 @@ enum BindinType returns BindingType:
 ;
 
 ControlFX returns ControlFX:
-	TableViewFX;
+	TableViewFX | FilteredTableViewFX;
+
+FilteredTableViewFX returns FilteredTableViewFX:
+	{FilteredTableViewFX}
+	'FilteredTableView' '{'
+		('name:' name=EString)
+		('usedModel:' usedModel=[ModelFX|EString])?
+		('usedFilter:' useFilter=EBoolean)?
+		(columns+=TableColumnFX (columns+=TableColumnFX)*)?
+	'}'
+;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -81,7 +91,6 @@ TableViewFX returns TableViewFX:
 	'TableView' '{'
 		('name:' name=EString)
 		('usedModel:' usedModel=[ModelFX|EString])?
-		('usedFilter:' useFilter=EBoolean)?
 		(columns+=TableColumnFX (columns+=TableColumnFX)*)?
 	'}'
 ;

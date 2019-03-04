@@ -3,7 +3,6 @@
 package de.dc.emf.javafx.model.javafx.impl;
 
 import de.dc.emf.javafx.model.javafx.AttributeFX;
-import de.dc.emf.javafx.model.javafx.FilteredElement;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 
@@ -22,34 +21,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl#isUseFilter <em>Use Filter</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl#getUsedAttribute <em>Used Attribute</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl#isUseFilter <em>Use Filter</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX {
-	/**
-	 * The default value of the '{@link #isUseFilter() <em>Use Filter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean USE_FILTER_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isUseFilter() <em>Use Filter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean useFilter = USE_FILTER_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,6 +60,26 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	protected AttributeFX usedAttribute;
 
 	/**
+	 * The default value of the '{@link #isUseFilter() <em>Use Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean USE_FILTER_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUseFilter() <em>Use Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean useFilter = USE_FILTER_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -97,28 +96,6 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	@Override
 	protected EClass eStaticClass() {
 		return JavafxPackage.Literals.TABLE_COLUMN_FX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isUseFilter() {
-		return useFilter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUseFilter(boolean newUseFilter) {
-		boolean oldUseFilter = useFilter;
-		useFilter = newUseFilter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavafxPackage.TABLE_COLUMN_FX__USE_FILTER,
-					oldUseFilter, useFilter));
 	}
 
 	/**
@@ -188,17 +165,39 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isUseFilter() {
+		return useFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUseFilter(boolean newUseFilter) {
+		boolean oldUseFilter = useFilter;
+		useFilter = newUseFilter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavafxPackage.TABLE_COLUMN_FX__USE_FILTER,
+					oldUseFilter, useFilter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
-			return isUseFilter();
 		case JavafxPackage.TABLE_COLUMN_FX__WIDTH:
 			return getWidth();
 		case JavafxPackage.TABLE_COLUMN_FX__USED_ATTRIBUTE:
 			if (resolve)
 				return getUsedAttribute();
 			return basicGetUsedAttribute();
+		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
+			return isUseFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,14 +210,14 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
-			setUseFilter((Boolean) newValue);
-			return;
 		case JavafxPackage.TABLE_COLUMN_FX__WIDTH:
 			setWidth((Integer) newValue);
 			return;
 		case JavafxPackage.TABLE_COLUMN_FX__USED_ATTRIBUTE:
 			setUsedAttribute((AttributeFX) newValue);
+			return;
+		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
+			setUseFilter((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,14 +231,14 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
-			setUseFilter(USE_FILTER_EDEFAULT);
-			return;
 		case JavafxPackage.TABLE_COLUMN_FX__WIDTH:
 			setWidth(WIDTH_EDEFAULT);
 			return;
 		case JavafxPackage.TABLE_COLUMN_FX__USED_ATTRIBUTE:
 			setUsedAttribute((AttributeFX) null);
+			return;
+		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
+			setUseFilter(USE_FILTER_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -253,50 +252,14 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
-			return useFilter != USE_FILTER_EDEFAULT;
 		case JavafxPackage.TABLE_COLUMN_FX__WIDTH:
 			return width != WIDTH_EDEFAULT;
 		case JavafxPackage.TABLE_COLUMN_FX__USED_ATTRIBUTE:
 			return usedAttribute != null;
+		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
+			return useFilter != USE_FILTER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == FilteredElement.class) {
-			switch (derivedFeatureID) {
-			case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
-				return JavafxPackage.FILTERED_ELEMENT__USE_FILTER;
-			default:
-				return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == FilteredElement.class) {
-			switch (baseFeatureID) {
-			case JavafxPackage.FILTERED_ELEMENT__USE_FILTER:
-				return JavafxPackage.TABLE_COLUMN_FX__USE_FILTER;
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -310,10 +273,10 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (useFilter: ");
-		result.append(useFilter);
-		result.append(", width: ");
+		result.append(" (width: ");
 		result.append(width);
+		result.append(", useFilter: ");
+		result.append(useFilter);
 		result.append(')');
 		return result.toString();
 	}

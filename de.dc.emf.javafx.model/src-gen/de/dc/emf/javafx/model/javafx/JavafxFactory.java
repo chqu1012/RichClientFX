@@ -40,6 +40,15 @@ public interface JavafxFactory extends EFactory {
 	NamedElement createNamedElement();
 
 	/**
+	 * Returns a new object of class '<em>Filtered Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filtered Element</em>'.
+	 * @generated
+	 */
+	FilteredElement createFilteredElement();
+
+	/**
 	 * Returns a new object of class '<em>Line Chart FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,6 +58,51 @@ public interface JavafxFactory extends EFactory {
 	LineChartFX createLineChartFX();
 
 	/**
+	 * Returns a new object of class '<em>Pie Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pie Chart FX</em>'.
+	 * @generated
+	 */
+	PieChartFX createPieChartFX();
+
+	/**
+	 * Returns a new object of class '<em>Area Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Area Chart FX</em>'.
+	 * @generated
+	 */
+	AreaChartFX createAreaChartFX();
+
+	/**
+	 * Returns a new object of class '<em>Bubble Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bubble Chart FX</em>'.
+	 * @generated
+	 */
+	BubbleChartFX createBubbleChartFX();
+
+	/**
+	 * Returns a new object of class '<em>Scatter Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scatter Chart FX</em>'.
+	 * @generated
+	 */
+	ScatterChartFX createScatterChartFX();
+
+	/**
+	 * Returns a new object of class '<em>Bar Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bar Chart FX</em>'.
+	 * @generated
+	 */
+	BarChartFX createBarChartFX();
+
+	/**
 	 * Returns a new object of class '<em>Table View FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +110,15 @@ public interface JavafxFactory extends EFactory {
 	 * @generated
 	 */
 	TableViewFX createTableViewFX();
+
+	/**
+	 * Returns a new object of class '<em>Filtered Table View FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filtered Table View FX</em>'.
+	 * @generated
+	 */
+	FilteredTableViewFX createFilteredTableViewFX();
 
 	/**
 	 * Returns a new object of class '<em>Table Column FX</em>'.

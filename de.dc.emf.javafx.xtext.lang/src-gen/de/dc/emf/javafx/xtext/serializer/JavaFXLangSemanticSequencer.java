@@ -9,6 +9,7 @@ import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
+import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
@@ -54,6 +55,9 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case JavafxPackage.DERIVED_BEAN:
 				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
+				return; 
+			case JavafxPackage.FILTERED_TABLE_VIEW_FX:
+				sequence_FilteredTableViewFX(context, (FilteredTableViewFX) semanticObject); 
 				return; 
 			case JavafxPackage.LINE_CHART_FX:
 				sequence_LineChartFX(context, (LineChartFX) semanticObject); 
@@ -154,6 +158,19 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     ControlFX returns FilteredTableViewFX
+	 *     FilteredTableViewFX returns FilteredTableViewFX
+	 *
+	 * Constraint:
+	 *     (name=EString usedModel=[ModelFX|EString]? useFilter=EBoolean? (columns+=TableColumnFX columns+=TableColumnFX*)?)
+	 */
+	protected void sequence_FilteredTableViewFX(ISerializationContext context, FilteredTableViewFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ChartFX returns LineChartFX
 	 *     LineChartFX returns LineChartFX
 	 *
@@ -210,7 +227,7 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TableViewFX returns TableViewFX
 	 *
 	 * Constraint:
-	 *     (name=EString usedModel=[ModelFX|EString]? useFilter=EBoolean? (columns+=TableColumnFX columns+=TableColumnFX*)?)
+	 *     (name=EString usedModel=[ModelFX|EString]? (columns+=TableColumnFX columns+=TableColumnFX*)?)
 	 */
 	protected void sequence_TableViewFX(ISerializationContext context, TableViewFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

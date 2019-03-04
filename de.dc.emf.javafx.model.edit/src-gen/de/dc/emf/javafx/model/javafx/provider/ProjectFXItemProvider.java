@@ -206,6 +206,9 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
 				JavafxFactory.eINSTANCE.createTableViewFX()));
 
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
+				JavafxFactory.eINSTANCE.createFilteredTableViewFX()));
+
 		newChildDescriptors.add(
 				createChildParameter(JavafxPackage.Literals.PROJECT_FX__MODELS, JavafxFactory.eINSTANCE.createBean()));
 
@@ -217,6 +220,21 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
 				JavafxFactory.eINSTANCE.createLineChartFX()));
+
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
+				JavafxFactory.eINSTANCE.createPieChartFX()));
+
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
+				JavafxFactory.eINSTANCE.createAreaChartFX()));
+
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
+				JavafxFactory.eINSTANCE.createBubbleChartFX()));
+
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
+				JavafxFactory.eINSTANCE.createScatterChartFX()));
+
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
+				JavafxFactory.eINSTANCE.createBarChartFX()));
 	}
 
 }

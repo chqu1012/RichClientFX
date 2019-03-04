@@ -119,6 +119,29 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.FilteredElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FilteredElementItemProvider filteredElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.FilteredElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFilteredElementAdapter() {
+		if (filteredElementItemProvider == null) {
+			filteredElementItemProvider = new FilteredElementItemProvider(this);
+		}
+
+		return filteredElementItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.LineChartFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,6 +165,121 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.PieChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PieChartFXItemProvider pieChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.PieChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPieChartFXAdapter() {
+		if (pieChartFXItemProvider == null) {
+			pieChartFXItemProvider = new PieChartFXItemProvider(this);
+		}
+
+		return pieChartFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.AreaChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AreaChartFXItemProvider areaChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.AreaChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAreaChartFXAdapter() {
+		if (areaChartFXItemProvider == null) {
+			areaChartFXItemProvider = new AreaChartFXItemProvider(this);
+		}
+
+		return areaChartFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.BubbleChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BubbleChartFXItemProvider bubbleChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.BubbleChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBubbleChartFXAdapter() {
+		if (bubbleChartFXItemProvider == null) {
+			bubbleChartFXItemProvider = new BubbleChartFXItemProvider(this);
+		}
+
+		return bubbleChartFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.ScatterChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScatterChartFXItemProvider scatterChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.ScatterChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScatterChartFXAdapter() {
+		if (scatterChartFXItemProvider == null) {
+			scatterChartFXItemProvider = new ScatterChartFXItemProvider(this);
+		}
+
+		return scatterChartFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.BarChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BarChartFXItemProvider barChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.BarChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBarChartFXAdapter() {
+		if (barChartFXItemProvider == null) {
+			barChartFXItemProvider = new BarChartFXItemProvider(this);
+		}
+
+		return barChartFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.TableViewFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,6 +300,29 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 		}
 
 		return tableViewFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.FilteredTableViewFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FilteredTableViewFXItemProvider filteredTableViewFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.FilteredTableViewFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFilteredTableViewFXAdapter() {
+		if (filteredTableViewFXItemProvider == null) {
+			filteredTableViewFXItemProvider = new FilteredTableViewFXItemProvider(this);
+		}
+
+		return filteredTableViewFXItemProvider;
 	}
 
 	/**
@@ -417,10 +578,24 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			bindingPropertyItemProvider.dispose();
 		if (tableViewFXItemProvider != null)
 			tableViewFXItemProvider.dispose();
+		if (filteredTableViewFXItemProvider != null)
+			filteredTableViewFXItemProvider.dispose();
 		if (namedElementItemProvider != null)
 			namedElementItemProvider.dispose();
+		if (filteredElementItemProvider != null)
+			filteredElementItemProvider.dispose();
 		if (lineChartFXItemProvider != null)
 			lineChartFXItemProvider.dispose();
+		if (pieChartFXItemProvider != null)
+			pieChartFXItemProvider.dispose();
+		if (areaChartFXItemProvider != null)
+			areaChartFXItemProvider.dispose();
+		if (bubbleChartFXItemProvider != null)
+			bubbleChartFXItemProvider.dispose();
+		if (scatterChartFXItemProvider != null)
+			scatterChartFXItemProvider.dispose();
+		if (barChartFXItemProvider != null)
+			barChartFXItemProvider.dispose();
 	}
 
 }

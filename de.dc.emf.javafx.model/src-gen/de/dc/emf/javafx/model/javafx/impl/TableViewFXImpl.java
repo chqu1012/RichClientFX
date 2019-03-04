@@ -2,7 +2,6 @@
  */
 package de.dc.emf.javafx.model.javafx.impl;
 
-import de.dc.emf.javafx.model.javafx.FilteredElement;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
@@ -31,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl#isUseFilter <em>Use Filter</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl#getUsedModel <em>Used Model</em>}</li>
  * </ul>
@@ -39,26 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
-	/**
-	 * The default value of the '{@link #isUseFilter() <em>Use Filter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean USE_FILTER_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isUseFilter() <em>Use Filter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean useFilter = USE_FILTER_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -156,28 +134,6 @@ public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isUseFilter() {
-		return useFilter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUseFilter(boolean newUseFilter) {
-		boolean oldUseFilter = useFilter;
-		useFilter = newUseFilter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavafxPackage.TABLE_VIEW_FX__USE_FILTER, oldUseFilter,
-					useFilter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -195,8 +151,6 @@ public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JavafxPackage.TABLE_VIEW_FX__USE_FILTER:
-			return isUseFilter();
 		case JavafxPackage.TABLE_VIEW_FX__COLUMNS:
 			return getColumns();
 		case JavafxPackage.TABLE_VIEW_FX__USED_MODEL:
@@ -216,9 +170,6 @@ public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JavafxPackage.TABLE_VIEW_FX__USE_FILTER:
-			setUseFilter((Boolean) newValue);
-			return;
 		case JavafxPackage.TABLE_VIEW_FX__COLUMNS:
 			getColumns().clear();
 			getColumns().addAll((Collection<? extends TableColumnFX>) newValue);
@@ -238,9 +189,6 @@ public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JavafxPackage.TABLE_VIEW_FX__USE_FILTER:
-			setUseFilter(USE_FILTER_EDEFAULT);
-			return;
 		case JavafxPackage.TABLE_VIEW_FX__COLUMNS:
 			getColumns().clear();
 			return;
@@ -259,67 +207,12 @@ public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JavafxPackage.TABLE_VIEW_FX__USE_FILTER:
-			return useFilter != USE_FILTER_EDEFAULT;
 		case JavafxPackage.TABLE_VIEW_FX__COLUMNS:
 			return columns != null && !columns.isEmpty();
 		case JavafxPackage.TABLE_VIEW_FX__USED_MODEL:
 			return usedModel != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == FilteredElement.class) {
-			switch (derivedFeatureID) {
-			case JavafxPackage.TABLE_VIEW_FX__USE_FILTER:
-				return JavafxPackage.FILTERED_ELEMENT__USE_FILTER;
-			default:
-				return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == FilteredElement.class) {
-			switch (baseFeatureID) {
-			case JavafxPackage.FILTERED_ELEMENT__USE_FILTER:
-				return JavafxPackage.TABLE_VIEW_FX__USE_FILTER;
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (useFilter: ");
-		result.append(useFilter);
-		result.append(')');
-		return result.toString();
 	}
 
 } //TableViewFXImpl

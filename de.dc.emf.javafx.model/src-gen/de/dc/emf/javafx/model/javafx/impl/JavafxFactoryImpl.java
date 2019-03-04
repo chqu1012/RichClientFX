@@ -73,10 +73,24 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createBindingProperty();
 		case JavafxPackage.TABLE_VIEW_FX:
 			return createTableViewFX();
+		case JavafxPackage.FILTERED_TABLE_VIEW_FX:
+			return createFilteredTableViewFX();
 		case JavafxPackage.NAMED_ELEMENT:
 			return createNamedElement();
+		case JavafxPackage.FILTERED_ELEMENT:
+			return createFilteredElement();
 		case JavafxPackage.LINE_CHART_FX:
 			return createLineChartFX();
+		case JavafxPackage.PIE_CHART_FX:
+			return createPieChartFX();
+		case JavafxPackage.AREA_CHART_FX:
+			return createAreaChartFX();
+		case JavafxPackage.BUBBLE_CHART_FX:
+			return createBubbleChartFX();
+		case JavafxPackage.SCATTER_CHART_FX:
+			return createScatterChartFX();
+		case JavafxPackage.BAR_CHART_FX:
+			return createBarChartFX();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -145,6 +159,16 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FilteredElement createFilteredElement() {
+		FilteredElementImpl filteredElement = new FilteredElementImpl();
+		return filteredElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LineChartFX createLineChartFX() {
 		LineChartFXImpl lineChartFX = new LineChartFXImpl();
 		return lineChartFX;
@@ -155,9 +179,69 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PieChartFX createPieChartFX() {
+		PieChartFXImpl pieChartFX = new PieChartFXImpl();
+		return pieChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AreaChartFX createAreaChartFX() {
+		AreaChartFXImpl areaChartFX = new AreaChartFXImpl();
+		return areaChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BubbleChartFX createBubbleChartFX() {
+		BubbleChartFXImpl bubbleChartFX = new BubbleChartFXImpl();
+		return bubbleChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ScatterChartFX createScatterChartFX() {
+		ScatterChartFXImpl scatterChartFX = new ScatterChartFXImpl();
+		return scatterChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BarChartFX createBarChartFX() {
+		BarChartFXImpl barChartFX = new BarChartFXImpl();
+		return barChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TableViewFX createTableViewFX() {
 		TableViewFXImpl tableViewFX = new TableViewFXImpl();
 		return tableViewFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FilteredTableViewFX createFilteredTableViewFX() {
+		FilteredTableViewFXImpl filteredTableViewFX = new FilteredTableViewFXImpl();
+		return filteredTableViewFX;
 	}
 
 	/**

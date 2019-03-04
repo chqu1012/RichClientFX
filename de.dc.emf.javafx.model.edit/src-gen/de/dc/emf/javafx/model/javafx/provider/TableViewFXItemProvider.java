@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -47,7 +46,6 @@ public class TableViewFXItemProvider extends ControlFXItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUseFilterPropertyDescriptor(object);
 			addColumnsPropertyDescriptor(object);
 			addUsedModelPropertyDescriptor(object);
 		}
@@ -82,22 +80,6 @@ public class TableViewFXItemProvider extends ControlFXItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_TableViewFX_usedModel_feature",
 								"_UI_TableViewFX_type"),
 						JavafxPackage.Literals.TABLE_VIEW_FX__USED_MODEL, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Use Filter feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUseFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_FilteredElement_useFilter_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_FilteredElement_useFilter_feature",
-								"_UI_FilteredElement_type"),
-						JavafxPackage.Literals.FILTERED_ELEMENT__USE_FILTER, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -176,9 +158,6 @@ public class TableViewFXItemProvider extends ControlFXItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TableViewFX.class)) {
-		case JavafxPackage.TABLE_VIEW_FX__USE_FILTER:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
 		case JavafxPackage.TABLE_VIEW_FX__COLUMNS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;

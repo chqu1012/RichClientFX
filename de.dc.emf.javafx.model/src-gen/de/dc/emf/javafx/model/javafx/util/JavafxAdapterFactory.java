@@ -117,6 +117,11 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseFilteredTableViewFX(FilteredTableViewFX object) {
+			return createFilteredTableViewFXAdapter();
+		}
+
+		@Override
 		public Adapter caseNamedElement(NamedElement object) {
 			return createNamedElementAdapter();
 		}
@@ -134,6 +139,31 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseLineChartFX(LineChartFX object) {
 			return createLineChartFXAdapter();
+		}
+
+		@Override
+		public Adapter casePieChartFX(PieChartFX object) {
+			return createPieChartFXAdapter();
+		}
+
+		@Override
+		public Adapter caseAreaChartFX(AreaChartFX object) {
+			return createAreaChartFXAdapter();
+		}
+
+		@Override
+		public Adapter caseBubbleChartFX(BubbleChartFX object) {
+			return createBubbleChartFXAdapter();
+		}
+
+		@Override
+		public Adapter caseScatterChartFX(ScatterChartFX object) {
+			return createScatterChartFXAdapter();
+		}
+
+		@Override
+		public Adapter caseBarChartFX(BarChartFX object) {
+			return createBarChartFXAdapter();
 		}
 
 		@Override
@@ -226,6 +256,76 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.PieChartFX <em>Pie Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.PieChartFX
+	 * @generated
+	 */
+	public Adapter createPieChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.AreaChartFX <em>Area Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.AreaChartFX
+	 * @generated
+	 */
+	public Adapter createAreaChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.BubbleChartFX <em>Bubble Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.BubbleChartFX
+	 * @generated
+	 */
+	public Adapter createBubbleChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.ScatterChartFX <em>Scatter Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.ScatterChartFX
+	 * @generated
+	 */
+	public Adapter createScatterChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.BarChartFX <em>Bar Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.BarChartFX
+	 * @generated
+	 */
+	public Adapter createBarChartFXAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.ControlFX <em>Control FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -250,6 +350,20 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTableViewFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.FilteredTableViewFX <em>Filtered Table View FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.FilteredTableViewFX
+	 * @generated
+	 */
+	public Adapter createFilteredTableViewFXAdapter() {
 		return null;
 	}
 

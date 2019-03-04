@@ -763,14 +763,175 @@ ruleControlFX returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getControlFXAccess().getTableViewFXParserRuleCall());
-	}
-	this_TableViewFX_0=ruleTableViewFX
-	{
-		$current = $this_TableViewFX_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		{
+			newCompositeNode(grammarAccess.getControlFXAccess().getTableViewFXParserRuleCall_0());
+		}
+		this_TableViewFX_0=ruleTableViewFX
+		{
+			$current = $this_TableViewFX_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getControlFXAccess().getFilteredTableViewFXParserRuleCall_1());
+		}
+		this_FilteredTableViewFX_1=ruleFilteredTableViewFX
+		{
+			$current = $this_FilteredTableViewFX_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleFilteredTableViewFX
+entryRuleFilteredTableViewFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFilteredTableViewFXRule()); }
+	iv_ruleFilteredTableViewFX=ruleFilteredTableViewFX
+	{ $current=$iv_ruleFilteredTableViewFX.current; }
+	EOF;
+
+// Rule FilteredTableViewFX
+ruleFilteredTableViewFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getFilteredTableViewFXAccess().getFilteredTableViewFXAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='FilteredTableView'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getFilteredTableViewFXAccess().getFilteredTableViewKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getFilteredTableViewFXAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			otherlv_3='name:'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getFilteredTableViewFXAccess().getNameKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getNameEStringParserRuleCall_3_1_0());
+					}
+					lv_name_4_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFilteredTableViewFXRule());
+						}
+						set(
+							$current,
+							"name",
+							lv_name_4_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		(
+			otherlv_5='usedModel:'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getFilteredTableViewFXAccess().getUsedModelKeyword_4_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFilteredTableViewFXRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getUsedModelModelFXCrossReference_4_1_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_7='usedFilter:'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getFilteredTableViewFXAccess().getUsedFilterKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getUseFilterEBooleanParserRuleCall_5_1_0());
+					}
+					lv_useFilter_8_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFilteredTableViewFXRule());
+						}
+						set(
+							$current,
+							"useFilter",
+							lv_useFilter_8_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_0_0());
+					}
+					lv_columns_9_0=ruleTableColumnFX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFilteredTableViewFXRule());
+						}
+						add(
+							$current,
+							"columns",
+							lv_columns_9_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_1_0());
+					}
+					lv_columns_10_0=ruleTableColumnFX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFilteredTableViewFXRule());
+						}
+						add(
+							$current,
+							"columns",
+							lv_columns_10_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
+		otherlv_11='}'
+		{
+			newLeafNode(otherlv_11, grammarAccess.getFilteredTableViewFXAccess().getRightCurlyBracketKeyword_7());
+		}
+	)
 ;
 
 // Entry rule entryRuleEString
@@ -1141,37 +1302,12 @@ ruleTableViewFX returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_7='usedFilter:'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getTableViewFXAccess().getUsedFilterKeyword_5_0());
-			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTableViewFXAccess().getUseFilterEBooleanParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_0_0());
 					}
-					lv_useFilter_8_0=ruleEBoolean
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
-						}
-						set(
-							$current,
-							"useFilter",
-							lv_useFilter_8_0,
-							"de.dc.emf.javafx.xtext.JavaFXLang.EBoolean");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_0_0());
-					}
-					lv_columns_9_0=ruleTableColumnFX
+					lv_columns_7_0=ruleTableColumnFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
@@ -1179,7 +1315,7 @@ ruleTableViewFX returns [EObject current=null]
 						add(
 							$current,
 							"columns",
-							lv_columns_9_0,
+							lv_columns_7_0,
 							"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
 						afterParserOrEnumRuleCall();
 					}
@@ -1188,9 +1324,9 @@ ruleTableViewFX returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_1_0());
 					}
-					lv_columns_10_0=ruleTableColumnFX
+					lv_columns_8_0=ruleTableColumnFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
@@ -1198,16 +1334,16 @@ ruleTableViewFX returns [EObject current=null]
 						add(
 							$current,
 							"columns",
-							lv_columns_10_0,
+							lv_columns_8_0,
 							"de.dc.emf.javafx.xtext.JavaFXLang.TableColumnFX");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
 		)?
-		otherlv_11='}'
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

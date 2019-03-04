@@ -3,6 +3,7 @@ package de.dc.emf.javafx.xtext.generator;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
+import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
@@ -20,7 +21,19 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
-    _builder.append("/controls/Base");
+    _builder.append("/controls/");
+    String _firstUpper = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper);
+    _builder.append(".java");
+    return _builder.toString();
+  }
+  
+  @Override
+  public String caseFilteredTableViewFX(final FilteredTableViewFX object) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _package = FilePathSwitch.getPackage(object);
+    _builder.append(_package);
+    _builder.append("/controls/");
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
@@ -35,7 +48,7 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     _builder.newLineIfNotEmpty();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
-    _builder.append("/controls/cell/Base");
+    _builder.append("/controls/cell/");
     _builder.append(modelName);
     String _firstUpper = StringExtensions.toFirstUpper(object.getUsedAttribute().getName());
     _builder.append(_firstUpper);
@@ -60,7 +73,7 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
-    _builder.append("/model/Base");
+    _builder.append("/model/");
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");

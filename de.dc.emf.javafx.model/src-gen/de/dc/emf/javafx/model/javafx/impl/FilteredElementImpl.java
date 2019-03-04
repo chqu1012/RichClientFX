@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class FilteredElementImpl extends MinimalEObjectImpl.Container implements FilteredElement {
+public class FilteredElementImpl extends MinimalEObjectImpl.Container implements FilteredElement {
 	/**
 	 * The default value of the '{@link #isUseFilter() <em>Use Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
