@@ -9,7 +9,7 @@ ProjectFX returns ProjectFX:
 	'ProjectFX'
 	name=EString
 	'{'
-		('packagePath' packagePath=EString)?
+		('packagePath' packagePath=QualifiedName)?
 		('controls' '{' controls+=ControlFX (controls+=ControlFX)* '}' )?
 		('models' '{' models+=ModelFX (models+=ModelFX)* '}' )?
 		('bindings' '{' bindings+=Binding(bindings+=Binding)* '}' )?
@@ -120,3 +120,7 @@ EInt returns ecore::EInt:
 AttributeFX returns AttributeFX:
 	{AttributeFX}
 	type=EString name=EString;
+	
+QualifiedName:
+	ID ('.' ID)*
+;

@@ -1,0 +1,22 @@
+ProjectFX{
+	packagePath "de.dc.emf.javafx.xtext.demo.cu"
+	name:"HalloWelte" 
+
+	controls{
+		TableViewFX{
+			name:'Tabke'
+			usedModel:"Contact"
+			Column(name:Name useFilter)
+			Column(name:Age useFilter)
+			Column(name:Gender useFilter)
+			Column(name:Address useFilter)
+		}
+	}
+	 
+	models{
+		class Contact{
+			String name
+			int age
+		}
+	}
+}

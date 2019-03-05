@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2012, 2015, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+/*******************************************************************************
+ *                                                                             *
+ * CSS Styles for embedded devices that have QVGA screens. These styles either *
+ * override or supplement those in caspian.css and embedded.css (which is      *
+ * targeted at VGA screens).                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                                                                             *
+ * TextField, PasswordField, TextArea                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.text-field {
+    -fx-padding: 3 5 3 5; /* Restore values from caspian, as QVGA has no selection handles */
+}
+
+.text-area .content {
+    -fx-padding: 3 5 3 5; /* Restore values from caspian, as QVGA has no selection handles */
+}
