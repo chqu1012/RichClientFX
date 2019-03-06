@@ -4,15 +4,20 @@
 package de.dc.emf.javafx.xtext.serializer;
 
 import com.google.inject.Inject;
+import de.dc.emf.javafx.model.javafx.AreaChartFX;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.BarChartFX;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
+import de.dc.emf.javafx.model.javafx.BubbleChartFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
+import de.dc.emf.javafx.model.javafx.PieChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
+import de.dc.emf.javafx.model.javafx.ScatterChartFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
 import de.dc.emf.javafx.xtext.services.JavaFXLangGrammarAccess;
@@ -41,8 +46,14 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == JavafxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case JavafxPackage.AREA_CHART_FX:
+				sequence_AreaChartFX(context, (AreaChartFX) semanticObject); 
+				return; 
 			case JavafxPackage.ATTRIBUTE_FX:
 				sequence_AttributeFX(context, (AttributeFX) semanticObject); 
+				return; 
+			case JavafxPackage.BAR_CHART_FX:
+				sequence_BarChartFX(context, (BarChartFX) semanticObject); 
 				return; 
 			case JavafxPackage.BEAN:
 				sequence_Bean(context, (Bean) semanticObject); 
@@ -53,6 +64,9 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case JavafxPackage.BINDING_PROPERTY:
 				sequence_BindingProperty(context, (BindingProperty) semanticObject); 
 				return; 
+			case JavafxPackage.BUBBLE_CHART_FX:
+				sequence_BubbleChartFX(context, (BubbleChartFX) semanticObject); 
+				return; 
 			case JavafxPackage.DERIVED_BEAN:
 				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
 				return; 
@@ -62,8 +76,14 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case JavafxPackage.LINE_CHART_FX:
 				sequence_LineChartFX(context, (LineChartFX) semanticObject); 
 				return; 
+			case JavafxPackage.PIE_CHART_FX:
+				sequence_PieChartFX(context, (PieChartFX) semanticObject); 
+				return; 
 			case JavafxPackage.PROJECT_FX:
 				sequence_ProjectFX(context, (ProjectFX) semanticObject); 
+				return; 
+			case JavafxPackage.SCATTER_CHART_FX:
+				sequence_ScatterChartFX(context, (ScatterChartFX) semanticObject); 
 				return; 
 			case JavafxPackage.TABLE_COLUMN_FX:
 				sequence_TableColumnFX(context, (TableColumnFX) semanticObject); 
@@ -75,6 +95,29 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     ChartFX returns AreaChartFX
+	 *     AreaChartFX returns AreaChartFX
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         legendSide=Orientation? 
+	 *         showLegend=EBoolean? 
+	 *         title=EString? 
+	 *         titleSide=Orientation? 
+	 *         xAxisLabel=EString? 
+	 *         xAxisType=AxisType? 
+	 *         yAxisLabel=EString? 
+	 *         yAxisType=AxisType?
+	 *     )
+	 */
+	protected void sequence_AreaChartFX(ISerializationContext context, AreaChartFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -94,6 +137,29 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getAttributeFXAccess().getTypeEStringParserRuleCall_1_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getAttributeFXAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ChartFX returns BarChartFX
+	 *     BarChartFX returns BarChartFX
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         legendSide=Orientation? 
+	 *         showLegend=EBoolean? 
+	 *         title=EString? 
+	 *         titleSide=Orientation? 
+	 *         xAxisLabel=EString? 
+	 *         xAxisType=AxisType? 
+	 *         yAxisLabel=EString? 
+	 *         yAxisType=AxisType?
+	 *     )
+	 */
+	protected void sequence_BarChartFX(ISerializationContext context, BarChartFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -139,6 +205,29 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (name=EString (property+=BindingProperty property+=BindingProperty*)?)
 	 */
 	protected void sequence_Binding(ISerializationContext context, Binding semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ChartFX returns BubbleChartFX
+	 *     BubbleChartFX returns BubbleChartFX
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         legendSide=Orientation? 
+	 *         showLegend=EBoolean? 
+	 *         title=EString? 
+	 *         titleSide=Orientation? 
+	 *         xAxisLabel=EString? 
+	 *         xAxisType=AxisType? 
+	 *         yAxisLabel=EString? 
+	 *         yAxisType=AxisType?
+	 *     )
+	 */
+	protected void sequence_BubbleChartFX(ISerializationContext context, BubbleChartFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -194,6 +283,29 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     ChartFX returns PieChartFX
+	 *     PieChartFX returns PieChartFX
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         legendSide=Orientation? 
+	 *         showLegend=EBoolean? 
+	 *         title=EString? 
+	 *         titleSide=Orientation? 
+	 *         xAxisLabel=EString? 
+	 *         xAxisType=AxisType? 
+	 *         yAxisLabel=EString? 
+	 *         yAxisType=AxisType?
+	 *     )
+	 */
+	protected void sequence_PieChartFX(ISerializationContext context, PieChartFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ProjectFX returns ProjectFX
 	 *
 	 * Constraint:
@@ -207,6 +319,29 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     )
 	 */
 	protected void sequence_ProjectFX(ISerializationContext context, ProjectFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ChartFX returns ScatterChartFX
+	 *     ScatterChartFX returns ScatterChartFX
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         legendSide=Orientation? 
+	 *         showLegend=EBoolean? 
+	 *         title=EString? 
+	 *         titleSide=Orientation? 
+	 *         xAxisLabel=EString? 
+	 *         xAxisType=AxisType? 
+	 *         yAxisLabel=EString? 
+	 *         yAxisType=AxisType?
+	 *     )
+	 */
+	protected void sequence_ScatterChartFX(ISerializationContext context, ScatterChartFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

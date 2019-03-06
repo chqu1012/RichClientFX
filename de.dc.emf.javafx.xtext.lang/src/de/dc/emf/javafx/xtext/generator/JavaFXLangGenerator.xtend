@@ -3,7 +3,6 @@
  */
 package de.dc.emf.javafx.xtext.generator
 
-import com.google.inject.Inject
 import de.dc.emf.javafx.model.javafx.ChartFX
 import de.dc.emf.javafx.model.javafx.NamedElement
 import de.dc.emf.javafx.model.javafx.ProjectFX

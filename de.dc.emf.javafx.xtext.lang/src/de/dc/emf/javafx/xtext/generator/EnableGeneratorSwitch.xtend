@@ -13,6 +13,7 @@ import de.dc.emf.javafx.model.javafx.Bean
 import de.dc.emf.javafx.model.javafx.DerivedBean
 import de.dc.emf.javafx.model.javafx.BindingProperty
 import de.dc.emf.javafx.model.javafx.LineChartFX
+import de.dc.emf.javafx.model.javafx.PieChartFX
 
 class EnableGeneratorSwitch extends JavafxSwitch<Boolean>{
 	
@@ -24,6 +25,7 @@ class EnableGeneratorSwitch extends JavafxSwitch<Boolean>{
 	override caseBindingProperty(BindingProperty object) {false}
 		
 	override caseLineChartFX(LineChartFX object) {true}
+	override casePieChartFX(PieChartFX object) {true}
 	override caseDerivedBean(DerivedBean object) {true}
 	override caseBean(Bean object) {true}
 	override caseBinding(Binding object) {true}

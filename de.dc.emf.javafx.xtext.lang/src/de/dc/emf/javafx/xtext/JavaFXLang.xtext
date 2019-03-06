@@ -9,7 +9,7 @@ ProjectFX returns ProjectFX:
 	'ProjectFX'
 	name=EString
 	'{'
-		('packagePath' packagePath=QualifiedName)?
+		('packagePath' packagePath=EString)?
 		('controls' '{' controls+=ControlFX (controls+=ControlFX)* '}' )?
 		('models' '{' models+=ModelFX (models+=ModelFX)* '}' )?
 		('bindings' '{' bindings+=Binding(bindings+=Binding)* '}' )?
@@ -17,7 +17,81 @@ ProjectFX returns ProjectFX:
 	'}';
 
 ChartFX returns ChartFX:
-	LineChartFX
+	LineChartFX | PieChartFX | AreaChartFX | BubbleChartFX | ScatterChartFX | BarChartFX;
+
+BarChartFX returns BarChartFX:
+	{BarChartFX}
+	'BarChart' '{'
+		'name:' name=EString
+		('legendSide:' legendSide=Orientation)?
+		('showLegend:' showLegend=EBoolean)?
+		('title:' title=EString)?
+		('titleSide:' titleSide=Orientation)?
+		('xAxisLabel:' xAxisLabel=EString)?
+		('xAxisType:' xAxisType=AxisType)?
+		('yAxisLabel:' yAxisLabel=EString)?
+		('yAxisType:' yAxisType=AxisType)?
+	'}'
+;
+
+ScatterChartFX returns ScatterChartFX:
+	{ScatterChartFX}
+	'ScatterChart' '{'
+		'name:' name=EString
+		('legendSide:' legendSide=Orientation)?
+		('showLegend:' showLegend=EBoolean)?
+		('title:' title=EString)?
+		('titleSide:' titleSide=Orientation)?
+		('xAxisLabel:' xAxisLabel=EString)?
+		('xAxisType:' xAxisType=AxisType)?
+		('yAxisLabel:' yAxisLabel=EString)?
+		('yAxisType:' yAxisType=AxisType)?
+	'}'
+;
+
+BubbleChartFX returns BubbleChartFX:
+	{BubbleChartFX}
+	'BubbleChart' '{'
+		'name:' name=EString
+		('legendSide:' legendSide=Orientation)?
+		('showLegend:' showLegend=EBoolean)?
+		('title:' title=EString)?
+		('titleSide:' titleSide=Orientation)?
+		('xAxisLabel:' xAxisLabel=EString)?
+		('xAxisType:' xAxisType=AxisType)?
+		('yAxisLabel:' yAxisLabel=EString)?
+		('yAxisType:' yAxisType=AxisType)?
+	'}'
+;
+
+AreaChartFX returns AreaChartFX:
+	{AreaChartFX}
+	'AreaChart' '{'
+		'name:' name=EString
+		('legendSide:' legendSide=Orientation)?
+		('showLegend:' showLegend=EBoolean)?
+		('title:' title=EString)?
+		('titleSide:' titleSide=Orientation)?
+		('xAxisLabel:' xAxisLabel=EString)?
+		('xAxisType:' xAxisType=AxisType)?
+		('yAxisLabel:' yAxisLabel=EString)?
+		('yAxisType:' yAxisType=AxisType)?
+	'}'
+;
+
+PieChartFX returns PieChartFX:
+	{PieChartFX}			
+	'PieChart' '{'
+		'name:' name=EString
+		('legendSide:' legendSide=Orientation)?
+		('showLegend:' showLegend=EBoolean)?
+		('title:' title=EString)?
+		('titleSide:' titleSide=Orientation)?
+		('xAxisLabel:' xAxisLabel=EString)?
+		('xAxisType:' xAxisType=AxisType)?
+		('yAxisLabel:' yAxisLabel=EString)?
+		('yAxisType:' yAxisType=AxisType)?
+	'}'
 ;
 
 LineChartFX returns LineChartFX:
@@ -120,7 +194,3 @@ EInt returns ecore::EInt:
 AttributeFX returns AttributeFX:
 	{AttributeFX}
 	type=EString name=EString;
-	
-QualifiedName:
-	ID ('.' ID)*
-;

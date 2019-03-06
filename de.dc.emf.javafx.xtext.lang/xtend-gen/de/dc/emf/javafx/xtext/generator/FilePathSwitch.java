@@ -5,6 +5,7 @@ import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
+import de.dc.emf.javafx.model.javafx.PieChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
@@ -94,6 +95,18 @@ public class FilePathSwitch extends JavafxSwitch<String> {
   
   @Override
   public String caseLineChartFX(final LineChartFX object) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _package = FilePathSwitch.getPackage(object);
+    _builder.append(_package);
+    _builder.append("/chart/Base");
+    String _firstUpper = StringExtensions.toFirstUpper(object.getName());
+    _builder.append(_firstUpper);
+    _builder.append(".java");
+    return _builder.toString();
+  }
+  
+  @Override
+  public String casePieChartFX(final PieChartFX object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);

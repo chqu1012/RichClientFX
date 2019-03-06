@@ -4,10 +4,10 @@ import javafx.geometry.*;
 import javafx.scene.chart.*;
 import java.util.*;
 
-public class BaseStudentsOverviewChart extends LineChart<String, Number> {
+public class BaseStudentsOverviewChart extends LineChart<Number, Number> {
 
 	public BaseStudentsOverviewChart() {
-		super(new CategoryAxis(), new NumberAxis());
+		super(new NumberAxis(), new NumberAxis());
 		setLegendSide(Side.BOTTOM);
 		setLegendVisible(true);
 		setTitle("Students in the year 2019");		
@@ -17,8 +17,8 @@ public class BaseStudentsOverviewChart extends LineChart<String, Number> {
 		getYAxis().setLabel("");
 	}
 	
-	public void createSeries(String name, List<Data<String, Number>> list) {
-		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
+	public void createSeries(String name, List<Data<Number, Number>> list) {
+		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
         series.setName(name);		
 
         series.getData().addAll(list);

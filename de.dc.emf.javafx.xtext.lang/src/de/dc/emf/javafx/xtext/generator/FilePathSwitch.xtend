@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import de.dc.emf.javafx.model.javafx.Binding
 import de.dc.emf.javafx.model.javafx.LineChartFX
 import de.dc.emf.javafx.model.javafx.FilteredTableViewFX
+import de.dc.emf.javafx.model.javafx.PieChartFX
 
 class FilePathSwitch extends JavafxSwitch<String>{
 	
@@ -23,6 +24,7 @@ class FilePathSwitch extends JavafxSwitch<String>{
 	override caseDerivedBean(DerivedBean object)'''«object.package»/model/«object.name.toFirstUpper».java'''
 	override caseBinding(Binding object)'''«object.package»/binding/«object.name.toFirstUpper».java'''
 	override caseLineChartFX(LineChartFX object)'''«object.package»/chart/Base«object.name.toFirstUpper».java'''
+	override casePieChartFX(PieChartFX object)'''«object.package»/chart/Base«object.name.toFirstUpper».java'''
 	
 	def static getPackage(EObject obj)'''«(EcoreUtil.getRootContainer(obj.eContainer) as ProjectFX).packagePath.replace('.', '/')»'''
 }

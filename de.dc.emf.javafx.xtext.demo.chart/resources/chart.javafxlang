@@ -1,6 +1,6 @@
 ProjectFX ContactProject{
-	packagePath 'de.dc.emf.javafx.xtext.demo.chart'
-	 
+	packagePath 'de.dc.emf.javafx.xtext.demo.chart' 
+
 	charts{
 		LineChart{
 			name: BudgetChart
@@ -15,11 +15,16 @@ ProjectFX ContactProject{
 			yAxisLabel:"Month"
 		}
 		
-		LineChart{
+		LineChart{ 
 			name: StudentsOverviewChart
 			title:"Students in the year 2019"
-			xAxisType: Category
+			xAxisType: Number 
 			yAxisType: Number 
+		}
+		
+		PieChart{ 
+			name: CountryPieChart
+			title: "Hello Pie Chart FX"
 		}
 	}
 }

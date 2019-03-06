@@ -9,6 +9,7 @@ import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.NamedElement;
+import de.dc.emf.javafx.model.javafx.PieChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
@@ -48,6 +49,11 @@ public class EnableGeneratorSwitch extends JavafxSwitch<Boolean> {
   
   @Override
   public Boolean caseLineChartFX(final LineChartFX object) {
+    return Boolean.valueOf(true);
+  }
+  
+  @Override
+  public Boolean casePieChartFX(final PieChartFX object) {
     return Boolean.valueOf(true);
   }
   

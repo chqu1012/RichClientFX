@@ -216,14 +216,913 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ChartFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.ChartFX");
-		private final RuleCall cLineChartFXParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLineChartFXParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPieChartFXParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cAreaChartFXParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cBubbleChartFXParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cScatterChartFXParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cBarChartFXParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//ChartFX:
-		//	LineChartFX;
+		//	LineChartFX | PieChartFX | AreaChartFX | BubbleChartFX | ScatterChartFX | BarChartFX;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//LineChartFX | PieChartFX | AreaChartFX | BubbleChartFX | ScatterChartFX | BarChartFX
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//LineChartFX
-		public RuleCall getLineChartFXParserRuleCall() { return cLineChartFXParserRuleCall; }
+		public RuleCall getLineChartFXParserRuleCall_0() { return cLineChartFXParserRuleCall_0; }
+		
+		//PieChartFX
+		public RuleCall getPieChartFXParserRuleCall_1() { return cPieChartFXParserRuleCall_1; }
+		
+		//AreaChartFX
+		public RuleCall getAreaChartFXParserRuleCall_2() { return cAreaChartFXParserRuleCall_2; }
+		
+		//BubbleChartFX
+		public RuleCall getBubbleChartFXParserRuleCall_3() { return cBubbleChartFXParserRuleCall_3; }
+		
+		//ScatterChartFX
+		public RuleCall getScatterChartFXParserRuleCall_4() { return cScatterChartFXParserRuleCall_4; }
+		
+		//BarChartFX
+		public RuleCall getBarChartFXParserRuleCall_5() { return cBarChartFXParserRuleCall_5; }
+	}
+	public class BarChartFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.BarChartFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBarChartFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cBarChartKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLegendSideKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cLegendSideAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cLegendSideOrientationEnumRuleCall_5_1_0 = (RuleCall)cLegendSideAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cShowLegendKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cShowLegendAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cShowLegendEBooleanParserRuleCall_6_1_0 = (RuleCall)cShowLegendAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cTitleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cTitleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cTitleEStringParserRuleCall_7_1_0 = (RuleCall)cTitleAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cTitleSideKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cTitleSideAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cTitleSideOrientationEnumRuleCall_8_1_0 = (RuleCall)cTitleSideAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cXAxisLabelKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cXAxisLabelAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cXAxisLabelEStringParserRuleCall_9_1_0 = (RuleCall)cXAxisLabelAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cXAxisTypeKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cXAxisTypeAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cXAxisTypeAxisTypeEnumRuleCall_10_1_0 = (RuleCall)cXAxisTypeAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cYAxisLabelKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cYAxisLabelAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cYAxisLabelEStringParserRuleCall_11_1_0 = (RuleCall)cYAxisLabelAssignment_11_1.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cYAxisTypeKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cYAxisTypeAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cYAxisTypeAxisTypeEnumRuleCall_12_1_0 = (RuleCall)cYAxisTypeAssignment_12_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		
+		//BarChartFX:
+		//	{BarChartFX}
+		//	'BarChart' '{'
+		//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+		//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{BarChartFX} 'BarChart' '{' 'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:'
+		//showLegend=EBoolean)? ('title:' title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:'
+		//xAxisLabel=EString)? ('xAxisType:' xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:'
+		//yAxisType=AxisType)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{BarChartFX}
+		public Action getBarChartFXAction_0() { return cBarChartFXAction_0; }
+		
+		//'BarChart'
+		public Keyword getBarChartKeyword_1() { return cBarChartKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'name:'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//('legendSide:' legendSide=Orientation)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'legendSide:'
+		public Keyword getLegendSideKeyword_5_0() { return cLegendSideKeyword_5_0; }
+		
+		//legendSide=Orientation
+		public Assignment getLegendSideAssignment_5_1() { return cLegendSideAssignment_5_1; }
+		
+		//Orientation
+		public RuleCall getLegendSideOrientationEnumRuleCall_5_1_0() { return cLegendSideOrientationEnumRuleCall_5_1_0; }
+		
+		//('showLegend:' showLegend=EBoolean)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'showLegend:'
+		public Keyword getShowLegendKeyword_6_0() { return cShowLegendKeyword_6_0; }
+		
+		//showLegend=EBoolean
+		public Assignment getShowLegendAssignment_6_1() { return cShowLegendAssignment_6_1; }
+		
+		//EBoolean
+		public RuleCall getShowLegendEBooleanParserRuleCall_6_1_0() { return cShowLegendEBooleanParserRuleCall_6_1_0; }
+		
+		//('title:' title=EString)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'title:'
+		public Keyword getTitleKeyword_7_0() { return cTitleKeyword_7_0; }
+		
+		//title=EString
+		public Assignment getTitleAssignment_7_1() { return cTitleAssignment_7_1; }
+		
+		//EString
+		public RuleCall getTitleEStringParserRuleCall_7_1_0() { return cTitleEStringParserRuleCall_7_1_0; }
+		
+		//('titleSide:' titleSide=Orientation)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'titleSide:'
+		public Keyword getTitleSideKeyword_8_0() { return cTitleSideKeyword_8_0; }
+		
+		//titleSide=Orientation
+		public Assignment getTitleSideAssignment_8_1() { return cTitleSideAssignment_8_1; }
+		
+		//Orientation
+		public RuleCall getTitleSideOrientationEnumRuleCall_8_1_0() { return cTitleSideOrientationEnumRuleCall_8_1_0; }
+		
+		//('xAxisLabel:' xAxisLabel=EString)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'xAxisLabel:'
+		public Keyword getXAxisLabelKeyword_9_0() { return cXAxisLabelKeyword_9_0; }
+		
+		//xAxisLabel=EString
+		public Assignment getXAxisLabelAssignment_9_1() { return cXAxisLabelAssignment_9_1; }
+		
+		//EString
+		public RuleCall getXAxisLabelEStringParserRuleCall_9_1_0() { return cXAxisLabelEStringParserRuleCall_9_1_0; }
+		
+		//('xAxisType:' xAxisType=AxisType)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'xAxisType:'
+		public Keyword getXAxisTypeKeyword_10_0() { return cXAxisTypeKeyword_10_0; }
+		
+		//xAxisType=AxisType
+		public Assignment getXAxisTypeAssignment_10_1() { return cXAxisTypeAssignment_10_1; }
+		
+		//AxisType
+		public RuleCall getXAxisTypeAxisTypeEnumRuleCall_10_1_0() { return cXAxisTypeAxisTypeEnumRuleCall_10_1_0; }
+		
+		//('yAxisLabel:' yAxisLabel=EString)?
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//'yAxisLabel:'
+		public Keyword getYAxisLabelKeyword_11_0() { return cYAxisLabelKeyword_11_0; }
+		
+		//yAxisLabel=EString
+		public Assignment getYAxisLabelAssignment_11_1() { return cYAxisLabelAssignment_11_1; }
+		
+		//EString
+		public RuleCall getYAxisLabelEStringParserRuleCall_11_1_0() { return cYAxisLabelEStringParserRuleCall_11_1_0; }
+		
+		//('yAxisType:' yAxisType=AxisType)?
+		public Group getGroup_12() { return cGroup_12; }
+		
+		//'yAxisType:'
+		public Keyword getYAxisTypeKeyword_12_0() { return cYAxisTypeKeyword_12_0; }
+		
+		//yAxisType=AxisType
+		public Assignment getYAxisTypeAssignment_12_1() { return cYAxisTypeAssignment_12_1; }
+		
+		//AxisType
+		public RuleCall getYAxisTypeAxisTypeEnumRuleCall_12_1_0() { return cYAxisTypeAxisTypeEnumRuleCall_12_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+	}
+	public class ScatterChartFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.ScatterChartFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cScatterChartFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cScatterChartKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLegendSideKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cLegendSideAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cLegendSideOrientationEnumRuleCall_5_1_0 = (RuleCall)cLegendSideAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cShowLegendKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cShowLegendAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cShowLegendEBooleanParserRuleCall_6_1_0 = (RuleCall)cShowLegendAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cTitleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cTitleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cTitleEStringParserRuleCall_7_1_0 = (RuleCall)cTitleAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cTitleSideKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cTitleSideAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cTitleSideOrientationEnumRuleCall_8_1_0 = (RuleCall)cTitleSideAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cXAxisLabelKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cXAxisLabelAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cXAxisLabelEStringParserRuleCall_9_1_0 = (RuleCall)cXAxisLabelAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cXAxisTypeKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cXAxisTypeAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cXAxisTypeAxisTypeEnumRuleCall_10_1_0 = (RuleCall)cXAxisTypeAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cYAxisLabelKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cYAxisLabelAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cYAxisLabelEStringParserRuleCall_11_1_0 = (RuleCall)cYAxisLabelAssignment_11_1.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cYAxisTypeKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cYAxisTypeAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cYAxisTypeAxisTypeEnumRuleCall_12_1_0 = (RuleCall)cYAxisTypeAssignment_12_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		
+		//ScatterChartFX:
+		//	{ScatterChartFX}
+		//	'ScatterChart' '{'
+		//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+		//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ScatterChartFX} 'ScatterChart' '{' 'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:'
+		//showLegend=EBoolean)? ('title:' title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:'
+		//xAxisLabel=EString)? ('xAxisType:' xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:'
+		//yAxisType=AxisType)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{ScatterChartFX}
+		public Action getScatterChartFXAction_0() { return cScatterChartFXAction_0; }
+		
+		//'ScatterChart'
+		public Keyword getScatterChartKeyword_1() { return cScatterChartKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'name:'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//('legendSide:' legendSide=Orientation)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'legendSide:'
+		public Keyword getLegendSideKeyword_5_0() { return cLegendSideKeyword_5_0; }
+		
+		//legendSide=Orientation
+		public Assignment getLegendSideAssignment_5_1() { return cLegendSideAssignment_5_1; }
+		
+		//Orientation
+		public RuleCall getLegendSideOrientationEnumRuleCall_5_1_0() { return cLegendSideOrientationEnumRuleCall_5_1_0; }
+		
+		//('showLegend:' showLegend=EBoolean)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'showLegend:'
+		public Keyword getShowLegendKeyword_6_0() { return cShowLegendKeyword_6_0; }
+		
+		//showLegend=EBoolean
+		public Assignment getShowLegendAssignment_6_1() { return cShowLegendAssignment_6_1; }
+		
+		//EBoolean
+		public RuleCall getShowLegendEBooleanParserRuleCall_6_1_0() { return cShowLegendEBooleanParserRuleCall_6_1_0; }
+		
+		//('title:' title=EString)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'title:'
+		public Keyword getTitleKeyword_7_0() { return cTitleKeyword_7_0; }
+		
+		//title=EString
+		public Assignment getTitleAssignment_7_1() { return cTitleAssignment_7_1; }
+		
+		//EString
+		public RuleCall getTitleEStringParserRuleCall_7_1_0() { return cTitleEStringParserRuleCall_7_1_0; }
+		
+		//('titleSide:' titleSide=Orientation)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'titleSide:'
+		public Keyword getTitleSideKeyword_8_0() { return cTitleSideKeyword_8_0; }
+		
+		//titleSide=Orientation
+		public Assignment getTitleSideAssignment_8_1() { return cTitleSideAssignment_8_1; }
+		
+		//Orientation
+		public RuleCall getTitleSideOrientationEnumRuleCall_8_1_0() { return cTitleSideOrientationEnumRuleCall_8_1_0; }
+		
+		//('xAxisLabel:' xAxisLabel=EString)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'xAxisLabel:'
+		public Keyword getXAxisLabelKeyword_9_0() { return cXAxisLabelKeyword_9_0; }
+		
+		//xAxisLabel=EString
+		public Assignment getXAxisLabelAssignment_9_1() { return cXAxisLabelAssignment_9_1; }
+		
+		//EString
+		public RuleCall getXAxisLabelEStringParserRuleCall_9_1_0() { return cXAxisLabelEStringParserRuleCall_9_1_0; }
+		
+		//('xAxisType:' xAxisType=AxisType)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'xAxisType:'
+		public Keyword getXAxisTypeKeyword_10_0() { return cXAxisTypeKeyword_10_0; }
+		
+		//xAxisType=AxisType
+		public Assignment getXAxisTypeAssignment_10_1() { return cXAxisTypeAssignment_10_1; }
+		
+		//AxisType
+		public RuleCall getXAxisTypeAxisTypeEnumRuleCall_10_1_0() { return cXAxisTypeAxisTypeEnumRuleCall_10_1_0; }
+		
+		//('yAxisLabel:' yAxisLabel=EString)?
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//'yAxisLabel:'
+		public Keyword getYAxisLabelKeyword_11_0() { return cYAxisLabelKeyword_11_0; }
+		
+		//yAxisLabel=EString
+		public Assignment getYAxisLabelAssignment_11_1() { return cYAxisLabelAssignment_11_1; }
+		
+		//EString
+		public RuleCall getYAxisLabelEStringParserRuleCall_11_1_0() { return cYAxisLabelEStringParserRuleCall_11_1_0; }
+		
+		//('yAxisType:' yAxisType=AxisType)?
+		public Group getGroup_12() { return cGroup_12; }
+		
+		//'yAxisType:'
+		public Keyword getYAxisTypeKeyword_12_0() { return cYAxisTypeKeyword_12_0; }
+		
+		//yAxisType=AxisType
+		public Assignment getYAxisTypeAssignment_12_1() { return cYAxisTypeAssignment_12_1; }
+		
+		//AxisType
+		public RuleCall getYAxisTypeAxisTypeEnumRuleCall_12_1_0() { return cYAxisTypeAxisTypeEnumRuleCall_12_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+	}
+	public class BubbleChartFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.BubbleChartFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBubbleChartFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cBubbleChartKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLegendSideKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cLegendSideAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cLegendSideOrientationEnumRuleCall_5_1_0 = (RuleCall)cLegendSideAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cShowLegendKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cShowLegendAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cShowLegendEBooleanParserRuleCall_6_1_0 = (RuleCall)cShowLegendAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cTitleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cTitleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cTitleEStringParserRuleCall_7_1_0 = (RuleCall)cTitleAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cTitleSideKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cTitleSideAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cTitleSideOrientationEnumRuleCall_8_1_0 = (RuleCall)cTitleSideAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cXAxisLabelKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cXAxisLabelAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cXAxisLabelEStringParserRuleCall_9_1_0 = (RuleCall)cXAxisLabelAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cXAxisTypeKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cXAxisTypeAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cXAxisTypeAxisTypeEnumRuleCall_10_1_0 = (RuleCall)cXAxisTypeAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cYAxisLabelKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cYAxisLabelAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cYAxisLabelEStringParserRuleCall_11_1_0 = (RuleCall)cYAxisLabelAssignment_11_1.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cYAxisTypeKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cYAxisTypeAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cYAxisTypeAxisTypeEnumRuleCall_12_1_0 = (RuleCall)cYAxisTypeAssignment_12_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		
+		//BubbleChartFX:
+		//	{BubbleChartFX}
+		//	'BubbleChart' '{'
+		//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+		//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{BubbleChartFX} 'BubbleChart' '{' 'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:'
+		//showLegend=EBoolean)? ('title:' title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:'
+		//xAxisLabel=EString)? ('xAxisType:' xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:'
+		//yAxisType=AxisType)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{BubbleChartFX}
+		public Action getBubbleChartFXAction_0() { return cBubbleChartFXAction_0; }
+		
+		//'BubbleChart'
+		public Keyword getBubbleChartKeyword_1() { return cBubbleChartKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'name:'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//('legendSide:' legendSide=Orientation)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'legendSide:'
+		public Keyword getLegendSideKeyword_5_0() { return cLegendSideKeyword_5_0; }
+		
+		//legendSide=Orientation
+		public Assignment getLegendSideAssignment_5_1() { return cLegendSideAssignment_5_1; }
+		
+		//Orientation
+		public RuleCall getLegendSideOrientationEnumRuleCall_5_1_0() { return cLegendSideOrientationEnumRuleCall_5_1_0; }
+		
+		//('showLegend:' showLegend=EBoolean)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'showLegend:'
+		public Keyword getShowLegendKeyword_6_0() { return cShowLegendKeyword_6_0; }
+		
+		//showLegend=EBoolean
+		public Assignment getShowLegendAssignment_6_1() { return cShowLegendAssignment_6_1; }
+		
+		//EBoolean
+		public RuleCall getShowLegendEBooleanParserRuleCall_6_1_0() { return cShowLegendEBooleanParserRuleCall_6_1_0; }
+		
+		//('title:' title=EString)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'title:'
+		public Keyword getTitleKeyword_7_0() { return cTitleKeyword_7_0; }
+		
+		//title=EString
+		public Assignment getTitleAssignment_7_1() { return cTitleAssignment_7_1; }
+		
+		//EString
+		public RuleCall getTitleEStringParserRuleCall_7_1_0() { return cTitleEStringParserRuleCall_7_1_0; }
+		
+		//('titleSide:' titleSide=Orientation)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'titleSide:'
+		public Keyword getTitleSideKeyword_8_0() { return cTitleSideKeyword_8_0; }
+		
+		//titleSide=Orientation
+		public Assignment getTitleSideAssignment_8_1() { return cTitleSideAssignment_8_1; }
+		
+		//Orientation
+		public RuleCall getTitleSideOrientationEnumRuleCall_8_1_0() { return cTitleSideOrientationEnumRuleCall_8_1_0; }
+		
+		//('xAxisLabel:' xAxisLabel=EString)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'xAxisLabel:'
+		public Keyword getXAxisLabelKeyword_9_0() { return cXAxisLabelKeyword_9_0; }
+		
+		//xAxisLabel=EString
+		public Assignment getXAxisLabelAssignment_9_1() { return cXAxisLabelAssignment_9_1; }
+		
+		//EString
+		public RuleCall getXAxisLabelEStringParserRuleCall_9_1_0() { return cXAxisLabelEStringParserRuleCall_9_1_0; }
+		
+		//('xAxisType:' xAxisType=AxisType)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'xAxisType:'
+		public Keyword getXAxisTypeKeyword_10_0() { return cXAxisTypeKeyword_10_0; }
+		
+		//xAxisType=AxisType
+		public Assignment getXAxisTypeAssignment_10_1() { return cXAxisTypeAssignment_10_1; }
+		
+		//AxisType
+		public RuleCall getXAxisTypeAxisTypeEnumRuleCall_10_1_0() { return cXAxisTypeAxisTypeEnumRuleCall_10_1_0; }
+		
+		//('yAxisLabel:' yAxisLabel=EString)?
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//'yAxisLabel:'
+		public Keyword getYAxisLabelKeyword_11_0() { return cYAxisLabelKeyword_11_0; }
+		
+		//yAxisLabel=EString
+		public Assignment getYAxisLabelAssignment_11_1() { return cYAxisLabelAssignment_11_1; }
+		
+		//EString
+		public RuleCall getYAxisLabelEStringParserRuleCall_11_1_0() { return cYAxisLabelEStringParserRuleCall_11_1_0; }
+		
+		//('yAxisType:' yAxisType=AxisType)?
+		public Group getGroup_12() { return cGroup_12; }
+		
+		//'yAxisType:'
+		public Keyword getYAxisTypeKeyword_12_0() { return cYAxisTypeKeyword_12_0; }
+		
+		//yAxisType=AxisType
+		public Assignment getYAxisTypeAssignment_12_1() { return cYAxisTypeAssignment_12_1; }
+		
+		//AxisType
+		public RuleCall getYAxisTypeAxisTypeEnumRuleCall_12_1_0() { return cYAxisTypeAxisTypeEnumRuleCall_12_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+	}
+	public class AreaChartFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.AreaChartFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAreaChartFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cAreaChartKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLegendSideKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cLegendSideAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cLegendSideOrientationEnumRuleCall_5_1_0 = (RuleCall)cLegendSideAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cShowLegendKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cShowLegendAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cShowLegendEBooleanParserRuleCall_6_1_0 = (RuleCall)cShowLegendAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cTitleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cTitleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cTitleEStringParserRuleCall_7_1_0 = (RuleCall)cTitleAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cTitleSideKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cTitleSideAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cTitleSideOrientationEnumRuleCall_8_1_0 = (RuleCall)cTitleSideAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cXAxisLabelKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cXAxisLabelAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cXAxisLabelEStringParserRuleCall_9_1_0 = (RuleCall)cXAxisLabelAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cXAxisTypeKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cXAxisTypeAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cXAxisTypeAxisTypeEnumRuleCall_10_1_0 = (RuleCall)cXAxisTypeAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cYAxisLabelKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cYAxisLabelAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cYAxisLabelEStringParserRuleCall_11_1_0 = (RuleCall)cYAxisLabelAssignment_11_1.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cYAxisTypeKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cYAxisTypeAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cYAxisTypeAxisTypeEnumRuleCall_12_1_0 = (RuleCall)cYAxisTypeAssignment_12_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		
+		//AreaChartFX:
+		//	{AreaChartFX}
+		//	'AreaChart' '{'
+		//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+		//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AreaChartFX} 'AreaChart' '{' 'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:'
+		//showLegend=EBoolean)? ('title:' title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:'
+		//xAxisLabel=EString)? ('xAxisType:' xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:'
+		//yAxisType=AxisType)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{AreaChartFX}
+		public Action getAreaChartFXAction_0() { return cAreaChartFXAction_0; }
+		
+		//'AreaChart'
+		public Keyword getAreaChartKeyword_1() { return cAreaChartKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'name:'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//('legendSide:' legendSide=Orientation)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'legendSide:'
+		public Keyword getLegendSideKeyword_5_0() { return cLegendSideKeyword_5_0; }
+		
+		//legendSide=Orientation
+		public Assignment getLegendSideAssignment_5_1() { return cLegendSideAssignment_5_1; }
+		
+		//Orientation
+		public RuleCall getLegendSideOrientationEnumRuleCall_5_1_0() { return cLegendSideOrientationEnumRuleCall_5_1_0; }
+		
+		//('showLegend:' showLegend=EBoolean)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'showLegend:'
+		public Keyword getShowLegendKeyword_6_0() { return cShowLegendKeyword_6_0; }
+		
+		//showLegend=EBoolean
+		public Assignment getShowLegendAssignment_6_1() { return cShowLegendAssignment_6_1; }
+		
+		//EBoolean
+		public RuleCall getShowLegendEBooleanParserRuleCall_6_1_0() { return cShowLegendEBooleanParserRuleCall_6_1_0; }
+		
+		//('title:' title=EString)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'title:'
+		public Keyword getTitleKeyword_7_0() { return cTitleKeyword_7_0; }
+		
+		//title=EString
+		public Assignment getTitleAssignment_7_1() { return cTitleAssignment_7_1; }
+		
+		//EString
+		public RuleCall getTitleEStringParserRuleCall_7_1_0() { return cTitleEStringParserRuleCall_7_1_0; }
+		
+		//('titleSide:' titleSide=Orientation)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'titleSide:'
+		public Keyword getTitleSideKeyword_8_0() { return cTitleSideKeyword_8_0; }
+		
+		//titleSide=Orientation
+		public Assignment getTitleSideAssignment_8_1() { return cTitleSideAssignment_8_1; }
+		
+		//Orientation
+		public RuleCall getTitleSideOrientationEnumRuleCall_8_1_0() { return cTitleSideOrientationEnumRuleCall_8_1_0; }
+		
+		//('xAxisLabel:' xAxisLabel=EString)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'xAxisLabel:'
+		public Keyword getXAxisLabelKeyword_9_0() { return cXAxisLabelKeyword_9_0; }
+		
+		//xAxisLabel=EString
+		public Assignment getXAxisLabelAssignment_9_1() { return cXAxisLabelAssignment_9_1; }
+		
+		//EString
+		public RuleCall getXAxisLabelEStringParserRuleCall_9_1_0() { return cXAxisLabelEStringParserRuleCall_9_1_0; }
+		
+		//('xAxisType:' xAxisType=AxisType)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'xAxisType:'
+		public Keyword getXAxisTypeKeyword_10_0() { return cXAxisTypeKeyword_10_0; }
+		
+		//xAxisType=AxisType
+		public Assignment getXAxisTypeAssignment_10_1() { return cXAxisTypeAssignment_10_1; }
+		
+		//AxisType
+		public RuleCall getXAxisTypeAxisTypeEnumRuleCall_10_1_0() { return cXAxisTypeAxisTypeEnumRuleCall_10_1_0; }
+		
+		//('yAxisLabel:' yAxisLabel=EString)?
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//'yAxisLabel:'
+		public Keyword getYAxisLabelKeyword_11_0() { return cYAxisLabelKeyword_11_0; }
+		
+		//yAxisLabel=EString
+		public Assignment getYAxisLabelAssignment_11_1() { return cYAxisLabelAssignment_11_1; }
+		
+		//EString
+		public RuleCall getYAxisLabelEStringParserRuleCall_11_1_0() { return cYAxisLabelEStringParserRuleCall_11_1_0; }
+		
+		//('yAxisType:' yAxisType=AxisType)?
+		public Group getGroup_12() { return cGroup_12; }
+		
+		//'yAxisType:'
+		public Keyword getYAxisTypeKeyword_12_0() { return cYAxisTypeKeyword_12_0; }
+		
+		//yAxisType=AxisType
+		public Assignment getYAxisTypeAssignment_12_1() { return cYAxisTypeAssignment_12_1; }
+		
+		//AxisType
+		public RuleCall getYAxisTypeAxisTypeEnumRuleCall_12_1_0() { return cYAxisTypeAxisTypeEnumRuleCall_12_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+	}
+	public class PieChartFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.PieChartFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPieChartFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cPieChartKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLegendSideKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cLegendSideAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cLegendSideOrientationEnumRuleCall_5_1_0 = (RuleCall)cLegendSideAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cShowLegendKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cShowLegendAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cShowLegendEBooleanParserRuleCall_6_1_0 = (RuleCall)cShowLegendAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cTitleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cTitleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cTitleEStringParserRuleCall_7_1_0 = (RuleCall)cTitleAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cTitleSideKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cTitleSideAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cTitleSideOrientationEnumRuleCall_8_1_0 = (RuleCall)cTitleSideAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cXAxisLabelKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cXAxisLabelAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cXAxisLabelEStringParserRuleCall_9_1_0 = (RuleCall)cXAxisLabelAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cXAxisTypeKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cXAxisTypeAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cXAxisTypeAxisTypeEnumRuleCall_10_1_0 = (RuleCall)cXAxisTypeAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cYAxisLabelKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cYAxisLabelAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cYAxisLabelEStringParserRuleCall_11_1_0 = (RuleCall)cYAxisLabelAssignment_11_1.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cYAxisTypeKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cYAxisTypeAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cYAxisTypeAxisTypeEnumRuleCall_12_1_0 = (RuleCall)cYAxisTypeAssignment_12_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		
+		//PieChartFX:
+		//	{PieChartFX}
+		//	'PieChart' '{'
+		//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+		//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PieChartFX} 'PieChart' '{' 'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:'
+		//showLegend=EBoolean)? ('title:' title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:'
+		//xAxisLabel=EString)? ('xAxisType:' xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:'
+		//yAxisType=AxisType)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{PieChartFX}
+		public Action getPieChartFXAction_0() { return cPieChartFXAction_0; }
+		
+		//'PieChart'
+		public Keyword getPieChartKeyword_1() { return cPieChartKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'name:'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//('legendSide:' legendSide=Orientation)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'legendSide:'
+		public Keyword getLegendSideKeyword_5_0() { return cLegendSideKeyword_5_0; }
+		
+		//legendSide=Orientation
+		public Assignment getLegendSideAssignment_5_1() { return cLegendSideAssignment_5_1; }
+		
+		//Orientation
+		public RuleCall getLegendSideOrientationEnumRuleCall_5_1_0() { return cLegendSideOrientationEnumRuleCall_5_1_0; }
+		
+		//('showLegend:' showLegend=EBoolean)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'showLegend:'
+		public Keyword getShowLegendKeyword_6_0() { return cShowLegendKeyword_6_0; }
+		
+		//showLegend=EBoolean
+		public Assignment getShowLegendAssignment_6_1() { return cShowLegendAssignment_6_1; }
+		
+		//EBoolean
+		public RuleCall getShowLegendEBooleanParserRuleCall_6_1_0() { return cShowLegendEBooleanParserRuleCall_6_1_0; }
+		
+		//('title:' title=EString)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'title:'
+		public Keyword getTitleKeyword_7_0() { return cTitleKeyword_7_0; }
+		
+		//title=EString
+		public Assignment getTitleAssignment_7_1() { return cTitleAssignment_7_1; }
+		
+		//EString
+		public RuleCall getTitleEStringParserRuleCall_7_1_0() { return cTitleEStringParserRuleCall_7_1_0; }
+		
+		//('titleSide:' titleSide=Orientation)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'titleSide:'
+		public Keyword getTitleSideKeyword_8_0() { return cTitleSideKeyword_8_0; }
+		
+		//titleSide=Orientation
+		public Assignment getTitleSideAssignment_8_1() { return cTitleSideAssignment_8_1; }
+		
+		//Orientation
+		public RuleCall getTitleSideOrientationEnumRuleCall_8_1_0() { return cTitleSideOrientationEnumRuleCall_8_1_0; }
+		
+		//('xAxisLabel:' xAxisLabel=EString)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'xAxisLabel:'
+		public Keyword getXAxisLabelKeyword_9_0() { return cXAxisLabelKeyword_9_0; }
+		
+		//xAxisLabel=EString
+		public Assignment getXAxisLabelAssignment_9_1() { return cXAxisLabelAssignment_9_1; }
+		
+		//EString
+		public RuleCall getXAxisLabelEStringParserRuleCall_9_1_0() { return cXAxisLabelEStringParserRuleCall_9_1_0; }
+		
+		//('xAxisType:' xAxisType=AxisType)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'xAxisType:'
+		public Keyword getXAxisTypeKeyword_10_0() { return cXAxisTypeKeyword_10_0; }
+		
+		//xAxisType=AxisType
+		public Assignment getXAxisTypeAssignment_10_1() { return cXAxisTypeAssignment_10_1; }
+		
+		//AxisType
+		public RuleCall getXAxisTypeAxisTypeEnumRuleCall_10_1_0() { return cXAxisTypeAxisTypeEnumRuleCall_10_1_0; }
+		
+		//('yAxisLabel:' yAxisLabel=EString)?
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//'yAxisLabel:'
+		public Keyword getYAxisLabelKeyword_11_0() { return cYAxisLabelKeyword_11_0; }
+		
+		//yAxisLabel=EString
+		public Assignment getYAxisLabelAssignment_11_1() { return cYAxisLabelAssignment_11_1; }
+		
+		//EString
+		public RuleCall getYAxisLabelEStringParserRuleCall_11_1_0() { return cYAxisLabelEStringParserRuleCall_11_1_0; }
+		
+		//('yAxisType:' yAxisType=AxisType)?
+		public Group getGroup_12() { return cGroup_12; }
+		
+		//'yAxisType:'
+		public Keyword getYAxisTypeKeyword_12_0() { return cYAxisTypeKeyword_12_0; }
+		
+		//yAxisType=AxisType
+		public Assignment getYAxisTypeAssignment_12_1() { return cYAxisTypeAssignment_12_1; }
+		
+		//AxisType
+		public RuleCall getYAxisTypeAxisTypeEnumRuleCall_12_1_0() { return cYAxisTypeAxisTypeEnumRuleCall_12_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
 	}
 	public class LineChartFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.LineChartFX");
@@ -1177,6 +2076,11 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ProjectFXElements pProjectFX;
 	private final ChartFXElements pChartFX;
+	private final BarChartFXElements pBarChartFX;
+	private final ScatterChartFXElements pScatterChartFX;
+	private final BubbleChartFXElements pBubbleChartFX;
+	private final AreaChartFXElements pAreaChartFX;
+	private final PieChartFXElements pPieChartFX;
 	private final LineChartFXElements pLineChartFX;
 	private final AxisTypeElements eAxisType;
 	private final OrientationElements eOrientation;
@@ -1206,6 +2110,11 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pProjectFX = new ProjectFXElements();
 		this.pChartFX = new ChartFXElements();
+		this.pBarChartFX = new BarChartFXElements();
+		this.pScatterChartFX = new ScatterChartFXElements();
+		this.pBubbleChartFX = new BubbleChartFXElements();
+		this.pAreaChartFX = new AreaChartFXElements();
+		this.pPieChartFX = new PieChartFXElements();
 		this.pLineChartFX = new LineChartFXElements();
 		this.eAxisType = new AxisTypeElements();
 		this.eOrientation = new OrientationElements();
@@ -1269,13 +2178,88 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ChartFX:
-	//	LineChartFX;
+	//	LineChartFX | PieChartFX | AreaChartFX | BubbleChartFX | ScatterChartFX | BarChartFX;
 	public ChartFXElements getChartFXAccess() {
 		return pChartFX;
 	}
 	
 	public ParserRule getChartFXRule() {
 		return getChartFXAccess().getRule();
+	}
+	
+	//BarChartFX:
+	//	{BarChartFX}
+	//	'BarChart' '{'
+	//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+	//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+	//	'}';
+	public BarChartFXElements getBarChartFXAccess() {
+		return pBarChartFX;
+	}
+	
+	public ParserRule getBarChartFXRule() {
+		return getBarChartFXAccess().getRule();
+	}
+	
+	//ScatterChartFX:
+	//	{ScatterChartFX}
+	//	'ScatterChart' '{'
+	//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+	//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+	//	'}';
+	public ScatterChartFXElements getScatterChartFXAccess() {
+		return pScatterChartFX;
+	}
+	
+	public ParserRule getScatterChartFXRule() {
+		return getScatterChartFXAccess().getRule();
+	}
+	
+	//BubbleChartFX:
+	//	{BubbleChartFX}
+	//	'BubbleChart' '{'
+	//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+	//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+	//	'}';
+	public BubbleChartFXElements getBubbleChartFXAccess() {
+		return pBubbleChartFX;
+	}
+	
+	public ParserRule getBubbleChartFXRule() {
+		return getBubbleChartFXAccess().getRule();
+	}
+	
+	//AreaChartFX:
+	//	{AreaChartFX}
+	//	'AreaChart' '{'
+	//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+	//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+	//	'}';
+	public AreaChartFXElements getAreaChartFXAccess() {
+		return pAreaChartFX;
+	}
+	
+	public ParserRule getAreaChartFXRule() {
+		return getAreaChartFXAccess().getRule();
+	}
+	
+	//PieChartFX:
+	//	{PieChartFX}
+	//	'PieChart' '{'
+	//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
+	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
+	//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)?
+	//	'}';
+	public PieChartFXElements getPieChartFXAccess() {
+		return pPieChartFX;
+	}
+	
+	public ParserRule getPieChartFXRule() {
+		return getPieChartFXAccess().getRule();
 	}
 	
 	//LineChartFX:

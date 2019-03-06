@@ -22,7 +22,7 @@ public class StudentsOverviewChartApplication extends Application{
 		StudentsOverviewChart chart = new StudentsOverviewChart();
 		
 		for (int i = 0; i < 15; i++) {
-			List<StudentsOverviewChart.Data<String,Number>> list = new ArrayList<StudentsOverviewChart.Data<String,Number>>();
+			List<StudentsOverviewChart.Data<Number,Number>> list = new ArrayList<StudentsOverviewChart.Data<Number,Number>>();
 			createData(list, i*5);
 			chart.createSeries("Series "+i, list);
 		}
@@ -30,18 +30,18 @@ public class StudentsOverviewChartApplication extends Application{
 		return chart;
 	}
 
-	private void createData(List<StudentsOverviewChart.Data<String,Number>> list, int deltaXValue) {
-		list.add(new StudentsOverviewChart.Data<String,Number>("Abs", 23));   
-		list.add(new StudentsOverviewChart.Data<String,Number>("Abs", 14)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("Abs", 15)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("Abs", 24)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("Abs", 34)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("Abs", 36)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("BSC", 22)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("BSC", 45)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("BSC", 43)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("BSC", 17)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("BSC", 29)); 
-		list.add(new StudentsOverviewChart.Data<String,Number>("BSC", 25));
+	private void createData(List<StudentsOverviewChart.Data<Number,Number>> list, int deltaXValue) {
+		list.add(new StudentsOverviewChart.Data<Number,Number>(23+deltaXValue, 23));   
+		list.add(new StudentsOverviewChart.Data<Number,Number>(14+deltaXValue, 14)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(15+deltaXValue, 15)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(24+deltaXValue, 24)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(34+deltaXValue, 34)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(36+deltaXValue, 36)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(22+deltaXValue, 22)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(45+deltaXValue, 45)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(43+deltaXValue, 43)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(17+deltaXValue, 17)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(29+deltaXValue, 29)); 
+		list.add(new StudentsOverviewChart.Data<Number,Number>(25+deltaXValue, 25));
 	}
 }

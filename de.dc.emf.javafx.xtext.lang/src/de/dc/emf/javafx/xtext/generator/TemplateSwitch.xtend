@@ -11,6 +11,7 @@ import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import org.eclipse.emf.ecore.util.EcoreUtil
 import de.dc.emf.javafx.model.javafx.AxisType
 import de.dc.emf.javafx.model.javafx.FilteredTableViewFX
+import de.dc.emf.javafx.model.javafx.PieChartFX
 
 class TemplateSwitch extends JavafxSwitch<String>{
 	
@@ -266,7 +267,7 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	'''
 	
 	override caseLineChartFX(LineChartFX object)'''
-	«val packagePath = (EcoreUtil.getRootContainer(object.eContainer) as ProjectFX).packagePath»
+	«val packagePath = (EcoreUtil.getRootContainer(object) as ProjectFX).packagePath»
 	package «packagePath».chart;
 	
 	import javafx.geometry.*;
@@ -296,6 +297,30 @@ class TemplateSwitch extends JavafxSwitch<String>{
 	
 	        series.getData().addAll(list);
 	        getData().add(series);
+		}
+	}
+	'''
+	
+	override casePieChartFX(PieChartFX object)'''
+	«val packagePath = (EcoreUtil.getRootContainer(object) as ProjectFX).packagePath»
+	package «packagePath».chart;
+	
+	import javafx.geometry.Side;
+	import javafx.scene.chart.PieChart;
+	
+	public class Base«object.name.toFirstUpper» extends PieChart{
+	
+		public Base«object.name.toFirstUpper»() {
+			setLegendSide(Side.«object.legendSide.toString.toUpperCase»);
+			setLegendVisible(«object.showLegend»);
+			setTitle("«object.title»");		
+			setTitleSide(Side.«object.titleSide.toString.toUpperCase»);
+			
+			setStartAngle(30);
+		}
+		
+		public void addSlice(String category, double value) {
+			getData().add(new Data(category, value));
 		}
 	}
 	'''
