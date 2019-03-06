@@ -86,10 +86,6 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPieChartFXAccess().getGroup_6(), "rule__PieChartFX__Group_6__0");
 			builder.put(grammarAccess.getPieChartFXAccess().getGroup_7(), "rule__PieChartFX__Group_7__0");
 			builder.put(grammarAccess.getPieChartFXAccess().getGroup_8(), "rule__PieChartFX__Group_8__0");
-			builder.put(grammarAccess.getPieChartFXAccess().getGroup_9(), "rule__PieChartFX__Group_9__0");
-			builder.put(grammarAccess.getPieChartFXAccess().getGroup_10(), "rule__PieChartFX__Group_10__0");
-			builder.put(grammarAccess.getPieChartFXAccess().getGroup_11(), "rule__PieChartFX__Group_11__0");
-			builder.put(grammarAccess.getPieChartFXAccess().getGroup_12(), "rule__PieChartFX__Group_12__0");
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup(), "rule__LineChartFX__Group__0");
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup_5(), "rule__LineChartFX__Group_5__0");
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup_6(), "rule__LineChartFX__Group_6__0");
@@ -174,10 +170,6 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPieChartFXAccess().getShowLegendAssignment_6_1(), "rule__PieChartFX__ShowLegendAssignment_6_1");
 			builder.put(grammarAccess.getPieChartFXAccess().getTitleAssignment_7_1(), "rule__PieChartFX__TitleAssignment_7_1");
 			builder.put(grammarAccess.getPieChartFXAccess().getTitleSideAssignment_8_1(), "rule__PieChartFX__TitleSideAssignment_8_1");
-			builder.put(grammarAccess.getPieChartFXAccess().getXAxisLabelAssignment_9_1(), "rule__PieChartFX__XAxisLabelAssignment_9_1");
-			builder.put(grammarAccess.getPieChartFXAccess().getXAxisTypeAssignment_10_1(), "rule__PieChartFX__XAxisTypeAssignment_10_1");
-			builder.put(grammarAccess.getPieChartFXAccess().getYAxisLabelAssignment_11_1(), "rule__PieChartFX__YAxisLabelAssignment_11_1");
-			builder.put(grammarAccess.getPieChartFXAccess().getYAxisTypeAssignment_12_1(), "rule__PieChartFX__YAxisTypeAssignment_12_1");
 			builder.put(grammarAccess.getLineChartFXAccess().getNameAssignment_4(), "rule__LineChartFX__NameAssignment_4");
 			builder.put(grammarAccess.getLineChartFXAccess().getLegendSideAssignment_5_1(), "rule__LineChartFX__LegendSideAssignment_5_1");
 			builder.put(grammarAccess.getLineChartFXAccess().getShowLegendAssignment_6_1(), "rule__LineChartFX__ShowLegendAssignment_6_1");

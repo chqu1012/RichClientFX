@@ -2227,11 +2227,11 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
                     if ( (LA4_2==27) ) {
                         int LA4_4 = input.LA(4);
 
-                        if ( (LA4_4==54) ) {
-                            alt4=1;
-                        }
-                        else if ( ((LA4_4>=RULE_STRING && LA4_4<=RULE_ID)||LA4_4==28) ) {
+                        if ( ((LA4_4>=RULE_STRING && LA4_4<=RULE_ID)||LA4_4==28) ) {
                             alt4=2;
+                        }
+                        else if ( (LA4_4==54) ) {
+                            alt4=1;
                         }
                         else {
                             NoViableAltException nvae =
@@ -2253,11 +2253,11 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
                     if ( (LA4_3==27) ) {
                         int LA4_4 = input.LA(4);
 
-                        if ( (LA4_4==54) ) {
-                            alt4=1;
-                        }
-                        else if ( ((LA4_4>=RULE_STRING && LA4_4<=RULE_ID)||LA4_4==28) ) {
+                        if ( ((LA4_4>=RULE_STRING && LA4_4<=RULE_ID)||LA4_4==28) ) {
                             alt4=2;
+                        }
+                        else if ( (LA4_4==54) ) {
+                            alt4=1;
                         }
                         else {
                             NoViableAltException nvae =
@@ -15661,7 +15661,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             // InternalJavaFXLang.g:5075:1: ( rule__PieChartFX__Group__4__Impl rule__PieChartFX__Group__5 )
             // InternalJavaFXLang.g:5076:2: rule__PieChartFX__Group__4__Impl rule__PieChartFX__Group__5
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_28);
             rule__PieChartFX__Group__4__Impl();
 
             state._fsp--;
@@ -15746,7 +15746,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             // InternalJavaFXLang.g:5102:1: ( rule__PieChartFX__Group__5__Impl rule__PieChartFX__Group__6 )
             // InternalJavaFXLang.g:5103:2: rule__PieChartFX__Group__5__Impl rule__PieChartFX__Group__6
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_28);
             rule__PieChartFX__Group__5__Impl();
 
             state._fsp--;
@@ -15842,7 +15842,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             // InternalJavaFXLang.g:5129:1: ( rule__PieChartFX__Group__6__Impl rule__PieChartFX__Group__7 )
             // InternalJavaFXLang.g:5130:2: rule__PieChartFX__Group__6__Impl rule__PieChartFX__Group__7
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_28);
             rule__PieChartFX__Group__6__Impl();
 
             state._fsp--;
@@ -15938,7 +15938,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             // InternalJavaFXLang.g:5156:1: ( rule__PieChartFX__Group__7__Impl rule__PieChartFX__Group__8 )
             // InternalJavaFXLang.g:5157:2: rule__PieChartFX__Group__7__Impl rule__PieChartFX__Group__8
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_28);
             rule__PieChartFX__Group__7__Impl();
 
             state._fsp--;
@@ -16034,7 +16034,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             // InternalJavaFXLang.g:5183:1: ( rule__PieChartFX__Group__8__Impl rule__PieChartFX__Group__9 )
             // InternalJavaFXLang.g:5184:2: rule__PieChartFX__Group__8__Impl rule__PieChartFX__Group__9
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_28);
             rule__PieChartFX__Group__8__Impl();
 
             state._fsp--;
@@ -16121,22 +16121,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group__9"
-    // InternalJavaFXLang.g:5206:1: rule__PieChartFX__Group__9 : rule__PieChartFX__Group__9__Impl rule__PieChartFX__Group__10 ;
+    // InternalJavaFXLang.g:5206:1: rule__PieChartFX__Group__9 : rule__PieChartFX__Group__9__Impl ;
     public final void rule__PieChartFX__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5210:1: ( rule__PieChartFX__Group__9__Impl rule__PieChartFX__Group__10 )
-            // InternalJavaFXLang.g:5211:2: rule__PieChartFX__Group__9__Impl rule__PieChartFX__Group__10
+            // InternalJavaFXLang.g:5210:1: ( rule__PieChartFX__Group__9__Impl )
+            // InternalJavaFXLang.g:5211:2: rule__PieChartFX__Group__9__Impl
             {
-            pushFollow(FOLLOW_20);
-            rule__PieChartFX__Group__9__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group__10();
+            rule__PieChartFX__Group__9__Impl();
 
             state._fsp--;
 
@@ -16159,42 +16154,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group__9__Impl"
-    // InternalJavaFXLang.g:5218:1: rule__PieChartFX__Group__9__Impl : ( ( rule__PieChartFX__Group_9__0 )? ) ;
+    // InternalJavaFXLang.g:5217:1: rule__PieChartFX__Group__9__Impl : ( '}' ) ;
     public final void rule__PieChartFX__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5222:1: ( ( ( rule__PieChartFX__Group_9__0 )? ) )
-            // InternalJavaFXLang.g:5223:1: ( ( rule__PieChartFX__Group_9__0 )? )
+            // InternalJavaFXLang.g:5221:1: ( ( '}' ) )
+            // InternalJavaFXLang.g:5222:1: ( '}' )
             {
-            // InternalJavaFXLang.g:5223:1: ( ( rule__PieChartFX__Group_9__0 )? )
-            // InternalJavaFXLang.g:5224:2: ( rule__PieChartFX__Group_9__0 )?
+            // InternalJavaFXLang.g:5222:1: ( '}' )
+            // InternalJavaFXLang.g:5223:2: '}'
             {
-             before(grammarAccess.getPieChartFXAccess().getGroup_9()); 
-            // InternalJavaFXLang.g:5225:2: ( rule__PieChartFX__Group_9__0 )?
-            int alt54=2;
-            int LA54_0 = input.LA(1);
-
-            if ( (LA54_0==40) ) {
-                alt54=1;
-            }
-            switch (alt54) {
-                case 1 :
-                    // InternalJavaFXLang.g:5225:3: rule__PieChartFX__Group_9__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__PieChartFX__Group_9__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getPieChartFXAccess().getGroup_9()); 
+             before(grammarAccess.getPieChartFXAccess().getRightCurlyBracketKeyword_9()); 
+            match(input,28,FOLLOW_2); 
+             after(grammarAccess.getPieChartFXAccess().getRightCurlyBracketKeyword_9()); 
 
             }
 
@@ -16216,373 +16190,15 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__PieChartFX__Group__9__Impl"
 
 
-    // $ANTLR start "rule__PieChartFX__Group__10"
-    // InternalJavaFXLang.g:5233:1: rule__PieChartFX__Group__10 : rule__PieChartFX__Group__10__Impl rule__PieChartFX__Group__11 ;
-    public final void rule__PieChartFX__Group__10() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5237:1: ( rule__PieChartFX__Group__10__Impl rule__PieChartFX__Group__11 )
-            // InternalJavaFXLang.g:5238:2: rule__PieChartFX__Group__10__Impl rule__PieChartFX__Group__11
-            {
-            pushFollow(FOLLOW_20);
-            rule__PieChartFX__Group__10__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group__11();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group__10"
-
-
-    // $ANTLR start "rule__PieChartFX__Group__10__Impl"
-    // InternalJavaFXLang.g:5245:1: rule__PieChartFX__Group__10__Impl : ( ( rule__PieChartFX__Group_10__0 )? ) ;
-    public final void rule__PieChartFX__Group__10__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5249:1: ( ( ( rule__PieChartFX__Group_10__0 )? ) )
-            // InternalJavaFXLang.g:5250:1: ( ( rule__PieChartFX__Group_10__0 )? )
-            {
-            // InternalJavaFXLang.g:5250:1: ( ( rule__PieChartFX__Group_10__0 )? )
-            // InternalJavaFXLang.g:5251:2: ( rule__PieChartFX__Group_10__0 )?
-            {
-             before(grammarAccess.getPieChartFXAccess().getGroup_10()); 
-            // InternalJavaFXLang.g:5252:2: ( rule__PieChartFX__Group_10__0 )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
-
-            if ( (LA55_0==41) ) {
-                alt55=1;
-            }
-            switch (alt55) {
-                case 1 :
-                    // InternalJavaFXLang.g:5252:3: rule__PieChartFX__Group_10__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__PieChartFX__Group_10__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getPieChartFXAccess().getGroup_10()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group__10__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group__11"
-    // InternalJavaFXLang.g:5260:1: rule__PieChartFX__Group__11 : rule__PieChartFX__Group__11__Impl rule__PieChartFX__Group__12 ;
-    public final void rule__PieChartFX__Group__11() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5264:1: ( rule__PieChartFX__Group__11__Impl rule__PieChartFX__Group__12 )
-            // InternalJavaFXLang.g:5265:2: rule__PieChartFX__Group__11__Impl rule__PieChartFX__Group__12
-            {
-            pushFollow(FOLLOW_20);
-            rule__PieChartFX__Group__11__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group__12();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group__11"
-
-
-    // $ANTLR start "rule__PieChartFX__Group__11__Impl"
-    // InternalJavaFXLang.g:5272:1: rule__PieChartFX__Group__11__Impl : ( ( rule__PieChartFX__Group_11__0 )? ) ;
-    public final void rule__PieChartFX__Group__11__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5276:1: ( ( ( rule__PieChartFX__Group_11__0 )? ) )
-            // InternalJavaFXLang.g:5277:1: ( ( rule__PieChartFX__Group_11__0 )? )
-            {
-            // InternalJavaFXLang.g:5277:1: ( ( rule__PieChartFX__Group_11__0 )? )
-            // InternalJavaFXLang.g:5278:2: ( rule__PieChartFX__Group_11__0 )?
-            {
-             before(grammarAccess.getPieChartFXAccess().getGroup_11()); 
-            // InternalJavaFXLang.g:5279:2: ( rule__PieChartFX__Group_11__0 )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
-
-            if ( (LA56_0==42) ) {
-                alt56=1;
-            }
-            switch (alt56) {
-                case 1 :
-                    // InternalJavaFXLang.g:5279:3: rule__PieChartFX__Group_11__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__PieChartFX__Group_11__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getPieChartFXAccess().getGroup_11()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group__11__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group__12"
-    // InternalJavaFXLang.g:5287:1: rule__PieChartFX__Group__12 : rule__PieChartFX__Group__12__Impl rule__PieChartFX__Group__13 ;
-    public final void rule__PieChartFX__Group__12() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5291:1: ( rule__PieChartFX__Group__12__Impl rule__PieChartFX__Group__13 )
-            // InternalJavaFXLang.g:5292:2: rule__PieChartFX__Group__12__Impl rule__PieChartFX__Group__13
-            {
-            pushFollow(FOLLOW_20);
-            rule__PieChartFX__Group__12__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group__13();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group__12"
-
-
-    // $ANTLR start "rule__PieChartFX__Group__12__Impl"
-    // InternalJavaFXLang.g:5299:1: rule__PieChartFX__Group__12__Impl : ( ( rule__PieChartFX__Group_12__0 )? ) ;
-    public final void rule__PieChartFX__Group__12__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5303:1: ( ( ( rule__PieChartFX__Group_12__0 )? ) )
-            // InternalJavaFXLang.g:5304:1: ( ( rule__PieChartFX__Group_12__0 )? )
-            {
-            // InternalJavaFXLang.g:5304:1: ( ( rule__PieChartFX__Group_12__0 )? )
-            // InternalJavaFXLang.g:5305:2: ( rule__PieChartFX__Group_12__0 )?
-            {
-             before(grammarAccess.getPieChartFXAccess().getGroup_12()); 
-            // InternalJavaFXLang.g:5306:2: ( rule__PieChartFX__Group_12__0 )?
-            int alt57=2;
-            int LA57_0 = input.LA(1);
-
-            if ( (LA57_0==43) ) {
-                alt57=1;
-            }
-            switch (alt57) {
-                case 1 :
-                    // InternalJavaFXLang.g:5306:3: rule__PieChartFX__Group_12__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__PieChartFX__Group_12__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getPieChartFXAccess().getGroup_12()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group__12__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group__13"
-    // InternalJavaFXLang.g:5314:1: rule__PieChartFX__Group__13 : rule__PieChartFX__Group__13__Impl ;
-    public final void rule__PieChartFX__Group__13() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5318:1: ( rule__PieChartFX__Group__13__Impl )
-            // InternalJavaFXLang.g:5319:2: rule__PieChartFX__Group__13__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group__13__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group__13"
-
-
-    // $ANTLR start "rule__PieChartFX__Group__13__Impl"
-    // InternalJavaFXLang.g:5325:1: rule__PieChartFX__Group__13__Impl : ( '}' ) ;
-    public final void rule__PieChartFX__Group__13__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5329:1: ( ( '}' ) )
-            // InternalJavaFXLang.g:5330:1: ( '}' )
-            {
-            // InternalJavaFXLang.g:5330:1: ( '}' )
-            // InternalJavaFXLang.g:5331:2: '}'
-            {
-             before(grammarAccess.getPieChartFXAccess().getRightCurlyBracketKeyword_13()); 
-            match(input,28,FOLLOW_2); 
-             after(grammarAccess.getPieChartFXAccess().getRightCurlyBracketKeyword_13()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group__13__Impl"
-
-
     // $ANTLR start "rule__PieChartFX__Group_5__0"
-    // InternalJavaFXLang.g:5341:1: rule__PieChartFX__Group_5__0 : rule__PieChartFX__Group_5__0__Impl rule__PieChartFX__Group_5__1 ;
+    // InternalJavaFXLang.g:5233:1: rule__PieChartFX__Group_5__0 : rule__PieChartFX__Group_5__0__Impl rule__PieChartFX__Group_5__1 ;
     public final void rule__PieChartFX__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5345:1: ( rule__PieChartFX__Group_5__0__Impl rule__PieChartFX__Group_5__1 )
-            // InternalJavaFXLang.g:5346:2: rule__PieChartFX__Group_5__0__Impl rule__PieChartFX__Group_5__1
+            // InternalJavaFXLang.g:5237:1: ( rule__PieChartFX__Group_5__0__Impl rule__PieChartFX__Group_5__1 )
+            // InternalJavaFXLang.g:5238:2: rule__PieChartFX__Group_5__0__Impl rule__PieChartFX__Group_5__1
             {
             pushFollow(FOLLOW_21);
             rule__PieChartFX__Group_5__0__Impl();
@@ -16613,17 +16229,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_5__0__Impl"
-    // InternalJavaFXLang.g:5353:1: rule__PieChartFX__Group_5__0__Impl : ( 'legendSide:' ) ;
+    // InternalJavaFXLang.g:5245:1: rule__PieChartFX__Group_5__0__Impl : ( 'legendSide:' ) ;
     public final void rule__PieChartFX__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5357:1: ( ( 'legendSide:' ) )
-            // InternalJavaFXLang.g:5358:1: ( 'legendSide:' )
+            // InternalJavaFXLang.g:5249:1: ( ( 'legendSide:' ) )
+            // InternalJavaFXLang.g:5250:1: ( 'legendSide:' )
             {
-            // InternalJavaFXLang.g:5358:1: ( 'legendSide:' )
-            // InternalJavaFXLang.g:5359:2: 'legendSide:'
+            // InternalJavaFXLang.g:5250:1: ( 'legendSide:' )
+            // InternalJavaFXLang.g:5251:2: 'legendSide:'
             {
              before(grammarAccess.getPieChartFXAccess().getLegendSideKeyword_5_0()); 
             match(input,36,FOLLOW_2); 
@@ -16650,14 +16266,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_5__1"
-    // InternalJavaFXLang.g:5368:1: rule__PieChartFX__Group_5__1 : rule__PieChartFX__Group_5__1__Impl ;
+    // InternalJavaFXLang.g:5260:1: rule__PieChartFX__Group_5__1 : rule__PieChartFX__Group_5__1__Impl ;
     public final void rule__PieChartFX__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5372:1: ( rule__PieChartFX__Group_5__1__Impl )
-            // InternalJavaFXLang.g:5373:2: rule__PieChartFX__Group_5__1__Impl
+            // InternalJavaFXLang.g:5264:1: ( rule__PieChartFX__Group_5__1__Impl )
+            // InternalJavaFXLang.g:5265:2: rule__PieChartFX__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PieChartFX__Group_5__1__Impl();
@@ -16683,21 +16299,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_5__1__Impl"
-    // InternalJavaFXLang.g:5379:1: rule__PieChartFX__Group_5__1__Impl : ( ( rule__PieChartFX__LegendSideAssignment_5_1 ) ) ;
+    // InternalJavaFXLang.g:5271:1: rule__PieChartFX__Group_5__1__Impl : ( ( rule__PieChartFX__LegendSideAssignment_5_1 ) ) ;
     public final void rule__PieChartFX__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5383:1: ( ( ( rule__PieChartFX__LegendSideAssignment_5_1 ) ) )
-            // InternalJavaFXLang.g:5384:1: ( ( rule__PieChartFX__LegendSideAssignment_5_1 ) )
+            // InternalJavaFXLang.g:5275:1: ( ( ( rule__PieChartFX__LegendSideAssignment_5_1 ) ) )
+            // InternalJavaFXLang.g:5276:1: ( ( rule__PieChartFX__LegendSideAssignment_5_1 ) )
             {
-            // InternalJavaFXLang.g:5384:1: ( ( rule__PieChartFX__LegendSideAssignment_5_1 ) )
-            // InternalJavaFXLang.g:5385:2: ( rule__PieChartFX__LegendSideAssignment_5_1 )
+            // InternalJavaFXLang.g:5276:1: ( ( rule__PieChartFX__LegendSideAssignment_5_1 ) )
+            // InternalJavaFXLang.g:5277:2: ( rule__PieChartFX__LegendSideAssignment_5_1 )
             {
              before(grammarAccess.getPieChartFXAccess().getLegendSideAssignment_5_1()); 
-            // InternalJavaFXLang.g:5386:2: ( rule__PieChartFX__LegendSideAssignment_5_1 )
-            // InternalJavaFXLang.g:5386:3: rule__PieChartFX__LegendSideAssignment_5_1
+            // InternalJavaFXLang.g:5278:2: ( rule__PieChartFX__LegendSideAssignment_5_1 )
+            // InternalJavaFXLang.g:5278:3: rule__PieChartFX__LegendSideAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__PieChartFX__LegendSideAssignment_5_1();
@@ -16730,14 +16346,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_6__0"
-    // InternalJavaFXLang.g:5395:1: rule__PieChartFX__Group_6__0 : rule__PieChartFX__Group_6__0__Impl rule__PieChartFX__Group_6__1 ;
+    // InternalJavaFXLang.g:5287:1: rule__PieChartFX__Group_6__0 : rule__PieChartFX__Group_6__0__Impl rule__PieChartFX__Group_6__1 ;
     public final void rule__PieChartFX__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5399:1: ( rule__PieChartFX__Group_6__0__Impl rule__PieChartFX__Group_6__1 )
-            // InternalJavaFXLang.g:5400:2: rule__PieChartFX__Group_6__0__Impl rule__PieChartFX__Group_6__1
+            // InternalJavaFXLang.g:5291:1: ( rule__PieChartFX__Group_6__0__Impl rule__PieChartFX__Group_6__1 )
+            // InternalJavaFXLang.g:5292:2: rule__PieChartFX__Group_6__0__Impl rule__PieChartFX__Group_6__1
             {
             pushFollow(FOLLOW_22);
             rule__PieChartFX__Group_6__0__Impl();
@@ -16768,17 +16384,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_6__0__Impl"
-    // InternalJavaFXLang.g:5407:1: rule__PieChartFX__Group_6__0__Impl : ( 'showLegend:' ) ;
+    // InternalJavaFXLang.g:5299:1: rule__PieChartFX__Group_6__0__Impl : ( 'showLegend:' ) ;
     public final void rule__PieChartFX__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5411:1: ( ( 'showLegend:' ) )
-            // InternalJavaFXLang.g:5412:1: ( 'showLegend:' )
+            // InternalJavaFXLang.g:5303:1: ( ( 'showLegend:' ) )
+            // InternalJavaFXLang.g:5304:1: ( 'showLegend:' )
             {
-            // InternalJavaFXLang.g:5412:1: ( 'showLegend:' )
-            // InternalJavaFXLang.g:5413:2: 'showLegend:'
+            // InternalJavaFXLang.g:5304:1: ( 'showLegend:' )
+            // InternalJavaFXLang.g:5305:2: 'showLegend:'
             {
              before(grammarAccess.getPieChartFXAccess().getShowLegendKeyword_6_0()); 
             match(input,37,FOLLOW_2); 
@@ -16805,14 +16421,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_6__1"
-    // InternalJavaFXLang.g:5422:1: rule__PieChartFX__Group_6__1 : rule__PieChartFX__Group_6__1__Impl ;
+    // InternalJavaFXLang.g:5314:1: rule__PieChartFX__Group_6__1 : rule__PieChartFX__Group_6__1__Impl ;
     public final void rule__PieChartFX__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5426:1: ( rule__PieChartFX__Group_6__1__Impl )
-            // InternalJavaFXLang.g:5427:2: rule__PieChartFX__Group_6__1__Impl
+            // InternalJavaFXLang.g:5318:1: ( rule__PieChartFX__Group_6__1__Impl )
+            // InternalJavaFXLang.g:5319:2: rule__PieChartFX__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PieChartFX__Group_6__1__Impl();
@@ -16838,21 +16454,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_6__1__Impl"
-    // InternalJavaFXLang.g:5433:1: rule__PieChartFX__Group_6__1__Impl : ( ( rule__PieChartFX__ShowLegendAssignment_6_1 ) ) ;
+    // InternalJavaFXLang.g:5325:1: rule__PieChartFX__Group_6__1__Impl : ( ( rule__PieChartFX__ShowLegendAssignment_6_1 ) ) ;
     public final void rule__PieChartFX__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5437:1: ( ( ( rule__PieChartFX__ShowLegendAssignment_6_1 ) ) )
-            // InternalJavaFXLang.g:5438:1: ( ( rule__PieChartFX__ShowLegendAssignment_6_1 ) )
+            // InternalJavaFXLang.g:5329:1: ( ( ( rule__PieChartFX__ShowLegendAssignment_6_1 ) ) )
+            // InternalJavaFXLang.g:5330:1: ( ( rule__PieChartFX__ShowLegendAssignment_6_1 ) )
             {
-            // InternalJavaFXLang.g:5438:1: ( ( rule__PieChartFX__ShowLegendAssignment_6_1 ) )
-            // InternalJavaFXLang.g:5439:2: ( rule__PieChartFX__ShowLegendAssignment_6_1 )
+            // InternalJavaFXLang.g:5330:1: ( ( rule__PieChartFX__ShowLegendAssignment_6_1 ) )
+            // InternalJavaFXLang.g:5331:2: ( rule__PieChartFX__ShowLegendAssignment_6_1 )
             {
              before(grammarAccess.getPieChartFXAccess().getShowLegendAssignment_6_1()); 
-            // InternalJavaFXLang.g:5440:2: ( rule__PieChartFX__ShowLegendAssignment_6_1 )
-            // InternalJavaFXLang.g:5440:3: rule__PieChartFX__ShowLegendAssignment_6_1
+            // InternalJavaFXLang.g:5332:2: ( rule__PieChartFX__ShowLegendAssignment_6_1 )
+            // InternalJavaFXLang.g:5332:3: rule__PieChartFX__ShowLegendAssignment_6_1
             {
             pushFollow(FOLLOW_2);
             rule__PieChartFX__ShowLegendAssignment_6_1();
@@ -16885,14 +16501,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_7__0"
-    // InternalJavaFXLang.g:5449:1: rule__PieChartFX__Group_7__0 : rule__PieChartFX__Group_7__0__Impl rule__PieChartFX__Group_7__1 ;
+    // InternalJavaFXLang.g:5341:1: rule__PieChartFX__Group_7__0 : rule__PieChartFX__Group_7__0__Impl rule__PieChartFX__Group_7__1 ;
     public final void rule__PieChartFX__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5453:1: ( rule__PieChartFX__Group_7__0__Impl rule__PieChartFX__Group_7__1 )
-            // InternalJavaFXLang.g:5454:2: rule__PieChartFX__Group_7__0__Impl rule__PieChartFX__Group_7__1
+            // InternalJavaFXLang.g:5345:1: ( rule__PieChartFX__Group_7__0__Impl rule__PieChartFX__Group_7__1 )
+            // InternalJavaFXLang.g:5346:2: rule__PieChartFX__Group_7__0__Impl rule__PieChartFX__Group_7__1
             {
             pushFollow(FOLLOW_4);
             rule__PieChartFX__Group_7__0__Impl();
@@ -16923,17 +16539,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_7__0__Impl"
-    // InternalJavaFXLang.g:5461:1: rule__PieChartFX__Group_7__0__Impl : ( 'title:' ) ;
+    // InternalJavaFXLang.g:5353:1: rule__PieChartFX__Group_7__0__Impl : ( 'title:' ) ;
     public final void rule__PieChartFX__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5465:1: ( ( 'title:' ) )
-            // InternalJavaFXLang.g:5466:1: ( 'title:' )
+            // InternalJavaFXLang.g:5357:1: ( ( 'title:' ) )
+            // InternalJavaFXLang.g:5358:1: ( 'title:' )
             {
-            // InternalJavaFXLang.g:5466:1: ( 'title:' )
-            // InternalJavaFXLang.g:5467:2: 'title:'
+            // InternalJavaFXLang.g:5358:1: ( 'title:' )
+            // InternalJavaFXLang.g:5359:2: 'title:'
             {
              before(grammarAccess.getPieChartFXAccess().getTitleKeyword_7_0()); 
             match(input,38,FOLLOW_2); 
@@ -16960,14 +16576,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_7__1"
-    // InternalJavaFXLang.g:5476:1: rule__PieChartFX__Group_7__1 : rule__PieChartFX__Group_7__1__Impl ;
+    // InternalJavaFXLang.g:5368:1: rule__PieChartFX__Group_7__1 : rule__PieChartFX__Group_7__1__Impl ;
     public final void rule__PieChartFX__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5480:1: ( rule__PieChartFX__Group_7__1__Impl )
-            // InternalJavaFXLang.g:5481:2: rule__PieChartFX__Group_7__1__Impl
+            // InternalJavaFXLang.g:5372:1: ( rule__PieChartFX__Group_7__1__Impl )
+            // InternalJavaFXLang.g:5373:2: rule__PieChartFX__Group_7__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PieChartFX__Group_7__1__Impl();
@@ -16993,21 +16609,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_7__1__Impl"
-    // InternalJavaFXLang.g:5487:1: rule__PieChartFX__Group_7__1__Impl : ( ( rule__PieChartFX__TitleAssignment_7_1 ) ) ;
+    // InternalJavaFXLang.g:5379:1: rule__PieChartFX__Group_7__1__Impl : ( ( rule__PieChartFX__TitleAssignment_7_1 ) ) ;
     public final void rule__PieChartFX__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5491:1: ( ( ( rule__PieChartFX__TitleAssignment_7_1 ) ) )
-            // InternalJavaFXLang.g:5492:1: ( ( rule__PieChartFX__TitleAssignment_7_1 ) )
+            // InternalJavaFXLang.g:5383:1: ( ( ( rule__PieChartFX__TitleAssignment_7_1 ) ) )
+            // InternalJavaFXLang.g:5384:1: ( ( rule__PieChartFX__TitleAssignment_7_1 ) )
             {
-            // InternalJavaFXLang.g:5492:1: ( ( rule__PieChartFX__TitleAssignment_7_1 ) )
-            // InternalJavaFXLang.g:5493:2: ( rule__PieChartFX__TitleAssignment_7_1 )
+            // InternalJavaFXLang.g:5384:1: ( ( rule__PieChartFX__TitleAssignment_7_1 ) )
+            // InternalJavaFXLang.g:5385:2: ( rule__PieChartFX__TitleAssignment_7_1 )
             {
              before(grammarAccess.getPieChartFXAccess().getTitleAssignment_7_1()); 
-            // InternalJavaFXLang.g:5494:2: ( rule__PieChartFX__TitleAssignment_7_1 )
-            // InternalJavaFXLang.g:5494:3: rule__PieChartFX__TitleAssignment_7_1
+            // InternalJavaFXLang.g:5386:2: ( rule__PieChartFX__TitleAssignment_7_1 )
+            // InternalJavaFXLang.g:5386:3: rule__PieChartFX__TitleAssignment_7_1
             {
             pushFollow(FOLLOW_2);
             rule__PieChartFX__TitleAssignment_7_1();
@@ -17040,14 +16656,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_8__0"
-    // InternalJavaFXLang.g:5503:1: rule__PieChartFX__Group_8__0 : rule__PieChartFX__Group_8__0__Impl rule__PieChartFX__Group_8__1 ;
+    // InternalJavaFXLang.g:5395:1: rule__PieChartFX__Group_8__0 : rule__PieChartFX__Group_8__0__Impl rule__PieChartFX__Group_8__1 ;
     public final void rule__PieChartFX__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5507:1: ( rule__PieChartFX__Group_8__0__Impl rule__PieChartFX__Group_8__1 )
-            // InternalJavaFXLang.g:5508:2: rule__PieChartFX__Group_8__0__Impl rule__PieChartFX__Group_8__1
+            // InternalJavaFXLang.g:5399:1: ( rule__PieChartFX__Group_8__0__Impl rule__PieChartFX__Group_8__1 )
+            // InternalJavaFXLang.g:5400:2: rule__PieChartFX__Group_8__0__Impl rule__PieChartFX__Group_8__1
             {
             pushFollow(FOLLOW_21);
             rule__PieChartFX__Group_8__0__Impl();
@@ -17078,17 +16694,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_8__0__Impl"
-    // InternalJavaFXLang.g:5515:1: rule__PieChartFX__Group_8__0__Impl : ( 'titleSide:' ) ;
+    // InternalJavaFXLang.g:5407:1: rule__PieChartFX__Group_8__0__Impl : ( 'titleSide:' ) ;
     public final void rule__PieChartFX__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5519:1: ( ( 'titleSide:' ) )
-            // InternalJavaFXLang.g:5520:1: ( 'titleSide:' )
+            // InternalJavaFXLang.g:5411:1: ( ( 'titleSide:' ) )
+            // InternalJavaFXLang.g:5412:1: ( 'titleSide:' )
             {
-            // InternalJavaFXLang.g:5520:1: ( 'titleSide:' )
-            // InternalJavaFXLang.g:5521:2: 'titleSide:'
+            // InternalJavaFXLang.g:5412:1: ( 'titleSide:' )
+            // InternalJavaFXLang.g:5413:2: 'titleSide:'
             {
              before(grammarAccess.getPieChartFXAccess().getTitleSideKeyword_8_0()); 
             match(input,39,FOLLOW_2); 
@@ -17115,14 +16731,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_8__1"
-    // InternalJavaFXLang.g:5530:1: rule__PieChartFX__Group_8__1 : rule__PieChartFX__Group_8__1__Impl ;
+    // InternalJavaFXLang.g:5422:1: rule__PieChartFX__Group_8__1 : rule__PieChartFX__Group_8__1__Impl ;
     public final void rule__PieChartFX__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5534:1: ( rule__PieChartFX__Group_8__1__Impl )
-            // InternalJavaFXLang.g:5535:2: rule__PieChartFX__Group_8__1__Impl
+            // InternalJavaFXLang.g:5426:1: ( rule__PieChartFX__Group_8__1__Impl )
+            // InternalJavaFXLang.g:5427:2: rule__PieChartFX__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PieChartFX__Group_8__1__Impl();
@@ -17148,21 +16764,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__Group_8__1__Impl"
-    // InternalJavaFXLang.g:5541:1: rule__PieChartFX__Group_8__1__Impl : ( ( rule__PieChartFX__TitleSideAssignment_8_1 ) ) ;
+    // InternalJavaFXLang.g:5433:1: rule__PieChartFX__Group_8__1__Impl : ( ( rule__PieChartFX__TitleSideAssignment_8_1 ) ) ;
     public final void rule__PieChartFX__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5545:1: ( ( ( rule__PieChartFX__TitleSideAssignment_8_1 ) ) )
-            // InternalJavaFXLang.g:5546:1: ( ( rule__PieChartFX__TitleSideAssignment_8_1 ) )
+            // InternalJavaFXLang.g:5437:1: ( ( ( rule__PieChartFX__TitleSideAssignment_8_1 ) ) )
+            // InternalJavaFXLang.g:5438:1: ( ( rule__PieChartFX__TitleSideAssignment_8_1 ) )
             {
-            // InternalJavaFXLang.g:5546:1: ( ( rule__PieChartFX__TitleSideAssignment_8_1 ) )
-            // InternalJavaFXLang.g:5547:2: ( rule__PieChartFX__TitleSideAssignment_8_1 )
+            // InternalJavaFXLang.g:5438:1: ( ( rule__PieChartFX__TitleSideAssignment_8_1 ) )
+            // InternalJavaFXLang.g:5439:2: ( rule__PieChartFX__TitleSideAssignment_8_1 )
             {
              before(grammarAccess.getPieChartFXAccess().getTitleSideAssignment_8_1()); 
-            // InternalJavaFXLang.g:5548:2: ( rule__PieChartFX__TitleSideAssignment_8_1 )
-            // InternalJavaFXLang.g:5548:3: rule__PieChartFX__TitleSideAssignment_8_1
+            // InternalJavaFXLang.g:5440:2: ( rule__PieChartFX__TitleSideAssignment_8_1 )
+            // InternalJavaFXLang.g:5440:3: rule__PieChartFX__TitleSideAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__PieChartFX__TitleSideAssignment_8_1();
@@ -17194,637 +16810,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__PieChartFX__Group_8__1__Impl"
 
 
-    // $ANTLR start "rule__PieChartFX__Group_9__0"
-    // InternalJavaFXLang.g:5557:1: rule__PieChartFX__Group_9__0 : rule__PieChartFX__Group_9__0__Impl rule__PieChartFX__Group_9__1 ;
-    public final void rule__PieChartFX__Group_9__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5561:1: ( rule__PieChartFX__Group_9__0__Impl rule__PieChartFX__Group_9__1 )
-            // InternalJavaFXLang.g:5562:2: rule__PieChartFX__Group_9__0__Impl rule__PieChartFX__Group_9__1
-            {
-            pushFollow(FOLLOW_4);
-            rule__PieChartFX__Group_9__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group_9__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_9__0"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_9__0__Impl"
-    // InternalJavaFXLang.g:5569:1: rule__PieChartFX__Group_9__0__Impl : ( 'xAxisLabel:' ) ;
-    public final void rule__PieChartFX__Group_9__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5573:1: ( ( 'xAxisLabel:' ) )
-            // InternalJavaFXLang.g:5574:1: ( 'xAxisLabel:' )
-            {
-            // InternalJavaFXLang.g:5574:1: ( 'xAxisLabel:' )
-            // InternalJavaFXLang.g:5575:2: 'xAxisLabel:'
-            {
-             before(grammarAccess.getPieChartFXAccess().getXAxisLabelKeyword_9_0()); 
-            match(input,40,FOLLOW_2); 
-             after(grammarAccess.getPieChartFXAccess().getXAxisLabelKeyword_9_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_9__0__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_9__1"
-    // InternalJavaFXLang.g:5584:1: rule__PieChartFX__Group_9__1 : rule__PieChartFX__Group_9__1__Impl ;
-    public final void rule__PieChartFX__Group_9__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5588:1: ( rule__PieChartFX__Group_9__1__Impl )
-            // InternalJavaFXLang.g:5589:2: rule__PieChartFX__Group_9__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group_9__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_9__1"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_9__1__Impl"
-    // InternalJavaFXLang.g:5595:1: rule__PieChartFX__Group_9__1__Impl : ( ( rule__PieChartFX__XAxisLabelAssignment_9_1 ) ) ;
-    public final void rule__PieChartFX__Group_9__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5599:1: ( ( ( rule__PieChartFX__XAxisLabelAssignment_9_1 ) ) )
-            // InternalJavaFXLang.g:5600:1: ( ( rule__PieChartFX__XAxisLabelAssignment_9_1 ) )
-            {
-            // InternalJavaFXLang.g:5600:1: ( ( rule__PieChartFX__XAxisLabelAssignment_9_1 ) )
-            // InternalJavaFXLang.g:5601:2: ( rule__PieChartFX__XAxisLabelAssignment_9_1 )
-            {
-             before(grammarAccess.getPieChartFXAccess().getXAxisLabelAssignment_9_1()); 
-            // InternalJavaFXLang.g:5602:2: ( rule__PieChartFX__XAxisLabelAssignment_9_1 )
-            // InternalJavaFXLang.g:5602:3: rule__PieChartFX__XAxisLabelAssignment_9_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__XAxisLabelAssignment_9_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPieChartFXAccess().getXAxisLabelAssignment_9_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_9__1__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_10__0"
-    // InternalJavaFXLang.g:5611:1: rule__PieChartFX__Group_10__0 : rule__PieChartFX__Group_10__0__Impl rule__PieChartFX__Group_10__1 ;
-    public final void rule__PieChartFX__Group_10__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5615:1: ( rule__PieChartFX__Group_10__0__Impl rule__PieChartFX__Group_10__1 )
-            // InternalJavaFXLang.g:5616:2: rule__PieChartFX__Group_10__0__Impl rule__PieChartFX__Group_10__1
-            {
-            pushFollow(FOLLOW_23);
-            rule__PieChartFX__Group_10__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group_10__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_10__0"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_10__0__Impl"
-    // InternalJavaFXLang.g:5623:1: rule__PieChartFX__Group_10__0__Impl : ( 'xAxisType:' ) ;
-    public final void rule__PieChartFX__Group_10__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5627:1: ( ( 'xAxisType:' ) )
-            // InternalJavaFXLang.g:5628:1: ( 'xAxisType:' )
-            {
-            // InternalJavaFXLang.g:5628:1: ( 'xAxisType:' )
-            // InternalJavaFXLang.g:5629:2: 'xAxisType:'
-            {
-             before(grammarAccess.getPieChartFXAccess().getXAxisTypeKeyword_10_0()); 
-            match(input,41,FOLLOW_2); 
-             after(grammarAccess.getPieChartFXAccess().getXAxisTypeKeyword_10_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_10__0__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_10__1"
-    // InternalJavaFXLang.g:5638:1: rule__PieChartFX__Group_10__1 : rule__PieChartFX__Group_10__1__Impl ;
-    public final void rule__PieChartFX__Group_10__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5642:1: ( rule__PieChartFX__Group_10__1__Impl )
-            // InternalJavaFXLang.g:5643:2: rule__PieChartFX__Group_10__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group_10__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_10__1"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_10__1__Impl"
-    // InternalJavaFXLang.g:5649:1: rule__PieChartFX__Group_10__1__Impl : ( ( rule__PieChartFX__XAxisTypeAssignment_10_1 ) ) ;
-    public final void rule__PieChartFX__Group_10__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5653:1: ( ( ( rule__PieChartFX__XAxisTypeAssignment_10_1 ) ) )
-            // InternalJavaFXLang.g:5654:1: ( ( rule__PieChartFX__XAxisTypeAssignment_10_1 ) )
-            {
-            // InternalJavaFXLang.g:5654:1: ( ( rule__PieChartFX__XAxisTypeAssignment_10_1 ) )
-            // InternalJavaFXLang.g:5655:2: ( rule__PieChartFX__XAxisTypeAssignment_10_1 )
-            {
-             before(grammarAccess.getPieChartFXAccess().getXAxisTypeAssignment_10_1()); 
-            // InternalJavaFXLang.g:5656:2: ( rule__PieChartFX__XAxisTypeAssignment_10_1 )
-            // InternalJavaFXLang.g:5656:3: rule__PieChartFX__XAxisTypeAssignment_10_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__XAxisTypeAssignment_10_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPieChartFXAccess().getXAxisTypeAssignment_10_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_10__1__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_11__0"
-    // InternalJavaFXLang.g:5665:1: rule__PieChartFX__Group_11__0 : rule__PieChartFX__Group_11__0__Impl rule__PieChartFX__Group_11__1 ;
-    public final void rule__PieChartFX__Group_11__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5669:1: ( rule__PieChartFX__Group_11__0__Impl rule__PieChartFX__Group_11__1 )
-            // InternalJavaFXLang.g:5670:2: rule__PieChartFX__Group_11__0__Impl rule__PieChartFX__Group_11__1
-            {
-            pushFollow(FOLLOW_4);
-            rule__PieChartFX__Group_11__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group_11__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_11__0"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_11__0__Impl"
-    // InternalJavaFXLang.g:5677:1: rule__PieChartFX__Group_11__0__Impl : ( 'yAxisLabel:' ) ;
-    public final void rule__PieChartFX__Group_11__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5681:1: ( ( 'yAxisLabel:' ) )
-            // InternalJavaFXLang.g:5682:1: ( 'yAxisLabel:' )
-            {
-            // InternalJavaFXLang.g:5682:1: ( 'yAxisLabel:' )
-            // InternalJavaFXLang.g:5683:2: 'yAxisLabel:'
-            {
-             before(grammarAccess.getPieChartFXAccess().getYAxisLabelKeyword_11_0()); 
-            match(input,42,FOLLOW_2); 
-             after(grammarAccess.getPieChartFXAccess().getYAxisLabelKeyword_11_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_11__0__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_11__1"
-    // InternalJavaFXLang.g:5692:1: rule__PieChartFX__Group_11__1 : rule__PieChartFX__Group_11__1__Impl ;
-    public final void rule__PieChartFX__Group_11__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5696:1: ( rule__PieChartFX__Group_11__1__Impl )
-            // InternalJavaFXLang.g:5697:2: rule__PieChartFX__Group_11__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group_11__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_11__1"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_11__1__Impl"
-    // InternalJavaFXLang.g:5703:1: rule__PieChartFX__Group_11__1__Impl : ( ( rule__PieChartFX__YAxisLabelAssignment_11_1 ) ) ;
-    public final void rule__PieChartFX__Group_11__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5707:1: ( ( ( rule__PieChartFX__YAxisLabelAssignment_11_1 ) ) )
-            // InternalJavaFXLang.g:5708:1: ( ( rule__PieChartFX__YAxisLabelAssignment_11_1 ) )
-            {
-            // InternalJavaFXLang.g:5708:1: ( ( rule__PieChartFX__YAxisLabelAssignment_11_1 ) )
-            // InternalJavaFXLang.g:5709:2: ( rule__PieChartFX__YAxisLabelAssignment_11_1 )
-            {
-             before(grammarAccess.getPieChartFXAccess().getYAxisLabelAssignment_11_1()); 
-            // InternalJavaFXLang.g:5710:2: ( rule__PieChartFX__YAxisLabelAssignment_11_1 )
-            // InternalJavaFXLang.g:5710:3: rule__PieChartFX__YAxisLabelAssignment_11_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__YAxisLabelAssignment_11_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPieChartFXAccess().getYAxisLabelAssignment_11_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_11__1__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_12__0"
-    // InternalJavaFXLang.g:5719:1: rule__PieChartFX__Group_12__0 : rule__PieChartFX__Group_12__0__Impl rule__PieChartFX__Group_12__1 ;
-    public final void rule__PieChartFX__Group_12__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5723:1: ( rule__PieChartFX__Group_12__0__Impl rule__PieChartFX__Group_12__1 )
-            // InternalJavaFXLang.g:5724:2: rule__PieChartFX__Group_12__0__Impl rule__PieChartFX__Group_12__1
-            {
-            pushFollow(FOLLOW_23);
-            rule__PieChartFX__Group_12__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group_12__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_12__0"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_12__0__Impl"
-    // InternalJavaFXLang.g:5731:1: rule__PieChartFX__Group_12__0__Impl : ( 'yAxisType:' ) ;
-    public final void rule__PieChartFX__Group_12__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5735:1: ( ( 'yAxisType:' ) )
-            // InternalJavaFXLang.g:5736:1: ( 'yAxisType:' )
-            {
-            // InternalJavaFXLang.g:5736:1: ( 'yAxisType:' )
-            // InternalJavaFXLang.g:5737:2: 'yAxisType:'
-            {
-             before(grammarAccess.getPieChartFXAccess().getYAxisTypeKeyword_12_0()); 
-            match(input,43,FOLLOW_2); 
-             after(grammarAccess.getPieChartFXAccess().getYAxisTypeKeyword_12_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_12__0__Impl"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_12__1"
-    // InternalJavaFXLang.g:5746:1: rule__PieChartFX__Group_12__1 : rule__PieChartFX__Group_12__1__Impl ;
-    public final void rule__PieChartFX__Group_12__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5750:1: ( rule__PieChartFX__Group_12__1__Impl )
-            // InternalJavaFXLang.g:5751:2: rule__PieChartFX__Group_12__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__Group_12__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_12__1"
-
-
-    // $ANTLR start "rule__PieChartFX__Group_12__1__Impl"
-    // InternalJavaFXLang.g:5757:1: rule__PieChartFX__Group_12__1__Impl : ( ( rule__PieChartFX__YAxisTypeAssignment_12_1 ) ) ;
-    public final void rule__PieChartFX__Group_12__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:5761:1: ( ( ( rule__PieChartFX__YAxisTypeAssignment_12_1 ) ) )
-            // InternalJavaFXLang.g:5762:1: ( ( rule__PieChartFX__YAxisTypeAssignment_12_1 ) )
-            {
-            // InternalJavaFXLang.g:5762:1: ( ( rule__PieChartFX__YAxisTypeAssignment_12_1 ) )
-            // InternalJavaFXLang.g:5763:2: ( rule__PieChartFX__YAxisTypeAssignment_12_1 )
-            {
-             before(grammarAccess.getPieChartFXAccess().getYAxisTypeAssignment_12_1()); 
-            // InternalJavaFXLang.g:5764:2: ( rule__PieChartFX__YAxisTypeAssignment_12_1 )
-            // InternalJavaFXLang.g:5764:3: rule__PieChartFX__YAxisTypeAssignment_12_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__PieChartFX__YAxisTypeAssignment_12_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPieChartFXAccess().getYAxisTypeAssignment_12_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__Group_12__1__Impl"
-
-
     // $ANTLR start "rule__LineChartFX__Group__0"
-    // InternalJavaFXLang.g:5773:1: rule__LineChartFX__Group__0 : rule__LineChartFX__Group__0__Impl rule__LineChartFX__Group__1 ;
+    // InternalJavaFXLang.g:5449:1: rule__LineChartFX__Group__0 : rule__LineChartFX__Group__0__Impl rule__LineChartFX__Group__1 ;
     public final void rule__LineChartFX__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5777:1: ( rule__LineChartFX__Group__0__Impl rule__LineChartFX__Group__1 )
-            // InternalJavaFXLang.g:5778:2: rule__LineChartFX__Group__0__Impl rule__LineChartFX__Group__1
+            // InternalJavaFXLang.g:5453:1: ( rule__LineChartFX__Group__0__Impl rule__LineChartFX__Group__1 )
+            // InternalJavaFXLang.g:5454:2: rule__LineChartFX__Group__0__Impl rule__LineChartFX__Group__1
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__LineChartFX__Group__0__Impl();
 
             state._fsp--;
@@ -17853,21 +16849,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__0__Impl"
-    // InternalJavaFXLang.g:5785:1: rule__LineChartFX__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:5461:1: rule__LineChartFX__Group__0__Impl : ( () ) ;
     public final void rule__LineChartFX__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5789:1: ( ( () ) )
-            // InternalJavaFXLang.g:5790:1: ( () )
+            // InternalJavaFXLang.g:5465:1: ( ( () ) )
+            // InternalJavaFXLang.g:5466:1: ( () )
             {
-            // InternalJavaFXLang.g:5790:1: ( () )
-            // InternalJavaFXLang.g:5791:2: ()
+            // InternalJavaFXLang.g:5466:1: ( () )
+            // InternalJavaFXLang.g:5467:2: ()
             {
              before(grammarAccess.getLineChartFXAccess().getLineChartFXAction_0()); 
-            // InternalJavaFXLang.g:5792:2: ()
-            // InternalJavaFXLang.g:5792:3: 
+            // InternalJavaFXLang.g:5468:2: ()
+            // InternalJavaFXLang.g:5468:3: 
             {
             }
 
@@ -17890,14 +16886,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__1"
-    // InternalJavaFXLang.g:5800:1: rule__LineChartFX__Group__1 : rule__LineChartFX__Group__1__Impl rule__LineChartFX__Group__2 ;
+    // InternalJavaFXLang.g:5476:1: rule__LineChartFX__Group__1 : rule__LineChartFX__Group__1__Impl rule__LineChartFX__Group__2 ;
     public final void rule__LineChartFX__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5804:1: ( rule__LineChartFX__Group__1__Impl rule__LineChartFX__Group__2 )
-            // InternalJavaFXLang.g:5805:2: rule__LineChartFX__Group__1__Impl rule__LineChartFX__Group__2
+            // InternalJavaFXLang.g:5480:1: ( rule__LineChartFX__Group__1__Impl rule__LineChartFX__Group__2 )
+            // InternalJavaFXLang.g:5481:2: rule__LineChartFX__Group__1__Impl rule__LineChartFX__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__LineChartFX__Group__1__Impl();
@@ -17928,17 +16924,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__1__Impl"
-    // InternalJavaFXLang.g:5812:1: rule__LineChartFX__Group__1__Impl : ( 'LineChart' ) ;
+    // InternalJavaFXLang.g:5488:1: rule__LineChartFX__Group__1__Impl : ( 'LineChart' ) ;
     public final void rule__LineChartFX__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5816:1: ( ( 'LineChart' ) )
-            // InternalJavaFXLang.g:5817:1: ( 'LineChart' )
+            // InternalJavaFXLang.g:5492:1: ( ( 'LineChart' ) )
+            // InternalJavaFXLang.g:5493:1: ( 'LineChart' )
             {
-            // InternalJavaFXLang.g:5817:1: ( 'LineChart' )
-            // InternalJavaFXLang.g:5818:2: 'LineChart'
+            // InternalJavaFXLang.g:5493:1: ( 'LineChart' )
+            // InternalJavaFXLang.g:5494:2: 'LineChart'
             {
              before(grammarAccess.getLineChartFXAccess().getLineChartKeyword_1()); 
             match(input,48,FOLLOW_2); 
@@ -17965,14 +16961,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__2"
-    // InternalJavaFXLang.g:5827:1: rule__LineChartFX__Group__2 : rule__LineChartFX__Group__2__Impl rule__LineChartFX__Group__3 ;
+    // InternalJavaFXLang.g:5503:1: rule__LineChartFX__Group__2 : rule__LineChartFX__Group__2__Impl rule__LineChartFX__Group__3 ;
     public final void rule__LineChartFX__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5831:1: ( rule__LineChartFX__Group__2__Impl rule__LineChartFX__Group__3 )
-            // InternalJavaFXLang.g:5832:2: rule__LineChartFX__Group__2__Impl rule__LineChartFX__Group__3
+            // InternalJavaFXLang.g:5507:1: ( rule__LineChartFX__Group__2__Impl rule__LineChartFX__Group__3 )
+            // InternalJavaFXLang.g:5508:2: rule__LineChartFX__Group__2__Impl rule__LineChartFX__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__LineChartFX__Group__2__Impl();
@@ -18003,17 +16999,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__2__Impl"
-    // InternalJavaFXLang.g:5839:1: rule__LineChartFX__Group__2__Impl : ( '{' ) ;
+    // InternalJavaFXLang.g:5515:1: rule__LineChartFX__Group__2__Impl : ( '{' ) ;
     public final void rule__LineChartFX__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5843:1: ( ( '{' ) )
-            // InternalJavaFXLang.g:5844:1: ( '{' )
+            // InternalJavaFXLang.g:5519:1: ( ( '{' ) )
+            // InternalJavaFXLang.g:5520:1: ( '{' )
             {
-            // InternalJavaFXLang.g:5844:1: ( '{' )
-            // InternalJavaFXLang.g:5845:2: '{'
+            // InternalJavaFXLang.g:5520:1: ( '{' )
+            // InternalJavaFXLang.g:5521:2: '{'
             {
              before(grammarAccess.getLineChartFXAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,27,FOLLOW_2); 
@@ -18040,14 +17036,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__3"
-    // InternalJavaFXLang.g:5854:1: rule__LineChartFX__Group__3 : rule__LineChartFX__Group__3__Impl rule__LineChartFX__Group__4 ;
+    // InternalJavaFXLang.g:5530:1: rule__LineChartFX__Group__3 : rule__LineChartFX__Group__3__Impl rule__LineChartFX__Group__4 ;
     public final void rule__LineChartFX__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5858:1: ( rule__LineChartFX__Group__3__Impl rule__LineChartFX__Group__4 )
-            // InternalJavaFXLang.g:5859:2: rule__LineChartFX__Group__3__Impl rule__LineChartFX__Group__4
+            // InternalJavaFXLang.g:5534:1: ( rule__LineChartFX__Group__3__Impl rule__LineChartFX__Group__4 )
+            // InternalJavaFXLang.g:5535:2: rule__LineChartFX__Group__3__Impl rule__LineChartFX__Group__4
             {
             pushFollow(FOLLOW_4);
             rule__LineChartFX__Group__3__Impl();
@@ -18078,17 +17074,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__3__Impl"
-    // InternalJavaFXLang.g:5866:1: rule__LineChartFX__Group__3__Impl : ( 'name:' ) ;
+    // InternalJavaFXLang.g:5542:1: rule__LineChartFX__Group__3__Impl : ( 'name:' ) ;
     public final void rule__LineChartFX__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5870:1: ( ( 'name:' ) )
-            // InternalJavaFXLang.g:5871:1: ( 'name:' )
+            // InternalJavaFXLang.g:5546:1: ( ( 'name:' ) )
+            // InternalJavaFXLang.g:5547:1: ( 'name:' )
             {
-            // InternalJavaFXLang.g:5871:1: ( 'name:' )
-            // InternalJavaFXLang.g:5872:2: 'name:'
+            // InternalJavaFXLang.g:5547:1: ( 'name:' )
+            // InternalJavaFXLang.g:5548:2: 'name:'
             {
              before(grammarAccess.getLineChartFXAccess().getNameKeyword_3()); 
             match(input,35,FOLLOW_2); 
@@ -18115,14 +17111,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__4"
-    // InternalJavaFXLang.g:5881:1: rule__LineChartFX__Group__4 : rule__LineChartFX__Group__4__Impl rule__LineChartFX__Group__5 ;
+    // InternalJavaFXLang.g:5557:1: rule__LineChartFX__Group__4 : rule__LineChartFX__Group__4__Impl rule__LineChartFX__Group__5 ;
     public final void rule__LineChartFX__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5885:1: ( rule__LineChartFX__Group__4__Impl rule__LineChartFX__Group__5 )
-            // InternalJavaFXLang.g:5886:2: rule__LineChartFX__Group__4__Impl rule__LineChartFX__Group__5
+            // InternalJavaFXLang.g:5561:1: ( rule__LineChartFX__Group__4__Impl rule__LineChartFX__Group__5 )
+            // InternalJavaFXLang.g:5562:2: rule__LineChartFX__Group__4__Impl rule__LineChartFX__Group__5
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__4__Impl();
@@ -18153,21 +17149,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__4__Impl"
-    // InternalJavaFXLang.g:5893:1: rule__LineChartFX__Group__4__Impl : ( ( rule__LineChartFX__NameAssignment_4 ) ) ;
+    // InternalJavaFXLang.g:5569:1: rule__LineChartFX__Group__4__Impl : ( ( rule__LineChartFX__NameAssignment_4 ) ) ;
     public final void rule__LineChartFX__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5897:1: ( ( ( rule__LineChartFX__NameAssignment_4 ) ) )
-            // InternalJavaFXLang.g:5898:1: ( ( rule__LineChartFX__NameAssignment_4 ) )
+            // InternalJavaFXLang.g:5573:1: ( ( ( rule__LineChartFX__NameAssignment_4 ) ) )
+            // InternalJavaFXLang.g:5574:1: ( ( rule__LineChartFX__NameAssignment_4 ) )
             {
-            // InternalJavaFXLang.g:5898:1: ( ( rule__LineChartFX__NameAssignment_4 ) )
-            // InternalJavaFXLang.g:5899:2: ( rule__LineChartFX__NameAssignment_4 )
+            // InternalJavaFXLang.g:5574:1: ( ( rule__LineChartFX__NameAssignment_4 ) )
+            // InternalJavaFXLang.g:5575:2: ( rule__LineChartFX__NameAssignment_4 )
             {
              before(grammarAccess.getLineChartFXAccess().getNameAssignment_4()); 
-            // InternalJavaFXLang.g:5900:2: ( rule__LineChartFX__NameAssignment_4 )
-            // InternalJavaFXLang.g:5900:3: rule__LineChartFX__NameAssignment_4
+            // InternalJavaFXLang.g:5576:2: ( rule__LineChartFX__NameAssignment_4 )
+            // InternalJavaFXLang.g:5576:3: rule__LineChartFX__NameAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__NameAssignment_4();
@@ -18200,14 +17196,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__5"
-    // InternalJavaFXLang.g:5908:1: rule__LineChartFX__Group__5 : rule__LineChartFX__Group__5__Impl rule__LineChartFX__Group__6 ;
+    // InternalJavaFXLang.g:5584:1: rule__LineChartFX__Group__5 : rule__LineChartFX__Group__5__Impl rule__LineChartFX__Group__6 ;
     public final void rule__LineChartFX__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5912:1: ( rule__LineChartFX__Group__5__Impl rule__LineChartFX__Group__6 )
-            // InternalJavaFXLang.g:5913:2: rule__LineChartFX__Group__5__Impl rule__LineChartFX__Group__6
+            // InternalJavaFXLang.g:5588:1: ( rule__LineChartFX__Group__5__Impl rule__LineChartFX__Group__6 )
+            // InternalJavaFXLang.g:5589:2: rule__LineChartFX__Group__5__Impl rule__LineChartFX__Group__6
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__5__Impl();
@@ -18238,29 +17234,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__5__Impl"
-    // InternalJavaFXLang.g:5920:1: rule__LineChartFX__Group__5__Impl : ( ( rule__LineChartFX__Group_5__0 )? ) ;
+    // InternalJavaFXLang.g:5596:1: rule__LineChartFX__Group__5__Impl : ( ( rule__LineChartFX__Group_5__0 )? ) ;
     public final void rule__LineChartFX__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5924:1: ( ( ( rule__LineChartFX__Group_5__0 )? ) )
-            // InternalJavaFXLang.g:5925:1: ( ( rule__LineChartFX__Group_5__0 )? )
+            // InternalJavaFXLang.g:5600:1: ( ( ( rule__LineChartFX__Group_5__0 )? ) )
+            // InternalJavaFXLang.g:5601:1: ( ( rule__LineChartFX__Group_5__0 )? )
             {
-            // InternalJavaFXLang.g:5925:1: ( ( rule__LineChartFX__Group_5__0 )? )
-            // InternalJavaFXLang.g:5926:2: ( rule__LineChartFX__Group_5__0 )?
+            // InternalJavaFXLang.g:5601:1: ( ( rule__LineChartFX__Group_5__0 )? )
+            // InternalJavaFXLang.g:5602:2: ( rule__LineChartFX__Group_5__0 )?
             {
              before(grammarAccess.getLineChartFXAccess().getGroup_5()); 
-            // InternalJavaFXLang.g:5927:2: ( rule__LineChartFX__Group_5__0 )?
-            int alt58=2;
-            int LA58_0 = input.LA(1);
+            // InternalJavaFXLang.g:5603:2: ( rule__LineChartFX__Group_5__0 )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
 
-            if ( (LA58_0==36) ) {
-                alt58=1;
+            if ( (LA54_0==36) ) {
+                alt54=1;
             }
-            switch (alt58) {
+            switch (alt54) {
                 case 1 :
-                    // InternalJavaFXLang.g:5927:3: rule__LineChartFX__Group_5__0
+                    // InternalJavaFXLang.g:5603:3: rule__LineChartFX__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LineChartFX__Group_5__0();
@@ -18296,14 +17292,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__6"
-    // InternalJavaFXLang.g:5935:1: rule__LineChartFX__Group__6 : rule__LineChartFX__Group__6__Impl rule__LineChartFX__Group__7 ;
+    // InternalJavaFXLang.g:5611:1: rule__LineChartFX__Group__6 : rule__LineChartFX__Group__6__Impl rule__LineChartFX__Group__7 ;
     public final void rule__LineChartFX__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5939:1: ( rule__LineChartFX__Group__6__Impl rule__LineChartFX__Group__7 )
-            // InternalJavaFXLang.g:5940:2: rule__LineChartFX__Group__6__Impl rule__LineChartFX__Group__7
+            // InternalJavaFXLang.g:5615:1: ( rule__LineChartFX__Group__6__Impl rule__LineChartFX__Group__7 )
+            // InternalJavaFXLang.g:5616:2: rule__LineChartFX__Group__6__Impl rule__LineChartFX__Group__7
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__6__Impl();
@@ -18334,29 +17330,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__6__Impl"
-    // InternalJavaFXLang.g:5947:1: rule__LineChartFX__Group__6__Impl : ( ( rule__LineChartFX__Group_6__0 )? ) ;
+    // InternalJavaFXLang.g:5623:1: rule__LineChartFX__Group__6__Impl : ( ( rule__LineChartFX__Group_6__0 )? ) ;
     public final void rule__LineChartFX__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5951:1: ( ( ( rule__LineChartFX__Group_6__0 )? ) )
-            // InternalJavaFXLang.g:5952:1: ( ( rule__LineChartFX__Group_6__0 )? )
+            // InternalJavaFXLang.g:5627:1: ( ( ( rule__LineChartFX__Group_6__0 )? ) )
+            // InternalJavaFXLang.g:5628:1: ( ( rule__LineChartFX__Group_6__0 )? )
             {
-            // InternalJavaFXLang.g:5952:1: ( ( rule__LineChartFX__Group_6__0 )? )
-            // InternalJavaFXLang.g:5953:2: ( rule__LineChartFX__Group_6__0 )?
+            // InternalJavaFXLang.g:5628:1: ( ( rule__LineChartFX__Group_6__0 )? )
+            // InternalJavaFXLang.g:5629:2: ( rule__LineChartFX__Group_6__0 )?
             {
              before(grammarAccess.getLineChartFXAccess().getGroup_6()); 
-            // InternalJavaFXLang.g:5954:2: ( rule__LineChartFX__Group_6__0 )?
-            int alt59=2;
-            int LA59_0 = input.LA(1);
+            // InternalJavaFXLang.g:5630:2: ( rule__LineChartFX__Group_6__0 )?
+            int alt55=2;
+            int LA55_0 = input.LA(1);
 
-            if ( (LA59_0==37) ) {
-                alt59=1;
+            if ( (LA55_0==37) ) {
+                alt55=1;
             }
-            switch (alt59) {
+            switch (alt55) {
                 case 1 :
-                    // InternalJavaFXLang.g:5954:3: rule__LineChartFX__Group_6__0
+                    // InternalJavaFXLang.g:5630:3: rule__LineChartFX__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LineChartFX__Group_6__0();
@@ -18392,14 +17388,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__7"
-    // InternalJavaFXLang.g:5962:1: rule__LineChartFX__Group__7 : rule__LineChartFX__Group__7__Impl rule__LineChartFX__Group__8 ;
+    // InternalJavaFXLang.g:5638:1: rule__LineChartFX__Group__7 : rule__LineChartFX__Group__7__Impl rule__LineChartFX__Group__8 ;
     public final void rule__LineChartFX__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5966:1: ( rule__LineChartFX__Group__7__Impl rule__LineChartFX__Group__8 )
-            // InternalJavaFXLang.g:5967:2: rule__LineChartFX__Group__7__Impl rule__LineChartFX__Group__8
+            // InternalJavaFXLang.g:5642:1: ( rule__LineChartFX__Group__7__Impl rule__LineChartFX__Group__8 )
+            // InternalJavaFXLang.g:5643:2: rule__LineChartFX__Group__7__Impl rule__LineChartFX__Group__8
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__7__Impl();
@@ -18430,29 +17426,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__7__Impl"
-    // InternalJavaFXLang.g:5974:1: rule__LineChartFX__Group__7__Impl : ( ( rule__LineChartFX__Group_7__0 )? ) ;
+    // InternalJavaFXLang.g:5650:1: rule__LineChartFX__Group__7__Impl : ( ( rule__LineChartFX__Group_7__0 )? ) ;
     public final void rule__LineChartFX__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5978:1: ( ( ( rule__LineChartFX__Group_7__0 )? ) )
-            // InternalJavaFXLang.g:5979:1: ( ( rule__LineChartFX__Group_7__0 )? )
+            // InternalJavaFXLang.g:5654:1: ( ( ( rule__LineChartFX__Group_7__0 )? ) )
+            // InternalJavaFXLang.g:5655:1: ( ( rule__LineChartFX__Group_7__0 )? )
             {
-            // InternalJavaFXLang.g:5979:1: ( ( rule__LineChartFX__Group_7__0 )? )
-            // InternalJavaFXLang.g:5980:2: ( rule__LineChartFX__Group_7__0 )?
+            // InternalJavaFXLang.g:5655:1: ( ( rule__LineChartFX__Group_7__0 )? )
+            // InternalJavaFXLang.g:5656:2: ( rule__LineChartFX__Group_7__0 )?
             {
              before(grammarAccess.getLineChartFXAccess().getGroup_7()); 
-            // InternalJavaFXLang.g:5981:2: ( rule__LineChartFX__Group_7__0 )?
-            int alt60=2;
-            int LA60_0 = input.LA(1);
+            // InternalJavaFXLang.g:5657:2: ( rule__LineChartFX__Group_7__0 )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( (LA60_0==38) ) {
-                alt60=1;
+            if ( (LA56_0==38) ) {
+                alt56=1;
             }
-            switch (alt60) {
+            switch (alt56) {
                 case 1 :
-                    // InternalJavaFXLang.g:5981:3: rule__LineChartFX__Group_7__0
+                    // InternalJavaFXLang.g:5657:3: rule__LineChartFX__Group_7__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LineChartFX__Group_7__0();
@@ -18488,14 +17484,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__8"
-    // InternalJavaFXLang.g:5989:1: rule__LineChartFX__Group__8 : rule__LineChartFX__Group__8__Impl rule__LineChartFX__Group__9 ;
+    // InternalJavaFXLang.g:5665:1: rule__LineChartFX__Group__8 : rule__LineChartFX__Group__8__Impl rule__LineChartFX__Group__9 ;
     public final void rule__LineChartFX__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:5993:1: ( rule__LineChartFX__Group__8__Impl rule__LineChartFX__Group__9 )
-            // InternalJavaFXLang.g:5994:2: rule__LineChartFX__Group__8__Impl rule__LineChartFX__Group__9
+            // InternalJavaFXLang.g:5669:1: ( rule__LineChartFX__Group__8__Impl rule__LineChartFX__Group__9 )
+            // InternalJavaFXLang.g:5670:2: rule__LineChartFX__Group__8__Impl rule__LineChartFX__Group__9
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__8__Impl();
@@ -18526,29 +17522,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__8__Impl"
-    // InternalJavaFXLang.g:6001:1: rule__LineChartFX__Group__8__Impl : ( ( rule__LineChartFX__Group_8__0 )? ) ;
+    // InternalJavaFXLang.g:5677:1: rule__LineChartFX__Group__8__Impl : ( ( rule__LineChartFX__Group_8__0 )? ) ;
     public final void rule__LineChartFX__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6005:1: ( ( ( rule__LineChartFX__Group_8__0 )? ) )
-            // InternalJavaFXLang.g:6006:1: ( ( rule__LineChartFX__Group_8__0 )? )
+            // InternalJavaFXLang.g:5681:1: ( ( ( rule__LineChartFX__Group_8__0 )? ) )
+            // InternalJavaFXLang.g:5682:1: ( ( rule__LineChartFX__Group_8__0 )? )
             {
-            // InternalJavaFXLang.g:6006:1: ( ( rule__LineChartFX__Group_8__0 )? )
-            // InternalJavaFXLang.g:6007:2: ( rule__LineChartFX__Group_8__0 )?
+            // InternalJavaFXLang.g:5682:1: ( ( rule__LineChartFX__Group_8__0 )? )
+            // InternalJavaFXLang.g:5683:2: ( rule__LineChartFX__Group_8__0 )?
             {
              before(grammarAccess.getLineChartFXAccess().getGroup_8()); 
-            // InternalJavaFXLang.g:6008:2: ( rule__LineChartFX__Group_8__0 )?
-            int alt61=2;
-            int LA61_0 = input.LA(1);
+            // InternalJavaFXLang.g:5684:2: ( rule__LineChartFX__Group_8__0 )?
+            int alt57=2;
+            int LA57_0 = input.LA(1);
 
-            if ( (LA61_0==39) ) {
-                alt61=1;
+            if ( (LA57_0==39) ) {
+                alt57=1;
             }
-            switch (alt61) {
+            switch (alt57) {
                 case 1 :
-                    // InternalJavaFXLang.g:6008:3: rule__LineChartFX__Group_8__0
+                    // InternalJavaFXLang.g:5684:3: rule__LineChartFX__Group_8__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LineChartFX__Group_8__0();
@@ -18584,14 +17580,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__9"
-    // InternalJavaFXLang.g:6016:1: rule__LineChartFX__Group__9 : rule__LineChartFX__Group__9__Impl rule__LineChartFX__Group__10 ;
+    // InternalJavaFXLang.g:5692:1: rule__LineChartFX__Group__9 : rule__LineChartFX__Group__9__Impl rule__LineChartFX__Group__10 ;
     public final void rule__LineChartFX__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6020:1: ( rule__LineChartFX__Group__9__Impl rule__LineChartFX__Group__10 )
-            // InternalJavaFXLang.g:6021:2: rule__LineChartFX__Group__9__Impl rule__LineChartFX__Group__10
+            // InternalJavaFXLang.g:5696:1: ( rule__LineChartFX__Group__9__Impl rule__LineChartFX__Group__10 )
+            // InternalJavaFXLang.g:5697:2: rule__LineChartFX__Group__9__Impl rule__LineChartFX__Group__10
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__9__Impl();
@@ -18622,29 +17618,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__9__Impl"
-    // InternalJavaFXLang.g:6028:1: rule__LineChartFX__Group__9__Impl : ( ( rule__LineChartFX__Group_9__0 )? ) ;
+    // InternalJavaFXLang.g:5704:1: rule__LineChartFX__Group__9__Impl : ( ( rule__LineChartFX__Group_9__0 )? ) ;
     public final void rule__LineChartFX__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6032:1: ( ( ( rule__LineChartFX__Group_9__0 )? ) )
-            // InternalJavaFXLang.g:6033:1: ( ( rule__LineChartFX__Group_9__0 )? )
+            // InternalJavaFXLang.g:5708:1: ( ( ( rule__LineChartFX__Group_9__0 )? ) )
+            // InternalJavaFXLang.g:5709:1: ( ( rule__LineChartFX__Group_9__0 )? )
             {
-            // InternalJavaFXLang.g:6033:1: ( ( rule__LineChartFX__Group_9__0 )? )
-            // InternalJavaFXLang.g:6034:2: ( rule__LineChartFX__Group_9__0 )?
+            // InternalJavaFXLang.g:5709:1: ( ( rule__LineChartFX__Group_9__0 )? )
+            // InternalJavaFXLang.g:5710:2: ( rule__LineChartFX__Group_9__0 )?
             {
              before(grammarAccess.getLineChartFXAccess().getGroup_9()); 
-            // InternalJavaFXLang.g:6035:2: ( rule__LineChartFX__Group_9__0 )?
-            int alt62=2;
-            int LA62_0 = input.LA(1);
+            // InternalJavaFXLang.g:5711:2: ( rule__LineChartFX__Group_9__0 )?
+            int alt58=2;
+            int LA58_0 = input.LA(1);
 
-            if ( (LA62_0==40) ) {
-                alt62=1;
+            if ( (LA58_0==40) ) {
+                alt58=1;
             }
-            switch (alt62) {
+            switch (alt58) {
                 case 1 :
-                    // InternalJavaFXLang.g:6035:3: rule__LineChartFX__Group_9__0
+                    // InternalJavaFXLang.g:5711:3: rule__LineChartFX__Group_9__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LineChartFX__Group_9__0();
@@ -18680,14 +17676,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__10"
-    // InternalJavaFXLang.g:6043:1: rule__LineChartFX__Group__10 : rule__LineChartFX__Group__10__Impl rule__LineChartFX__Group__11 ;
+    // InternalJavaFXLang.g:5719:1: rule__LineChartFX__Group__10 : rule__LineChartFX__Group__10__Impl rule__LineChartFX__Group__11 ;
     public final void rule__LineChartFX__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6047:1: ( rule__LineChartFX__Group__10__Impl rule__LineChartFX__Group__11 )
-            // InternalJavaFXLang.g:6048:2: rule__LineChartFX__Group__10__Impl rule__LineChartFX__Group__11
+            // InternalJavaFXLang.g:5723:1: ( rule__LineChartFX__Group__10__Impl rule__LineChartFX__Group__11 )
+            // InternalJavaFXLang.g:5724:2: rule__LineChartFX__Group__10__Impl rule__LineChartFX__Group__11
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__10__Impl();
@@ -18718,29 +17714,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__10__Impl"
-    // InternalJavaFXLang.g:6055:1: rule__LineChartFX__Group__10__Impl : ( ( rule__LineChartFX__Group_10__0 )? ) ;
+    // InternalJavaFXLang.g:5731:1: rule__LineChartFX__Group__10__Impl : ( ( rule__LineChartFX__Group_10__0 )? ) ;
     public final void rule__LineChartFX__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6059:1: ( ( ( rule__LineChartFX__Group_10__0 )? ) )
-            // InternalJavaFXLang.g:6060:1: ( ( rule__LineChartFX__Group_10__0 )? )
+            // InternalJavaFXLang.g:5735:1: ( ( ( rule__LineChartFX__Group_10__0 )? ) )
+            // InternalJavaFXLang.g:5736:1: ( ( rule__LineChartFX__Group_10__0 )? )
             {
-            // InternalJavaFXLang.g:6060:1: ( ( rule__LineChartFX__Group_10__0 )? )
-            // InternalJavaFXLang.g:6061:2: ( rule__LineChartFX__Group_10__0 )?
+            // InternalJavaFXLang.g:5736:1: ( ( rule__LineChartFX__Group_10__0 )? )
+            // InternalJavaFXLang.g:5737:2: ( rule__LineChartFX__Group_10__0 )?
             {
              before(grammarAccess.getLineChartFXAccess().getGroup_10()); 
-            // InternalJavaFXLang.g:6062:2: ( rule__LineChartFX__Group_10__0 )?
-            int alt63=2;
-            int LA63_0 = input.LA(1);
+            // InternalJavaFXLang.g:5738:2: ( rule__LineChartFX__Group_10__0 )?
+            int alt59=2;
+            int LA59_0 = input.LA(1);
 
-            if ( (LA63_0==41) ) {
-                alt63=1;
+            if ( (LA59_0==41) ) {
+                alt59=1;
             }
-            switch (alt63) {
+            switch (alt59) {
                 case 1 :
-                    // InternalJavaFXLang.g:6062:3: rule__LineChartFX__Group_10__0
+                    // InternalJavaFXLang.g:5738:3: rule__LineChartFX__Group_10__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LineChartFX__Group_10__0();
@@ -18776,14 +17772,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__11"
-    // InternalJavaFXLang.g:6070:1: rule__LineChartFX__Group__11 : rule__LineChartFX__Group__11__Impl rule__LineChartFX__Group__12 ;
+    // InternalJavaFXLang.g:5746:1: rule__LineChartFX__Group__11 : rule__LineChartFX__Group__11__Impl rule__LineChartFX__Group__12 ;
     public final void rule__LineChartFX__Group__11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6074:1: ( rule__LineChartFX__Group__11__Impl rule__LineChartFX__Group__12 )
-            // InternalJavaFXLang.g:6075:2: rule__LineChartFX__Group__11__Impl rule__LineChartFX__Group__12
+            // InternalJavaFXLang.g:5750:1: ( rule__LineChartFX__Group__11__Impl rule__LineChartFX__Group__12 )
+            // InternalJavaFXLang.g:5751:2: rule__LineChartFX__Group__11__Impl rule__LineChartFX__Group__12
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__11__Impl();
@@ -18814,29 +17810,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__11__Impl"
-    // InternalJavaFXLang.g:6082:1: rule__LineChartFX__Group__11__Impl : ( ( rule__LineChartFX__Group_11__0 )? ) ;
+    // InternalJavaFXLang.g:5758:1: rule__LineChartFX__Group__11__Impl : ( ( rule__LineChartFX__Group_11__0 )? ) ;
     public final void rule__LineChartFX__Group__11__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6086:1: ( ( ( rule__LineChartFX__Group_11__0 )? ) )
-            // InternalJavaFXLang.g:6087:1: ( ( rule__LineChartFX__Group_11__0 )? )
+            // InternalJavaFXLang.g:5762:1: ( ( ( rule__LineChartFX__Group_11__0 )? ) )
+            // InternalJavaFXLang.g:5763:1: ( ( rule__LineChartFX__Group_11__0 )? )
             {
-            // InternalJavaFXLang.g:6087:1: ( ( rule__LineChartFX__Group_11__0 )? )
-            // InternalJavaFXLang.g:6088:2: ( rule__LineChartFX__Group_11__0 )?
+            // InternalJavaFXLang.g:5763:1: ( ( rule__LineChartFX__Group_11__0 )? )
+            // InternalJavaFXLang.g:5764:2: ( rule__LineChartFX__Group_11__0 )?
             {
              before(grammarAccess.getLineChartFXAccess().getGroup_11()); 
-            // InternalJavaFXLang.g:6089:2: ( rule__LineChartFX__Group_11__0 )?
-            int alt64=2;
-            int LA64_0 = input.LA(1);
+            // InternalJavaFXLang.g:5765:2: ( rule__LineChartFX__Group_11__0 )?
+            int alt60=2;
+            int LA60_0 = input.LA(1);
 
-            if ( (LA64_0==42) ) {
-                alt64=1;
+            if ( (LA60_0==42) ) {
+                alt60=1;
             }
-            switch (alt64) {
+            switch (alt60) {
                 case 1 :
-                    // InternalJavaFXLang.g:6089:3: rule__LineChartFX__Group_11__0
+                    // InternalJavaFXLang.g:5765:3: rule__LineChartFX__Group_11__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LineChartFX__Group_11__0();
@@ -18872,14 +17868,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__12"
-    // InternalJavaFXLang.g:6097:1: rule__LineChartFX__Group__12 : rule__LineChartFX__Group__12__Impl rule__LineChartFX__Group__13 ;
+    // InternalJavaFXLang.g:5773:1: rule__LineChartFX__Group__12 : rule__LineChartFX__Group__12__Impl rule__LineChartFX__Group__13 ;
     public final void rule__LineChartFX__Group__12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6101:1: ( rule__LineChartFX__Group__12__Impl rule__LineChartFX__Group__13 )
-            // InternalJavaFXLang.g:6102:2: rule__LineChartFX__Group__12__Impl rule__LineChartFX__Group__13
+            // InternalJavaFXLang.g:5777:1: ( rule__LineChartFX__Group__12__Impl rule__LineChartFX__Group__13 )
+            // InternalJavaFXLang.g:5778:2: rule__LineChartFX__Group__12__Impl rule__LineChartFX__Group__13
             {
             pushFollow(FOLLOW_20);
             rule__LineChartFX__Group__12__Impl();
@@ -18910,29 +17906,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__12__Impl"
-    // InternalJavaFXLang.g:6109:1: rule__LineChartFX__Group__12__Impl : ( ( rule__LineChartFX__Group_12__0 )? ) ;
+    // InternalJavaFXLang.g:5785:1: rule__LineChartFX__Group__12__Impl : ( ( rule__LineChartFX__Group_12__0 )? ) ;
     public final void rule__LineChartFX__Group__12__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6113:1: ( ( ( rule__LineChartFX__Group_12__0 )? ) )
-            // InternalJavaFXLang.g:6114:1: ( ( rule__LineChartFX__Group_12__0 )? )
+            // InternalJavaFXLang.g:5789:1: ( ( ( rule__LineChartFX__Group_12__0 )? ) )
+            // InternalJavaFXLang.g:5790:1: ( ( rule__LineChartFX__Group_12__0 )? )
             {
-            // InternalJavaFXLang.g:6114:1: ( ( rule__LineChartFX__Group_12__0 )? )
-            // InternalJavaFXLang.g:6115:2: ( rule__LineChartFX__Group_12__0 )?
+            // InternalJavaFXLang.g:5790:1: ( ( rule__LineChartFX__Group_12__0 )? )
+            // InternalJavaFXLang.g:5791:2: ( rule__LineChartFX__Group_12__0 )?
             {
              before(grammarAccess.getLineChartFXAccess().getGroup_12()); 
-            // InternalJavaFXLang.g:6116:2: ( rule__LineChartFX__Group_12__0 )?
-            int alt65=2;
-            int LA65_0 = input.LA(1);
+            // InternalJavaFXLang.g:5792:2: ( rule__LineChartFX__Group_12__0 )?
+            int alt61=2;
+            int LA61_0 = input.LA(1);
 
-            if ( (LA65_0==43) ) {
-                alt65=1;
+            if ( (LA61_0==43) ) {
+                alt61=1;
             }
-            switch (alt65) {
+            switch (alt61) {
                 case 1 :
-                    // InternalJavaFXLang.g:6116:3: rule__LineChartFX__Group_12__0
+                    // InternalJavaFXLang.g:5792:3: rule__LineChartFX__Group_12__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LineChartFX__Group_12__0();
@@ -18968,14 +17964,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__13"
-    // InternalJavaFXLang.g:6124:1: rule__LineChartFX__Group__13 : rule__LineChartFX__Group__13__Impl ;
+    // InternalJavaFXLang.g:5800:1: rule__LineChartFX__Group__13 : rule__LineChartFX__Group__13__Impl ;
     public final void rule__LineChartFX__Group__13() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6128:1: ( rule__LineChartFX__Group__13__Impl )
-            // InternalJavaFXLang.g:6129:2: rule__LineChartFX__Group__13__Impl
+            // InternalJavaFXLang.g:5804:1: ( rule__LineChartFX__Group__13__Impl )
+            // InternalJavaFXLang.g:5805:2: rule__LineChartFX__Group__13__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group__13__Impl();
@@ -19001,17 +17997,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group__13__Impl"
-    // InternalJavaFXLang.g:6135:1: rule__LineChartFX__Group__13__Impl : ( '}' ) ;
+    // InternalJavaFXLang.g:5811:1: rule__LineChartFX__Group__13__Impl : ( '}' ) ;
     public final void rule__LineChartFX__Group__13__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6139:1: ( ( '}' ) )
-            // InternalJavaFXLang.g:6140:1: ( '}' )
+            // InternalJavaFXLang.g:5815:1: ( ( '}' ) )
+            // InternalJavaFXLang.g:5816:1: ( '}' )
             {
-            // InternalJavaFXLang.g:6140:1: ( '}' )
-            // InternalJavaFXLang.g:6141:2: '}'
+            // InternalJavaFXLang.g:5816:1: ( '}' )
+            // InternalJavaFXLang.g:5817:2: '}'
             {
              before(grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_13()); 
             match(input,28,FOLLOW_2); 
@@ -19038,14 +18034,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_5__0"
-    // InternalJavaFXLang.g:6151:1: rule__LineChartFX__Group_5__0 : rule__LineChartFX__Group_5__0__Impl rule__LineChartFX__Group_5__1 ;
+    // InternalJavaFXLang.g:5827:1: rule__LineChartFX__Group_5__0 : rule__LineChartFX__Group_5__0__Impl rule__LineChartFX__Group_5__1 ;
     public final void rule__LineChartFX__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6155:1: ( rule__LineChartFX__Group_5__0__Impl rule__LineChartFX__Group_5__1 )
-            // InternalJavaFXLang.g:6156:2: rule__LineChartFX__Group_5__0__Impl rule__LineChartFX__Group_5__1
+            // InternalJavaFXLang.g:5831:1: ( rule__LineChartFX__Group_5__0__Impl rule__LineChartFX__Group_5__1 )
+            // InternalJavaFXLang.g:5832:2: rule__LineChartFX__Group_5__0__Impl rule__LineChartFX__Group_5__1
             {
             pushFollow(FOLLOW_21);
             rule__LineChartFX__Group_5__0__Impl();
@@ -19076,17 +18072,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_5__0__Impl"
-    // InternalJavaFXLang.g:6163:1: rule__LineChartFX__Group_5__0__Impl : ( 'legendSide:' ) ;
+    // InternalJavaFXLang.g:5839:1: rule__LineChartFX__Group_5__0__Impl : ( 'legendSide:' ) ;
     public final void rule__LineChartFX__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6167:1: ( ( 'legendSide:' ) )
-            // InternalJavaFXLang.g:6168:1: ( 'legendSide:' )
+            // InternalJavaFXLang.g:5843:1: ( ( 'legendSide:' ) )
+            // InternalJavaFXLang.g:5844:1: ( 'legendSide:' )
             {
-            // InternalJavaFXLang.g:6168:1: ( 'legendSide:' )
-            // InternalJavaFXLang.g:6169:2: 'legendSide:'
+            // InternalJavaFXLang.g:5844:1: ( 'legendSide:' )
+            // InternalJavaFXLang.g:5845:2: 'legendSide:'
             {
              before(grammarAccess.getLineChartFXAccess().getLegendSideKeyword_5_0()); 
             match(input,36,FOLLOW_2); 
@@ -19113,14 +18109,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_5__1"
-    // InternalJavaFXLang.g:6178:1: rule__LineChartFX__Group_5__1 : rule__LineChartFX__Group_5__1__Impl ;
+    // InternalJavaFXLang.g:5854:1: rule__LineChartFX__Group_5__1 : rule__LineChartFX__Group_5__1__Impl ;
     public final void rule__LineChartFX__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6182:1: ( rule__LineChartFX__Group_5__1__Impl )
-            // InternalJavaFXLang.g:6183:2: rule__LineChartFX__Group_5__1__Impl
+            // InternalJavaFXLang.g:5858:1: ( rule__LineChartFX__Group_5__1__Impl )
+            // InternalJavaFXLang.g:5859:2: rule__LineChartFX__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group_5__1__Impl();
@@ -19146,21 +18142,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_5__1__Impl"
-    // InternalJavaFXLang.g:6189:1: rule__LineChartFX__Group_5__1__Impl : ( ( rule__LineChartFX__LegendSideAssignment_5_1 ) ) ;
+    // InternalJavaFXLang.g:5865:1: rule__LineChartFX__Group_5__1__Impl : ( ( rule__LineChartFX__LegendSideAssignment_5_1 ) ) ;
     public final void rule__LineChartFX__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6193:1: ( ( ( rule__LineChartFX__LegendSideAssignment_5_1 ) ) )
-            // InternalJavaFXLang.g:6194:1: ( ( rule__LineChartFX__LegendSideAssignment_5_1 ) )
+            // InternalJavaFXLang.g:5869:1: ( ( ( rule__LineChartFX__LegendSideAssignment_5_1 ) ) )
+            // InternalJavaFXLang.g:5870:1: ( ( rule__LineChartFX__LegendSideAssignment_5_1 ) )
             {
-            // InternalJavaFXLang.g:6194:1: ( ( rule__LineChartFX__LegendSideAssignment_5_1 ) )
-            // InternalJavaFXLang.g:6195:2: ( rule__LineChartFX__LegendSideAssignment_5_1 )
+            // InternalJavaFXLang.g:5870:1: ( ( rule__LineChartFX__LegendSideAssignment_5_1 ) )
+            // InternalJavaFXLang.g:5871:2: ( rule__LineChartFX__LegendSideAssignment_5_1 )
             {
              before(grammarAccess.getLineChartFXAccess().getLegendSideAssignment_5_1()); 
-            // InternalJavaFXLang.g:6196:2: ( rule__LineChartFX__LegendSideAssignment_5_1 )
-            // InternalJavaFXLang.g:6196:3: rule__LineChartFX__LegendSideAssignment_5_1
+            // InternalJavaFXLang.g:5872:2: ( rule__LineChartFX__LegendSideAssignment_5_1 )
+            // InternalJavaFXLang.g:5872:3: rule__LineChartFX__LegendSideAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__LegendSideAssignment_5_1();
@@ -19193,14 +18189,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_6__0"
-    // InternalJavaFXLang.g:6205:1: rule__LineChartFX__Group_6__0 : rule__LineChartFX__Group_6__0__Impl rule__LineChartFX__Group_6__1 ;
+    // InternalJavaFXLang.g:5881:1: rule__LineChartFX__Group_6__0 : rule__LineChartFX__Group_6__0__Impl rule__LineChartFX__Group_6__1 ;
     public final void rule__LineChartFX__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6209:1: ( rule__LineChartFX__Group_6__0__Impl rule__LineChartFX__Group_6__1 )
-            // InternalJavaFXLang.g:6210:2: rule__LineChartFX__Group_6__0__Impl rule__LineChartFX__Group_6__1
+            // InternalJavaFXLang.g:5885:1: ( rule__LineChartFX__Group_6__0__Impl rule__LineChartFX__Group_6__1 )
+            // InternalJavaFXLang.g:5886:2: rule__LineChartFX__Group_6__0__Impl rule__LineChartFX__Group_6__1
             {
             pushFollow(FOLLOW_22);
             rule__LineChartFX__Group_6__0__Impl();
@@ -19231,17 +18227,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_6__0__Impl"
-    // InternalJavaFXLang.g:6217:1: rule__LineChartFX__Group_6__0__Impl : ( 'showLegend:' ) ;
+    // InternalJavaFXLang.g:5893:1: rule__LineChartFX__Group_6__0__Impl : ( 'showLegend:' ) ;
     public final void rule__LineChartFX__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6221:1: ( ( 'showLegend:' ) )
-            // InternalJavaFXLang.g:6222:1: ( 'showLegend:' )
+            // InternalJavaFXLang.g:5897:1: ( ( 'showLegend:' ) )
+            // InternalJavaFXLang.g:5898:1: ( 'showLegend:' )
             {
-            // InternalJavaFXLang.g:6222:1: ( 'showLegend:' )
-            // InternalJavaFXLang.g:6223:2: 'showLegend:'
+            // InternalJavaFXLang.g:5898:1: ( 'showLegend:' )
+            // InternalJavaFXLang.g:5899:2: 'showLegend:'
             {
              before(grammarAccess.getLineChartFXAccess().getShowLegendKeyword_6_0()); 
             match(input,37,FOLLOW_2); 
@@ -19268,14 +18264,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_6__1"
-    // InternalJavaFXLang.g:6232:1: rule__LineChartFX__Group_6__1 : rule__LineChartFX__Group_6__1__Impl ;
+    // InternalJavaFXLang.g:5908:1: rule__LineChartFX__Group_6__1 : rule__LineChartFX__Group_6__1__Impl ;
     public final void rule__LineChartFX__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6236:1: ( rule__LineChartFX__Group_6__1__Impl )
-            // InternalJavaFXLang.g:6237:2: rule__LineChartFX__Group_6__1__Impl
+            // InternalJavaFXLang.g:5912:1: ( rule__LineChartFX__Group_6__1__Impl )
+            // InternalJavaFXLang.g:5913:2: rule__LineChartFX__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group_6__1__Impl();
@@ -19301,21 +18297,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_6__1__Impl"
-    // InternalJavaFXLang.g:6243:1: rule__LineChartFX__Group_6__1__Impl : ( ( rule__LineChartFX__ShowLegendAssignment_6_1 ) ) ;
+    // InternalJavaFXLang.g:5919:1: rule__LineChartFX__Group_6__1__Impl : ( ( rule__LineChartFX__ShowLegendAssignment_6_1 ) ) ;
     public final void rule__LineChartFX__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6247:1: ( ( ( rule__LineChartFX__ShowLegendAssignment_6_1 ) ) )
-            // InternalJavaFXLang.g:6248:1: ( ( rule__LineChartFX__ShowLegendAssignment_6_1 ) )
+            // InternalJavaFXLang.g:5923:1: ( ( ( rule__LineChartFX__ShowLegendAssignment_6_1 ) ) )
+            // InternalJavaFXLang.g:5924:1: ( ( rule__LineChartFX__ShowLegendAssignment_6_1 ) )
             {
-            // InternalJavaFXLang.g:6248:1: ( ( rule__LineChartFX__ShowLegendAssignment_6_1 ) )
-            // InternalJavaFXLang.g:6249:2: ( rule__LineChartFX__ShowLegendAssignment_6_1 )
+            // InternalJavaFXLang.g:5924:1: ( ( rule__LineChartFX__ShowLegendAssignment_6_1 ) )
+            // InternalJavaFXLang.g:5925:2: ( rule__LineChartFX__ShowLegendAssignment_6_1 )
             {
              before(grammarAccess.getLineChartFXAccess().getShowLegendAssignment_6_1()); 
-            // InternalJavaFXLang.g:6250:2: ( rule__LineChartFX__ShowLegendAssignment_6_1 )
-            // InternalJavaFXLang.g:6250:3: rule__LineChartFX__ShowLegendAssignment_6_1
+            // InternalJavaFXLang.g:5926:2: ( rule__LineChartFX__ShowLegendAssignment_6_1 )
+            // InternalJavaFXLang.g:5926:3: rule__LineChartFX__ShowLegendAssignment_6_1
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__ShowLegendAssignment_6_1();
@@ -19348,14 +18344,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_7__0"
-    // InternalJavaFXLang.g:6259:1: rule__LineChartFX__Group_7__0 : rule__LineChartFX__Group_7__0__Impl rule__LineChartFX__Group_7__1 ;
+    // InternalJavaFXLang.g:5935:1: rule__LineChartFX__Group_7__0 : rule__LineChartFX__Group_7__0__Impl rule__LineChartFX__Group_7__1 ;
     public final void rule__LineChartFX__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6263:1: ( rule__LineChartFX__Group_7__0__Impl rule__LineChartFX__Group_7__1 )
-            // InternalJavaFXLang.g:6264:2: rule__LineChartFX__Group_7__0__Impl rule__LineChartFX__Group_7__1
+            // InternalJavaFXLang.g:5939:1: ( rule__LineChartFX__Group_7__0__Impl rule__LineChartFX__Group_7__1 )
+            // InternalJavaFXLang.g:5940:2: rule__LineChartFX__Group_7__0__Impl rule__LineChartFX__Group_7__1
             {
             pushFollow(FOLLOW_4);
             rule__LineChartFX__Group_7__0__Impl();
@@ -19386,17 +18382,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_7__0__Impl"
-    // InternalJavaFXLang.g:6271:1: rule__LineChartFX__Group_7__0__Impl : ( 'title:' ) ;
+    // InternalJavaFXLang.g:5947:1: rule__LineChartFX__Group_7__0__Impl : ( 'title:' ) ;
     public final void rule__LineChartFX__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6275:1: ( ( 'title:' ) )
-            // InternalJavaFXLang.g:6276:1: ( 'title:' )
+            // InternalJavaFXLang.g:5951:1: ( ( 'title:' ) )
+            // InternalJavaFXLang.g:5952:1: ( 'title:' )
             {
-            // InternalJavaFXLang.g:6276:1: ( 'title:' )
-            // InternalJavaFXLang.g:6277:2: 'title:'
+            // InternalJavaFXLang.g:5952:1: ( 'title:' )
+            // InternalJavaFXLang.g:5953:2: 'title:'
             {
              before(grammarAccess.getLineChartFXAccess().getTitleKeyword_7_0()); 
             match(input,38,FOLLOW_2); 
@@ -19423,14 +18419,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_7__1"
-    // InternalJavaFXLang.g:6286:1: rule__LineChartFX__Group_7__1 : rule__LineChartFX__Group_7__1__Impl ;
+    // InternalJavaFXLang.g:5962:1: rule__LineChartFX__Group_7__1 : rule__LineChartFX__Group_7__1__Impl ;
     public final void rule__LineChartFX__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6290:1: ( rule__LineChartFX__Group_7__1__Impl )
-            // InternalJavaFXLang.g:6291:2: rule__LineChartFX__Group_7__1__Impl
+            // InternalJavaFXLang.g:5966:1: ( rule__LineChartFX__Group_7__1__Impl )
+            // InternalJavaFXLang.g:5967:2: rule__LineChartFX__Group_7__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group_7__1__Impl();
@@ -19456,21 +18452,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_7__1__Impl"
-    // InternalJavaFXLang.g:6297:1: rule__LineChartFX__Group_7__1__Impl : ( ( rule__LineChartFX__TitleAssignment_7_1 ) ) ;
+    // InternalJavaFXLang.g:5973:1: rule__LineChartFX__Group_7__1__Impl : ( ( rule__LineChartFX__TitleAssignment_7_1 ) ) ;
     public final void rule__LineChartFX__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6301:1: ( ( ( rule__LineChartFX__TitleAssignment_7_1 ) ) )
-            // InternalJavaFXLang.g:6302:1: ( ( rule__LineChartFX__TitleAssignment_7_1 ) )
+            // InternalJavaFXLang.g:5977:1: ( ( ( rule__LineChartFX__TitleAssignment_7_1 ) ) )
+            // InternalJavaFXLang.g:5978:1: ( ( rule__LineChartFX__TitleAssignment_7_1 ) )
             {
-            // InternalJavaFXLang.g:6302:1: ( ( rule__LineChartFX__TitleAssignment_7_1 ) )
-            // InternalJavaFXLang.g:6303:2: ( rule__LineChartFX__TitleAssignment_7_1 )
+            // InternalJavaFXLang.g:5978:1: ( ( rule__LineChartFX__TitleAssignment_7_1 ) )
+            // InternalJavaFXLang.g:5979:2: ( rule__LineChartFX__TitleAssignment_7_1 )
             {
              before(grammarAccess.getLineChartFXAccess().getTitleAssignment_7_1()); 
-            // InternalJavaFXLang.g:6304:2: ( rule__LineChartFX__TitleAssignment_7_1 )
-            // InternalJavaFXLang.g:6304:3: rule__LineChartFX__TitleAssignment_7_1
+            // InternalJavaFXLang.g:5980:2: ( rule__LineChartFX__TitleAssignment_7_1 )
+            // InternalJavaFXLang.g:5980:3: rule__LineChartFX__TitleAssignment_7_1
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__TitleAssignment_7_1();
@@ -19503,14 +18499,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_8__0"
-    // InternalJavaFXLang.g:6313:1: rule__LineChartFX__Group_8__0 : rule__LineChartFX__Group_8__0__Impl rule__LineChartFX__Group_8__1 ;
+    // InternalJavaFXLang.g:5989:1: rule__LineChartFX__Group_8__0 : rule__LineChartFX__Group_8__0__Impl rule__LineChartFX__Group_8__1 ;
     public final void rule__LineChartFX__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6317:1: ( rule__LineChartFX__Group_8__0__Impl rule__LineChartFX__Group_8__1 )
-            // InternalJavaFXLang.g:6318:2: rule__LineChartFX__Group_8__0__Impl rule__LineChartFX__Group_8__1
+            // InternalJavaFXLang.g:5993:1: ( rule__LineChartFX__Group_8__0__Impl rule__LineChartFX__Group_8__1 )
+            // InternalJavaFXLang.g:5994:2: rule__LineChartFX__Group_8__0__Impl rule__LineChartFX__Group_8__1
             {
             pushFollow(FOLLOW_21);
             rule__LineChartFX__Group_8__0__Impl();
@@ -19541,17 +18537,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_8__0__Impl"
-    // InternalJavaFXLang.g:6325:1: rule__LineChartFX__Group_8__0__Impl : ( 'titleSide:' ) ;
+    // InternalJavaFXLang.g:6001:1: rule__LineChartFX__Group_8__0__Impl : ( 'titleSide:' ) ;
     public final void rule__LineChartFX__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6329:1: ( ( 'titleSide:' ) )
-            // InternalJavaFXLang.g:6330:1: ( 'titleSide:' )
+            // InternalJavaFXLang.g:6005:1: ( ( 'titleSide:' ) )
+            // InternalJavaFXLang.g:6006:1: ( 'titleSide:' )
             {
-            // InternalJavaFXLang.g:6330:1: ( 'titleSide:' )
-            // InternalJavaFXLang.g:6331:2: 'titleSide:'
+            // InternalJavaFXLang.g:6006:1: ( 'titleSide:' )
+            // InternalJavaFXLang.g:6007:2: 'titleSide:'
             {
              before(grammarAccess.getLineChartFXAccess().getTitleSideKeyword_8_0()); 
             match(input,39,FOLLOW_2); 
@@ -19578,14 +18574,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_8__1"
-    // InternalJavaFXLang.g:6340:1: rule__LineChartFX__Group_8__1 : rule__LineChartFX__Group_8__1__Impl ;
+    // InternalJavaFXLang.g:6016:1: rule__LineChartFX__Group_8__1 : rule__LineChartFX__Group_8__1__Impl ;
     public final void rule__LineChartFX__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6344:1: ( rule__LineChartFX__Group_8__1__Impl )
-            // InternalJavaFXLang.g:6345:2: rule__LineChartFX__Group_8__1__Impl
+            // InternalJavaFXLang.g:6020:1: ( rule__LineChartFX__Group_8__1__Impl )
+            // InternalJavaFXLang.g:6021:2: rule__LineChartFX__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group_8__1__Impl();
@@ -19611,21 +18607,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_8__1__Impl"
-    // InternalJavaFXLang.g:6351:1: rule__LineChartFX__Group_8__1__Impl : ( ( rule__LineChartFX__TitleSideAssignment_8_1 ) ) ;
+    // InternalJavaFXLang.g:6027:1: rule__LineChartFX__Group_8__1__Impl : ( ( rule__LineChartFX__TitleSideAssignment_8_1 ) ) ;
     public final void rule__LineChartFX__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6355:1: ( ( ( rule__LineChartFX__TitleSideAssignment_8_1 ) ) )
-            // InternalJavaFXLang.g:6356:1: ( ( rule__LineChartFX__TitleSideAssignment_8_1 ) )
+            // InternalJavaFXLang.g:6031:1: ( ( ( rule__LineChartFX__TitleSideAssignment_8_1 ) ) )
+            // InternalJavaFXLang.g:6032:1: ( ( rule__LineChartFX__TitleSideAssignment_8_1 ) )
             {
-            // InternalJavaFXLang.g:6356:1: ( ( rule__LineChartFX__TitleSideAssignment_8_1 ) )
-            // InternalJavaFXLang.g:6357:2: ( rule__LineChartFX__TitleSideAssignment_8_1 )
+            // InternalJavaFXLang.g:6032:1: ( ( rule__LineChartFX__TitleSideAssignment_8_1 ) )
+            // InternalJavaFXLang.g:6033:2: ( rule__LineChartFX__TitleSideAssignment_8_1 )
             {
              before(grammarAccess.getLineChartFXAccess().getTitleSideAssignment_8_1()); 
-            // InternalJavaFXLang.g:6358:2: ( rule__LineChartFX__TitleSideAssignment_8_1 )
-            // InternalJavaFXLang.g:6358:3: rule__LineChartFX__TitleSideAssignment_8_1
+            // InternalJavaFXLang.g:6034:2: ( rule__LineChartFX__TitleSideAssignment_8_1 )
+            // InternalJavaFXLang.g:6034:3: rule__LineChartFX__TitleSideAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__TitleSideAssignment_8_1();
@@ -19658,14 +18654,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_9__0"
-    // InternalJavaFXLang.g:6367:1: rule__LineChartFX__Group_9__0 : rule__LineChartFX__Group_9__0__Impl rule__LineChartFX__Group_9__1 ;
+    // InternalJavaFXLang.g:6043:1: rule__LineChartFX__Group_9__0 : rule__LineChartFX__Group_9__0__Impl rule__LineChartFX__Group_9__1 ;
     public final void rule__LineChartFX__Group_9__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6371:1: ( rule__LineChartFX__Group_9__0__Impl rule__LineChartFX__Group_9__1 )
-            // InternalJavaFXLang.g:6372:2: rule__LineChartFX__Group_9__0__Impl rule__LineChartFX__Group_9__1
+            // InternalJavaFXLang.g:6047:1: ( rule__LineChartFX__Group_9__0__Impl rule__LineChartFX__Group_9__1 )
+            // InternalJavaFXLang.g:6048:2: rule__LineChartFX__Group_9__0__Impl rule__LineChartFX__Group_9__1
             {
             pushFollow(FOLLOW_4);
             rule__LineChartFX__Group_9__0__Impl();
@@ -19696,17 +18692,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_9__0__Impl"
-    // InternalJavaFXLang.g:6379:1: rule__LineChartFX__Group_9__0__Impl : ( 'xAxisLabel:' ) ;
+    // InternalJavaFXLang.g:6055:1: rule__LineChartFX__Group_9__0__Impl : ( 'xAxisLabel:' ) ;
     public final void rule__LineChartFX__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6383:1: ( ( 'xAxisLabel:' ) )
-            // InternalJavaFXLang.g:6384:1: ( 'xAxisLabel:' )
+            // InternalJavaFXLang.g:6059:1: ( ( 'xAxisLabel:' ) )
+            // InternalJavaFXLang.g:6060:1: ( 'xAxisLabel:' )
             {
-            // InternalJavaFXLang.g:6384:1: ( 'xAxisLabel:' )
-            // InternalJavaFXLang.g:6385:2: 'xAxisLabel:'
+            // InternalJavaFXLang.g:6060:1: ( 'xAxisLabel:' )
+            // InternalJavaFXLang.g:6061:2: 'xAxisLabel:'
             {
              before(grammarAccess.getLineChartFXAccess().getXAxisLabelKeyword_9_0()); 
             match(input,40,FOLLOW_2); 
@@ -19733,14 +18729,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_9__1"
-    // InternalJavaFXLang.g:6394:1: rule__LineChartFX__Group_9__1 : rule__LineChartFX__Group_9__1__Impl ;
+    // InternalJavaFXLang.g:6070:1: rule__LineChartFX__Group_9__1 : rule__LineChartFX__Group_9__1__Impl ;
     public final void rule__LineChartFX__Group_9__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6398:1: ( rule__LineChartFX__Group_9__1__Impl )
-            // InternalJavaFXLang.g:6399:2: rule__LineChartFX__Group_9__1__Impl
+            // InternalJavaFXLang.g:6074:1: ( rule__LineChartFX__Group_9__1__Impl )
+            // InternalJavaFXLang.g:6075:2: rule__LineChartFX__Group_9__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group_9__1__Impl();
@@ -19766,21 +18762,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_9__1__Impl"
-    // InternalJavaFXLang.g:6405:1: rule__LineChartFX__Group_9__1__Impl : ( ( rule__LineChartFX__XAxisLabelAssignment_9_1 ) ) ;
+    // InternalJavaFXLang.g:6081:1: rule__LineChartFX__Group_9__1__Impl : ( ( rule__LineChartFX__XAxisLabelAssignment_9_1 ) ) ;
     public final void rule__LineChartFX__Group_9__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6409:1: ( ( ( rule__LineChartFX__XAxisLabelAssignment_9_1 ) ) )
-            // InternalJavaFXLang.g:6410:1: ( ( rule__LineChartFX__XAxisLabelAssignment_9_1 ) )
+            // InternalJavaFXLang.g:6085:1: ( ( ( rule__LineChartFX__XAxisLabelAssignment_9_1 ) ) )
+            // InternalJavaFXLang.g:6086:1: ( ( rule__LineChartFX__XAxisLabelAssignment_9_1 ) )
             {
-            // InternalJavaFXLang.g:6410:1: ( ( rule__LineChartFX__XAxisLabelAssignment_9_1 ) )
-            // InternalJavaFXLang.g:6411:2: ( rule__LineChartFX__XAxisLabelAssignment_9_1 )
+            // InternalJavaFXLang.g:6086:1: ( ( rule__LineChartFX__XAxisLabelAssignment_9_1 ) )
+            // InternalJavaFXLang.g:6087:2: ( rule__LineChartFX__XAxisLabelAssignment_9_1 )
             {
              before(grammarAccess.getLineChartFXAccess().getXAxisLabelAssignment_9_1()); 
-            // InternalJavaFXLang.g:6412:2: ( rule__LineChartFX__XAxisLabelAssignment_9_1 )
-            // InternalJavaFXLang.g:6412:3: rule__LineChartFX__XAxisLabelAssignment_9_1
+            // InternalJavaFXLang.g:6088:2: ( rule__LineChartFX__XAxisLabelAssignment_9_1 )
+            // InternalJavaFXLang.g:6088:3: rule__LineChartFX__XAxisLabelAssignment_9_1
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__XAxisLabelAssignment_9_1();
@@ -19813,14 +18809,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_10__0"
-    // InternalJavaFXLang.g:6421:1: rule__LineChartFX__Group_10__0 : rule__LineChartFX__Group_10__0__Impl rule__LineChartFX__Group_10__1 ;
+    // InternalJavaFXLang.g:6097:1: rule__LineChartFX__Group_10__0 : rule__LineChartFX__Group_10__0__Impl rule__LineChartFX__Group_10__1 ;
     public final void rule__LineChartFX__Group_10__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6425:1: ( rule__LineChartFX__Group_10__0__Impl rule__LineChartFX__Group_10__1 )
-            // InternalJavaFXLang.g:6426:2: rule__LineChartFX__Group_10__0__Impl rule__LineChartFX__Group_10__1
+            // InternalJavaFXLang.g:6101:1: ( rule__LineChartFX__Group_10__0__Impl rule__LineChartFX__Group_10__1 )
+            // InternalJavaFXLang.g:6102:2: rule__LineChartFX__Group_10__0__Impl rule__LineChartFX__Group_10__1
             {
             pushFollow(FOLLOW_23);
             rule__LineChartFX__Group_10__0__Impl();
@@ -19851,17 +18847,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_10__0__Impl"
-    // InternalJavaFXLang.g:6433:1: rule__LineChartFX__Group_10__0__Impl : ( 'xAxisType:' ) ;
+    // InternalJavaFXLang.g:6109:1: rule__LineChartFX__Group_10__0__Impl : ( 'xAxisType:' ) ;
     public final void rule__LineChartFX__Group_10__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6437:1: ( ( 'xAxisType:' ) )
-            // InternalJavaFXLang.g:6438:1: ( 'xAxisType:' )
+            // InternalJavaFXLang.g:6113:1: ( ( 'xAxisType:' ) )
+            // InternalJavaFXLang.g:6114:1: ( 'xAxisType:' )
             {
-            // InternalJavaFXLang.g:6438:1: ( 'xAxisType:' )
-            // InternalJavaFXLang.g:6439:2: 'xAxisType:'
+            // InternalJavaFXLang.g:6114:1: ( 'xAxisType:' )
+            // InternalJavaFXLang.g:6115:2: 'xAxisType:'
             {
              before(grammarAccess.getLineChartFXAccess().getXAxisTypeKeyword_10_0()); 
             match(input,41,FOLLOW_2); 
@@ -19888,14 +18884,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_10__1"
-    // InternalJavaFXLang.g:6448:1: rule__LineChartFX__Group_10__1 : rule__LineChartFX__Group_10__1__Impl ;
+    // InternalJavaFXLang.g:6124:1: rule__LineChartFX__Group_10__1 : rule__LineChartFX__Group_10__1__Impl ;
     public final void rule__LineChartFX__Group_10__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6452:1: ( rule__LineChartFX__Group_10__1__Impl )
-            // InternalJavaFXLang.g:6453:2: rule__LineChartFX__Group_10__1__Impl
+            // InternalJavaFXLang.g:6128:1: ( rule__LineChartFX__Group_10__1__Impl )
+            // InternalJavaFXLang.g:6129:2: rule__LineChartFX__Group_10__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group_10__1__Impl();
@@ -19921,21 +18917,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_10__1__Impl"
-    // InternalJavaFXLang.g:6459:1: rule__LineChartFX__Group_10__1__Impl : ( ( rule__LineChartFX__XAxisTypeAssignment_10_1 ) ) ;
+    // InternalJavaFXLang.g:6135:1: rule__LineChartFX__Group_10__1__Impl : ( ( rule__LineChartFX__XAxisTypeAssignment_10_1 ) ) ;
     public final void rule__LineChartFX__Group_10__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6463:1: ( ( ( rule__LineChartFX__XAxisTypeAssignment_10_1 ) ) )
-            // InternalJavaFXLang.g:6464:1: ( ( rule__LineChartFX__XAxisTypeAssignment_10_1 ) )
+            // InternalJavaFXLang.g:6139:1: ( ( ( rule__LineChartFX__XAxisTypeAssignment_10_1 ) ) )
+            // InternalJavaFXLang.g:6140:1: ( ( rule__LineChartFX__XAxisTypeAssignment_10_1 ) )
             {
-            // InternalJavaFXLang.g:6464:1: ( ( rule__LineChartFX__XAxisTypeAssignment_10_1 ) )
-            // InternalJavaFXLang.g:6465:2: ( rule__LineChartFX__XAxisTypeAssignment_10_1 )
+            // InternalJavaFXLang.g:6140:1: ( ( rule__LineChartFX__XAxisTypeAssignment_10_1 ) )
+            // InternalJavaFXLang.g:6141:2: ( rule__LineChartFX__XAxisTypeAssignment_10_1 )
             {
              before(grammarAccess.getLineChartFXAccess().getXAxisTypeAssignment_10_1()); 
-            // InternalJavaFXLang.g:6466:2: ( rule__LineChartFX__XAxisTypeAssignment_10_1 )
-            // InternalJavaFXLang.g:6466:3: rule__LineChartFX__XAxisTypeAssignment_10_1
+            // InternalJavaFXLang.g:6142:2: ( rule__LineChartFX__XAxisTypeAssignment_10_1 )
+            // InternalJavaFXLang.g:6142:3: rule__LineChartFX__XAxisTypeAssignment_10_1
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__XAxisTypeAssignment_10_1();
@@ -19968,14 +18964,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_11__0"
-    // InternalJavaFXLang.g:6475:1: rule__LineChartFX__Group_11__0 : rule__LineChartFX__Group_11__0__Impl rule__LineChartFX__Group_11__1 ;
+    // InternalJavaFXLang.g:6151:1: rule__LineChartFX__Group_11__0 : rule__LineChartFX__Group_11__0__Impl rule__LineChartFX__Group_11__1 ;
     public final void rule__LineChartFX__Group_11__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6479:1: ( rule__LineChartFX__Group_11__0__Impl rule__LineChartFX__Group_11__1 )
-            // InternalJavaFXLang.g:6480:2: rule__LineChartFX__Group_11__0__Impl rule__LineChartFX__Group_11__1
+            // InternalJavaFXLang.g:6155:1: ( rule__LineChartFX__Group_11__0__Impl rule__LineChartFX__Group_11__1 )
+            // InternalJavaFXLang.g:6156:2: rule__LineChartFX__Group_11__0__Impl rule__LineChartFX__Group_11__1
             {
             pushFollow(FOLLOW_4);
             rule__LineChartFX__Group_11__0__Impl();
@@ -20006,17 +19002,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_11__0__Impl"
-    // InternalJavaFXLang.g:6487:1: rule__LineChartFX__Group_11__0__Impl : ( 'yAxisLabel:' ) ;
+    // InternalJavaFXLang.g:6163:1: rule__LineChartFX__Group_11__0__Impl : ( 'yAxisLabel:' ) ;
     public final void rule__LineChartFX__Group_11__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6491:1: ( ( 'yAxisLabel:' ) )
-            // InternalJavaFXLang.g:6492:1: ( 'yAxisLabel:' )
+            // InternalJavaFXLang.g:6167:1: ( ( 'yAxisLabel:' ) )
+            // InternalJavaFXLang.g:6168:1: ( 'yAxisLabel:' )
             {
-            // InternalJavaFXLang.g:6492:1: ( 'yAxisLabel:' )
-            // InternalJavaFXLang.g:6493:2: 'yAxisLabel:'
+            // InternalJavaFXLang.g:6168:1: ( 'yAxisLabel:' )
+            // InternalJavaFXLang.g:6169:2: 'yAxisLabel:'
             {
              before(grammarAccess.getLineChartFXAccess().getYAxisLabelKeyword_11_0()); 
             match(input,42,FOLLOW_2); 
@@ -20043,14 +19039,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_11__1"
-    // InternalJavaFXLang.g:6502:1: rule__LineChartFX__Group_11__1 : rule__LineChartFX__Group_11__1__Impl ;
+    // InternalJavaFXLang.g:6178:1: rule__LineChartFX__Group_11__1 : rule__LineChartFX__Group_11__1__Impl ;
     public final void rule__LineChartFX__Group_11__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6506:1: ( rule__LineChartFX__Group_11__1__Impl )
-            // InternalJavaFXLang.g:6507:2: rule__LineChartFX__Group_11__1__Impl
+            // InternalJavaFXLang.g:6182:1: ( rule__LineChartFX__Group_11__1__Impl )
+            // InternalJavaFXLang.g:6183:2: rule__LineChartFX__Group_11__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group_11__1__Impl();
@@ -20076,21 +19072,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_11__1__Impl"
-    // InternalJavaFXLang.g:6513:1: rule__LineChartFX__Group_11__1__Impl : ( ( rule__LineChartFX__YAxisLabelAssignment_11_1 ) ) ;
+    // InternalJavaFXLang.g:6189:1: rule__LineChartFX__Group_11__1__Impl : ( ( rule__LineChartFX__YAxisLabelAssignment_11_1 ) ) ;
     public final void rule__LineChartFX__Group_11__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6517:1: ( ( ( rule__LineChartFX__YAxisLabelAssignment_11_1 ) ) )
-            // InternalJavaFXLang.g:6518:1: ( ( rule__LineChartFX__YAxisLabelAssignment_11_1 ) )
+            // InternalJavaFXLang.g:6193:1: ( ( ( rule__LineChartFX__YAxisLabelAssignment_11_1 ) ) )
+            // InternalJavaFXLang.g:6194:1: ( ( rule__LineChartFX__YAxisLabelAssignment_11_1 ) )
             {
-            // InternalJavaFXLang.g:6518:1: ( ( rule__LineChartFX__YAxisLabelAssignment_11_1 ) )
-            // InternalJavaFXLang.g:6519:2: ( rule__LineChartFX__YAxisLabelAssignment_11_1 )
+            // InternalJavaFXLang.g:6194:1: ( ( rule__LineChartFX__YAxisLabelAssignment_11_1 ) )
+            // InternalJavaFXLang.g:6195:2: ( rule__LineChartFX__YAxisLabelAssignment_11_1 )
             {
              before(grammarAccess.getLineChartFXAccess().getYAxisLabelAssignment_11_1()); 
-            // InternalJavaFXLang.g:6520:2: ( rule__LineChartFX__YAxisLabelAssignment_11_1 )
-            // InternalJavaFXLang.g:6520:3: rule__LineChartFX__YAxisLabelAssignment_11_1
+            // InternalJavaFXLang.g:6196:2: ( rule__LineChartFX__YAxisLabelAssignment_11_1 )
+            // InternalJavaFXLang.g:6196:3: rule__LineChartFX__YAxisLabelAssignment_11_1
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__YAxisLabelAssignment_11_1();
@@ -20123,14 +19119,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_12__0"
-    // InternalJavaFXLang.g:6529:1: rule__LineChartFX__Group_12__0 : rule__LineChartFX__Group_12__0__Impl rule__LineChartFX__Group_12__1 ;
+    // InternalJavaFXLang.g:6205:1: rule__LineChartFX__Group_12__0 : rule__LineChartFX__Group_12__0__Impl rule__LineChartFX__Group_12__1 ;
     public final void rule__LineChartFX__Group_12__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6533:1: ( rule__LineChartFX__Group_12__0__Impl rule__LineChartFX__Group_12__1 )
-            // InternalJavaFXLang.g:6534:2: rule__LineChartFX__Group_12__0__Impl rule__LineChartFX__Group_12__1
+            // InternalJavaFXLang.g:6209:1: ( rule__LineChartFX__Group_12__0__Impl rule__LineChartFX__Group_12__1 )
+            // InternalJavaFXLang.g:6210:2: rule__LineChartFX__Group_12__0__Impl rule__LineChartFX__Group_12__1
             {
             pushFollow(FOLLOW_23);
             rule__LineChartFX__Group_12__0__Impl();
@@ -20161,17 +19157,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_12__0__Impl"
-    // InternalJavaFXLang.g:6541:1: rule__LineChartFX__Group_12__0__Impl : ( 'yAxisType:' ) ;
+    // InternalJavaFXLang.g:6217:1: rule__LineChartFX__Group_12__0__Impl : ( 'yAxisType:' ) ;
     public final void rule__LineChartFX__Group_12__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6545:1: ( ( 'yAxisType:' ) )
-            // InternalJavaFXLang.g:6546:1: ( 'yAxisType:' )
+            // InternalJavaFXLang.g:6221:1: ( ( 'yAxisType:' ) )
+            // InternalJavaFXLang.g:6222:1: ( 'yAxisType:' )
             {
-            // InternalJavaFXLang.g:6546:1: ( 'yAxisType:' )
-            // InternalJavaFXLang.g:6547:2: 'yAxisType:'
+            // InternalJavaFXLang.g:6222:1: ( 'yAxisType:' )
+            // InternalJavaFXLang.g:6223:2: 'yAxisType:'
             {
              before(grammarAccess.getLineChartFXAccess().getYAxisTypeKeyword_12_0()); 
             match(input,43,FOLLOW_2); 
@@ -20198,14 +19194,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_12__1"
-    // InternalJavaFXLang.g:6556:1: rule__LineChartFX__Group_12__1 : rule__LineChartFX__Group_12__1__Impl ;
+    // InternalJavaFXLang.g:6232:1: rule__LineChartFX__Group_12__1 : rule__LineChartFX__Group_12__1__Impl ;
     public final void rule__LineChartFX__Group_12__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6560:1: ( rule__LineChartFX__Group_12__1__Impl )
-            // InternalJavaFXLang.g:6561:2: rule__LineChartFX__Group_12__1__Impl
+            // InternalJavaFXLang.g:6236:1: ( rule__LineChartFX__Group_12__1__Impl )
+            // InternalJavaFXLang.g:6237:2: rule__LineChartFX__Group_12__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__Group_12__1__Impl();
@@ -20231,21 +19227,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__Group_12__1__Impl"
-    // InternalJavaFXLang.g:6567:1: rule__LineChartFX__Group_12__1__Impl : ( ( rule__LineChartFX__YAxisTypeAssignment_12_1 ) ) ;
+    // InternalJavaFXLang.g:6243:1: rule__LineChartFX__Group_12__1__Impl : ( ( rule__LineChartFX__YAxisTypeAssignment_12_1 ) ) ;
     public final void rule__LineChartFX__Group_12__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6571:1: ( ( ( rule__LineChartFX__YAxisTypeAssignment_12_1 ) ) )
-            // InternalJavaFXLang.g:6572:1: ( ( rule__LineChartFX__YAxisTypeAssignment_12_1 ) )
+            // InternalJavaFXLang.g:6247:1: ( ( ( rule__LineChartFX__YAxisTypeAssignment_12_1 ) ) )
+            // InternalJavaFXLang.g:6248:1: ( ( rule__LineChartFX__YAxisTypeAssignment_12_1 ) )
             {
-            // InternalJavaFXLang.g:6572:1: ( ( rule__LineChartFX__YAxisTypeAssignment_12_1 ) )
-            // InternalJavaFXLang.g:6573:2: ( rule__LineChartFX__YAxisTypeAssignment_12_1 )
+            // InternalJavaFXLang.g:6248:1: ( ( rule__LineChartFX__YAxisTypeAssignment_12_1 ) )
+            // InternalJavaFXLang.g:6249:2: ( rule__LineChartFX__YAxisTypeAssignment_12_1 )
             {
              before(grammarAccess.getLineChartFXAccess().getYAxisTypeAssignment_12_1()); 
-            // InternalJavaFXLang.g:6574:2: ( rule__LineChartFX__YAxisTypeAssignment_12_1 )
-            // InternalJavaFXLang.g:6574:3: rule__LineChartFX__YAxisTypeAssignment_12_1
+            // InternalJavaFXLang.g:6250:2: ( rule__LineChartFX__YAxisTypeAssignment_12_1 )
+            // InternalJavaFXLang.g:6250:3: rule__LineChartFX__YAxisTypeAssignment_12_1
             {
             pushFollow(FOLLOW_2);
             rule__LineChartFX__YAxisTypeAssignment_12_1();
@@ -20278,14 +19274,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__0"
-    // InternalJavaFXLang.g:6583:1: rule__Binding__Group__0 : rule__Binding__Group__0__Impl rule__Binding__Group__1 ;
+    // InternalJavaFXLang.g:6259:1: rule__Binding__Group__0 : rule__Binding__Group__0__Impl rule__Binding__Group__1 ;
     public final void rule__Binding__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6587:1: ( rule__Binding__Group__0__Impl rule__Binding__Group__1 )
-            // InternalJavaFXLang.g:6588:2: rule__Binding__Group__0__Impl rule__Binding__Group__1
+            // InternalJavaFXLang.g:6263:1: ( rule__Binding__Group__0__Impl rule__Binding__Group__1 )
+            // InternalJavaFXLang.g:6264:2: rule__Binding__Group__0__Impl rule__Binding__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__Binding__Group__0__Impl();
@@ -20316,21 +19312,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__0__Impl"
-    // InternalJavaFXLang.g:6595:1: rule__Binding__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:6271:1: rule__Binding__Group__0__Impl : ( () ) ;
     public final void rule__Binding__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6599:1: ( ( () ) )
-            // InternalJavaFXLang.g:6600:1: ( () )
+            // InternalJavaFXLang.g:6275:1: ( ( () ) )
+            // InternalJavaFXLang.g:6276:1: ( () )
             {
-            // InternalJavaFXLang.g:6600:1: ( () )
-            // InternalJavaFXLang.g:6601:2: ()
+            // InternalJavaFXLang.g:6276:1: ( () )
+            // InternalJavaFXLang.g:6277:2: ()
             {
              before(grammarAccess.getBindingAccess().getBindingAction_0()); 
-            // InternalJavaFXLang.g:6602:2: ()
-            // InternalJavaFXLang.g:6602:3: 
+            // InternalJavaFXLang.g:6278:2: ()
+            // InternalJavaFXLang.g:6278:3: 
             {
             }
 
@@ -20353,14 +19349,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__1"
-    // InternalJavaFXLang.g:6610:1: rule__Binding__Group__1 : rule__Binding__Group__1__Impl rule__Binding__Group__2 ;
+    // InternalJavaFXLang.g:6286:1: rule__Binding__Group__1 : rule__Binding__Group__1__Impl rule__Binding__Group__2 ;
     public final void rule__Binding__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6614:1: ( rule__Binding__Group__1__Impl rule__Binding__Group__2 )
-            // InternalJavaFXLang.g:6615:2: rule__Binding__Group__1__Impl rule__Binding__Group__2
+            // InternalJavaFXLang.g:6290:1: ( rule__Binding__Group__1__Impl rule__Binding__Group__2 )
+            // InternalJavaFXLang.g:6291:2: rule__Binding__Group__1__Impl rule__Binding__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Binding__Group__1__Impl();
@@ -20391,17 +19387,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__1__Impl"
-    // InternalJavaFXLang.g:6622:1: rule__Binding__Group__1__Impl : ( 'binding' ) ;
+    // InternalJavaFXLang.g:6298:1: rule__Binding__Group__1__Impl : ( 'binding' ) ;
     public final void rule__Binding__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6626:1: ( ( 'binding' ) )
-            // InternalJavaFXLang.g:6627:1: ( 'binding' )
+            // InternalJavaFXLang.g:6302:1: ( ( 'binding' ) )
+            // InternalJavaFXLang.g:6303:1: ( 'binding' )
             {
-            // InternalJavaFXLang.g:6627:1: ( 'binding' )
-            // InternalJavaFXLang.g:6628:2: 'binding'
+            // InternalJavaFXLang.g:6303:1: ( 'binding' )
+            // InternalJavaFXLang.g:6304:2: 'binding'
             {
              before(grammarAccess.getBindingAccess().getBindingKeyword_1()); 
             match(input,49,FOLLOW_2); 
@@ -20428,14 +19424,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__2"
-    // InternalJavaFXLang.g:6637:1: rule__Binding__Group__2 : rule__Binding__Group__2__Impl rule__Binding__Group__3 ;
+    // InternalJavaFXLang.g:6313:1: rule__Binding__Group__2 : rule__Binding__Group__2__Impl rule__Binding__Group__3 ;
     public final void rule__Binding__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6641:1: ( rule__Binding__Group__2__Impl rule__Binding__Group__3 )
-            // InternalJavaFXLang.g:6642:2: rule__Binding__Group__2__Impl rule__Binding__Group__3
+            // InternalJavaFXLang.g:6317:1: ( rule__Binding__Group__2__Impl rule__Binding__Group__3 )
+            // InternalJavaFXLang.g:6318:2: rule__Binding__Group__2__Impl rule__Binding__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__Binding__Group__2__Impl();
@@ -20466,21 +19462,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__2__Impl"
-    // InternalJavaFXLang.g:6649:1: rule__Binding__Group__2__Impl : ( ( rule__Binding__NameAssignment_2 ) ) ;
+    // InternalJavaFXLang.g:6325:1: rule__Binding__Group__2__Impl : ( ( rule__Binding__NameAssignment_2 ) ) ;
     public final void rule__Binding__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6653:1: ( ( ( rule__Binding__NameAssignment_2 ) ) )
-            // InternalJavaFXLang.g:6654:1: ( ( rule__Binding__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:6329:1: ( ( ( rule__Binding__NameAssignment_2 ) ) )
+            // InternalJavaFXLang.g:6330:1: ( ( rule__Binding__NameAssignment_2 ) )
             {
-            // InternalJavaFXLang.g:6654:1: ( ( rule__Binding__NameAssignment_2 ) )
-            // InternalJavaFXLang.g:6655:2: ( rule__Binding__NameAssignment_2 )
+            // InternalJavaFXLang.g:6330:1: ( ( rule__Binding__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:6331:2: ( rule__Binding__NameAssignment_2 )
             {
              before(grammarAccess.getBindingAccess().getNameAssignment_2()); 
-            // InternalJavaFXLang.g:6656:2: ( rule__Binding__NameAssignment_2 )
-            // InternalJavaFXLang.g:6656:3: rule__Binding__NameAssignment_2
+            // InternalJavaFXLang.g:6332:2: ( rule__Binding__NameAssignment_2 )
+            // InternalJavaFXLang.g:6332:3: rule__Binding__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Binding__NameAssignment_2();
@@ -20513,16 +19509,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__3"
-    // InternalJavaFXLang.g:6664:1: rule__Binding__Group__3 : rule__Binding__Group__3__Impl rule__Binding__Group__4 ;
+    // InternalJavaFXLang.g:6340:1: rule__Binding__Group__3 : rule__Binding__Group__3__Impl rule__Binding__Group__4 ;
     public final void rule__Binding__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6668:1: ( rule__Binding__Group__3__Impl rule__Binding__Group__4 )
-            // InternalJavaFXLang.g:6669:2: rule__Binding__Group__3__Impl rule__Binding__Group__4
+            // InternalJavaFXLang.g:6344:1: ( rule__Binding__Group__3__Impl rule__Binding__Group__4 )
+            // InternalJavaFXLang.g:6345:2: rule__Binding__Group__3__Impl rule__Binding__Group__4
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__Binding__Group__3__Impl();
 
             state._fsp--;
@@ -20551,17 +19547,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__3__Impl"
-    // InternalJavaFXLang.g:6676:1: rule__Binding__Group__3__Impl : ( '{' ) ;
+    // InternalJavaFXLang.g:6352:1: rule__Binding__Group__3__Impl : ( '{' ) ;
     public final void rule__Binding__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6680:1: ( ( '{' ) )
-            // InternalJavaFXLang.g:6681:1: ( '{' )
+            // InternalJavaFXLang.g:6356:1: ( ( '{' ) )
+            // InternalJavaFXLang.g:6357:1: ( '{' )
             {
-            // InternalJavaFXLang.g:6681:1: ( '{' )
-            // InternalJavaFXLang.g:6682:2: '{'
+            // InternalJavaFXLang.g:6357:1: ( '{' )
+            // InternalJavaFXLang.g:6358:2: '{'
             {
              before(grammarAccess.getBindingAccess().getLeftCurlyBracketKeyword_3()); 
             match(input,27,FOLLOW_2); 
@@ -20588,16 +19584,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__4"
-    // InternalJavaFXLang.g:6691:1: rule__Binding__Group__4 : rule__Binding__Group__4__Impl rule__Binding__Group__5 ;
+    // InternalJavaFXLang.g:6367:1: rule__Binding__Group__4 : rule__Binding__Group__4__Impl rule__Binding__Group__5 ;
     public final void rule__Binding__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6695:1: ( rule__Binding__Group__4__Impl rule__Binding__Group__5 )
-            // InternalJavaFXLang.g:6696:2: rule__Binding__Group__4__Impl rule__Binding__Group__5
+            // InternalJavaFXLang.g:6371:1: ( rule__Binding__Group__4__Impl rule__Binding__Group__5 )
+            // InternalJavaFXLang.g:6372:2: rule__Binding__Group__4__Impl rule__Binding__Group__5
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__Binding__Group__4__Impl();
 
             state._fsp--;
@@ -20626,29 +19622,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__4__Impl"
-    // InternalJavaFXLang.g:6703:1: rule__Binding__Group__4__Impl : ( ( rule__Binding__Group_4__0 )? ) ;
+    // InternalJavaFXLang.g:6379:1: rule__Binding__Group__4__Impl : ( ( rule__Binding__Group_4__0 )? ) ;
     public final void rule__Binding__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6707:1: ( ( ( rule__Binding__Group_4__0 )? ) )
-            // InternalJavaFXLang.g:6708:1: ( ( rule__Binding__Group_4__0 )? )
+            // InternalJavaFXLang.g:6383:1: ( ( ( rule__Binding__Group_4__0 )? ) )
+            // InternalJavaFXLang.g:6384:1: ( ( rule__Binding__Group_4__0 )? )
             {
-            // InternalJavaFXLang.g:6708:1: ( ( rule__Binding__Group_4__0 )? )
-            // InternalJavaFXLang.g:6709:2: ( rule__Binding__Group_4__0 )?
+            // InternalJavaFXLang.g:6384:1: ( ( rule__Binding__Group_4__0 )? )
+            // InternalJavaFXLang.g:6385:2: ( rule__Binding__Group_4__0 )?
             {
              before(grammarAccess.getBindingAccess().getGroup_4()); 
-            // InternalJavaFXLang.g:6710:2: ( rule__Binding__Group_4__0 )?
-            int alt66=2;
-            int LA66_0 = input.LA(1);
+            // InternalJavaFXLang.g:6386:2: ( rule__Binding__Group_4__0 )?
+            int alt62=2;
+            int LA62_0 = input.LA(1);
 
-            if ( ((LA66_0>=19 && LA66_0<=25)) ) {
-                alt66=1;
+            if ( ((LA62_0>=19 && LA62_0<=25)) ) {
+                alt62=1;
             }
-            switch (alt66) {
+            switch (alt62) {
                 case 1 :
-                    // InternalJavaFXLang.g:6710:3: rule__Binding__Group_4__0
+                    // InternalJavaFXLang.g:6386:3: rule__Binding__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Binding__Group_4__0();
@@ -20684,14 +19680,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__5"
-    // InternalJavaFXLang.g:6718:1: rule__Binding__Group__5 : rule__Binding__Group__5__Impl ;
+    // InternalJavaFXLang.g:6394:1: rule__Binding__Group__5 : rule__Binding__Group__5__Impl ;
     public final void rule__Binding__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6722:1: ( rule__Binding__Group__5__Impl )
-            // InternalJavaFXLang.g:6723:2: rule__Binding__Group__5__Impl
+            // InternalJavaFXLang.g:6398:1: ( rule__Binding__Group__5__Impl )
+            // InternalJavaFXLang.g:6399:2: rule__Binding__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Binding__Group__5__Impl();
@@ -20717,17 +19713,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group__5__Impl"
-    // InternalJavaFXLang.g:6729:1: rule__Binding__Group__5__Impl : ( '}' ) ;
+    // InternalJavaFXLang.g:6405:1: rule__Binding__Group__5__Impl : ( '}' ) ;
     public final void rule__Binding__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6733:1: ( ( '}' ) )
-            // InternalJavaFXLang.g:6734:1: ( '}' )
+            // InternalJavaFXLang.g:6409:1: ( ( '}' ) )
+            // InternalJavaFXLang.g:6410:1: ( '}' )
             {
-            // InternalJavaFXLang.g:6734:1: ( '}' )
-            // InternalJavaFXLang.g:6735:2: '}'
+            // InternalJavaFXLang.g:6410:1: ( '}' )
+            // InternalJavaFXLang.g:6411:2: '}'
             {
              before(grammarAccess.getBindingAccess().getRightCurlyBracketKeyword_5()); 
             match(input,28,FOLLOW_2); 
@@ -20754,16 +19750,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group_4__0"
-    // InternalJavaFXLang.g:6745:1: rule__Binding__Group_4__0 : rule__Binding__Group_4__0__Impl rule__Binding__Group_4__1 ;
+    // InternalJavaFXLang.g:6421:1: rule__Binding__Group_4__0 : rule__Binding__Group_4__0__Impl rule__Binding__Group_4__1 ;
     public final void rule__Binding__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6749:1: ( rule__Binding__Group_4__0__Impl rule__Binding__Group_4__1 )
-            // InternalJavaFXLang.g:6750:2: rule__Binding__Group_4__0__Impl rule__Binding__Group_4__1
+            // InternalJavaFXLang.g:6425:1: ( rule__Binding__Group_4__0__Impl rule__Binding__Group_4__1 )
+            // InternalJavaFXLang.g:6426:2: rule__Binding__Group_4__0__Impl rule__Binding__Group_4__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Binding__Group_4__0__Impl();
 
             state._fsp--;
@@ -20792,21 +19788,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group_4__0__Impl"
-    // InternalJavaFXLang.g:6757:1: rule__Binding__Group_4__0__Impl : ( ( rule__Binding__PropertyAssignment_4_0 ) ) ;
+    // InternalJavaFXLang.g:6433:1: rule__Binding__Group_4__0__Impl : ( ( rule__Binding__PropertyAssignment_4_0 ) ) ;
     public final void rule__Binding__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6761:1: ( ( ( rule__Binding__PropertyAssignment_4_0 ) ) )
-            // InternalJavaFXLang.g:6762:1: ( ( rule__Binding__PropertyAssignment_4_0 ) )
+            // InternalJavaFXLang.g:6437:1: ( ( ( rule__Binding__PropertyAssignment_4_0 ) ) )
+            // InternalJavaFXLang.g:6438:1: ( ( rule__Binding__PropertyAssignment_4_0 ) )
             {
-            // InternalJavaFXLang.g:6762:1: ( ( rule__Binding__PropertyAssignment_4_0 ) )
-            // InternalJavaFXLang.g:6763:2: ( rule__Binding__PropertyAssignment_4_0 )
+            // InternalJavaFXLang.g:6438:1: ( ( rule__Binding__PropertyAssignment_4_0 ) )
+            // InternalJavaFXLang.g:6439:2: ( rule__Binding__PropertyAssignment_4_0 )
             {
              before(grammarAccess.getBindingAccess().getPropertyAssignment_4_0()); 
-            // InternalJavaFXLang.g:6764:2: ( rule__Binding__PropertyAssignment_4_0 )
-            // InternalJavaFXLang.g:6764:3: rule__Binding__PropertyAssignment_4_0
+            // InternalJavaFXLang.g:6440:2: ( rule__Binding__PropertyAssignment_4_0 )
+            // InternalJavaFXLang.g:6440:3: rule__Binding__PropertyAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__Binding__PropertyAssignment_4_0();
@@ -20839,14 +19835,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group_4__1"
-    // InternalJavaFXLang.g:6772:1: rule__Binding__Group_4__1 : rule__Binding__Group_4__1__Impl ;
+    // InternalJavaFXLang.g:6448:1: rule__Binding__Group_4__1 : rule__Binding__Group_4__1__Impl ;
     public final void rule__Binding__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6776:1: ( rule__Binding__Group_4__1__Impl )
-            // InternalJavaFXLang.g:6777:2: rule__Binding__Group_4__1__Impl
+            // InternalJavaFXLang.g:6452:1: ( rule__Binding__Group_4__1__Impl )
+            // InternalJavaFXLang.g:6453:2: rule__Binding__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Binding__Group_4__1__Impl();
@@ -20872,35 +19868,35 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__Group_4__1__Impl"
-    // InternalJavaFXLang.g:6783:1: rule__Binding__Group_4__1__Impl : ( ( rule__Binding__PropertyAssignment_4_1 )* ) ;
+    // InternalJavaFXLang.g:6459:1: rule__Binding__Group_4__1__Impl : ( ( rule__Binding__PropertyAssignment_4_1 )* ) ;
     public final void rule__Binding__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6787:1: ( ( ( rule__Binding__PropertyAssignment_4_1 )* ) )
-            // InternalJavaFXLang.g:6788:1: ( ( rule__Binding__PropertyAssignment_4_1 )* )
+            // InternalJavaFXLang.g:6463:1: ( ( ( rule__Binding__PropertyAssignment_4_1 )* ) )
+            // InternalJavaFXLang.g:6464:1: ( ( rule__Binding__PropertyAssignment_4_1 )* )
             {
-            // InternalJavaFXLang.g:6788:1: ( ( rule__Binding__PropertyAssignment_4_1 )* )
-            // InternalJavaFXLang.g:6789:2: ( rule__Binding__PropertyAssignment_4_1 )*
+            // InternalJavaFXLang.g:6464:1: ( ( rule__Binding__PropertyAssignment_4_1 )* )
+            // InternalJavaFXLang.g:6465:2: ( rule__Binding__PropertyAssignment_4_1 )*
             {
              before(grammarAccess.getBindingAccess().getPropertyAssignment_4_1()); 
-            // InternalJavaFXLang.g:6790:2: ( rule__Binding__PropertyAssignment_4_1 )*
-            loop67:
+            // InternalJavaFXLang.g:6466:2: ( rule__Binding__PropertyAssignment_4_1 )*
+            loop63:
             do {
-                int alt67=2;
-                int LA67_0 = input.LA(1);
+                int alt63=2;
+                int LA63_0 = input.LA(1);
 
-                if ( ((LA67_0>=19 && LA67_0<=25)) ) {
-                    alt67=1;
+                if ( ((LA63_0>=19 && LA63_0<=25)) ) {
+                    alt63=1;
                 }
 
 
-                switch (alt67) {
+                switch (alt63) {
             	case 1 :
-            	    // InternalJavaFXLang.g:6790:3: rule__Binding__PropertyAssignment_4_1
+            	    // InternalJavaFXLang.g:6466:3: rule__Binding__PropertyAssignment_4_1
             	    {
-            	    pushFollow(FOLLOW_31);
+            	    pushFollow(FOLLOW_32);
             	    rule__Binding__PropertyAssignment_4_1();
 
             	    state._fsp--;
@@ -20910,7 +19906,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop67;
+            	    break loop63;
                 }
             } while (true);
 
@@ -20937,16 +19933,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BindingProperty__Group__0"
-    // InternalJavaFXLang.g:6799:1: rule__BindingProperty__Group__0 : rule__BindingProperty__Group__0__Impl rule__BindingProperty__Group__1 ;
+    // InternalJavaFXLang.g:6475:1: rule__BindingProperty__Group__0 : rule__BindingProperty__Group__0__Impl rule__BindingProperty__Group__1 ;
     public final void rule__BindingProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6803:1: ( rule__BindingProperty__Group__0__Impl rule__BindingProperty__Group__1 )
-            // InternalJavaFXLang.g:6804:2: rule__BindingProperty__Group__0__Impl rule__BindingProperty__Group__1
+            // InternalJavaFXLang.g:6479:1: ( rule__BindingProperty__Group__0__Impl rule__BindingProperty__Group__1 )
+            // InternalJavaFXLang.g:6480:2: rule__BindingProperty__Group__0__Impl rule__BindingProperty__Group__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__BindingProperty__Group__0__Impl();
 
             state._fsp--;
@@ -20975,21 +19971,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BindingProperty__Group__0__Impl"
-    // InternalJavaFXLang.g:6811:1: rule__BindingProperty__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:6487:1: rule__BindingProperty__Group__0__Impl : ( () ) ;
     public final void rule__BindingProperty__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6815:1: ( ( () ) )
-            // InternalJavaFXLang.g:6816:1: ( () )
+            // InternalJavaFXLang.g:6491:1: ( ( () ) )
+            // InternalJavaFXLang.g:6492:1: ( () )
             {
-            // InternalJavaFXLang.g:6816:1: ( () )
-            // InternalJavaFXLang.g:6817:2: ()
+            // InternalJavaFXLang.g:6492:1: ( () )
+            // InternalJavaFXLang.g:6493:2: ()
             {
              before(grammarAccess.getBindingPropertyAccess().getBindingPropertyAction_0()); 
-            // InternalJavaFXLang.g:6818:2: ()
-            // InternalJavaFXLang.g:6818:3: 
+            // InternalJavaFXLang.g:6494:2: ()
+            // InternalJavaFXLang.g:6494:3: 
             {
             }
 
@@ -21012,14 +20008,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BindingProperty__Group__1"
-    // InternalJavaFXLang.g:6826:1: rule__BindingProperty__Group__1 : rule__BindingProperty__Group__1__Impl rule__BindingProperty__Group__2 ;
+    // InternalJavaFXLang.g:6502:1: rule__BindingProperty__Group__1 : rule__BindingProperty__Group__1__Impl rule__BindingProperty__Group__2 ;
     public final void rule__BindingProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6830:1: ( rule__BindingProperty__Group__1__Impl rule__BindingProperty__Group__2 )
-            // InternalJavaFXLang.g:6831:2: rule__BindingProperty__Group__1__Impl rule__BindingProperty__Group__2
+            // InternalJavaFXLang.g:6506:1: ( rule__BindingProperty__Group__1__Impl rule__BindingProperty__Group__2 )
+            // InternalJavaFXLang.g:6507:2: rule__BindingProperty__Group__1__Impl rule__BindingProperty__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__BindingProperty__Group__1__Impl();
@@ -21050,21 +20046,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BindingProperty__Group__1__Impl"
-    // InternalJavaFXLang.g:6838:1: rule__BindingProperty__Group__1__Impl : ( ( rule__BindingProperty__TypeAssignment_1 ) ) ;
+    // InternalJavaFXLang.g:6514:1: rule__BindingProperty__Group__1__Impl : ( ( rule__BindingProperty__TypeAssignment_1 ) ) ;
     public final void rule__BindingProperty__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6842:1: ( ( ( rule__BindingProperty__TypeAssignment_1 ) ) )
-            // InternalJavaFXLang.g:6843:1: ( ( rule__BindingProperty__TypeAssignment_1 ) )
+            // InternalJavaFXLang.g:6518:1: ( ( ( rule__BindingProperty__TypeAssignment_1 ) ) )
+            // InternalJavaFXLang.g:6519:1: ( ( rule__BindingProperty__TypeAssignment_1 ) )
             {
-            // InternalJavaFXLang.g:6843:1: ( ( rule__BindingProperty__TypeAssignment_1 ) )
-            // InternalJavaFXLang.g:6844:2: ( rule__BindingProperty__TypeAssignment_1 )
+            // InternalJavaFXLang.g:6519:1: ( ( rule__BindingProperty__TypeAssignment_1 ) )
+            // InternalJavaFXLang.g:6520:2: ( rule__BindingProperty__TypeAssignment_1 )
             {
              before(grammarAccess.getBindingPropertyAccess().getTypeAssignment_1()); 
-            // InternalJavaFXLang.g:6845:2: ( rule__BindingProperty__TypeAssignment_1 )
-            // InternalJavaFXLang.g:6845:3: rule__BindingProperty__TypeAssignment_1
+            // InternalJavaFXLang.g:6521:2: ( rule__BindingProperty__TypeAssignment_1 )
+            // InternalJavaFXLang.g:6521:3: rule__BindingProperty__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__BindingProperty__TypeAssignment_1();
@@ -21097,14 +20093,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BindingProperty__Group__2"
-    // InternalJavaFXLang.g:6853:1: rule__BindingProperty__Group__2 : rule__BindingProperty__Group__2__Impl ;
+    // InternalJavaFXLang.g:6529:1: rule__BindingProperty__Group__2 : rule__BindingProperty__Group__2__Impl ;
     public final void rule__BindingProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6857:1: ( rule__BindingProperty__Group__2__Impl )
-            // InternalJavaFXLang.g:6858:2: rule__BindingProperty__Group__2__Impl
+            // InternalJavaFXLang.g:6533:1: ( rule__BindingProperty__Group__2__Impl )
+            // InternalJavaFXLang.g:6534:2: rule__BindingProperty__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BindingProperty__Group__2__Impl();
@@ -21130,21 +20126,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BindingProperty__Group__2__Impl"
-    // InternalJavaFXLang.g:6864:1: rule__BindingProperty__Group__2__Impl : ( ( rule__BindingProperty__NameAssignment_2 ) ) ;
+    // InternalJavaFXLang.g:6540:1: rule__BindingProperty__Group__2__Impl : ( ( rule__BindingProperty__NameAssignment_2 ) ) ;
     public final void rule__BindingProperty__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6868:1: ( ( ( rule__BindingProperty__NameAssignment_2 ) ) )
-            // InternalJavaFXLang.g:6869:1: ( ( rule__BindingProperty__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:6544:1: ( ( ( rule__BindingProperty__NameAssignment_2 ) ) )
+            // InternalJavaFXLang.g:6545:1: ( ( rule__BindingProperty__NameAssignment_2 ) )
             {
-            // InternalJavaFXLang.g:6869:1: ( ( rule__BindingProperty__NameAssignment_2 ) )
-            // InternalJavaFXLang.g:6870:2: ( rule__BindingProperty__NameAssignment_2 )
+            // InternalJavaFXLang.g:6545:1: ( ( rule__BindingProperty__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:6546:2: ( rule__BindingProperty__NameAssignment_2 )
             {
              before(grammarAccess.getBindingPropertyAccess().getNameAssignment_2()); 
-            // InternalJavaFXLang.g:6871:2: ( rule__BindingProperty__NameAssignment_2 )
-            // InternalJavaFXLang.g:6871:3: rule__BindingProperty__NameAssignment_2
+            // InternalJavaFXLang.g:6547:2: ( rule__BindingProperty__NameAssignment_2 )
+            // InternalJavaFXLang.g:6547:3: rule__BindingProperty__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__BindingProperty__NameAssignment_2();
@@ -21177,14 +20173,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__0"
-    // InternalJavaFXLang.g:6880:1: rule__FilteredTableViewFX__Group__0 : rule__FilteredTableViewFX__Group__0__Impl rule__FilteredTableViewFX__Group__1 ;
+    // InternalJavaFXLang.g:6556:1: rule__FilteredTableViewFX__Group__0 : rule__FilteredTableViewFX__Group__0__Impl rule__FilteredTableViewFX__Group__1 ;
     public final void rule__FilteredTableViewFX__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6884:1: ( rule__FilteredTableViewFX__Group__0__Impl rule__FilteredTableViewFX__Group__1 )
-            // InternalJavaFXLang.g:6885:2: rule__FilteredTableViewFX__Group__0__Impl rule__FilteredTableViewFX__Group__1
+            // InternalJavaFXLang.g:6560:1: ( rule__FilteredTableViewFX__Group__0__Impl rule__FilteredTableViewFX__Group__1 )
+            // InternalJavaFXLang.g:6561:2: rule__FilteredTableViewFX__Group__0__Impl rule__FilteredTableViewFX__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__FilteredTableViewFX__Group__0__Impl();
@@ -21215,21 +20211,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__0__Impl"
-    // InternalJavaFXLang.g:6892:1: rule__FilteredTableViewFX__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:6568:1: rule__FilteredTableViewFX__Group__0__Impl : ( () ) ;
     public final void rule__FilteredTableViewFX__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6896:1: ( ( () ) )
-            // InternalJavaFXLang.g:6897:1: ( () )
+            // InternalJavaFXLang.g:6572:1: ( ( () ) )
+            // InternalJavaFXLang.g:6573:1: ( () )
             {
-            // InternalJavaFXLang.g:6897:1: ( () )
-            // InternalJavaFXLang.g:6898:2: ()
+            // InternalJavaFXLang.g:6573:1: ( () )
+            // InternalJavaFXLang.g:6574:2: ()
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getFilteredTableViewFXAction_0()); 
-            // InternalJavaFXLang.g:6899:2: ()
-            // InternalJavaFXLang.g:6899:3: 
+            // InternalJavaFXLang.g:6575:2: ()
+            // InternalJavaFXLang.g:6575:3: 
             {
             }
 
@@ -21252,14 +20248,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__1"
-    // InternalJavaFXLang.g:6907:1: rule__FilteredTableViewFX__Group__1 : rule__FilteredTableViewFX__Group__1__Impl rule__FilteredTableViewFX__Group__2 ;
+    // InternalJavaFXLang.g:6583:1: rule__FilteredTableViewFX__Group__1 : rule__FilteredTableViewFX__Group__1__Impl rule__FilteredTableViewFX__Group__2 ;
     public final void rule__FilteredTableViewFX__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6911:1: ( rule__FilteredTableViewFX__Group__1__Impl rule__FilteredTableViewFX__Group__2 )
-            // InternalJavaFXLang.g:6912:2: rule__FilteredTableViewFX__Group__1__Impl rule__FilteredTableViewFX__Group__2
+            // InternalJavaFXLang.g:6587:1: ( rule__FilteredTableViewFX__Group__1__Impl rule__FilteredTableViewFX__Group__2 )
+            // InternalJavaFXLang.g:6588:2: rule__FilteredTableViewFX__Group__1__Impl rule__FilteredTableViewFX__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__FilteredTableViewFX__Group__1__Impl();
@@ -21290,17 +20286,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__1__Impl"
-    // InternalJavaFXLang.g:6919:1: rule__FilteredTableViewFX__Group__1__Impl : ( 'FilteredTableView' ) ;
+    // InternalJavaFXLang.g:6595:1: rule__FilteredTableViewFX__Group__1__Impl : ( 'FilteredTableView' ) ;
     public final void rule__FilteredTableViewFX__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6923:1: ( ( 'FilteredTableView' ) )
-            // InternalJavaFXLang.g:6924:1: ( 'FilteredTableView' )
+            // InternalJavaFXLang.g:6599:1: ( ( 'FilteredTableView' ) )
+            // InternalJavaFXLang.g:6600:1: ( 'FilteredTableView' )
             {
-            // InternalJavaFXLang.g:6924:1: ( 'FilteredTableView' )
-            // InternalJavaFXLang.g:6925:2: 'FilteredTableView'
+            // InternalJavaFXLang.g:6600:1: ( 'FilteredTableView' )
+            // InternalJavaFXLang.g:6601:2: 'FilteredTableView'
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getFilteredTableViewKeyword_1()); 
             match(input,50,FOLLOW_2); 
@@ -21327,14 +20323,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__2"
-    // InternalJavaFXLang.g:6934:1: rule__FilteredTableViewFX__Group__2 : rule__FilteredTableViewFX__Group__2__Impl rule__FilteredTableViewFX__Group__3 ;
+    // InternalJavaFXLang.g:6610:1: rule__FilteredTableViewFX__Group__2 : rule__FilteredTableViewFX__Group__2__Impl rule__FilteredTableViewFX__Group__3 ;
     public final void rule__FilteredTableViewFX__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6938:1: ( rule__FilteredTableViewFX__Group__2__Impl rule__FilteredTableViewFX__Group__3 )
-            // InternalJavaFXLang.g:6939:2: rule__FilteredTableViewFX__Group__2__Impl rule__FilteredTableViewFX__Group__3
+            // InternalJavaFXLang.g:6614:1: ( rule__FilteredTableViewFX__Group__2__Impl rule__FilteredTableViewFX__Group__3 )
+            // InternalJavaFXLang.g:6615:2: rule__FilteredTableViewFX__Group__2__Impl rule__FilteredTableViewFX__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__FilteredTableViewFX__Group__2__Impl();
@@ -21365,17 +20361,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__2__Impl"
-    // InternalJavaFXLang.g:6946:1: rule__FilteredTableViewFX__Group__2__Impl : ( '{' ) ;
+    // InternalJavaFXLang.g:6622:1: rule__FilteredTableViewFX__Group__2__Impl : ( '{' ) ;
     public final void rule__FilteredTableViewFX__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6950:1: ( ( '{' ) )
-            // InternalJavaFXLang.g:6951:1: ( '{' )
+            // InternalJavaFXLang.g:6626:1: ( ( '{' ) )
+            // InternalJavaFXLang.g:6627:1: ( '{' )
             {
-            // InternalJavaFXLang.g:6951:1: ( '{' )
-            // InternalJavaFXLang.g:6952:2: '{'
+            // InternalJavaFXLang.g:6627:1: ( '{' )
+            // InternalJavaFXLang.g:6628:2: '{'
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,27,FOLLOW_2); 
@@ -21402,16 +20398,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__3"
-    // InternalJavaFXLang.g:6961:1: rule__FilteredTableViewFX__Group__3 : rule__FilteredTableViewFX__Group__3__Impl rule__FilteredTableViewFX__Group__4 ;
+    // InternalJavaFXLang.g:6637:1: rule__FilteredTableViewFX__Group__3 : rule__FilteredTableViewFX__Group__3__Impl rule__FilteredTableViewFX__Group__4 ;
     public final void rule__FilteredTableViewFX__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6965:1: ( rule__FilteredTableViewFX__Group__3__Impl rule__FilteredTableViewFX__Group__4 )
-            // InternalJavaFXLang.g:6966:2: rule__FilteredTableViewFX__Group__3__Impl rule__FilteredTableViewFX__Group__4
+            // InternalJavaFXLang.g:6641:1: ( rule__FilteredTableViewFX__Group__3__Impl rule__FilteredTableViewFX__Group__4 )
+            // InternalJavaFXLang.g:6642:2: rule__FilteredTableViewFX__Group__3__Impl rule__FilteredTableViewFX__Group__4
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__FilteredTableViewFX__Group__3__Impl();
 
             state._fsp--;
@@ -21440,21 +20436,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__3__Impl"
-    // InternalJavaFXLang.g:6973:1: rule__FilteredTableViewFX__Group__3__Impl : ( ( rule__FilteredTableViewFX__Group_3__0 ) ) ;
+    // InternalJavaFXLang.g:6649:1: rule__FilteredTableViewFX__Group__3__Impl : ( ( rule__FilteredTableViewFX__Group_3__0 ) ) ;
     public final void rule__FilteredTableViewFX__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6977:1: ( ( ( rule__FilteredTableViewFX__Group_3__0 ) ) )
-            // InternalJavaFXLang.g:6978:1: ( ( rule__FilteredTableViewFX__Group_3__0 ) )
+            // InternalJavaFXLang.g:6653:1: ( ( ( rule__FilteredTableViewFX__Group_3__0 ) ) )
+            // InternalJavaFXLang.g:6654:1: ( ( rule__FilteredTableViewFX__Group_3__0 ) )
             {
-            // InternalJavaFXLang.g:6978:1: ( ( rule__FilteredTableViewFX__Group_3__0 ) )
-            // InternalJavaFXLang.g:6979:2: ( rule__FilteredTableViewFX__Group_3__0 )
+            // InternalJavaFXLang.g:6654:1: ( ( rule__FilteredTableViewFX__Group_3__0 ) )
+            // InternalJavaFXLang.g:6655:2: ( rule__FilteredTableViewFX__Group_3__0 )
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getGroup_3()); 
-            // InternalJavaFXLang.g:6980:2: ( rule__FilteredTableViewFX__Group_3__0 )
-            // InternalJavaFXLang.g:6980:3: rule__FilteredTableViewFX__Group_3__0
+            // InternalJavaFXLang.g:6656:2: ( rule__FilteredTableViewFX__Group_3__0 )
+            // InternalJavaFXLang.g:6656:3: rule__FilteredTableViewFX__Group_3__0
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__Group_3__0();
@@ -21487,16 +20483,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__4"
-    // InternalJavaFXLang.g:6988:1: rule__FilteredTableViewFX__Group__4 : rule__FilteredTableViewFX__Group__4__Impl rule__FilteredTableViewFX__Group__5 ;
+    // InternalJavaFXLang.g:6664:1: rule__FilteredTableViewFX__Group__4 : rule__FilteredTableViewFX__Group__4__Impl rule__FilteredTableViewFX__Group__5 ;
     public final void rule__FilteredTableViewFX__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:6992:1: ( rule__FilteredTableViewFX__Group__4__Impl rule__FilteredTableViewFX__Group__5 )
-            // InternalJavaFXLang.g:6993:2: rule__FilteredTableViewFX__Group__4__Impl rule__FilteredTableViewFX__Group__5
+            // InternalJavaFXLang.g:6668:1: ( rule__FilteredTableViewFX__Group__4__Impl rule__FilteredTableViewFX__Group__5 )
+            // InternalJavaFXLang.g:6669:2: rule__FilteredTableViewFX__Group__4__Impl rule__FilteredTableViewFX__Group__5
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__FilteredTableViewFX__Group__4__Impl();
 
             state._fsp--;
@@ -21525,29 +20521,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__4__Impl"
-    // InternalJavaFXLang.g:7000:1: rule__FilteredTableViewFX__Group__4__Impl : ( ( rule__FilteredTableViewFX__Group_4__0 )? ) ;
+    // InternalJavaFXLang.g:6676:1: rule__FilteredTableViewFX__Group__4__Impl : ( ( rule__FilteredTableViewFX__Group_4__0 )? ) ;
     public final void rule__FilteredTableViewFX__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7004:1: ( ( ( rule__FilteredTableViewFX__Group_4__0 )? ) )
-            // InternalJavaFXLang.g:7005:1: ( ( rule__FilteredTableViewFX__Group_4__0 )? )
+            // InternalJavaFXLang.g:6680:1: ( ( ( rule__FilteredTableViewFX__Group_4__0 )? ) )
+            // InternalJavaFXLang.g:6681:1: ( ( rule__FilteredTableViewFX__Group_4__0 )? )
             {
-            // InternalJavaFXLang.g:7005:1: ( ( rule__FilteredTableViewFX__Group_4__0 )? )
-            // InternalJavaFXLang.g:7006:2: ( rule__FilteredTableViewFX__Group_4__0 )?
+            // InternalJavaFXLang.g:6681:1: ( ( rule__FilteredTableViewFX__Group_4__0 )? )
+            // InternalJavaFXLang.g:6682:2: ( rule__FilteredTableViewFX__Group_4__0 )?
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getGroup_4()); 
-            // InternalJavaFXLang.g:7007:2: ( rule__FilteredTableViewFX__Group_4__0 )?
-            int alt68=2;
-            int LA68_0 = input.LA(1);
+            // InternalJavaFXLang.g:6683:2: ( rule__FilteredTableViewFX__Group_4__0 )?
+            int alt64=2;
+            int LA64_0 = input.LA(1);
 
-            if ( (LA68_0==51) ) {
-                alt68=1;
+            if ( (LA64_0==51) ) {
+                alt64=1;
             }
-            switch (alt68) {
+            switch (alt64) {
                 case 1 :
-                    // InternalJavaFXLang.g:7007:3: rule__FilteredTableViewFX__Group_4__0
+                    // InternalJavaFXLang.g:6683:3: rule__FilteredTableViewFX__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__FilteredTableViewFX__Group_4__0();
@@ -21583,16 +20579,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__5"
-    // InternalJavaFXLang.g:7015:1: rule__FilteredTableViewFX__Group__5 : rule__FilteredTableViewFX__Group__5__Impl rule__FilteredTableViewFX__Group__6 ;
+    // InternalJavaFXLang.g:6691:1: rule__FilteredTableViewFX__Group__5 : rule__FilteredTableViewFX__Group__5__Impl rule__FilteredTableViewFX__Group__6 ;
     public final void rule__FilteredTableViewFX__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7019:1: ( rule__FilteredTableViewFX__Group__5__Impl rule__FilteredTableViewFX__Group__6 )
-            // InternalJavaFXLang.g:7020:2: rule__FilteredTableViewFX__Group__5__Impl rule__FilteredTableViewFX__Group__6
+            // InternalJavaFXLang.g:6695:1: ( rule__FilteredTableViewFX__Group__5__Impl rule__FilteredTableViewFX__Group__6 )
+            // InternalJavaFXLang.g:6696:2: rule__FilteredTableViewFX__Group__5__Impl rule__FilteredTableViewFX__Group__6
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__FilteredTableViewFX__Group__5__Impl();
 
             state._fsp--;
@@ -21621,29 +20617,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__5__Impl"
-    // InternalJavaFXLang.g:7027:1: rule__FilteredTableViewFX__Group__5__Impl : ( ( rule__FilteredTableViewFX__Group_5__0 )? ) ;
+    // InternalJavaFXLang.g:6703:1: rule__FilteredTableViewFX__Group__5__Impl : ( ( rule__FilteredTableViewFX__Group_5__0 )? ) ;
     public final void rule__FilteredTableViewFX__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7031:1: ( ( ( rule__FilteredTableViewFX__Group_5__0 )? ) )
-            // InternalJavaFXLang.g:7032:1: ( ( rule__FilteredTableViewFX__Group_5__0 )? )
+            // InternalJavaFXLang.g:6707:1: ( ( ( rule__FilteredTableViewFX__Group_5__0 )? ) )
+            // InternalJavaFXLang.g:6708:1: ( ( rule__FilteredTableViewFX__Group_5__0 )? )
             {
-            // InternalJavaFXLang.g:7032:1: ( ( rule__FilteredTableViewFX__Group_5__0 )? )
-            // InternalJavaFXLang.g:7033:2: ( rule__FilteredTableViewFX__Group_5__0 )?
+            // InternalJavaFXLang.g:6708:1: ( ( rule__FilteredTableViewFX__Group_5__0 )? )
+            // InternalJavaFXLang.g:6709:2: ( rule__FilteredTableViewFX__Group_5__0 )?
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getGroup_5()); 
-            // InternalJavaFXLang.g:7034:2: ( rule__FilteredTableViewFX__Group_5__0 )?
-            int alt69=2;
-            int LA69_0 = input.LA(1);
+            // InternalJavaFXLang.g:6710:2: ( rule__FilteredTableViewFX__Group_5__0 )?
+            int alt65=2;
+            int LA65_0 = input.LA(1);
 
-            if ( (LA69_0==52) ) {
-                alt69=1;
+            if ( (LA65_0==52) ) {
+                alt65=1;
             }
-            switch (alt69) {
+            switch (alt65) {
                 case 1 :
-                    // InternalJavaFXLang.g:7034:3: rule__FilteredTableViewFX__Group_5__0
+                    // InternalJavaFXLang.g:6710:3: rule__FilteredTableViewFX__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__FilteredTableViewFX__Group_5__0();
@@ -21679,16 +20675,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__6"
-    // InternalJavaFXLang.g:7042:1: rule__FilteredTableViewFX__Group__6 : rule__FilteredTableViewFX__Group__6__Impl rule__FilteredTableViewFX__Group__7 ;
+    // InternalJavaFXLang.g:6718:1: rule__FilteredTableViewFX__Group__6 : rule__FilteredTableViewFX__Group__6__Impl rule__FilteredTableViewFX__Group__7 ;
     public final void rule__FilteredTableViewFX__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7046:1: ( rule__FilteredTableViewFX__Group__6__Impl rule__FilteredTableViewFX__Group__7 )
-            // InternalJavaFXLang.g:7047:2: rule__FilteredTableViewFX__Group__6__Impl rule__FilteredTableViewFX__Group__7
+            // InternalJavaFXLang.g:6722:1: ( rule__FilteredTableViewFX__Group__6__Impl rule__FilteredTableViewFX__Group__7 )
+            // InternalJavaFXLang.g:6723:2: rule__FilteredTableViewFX__Group__6__Impl rule__FilteredTableViewFX__Group__7
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__FilteredTableViewFX__Group__6__Impl();
 
             state._fsp--;
@@ -21717,29 +20713,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__6__Impl"
-    // InternalJavaFXLang.g:7054:1: rule__FilteredTableViewFX__Group__6__Impl : ( ( rule__FilteredTableViewFX__Group_6__0 )? ) ;
+    // InternalJavaFXLang.g:6730:1: rule__FilteredTableViewFX__Group__6__Impl : ( ( rule__FilteredTableViewFX__Group_6__0 )? ) ;
     public final void rule__FilteredTableViewFX__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7058:1: ( ( ( rule__FilteredTableViewFX__Group_6__0 )? ) )
-            // InternalJavaFXLang.g:7059:1: ( ( rule__FilteredTableViewFX__Group_6__0 )? )
+            // InternalJavaFXLang.g:6734:1: ( ( ( rule__FilteredTableViewFX__Group_6__0 )? ) )
+            // InternalJavaFXLang.g:6735:1: ( ( rule__FilteredTableViewFX__Group_6__0 )? )
             {
-            // InternalJavaFXLang.g:7059:1: ( ( rule__FilteredTableViewFX__Group_6__0 )? )
-            // InternalJavaFXLang.g:7060:2: ( rule__FilteredTableViewFX__Group_6__0 )?
+            // InternalJavaFXLang.g:6735:1: ( ( rule__FilteredTableViewFX__Group_6__0 )? )
+            // InternalJavaFXLang.g:6736:2: ( rule__FilteredTableViewFX__Group_6__0 )?
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getGroup_6()); 
-            // InternalJavaFXLang.g:7061:2: ( rule__FilteredTableViewFX__Group_6__0 )?
-            int alt70=2;
-            int LA70_0 = input.LA(1);
+            // InternalJavaFXLang.g:6737:2: ( rule__FilteredTableViewFX__Group_6__0 )?
+            int alt66=2;
+            int LA66_0 = input.LA(1);
 
-            if ( (LA70_0==56) ) {
-                alt70=1;
+            if ( (LA66_0==56) ) {
+                alt66=1;
             }
-            switch (alt70) {
+            switch (alt66) {
                 case 1 :
-                    // InternalJavaFXLang.g:7061:3: rule__FilteredTableViewFX__Group_6__0
+                    // InternalJavaFXLang.g:6737:3: rule__FilteredTableViewFX__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__FilteredTableViewFX__Group_6__0();
@@ -21775,14 +20771,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__7"
-    // InternalJavaFXLang.g:7069:1: rule__FilteredTableViewFX__Group__7 : rule__FilteredTableViewFX__Group__7__Impl ;
+    // InternalJavaFXLang.g:6745:1: rule__FilteredTableViewFX__Group__7 : rule__FilteredTableViewFX__Group__7__Impl ;
     public final void rule__FilteredTableViewFX__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7073:1: ( rule__FilteredTableViewFX__Group__7__Impl )
-            // InternalJavaFXLang.g:7074:2: rule__FilteredTableViewFX__Group__7__Impl
+            // InternalJavaFXLang.g:6749:1: ( rule__FilteredTableViewFX__Group__7__Impl )
+            // InternalJavaFXLang.g:6750:2: rule__FilteredTableViewFX__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__Group__7__Impl();
@@ -21808,17 +20804,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group__7__Impl"
-    // InternalJavaFXLang.g:7080:1: rule__FilteredTableViewFX__Group__7__Impl : ( '}' ) ;
+    // InternalJavaFXLang.g:6756:1: rule__FilteredTableViewFX__Group__7__Impl : ( '}' ) ;
     public final void rule__FilteredTableViewFX__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7084:1: ( ( '}' ) )
-            // InternalJavaFXLang.g:7085:1: ( '}' )
+            // InternalJavaFXLang.g:6760:1: ( ( '}' ) )
+            // InternalJavaFXLang.g:6761:1: ( '}' )
             {
-            // InternalJavaFXLang.g:7085:1: ( '}' )
-            // InternalJavaFXLang.g:7086:2: '}'
+            // InternalJavaFXLang.g:6761:1: ( '}' )
+            // InternalJavaFXLang.g:6762:2: '}'
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getRightCurlyBracketKeyword_7()); 
             match(input,28,FOLLOW_2); 
@@ -21845,14 +20841,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_3__0"
-    // InternalJavaFXLang.g:7096:1: rule__FilteredTableViewFX__Group_3__0 : rule__FilteredTableViewFX__Group_3__0__Impl rule__FilteredTableViewFX__Group_3__1 ;
+    // InternalJavaFXLang.g:6772:1: rule__FilteredTableViewFX__Group_3__0 : rule__FilteredTableViewFX__Group_3__0__Impl rule__FilteredTableViewFX__Group_3__1 ;
     public final void rule__FilteredTableViewFX__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7100:1: ( rule__FilteredTableViewFX__Group_3__0__Impl rule__FilteredTableViewFX__Group_3__1 )
-            // InternalJavaFXLang.g:7101:2: rule__FilteredTableViewFX__Group_3__0__Impl rule__FilteredTableViewFX__Group_3__1
+            // InternalJavaFXLang.g:6776:1: ( rule__FilteredTableViewFX__Group_3__0__Impl rule__FilteredTableViewFX__Group_3__1 )
+            // InternalJavaFXLang.g:6777:2: rule__FilteredTableViewFX__Group_3__0__Impl rule__FilteredTableViewFX__Group_3__1
             {
             pushFollow(FOLLOW_4);
             rule__FilteredTableViewFX__Group_3__0__Impl();
@@ -21883,17 +20879,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_3__0__Impl"
-    // InternalJavaFXLang.g:7108:1: rule__FilteredTableViewFX__Group_3__0__Impl : ( 'name:' ) ;
+    // InternalJavaFXLang.g:6784:1: rule__FilteredTableViewFX__Group_3__0__Impl : ( 'name:' ) ;
     public final void rule__FilteredTableViewFX__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7112:1: ( ( 'name:' ) )
-            // InternalJavaFXLang.g:7113:1: ( 'name:' )
+            // InternalJavaFXLang.g:6788:1: ( ( 'name:' ) )
+            // InternalJavaFXLang.g:6789:1: ( 'name:' )
             {
-            // InternalJavaFXLang.g:7113:1: ( 'name:' )
-            // InternalJavaFXLang.g:7114:2: 'name:'
+            // InternalJavaFXLang.g:6789:1: ( 'name:' )
+            // InternalJavaFXLang.g:6790:2: 'name:'
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getNameKeyword_3_0()); 
             match(input,35,FOLLOW_2); 
@@ -21920,14 +20916,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_3__1"
-    // InternalJavaFXLang.g:7123:1: rule__FilteredTableViewFX__Group_3__1 : rule__FilteredTableViewFX__Group_3__1__Impl ;
+    // InternalJavaFXLang.g:6799:1: rule__FilteredTableViewFX__Group_3__1 : rule__FilteredTableViewFX__Group_3__1__Impl ;
     public final void rule__FilteredTableViewFX__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7127:1: ( rule__FilteredTableViewFX__Group_3__1__Impl )
-            // InternalJavaFXLang.g:7128:2: rule__FilteredTableViewFX__Group_3__1__Impl
+            // InternalJavaFXLang.g:6803:1: ( rule__FilteredTableViewFX__Group_3__1__Impl )
+            // InternalJavaFXLang.g:6804:2: rule__FilteredTableViewFX__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__Group_3__1__Impl();
@@ -21953,21 +20949,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_3__1__Impl"
-    // InternalJavaFXLang.g:7134:1: rule__FilteredTableViewFX__Group_3__1__Impl : ( ( rule__FilteredTableViewFX__NameAssignment_3_1 ) ) ;
+    // InternalJavaFXLang.g:6810:1: rule__FilteredTableViewFX__Group_3__1__Impl : ( ( rule__FilteredTableViewFX__NameAssignment_3_1 ) ) ;
     public final void rule__FilteredTableViewFX__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7138:1: ( ( ( rule__FilteredTableViewFX__NameAssignment_3_1 ) ) )
-            // InternalJavaFXLang.g:7139:1: ( ( rule__FilteredTableViewFX__NameAssignment_3_1 ) )
+            // InternalJavaFXLang.g:6814:1: ( ( ( rule__FilteredTableViewFX__NameAssignment_3_1 ) ) )
+            // InternalJavaFXLang.g:6815:1: ( ( rule__FilteredTableViewFX__NameAssignment_3_1 ) )
             {
-            // InternalJavaFXLang.g:7139:1: ( ( rule__FilteredTableViewFX__NameAssignment_3_1 ) )
-            // InternalJavaFXLang.g:7140:2: ( rule__FilteredTableViewFX__NameAssignment_3_1 )
+            // InternalJavaFXLang.g:6815:1: ( ( rule__FilteredTableViewFX__NameAssignment_3_1 ) )
+            // InternalJavaFXLang.g:6816:2: ( rule__FilteredTableViewFX__NameAssignment_3_1 )
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getNameAssignment_3_1()); 
-            // InternalJavaFXLang.g:7141:2: ( rule__FilteredTableViewFX__NameAssignment_3_1 )
-            // InternalJavaFXLang.g:7141:3: rule__FilteredTableViewFX__NameAssignment_3_1
+            // InternalJavaFXLang.g:6817:2: ( rule__FilteredTableViewFX__NameAssignment_3_1 )
+            // InternalJavaFXLang.g:6817:3: rule__FilteredTableViewFX__NameAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__NameAssignment_3_1();
@@ -22000,14 +20996,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_4__0"
-    // InternalJavaFXLang.g:7150:1: rule__FilteredTableViewFX__Group_4__0 : rule__FilteredTableViewFX__Group_4__0__Impl rule__FilteredTableViewFX__Group_4__1 ;
+    // InternalJavaFXLang.g:6826:1: rule__FilteredTableViewFX__Group_4__0 : rule__FilteredTableViewFX__Group_4__0__Impl rule__FilteredTableViewFX__Group_4__1 ;
     public final void rule__FilteredTableViewFX__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7154:1: ( rule__FilteredTableViewFX__Group_4__0__Impl rule__FilteredTableViewFX__Group_4__1 )
-            // InternalJavaFXLang.g:7155:2: rule__FilteredTableViewFX__Group_4__0__Impl rule__FilteredTableViewFX__Group_4__1
+            // InternalJavaFXLang.g:6830:1: ( rule__FilteredTableViewFX__Group_4__0__Impl rule__FilteredTableViewFX__Group_4__1 )
+            // InternalJavaFXLang.g:6831:2: rule__FilteredTableViewFX__Group_4__0__Impl rule__FilteredTableViewFX__Group_4__1
             {
             pushFollow(FOLLOW_4);
             rule__FilteredTableViewFX__Group_4__0__Impl();
@@ -22038,17 +21034,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_4__0__Impl"
-    // InternalJavaFXLang.g:7162:1: rule__FilteredTableViewFX__Group_4__0__Impl : ( 'usedModel:' ) ;
+    // InternalJavaFXLang.g:6838:1: rule__FilteredTableViewFX__Group_4__0__Impl : ( 'usedModel:' ) ;
     public final void rule__FilteredTableViewFX__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7166:1: ( ( 'usedModel:' ) )
-            // InternalJavaFXLang.g:7167:1: ( 'usedModel:' )
+            // InternalJavaFXLang.g:6842:1: ( ( 'usedModel:' ) )
+            // InternalJavaFXLang.g:6843:1: ( 'usedModel:' )
             {
-            // InternalJavaFXLang.g:7167:1: ( 'usedModel:' )
-            // InternalJavaFXLang.g:7168:2: 'usedModel:'
+            // InternalJavaFXLang.g:6843:1: ( 'usedModel:' )
+            // InternalJavaFXLang.g:6844:2: 'usedModel:'
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getUsedModelKeyword_4_0()); 
             match(input,51,FOLLOW_2); 
@@ -22075,14 +21071,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_4__1"
-    // InternalJavaFXLang.g:7177:1: rule__FilteredTableViewFX__Group_4__1 : rule__FilteredTableViewFX__Group_4__1__Impl ;
+    // InternalJavaFXLang.g:6853:1: rule__FilteredTableViewFX__Group_4__1 : rule__FilteredTableViewFX__Group_4__1__Impl ;
     public final void rule__FilteredTableViewFX__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7181:1: ( rule__FilteredTableViewFX__Group_4__1__Impl )
-            // InternalJavaFXLang.g:7182:2: rule__FilteredTableViewFX__Group_4__1__Impl
+            // InternalJavaFXLang.g:6857:1: ( rule__FilteredTableViewFX__Group_4__1__Impl )
+            // InternalJavaFXLang.g:6858:2: rule__FilteredTableViewFX__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__Group_4__1__Impl();
@@ -22108,21 +21104,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_4__1__Impl"
-    // InternalJavaFXLang.g:7188:1: rule__FilteredTableViewFX__Group_4__1__Impl : ( ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 ) ) ;
+    // InternalJavaFXLang.g:6864:1: rule__FilteredTableViewFX__Group_4__1__Impl : ( ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 ) ) ;
     public final void rule__FilteredTableViewFX__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7192:1: ( ( ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 ) ) )
-            // InternalJavaFXLang.g:7193:1: ( ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 ) )
+            // InternalJavaFXLang.g:6868:1: ( ( ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 ) ) )
+            // InternalJavaFXLang.g:6869:1: ( ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 ) )
             {
-            // InternalJavaFXLang.g:7193:1: ( ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 ) )
-            // InternalJavaFXLang.g:7194:2: ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 )
+            // InternalJavaFXLang.g:6869:1: ( ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 ) )
+            // InternalJavaFXLang.g:6870:2: ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 )
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getUsedModelAssignment_4_1()); 
-            // InternalJavaFXLang.g:7195:2: ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 )
-            // InternalJavaFXLang.g:7195:3: rule__FilteredTableViewFX__UsedModelAssignment_4_1
+            // InternalJavaFXLang.g:6871:2: ( rule__FilteredTableViewFX__UsedModelAssignment_4_1 )
+            // InternalJavaFXLang.g:6871:3: rule__FilteredTableViewFX__UsedModelAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__UsedModelAssignment_4_1();
@@ -22155,14 +21151,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_5__0"
-    // InternalJavaFXLang.g:7204:1: rule__FilteredTableViewFX__Group_5__0 : rule__FilteredTableViewFX__Group_5__0__Impl rule__FilteredTableViewFX__Group_5__1 ;
+    // InternalJavaFXLang.g:6880:1: rule__FilteredTableViewFX__Group_5__0 : rule__FilteredTableViewFX__Group_5__0__Impl rule__FilteredTableViewFX__Group_5__1 ;
     public final void rule__FilteredTableViewFX__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7208:1: ( rule__FilteredTableViewFX__Group_5__0__Impl rule__FilteredTableViewFX__Group_5__1 )
-            // InternalJavaFXLang.g:7209:2: rule__FilteredTableViewFX__Group_5__0__Impl rule__FilteredTableViewFX__Group_5__1
+            // InternalJavaFXLang.g:6884:1: ( rule__FilteredTableViewFX__Group_5__0__Impl rule__FilteredTableViewFX__Group_5__1 )
+            // InternalJavaFXLang.g:6885:2: rule__FilteredTableViewFX__Group_5__0__Impl rule__FilteredTableViewFX__Group_5__1
             {
             pushFollow(FOLLOW_22);
             rule__FilteredTableViewFX__Group_5__0__Impl();
@@ -22193,17 +21189,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_5__0__Impl"
-    // InternalJavaFXLang.g:7216:1: rule__FilteredTableViewFX__Group_5__0__Impl : ( 'usedFilter:' ) ;
+    // InternalJavaFXLang.g:6892:1: rule__FilteredTableViewFX__Group_5__0__Impl : ( 'usedFilter:' ) ;
     public final void rule__FilteredTableViewFX__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7220:1: ( ( 'usedFilter:' ) )
-            // InternalJavaFXLang.g:7221:1: ( 'usedFilter:' )
+            // InternalJavaFXLang.g:6896:1: ( ( 'usedFilter:' ) )
+            // InternalJavaFXLang.g:6897:1: ( 'usedFilter:' )
             {
-            // InternalJavaFXLang.g:7221:1: ( 'usedFilter:' )
-            // InternalJavaFXLang.g:7222:2: 'usedFilter:'
+            // InternalJavaFXLang.g:6897:1: ( 'usedFilter:' )
+            // InternalJavaFXLang.g:6898:2: 'usedFilter:'
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getUsedFilterKeyword_5_0()); 
             match(input,52,FOLLOW_2); 
@@ -22230,14 +21226,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_5__1"
-    // InternalJavaFXLang.g:7231:1: rule__FilteredTableViewFX__Group_5__1 : rule__FilteredTableViewFX__Group_5__1__Impl ;
+    // InternalJavaFXLang.g:6907:1: rule__FilteredTableViewFX__Group_5__1 : rule__FilteredTableViewFX__Group_5__1__Impl ;
     public final void rule__FilteredTableViewFX__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7235:1: ( rule__FilteredTableViewFX__Group_5__1__Impl )
-            // InternalJavaFXLang.g:7236:2: rule__FilteredTableViewFX__Group_5__1__Impl
+            // InternalJavaFXLang.g:6911:1: ( rule__FilteredTableViewFX__Group_5__1__Impl )
+            // InternalJavaFXLang.g:6912:2: rule__FilteredTableViewFX__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__Group_5__1__Impl();
@@ -22263,21 +21259,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_5__1__Impl"
-    // InternalJavaFXLang.g:7242:1: rule__FilteredTableViewFX__Group_5__1__Impl : ( ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 ) ) ;
+    // InternalJavaFXLang.g:6918:1: rule__FilteredTableViewFX__Group_5__1__Impl : ( ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 ) ) ;
     public final void rule__FilteredTableViewFX__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7246:1: ( ( ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 ) ) )
-            // InternalJavaFXLang.g:7247:1: ( ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 ) )
+            // InternalJavaFXLang.g:6922:1: ( ( ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 ) ) )
+            // InternalJavaFXLang.g:6923:1: ( ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 ) )
             {
-            // InternalJavaFXLang.g:7247:1: ( ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 ) )
-            // InternalJavaFXLang.g:7248:2: ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 )
+            // InternalJavaFXLang.g:6923:1: ( ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 ) )
+            // InternalJavaFXLang.g:6924:2: ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 )
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getUseFilterAssignment_5_1()); 
-            // InternalJavaFXLang.g:7249:2: ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 )
-            // InternalJavaFXLang.g:7249:3: rule__FilteredTableViewFX__UseFilterAssignment_5_1
+            // InternalJavaFXLang.g:6925:2: ( rule__FilteredTableViewFX__UseFilterAssignment_5_1 )
+            // InternalJavaFXLang.g:6925:3: rule__FilteredTableViewFX__UseFilterAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__UseFilterAssignment_5_1();
@@ -22310,16 +21306,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_6__0"
-    // InternalJavaFXLang.g:7258:1: rule__FilteredTableViewFX__Group_6__0 : rule__FilteredTableViewFX__Group_6__0__Impl rule__FilteredTableViewFX__Group_6__1 ;
+    // InternalJavaFXLang.g:6934:1: rule__FilteredTableViewFX__Group_6__0 : rule__FilteredTableViewFX__Group_6__0__Impl rule__FilteredTableViewFX__Group_6__1 ;
     public final void rule__FilteredTableViewFX__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7262:1: ( rule__FilteredTableViewFX__Group_6__0__Impl rule__FilteredTableViewFX__Group_6__1 )
-            // InternalJavaFXLang.g:7263:2: rule__FilteredTableViewFX__Group_6__0__Impl rule__FilteredTableViewFX__Group_6__1
+            // InternalJavaFXLang.g:6938:1: ( rule__FilteredTableViewFX__Group_6__0__Impl rule__FilteredTableViewFX__Group_6__1 )
+            // InternalJavaFXLang.g:6939:2: rule__FilteredTableViewFX__Group_6__0__Impl rule__FilteredTableViewFX__Group_6__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__FilteredTableViewFX__Group_6__0__Impl();
 
             state._fsp--;
@@ -22348,21 +21344,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_6__0__Impl"
-    // InternalJavaFXLang.g:7270:1: rule__FilteredTableViewFX__Group_6__0__Impl : ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 ) ) ;
+    // InternalJavaFXLang.g:6946:1: rule__FilteredTableViewFX__Group_6__0__Impl : ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 ) ) ;
     public final void rule__FilteredTableViewFX__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7274:1: ( ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 ) ) )
-            // InternalJavaFXLang.g:7275:1: ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 ) )
+            // InternalJavaFXLang.g:6950:1: ( ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 ) ) )
+            // InternalJavaFXLang.g:6951:1: ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 ) )
             {
-            // InternalJavaFXLang.g:7275:1: ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 ) )
-            // InternalJavaFXLang.g:7276:2: ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 )
+            // InternalJavaFXLang.g:6951:1: ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 ) )
+            // InternalJavaFXLang.g:6952:2: ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 )
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getColumnsAssignment_6_0()); 
-            // InternalJavaFXLang.g:7277:2: ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 )
-            // InternalJavaFXLang.g:7277:3: rule__FilteredTableViewFX__ColumnsAssignment_6_0
+            // InternalJavaFXLang.g:6953:2: ( rule__FilteredTableViewFX__ColumnsAssignment_6_0 )
+            // InternalJavaFXLang.g:6953:3: rule__FilteredTableViewFX__ColumnsAssignment_6_0
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__ColumnsAssignment_6_0();
@@ -22395,14 +21391,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_6__1"
-    // InternalJavaFXLang.g:7285:1: rule__FilteredTableViewFX__Group_6__1 : rule__FilteredTableViewFX__Group_6__1__Impl ;
+    // InternalJavaFXLang.g:6961:1: rule__FilteredTableViewFX__Group_6__1 : rule__FilteredTableViewFX__Group_6__1__Impl ;
     public final void rule__FilteredTableViewFX__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7289:1: ( rule__FilteredTableViewFX__Group_6__1__Impl )
-            // InternalJavaFXLang.g:7290:2: rule__FilteredTableViewFX__Group_6__1__Impl
+            // InternalJavaFXLang.g:6965:1: ( rule__FilteredTableViewFX__Group_6__1__Impl )
+            // InternalJavaFXLang.g:6966:2: rule__FilteredTableViewFX__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FilteredTableViewFX__Group_6__1__Impl();
@@ -22428,35 +21424,35 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__Group_6__1__Impl"
-    // InternalJavaFXLang.g:7296:1: rule__FilteredTableViewFX__Group_6__1__Impl : ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )* ) ;
+    // InternalJavaFXLang.g:6972:1: rule__FilteredTableViewFX__Group_6__1__Impl : ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )* ) ;
     public final void rule__FilteredTableViewFX__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7300:1: ( ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )* ) )
-            // InternalJavaFXLang.g:7301:1: ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )* )
+            // InternalJavaFXLang.g:6976:1: ( ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )* ) )
+            // InternalJavaFXLang.g:6977:1: ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )* )
             {
-            // InternalJavaFXLang.g:7301:1: ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )* )
-            // InternalJavaFXLang.g:7302:2: ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )*
+            // InternalJavaFXLang.g:6977:1: ( ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )* )
+            // InternalJavaFXLang.g:6978:2: ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )*
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getColumnsAssignment_6_1()); 
-            // InternalJavaFXLang.g:7303:2: ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )*
-            loop71:
+            // InternalJavaFXLang.g:6979:2: ( rule__FilteredTableViewFX__ColumnsAssignment_6_1 )*
+            loop67:
             do {
-                int alt71=2;
-                int LA71_0 = input.LA(1);
+                int alt67=2;
+                int LA67_0 = input.LA(1);
 
-                if ( (LA71_0==56) ) {
-                    alt71=1;
+                if ( (LA67_0==56) ) {
+                    alt67=1;
                 }
 
 
-                switch (alt71) {
+                switch (alt67) {
             	case 1 :
-            	    // InternalJavaFXLang.g:7303:3: rule__FilteredTableViewFX__ColumnsAssignment_6_1
+            	    // InternalJavaFXLang.g:6979:3: rule__FilteredTableViewFX__ColumnsAssignment_6_1
             	    {
-            	    pushFollow(FOLLOW_34);
+            	    pushFollow(FOLLOW_35);
             	    rule__FilteredTableViewFX__ColumnsAssignment_6_1();
 
             	    state._fsp--;
@@ -22466,7 +21462,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop71;
+            	    break loop67;
                 }
             } while (true);
 
@@ -22493,14 +21489,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__0"
-    // InternalJavaFXLang.g:7312:1: rule__DerivedBean__Group__0 : rule__DerivedBean__Group__0__Impl rule__DerivedBean__Group__1 ;
+    // InternalJavaFXLang.g:6988:1: rule__DerivedBean__Group__0 : rule__DerivedBean__Group__0__Impl rule__DerivedBean__Group__1 ;
     public final void rule__DerivedBean__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7316:1: ( rule__DerivedBean__Group__0__Impl rule__DerivedBean__Group__1 )
-            // InternalJavaFXLang.g:7317:2: rule__DerivedBean__Group__0__Impl rule__DerivedBean__Group__1
+            // InternalJavaFXLang.g:6992:1: ( rule__DerivedBean__Group__0__Impl rule__DerivedBean__Group__1 )
+            // InternalJavaFXLang.g:6993:2: rule__DerivedBean__Group__0__Impl rule__DerivedBean__Group__1
             {
             pushFollow(FOLLOW_10);
             rule__DerivedBean__Group__0__Impl();
@@ -22531,21 +21527,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__0__Impl"
-    // InternalJavaFXLang.g:7324:1: rule__DerivedBean__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:7000:1: rule__DerivedBean__Group__0__Impl : ( () ) ;
     public final void rule__DerivedBean__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7328:1: ( ( () ) )
-            // InternalJavaFXLang.g:7329:1: ( () )
+            // InternalJavaFXLang.g:7004:1: ( ( () ) )
+            // InternalJavaFXLang.g:7005:1: ( () )
             {
-            // InternalJavaFXLang.g:7329:1: ( () )
-            // InternalJavaFXLang.g:7330:2: ()
+            // InternalJavaFXLang.g:7005:1: ( () )
+            // InternalJavaFXLang.g:7006:2: ()
             {
              before(grammarAccess.getDerivedBeanAccess().getDerivedBeanAction_0()); 
-            // InternalJavaFXLang.g:7331:2: ()
-            // InternalJavaFXLang.g:7331:3: 
+            // InternalJavaFXLang.g:7007:2: ()
+            // InternalJavaFXLang.g:7007:3: 
             {
             }
 
@@ -22568,14 +21564,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__1"
-    // InternalJavaFXLang.g:7339:1: rule__DerivedBean__Group__1 : rule__DerivedBean__Group__1__Impl rule__DerivedBean__Group__2 ;
+    // InternalJavaFXLang.g:7015:1: rule__DerivedBean__Group__1 : rule__DerivedBean__Group__1__Impl rule__DerivedBean__Group__2 ;
     public final void rule__DerivedBean__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7343:1: ( rule__DerivedBean__Group__1__Impl rule__DerivedBean__Group__2 )
-            // InternalJavaFXLang.g:7344:2: rule__DerivedBean__Group__1__Impl rule__DerivedBean__Group__2
+            // InternalJavaFXLang.g:7019:1: ( rule__DerivedBean__Group__1__Impl rule__DerivedBean__Group__2 )
+            // InternalJavaFXLang.g:7020:2: rule__DerivedBean__Group__1__Impl rule__DerivedBean__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__DerivedBean__Group__1__Impl();
@@ -22606,17 +21602,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__1__Impl"
-    // InternalJavaFXLang.g:7351:1: rule__DerivedBean__Group__1__Impl : ( 'class' ) ;
+    // InternalJavaFXLang.g:7027:1: rule__DerivedBean__Group__1__Impl : ( 'class' ) ;
     public final void rule__DerivedBean__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7355:1: ( ( 'class' ) )
-            // InternalJavaFXLang.g:7356:1: ( 'class' )
+            // InternalJavaFXLang.g:7031:1: ( ( 'class' ) )
+            // InternalJavaFXLang.g:7032:1: ( 'class' )
             {
-            // InternalJavaFXLang.g:7356:1: ( 'class' )
-            // InternalJavaFXLang.g:7357:2: 'class'
+            // InternalJavaFXLang.g:7032:1: ( 'class' )
+            // InternalJavaFXLang.g:7033:2: 'class'
             {
              before(grammarAccess.getDerivedBeanAccess().getClassKeyword_1()); 
             match(input,53,FOLLOW_2); 
@@ -22643,14 +21639,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__2"
-    // InternalJavaFXLang.g:7366:1: rule__DerivedBean__Group__2 : rule__DerivedBean__Group__2__Impl rule__DerivedBean__Group__3 ;
+    // InternalJavaFXLang.g:7042:1: rule__DerivedBean__Group__2 : rule__DerivedBean__Group__2__Impl rule__DerivedBean__Group__3 ;
     public final void rule__DerivedBean__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7370:1: ( rule__DerivedBean__Group__2__Impl rule__DerivedBean__Group__3 )
-            // InternalJavaFXLang.g:7371:2: rule__DerivedBean__Group__2__Impl rule__DerivedBean__Group__3
+            // InternalJavaFXLang.g:7046:1: ( rule__DerivedBean__Group__2__Impl rule__DerivedBean__Group__3 )
+            // InternalJavaFXLang.g:7047:2: rule__DerivedBean__Group__2__Impl rule__DerivedBean__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__DerivedBean__Group__2__Impl();
@@ -22681,21 +21677,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__2__Impl"
-    // InternalJavaFXLang.g:7378:1: rule__DerivedBean__Group__2__Impl : ( ( rule__DerivedBean__NameAssignment_2 ) ) ;
+    // InternalJavaFXLang.g:7054:1: rule__DerivedBean__Group__2__Impl : ( ( rule__DerivedBean__NameAssignment_2 ) ) ;
     public final void rule__DerivedBean__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7382:1: ( ( ( rule__DerivedBean__NameAssignment_2 ) ) )
-            // InternalJavaFXLang.g:7383:1: ( ( rule__DerivedBean__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:7058:1: ( ( ( rule__DerivedBean__NameAssignment_2 ) ) )
+            // InternalJavaFXLang.g:7059:1: ( ( rule__DerivedBean__NameAssignment_2 ) )
             {
-            // InternalJavaFXLang.g:7383:1: ( ( rule__DerivedBean__NameAssignment_2 ) )
-            // InternalJavaFXLang.g:7384:2: ( rule__DerivedBean__NameAssignment_2 )
+            // InternalJavaFXLang.g:7059:1: ( ( rule__DerivedBean__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:7060:2: ( rule__DerivedBean__NameAssignment_2 )
             {
              before(grammarAccess.getDerivedBeanAccess().getNameAssignment_2()); 
-            // InternalJavaFXLang.g:7385:2: ( rule__DerivedBean__NameAssignment_2 )
-            // InternalJavaFXLang.g:7385:3: rule__DerivedBean__NameAssignment_2
+            // InternalJavaFXLang.g:7061:2: ( rule__DerivedBean__NameAssignment_2 )
+            // InternalJavaFXLang.g:7061:3: rule__DerivedBean__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DerivedBean__NameAssignment_2();
@@ -22728,16 +21724,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__3"
-    // InternalJavaFXLang.g:7393:1: rule__DerivedBean__Group__3 : rule__DerivedBean__Group__3__Impl rule__DerivedBean__Group__4 ;
+    // InternalJavaFXLang.g:7069:1: rule__DerivedBean__Group__3 : rule__DerivedBean__Group__3__Impl rule__DerivedBean__Group__4 ;
     public final void rule__DerivedBean__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7397:1: ( rule__DerivedBean__Group__3__Impl rule__DerivedBean__Group__4 )
-            // InternalJavaFXLang.g:7398:2: rule__DerivedBean__Group__3__Impl rule__DerivedBean__Group__4
+            // InternalJavaFXLang.g:7073:1: ( rule__DerivedBean__Group__3__Impl rule__DerivedBean__Group__4 )
+            // InternalJavaFXLang.g:7074:2: rule__DerivedBean__Group__3__Impl rule__DerivedBean__Group__4
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_36);
             rule__DerivedBean__Group__3__Impl();
 
             state._fsp--;
@@ -22766,17 +21762,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__3__Impl"
-    // InternalJavaFXLang.g:7405:1: rule__DerivedBean__Group__3__Impl : ( '{' ) ;
+    // InternalJavaFXLang.g:7081:1: rule__DerivedBean__Group__3__Impl : ( '{' ) ;
     public final void rule__DerivedBean__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7409:1: ( ( '{' ) )
-            // InternalJavaFXLang.g:7410:1: ( '{' )
+            // InternalJavaFXLang.g:7085:1: ( ( '{' ) )
+            // InternalJavaFXLang.g:7086:1: ( '{' )
             {
-            // InternalJavaFXLang.g:7410:1: ( '{' )
-            // InternalJavaFXLang.g:7411:2: '{'
+            // InternalJavaFXLang.g:7086:1: ( '{' )
+            // InternalJavaFXLang.g:7087:2: '{'
             {
              before(grammarAccess.getDerivedBeanAccess().getLeftCurlyBracketKeyword_3()); 
             match(input,27,FOLLOW_2); 
@@ -22803,16 +21799,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__4"
-    // InternalJavaFXLang.g:7420:1: rule__DerivedBean__Group__4 : rule__DerivedBean__Group__4__Impl rule__DerivedBean__Group__5 ;
+    // InternalJavaFXLang.g:7096:1: rule__DerivedBean__Group__4 : rule__DerivedBean__Group__4__Impl rule__DerivedBean__Group__5 ;
     public final void rule__DerivedBean__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7424:1: ( rule__DerivedBean__Group__4__Impl rule__DerivedBean__Group__5 )
-            // InternalJavaFXLang.g:7425:2: rule__DerivedBean__Group__4__Impl rule__DerivedBean__Group__5
+            // InternalJavaFXLang.g:7100:1: ( rule__DerivedBean__Group__4__Impl rule__DerivedBean__Group__5 )
+            // InternalJavaFXLang.g:7101:2: rule__DerivedBean__Group__4__Impl rule__DerivedBean__Group__5
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_37);
             rule__DerivedBean__Group__4__Impl();
 
             state._fsp--;
@@ -22841,21 +21837,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__4__Impl"
-    // InternalJavaFXLang.g:7432:1: rule__DerivedBean__Group__4__Impl : ( ( rule__DerivedBean__Group_4__0 ) ) ;
+    // InternalJavaFXLang.g:7108:1: rule__DerivedBean__Group__4__Impl : ( ( rule__DerivedBean__Group_4__0 ) ) ;
     public final void rule__DerivedBean__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7436:1: ( ( ( rule__DerivedBean__Group_4__0 ) ) )
-            // InternalJavaFXLang.g:7437:1: ( ( rule__DerivedBean__Group_4__0 ) )
+            // InternalJavaFXLang.g:7112:1: ( ( ( rule__DerivedBean__Group_4__0 ) ) )
+            // InternalJavaFXLang.g:7113:1: ( ( rule__DerivedBean__Group_4__0 ) )
             {
-            // InternalJavaFXLang.g:7437:1: ( ( rule__DerivedBean__Group_4__0 ) )
-            // InternalJavaFXLang.g:7438:2: ( rule__DerivedBean__Group_4__0 )
+            // InternalJavaFXLang.g:7113:1: ( ( rule__DerivedBean__Group_4__0 ) )
+            // InternalJavaFXLang.g:7114:2: ( rule__DerivedBean__Group_4__0 )
             {
              before(grammarAccess.getDerivedBeanAccess().getGroup_4()); 
-            // InternalJavaFXLang.g:7439:2: ( rule__DerivedBean__Group_4__0 )
-            // InternalJavaFXLang.g:7439:3: rule__DerivedBean__Group_4__0
+            // InternalJavaFXLang.g:7115:2: ( rule__DerivedBean__Group_4__0 )
+            // InternalJavaFXLang.g:7115:3: rule__DerivedBean__Group_4__0
             {
             pushFollow(FOLLOW_2);
             rule__DerivedBean__Group_4__0();
@@ -22888,16 +21884,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__5"
-    // InternalJavaFXLang.g:7447:1: rule__DerivedBean__Group__5 : rule__DerivedBean__Group__5__Impl rule__DerivedBean__Group__6 ;
+    // InternalJavaFXLang.g:7123:1: rule__DerivedBean__Group__5 : rule__DerivedBean__Group__5__Impl rule__DerivedBean__Group__6 ;
     public final void rule__DerivedBean__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7451:1: ( rule__DerivedBean__Group__5__Impl rule__DerivedBean__Group__6 )
-            // InternalJavaFXLang.g:7452:2: rule__DerivedBean__Group__5__Impl rule__DerivedBean__Group__6
+            // InternalJavaFXLang.g:7127:1: ( rule__DerivedBean__Group__5__Impl rule__DerivedBean__Group__6 )
+            // InternalJavaFXLang.g:7128:2: rule__DerivedBean__Group__5__Impl rule__DerivedBean__Group__6
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_37);
             rule__DerivedBean__Group__5__Impl();
 
             state._fsp--;
@@ -22926,29 +21922,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__5__Impl"
-    // InternalJavaFXLang.g:7459:1: rule__DerivedBean__Group__5__Impl : ( ( rule__DerivedBean__Group_5__0 )? ) ;
+    // InternalJavaFXLang.g:7135:1: rule__DerivedBean__Group__5__Impl : ( ( rule__DerivedBean__Group_5__0 )? ) ;
     public final void rule__DerivedBean__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7463:1: ( ( ( rule__DerivedBean__Group_5__0 )? ) )
-            // InternalJavaFXLang.g:7464:1: ( ( rule__DerivedBean__Group_5__0 )? )
+            // InternalJavaFXLang.g:7139:1: ( ( ( rule__DerivedBean__Group_5__0 )? ) )
+            // InternalJavaFXLang.g:7140:1: ( ( rule__DerivedBean__Group_5__0 )? )
             {
-            // InternalJavaFXLang.g:7464:1: ( ( rule__DerivedBean__Group_5__0 )? )
-            // InternalJavaFXLang.g:7465:2: ( rule__DerivedBean__Group_5__0 )?
+            // InternalJavaFXLang.g:7140:1: ( ( rule__DerivedBean__Group_5__0 )? )
+            // InternalJavaFXLang.g:7141:2: ( rule__DerivedBean__Group_5__0 )?
             {
              before(grammarAccess.getDerivedBeanAccess().getGroup_5()); 
-            // InternalJavaFXLang.g:7466:2: ( rule__DerivedBean__Group_5__0 )?
-            int alt72=2;
-            int LA72_0 = input.LA(1);
+            // InternalJavaFXLang.g:7142:2: ( rule__DerivedBean__Group_5__0 )?
+            int alt68=2;
+            int LA68_0 = input.LA(1);
 
-            if ( ((LA72_0>=RULE_STRING && LA72_0<=RULE_ID)) ) {
-                alt72=1;
+            if ( ((LA68_0>=RULE_STRING && LA68_0<=RULE_ID)) ) {
+                alt68=1;
             }
-            switch (alt72) {
+            switch (alt68) {
                 case 1 :
-                    // InternalJavaFXLang.g:7466:3: rule__DerivedBean__Group_5__0
+                    // InternalJavaFXLang.g:7142:3: rule__DerivedBean__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DerivedBean__Group_5__0();
@@ -22984,14 +21980,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__6"
-    // InternalJavaFXLang.g:7474:1: rule__DerivedBean__Group__6 : rule__DerivedBean__Group__6__Impl ;
+    // InternalJavaFXLang.g:7150:1: rule__DerivedBean__Group__6 : rule__DerivedBean__Group__6__Impl ;
     public final void rule__DerivedBean__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7478:1: ( rule__DerivedBean__Group__6__Impl )
-            // InternalJavaFXLang.g:7479:2: rule__DerivedBean__Group__6__Impl
+            // InternalJavaFXLang.g:7154:1: ( rule__DerivedBean__Group__6__Impl )
+            // InternalJavaFXLang.g:7155:2: rule__DerivedBean__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DerivedBean__Group__6__Impl();
@@ -23017,17 +22013,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group__6__Impl"
-    // InternalJavaFXLang.g:7485:1: rule__DerivedBean__Group__6__Impl : ( '}' ) ;
+    // InternalJavaFXLang.g:7161:1: rule__DerivedBean__Group__6__Impl : ( '}' ) ;
     public final void rule__DerivedBean__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7489:1: ( ( '}' ) )
-            // InternalJavaFXLang.g:7490:1: ( '}' )
+            // InternalJavaFXLang.g:7165:1: ( ( '}' ) )
+            // InternalJavaFXLang.g:7166:1: ( '}' )
             {
-            // InternalJavaFXLang.g:7490:1: ( '}' )
-            // InternalJavaFXLang.g:7491:2: '}'
+            // InternalJavaFXLang.g:7166:1: ( '}' )
+            // InternalJavaFXLang.g:7167:2: '}'
             {
              before(grammarAccess.getDerivedBeanAccess().getRightCurlyBracketKeyword_6()); 
             match(input,28,FOLLOW_2); 
@@ -23054,14 +22050,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group_4__0"
-    // InternalJavaFXLang.g:7501:1: rule__DerivedBean__Group_4__0 : rule__DerivedBean__Group_4__0__Impl rule__DerivedBean__Group_4__1 ;
+    // InternalJavaFXLang.g:7177:1: rule__DerivedBean__Group_4__0 : rule__DerivedBean__Group_4__0__Impl rule__DerivedBean__Group_4__1 ;
     public final void rule__DerivedBean__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7505:1: ( rule__DerivedBean__Group_4__0__Impl rule__DerivedBean__Group_4__1 )
-            // InternalJavaFXLang.g:7506:2: rule__DerivedBean__Group_4__0__Impl rule__DerivedBean__Group_4__1
+            // InternalJavaFXLang.g:7181:1: ( rule__DerivedBean__Group_4__0__Impl rule__DerivedBean__Group_4__1 )
+            // InternalJavaFXLang.g:7182:2: rule__DerivedBean__Group_4__0__Impl rule__DerivedBean__Group_4__1
             {
             pushFollow(FOLLOW_4);
             rule__DerivedBean__Group_4__0__Impl();
@@ -23092,17 +22088,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group_4__0__Impl"
-    // InternalJavaFXLang.g:7513:1: rule__DerivedBean__Group_4__0__Impl : ( 'instanceType:' ) ;
+    // InternalJavaFXLang.g:7189:1: rule__DerivedBean__Group_4__0__Impl : ( 'instanceType:' ) ;
     public final void rule__DerivedBean__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7517:1: ( ( 'instanceType:' ) )
-            // InternalJavaFXLang.g:7518:1: ( 'instanceType:' )
+            // InternalJavaFXLang.g:7193:1: ( ( 'instanceType:' ) )
+            // InternalJavaFXLang.g:7194:1: ( 'instanceType:' )
             {
-            // InternalJavaFXLang.g:7518:1: ( 'instanceType:' )
-            // InternalJavaFXLang.g:7519:2: 'instanceType:'
+            // InternalJavaFXLang.g:7194:1: ( 'instanceType:' )
+            // InternalJavaFXLang.g:7195:2: 'instanceType:'
             {
              before(grammarAccess.getDerivedBeanAccess().getInstanceTypeKeyword_4_0()); 
             match(input,54,FOLLOW_2); 
@@ -23129,14 +22125,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group_4__1"
-    // InternalJavaFXLang.g:7528:1: rule__DerivedBean__Group_4__1 : rule__DerivedBean__Group_4__1__Impl ;
+    // InternalJavaFXLang.g:7204:1: rule__DerivedBean__Group_4__1 : rule__DerivedBean__Group_4__1__Impl ;
     public final void rule__DerivedBean__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7532:1: ( rule__DerivedBean__Group_4__1__Impl )
-            // InternalJavaFXLang.g:7533:2: rule__DerivedBean__Group_4__1__Impl
+            // InternalJavaFXLang.g:7208:1: ( rule__DerivedBean__Group_4__1__Impl )
+            // InternalJavaFXLang.g:7209:2: rule__DerivedBean__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DerivedBean__Group_4__1__Impl();
@@ -23162,21 +22158,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group_4__1__Impl"
-    // InternalJavaFXLang.g:7539:1: rule__DerivedBean__Group_4__1__Impl : ( ( rule__DerivedBean__InstanceTypeAssignment_4_1 ) ) ;
+    // InternalJavaFXLang.g:7215:1: rule__DerivedBean__Group_4__1__Impl : ( ( rule__DerivedBean__InstanceTypeAssignment_4_1 ) ) ;
     public final void rule__DerivedBean__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7543:1: ( ( ( rule__DerivedBean__InstanceTypeAssignment_4_1 ) ) )
-            // InternalJavaFXLang.g:7544:1: ( ( rule__DerivedBean__InstanceTypeAssignment_4_1 ) )
+            // InternalJavaFXLang.g:7219:1: ( ( ( rule__DerivedBean__InstanceTypeAssignment_4_1 ) ) )
+            // InternalJavaFXLang.g:7220:1: ( ( rule__DerivedBean__InstanceTypeAssignment_4_1 ) )
             {
-            // InternalJavaFXLang.g:7544:1: ( ( rule__DerivedBean__InstanceTypeAssignment_4_1 ) )
-            // InternalJavaFXLang.g:7545:2: ( rule__DerivedBean__InstanceTypeAssignment_4_1 )
+            // InternalJavaFXLang.g:7220:1: ( ( rule__DerivedBean__InstanceTypeAssignment_4_1 ) )
+            // InternalJavaFXLang.g:7221:2: ( rule__DerivedBean__InstanceTypeAssignment_4_1 )
             {
              before(grammarAccess.getDerivedBeanAccess().getInstanceTypeAssignment_4_1()); 
-            // InternalJavaFXLang.g:7546:2: ( rule__DerivedBean__InstanceTypeAssignment_4_1 )
-            // InternalJavaFXLang.g:7546:3: rule__DerivedBean__InstanceTypeAssignment_4_1
+            // InternalJavaFXLang.g:7222:2: ( rule__DerivedBean__InstanceTypeAssignment_4_1 )
+            // InternalJavaFXLang.g:7222:3: rule__DerivedBean__InstanceTypeAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__DerivedBean__InstanceTypeAssignment_4_1();
@@ -23209,14 +22205,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group_5__0"
-    // InternalJavaFXLang.g:7555:1: rule__DerivedBean__Group_5__0 : rule__DerivedBean__Group_5__0__Impl rule__DerivedBean__Group_5__1 ;
+    // InternalJavaFXLang.g:7231:1: rule__DerivedBean__Group_5__0 : rule__DerivedBean__Group_5__0__Impl rule__DerivedBean__Group_5__1 ;
     public final void rule__DerivedBean__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7559:1: ( rule__DerivedBean__Group_5__0__Impl rule__DerivedBean__Group_5__1 )
-            // InternalJavaFXLang.g:7560:2: rule__DerivedBean__Group_5__0__Impl rule__DerivedBean__Group_5__1
+            // InternalJavaFXLang.g:7235:1: ( rule__DerivedBean__Group_5__0__Impl rule__DerivedBean__Group_5__1 )
+            // InternalJavaFXLang.g:7236:2: rule__DerivedBean__Group_5__0__Impl rule__DerivedBean__Group_5__1
             {
             pushFollow(FOLLOW_4);
             rule__DerivedBean__Group_5__0__Impl();
@@ -23247,21 +22243,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group_5__0__Impl"
-    // InternalJavaFXLang.g:7567:1: rule__DerivedBean__Group_5__0__Impl : ( ( rule__DerivedBean__AttributesAssignment_5_0 ) ) ;
+    // InternalJavaFXLang.g:7243:1: rule__DerivedBean__Group_5__0__Impl : ( ( rule__DerivedBean__AttributesAssignment_5_0 ) ) ;
     public final void rule__DerivedBean__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7571:1: ( ( ( rule__DerivedBean__AttributesAssignment_5_0 ) ) )
-            // InternalJavaFXLang.g:7572:1: ( ( rule__DerivedBean__AttributesAssignment_5_0 ) )
+            // InternalJavaFXLang.g:7247:1: ( ( ( rule__DerivedBean__AttributesAssignment_5_0 ) ) )
+            // InternalJavaFXLang.g:7248:1: ( ( rule__DerivedBean__AttributesAssignment_5_0 ) )
             {
-            // InternalJavaFXLang.g:7572:1: ( ( rule__DerivedBean__AttributesAssignment_5_0 ) )
-            // InternalJavaFXLang.g:7573:2: ( rule__DerivedBean__AttributesAssignment_5_0 )
+            // InternalJavaFXLang.g:7248:1: ( ( rule__DerivedBean__AttributesAssignment_5_0 ) )
+            // InternalJavaFXLang.g:7249:2: ( rule__DerivedBean__AttributesAssignment_5_0 )
             {
              before(grammarAccess.getDerivedBeanAccess().getAttributesAssignment_5_0()); 
-            // InternalJavaFXLang.g:7574:2: ( rule__DerivedBean__AttributesAssignment_5_0 )
-            // InternalJavaFXLang.g:7574:3: rule__DerivedBean__AttributesAssignment_5_0
+            // InternalJavaFXLang.g:7250:2: ( rule__DerivedBean__AttributesAssignment_5_0 )
+            // InternalJavaFXLang.g:7250:3: rule__DerivedBean__AttributesAssignment_5_0
             {
             pushFollow(FOLLOW_2);
             rule__DerivedBean__AttributesAssignment_5_0();
@@ -23294,14 +22290,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group_5__1"
-    // InternalJavaFXLang.g:7582:1: rule__DerivedBean__Group_5__1 : rule__DerivedBean__Group_5__1__Impl ;
+    // InternalJavaFXLang.g:7258:1: rule__DerivedBean__Group_5__1 : rule__DerivedBean__Group_5__1__Impl ;
     public final void rule__DerivedBean__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7586:1: ( rule__DerivedBean__Group_5__1__Impl )
-            // InternalJavaFXLang.g:7587:2: rule__DerivedBean__Group_5__1__Impl
+            // InternalJavaFXLang.g:7262:1: ( rule__DerivedBean__Group_5__1__Impl )
+            // InternalJavaFXLang.g:7263:2: rule__DerivedBean__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DerivedBean__Group_5__1__Impl();
@@ -23327,35 +22323,35 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__Group_5__1__Impl"
-    // InternalJavaFXLang.g:7593:1: rule__DerivedBean__Group_5__1__Impl : ( ( rule__DerivedBean__AttributesAssignment_5_1 )* ) ;
+    // InternalJavaFXLang.g:7269:1: rule__DerivedBean__Group_5__1__Impl : ( ( rule__DerivedBean__AttributesAssignment_5_1 )* ) ;
     public final void rule__DerivedBean__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7597:1: ( ( ( rule__DerivedBean__AttributesAssignment_5_1 )* ) )
-            // InternalJavaFXLang.g:7598:1: ( ( rule__DerivedBean__AttributesAssignment_5_1 )* )
+            // InternalJavaFXLang.g:7273:1: ( ( ( rule__DerivedBean__AttributesAssignment_5_1 )* ) )
+            // InternalJavaFXLang.g:7274:1: ( ( rule__DerivedBean__AttributesAssignment_5_1 )* )
             {
-            // InternalJavaFXLang.g:7598:1: ( ( rule__DerivedBean__AttributesAssignment_5_1 )* )
-            // InternalJavaFXLang.g:7599:2: ( rule__DerivedBean__AttributesAssignment_5_1 )*
+            // InternalJavaFXLang.g:7274:1: ( ( rule__DerivedBean__AttributesAssignment_5_1 )* )
+            // InternalJavaFXLang.g:7275:2: ( rule__DerivedBean__AttributesAssignment_5_1 )*
             {
              before(grammarAccess.getDerivedBeanAccess().getAttributesAssignment_5_1()); 
-            // InternalJavaFXLang.g:7600:2: ( rule__DerivedBean__AttributesAssignment_5_1 )*
-            loop73:
+            // InternalJavaFXLang.g:7276:2: ( rule__DerivedBean__AttributesAssignment_5_1 )*
+            loop69:
             do {
-                int alt73=2;
-                int LA73_0 = input.LA(1);
+                int alt69=2;
+                int LA69_0 = input.LA(1);
 
-                if ( ((LA73_0>=RULE_STRING && LA73_0<=RULE_ID)) ) {
-                    alt73=1;
+                if ( ((LA69_0>=RULE_STRING && LA69_0<=RULE_ID)) ) {
+                    alt69=1;
                 }
 
 
-                switch (alt73) {
+                switch (alt69) {
             	case 1 :
-            	    // InternalJavaFXLang.g:7600:3: rule__DerivedBean__AttributesAssignment_5_1
+            	    // InternalJavaFXLang.g:7276:3: rule__DerivedBean__AttributesAssignment_5_1
             	    {
-            	    pushFollow(FOLLOW_37);
+            	    pushFollow(FOLLOW_38);
             	    rule__DerivedBean__AttributesAssignment_5_1();
 
             	    state._fsp--;
@@ -23365,7 +22361,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop73;
+            	    break loop69;
                 }
             } while (true);
 
@@ -23392,14 +22388,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__0"
-    // InternalJavaFXLang.g:7609:1: rule__Bean__Group__0 : rule__Bean__Group__0__Impl rule__Bean__Group__1 ;
+    // InternalJavaFXLang.g:7285:1: rule__Bean__Group__0 : rule__Bean__Group__0__Impl rule__Bean__Group__1 ;
     public final void rule__Bean__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7613:1: ( rule__Bean__Group__0__Impl rule__Bean__Group__1 )
-            // InternalJavaFXLang.g:7614:2: rule__Bean__Group__0__Impl rule__Bean__Group__1
+            // InternalJavaFXLang.g:7289:1: ( rule__Bean__Group__0__Impl rule__Bean__Group__1 )
+            // InternalJavaFXLang.g:7290:2: rule__Bean__Group__0__Impl rule__Bean__Group__1
             {
             pushFollow(FOLLOW_10);
             rule__Bean__Group__0__Impl();
@@ -23430,21 +22426,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__0__Impl"
-    // InternalJavaFXLang.g:7621:1: rule__Bean__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:7297:1: rule__Bean__Group__0__Impl : ( () ) ;
     public final void rule__Bean__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7625:1: ( ( () ) )
-            // InternalJavaFXLang.g:7626:1: ( () )
+            // InternalJavaFXLang.g:7301:1: ( ( () ) )
+            // InternalJavaFXLang.g:7302:1: ( () )
             {
-            // InternalJavaFXLang.g:7626:1: ( () )
-            // InternalJavaFXLang.g:7627:2: ()
+            // InternalJavaFXLang.g:7302:1: ( () )
+            // InternalJavaFXLang.g:7303:2: ()
             {
              before(grammarAccess.getBeanAccess().getBeanAction_0()); 
-            // InternalJavaFXLang.g:7628:2: ()
-            // InternalJavaFXLang.g:7628:3: 
+            // InternalJavaFXLang.g:7304:2: ()
+            // InternalJavaFXLang.g:7304:3: 
             {
             }
 
@@ -23467,14 +22463,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__1"
-    // InternalJavaFXLang.g:7636:1: rule__Bean__Group__1 : rule__Bean__Group__1__Impl rule__Bean__Group__2 ;
+    // InternalJavaFXLang.g:7312:1: rule__Bean__Group__1 : rule__Bean__Group__1__Impl rule__Bean__Group__2 ;
     public final void rule__Bean__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7640:1: ( rule__Bean__Group__1__Impl rule__Bean__Group__2 )
-            // InternalJavaFXLang.g:7641:2: rule__Bean__Group__1__Impl rule__Bean__Group__2
+            // InternalJavaFXLang.g:7316:1: ( rule__Bean__Group__1__Impl rule__Bean__Group__2 )
+            // InternalJavaFXLang.g:7317:2: rule__Bean__Group__1__Impl rule__Bean__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Bean__Group__1__Impl();
@@ -23505,17 +22501,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__1__Impl"
-    // InternalJavaFXLang.g:7648:1: rule__Bean__Group__1__Impl : ( 'class' ) ;
+    // InternalJavaFXLang.g:7324:1: rule__Bean__Group__1__Impl : ( 'class' ) ;
     public final void rule__Bean__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7652:1: ( ( 'class' ) )
-            // InternalJavaFXLang.g:7653:1: ( 'class' )
+            // InternalJavaFXLang.g:7328:1: ( ( 'class' ) )
+            // InternalJavaFXLang.g:7329:1: ( 'class' )
             {
-            // InternalJavaFXLang.g:7653:1: ( 'class' )
-            // InternalJavaFXLang.g:7654:2: 'class'
+            // InternalJavaFXLang.g:7329:1: ( 'class' )
+            // InternalJavaFXLang.g:7330:2: 'class'
             {
              before(grammarAccess.getBeanAccess().getClassKeyword_1()); 
             match(input,53,FOLLOW_2); 
@@ -23542,14 +22538,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__2"
-    // InternalJavaFXLang.g:7663:1: rule__Bean__Group__2 : rule__Bean__Group__2__Impl rule__Bean__Group__3 ;
+    // InternalJavaFXLang.g:7339:1: rule__Bean__Group__2 : rule__Bean__Group__2__Impl rule__Bean__Group__3 ;
     public final void rule__Bean__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7667:1: ( rule__Bean__Group__2__Impl rule__Bean__Group__3 )
-            // InternalJavaFXLang.g:7668:2: rule__Bean__Group__2__Impl rule__Bean__Group__3
+            // InternalJavaFXLang.g:7343:1: ( rule__Bean__Group__2__Impl rule__Bean__Group__3 )
+            // InternalJavaFXLang.g:7344:2: rule__Bean__Group__2__Impl rule__Bean__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__Bean__Group__2__Impl();
@@ -23580,21 +22576,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__2__Impl"
-    // InternalJavaFXLang.g:7675:1: rule__Bean__Group__2__Impl : ( ( rule__Bean__NameAssignment_2 ) ) ;
+    // InternalJavaFXLang.g:7351:1: rule__Bean__Group__2__Impl : ( ( rule__Bean__NameAssignment_2 ) ) ;
     public final void rule__Bean__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7679:1: ( ( ( rule__Bean__NameAssignment_2 ) ) )
-            // InternalJavaFXLang.g:7680:1: ( ( rule__Bean__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:7355:1: ( ( ( rule__Bean__NameAssignment_2 ) ) )
+            // InternalJavaFXLang.g:7356:1: ( ( rule__Bean__NameAssignment_2 ) )
             {
-            // InternalJavaFXLang.g:7680:1: ( ( rule__Bean__NameAssignment_2 ) )
-            // InternalJavaFXLang.g:7681:2: ( rule__Bean__NameAssignment_2 )
+            // InternalJavaFXLang.g:7356:1: ( ( rule__Bean__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:7357:2: ( rule__Bean__NameAssignment_2 )
             {
              before(grammarAccess.getBeanAccess().getNameAssignment_2()); 
-            // InternalJavaFXLang.g:7682:2: ( rule__Bean__NameAssignment_2 )
-            // InternalJavaFXLang.g:7682:3: rule__Bean__NameAssignment_2
+            // InternalJavaFXLang.g:7358:2: ( rule__Bean__NameAssignment_2 )
+            // InternalJavaFXLang.g:7358:3: rule__Bean__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Bean__NameAssignment_2();
@@ -23627,16 +22623,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__3"
-    // InternalJavaFXLang.g:7690:1: rule__Bean__Group__3 : rule__Bean__Group__3__Impl rule__Bean__Group__4 ;
+    // InternalJavaFXLang.g:7366:1: rule__Bean__Group__3 : rule__Bean__Group__3__Impl rule__Bean__Group__4 ;
     public final void rule__Bean__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7694:1: ( rule__Bean__Group__3__Impl rule__Bean__Group__4 )
-            // InternalJavaFXLang.g:7695:2: rule__Bean__Group__3__Impl rule__Bean__Group__4
+            // InternalJavaFXLang.g:7370:1: ( rule__Bean__Group__3__Impl rule__Bean__Group__4 )
+            // InternalJavaFXLang.g:7371:2: rule__Bean__Group__3__Impl rule__Bean__Group__4
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_37);
             rule__Bean__Group__3__Impl();
 
             state._fsp--;
@@ -23665,17 +22661,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__3__Impl"
-    // InternalJavaFXLang.g:7702:1: rule__Bean__Group__3__Impl : ( '{' ) ;
+    // InternalJavaFXLang.g:7378:1: rule__Bean__Group__3__Impl : ( '{' ) ;
     public final void rule__Bean__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7706:1: ( ( '{' ) )
-            // InternalJavaFXLang.g:7707:1: ( '{' )
+            // InternalJavaFXLang.g:7382:1: ( ( '{' ) )
+            // InternalJavaFXLang.g:7383:1: ( '{' )
             {
-            // InternalJavaFXLang.g:7707:1: ( '{' )
-            // InternalJavaFXLang.g:7708:2: '{'
+            // InternalJavaFXLang.g:7383:1: ( '{' )
+            // InternalJavaFXLang.g:7384:2: '{'
             {
              before(grammarAccess.getBeanAccess().getLeftCurlyBracketKeyword_3()); 
             match(input,27,FOLLOW_2); 
@@ -23702,16 +22698,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__4"
-    // InternalJavaFXLang.g:7717:1: rule__Bean__Group__4 : rule__Bean__Group__4__Impl rule__Bean__Group__5 ;
+    // InternalJavaFXLang.g:7393:1: rule__Bean__Group__4 : rule__Bean__Group__4__Impl rule__Bean__Group__5 ;
     public final void rule__Bean__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7721:1: ( rule__Bean__Group__4__Impl rule__Bean__Group__5 )
-            // InternalJavaFXLang.g:7722:2: rule__Bean__Group__4__Impl rule__Bean__Group__5
+            // InternalJavaFXLang.g:7397:1: ( rule__Bean__Group__4__Impl rule__Bean__Group__5 )
+            // InternalJavaFXLang.g:7398:2: rule__Bean__Group__4__Impl rule__Bean__Group__5
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_37);
             rule__Bean__Group__4__Impl();
 
             state._fsp--;
@@ -23740,29 +22736,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__4__Impl"
-    // InternalJavaFXLang.g:7729:1: rule__Bean__Group__4__Impl : ( ( rule__Bean__Group_4__0 )? ) ;
+    // InternalJavaFXLang.g:7405:1: rule__Bean__Group__4__Impl : ( ( rule__Bean__Group_4__0 )? ) ;
     public final void rule__Bean__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7733:1: ( ( ( rule__Bean__Group_4__0 )? ) )
-            // InternalJavaFXLang.g:7734:1: ( ( rule__Bean__Group_4__0 )? )
+            // InternalJavaFXLang.g:7409:1: ( ( ( rule__Bean__Group_4__0 )? ) )
+            // InternalJavaFXLang.g:7410:1: ( ( rule__Bean__Group_4__0 )? )
             {
-            // InternalJavaFXLang.g:7734:1: ( ( rule__Bean__Group_4__0 )? )
-            // InternalJavaFXLang.g:7735:2: ( rule__Bean__Group_4__0 )?
+            // InternalJavaFXLang.g:7410:1: ( ( rule__Bean__Group_4__0 )? )
+            // InternalJavaFXLang.g:7411:2: ( rule__Bean__Group_4__0 )?
             {
              before(grammarAccess.getBeanAccess().getGroup_4()); 
-            // InternalJavaFXLang.g:7736:2: ( rule__Bean__Group_4__0 )?
-            int alt74=2;
-            int LA74_0 = input.LA(1);
+            // InternalJavaFXLang.g:7412:2: ( rule__Bean__Group_4__0 )?
+            int alt70=2;
+            int LA70_0 = input.LA(1);
 
-            if ( ((LA74_0>=RULE_STRING && LA74_0<=RULE_ID)) ) {
-                alt74=1;
+            if ( ((LA70_0>=RULE_STRING && LA70_0<=RULE_ID)) ) {
+                alt70=1;
             }
-            switch (alt74) {
+            switch (alt70) {
                 case 1 :
-                    // InternalJavaFXLang.g:7736:3: rule__Bean__Group_4__0
+                    // InternalJavaFXLang.g:7412:3: rule__Bean__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Bean__Group_4__0();
@@ -23798,14 +22794,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__5"
-    // InternalJavaFXLang.g:7744:1: rule__Bean__Group__5 : rule__Bean__Group__5__Impl ;
+    // InternalJavaFXLang.g:7420:1: rule__Bean__Group__5 : rule__Bean__Group__5__Impl ;
     public final void rule__Bean__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7748:1: ( rule__Bean__Group__5__Impl )
-            // InternalJavaFXLang.g:7749:2: rule__Bean__Group__5__Impl
+            // InternalJavaFXLang.g:7424:1: ( rule__Bean__Group__5__Impl )
+            // InternalJavaFXLang.g:7425:2: rule__Bean__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Bean__Group__5__Impl();
@@ -23831,17 +22827,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group__5__Impl"
-    // InternalJavaFXLang.g:7755:1: rule__Bean__Group__5__Impl : ( '}' ) ;
+    // InternalJavaFXLang.g:7431:1: rule__Bean__Group__5__Impl : ( '}' ) ;
     public final void rule__Bean__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7759:1: ( ( '}' ) )
-            // InternalJavaFXLang.g:7760:1: ( '}' )
+            // InternalJavaFXLang.g:7435:1: ( ( '}' ) )
+            // InternalJavaFXLang.g:7436:1: ( '}' )
             {
-            // InternalJavaFXLang.g:7760:1: ( '}' )
-            // InternalJavaFXLang.g:7761:2: '}'
+            // InternalJavaFXLang.g:7436:1: ( '}' )
+            // InternalJavaFXLang.g:7437:2: '}'
             {
              before(grammarAccess.getBeanAccess().getRightCurlyBracketKeyword_5()); 
             match(input,28,FOLLOW_2); 
@@ -23868,14 +22864,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group_4__0"
-    // InternalJavaFXLang.g:7771:1: rule__Bean__Group_4__0 : rule__Bean__Group_4__0__Impl rule__Bean__Group_4__1 ;
+    // InternalJavaFXLang.g:7447:1: rule__Bean__Group_4__0 : rule__Bean__Group_4__0__Impl rule__Bean__Group_4__1 ;
     public final void rule__Bean__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7775:1: ( rule__Bean__Group_4__0__Impl rule__Bean__Group_4__1 )
-            // InternalJavaFXLang.g:7776:2: rule__Bean__Group_4__0__Impl rule__Bean__Group_4__1
+            // InternalJavaFXLang.g:7451:1: ( rule__Bean__Group_4__0__Impl rule__Bean__Group_4__1 )
+            // InternalJavaFXLang.g:7452:2: rule__Bean__Group_4__0__Impl rule__Bean__Group_4__1
             {
             pushFollow(FOLLOW_4);
             rule__Bean__Group_4__0__Impl();
@@ -23906,21 +22902,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group_4__0__Impl"
-    // InternalJavaFXLang.g:7783:1: rule__Bean__Group_4__0__Impl : ( ( rule__Bean__AttributesAssignment_4_0 ) ) ;
+    // InternalJavaFXLang.g:7459:1: rule__Bean__Group_4__0__Impl : ( ( rule__Bean__AttributesAssignment_4_0 ) ) ;
     public final void rule__Bean__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7787:1: ( ( ( rule__Bean__AttributesAssignment_4_0 ) ) )
-            // InternalJavaFXLang.g:7788:1: ( ( rule__Bean__AttributesAssignment_4_0 ) )
+            // InternalJavaFXLang.g:7463:1: ( ( ( rule__Bean__AttributesAssignment_4_0 ) ) )
+            // InternalJavaFXLang.g:7464:1: ( ( rule__Bean__AttributesAssignment_4_0 ) )
             {
-            // InternalJavaFXLang.g:7788:1: ( ( rule__Bean__AttributesAssignment_4_0 ) )
-            // InternalJavaFXLang.g:7789:2: ( rule__Bean__AttributesAssignment_4_0 )
+            // InternalJavaFXLang.g:7464:1: ( ( rule__Bean__AttributesAssignment_4_0 ) )
+            // InternalJavaFXLang.g:7465:2: ( rule__Bean__AttributesAssignment_4_0 )
             {
              before(grammarAccess.getBeanAccess().getAttributesAssignment_4_0()); 
-            // InternalJavaFXLang.g:7790:2: ( rule__Bean__AttributesAssignment_4_0 )
-            // InternalJavaFXLang.g:7790:3: rule__Bean__AttributesAssignment_4_0
+            // InternalJavaFXLang.g:7466:2: ( rule__Bean__AttributesAssignment_4_0 )
+            // InternalJavaFXLang.g:7466:3: rule__Bean__AttributesAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__Bean__AttributesAssignment_4_0();
@@ -23953,14 +22949,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group_4__1"
-    // InternalJavaFXLang.g:7798:1: rule__Bean__Group_4__1 : rule__Bean__Group_4__1__Impl ;
+    // InternalJavaFXLang.g:7474:1: rule__Bean__Group_4__1 : rule__Bean__Group_4__1__Impl ;
     public final void rule__Bean__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7802:1: ( rule__Bean__Group_4__1__Impl )
-            // InternalJavaFXLang.g:7803:2: rule__Bean__Group_4__1__Impl
+            // InternalJavaFXLang.g:7478:1: ( rule__Bean__Group_4__1__Impl )
+            // InternalJavaFXLang.g:7479:2: rule__Bean__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Bean__Group_4__1__Impl();
@@ -23986,35 +22982,35 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__Group_4__1__Impl"
-    // InternalJavaFXLang.g:7809:1: rule__Bean__Group_4__1__Impl : ( ( rule__Bean__AttributesAssignment_4_1 )* ) ;
+    // InternalJavaFXLang.g:7485:1: rule__Bean__Group_4__1__Impl : ( ( rule__Bean__AttributesAssignment_4_1 )* ) ;
     public final void rule__Bean__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7813:1: ( ( ( rule__Bean__AttributesAssignment_4_1 )* ) )
-            // InternalJavaFXLang.g:7814:1: ( ( rule__Bean__AttributesAssignment_4_1 )* )
+            // InternalJavaFXLang.g:7489:1: ( ( ( rule__Bean__AttributesAssignment_4_1 )* ) )
+            // InternalJavaFXLang.g:7490:1: ( ( rule__Bean__AttributesAssignment_4_1 )* )
             {
-            // InternalJavaFXLang.g:7814:1: ( ( rule__Bean__AttributesAssignment_4_1 )* )
-            // InternalJavaFXLang.g:7815:2: ( rule__Bean__AttributesAssignment_4_1 )*
+            // InternalJavaFXLang.g:7490:1: ( ( rule__Bean__AttributesAssignment_4_1 )* )
+            // InternalJavaFXLang.g:7491:2: ( rule__Bean__AttributesAssignment_4_1 )*
             {
              before(grammarAccess.getBeanAccess().getAttributesAssignment_4_1()); 
-            // InternalJavaFXLang.g:7816:2: ( rule__Bean__AttributesAssignment_4_1 )*
-            loop75:
+            // InternalJavaFXLang.g:7492:2: ( rule__Bean__AttributesAssignment_4_1 )*
+            loop71:
             do {
-                int alt75=2;
-                int LA75_0 = input.LA(1);
+                int alt71=2;
+                int LA71_0 = input.LA(1);
 
-                if ( ((LA75_0>=RULE_STRING && LA75_0<=RULE_ID)) ) {
-                    alt75=1;
+                if ( ((LA71_0>=RULE_STRING && LA71_0<=RULE_ID)) ) {
+                    alt71=1;
                 }
 
 
-                switch (alt75) {
+                switch (alt71) {
             	case 1 :
-            	    // InternalJavaFXLang.g:7816:3: rule__Bean__AttributesAssignment_4_1
+            	    // InternalJavaFXLang.g:7492:3: rule__Bean__AttributesAssignment_4_1
             	    {
-            	    pushFollow(FOLLOW_37);
+            	    pushFollow(FOLLOW_38);
             	    rule__Bean__AttributesAssignment_4_1();
 
             	    state._fsp--;
@@ -24024,7 +23020,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop75;
+            	    break loop71;
                 }
             } while (true);
 
@@ -24051,16 +23047,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__0"
-    // InternalJavaFXLang.g:7825:1: rule__TableViewFX__Group__0 : rule__TableViewFX__Group__0__Impl rule__TableViewFX__Group__1 ;
+    // InternalJavaFXLang.g:7501:1: rule__TableViewFX__Group__0 : rule__TableViewFX__Group__0__Impl rule__TableViewFX__Group__1 ;
     public final void rule__TableViewFX__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7829:1: ( rule__TableViewFX__Group__0__Impl rule__TableViewFX__Group__1 )
-            // InternalJavaFXLang.g:7830:2: rule__TableViewFX__Group__0__Impl rule__TableViewFX__Group__1
+            // InternalJavaFXLang.g:7505:1: ( rule__TableViewFX__Group__0__Impl rule__TableViewFX__Group__1 )
+            // InternalJavaFXLang.g:7506:2: rule__TableViewFX__Group__0__Impl rule__TableViewFX__Group__1
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_39);
             rule__TableViewFX__Group__0__Impl();
 
             state._fsp--;
@@ -24089,21 +23085,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__0__Impl"
-    // InternalJavaFXLang.g:7837:1: rule__TableViewFX__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:7513:1: rule__TableViewFX__Group__0__Impl : ( () ) ;
     public final void rule__TableViewFX__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7841:1: ( ( () ) )
-            // InternalJavaFXLang.g:7842:1: ( () )
+            // InternalJavaFXLang.g:7517:1: ( ( () ) )
+            // InternalJavaFXLang.g:7518:1: ( () )
             {
-            // InternalJavaFXLang.g:7842:1: ( () )
-            // InternalJavaFXLang.g:7843:2: ()
+            // InternalJavaFXLang.g:7518:1: ( () )
+            // InternalJavaFXLang.g:7519:2: ()
             {
              before(grammarAccess.getTableViewFXAccess().getTableViewFXAction_0()); 
-            // InternalJavaFXLang.g:7844:2: ()
-            // InternalJavaFXLang.g:7844:3: 
+            // InternalJavaFXLang.g:7520:2: ()
+            // InternalJavaFXLang.g:7520:3: 
             {
             }
 
@@ -24126,14 +23122,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__1"
-    // InternalJavaFXLang.g:7852:1: rule__TableViewFX__Group__1 : rule__TableViewFX__Group__1__Impl rule__TableViewFX__Group__2 ;
+    // InternalJavaFXLang.g:7528:1: rule__TableViewFX__Group__1 : rule__TableViewFX__Group__1__Impl rule__TableViewFX__Group__2 ;
     public final void rule__TableViewFX__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7856:1: ( rule__TableViewFX__Group__1__Impl rule__TableViewFX__Group__2 )
-            // InternalJavaFXLang.g:7857:2: rule__TableViewFX__Group__1__Impl rule__TableViewFX__Group__2
+            // InternalJavaFXLang.g:7532:1: ( rule__TableViewFX__Group__1__Impl rule__TableViewFX__Group__2 )
+            // InternalJavaFXLang.g:7533:2: rule__TableViewFX__Group__1__Impl rule__TableViewFX__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__TableViewFX__Group__1__Impl();
@@ -24164,17 +23160,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__1__Impl"
-    // InternalJavaFXLang.g:7864:1: rule__TableViewFX__Group__1__Impl : ( 'TableView' ) ;
+    // InternalJavaFXLang.g:7540:1: rule__TableViewFX__Group__1__Impl : ( 'TableView' ) ;
     public final void rule__TableViewFX__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7868:1: ( ( 'TableView' ) )
-            // InternalJavaFXLang.g:7869:1: ( 'TableView' )
+            // InternalJavaFXLang.g:7544:1: ( ( 'TableView' ) )
+            // InternalJavaFXLang.g:7545:1: ( 'TableView' )
             {
-            // InternalJavaFXLang.g:7869:1: ( 'TableView' )
-            // InternalJavaFXLang.g:7870:2: 'TableView'
+            // InternalJavaFXLang.g:7545:1: ( 'TableView' )
+            // InternalJavaFXLang.g:7546:2: 'TableView'
             {
              before(grammarAccess.getTableViewFXAccess().getTableViewKeyword_1()); 
             match(input,55,FOLLOW_2); 
@@ -24201,14 +23197,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__2"
-    // InternalJavaFXLang.g:7879:1: rule__TableViewFX__Group__2 : rule__TableViewFX__Group__2__Impl rule__TableViewFX__Group__3 ;
+    // InternalJavaFXLang.g:7555:1: rule__TableViewFX__Group__2 : rule__TableViewFX__Group__2__Impl rule__TableViewFX__Group__3 ;
     public final void rule__TableViewFX__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7883:1: ( rule__TableViewFX__Group__2__Impl rule__TableViewFX__Group__3 )
-            // InternalJavaFXLang.g:7884:2: rule__TableViewFX__Group__2__Impl rule__TableViewFX__Group__3
+            // InternalJavaFXLang.g:7559:1: ( rule__TableViewFX__Group__2__Impl rule__TableViewFX__Group__3 )
+            // InternalJavaFXLang.g:7560:2: rule__TableViewFX__Group__2__Impl rule__TableViewFX__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__TableViewFX__Group__2__Impl();
@@ -24239,17 +23235,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__2__Impl"
-    // InternalJavaFXLang.g:7891:1: rule__TableViewFX__Group__2__Impl : ( '{' ) ;
+    // InternalJavaFXLang.g:7567:1: rule__TableViewFX__Group__2__Impl : ( '{' ) ;
     public final void rule__TableViewFX__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7895:1: ( ( '{' ) )
-            // InternalJavaFXLang.g:7896:1: ( '{' )
+            // InternalJavaFXLang.g:7571:1: ( ( '{' ) )
+            // InternalJavaFXLang.g:7572:1: ( '{' )
             {
-            // InternalJavaFXLang.g:7896:1: ( '{' )
-            // InternalJavaFXLang.g:7897:2: '{'
+            // InternalJavaFXLang.g:7572:1: ( '{' )
+            // InternalJavaFXLang.g:7573:2: '{'
             {
              before(grammarAccess.getTableViewFXAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,27,FOLLOW_2); 
@@ -24276,16 +23272,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__3"
-    // InternalJavaFXLang.g:7906:1: rule__TableViewFX__Group__3 : rule__TableViewFX__Group__3__Impl rule__TableViewFX__Group__4 ;
+    // InternalJavaFXLang.g:7582:1: rule__TableViewFX__Group__3 : rule__TableViewFX__Group__3__Impl rule__TableViewFX__Group__4 ;
     public final void rule__TableViewFX__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7910:1: ( rule__TableViewFX__Group__3__Impl rule__TableViewFX__Group__4 )
-            // InternalJavaFXLang.g:7911:2: rule__TableViewFX__Group__3__Impl rule__TableViewFX__Group__4
+            // InternalJavaFXLang.g:7586:1: ( rule__TableViewFX__Group__3__Impl rule__TableViewFX__Group__4 )
+            // InternalJavaFXLang.g:7587:2: rule__TableViewFX__Group__3__Impl rule__TableViewFX__Group__4
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_40);
             rule__TableViewFX__Group__3__Impl();
 
             state._fsp--;
@@ -24314,21 +23310,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__3__Impl"
-    // InternalJavaFXLang.g:7918:1: rule__TableViewFX__Group__3__Impl : ( ( rule__TableViewFX__Group_3__0 ) ) ;
+    // InternalJavaFXLang.g:7594:1: rule__TableViewFX__Group__3__Impl : ( ( rule__TableViewFX__Group_3__0 ) ) ;
     public final void rule__TableViewFX__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7922:1: ( ( ( rule__TableViewFX__Group_3__0 ) ) )
-            // InternalJavaFXLang.g:7923:1: ( ( rule__TableViewFX__Group_3__0 ) )
+            // InternalJavaFXLang.g:7598:1: ( ( ( rule__TableViewFX__Group_3__0 ) ) )
+            // InternalJavaFXLang.g:7599:1: ( ( rule__TableViewFX__Group_3__0 ) )
             {
-            // InternalJavaFXLang.g:7923:1: ( ( rule__TableViewFX__Group_3__0 ) )
-            // InternalJavaFXLang.g:7924:2: ( rule__TableViewFX__Group_3__0 )
+            // InternalJavaFXLang.g:7599:1: ( ( rule__TableViewFX__Group_3__0 ) )
+            // InternalJavaFXLang.g:7600:2: ( rule__TableViewFX__Group_3__0 )
             {
              before(grammarAccess.getTableViewFXAccess().getGroup_3()); 
-            // InternalJavaFXLang.g:7925:2: ( rule__TableViewFX__Group_3__0 )
-            // InternalJavaFXLang.g:7925:3: rule__TableViewFX__Group_3__0
+            // InternalJavaFXLang.g:7601:2: ( rule__TableViewFX__Group_3__0 )
+            // InternalJavaFXLang.g:7601:3: rule__TableViewFX__Group_3__0
             {
             pushFollow(FOLLOW_2);
             rule__TableViewFX__Group_3__0();
@@ -24361,16 +23357,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__4"
-    // InternalJavaFXLang.g:7933:1: rule__TableViewFX__Group__4 : rule__TableViewFX__Group__4__Impl rule__TableViewFX__Group__5 ;
+    // InternalJavaFXLang.g:7609:1: rule__TableViewFX__Group__4 : rule__TableViewFX__Group__4__Impl rule__TableViewFX__Group__5 ;
     public final void rule__TableViewFX__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7937:1: ( rule__TableViewFX__Group__4__Impl rule__TableViewFX__Group__5 )
-            // InternalJavaFXLang.g:7938:2: rule__TableViewFX__Group__4__Impl rule__TableViewFX__Group__5
+            // InternalJavaFXLang.g:7613:1: ( rule__TableViewFX__Group__4__Impl rule__TableViewFX__Group__5 )
+            // InternalJavaFXLang.g:7614:2: rule__TableViewFX__Group__4__Impl rule__TableViewFX__Group__5
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_40);
             rule__TableViewFX__Group__4__Impl();
 
             state._fsp--;
@@ -24399,29 +23395,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__4__Impl"
-    // InternalJavaFXLang.g:7945:1: rule__TableViewFX__Group__4__Impl : ( ( rule__TableViewFX__Group_4__0 )? ) ;
+    // InternalJavaFXLang.g:7621:1: rule__TableViewFX__Group__4__Impl : ( ( rule__TableViewFX__Group_4__0 )? ) ;
     public final void rule__TableViewFX__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7949:1: ( ( ( rule__TableViewFX__Group_4__0 )? ) )
-            // InternalJavaFXLang.g:7950:1: ( ( rule__TableViewFX__Group_4__0 )? )
+            // InternalJavaFXLang.g:7625:1: ( ( ( rule__TableViewFX__Group_4__0 )? ) )
+            // InternalJavaFXLang.g:7626:1: ( ( rule__TableViewFX__Group_4__0 )? )
             {
-            // InternalJavaFXLang.g:7950:1: ( ( rule__TableViewFX__Group_4__0 )? )
-            // InternalJavaFXLang.g:7951:2: ( rule__TableViewFX__Group_4__0 )?
+            // InternalJavaFXLang.g:7626:1: ( ( rule__TableViewFX__Group_4__0 )? )
+            // InternalJavaFXLang.g:7627:2: ( rule__TableViewFX__Group_4__0 )?
             {
              before(grammarAccess.getTableViewFXAccess().getGroup_4()); 
-            // InternalJavaFXLang.g:7952:2: ( rule__TableViewFX__Group_4__0 )?
-            int alt76=2;
-            int LA76_0 = input.LA(1);
+            // InternalJavaFXLang.g:7628:2: ( rule__TableViewFX__Group_4__0 )?
+            int alt72=2;
+            int LA72_0 = input.LA(1);
 
-            if ( (LA76_0==51) ) {
-                alt76=1;
+            if ( (LA72_0==51) ) {
+                alt72=1;
             }
-            switch (alt76) {
+            switch (alt72) {
                 case 1 :
-                    // InternalJavaFXLang.g:7952:3: rule__TableViewFX__Group_4__0
+                    // InternalJavaFXLang.g:7628:3: rule__TableViewFX__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TableViewFX__Group_4__0();
@@ -24457,16 +23453,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__5"
-    // InternalJavaFXLang.g:7960:1: rule__TableViewFX__Group__5 : rule__TableViewFX__Group__5__Impl rule__TableViewFX__Group__6 ;
+    // InternalJavaFXLang.g:7636:1: rule__TableViewFX__Group__5 : rule__TableViewFX__Group__5__Impl rule__TableViewFX__Group__6 ;
     public final void rule__TableViewFX__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7964:1: ( rule__TableViewFX__Group__5__Impl rule__TableViewFX__Group__6 )
-            // InternalJavaFXLang.g:7965:2: rule__TableViewFX__Group__5__Impl rule__TableViewFX__Group__6
+            // InternalJavaFXLang.g:7640:1: ( rule__TableViewFX__Group__5__Impl rule__TableViewFX__Group__6 )
+            // InternalJavaFXLang.g:7641:2: rule__TableViewFX__Group__5__Impl rule__TableViewFX__Group__6
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_40);
             rule__TableViewFX__Group__5__Impl();
 
             state._fsp--;
@@ -24495,29 +23491,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__5__Impl"
-    // InternalJavaFXLang.g:7972:1: rule__TableViewFX__Group__5__Impl : ( ( rule__TableViewFX__Group_5__0 )? ) ;
+    // InternalJavaFXLang.g:7648:1: rule__TableViewFX__Group__5__Impl : ( ( rule__TableViewFX__Group_5__0 )? ) ;
     public final void rule__TableViewFX__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7976:1: ( ( ( rule__TableViewFX__Group_5__0 )? ) )
-            // InternalJavaFXLang.g:7977:1: ( ( rule__TableViewFX__Group_5__0 )? )
+            // InternalJavaFXLang.g:7652:1: ( ( ( rule__TableViewFX__Group_5__0 )? ) )
+            // InternalJavaFXLang.g:7653:1: ( ( rule__TableViewFX__Group_5__0 )? )
             {
-            // InternalJavaFXLang.g:7977:1: ( ( rule__TableViewFX__Group_5__0 )? )
-            // InternalJavaFXLang.g:7978:2: ( rule__TableViewFX__Group_5__0 )?
+            // InternalJavaFXLang.g:7653:1: ( ( rule__TableViewFX__Group_5__0 )? )
+            // InternalJavaFXLang.g:7654:2: ( rule__TableViewFX__Group_5__0 )?
             {
              before(grammarAccess.getTableViewFXAccess().getGroup_5()); 
-            // InternalJavaFXLang.g:7979:2: ( rule__TableViewFX__Group_5__0 )?
-            int alt77=2;
-            int LA77_0 = input.LA(1);
+            // InternalJavaFXLang.g:7655:2: ( rule__TableViewFX__Group_5__0 )?
+            int alt73=2;
+            int LA73_0 = input.LA(1);
 
-            if ( (LA77_0==56) ) {
-                alt77=1;
+            if ( (LA73_0==56) ) {
+                alt73=1;
             }
-            switch (alt77) {
+            switch (alt73) {
                 case 1 :
-                    // InternalJavaFXLang.g:7979:3: rule__TableViewFX__Group_5__0
+                    // InternalJavaFXLang.g:7655:3: rule__TableViewFX__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TableViewFX__Group_5__0();
@@ -24553,14 +23549,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__6"
-    // InternalJavaFXLang.g:7987:1: rule__TableViewFX__Group__6 : rule__TableViewFX__Group__6__Impl ;
+    // InternalJavaFXLang.g:7663:1: rule__TableViewFX__Group__6 : rule__TableViewFX__Group__6__Impl ;
     public final void rule__TableViewFX__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:7991:1: ( rule__TableViewFX__Group__6__Impl )
-            // InternalJavaFXLang.g:7992:2: rule__TableViewFX__Group__6__Impl
+            // InternalJavaFXLang.g:7667:1: ( rule__TableViewFX__Group__6__Impl )
+            // InternalJavaFXLang.g:7668:2: rule__TableViewFX__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableViewFX__Group__6__Impl();
@@ -24586,17 +23582,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group__6__Impl"
-    // InternalJavaFXLang.g:7998:1: rule__TableViewFX__Group__6__Impl : ( '}' ) ;
+    // InternalJavaFXLang.g:7674:1: rule__TableViewFX__Group__6__Impl : ( '}' ) ;
     public final void rule__TableViewFX__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8002:1: ( ( '}' ) )
-            // InternalJavaFXLang.g:8003:1: ( '}' )
+            // InternalJavaFXLang.g:7678:1: ( ( '}' ) )
+            // InternalJavaFXLang.g:7679:1: ( '}' )
             {
-            // InternalJavaFXLang.g:8003:1: ( '}' )
-            // InternalJavaFXLang.g:8004:2: '}'
+            // InternalJavaFXLang.g:7679:1: ( '}' )
+            // InternalJavaFXLang.g:7680:2: '}'
             {
              before(grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_6()); 
             match(input,28,FOLLOW_2); 
@@ -24623,14 +23619,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_3__0"
-    // InternalJavaFXLang.g:8014:1: rule__TableViewFX__Group_3__0 : rule__TableViewFX__Group_3__0__Impl rule__TableViewFX__Group_3__1 ;
+    // InternalJavaFXLang.g:7690:1: rule__TableViewFX__Group_3__0 : rule__TableViewFX__Group_3__0__Impl rule__TableViewFX__Group_3__1 ;
     public final void rule__TableViewFX__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8018:1: ( rule__TableViewFX__Group_3__0__Impl rule__TableViewFX__Group_3__1 )
-            // InternalJavaFXLang.g:8019:2: rule__TableViewFX__Group_3__0__Impl rule__TableViewFX__Group_3__1
+            // InternalJavaFXLang.g:7694:1: ( rule__TableViewFX__Group_3__0__Impl rule__TableViewFX__Group_3__1 )
+            // InternalJavaFXLang.g:7695:2: rule__TableViewFX__Group_3__0__Impl rule__TableViewFX__Group_3__1
             {
             pushFollow(FOLLOW_4);
             rule__TableViewFX__Group_3__0__Impl();
@@ -24661,17 +23657,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_3__0__Impl"
-    // InternalJavaFXLang.g:8026:1: rule__TableViewFX__Group_3__0__Impl : ( 'name:' ) ;
+    // InternalJavaFXLang.g:7702:1: rule__TableViewFX__Group_3__0__Impl : ( 'name:' ) ;
     public final void rule__TableViewFX__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8030:1: ( ( 'name:' ) )
-            // InternalJavaFXLang.g:8031:1: ( 'name:' )
+            // InternalJavaFXLang.g:7706:1: ( ( 'name:' ) )
+            // InternalJavaFXLang.g:7707:1: ( 'name:' )
             {
-            // InternalJavaFXLang.g:8031:1: ( 'name:' )
-            // InternalJavaFXLang.g:8032:2: 'name:'
+            // InternalJavaFXLang.g:7707:1: ( 'name:' )
+            // InternalJavaFXLang.g:7708:2: 'name:'
             {
              before(grammarAccess.getTableViewFXAccess().getNameKeyword_3_0()); 
             match(input,35,FOLLOW_2); 
@@ -24698,14 +23694,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_3__1"
-    // InternalJavaFXLang.g:8041:1: rule__TableViewFX__Group_3__1 : rule__TableViewFX__Group_3__1__Impl ;
+    // InternalJavaFXLang.g:7717:1: rule__TableViewFX__Group_3__1 : rule__TableViewFX__Group_3__1__Impl ;
     public final void rule__TableViewFX__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8045:1: ( rule__TableViewFX__Group_3__1__Impl )
-            // InternalJavaFXLang.g:8046:2: rule__TableViewFX__Group_3__1__Impl
+            // InternalJavaFXLang.g:7721:1: ( rule__TableViewFX__Group_3__1__Impl )
+            // InternalJavaFXLang.g:7722:2: rule__TableViewFX__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableViewFX__Group_3__1__Impl();
@@ -24731,21 +23727,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_3__1__Impl"
-    // InternalJavaFXLang.g:8052:1: rule__TableViewFX__Group_3__1__Impl : ( ( rule__TableViewFX__NameAssignment_3_1 ) ) ;
+    // InternalJavaFXLang.g:7728:1: rule__TableViewFX__Group_3__1__Impl : ( ( rule__TableViewFX__NameAssignment_3_1 ) ) ;
     public final void rule__TableViewFX__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8056:1: ( ( ( rule__TableViewFX__NameAssignment_3_1 ) ) )
-            // InternalJavaFXLang.g:8057:1: ( ( rule__TableViewFX__NameAssignment_3_1 ) )
+            // InternalJavaFXLang.g:7732:1: ( ( ( rule__TableViewFX__NameAssignment_3_1 ) ) )
+            // InternalJavaFXLang.g:7733:1: ( ( rule__TableViewFX__NameAssignment_3_1 ) )
             {
-            // InternalJavaFXLang.g:8057:1: ( ( rule__TableViewFX__NameAssignment_3_1 ) )
-            // InternalJavaFXLang.g:8058:2: ( rule__TableViewFX__NameAssignment_3_1 )
+            // InternalJavaFXLang.g:7733:1: ( ( rule__TableViewFX__NameAssignment_3_1 ) )
+            // InternalJavaFXLang.g:7734:2: ( rule__TableViewFX__NameAssignment_3_1 )
             {
              before(grammarAccess.getTableViewFXAccess().getNameAssignment_3_1()); 
-            // InternalJavaFXLang.g:8059:2: ( rule__TableViewFX__NameAssignment_3_1 )
-            // InternalJavaFXLang.g:8059:3: rule__TableViewFX__NameAssignment_3_1
+            // InternalJavaFXLang.g:7735:2: ( rule__TableViewFX__NameAssignment_3_1 )
+            // InternalJavaFXLang.g:7735:3: rule__TableViewFX__NameAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__TableViewFX__NameAssignment_3_1();
@@ -24778,14 +23774,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_4__0"
-    // InternalJavaFXLang.g:8068:1: rule__TableViewFX__Group_4__0 : rule__TableViewFX__Group_4__0__Impl rule__TableViewFX__Group_4__1 ;
+    // InternalJavaFXLang.g:7744:1: rule__TableViewFX__Group_4__0 : rule__TableViewFX__Group_4__0__Impl rule__TableViewFX__Group_4__1 ;
     public final void rule__TableViewFX__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8072:1: ( rule__TableViewFX__Group_4__0__Impl rule__TableViewFX__Group_4__1 )
-            // InternalJavaFXLang.g:8073:2: rule__TableViewFX__Group_4__0__Impl rule__TableViewFX__Group_4__1
+            // InternalJavaFXLang.g:7748:1: ( rule__TableViewFX__Group_4__0__Impl rule__TableViewFX__Group_4__1 )
+            // InternalJavaFXLang.g:7749:2: rule__TableViewFX__Group_4__0__Impl rule__TableViewFX__Group_4__1
             {
             pushFollow(FOLLOW_4);
             rule__TableViewFX__Group_4__0__Impl();
@@ -24816,17 +23812,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_4__0__Impl"
-    // InternalJavaFXLang.g:8080:1: rule__TableViewFX__Group_4__0__Impl : ( 'usedModel:' ) ;
+    // InternalJavaFXLang.g:7756:1: rule__TableViewFX__Group_4__0__Impl : ( 'usedModel:' ) ;
     public final void rule__TableViewFX__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8084:1: ( ( 'usedModel:' ) )
-            // InternalJavaFXLang.g:8085:1: ( 'usedModel:' )
+            // InternalJavaFXLang.g:7760:1: ( ( 'usedModel:' ) )
+            // InternalJavaFXLang.g:7761:1: ( 'usedModel:' )
             {
-            // InternalJavaFXLang.g:8085:1: ( 'usedModel:' )
-            // InternalJavaFXLang.g:8086:2: 'usedModel:'
+            // InternalJavaFXLang.g:7761:1: ( 'usedModel:' )
+            // InternalJavaFXLang.g:7762:2: 'usedModel:'
             {
              before(grammarAccess.getTableViewFXAccess().getUsedModelKeyword_4_0()); 
             match(input,51,FOLLOW_2); 
@@ -24853,14 +23849,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_4__1"
-    // InternalJavaFXLang.g:8095:1: rule__TableViewFX__Group_4__1 : rule__TableViewFX__Group_4__1__Impl ;
+    // InternalJavaFXLang.g:7771:1: rule__TableViewFX__Group_4__1 : rule__TableViewFX__Group_4__1__Impl ;
     public final void rule__TableViewFX__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8099:1: ( rule__TableViewFX__Group_4__1__Impl )
-            // InternalJavaFXLang.g:8100:2: rule__TableViewFX__Group_4__1__Impl
+            // InternalJavaFXLang.g:7775:1: ( rule__TableViewFX__Group_4__1__Impl )
+            // InternalJavaFXLang.g:7776:2: rule__TableViewFX__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableViewFX__Group_4__1__Impl();
@@ -24886,21 +23882,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_4__1__Impl"
-    // InternalJavaFXLang.g:8106:1: rule__TableViewFX__Group_4__1__Impl : ( ( rule__TableViewFX__UsedModelAssignment_4_1 ) ) ;
+    // InternalJavaFXLang.g:7782:1: rule__TableViewFX__Group_4__1__Impl : ( ( rule__TableViewFX__UsedModelAssignment_4_1 ) ) ;
     public final void rule__TableViewFX__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8110:1: ( ( ( rule__TableViewFX__UsedModelAssignment_4_1 ) ) )
-            // InternalJavaFXLang.g:8111:1: ( ( rule__TableViewFX__UsedModelAssignment_4_1 ) )
+            // InternalJavaFXLang.g:7786:1: ( ( ( rule__TableViewFX__UsedModelAssignment_4_1 ) ) )
+            // InternalJavaFXLang.g:7787:1: ( ( rule__TableViewFX__UsedModelAssignment_4_1 ) )
             {
-            // InternalJavaFXLang.g:8111:1: ( ( rule__TableViewFX__UsedModelAssignment_4_1 ) )
-            // InternalJavaFXLang.g:8112:2: ( rule__TableViewFX__UsedModelAssignment_4_1 )
+            // InternalJavaFXLang.g:7787:1: ( ( rule__TableViewFX__UsedModelAssignment_4_1 ) )
+            // InternalJavaFXLang.g:7788:2: ( rule__TableViewFX__UsedModelAssignment_4_1 )
             {
              before(grammarAccess.getTableViewFXAccess().getUsedModelAssignment_4_1()); 
-            // InternalJavaFXLang.g:8113:2: ( rule__TableViewFX__UsedModelAssignment_4_1 )
-            // InternalJavaFXLang.g:8113:3: rule__TableViewFX__UsedModelAssignment_4_1
+            // InternalJavaFXLang.g:7789:2: ( rule__TableViewFX__UsedModelAssignment_4_1 )
+            // InternalJavaFXLang.g:7789:3: rule__TableViewFX__UsedModelAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__TableViewFX__UsedModelAssignment_4_1();
@@ -24933,16 +23929,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_5__0"
-    // InternalJavaFXLang.g:8122:1: rule__TableViewFX__Group_5__0 : rule__TableViewFX__Group_5__0__Impl rule__TableViewFX__Group_5__1 ;
+    // InternalJavaFXLang.g:7798:1: rule__TableViewFX__Group_5__0 : rule__TableViewFX__Group_5__0__Impl rule__TableViewFX__Group_5__1 ;
     public final void rule__TableViewFX__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8126:1: ( rule__TableViewFX__Group_5__0__Impl rule__TableViewFX__Group_5__1 )
-            // InternalJavaFXLang.g:8127:2: rule__TableViewFX__Group_5__0__Impl rule__TableViewFX__Group_5__1
+            // InternalJavaFXLang.g:7802:1: ( rule__TableViewFX__Group_5__0__Impl rule__TableViewFX__Group_5__1 )
+            // InternalJavaFXLang.g:7803:2: rule__TableViewFX__Group_5__0__Impl rule__TableViewFX__Group_5__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__TableViewFX__Group_5__0__Impl();
 
             state._fsp--;
@@ -24971,21 +23967,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_5__0__Impl"
-    // InternalJavaFXLang.g:8134:1: rule__TableViewFX__Group_5__0__Impl : ( ( rule__TableViewFX__ColumnsAssignment_5_0 ) ) ;
+    // InternalJavaFXLang.g:7810:1: rule__TableViewFX__Group_5__0__Impl : ( ( rule__TableViewFX__ColumnsAssignment_5_0 ) ) ;
     public final void rule__TableViewFX__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8138:1: ( ( ( rule__TableViewFX__ColumnsAssignment_5_0 ) ) )
-            // InternalJavaFXLang.g:8139:1: ( ( rule__TableViewFX__ColumnsAssignment_5_0 ) )
+            // InternalJavaFXLang.g:7814:1: ( ( ( rule__TableViewFX__ColumnsAssignment_5_0 ) ) )
+            // InternalJavaFXLang.g:7815:1: ( ( rule__TableViewFX__ColumnsAssignment_5_0 ) )
             {
-            // InternalJavaFXLang.g:8139:1: ( ( rule__TableViewFX__ColumnsAssignment_5_0 ) )
-            // InternalJavaFXLang.g:8140:2: ( rule__TableViewFX__ColumnsAssignment_5_0 )
+            // InternalJavaFXLang.g:7815:1: ( ( rule__TableViewFX__ColumnsAssignment_5_0 ) )
+            // InternalJavaFXLang.g:7816:2: ( rule__TableViewFX__ColumnsAssignment_5_0 )
             {
              before(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_0()); 
-            // InternalJavaFXLang.g:8141:2: ( rule__TableViewFX__ColumnsAssignment_5_0 )
-            // InternalJavaFXLang.g:8141:3: rule__TableViewFX__ColumnsAssignment_5_0
+            // InternalJavaFXLang.g:7817:2: ( rule__TableViewFX__ColumnsAssignment_5_0 )
+            // InternalJavaFXLang.g:7817:3: rule__TableViewFX__ColumnsAssignment_5_0
             {
             pushFollow(FOLLOW_2);
             rule__TableViewFX__ColumnsAssignment_5_0();
@@ -25018,14 +24014,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_5__1"
-    // InternalJavaFXLang.g:8149:1: rule__TableViewFX__Group_5__1 : rule__TableViewFX__Group_5__1__Impl ;
+    // InternalJavaFXLang.g:7825:1: rule__TableViewFX__Group_5__1 : rule__TableViewFX__Group_5__1__Impl ;
     public final void rule__TableViewFX__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8153:1: ( rule__TableViewFX__Group_5__1__Impl )
-            // InternalJavaFXLang.g:8154:2: rule__TableViewFX__Group_5__1__Impl
+            // InternalJavaFXLang.g:7829:1: ( rule__TableViewFX__Group_5__1__Impl )
+            // InternalJavaFXLang.g:7830:2: rule__TableViewFX__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableViewFX__Group_5__1__Impl();
@@ -25051,35 +24047,35 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__Group_5__1__Impl"
-    // InternalJavaFXLang.g:8160:1: rule__TableViewFX__Group_5__1__Impl : ( ( rule__TableViewFX__ColumnsAssignment_5_1 )* ) ;
+    // InternalJavaFXLang.g:7836:1: rule__TableViewFX__Group_5__1__Impl : ( ( rule__TableViewFX__ColumnsAssignment_5_1 )* ) ;
     public final void rule__TableViewFX__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8164:1: ( ( ( rule__TableViewFX__ColumnsAssignment_5_1 )* ) )
-            // InternalJavaFXLang.g:8165:1: ( ( rule__TableViewFX__ColumnsAssignment_5_1 )* )
+            // InternalJavaFXLang.g:7840:1: ( ( ( rule__TableViewFX__ColumnsAssignment_5_1 )* ) )
+            // InternalJavaFXLang.g:7841:1: ( ( rule__TableViewFX__ColumnsAssignment_5_1 )* )
             {
-            // InternalJavaFXLang.g:8165:1: ( ( rule__TableViewFX__ColumnsAssignment_5_1 )* )
-            // InternalJavaFXLang.g:8166:2: ( rule__TableViewFX__ColumnsAssignment_5_1 )*
+            // InternalJavaFXLang.g:7841:1: ( ( rule__TableViewFX__ColumnsAssignment_5_1 )* )
+            // InternalJavaFXLang.g:7842:2: ( rule__TableViewFX__ColumnsAssignment_5_1 )*
             {
              before(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_1()); 
-            // InternalJavaFXLang.g:8167:2: ( rule__TableViewFX__ColumnsAssignment_5_1 )*
-            loop78:
+            // InternalJavaFXLang.g:7843:2: ( rule__TableViewFX__ColumnsAssignment_5_1 )*
+            loop74:
             do {
-                int alt78=2;
-                int LA78_0 = input.LA(1);
+                int alt74=2;
+                int LA74_0 = input.LA(1);
 
-                if ( (LA78_0==56) ) {
-                    alt78=1;
+                if ( (LA74_0==56) ) {
+                    alt74=1;
                 }
 
 
-                switch (alt78) {
+                switch (alt74) {
             	case 1 :
-            	    // InternalJavaFXLang.g:8167:3: rule__TableViewFX__ColumnsAssignment_5_1
+            	    // InternalJavaFXLang.g:7843:3: rule__TableViewFX__ColumnsAssignment_5_1
             	    {
-            	    pushFollow(FOLLOW_34);
+            	    pushFollow(FOLLOW_35);
             	    rule__TableViewFX__ColumnsAssignment_5_1();
 
             	    state._fsp--;
@@ -25089,7 +24085,7 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop78;
+            	    break loop74;
                 }
             } while (true);
 
@@ -25116,16 +24112,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__0"
-    // InternalJavaFXLang.g:8176:1: rule__TableColumnFX__Group__0 : rule__TableColumnFX__Group__0__Impl rule__TableColumnFX__Group__1 ;
+    // InternalJavaFXLang.g:7852:1: rule__TableColumnFX__Group__0 : rule__TableColumnFX__Group__0__Impl rule__TableColumnFX__Group__1 ;
     public final void rule__TableColumnFX__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8180:1: ( rule__TableColumnFX__Group__0__Impl rule__TableColumnFX__Group__1 )
-            // InternalJavaFXLang.g:8181:2: rule__TableColumnFX__Group__0__Impl rule__TableColumnFX__Group__1
+            // InternalJavaFXLang.g:7856:1: ( rule__TableColumnFX__Group__0__Impl rule__TableColumnFX__Group__1 )
+            // InternalJavaFXLang.g:7857:2: rule__TableColumnFX__Group__0__Impl rule__TableColumnFX__Group__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__TableColumnFX__Group__0__Impl();
 
             state._fsp--;
@@ -25154,21 +24150,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__0__Impl"
-    // InternalJavaFXLang.g:8188:1: rule__TableColumnFX__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:7864:1: rule__TableColumnFX__Group__0__Impl : ( () ) ;
     public final void rule__TableColumnFX__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8192:1: ( ( () ) )
-            // InternalJavaFXLang.g:8193:1: ( () )
+            // InternalJavaFXLang.g:7868:1: ( ( () ) )
+            // InternalJavaFXLang.g:7869:1: ( () )
             {
-            // InternalJavaFXLang.g:8193:1: ( () )
-            // InternalJavaFXLang.g:8194:2: ()
+            // InternalJavaFXLang.g:7869:1: ( () )
+            // InternalJavaFXLang.g:7870:2: ()
             {
              before(grammarAccess.getTableColumnFXAccess().getTableColumnFXAction_0()); 
-            // InternalJavaFXLang.g:8195:2: ()
-            // InternalJavaFXLang.g:8195:3: 
+            // InternalJavaFXLang.g:7871:2: ()
+            // InternalJavaFXLang.g:7871:3: 
             {
             }
 
@@ -25191,16 +24187,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__1"
-    // InternalJavaFXLang.g:8203:1: rule__TableColumnFX__Group__1 : rule__TableColumnFX__Group__1__Impl rule__TableColumnFX__Group__2 ;
+    // InternalJavaFXLang.g:7879:1: rule__TableColumnFX__Group__1 : rule__TableColumnFX__Group__1__Impl rule__TableColumnFX__Group__2 ;
     public final void rule__TableColumnFX__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8207:1: ( rule__TableColumnFX__Group__1__Impl rule__TableColumnFX__Group__2 )
-            // InternalJavaFXLang.g:8208:2: rule__TableColumnFX__Group__1__Impl rule__TableColumnFX__Group__2
+            // InternalJavaFXLang.g:7883:1: ( rule__TableColumnFX__Group__1__Impl rule__TableColumnFX__Group__2 )
+            // InternalJavaFXLang.g:7884:2: rule__TableColumnFX__Group__1__Impl rule__TableColumnFX__Group__2
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_41);
             rule__TableColumnFX__Group__1__Impl();
 
             state._fsp--;
@@ -25229,17 +24225,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__1__Impl"
-    // InternalJavaFXLang.g:8215:1: rule__TableColumnFX__Group__1__Impl : ( 'Column' ) ;
+    // InternalJavaFXLang.g:7891:1: rule__TableColumnFX__Group__1__Impl : ( 'Column' ) ;
     public final void rule__TableColumnFX__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8219:1: ( ( 'Column' ) )
-            // InternalJavaFXLang.g:8220:1: ( 'Column' )
+            // InternalJavaFXLang.g:7895:1: ( ( 'Column' ) )
+            // InternalJavaFXLang.g:7896:1: ( 'Column' )
             {
-            // InternalJavaFXLang.g:8220:1: ( 'Column' )
-            // InternalJavaFXLang.g:8221:2: 'Column'
+            // InternalJavaFXLang.g:7896:1: ( 'Column' )
+            // InternalJavaFXLang.g:7897:2: 'Column'
             {
              before(grammarAccess.getTableColumnFXAccess().getColumnKeyword_1()); 
             match(input,56,FOLLOW_2); 
@@ -25266,14 +24262,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__2"
-    // InternalJavaFXLang.g:8230:1: rule__TableColumnFX__Group__2 : rule__TableColumnFX__Group__2__Impl rule__TableColumnFX__Group__3 ;
+    // InternalJavaFXLang.g:7906:1: rule__TableColumnFX__Group__2 : rule__TableColumnFX__Group__2__Impl rule__TableColumnFX__Group__3 ;
     public final void rule__TableColumnFX__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8234:1: ( rule__TableColumnFX__Group__2__Impl rule__TableColumnFX__Group__3 )
-            // InternalJavaFXLang.g:8235:2: rule__TableColumnFX__Group__2__Impl rule__TableColumnFX__Group__3
+            // InternalJavaFXLang.g:7910:1: ( rule__TableColumnFX__Group__2__Impl rule__TableColumnFX__Group__3 )
+            // InternalJavaFXLang.g:7911:2: rule__TableColumnFX__Group__2__Impl rule__TableColumnFX__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__TableColumnFX__Group__2__Impl();
@@ -25304,17 +24300,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__2__Impl"
-    // InternalJavaFXLang.g:8242:1: rule__TableColumnFX__Group__2__Impl : ( '(' ) ;
+    // InternalJavaFXLang.g:7918:1: rule__TableColumnFX__Group__2__Impl : ( '(' ) ;
     public final void rule__TableColumnFX__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8246:1: ( ( '(' ) )
-            // InternalJavaFXLang.g:8247:1: ( '(' )
+            // InternalJavaFXLang.g:7922:1: ( ( '(' ) )
+            // InternalJavaFXLang.g:7923:1: ( '(' )
             {
-            // InternalJavaFXLang.g:8247:1: ( '(' )
-            // InternalJavaFXLang.g:8248:2: '('
+            // InternalJavaFXLang.g:7923:1: ( '(' )
+            // InternalJavaFXLang.g:7924:2: '('
             {
              before(grammarAccess.getTableColumnFXAccess().getLeftParenthesisKeyword_2()); 
             match(input,57,FOLLOW_2); 
@@ -25341,16 +24337,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__3"
-    // InternalJavaFXLang.g:8257:1: rule__TableColumnFX__Group__3 : rule__TableColumnFX__Group__3__Impl rule__TableColumnFX__Group__4 ;
+    // InternalJavaFXLang.g:7933:1: rule__TableColumnFX__Group__3 : rule__TableColumnFX__Group__3__Impl rule__TableColumnFX__Group__4 ;
     public final void rule__TableColumnFX__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8261:1: ( rule__TableColumnFX__Group__3__Impl rule__TableColumnFX__Group__4 )
-            // InternalJavaFXLang.g:8262:2: rule__TableColumnFX__Group__3__Impl rule__TableColumnFX__Group__4
+            // InternalJavaFXLang.g:7937:1: ( rule__TableColumnFX__Group__3__Impl rule__TableColumnFX__Group__4 )
+            // InternalJavaFXLang.g:7938:2: rule__TableColumnFX__Group__3__Impl rule__TableColumnFX__Group__4
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_42);
             rule__TableColumnFX__Group__3__Impl();
 
             state._fsp--;
@@ -25379,21 +24375,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__3__Impl"
-    // InternalJavaFXLang.g:8269:1: rule__TableColumnFX__Group__3__Impl : ( ( rule__TableColumnFX__Group_3__0 ) ) ;
+    // InternalJavaFXLang.g:7945:1: rule__TableColumnFX__Group__3__Impl : ( ( rule__TableColumnFX__Group_3__0 ) ) ;
     public final void rule__TableColumnFX__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8273:1: ( ( ( rule__TableColumnFX__Group_3__0 ) ) )
-            // InternalJavaFXLang.g:8274:1: ( ( rule__TableColumnFX__Group_3__0 ) )
+            // InternalJavaFXLang.g:7949:1: ( ( ( rule__TableColumnFX__Group_3__0 ) ) )
+            // InternalJavaFXLang.g:7950:1: ( ( rule__TableColumnFX__Group_3__0 ) )
             {
-            // InternalJavaFXLang.g:8274:1: ( ( rule__TableColumnFX__Group_3__0 ) )
-            // InternalJavaFXLang.g:8275:2: ( rule__TableColumnFX__Group_3__0 )
+            // InternalJavaFXLang.g:7950:1: ( ( rule__TableColumnFX__Group_3__0 ) )
+            // InternalJavaFXLang.g:7951:2: ( rule__TableColumnFX__Group_3__0 )
             {
              before(grammarAccess.getTableColumnFXAccess().getGroup_3()); 
-            // InternalJavaFXLang.g:8276:2: ( rule__TableColumnFX__Group_3__0 )
-            // InternalJavaFXLang.g:8276:3: rule__TableColumnFX__Group_3__0
+            // InternalJavaFXLang.g:7952:2: ( rule__TableColumnFX__Group_3__0 )
+            // InternalJavaFXLang.g:7952:3: rule__TableColumnFX__Group_3__0
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__Group_3__0();
@@ -25426,16 +24422,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__4"
-    // InternalJavaFXLang.g:8284:1: rule__TableColumnFX__Group__4 : rule__TableColumnFX__Group__4__Impl rule__TableColumnFX__Group__5 ;
+    // InternalJavaFXLang.g:7960:1: rule__TableColumnFX__Group__4 : rule__TableColumnFX__Group__4__Impl rule__TableColumnFX__Group__5 ;
     public final void rule__TableColumnFX__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8288:1: ( rule__TableColumnFX__Group__4__Impl rule__TableColumnFX__Group__5 )
-            // InternalJavaFXLang.g:8289:2: rule__TableColumnFX__Group__4__Impl rule__TableColumnFX__Group__5
+            // InternalJavaFXLang.g:7964:1: ( rule__TableColumnFX__Group__4__Impl rule__TableColumnFX__Group__5 )
+            // InternalJavaFXLang.g:7965:2: rule__TableColumnFX__Group__4__Impl rule__TableColumnFX__Group__5
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_42);
             rule__TableColumnFX__Group__4__Impl();
 
             state._fsp--;
@@ -25464,29 +24460,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__4__Impl"
-    // InternalJavaFXLang.g:8296:1: rule__TableColumnFX__Group__4__Impl : ( ( rule__TableColumnFX__Group_4__0 )? ) ;
+    // InternalJavaFXLang.g:7972:1: rule__TableColumnFX__Group__4__Impl : ( ( rule__TableColumnFX__Group_4__0 )? ) ;
     public final void rule__TableColumnFX__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8300:1: ( ( ( rule__TableColumnFX__Group_4__0 )? ) )
-            // InternalJavaFXLang.g:8301:1: ( ( rule__TableColumnFX__Group_4__0 )? )
+            // InternalJavaFXLang.g:7976:1: ( ( ( rule__TableColumnFX__Group_4__0 )? ) )
+            // InternalJavaFXLang.g:7977:1: ( ( rule__TableColumnFX__Group_4__0 )? )
             {
-            // InternalJavaFXLang.g:8301:1: ( ( rule__TableColumnFX__Group_4__0 )? )
-            // InternalJavaFXLang.g:8302:2: ( rule__TableColumnFX__Group_4__0 )?
+            // InternalJavaFXLang.g:7977:1: ( ( rule__TableColumnFX__Group_4__0 )? )
+            // InternalJavaFXLang.g:7978:2: ( rule__TableColumnFX__Group_4__0 )?
             {
              before(grammarAccess.getTableColumnFXAccess().getGroup_4()); 
-            // InternalJavaFXLang.g:8303:2: ( rule__TableColumnFX__Group_4__0 )?
-            int alt79=2;
-            int LA79_0 = input.LA(1);
+            // InternalJavaFXLang.g:7979:2: ( rule__TableColumnFX__Group_4__0 )?
+            int alt75=2;
+            int LA75_0 = input.LA(1);
 
-            if ( (LA79_0==59) ) {
-                alt79=1;
+            if ( (LA75_0==59) ) {
+                alt75=1;
             }
-            switch (alt79) {
+            switch (alt75) {
                 case 1 :
-                    // InternalJavaFXLang.g:8303:3: rule__TableColumnFX__Group_4__0
+                    // InternalJavaFXLang.g:7979:3: rule__TableColumnFX__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TableColumnFX__Group_4__0();
@@ -25522,16 +24518,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__5"
-    // InternalJavaFXLang.g:8311:1: rule__TableColumnFX__Group__5 : rule__TableColumnFX__Group__5__Impl rule__TableColumnFX__Group__6 ;
+    // InternalJavaFXLang.g:7987:1: rule__TableColumnFX__Group__5 : rule__TableColumnFX__Group__5__Impl rule__TableColumnFX__Group__6 ;
     public final void rule__TableColumnFX__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8315:1: ( rule__TableColumnFX__Group__5__Impl rule__TableColumnFX__Group__6 )
-            // InternalJavaFXLang.g:8316:2: rule__TableColumnFX__Group__5__Impl rule__TableColumnFX__Group__6
+            // InternalJavaFXLang.g:7991:1: ( rule__TableColumnFX__Group__5__Impl rule__TableColumnFX__Group__6 )
+            // InternalJavaFXLang.g:7992:2: rule__TableColumnFX__Group__5__Impl rule__TableColumnFX__Group__6
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_42);
             rule__TableColumnFX__Group__5__Impl();
 
             state._fsp--;
@@ -25560,29 +24556,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__5__Impl"
-    // InternalJavaFXLang.g:8323:1: rule__TableColumnFX__Group__5__Impl : ( ( rule__TableColumnFX__Group_5__0 )? ) ;
+    // InternalJavaFXLang.g:7999:1: rule__TableColumnFX__Group__5__Impl : ( ( rule__TableColumnFX__Group_5__0 )? ) ;
     public final void rule__TableColumnFX__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8327:1: ( ( ( rule__TableColumnFX__Group_5__0 )? ) )
-            // InternalJavaFXLang.g:8328:1: ( ( rule__TableColumnFX__Group_5__0 )? )
+            // InternalJavaFXLang.g:8003:1: ( ( ( rule__TableColumnFX__Group_5__0 )? ) )
+            // InternalJavaFXLang.g:8004:1: ( ( rule__TableColumnFX__Group_5__0 )? )
             {
-            // InternalJavaFXLang.g:8328:1: ( ( rule__TableColumnFX__Group_5__0 )? )
-            // InternalJavaFXLang.g:8329:2: ( rule__TableColumnFX__Group_5__0 )?
+            // InternalJavaFXLang.g:8004:1: ( ( rule__TableColumnFX__Group_5__0 )? )
+            // InternalJavaFXLang.g:8005:2: ( rule__TableColumnFX__Group_5__0 )?
             {
              before(grammarAccess.getTableColumnFXAccess().getGroup_5()); 
-            // InternalJavaFXLang.g:8330:2: ( rule__TableColumnFX__Group_5__0 )?
-            int alt80=2;
-            int LA80_0 = input.LA(1);
+            // InternalJavaFXLang.g:8006:2: ( rule__TableColumnFX__Group_5__0 )?
+            int alt76=2;
+            int LA76_0 = input.LA(1);
 
-            if ( (LA80_0==60) ) {
-                alt80=1;
+            if ( (LA76_0==60) ) {
+                alt76=1;
             }
-            switch (alt80) {
+            switch (alt76) {
                 case 1 :
-                    // InternalJavaFXLang.g:8330:3: rule__TableColumnFX__Group_5__0
+                    // InternalJavaFXLang.g:8006:3: rule__TableColumnFX__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TableColumnFX__Group_5__0();
@@ -25618,16 +24614,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__6"
-    // InternalJavaFXLang.g:8338:1: rule__TableColumnFX__Group__6 : rule__TableColumnFX__Group__6__Impl rule__TableColumnFX__Group__7 ;
+    // InternalJavaFXLang.g:8014:1: rule__TableColumnFX__Group__6 : rule__TableColumnFX__Group__6__Impl rule__TableColumnFX__Group__7 ;
     public final void rule__TableColumnFX__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8342:1: ( rule__TableColumnFX__Group__6__Impl rule__TableColumnFX__Group__7 )
-            // InternalJavaFXLang.g:8343:2: rule__TableColumnFX__Group__6__Impl rule__TableColumnFX__Group__7
+            // InternalJavaFXLang.g:8018:1: ( rule__TableColumnFX__Group__6__Impl rule__TableColumnFX__Group__7 )
+            // InternalJavaFXLang.g:8019:2: rule__TableColumnFX__Group__6__Impl rule__TableColumnFX__Group__7
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_42);
             rule__TableColumnFX__Group__6__Impl();
 
             state._fsp--;
@@ -25656,29 +24652,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__6__Impl"
-    // InternalJavaFXLang.g:8350:1: rule__TableColumnFX__Group__6__Impl : ( ( rule__TableColumnFX__Group_6__0 )? ) ;
+    // InternalJavaFXLang.g:8026:1: rule__TableColumnFX__Group__6__Impl : ( ( rule__TableColumnFX__Group_6__0 )? ) ;
     public final void rule__TableColumnFX__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8354:1: ( ( ( rule__TableColumnFX__Group_6__0 )? ) )
-            // InternalJavaFXLang.g:8355:1: ( ( rule__TableColumnFX__Group_6__0 )? )
+            // InternalJavaFXLang.g:8030:1: ( ( ( rule__TableColumnFX__Group_6__0 )? ) )
+            // InternalJavaFXLang.g:8031:1: ( ( rule__TableColumnFX__Group_6__0 )? )
             {
-            // InternalJavaFXLang.g:8355:1: ( ( rule__TableColumnFX__Group_6__0 )? )
-            // InternalJavaFXLang.g:8356:2: ( rule__TableColumnFX__Group_6__0 )?
+            // InternalJavaFXLang.g:8031:1: ( ( rule__TableColumnFX__Group_6__0 )? )
+            // InternalJavaFXLang.g:8032:2: ( rule__TableColumnFX__Group_6__0 )?
             {
              before(grammarAccess.getTableColumnFXAccess().getGroup_6()); 
-            // InternalJavaFXLang.g:8357:2: ( rule__TableColumnFX__Group_6__0 )?
-            int alt81=2;
-            int LA81_0 = input.LA(1);
+            // InternalJavaFXLang.g:8033:2: ( rule__TableColumnFX__Group_6__0 )?
+            int alt77=2;
+            int LA77_0 = input.LA(1);
 
-            if ( (LA81_0==61) ) {
-                alt81=1;
+            if ( (LA77_0==61) ) {
+                alt77=1;
             }
-            switch (alt81) {
+            switch (alt77) {
                 case 1 :
-                    // InternalJavaFXLang.g:8357:3: rule__TableColumnFX__Group_6__0
+                    // InternalJavaFXLang.g:8033:3: rule__TableColumnFX__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TableColumnFX__Group_6__0();
@@ -25714,14 +24710,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__7"
-    // InternalJavaFXLang.g:8365:1: rule__TableColumnFX__Group__7 : rule__TableColumnFX__Group__7__Impl ;
+    // InternalJavaFXLang.g:8041:1: rule__TableColumnFX__Group__7 : rule__TableColumnFX__Group__7__Impl ;
     public final void rule__TableColumnFX__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8369:1: ( rule__TableColumnFX__Group__7__Impl )
-            // InternalJavaFXLang.g:8370:2: rule__TableColumnFX__Group__7__Impl
+            // InternalJavaFXLang.g:8045:1: ( rule__TableColumnFX__Group__7__Impl )
+            // InternalJavaFXLang.g:8046:2: rule__TableColumnFX__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__Group__7__Impl();
@@ -25747,17 +24743,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group__7__Impl"
-    // InternalJavaFXLang.g:8376:1: rule__TableColumnFX__Group__7__Impl : ( ')' ) ;
+    // InternalJavaFXLang.g:8052:1: rule__TableColumnFX__Group__7__Impl : ( ')' ) ;
     public final void rule__TableColumnFX__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8380:1: ( ( ')' ) )
-            // InternalJavaFXLang.g:8381:1: ( ')' )
+            // InternalJavaFXLang.g:8056:1: ( ( ')' ) )
+            // InternalJavaFXLang.g:8057:1: ( ')' )
             {
-            // InternalJavaFXLang.g:8381:1: ( ')' )
-            // InternalJavaFXLang.g:8382:2: ')'
+            // InternalJavaFXLang.g:8057:1: ( ')' )
+            // InternalJavaFXLang.g:8058:2: ')'
             {
              before(grammarAccess.getTableColumnFXAccess().getRightParenthesisKeyword_7()); 
             match(input,58,FOLLOW_2); 
@@ -25784,14 +24780,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_3__0"
-    // InternalJavaFXLang.g:8392:1: rule__TableColumnFX__Group_3__0 : rule__TableColumnFX__Group_3__0__Impl rule__TableColumnFX__Group_3__1 ;
+    // InternalJavaFXLang.g:8068:1: rule__TableColumnFX__Group_3__0 : rule__TableColumnFX__Group_3__0__Impl rule__TableColumnFX__Group_3__1 ;
     public final void rule__TableColumnFX__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8396:1: ( rule__TableColumnFX__Group_3__0__Impl rule__TableColumnFX__Group_3__1 )
-            // InternalJavaFXLang.g:8397:2: rule__TableColumnFX__Group_3__0__Impl rule__TableColumnFX__Group_3__1
+            // InternalJavaFXLang.g:8072:1: ( rule__TableColumnFX__Group_3__0__Impl rule__TableColumnFX__Group_3__1 )
+            // InternalJavaFXLang.g:8073:2: rule__TableColumnFX__Group_3__0__Impl rule__TableColumnFX__Group_3__1
             {
             pushFollow(FOLLOW_4);
             rule__TableColumnFX__Group_3__0__Impl();
@@ -25822,17 +24818,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_3__0__Impl"
-    // InternalJavaFXLang.g:8404:1: rule__TableColumnFX__Group_3__0__Impl : ( 'name:' ) ;
+    // InternalJavaFXLang.g:8080:1: rule__TableColumnFX__Group_3__0__Impl : ( 'name:' ) ;
     public final void rule__TableColumnFX__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8408:1: ( ( 'name:' ) )
-            // InternalJavaFXLang.g:8409:1: ( 'name:' )
+            // InternalJavaFXLang.g:8084:1: ( ( 'name:' ) )
+            // InternalJavaFXLang.g:8085:1: ( 'name:' )
             {
-            // InternalJavaFXLang.g:8409:1: ( 'name:' )
-            // InternalJavaFXLang.g:8410:2: 'name:'
+            // InternalJavaFXLang.g:8085:1: ( 'name:' )
+            // InternalJavaFXLang.g:8086:2: 'name:'
             {
              before(grammarAccess.getTableColumnFXAccess().getNameKeyword_3_0()); 
             match(input,35,FOLLOW_2); 
@@ -25859,14 +24855,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_3__1"
-    // InternalJavaFXLang.g:8419:1: rule__TableColumnFX__Group_3__1 : rule__TableColumnFX__Group_3__1__Impl ;
+    // InternalJavaFXLang.g:8095:1: rule__TableColumnFX__Group_3__1 : rule__TableColumnFX__Group_3__1__Impl ;
     public final void rule__TableColumnFX__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8423:1: ( rule__TableColumnFX__Group_3__1__Impl )
-            // InternalJavaFXLang.g:8424:2: rule__TableColumnFX__Group_3__1__Impl
+            // InternalJavaFXLang.g:8099:1: ( rule__TableColumnFX__Group_3__1__Impl )
+            // InternalJavaFXLang.g:8100:2: rule__TableColumnFX__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__Group_3__1__Impl();
@@ -25892,21 +24888,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_3__1__Impl"
-    // InternalJavaFXLang.g:8430:1: rule__TableColumnFX__Group_3__1__Impl : ( ( rule__TableColumnFX__NameAssignment_3_1 ) ) ;
+    // InternalJavaFXLang.g:8106:1: rule__TableColumnFX__Group_3__1__Impl : ( ( rule__TableColumnFX__NameAssignment_3_1 ) ) ;
     public final void rule__TableColumnFX__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8434:1: ( ( ( rule__TableColumnFX__NameAssignment_3_1 ) ) )
-            // InternalJavaFXLang.g:8435:1: ( ( rule__TableColumnFX__NameAssignment_3_1 ) )
+            // InternalJavaFXLang.g:8110:1: ( ( ( rule__TableColumnFX__NameAssignment_3_1 ) ) )
+            // InternalJavaFXLang.g:8111:1: ( ( rule__TableColumnFX__NameAssignment_3_1 ) )
             {
-            // InternalJavaFXLang.g:8435:1: ( ( rule__TableColumnFX__NameAssignment_3_1 ) )
-            // InternalJavaFXLang.g:8436:2: ( rule__TableColumnFX__NameAssignment_3_1 )
+            // InternalJavaFXLang.g:8111:1: ( ( rule__TableColumnFX__NameAssignment_3_1 ) )
+            // InternalJavaFXLang.g:8112:2: ( rule__TableColumnFX__NameAssignment_3_1 )
             {
              before(grammarAccess.getTableColumnFXAccess().getNameAssignment_3_1()); 
-            // InternalJavaFXLang.g:8437:2: ( rule__TableColumnFX__NameAssignment_3_1 )
-            // InternalJavaFXLang.g:8437:3: rule__TableColumnFX__NameAssignment_3_1
+            // InternalJavaFXLang.g:8113:2: ( rule__TableColumnFX__NameAssignment_3_1 )
+            // InternalJavaFXLang.g:8113:3: rule__TableColumnFX__NameAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__NameAssignment_3_1();
@@ -25939,16 +24935,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_4__0"
-    // InternalJavaFXLang.g:8446:1: rule__TableColumnFX__Group_4__0 : rule__TableColumnFX__Group_4__0__Impl rule__TableColumnFX__Group_4__1 ;
+    // InternalJavaFXLang.g:8122:1: rule__TableColumnFX__Group_4__0 : rule__TableColumnFX__Group_4__0__Impl rule__TableColumnFX__Group_4__1 ;
     public final void rule__TableColumnFX__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8450:1: ( rule__TableColumnFX__Group_4__0__Impl rule__TableColumnFX__Group_4__1 )
-            // InternalJavaFXLang.g:8451:2: rule__TableColumnFX__Group_4__0__Impl rule__TableColumnFX__Group_4__1
+            // InternalJavaFXLang.g:8126:1: ( rule__TableColumnFX__Group_4__0__Impl rule__TableColumnFX__Group_4__1 )
+            // InternalJavaFXLang.g:8127:2: rule__TableColumnFX__Group_4__0__Impl rule__TableColumnFX__Group_4__1
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_43);
             rule__TableColumnFX__Group_4__0__Impl();
 
             state._fsp--;
@@ -25977,17 +24973,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_4__0__Impl"
-    // InternalJavaFXLang.g:8458:1: rule__TableColumnFX__Group_4__0__Impl : ( 'width:' ) ;
+    // InternalJavaFXLang.g:8134:1: rule__TableColumnFX__Group_4__0__Impl : ( 'width:' ) ;
     public final void rule__TableColumnFX__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8462:1: ( ( 'width:' ) )
-            // InternalJavaFXLang.g:8463:1: ( 'width:' )
+            // InternalJavaFXLang.g:8138:1: ( ( 'width:' ) )
+            // InternalJavaFXLang.g:8139:1: ( 'width:' )
             {
-            // InternalJavaFXLang.g:8463:1: ( 'width:' )
-            // InternalJavaFXLang.g:8464:2: 'width:'
+            // InternalJavaFXLang.g:8139:1: ( 'width:' )
+            // InternalJavaFXLang.g:8140:2: 'width:'
             {
              before(grammarAccess.getTableColumnFXAccess().getWidthKeyword_4_0()); 
             match(input,59,FOLLOW_2); 
@@ -26014,14 +25010,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_4__1"
-    // InternalJavaFXLang.g:8473:1: rule__TableColumnFX__Group_4__1 : rule__TableColumnFX__Group_4__1__Impl ;
+    // InternalJavaFXLang.g:8149:1: rule__TableColumnFX__Group_4__1 : rule__TableColumnFX__Group_4__1__Impl ;
     public final void rule__TableColumnFX__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8477:1: ( rule__TableColumnFX__Group_4__1__Impl )
-            // InternalJavaFXLang.g:8478:2: rule__TableColumnFX__Group_4__1__Impl
+            // InternalJavaFXLang.g:8153:1: ( rule__TableColumnFX__Group_4__1__Impl )
+            // InternalJavaFXLang.g:8154:2: rule__TableColumnFX__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__Group_4__1__Impl();
@@ -26047,21 +25043,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_4__1__Impl"
-    // InternalJavaFXLang.g:8484:1: rule__TableColumnFX__Group_4__1__Impl : ( ( rule__TableColumnFX__WidthAssignment_4_1 ) ) ;
+    // InternalJavaFXLang.g:8160:1: rule__TableColumnFX__Group_4__1__Impl : ( ( rule__TableColumnFX__WidthAssignment_4_1 ) ) ;
     public final void rule__TableColumnFX__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8488:1: ( ( ( rule__TableColumnFX__WidthAssignment_4_1 ) ) )
-            // InternalJavaFXLang.g:8489:1: ( ( rule__TableColumnFX__WidthAssignment_4_1 ) )
+            // InternalJavaFXLang.g:8164:1: ( ( ( rule__TableColumnFX__WidthAssignment_4_1 ) ) )
+            // InternalJavaFXLang.g:8165:1: ( ( rule__TableColumnFX__WidthAssignment_4_1 ) )
             {
-            // InternalJavaFXLang.g:8489:1: ( ( rule__TableColumnFX__WidthAssignment_4_1 ) )
-            // InternalJavaFXLang.g:8490:2: ( rule__TableColumnFX__WidthAssignment_4_1 )
+            // InternalJavaFXLang.g:8165:1: ( ( rule__TableColumnFX__WidthAssignment_4_1 ) )
+            // InternalJavaFXLang.g:8166:2: ( rule__TableColumnFX__WidthAssignment_4_1 )
             {
              before(grammarAccess.getTableColumnFXAccess().getWidthAssignment_4_1()); 
-            // InternalJavaFXLang.g:8491:2: ( rule__TableColumnFX__WidthAssignment_4_1 )
-            // InternalJavaFXLang.g:8491:3: rule__TableColumnFX__WidthAssignment_4_1
+            // InternalJavaFXLang.g:8167:2: ( rule__TableColumnFX__WidthAssignment_4_1 )
+            // InternalJavaFXLang.g:8167:3: rule__TableColumnFX__WidthAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__WidthAssignment_4_1();
@@ -26094,14 +25090,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_5__0"
-    // InternalJavaFXLang.g:8500:1: rule__TableColumnFX__Group_5__0 : rule__TableColumnFX__Group_5__0__Impl rule__TableColumnFX__Group_5__1 ;
+    // InternalJavaFXLang.g:8176:1: rule__TableColumnFX__Group_5__0 : rule__TableColumnFX__Group_5__0__Impl rule__TableColumnFX__Group_5__1 ;
     public final void rule__TableColumnFX__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8504:1: ( rule__TableColumnFX__Group_5__0__Impl rule__TableColumnFX__Group_5__1 )
-            // InternalJavaFXLang.g:8505:2: rule__TableColumnFX__Group_5__0__Impl rule__TableColumnFX__Group_5__1
+            // InternalJavaFXLang.g:8180:1: ( rule__TableColumnFX__Group_5__0__Impl rule__TableColumnFX__Group_5__1 )
+            // InternalJavaFXLang.g:8181:2: rule__TableColumnFX__Group_5__0__Impl rule__TableColumnFX__Group_5__1
             {
             pushFollow(FOLLOW_4);
             rule__TableColumnFX__Group_5__0__Impl();
@@ -26132,17 +25128,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_5__0__Impl"
-    // InternalJavaFXLang.g:8512:1: rule__TableColumnFX__Group_5__0__Impl : ( 'attribute:' ) ;
+    // InternalJavaFXLang.g:8188:1: rule__TableColumnFX__Group_5__0__Impl : ( 'attribute:' ) ;
     public final void rule__TableColumnFX__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8516:1: ( ( 'attribute:' ) )
-            // InternalJavaFXLang.g:8517:1: ( 'attribute:' )
+            // InternalJavaFXLang.g:8192:1: ( ( 'attribute:' ) )
+            // InternalJavaFXLang.g:8193:1: ( 'attribute:' )
             {
-            // InternalJavaFXLang.g:8517:1: ( 'attribute:' )
-            // InternalJavaFXLang.g:8518:2: 'attribute:'
+            // InternalJavaFXLang.g:8193:1: ( 'attribute:' )
+            // InternalJavaFXLang.g:8194:2: 'attribute:'
             {
              before(grammarAccess.getTableColumnFXAccess().getAttributeKeyword_5_0()); 
             match(input,60,FOLLOW_2); 
@@ -26169,14 +25165,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_5__1"
-    // InternalJavaFXLang.g:8527:1: rule__TableColumnFX__Group_5__1 : rule__TableColumnFX__Group_5__1__Impl ;
+    // InternalJavaFXLang.g:8203:1: rule__TableColumnFX__Group_5__1 : rule__TableColumnFX__Group_5__1__Impl ;
     public final void rule__TableColumnFX__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8531:1: ( rule__TableColumnFX__Group_5__1__Impl )
-            // InternalJavaFXLang.g:8532:2: rule__TableColumnFX__Group_5__1__Impl
+            // InternalJavaFXLang.g:8207:1: ( rule__TableColumnFX__Group_5__1__Impl )
+            // InternalJavaFXLang.g:8208:2: rule__TableColumnFX__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__Group_5__1__Impl();
@@ -26202,21 +25198,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_5__1__Impl"
-    // InternalJavaFXLang.g:8538:1: rule__TableColumnFX__Group_5__1__Impl : ( ( rule__TableColumnFX__UsedAttributeAssignment_5_1 ) ) ;
+    // InternalJavaFXLang.g:8214:1: rule__TableColumnFX__Group_5__1__Impl : ( ( rule__TableColumnFX__UsedAttributeAssignment_5_1 ) ) ;
     public final void rule__TableColumnFX__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8542:1: ( ( ( rule__TableColumnFX__UsedAttributeAssignment_5_1 ) ) )
-            // InternalJavaFXLang.g:8543:1: ( ( rule__TableColumnFX__UsedAttributeAssignment_5_1 ) )
+            // InternalJavaFXLang.g:8218:1: ( ( ( rule__TableColumnFX__UsedAttributeAssignment_5_1 ) ) )
+            // InternalJavaFXLang.g:8219:1: ( ( rule__TableColumnFX__UsedAttributeAssignment_5_1 ) )
             {
-            // InternalJavaFXLang.g:8543:1: ( ( rule__TableColumnFX__UsedAttributeAssignment_5_1 ) )
-            // InternalJavaFXLang.g:8544:2: ( rule__TableColumnFX__UsedAttributeAssignment_5_1 )
+            // InternalJavaFXLang.g:8219:1: ( ( rule__TableColumnFX__UsedAttributeAssignment_5_1 ) )
+            // InternalJavaFXLang.g:8220:2: ( rule__TableColumnFX__UsedAttributeAssignment_5_1 )
             {
              before(grammarAccess.getTableColumnFXAccess().getUsedAttributeAssignment_5_1()); 
-            // InternalJavaFXLang.g:8545:2: ( rule__TableColumnFX__UsedAttributeAssignment_5_1 )
-            // InternalJavaFXLang.g:8545:3: rule__TableColumnFX__UsedAttributeAssignment_5_1
+            // InternalJavaFXLang.g:8221:2: ( rule__TableColumnFX__UsedAttributeAssignment_5_1 )
+            // InternalJavaFXLang.g:8221:3: rule__TableColumnFX__UsedAttributeAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__UsedAttributeAssignment_5_1();
@@ -26249,14 +25245,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_6__0"
-    // InternalJavaFXLang.g:8554:1: rule__TableColumnFX__Group_6__0 : rule__TableColumnFX__Group_6__0__Impl rule__TableColumnFX__Group_6__1 ;
+    // InternalJavaFXLang.g:8230:1: rule__TableColumnFX__Group_6__0 : rule__TableColumnFX__Group_6__0__Impl rule__TableColumnFX__Group_6__1 ;
     public final void rule__TableColumnFX__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8558:1: ( rule__TableColumnFX__Group_6__0__Impl rule__TableColumnFX__Group_6__1 )
-            // InternalJavaFXLang.g:8559:2: rule__TableColumnFX__Group_6__0__Impl rule__TableColumnFX__Group_6__1
+            // InternalJavaFXLang.g:8234:1: ( rule__TableColumnFX__Group_6__0__Impl rule__TableColumnFX__Group_6__1 )
+            // InternalJavaFXLang.g:8235:2: rule__TableColumnFX__Group_6__0__Impl rule__TableColumnFX__Group_6__1
             {
             pushFollow(FOLLOW_22);
             rule__TableColumnFX__Group_6__0__Impl();
@@ -26287,17 +25283,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_6__0__Impl"
-    // InternalJavaFXLang.g:8566:1: rule__TableColumnFX__Group_6__0__Impl : ( 'useFilter:' ) ;
+    // InternalJavaFXLang.g:8242:1: rule__TableColumnFX__Group_6__0__Impl : ( 'useFilter:' ) ;
     public final void rule__TableColumnFX__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8570:1: ( ( 'useFilter:' ) )
-            // InternalJavaFXLang.g:8571:1: ( 'useFilter:' )
+            // InternalJavaFXLang.g:8246:1: ( ( 'useFilter:' ) )
+            // InternalJavaFXLang.g:8247:1: ( 'useFilter:' )
             {
-            // InternalJavaFXLang.g:8571:1: ( 'useFilter:' )
-            // InternalJavaFXLang.g:8572:2: 'useFilter:'
+            // InternalJavaFXLang.g:8247:1: ( 'useFilter:' )
+            // InternalJavaFXLang.g:8248:2: 'useFilter:'
             {
              before(grammarAccess.getTableColumnFXAccess().getUseFilterKeyword_6_0()); 
             match(input,61,FOLLOW_2); 
@@ -26324,14 +25320,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_6__1"
-    // InternalJavaFXLang.g:8581:1: rule__TableColumnFX__Group_6__1 : rule__TableColumnFX__Group_6__1__Impl ;
+    // InternalJavaFXLang.g:8257:1: rule__TableColumnFX__Group_6__1 : rule__TableColumnFX__Group_6__1__Impl ;
     public final void rule__TableColumnFX__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8585:1: ( rule__TableColumnFX__Group_6__1__Impl )
-            // InternalJavaFXLang.g:8586:2: rule__TableColumnFX__Group_6__1__Impl
+            // InternalJavaFXLang.g:8261:1: ( rule__TableColumnFX__Group_6__1__Impl )
+            // InternalJavaFXLang.g:8262:2: rule__TableColumnFX__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__Group_6__1__Impl();
@@ -26357,21 +25353,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__Group_6__1__Impl"
-    // InternalJavaFXLang.g:8592:1: rule__TableColumnFX__Group_6__1__Impl : ( ( rule__TableColumnFX__UseFilterAssignment_6_1 ) ) ;
+    // InternalJavaFXLang.g:8268:1: rule__TableColumnFX__Group_6__1__Impl : ( ( rule__TableColumnFX__UseFilterAssignment_6_1 ) ) ;
     public final void rule__TableColumnFX__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8596:1: ( ( ( rule__TableColumnFX__UseFilterAssignment_6_1 ) ) )
-            // InternalJavaFXLang.g:8597:1: ( ( rule__TableColumnFX__UseFilterAssignment_6_1 ) )
+            // InternalJavaFXLang.g:8272:1: ( ( ( rule__TableColumnFX__UseFilterAssignment_6_1 ) ) )
+            // InternalJavaFXLang.g:8273:1: ( ( rule__TableColumnFX__UseFilterAssignment_6_1 ) )
             {
-            // InternalJavaFXLang.g:8597:1: ( ( rule__TableColumnFX__UseFilterAssignment_6_1 ) )
-            // InternalJavaFXLang.g:8598:2: ( rule__TableColumnFX__UseFilterAssignment_6_1 )
+            // InternalJavaFXLang.g:8273:1: ( ( rule__TableColumnFX__UseFilterAssignment_6_1 ) )
+            // InternalJavaFXLang.g:8274:2: ( rule__TableColumnFX__UseFilterAssignment_6_1 )
             {
              before(grammarAccess.getTableColumnFXAccess().getUseFilterAssignment_6_1()); 
-            // InternalJavaFXLang.g:8599:2: ( rule__TableColumnFX__UseFilterAssignment_6_1 )
-            // InternalJavaFXLang.g:8599:3: rule__TableColumnFX__UseFilterAssignment_6_1
+            // InternalJavaFXLang.g:8275:2: ( rule__TableColumnFX__UseFilterAssignment_6_1 )
+            // InternalJavaFXLang.g:8275:3: rule__TableColumnFX__UseFilterAssignment_6_1
             {
             pushFollow(FOLLOW_2);
             rule__TableColumnFX__UseFilterAssignment_6_1();
@@ -26404,16 +25400,16 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalJavaFXLang.g:8608:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalJavaFXLang.g:8284:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8612:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalJavaFXLang.g:8613:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalJavaFXLang.g:8288:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalJavaFXLang.g:8289:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_43);
             rule__EInt__Group__0__Impl();
 
             state._fsp--;
@@ -26442,29 +25438,29 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalJavaFXLang.g:8620:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalJavaFXLang.g:8296:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8624:1: ( ( ( '-' )? ) )
-            // InternalJavaFXLang.g:8625:1: ( ( '-' )? )
+            // InternalJavaFXLang.g:8300:1: ( ( ( '-' )? ) )
+            // InternalJavaFXLang.g:8301:1: ( ( '-' )? )
             {
-            // InternalJavaFXLang.g:8625:1: ( ( '-' )? )
-            // InternalJavaFXLang.g:8626:2: ( '-' )?
+            // InternalJavaFXLang.g:8301:1: ( ( '-' )? )
+            // InternalJavaFXLang.g:8302:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalJavaFXLang.g:8627:2: ( '-' )?
-            int alt82=2;
-            int LA82_0 = input.LA(1);
+            // InternalJavaFXLang.g:8303:2: ( '-' )?
+            int alt78=2;
+            int LA78_0 = input.LA(1);
 
-            if ( (LA82_0==62) ) {
-                alt82=1;
+            if ( (LA78_0==62) ) {
+                alt78=1;
             }
-            switch (alt82) {
+            switch (alt78) {
                 case 1 :
-                    // InternalJavaFXLang.g:8627:3: '-'
+                    // InternalJavaFXLang.g:8303:3: '-'
                     {
                     match(input,62,FOLLOW_2); 
 
@@ -26496,14 +25492,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalJavaFXLang.g:8635:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalJavaFXLang.g:8311:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8639:1: ( rule__EInt__Group__1__Impl )
-            // InternalJavaFXLang.g:8640:2: rule__EInt__Group__1__Impl
+            // InternalJavaFXLang.g:8315:1: ( rule__EInt__Group__1__Impl )
+            // InternalJavaFXLang.g:8316:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -26529,17 +25525,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalJavaFXLang.g:8646:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalJavaFXLang.g:8322:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8650:1: ( ( RULE_INT ) )
-            // InternalJavaFXLang.g:8651:1: ( RULE_INT )
+            // InternalJavaFXLang.g:8326:1: ( ( RULE_INT ) )
+            // InternalJavaFXLang.g:8327:1: ( RULE_INT )
             {
-            // InternalJavaFXLang.g:8651:1: ( RULE_INT )
-            // InternalJavaFXLang.g:8652:2: RULE_INT
+            // InternalJavaFXLang.g:8327:1: ( RULE_INT )
+            // InternalJavaFXLang.g:8328:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -26566,14 +25562,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AttributeFX__Group__0"
-    // InternalJavaFXLang.g:8662:1: rule__AttributeFX__Group__0 : rule__AttributeFX__Group__0__Impl rule__AttributeFX__Group__1 ;
+    // InternalJavaFXLang.g:8338:1: rule__AttributeFX__Group__0 : rule__AttributeFX__Group__0__Impl rule__AttributeFX__Group__1 ;
     public final void rule__AttributeFX__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8666:1: ( rule__AttributeFX__Group__0__Impl rule__AttributeFX__Group__1 )
-            // InternalJavaFXLang.g:8667:2: rule__AttributeFX__Group__0__Impl rule__AttributeFX__Group__1
+            // InternalJavaFXLang.g:8342:1: ( rule__AttributeFX__Group__0__Impl rule__AttributeFX__Group__1 )
+            // InternalJavaFXLang.g:8343:2: rule__AttributeFX__Group__0__Impl rule__AttributeFX__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__AttributeFX__Group__0__Impl();
@@ -26604,21 +25600,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AttributeFX__Group__0__Impl"
-    // InternalJavaFXLang.g:8674:1: rule__AttributeFX__Group__0__Impl : ( () ) ;
+    // InternalJavaFXLang.g:8350:1: rule__AttributeFX__Group__0__Impl : ( () ) ;
     public final void rule__AttributeFX__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8678:1: ( ( () ) )
-            // InternalJavaFXLang.g:8679:1: ( () )
+            // InternalJavaFXLang.g:8354:1: ( ( () ) )
+            // InternalJavaFXLang.g:8355:1: ( () )
             {
-            // InternalJavaFXLang.g:8679:1: ( () )
-            // InternalJavaFXLang.g:8680:2: ()
+            // InternalJavaFXLang.g:8355:1: ( () )
+            // InternalJavaFXLang.g:8356:2: ()
             {
              before(grammarAccess.getAttributeFXAccess().getAttributeFXAction_0()); 
-            // InternalJavaFXLang.g:8681:2: ()
-            // InternalJavaFXLang.g:8681:3: 
+            // InternalJavaFXLang.g:8357:2: ()
+            // InternalJavaFXLang.g:8357:3: 
             {
             }
 
@@ -26641,14 +25637,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AttributeFX__Group__1"
-    // InternalJavaFXLang.g:8689:1: rule__AttributeFX__Group__1 : rule__AttributeFX__Group__1__Impl rule__AttributeFX__Group__2 ;
+    // InternalJavaFXLang.g:8365:1: rule__AttributeFX__Group__1 : rule__AttributeFX__Group__1__Impl rule__AttributeFX__Group__2 ;
     public final void rule__AttributeFX__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8693:1: ( rule__AttributeFX__Group__1__Impl rule__AttributeFX__Group__2 )
-            // InternalJavaFXLang.g:8694:2: rule__AttributeFX__Group__1__Impl rule__AttributeFX__Group__2
+            // InternalJavaFXLang.g:8369:1: ( rule__AttributeFX__Group__1__Impl rule__AttributeFX__Group__2 )
+            // InternalJavaFXLang.g:8370:2: rule__AttributeFX__Group__1__Impl rule__AttributeFX__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__AttributeFX__Group__1__Impl();
@@ -26679,21 +25675,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AttributeFX__Group__1__Impl"
-    // InternalJavaFXLang.g:8701:1: rule__AttributeFX__Group__1__Impl : ( ( rule__AttributeFX__TypeAssignment_1 ) ) ;
+    // InternalJavaFXLang.g:8377:1: rule__AttributeFX__Group__1__Impl : ( ( rule__AttributeFX__TypeAssignment_1 ) ) ;
     public final void rule__AttributeFX__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8705:1: ( ( ( rule__AttributeFX__TypeAssignment_1 ) ) )
-            // InternalJavaFXLang.g:8706:1: ( ( rule__AttributeFX__TypeAssignment_1 ) )
+            // InternalJavaFXLang.g:8381:1: ( ( ( rule__AttributeFX__TypeAssignment_1 ) ) )
+            // InternalJavaFXLang.g:8382:1: ( ( rule__AttributeFX__TypeAssignment_1 ) )
             {
-            // InternalJavaFXLang.g:8706:1: ( ( rule__AttributeFX__TypeAssignment_1 ) )
-            // InternalJavaFXLang.g:8707:2: ( rule__AttributeFX__TypeAssignment_1 )
+            // InternalJavaFXLang.g:8382:1: ( ( rule__AttributeFX__TypeAssignment_1 ) )
+            // InternalJavaFXLang.g:8383:2: ( rule__AttributeFX__TypeAssignment_1 )
             {
              before(grammarAccess.getAttributeFXAccess().getTypeAssignment_1()); 
-            // InternalJavaFXLang.g:8708:2: ( rule__AttributeFX__TypeAssignment_1 )
-            // InternalJavaFXLang.g:8708:3: rule__AttributeFX__TypeAssignment_1
+            // InternalJavaFXLang.g:8384:2: ( rule__AttributeFX__TypeAssignment_1 )
+            // InternalJavaFXLang.g:8384:3: rule__AttributeFX__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__AttributeFX__TypeAssignment_1();
@@ -26726,14 +25722,14 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AttributeFX__Group__2"
-    // InternalJavaFXLang.g:8716:1: rule__AttributeFX__Group__2 : rule__AttributeFX__Group__2__Impl ;
+    // InternalJavaFXLang.g:8392:1: rule__AttributeFX__Group__2 : rule__AttributeFX__Group__2__Impl ;
     public final void rule__AttributeFX__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8720:1: ( rule__AttributeFX__Group__2__Impl )
-            // InternalJavaFXLang.g:8721:2: rule__AttributeFX__Group__2__Impl
+            // InternalJavaFXLang.g:8396:1: ( rule__AttributeFX__Group__2__Impl )
+            // InternalJavaFXLang.g:8397:2: rule__AttributeFX__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AttributeFX__Group__2__Impl();
@@ -26759,21 +25755,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AttributeFX__Group__2__Impl"
-    // InternalJavaFXLang.g:8727:1: rule__AttributeFX__Group__2__Impl : ( ( rule__AttributeFX__NameAssignment_2 ) ) ;
+    // InternalJavaFXLang.g:8403:1: rule__AttributeFX__Group__2__Impl : ( ( rule__AttributeFX__NameAssignment_2 ) ) ;
     public final void rule__AttributeFX__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8731:1: ( ( ( rule__AttributeFX__NameAssignment_2 ) ) )
-            // InternalJavaFXLang.g:8732:1: ( ( rule__AttributeFX__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:8407:1: ( ( ( rule__AttributeFX__NameAssignment_2 ) ) )
+            // InternalJavaFXLang.g:8408:1: ( ( rule__AttributeFX__NameAssignment_2 ) )
             {
-            // InternalJavaFXLang.g:8732:1: ( ( rule__AttributeFX__NameAssignment_2 ) )
-            // InternalJavaFXLang.g:8733:2: ( rule__AttributeFX__NameAssignment_2 )
+            // InternalJavaFXLang.g:8408:1: ( ( rule__AttributeFX__NameAssignment_2 ) )
+            // InternalJavaFXLang.g:8409:2: ( rule__AttributeFX__NameAssignment_2 )
             {
              before(grammarAccess.getAttributeFXAccess().getNameAssignment_2()); 
-            // InternalJavaFXLang.g:8734:2: ( rule__AttributeFX__NameAssignment_2 )
-            // InternalJavaFXLang.g:8734:3: rule__AttributeFX__NameAssignment_2
+            // InternalJavaFXLang.g:8410:2: ( rule__AttributeFX__NameAssignment_2 )
+            // InternalJavaFXLang.g:8410:3: rule__AttributeFX__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__AttributeFX__NameAssignment_2();
@@ -26806,17 +25802,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__NameAssignment_2"
-    // InternalJavaFXLang.g:8743:1: rule__ProjectFX__NameAssignment_2 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8419:1: rule__ProjectFX__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__ProjectFX__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8747:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:8748:2: ( ruleEString )
+            // InternalJavaFXLang.g:8423:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8424:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:8748:2: ( ruleEString )
-            // InternalJavaFXLang.g:8749:3: ruleEString
+            // InternalJavaFXLang.g:8424:2: ( ruleEString )
+            // InternalJavaFXLang.g:8425:3: ruleEString
             {
              before(grammarAccess.getProjectFXAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26847,17 +25843,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__PackagePathAssignment_4_1"
-    // InternalJavaFXLang.g:8758:1: rule__ProjectFX__PackagePathAssignment_4_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8434:1: rule__ProjectFX__PackagePathAssignment_4_1 : ( ruleEString ) ;
     public final void rule__ProjectFX__PackagePathAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8762:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:8763:2: ( ruleEString )
+            // InternalJavaFXLang.g:8438:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8439:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:8763:2: ( ruleEString )
-            // InternalJavaFXLang.g:8764:3: ruleEString
+            // InternalJavaFXLang.g:8439:2: ( ruleEString )
+            // InternalJavaFXLang.g:8440:3: ruleEString
             {
              before(grammarAccess.getProjectFXAccess().getPackagePathEStringParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -26888,17 +25884,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__ControlsAssignment_5_2"
-    // InternalJavaFXLang.g:8773:1: rule__ProjectFX__ControlsAssignment_5_2 : ( ruleControlFX ) ;
+    // InternalJavaFXLang.g:8449:1: rule__ProjectFX__ControlsAssignment_5_2 : ( ruleControlFX ) ;
     public final void rule__ProjectFX__ControlsAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8777:1: ( ( ruleControlFX ) )
-            // InternalJavaFXLang.g:8778:2: ( ruleControlFX )
+            // InternalJavaFXLang.g:8453:1: ( ( ruleControlFX ) )
+            // InternalJavaFXLang.g:8454:2: ( ruleControlFX )
             {
-            // InternalJavaFXLang.g:8778:2: ( ruleControlFX )
-            // InternalJavaFXLang.g:8779:3: ruleControlFX
+            // InternalJavaFXLang.g:8454:2: ( ruleControlFX )
+            // InternalJavaFXLang.g:8455:3: ruleControlFX
             {
              before(grammarAccess.getProjectFXAccess().getControlsControlFXParserRuleCall_5_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26929,17 +25925,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__ControlsAssignment_5_3"
-    // InternalJavaFXLang.g:8788:1: rule__ProjectFX__ControlsAssignment_5_3 : ( ruleControlFX ) ;
+    // InternalJavaFXLang.g:8464:1: rule__ProjectFX__ControlsAssignment_5_3 : ( ruleControlFX ) ;
     public final void rule__ProjectFX__ControlsAssignment_5_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8792:1: ( ( ruleControlFX ) )
-            // InternalJavaFXLang.g:8793:2: ( ruleControlFX )
+            // InternalJavaFXLang.g:8468:1: ( ( ruleControlFX ) )
+            // InternalJavaFXLang.g:8469:2: ( ruleControlFX )
             {
-            // InternalJavaFXLang.g:8793:2: ( ruleControlFX )
-            // InternalJavaFXLang.g:8794:3: ruleControlFX
+            // InternalJavaFXLang.g:8469:2: ( ruleControlFX )
+            // InternalJavaFXLang.g:8470:3: ruleControlFX
             {
              before(grammarAccess.getProjectFXAccess().getControlsControlFXParserRuleCall_5_3_0()); 
             pushFollow(FOLLOW_2);
@@ -26970,17 +25966,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__ModelsAssignment_6_2"
-    // InternalJavaFXLang.g:8803:1: rule__ProjectFX__ModelsAssignment_6_2 : ( ruleModelFX ) ;
+    // InternalJavaFXLang.g:8479:1: rule__ProjectFX__ModelsAssignment_6_2 : ( ruleModelFX ) ;
     public final void rule__ProjectFX__ModelsAssignment_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8807:1: ( ( ruleModelFX ) )
-            // InternalJavaFXLang.g:8808:2: ( ruleModelFX )
+            // InternalJavaFXLang.g:8483:1: ( ( ruleModelFX ) )
+            // InternalJavaFXLang.g:8484:2: ( ruleModelFX )
             {
-            // InternalJavaFXLang.g:8808:2: ( ruleModelFX )
-            // InternalJavaFXLang.g:8809:3: ruleModelFX
+            // InternalJavaFXLang.g:8484:2: ( ruleModelFX )
+            // InternalJavaFXLang.g:8485:3: ruleModelFX
             {
              before(grammarAccess.getProjectFXAccess().getModelsModelFXParserRuleCall_6_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27011,17 +26007,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__ModelsAssignment_6_3"
-    // InternalJavaFXLang.g:8818:1: rule__ProjectFX__ModelsAssignment_6_3 : ( ruleModelFX ) ;
+    // InternalJavaFXLang.g:8494:1: rule__ProjectFX__ModelsAssignment_6_3 : ( ruleModelFX ) ;
     public final void rule__ProjectFX__ModelsAssignment_6_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8822:1: ( ( ruleModelFX ) )
-            // InternalJavaFXLang.g:8823:2: ( ruleModelFX )
+            // InternalJavaFXLang.g:8498:1: ( ( ruleModelFX ) )
+            // InternalJavaFXLang.g:8499:2: ( ruleModelFX )
             {
-            // InternalJavaFXLang.g:8823:2: ( ruleModelFX )
-            // InternalJavaFXLang.g:8824:3: ruleModelFX
+            // InternalJavaFXLang.g:8499:2: ( ruleModelFX )
+            // InternalJavaFXLang.g:8500:3: ruleModelFX
             {
              before(grammarAccess.getProjectFXAccess().getModelsModelFXParserRuleCall_6_3_0()); 
             pushFollow(FOLLOW_2);
@@ -27052,17 +26048,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__BindingsAssignment_7_2"
-    // InternalJavaFXLang.g:8833:1: rule__ProjectFX__BindingsAssignment_7_2 : ( ruleBinding ) ;
+    // InternalJavaFXLang.g:8509:1: rule__ProjectFX__BindingsAssignment_7_2 : ( ruleBinding ) ;
     public final void rule__ProjectFX__BindingsAssignment_7_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8837:1: ( ( ruleBinding ) )
-            // InternalJavaFXLang.g:8838:2: ( ruleBinding )
+            // InternalJavaFXLang.g:8513:1: ( ( ruleBinding ) )
+            // InternalJavaFXLang.g:8514:2: ( ruleBinding )
             {
-            // InternalJavaFXLang.g:8838:2: ( ruleBinding )
-            // InternalJavaFXLang.g:8839:3: ruleBinding
+            // InternalJavaFXLang.g:8514:2: ( ruleBinding )
+            // InternalJavaFXLang.g:8515:3: ruleBinding
             {
              before(grammarAccess.getProjectFXAccess().getBindingsBindingParserRuleCall_7_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27093,17 +26089,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__BindingsAssignment_7_3"
-    // InternalJavaFXLang.g:8848:1: rule__ProjectFX__BindingsAssignment_7_3 : ( ruleBinding ) ;
+    // InternalJavaFXLang.g:8524:1: rule__ProjectFX__BindingsAssignment_7_3 : ( ruleBinding ) ;
     public final void rule__ProjectFX__BindingsAssignment_7_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8852:1: ( ( ruleBinding ) )
-            // InternalJavaFXLang.g:8853:2: ( ruleBinding )
+            // InternalJavaFXLang.g:8528:1: ( ( ruleBinding ) )
+            // InternalJavaFXLang.g:8529:2: ( ruleBinding )
             {
-            // InternalJavaFXLang.g:8853:2: ( ruleBinding )
-            // InternalJavaFXLang.g:8854:3: ruleBinding
+            // InternalJavaFXLang.g:8529:2: ( ruleBinding )
+            // InternalJavaFXLang.g:8530:3: ruleBinding
             {
              before(grammarAccess.getProjectFXAccess().getBindingsBindingParserRuleCall_7_3_0()); 
             pushFollow(FOLLOW_2);
@@ -27134,17 +26130,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__ChartsAssignment_8_2"
-    // InternalJavaFXLang.g:8863:1: rule__ProjectFX__ChartsAssignment_8_2 : ( ruleChartFX ) ;
+    // InternalJavaFXLang.g:8539:1: rule__ProjectFX__ChartsAssignment_8_2 : ( ruleChartFX ) ;
     public final void rule__ProjectFX__ChartsAssignment_8_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8867:1: ( ( ruleChartFX ) )
-            // InternalJavaFXLang.g:8868:2: ( ruleChartFX )
+            // InternalJavaFXLang.g:8543:1: ( ( ruleChartFX ) )
+            // InternalJavaFXLang.g:8544:2: ( ruleChartFX )
             {
-            // InternalJavaFXLang.g:8868:2: ( ruleChartFX )
-            // InternalJavaFXLang.g:8869:3: ruleChartFX
+            // InternalJavaFXLang.g:8544:2: ( ruleChartFX )
+            // InternalJavaFXLang.g:8545:3: ruleChartFX
             {
              before(grammarAccess.getProjectFXAccess().getChartsChartFXParserRuleCall_8_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27175,17 +26171,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProjectFX__ChartsAssignment_8_3"
-    // InternalJavaFXLang.g:8878:1: rule__ProjectFX__ChartsAssignment_8_3 : ( ruleChartFX ) ;
+    // InternalJavaFXLang.g:8554:1: rule__ProjectFX__ChartsAssignment_8_3 : ( ruleChartFX ) ;
     public final void rule__ProjectFX__ChartsAssignment_8_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8882:1: ( ( ruleChartFX ) )
-            // InternalJavaFXLang.g:8883:2: ( ruleChartFX )
+            // InternalJavaFXLang.g:8558:1: ( ( ruleChartFX ) )
+            // InternalJavaFXLang.g:8559:2: ( ruleChartFX )
             {
-            // InternalJavaFXLang.g:8883:2: ( ruleChartFX )
-            // InternalJavaFXLang.g:8884:3: ruleChartFX
+            // InternalJavaFXLang.g:8559:2: ( ruleChartFX )
+            // InternalJavaFXLang.g:8560:3: ruleChartFX
             {
              before(grammarAccess.getProjectFXAccess().getChartsChartFXParserRuleCall_8_3_0()); 
             pushFollow(FOLLOW_2);
@@ -27216,17 +26212,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__NameAssignment_4"
-    // InternalJavaFXLang.g:8893:1: rule__BarChartFX__NameAssignment_4 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8569:1: rule__BarChartFX__NameAssignment_4 : ( ruleEString ) ;
     public final void rule__BarChartFX__NameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8897:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:8898:2: ( ruleEString )
+            // InternalJavaFXLang.g:8573:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8574:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:8898:2: ( ruleEString )
-            // InternalJavaFXLang.g:8899:3: ruleEString
+            // InternalJavaFXLang.g:8574:2: ( ruleEString )
+            // InternalJavaFXLang.g:8575:3: ruleEString
             {
              before(grammarAccess.getBarChartFXAccess().getNameEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -27257,17 +26253,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__LegendSideAssignment_5_1"
-    // InternalJavaFXLang.g:8908:1: rule__BarChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:8584:1: rule__BarChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
     public final void rule__BarChartFX__LegendSideAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8912:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:8913:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8588:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:8589:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:8913:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:8914:3: ruleOrientation
+            // InternalJavaFXLang.g:8589:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8590:3: ruleOrientation
             {
              before(grammarAccess.getBarChartFXAccess().getLegendSideOrientationEnumRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27298,17 +26294,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__ShowLegendAssignment_6_1"
-    // InternalJavaFXLang.g:8923:1: rule__BarChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
+    // InternalJavaFXLang.g:8599:1: rule__BarChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
     public final void rule__BarChartFX__ShowLegendAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8927:1: ( ( ruleEBoolean ) )
-            // InternalJavaFXLang.g:8928:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:8603:1: ( ( ruleEBoolean ) )
+            // InternalJavaFXLang.g:8604:2: ( ruleEBoolean )
             {
-            // InternalJavaFXLang.g:8928:2: ( ruleEBoolean )
-            // InternalJavaFXLang.g:8929:3: ruleEBoolean
+            // InternalJavaFXLang.g:8604:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:8605:3: ruleEBoolean
             {
              before(grammarAccess.getBarChartFXAccess().getShowLegendEBooleanParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27339,17 +26335,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__TitleAssignment_7_1"
-    // InternalJavaFXLang.g:8938:1: rule__BarChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8614:1: rule__BarChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
     public final void rule__BarChartFX__TitleAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8942:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:8943:2: ( ruleEString )
+            // InternalJavaFXLang.g:8618:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8619:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:8943:2: ( ruleEString )
-            // InternalJavaFXLang.g:8944:3: ruleEString
+            // InternalJavaFXLang.g:8619:2: ( ruleEString )
+            // InternalJavaFXLang.g:8620:3: ruleEString
             {
              before(grammarAccess.getBarChartFXAccess().getTitleEStringParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27380,17 +26376,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__TitleSideAssignment_8_1"
-    // InternalJavaFXLang.g:8953:1: rule__BarChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:8629:1: rule__BarChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
     public final void rule__BarChartFX__TitleSideAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8957:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:8958:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8633:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:8634:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:8958:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:8959:3: ruleOrientation
+            // InternalJavaFXLang.g:8634:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8635:3: ruleOrientation
             {
              before(grammarAccess.getBarChartFXAccess().getTitleSideOrientationEnumRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27421,17 +26417,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__XAxisLabelAssignment_9_1"
-    // InternalJavaFXLang.g:8968:1: rule__BarChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8644:1: rule__BarChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
     public final void rule__BarChartFX__XAxisLabelAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8972:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:8973:2: ( ruleEString )
+            // InternalJavaFXLang.g:8648:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8649:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:8973:2: ( ruleEString )
-            // InternalJavaFXLang.g:8974:3: ruleEString
+            // InternalJavaFXLang.g:8649:2: ( ruleEString )
+            // InternalJavaFXLang.g:8650:3: ruleEString
             {
              before(grammarAccess.getBarChartFXAccess().getXAxisLabelEStringParserRuleCall_9_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27462,17 +26458,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__XAxisTypeAssignment_10_1"
-    // InternalJavaFXLang.g:8983:1: rule__BarChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:8659:1: rule__BarChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
     public final void rule__BarChartFX__XAxisTypeAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:8987:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:8988:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8663:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:8664:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:8988:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:8989:3: ruleAxisType
+            // InternalJavaFXLang.g:8664:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8665:3: ruleAxisType
             {
              before(grammarAccess.getBarChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27503,17 +26499,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__YAxisLabelAssignment_11_1"
-    // InternalJavaFXLang.g:8998:1: rule__BarChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8674:1: rule__BarChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
     public final void rule__BarChartFX__YAxisLabelAssignment_11_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9002:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9003:2: ( ruleEString )
+            // InternalJavaFXLang.g:8678:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8679:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9003:2: ( ruleEString )
-            // InternalJavaFXLang.g:9004:3: ruleEString
+            // InternalJavaFXLang.g:8679:2: ( ruleEString )
+            // InternalJavaFXLang.g:8680:3: ruleEString
             {
              before(grammarAccess.getBarChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27544,17 +26540,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BarChartFX__YAxisTypeAssignment_12_1"
-    // InternalJavaFXLang.g:9013:1: rule__BarChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:8689:1: rule__BarChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
     public final void rule__BarChartFX__YAxisTypeAssignment_12_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9017:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9018:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8693:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:8694:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9018:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9019:3: ruleAxisType
+            // InternalJavaFXLang.g:8694:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8695:3: ruleAxisType
             {
              before(grammarAccess.getBarChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27585,17 +26581,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__NameAssignment_4"
-    // InternalJavaFXLang.g:9028:1: rule__ScatterChartFX__NameAssignment_4 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8704:1: rule__ScatterChartFX__NameAssignment_4 : ( ruleEString ) ;
     public final void rule__ScatterChartFX__NameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9032:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9033:2: ( ruleEString )
+            // InternalJavaFXLang.g:8708:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8709:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9033:2: ( ruleEString )
-            // InternalJavaFXLang.g:9034:3: ruleEString
+            // InternalJavaFXLang.g:8709:2: ( ruleEString )
+            // InternalJavaFXLang.g:8710:3: ruleEString
             {
              before(grammarAccess.getScatterChartFXAccess().getNameEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -27626,17 +26622,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__LegendSideAssignment_5_1"
-    // InternalJavaFXLang.g:9043:1: rule__ScatterChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:8719:1: rule__ScatterChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
     public final void rule__ScatterChartFX__LegendSideAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9047:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9048:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8723:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:8724:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9048:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9049:3: ruleOrientation
+            // InternalJavaFXLang.g:8724:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8725:3: ruleOrientation
             {
              before(grammarAccess.getScatterChartFXAccess().getLegendSideOrientationEnumRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27667,17 +26663,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__ShowLegendAssignment_6_1"
-    // InternalJavaFXLang.g:9058:1: rule__ScatterChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
+    // InternalJavaFXLang.g:8734:1: rule__ScatterChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
     public final void rule__ScatterChartFX__ShowLegendAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9062:1: ( ( ruleEBoolean ) )
-            // InternalJavaFXLang.g:9063:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:8738:1: ( ( ruleEBoolean ) )
+            // InternalJavaFXLang.g:8739:2: ( ruleEBoolean )
             {
-            // InternalJavaFXLang.g:9063:2: ( ruleEBoolean )
-            // InternalJavaFXLang.g:9064:3: ruleEBoolean
+            // InternalJavaFXLang.g:8739:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:8740:3: ruleEBoolean
             {
              before(grammarAccess.getScatterChartFXAccess().getShowLegendEBooleanParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27708,17 +26704,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__TitleAssignment_7_1"
-    // InternalJavaFXLang.g:9073:1: rule__ScatterChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8749:1: rule__ScatterChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
     public final void rule__ScatterChartFX__TitleAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9077:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9078:2: ( ruleEString )
+            // InternalJavaFXLang.g:8753:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8754:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9078:2: ( ruleEString )
-            // InternalJavaFXLang.g:9079:3: ruleEString
+            // InternalJavaFXLang.g:8754:2: ( ruleEString )
+            // InternalJavaFXLang.g:8755:3: ruleEString
             {
              before(grammarAccess.getScatterChartFXAccess().getTitleEStringParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27749,17 +26745,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__TitleSideAssignment_8_1"
-    // InternalJavaFXLang.g:9088:1: rule__ScatterChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:8764:1: rule__ScatterChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
     public final void rule__ScatterChartFX__TitleSideAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9092:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9093:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8768:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:8769:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9093:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9094:3: ruleOrientation
+            // InternalJavaFXLang.g:8769:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8770:3: ruleOrientation
             {
              before(grammarAccess.getScatterChartFXAccess().getTitleSideOrientationEnumRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27790,17 +26786,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__XAxisLabelAssignment_9_1"
-    // InternalJavaFXLang.g:9103:1: rule__ScatterChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8779:1: rule__ScatterChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
     public final void rule__ScatterChartFX__XAxisLabelAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9107:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9108:2: ( ruleEString )
+            // InternalJavaFXLang.g:8783:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8784:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9108:2: ( ruleEString )
-            // InternalJavaFXLang.g:9109:3: ruleEString
+            // InternalJavaFXLang.g:8784:2: ( ruleEString )
+            // InternalJavaFXLang.g:8785:3: ruleEString
             {
              before(grammarAccess.getScatterChartFXAccess().getXAxisLabelEStringParserRuleCall_9_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27831,17 +26827,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__XAxisTypeAssignment_10_1"
-    // InternalJavaFXLang.g:9118:1: rule__ScatterChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:8794:1: rule__ScatterChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
     public final void rule__ScatterChartFX__XAxisTypeAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9122:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9123:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8798:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:8799:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9123:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9124:3: ruleAxisType
+            // InternalJavaFXLang.g:8799:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8800:3: ruleAxisType
             {
              before(grammarAccess.getScatterChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27872,17 +26868,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__YAxisLabelAssignment_11_1"
-    // InternalJavaFXLang.g:9133:1: rule__ScatterChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8809:1: rule__ScatterChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
     public final void rule__ScatterChartFX__YAxisLabelAssignment_11_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9137:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9138:2: ( ruleEString )
+            // InternalJavaFXLang.g:8813:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8814:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9138:2: ( ruleEString )
-            // InternalJavaFXLang.g:9139:3: ruleEString
+            // InternalJavaFXLang.g:8814:2: ( ruleEString )
+            // InternalJavaFXLang.g:8815:3: ruleEString
             {
              before(grammarAccess.getScatterChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27913,17 +26909,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ScatterChartFX__YAxisTypeAssignment_12_1"
-    // InternalJavaFXLang.g:9148:1: rule__ScatterChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:8824:1: rule__ScatterChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
     public final void rule__ScatterChartFX__YAxisTypeAssignment_12_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9152:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9153:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8828:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:8829:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9153:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9154:3: ruleAxisType
+            // InternalJavaFXLang.g:8829:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8830:3: ruleAxisType
             {
              before(grammarAccess.getScatterChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27954,17 +26950,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__NameAssignment_4"
-    // InternalJavaFXLang.g:9163:1: rule__BubbleChartFX__NameAssignment_4 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8839:1: rule__BubbleChartFX__NameAssignment_4 : ( ruleEString ) ;
     public final void rule__BubbleChartFX__NameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9167:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9168:2: ( ruleEString )
+            // InternalJavaFXLang.g:8843:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8844:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9168:2: ( ruleEString )
-            // InternalJavaFXLang.g:9169:3: ruleEString
+            // InternalJavaFXLang.g:8844:2: ( ruleEString )
+            // InternalJavaFXLang.g:8845:3: ruleEString
             {
              before(grammarAccess.getBubbleChartFXAccess().getNameEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -27995,17 +26991,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__LegendSideAssignment_5_1"
-    // InternalJavaFXLang.g:9178:1: rule__BubbleChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:8854:1: rule__BubbleChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
     public final void rule__BubbleChartFX__LegendSideAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9182:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9183:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8858:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:8859:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9183:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9184:3: ruleOrientation
+            // InternalJavaFXLang.g:8859:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8860:3: ruleOrientation
             {
              before(grammarAccess.getBubbleChartFXAccess().getLegendSideOrientationEnumRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28036,17 +27032,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__ShowLegendAssignment_6_1"
-    // InternalJavaFXLang.g:9193:1: rule__BubbleChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
+    // InternalJavaFXLang.g:8869:1: rule__BubbleChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
     public final void rule__BubbleChartFX__ShowLegendAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9197:1: ( ( ruleEBoolean ) )
-            // InternalJavaFXLang.g:9198:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:8873:1: ( ( ruleEBoolean ) )
+            // InternalJavaFXLang.g:8874:2: ( ruleEBoolean )
             {
-            // InternalJavaFXLang.g:9198:2: ( ruleEBoolean )
-            // InternalJavaFXLang.g:9199:3: ruleEBoolean
+            // InternalJavaFXLang.g:8874:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:8875:3: ruleEBoolean
             {
              before(grammarAccess.getBubbleChartFXAccess().getShowLegendEBooleanParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28077,17 +27073,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__TitleAssignment_7_1"
-    // InternalJavaFXLang.g:9208:1: rule__BubbleChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8884:1: rule__BubbleChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
     public final void rule__BubbleChartFX__TitleAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9212:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9213:2: ( ruleEString )
+            // InternalJavaFXLang.g:8888:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8889:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9213:2: ( ruleEString )
-            // InternalJavaFXLang.g:9214:3: ruleEString
+            // InternalJavaFXLang.g:8889:2: ( ruleEString )
+            // InternalJavaFXLang.g:8890:3: ruleEString
             {
              before(grammarAccess.getBubbleChartFXAccess().getTitleEStringParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28118,17 +27114,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__TitleSideAssignment_8_1"
-    // InternalJavaFXLang.g:9223:1: rule__BubbleChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:8899:1: rule__BubbleChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
     public final void rule__BubbleChartFX__TitleSideAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9227:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9228:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8903:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:8904:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9228:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9229:3: ruleOrientation
+            // InternalJavaFXLang.g:8904:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8905:3: ruleOrientation
             {
              before(grammarAccess.getBubbleChartFXAccess().getTitleSideOrientationEnumRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28159,17 +27155,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__XAxisLabelAssignment_9_1"
-    // InternalJavaFXLang.g:9238:1: rule__BubbleChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8914:1: rule__BubbleChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
     public final void rule__BubbleChartFX__XAxisLabelAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9242:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9243:2: ( ruleEString )
+            // InternalJavaFXLang.g:8918:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8919:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9243:2: ( ruleEString )
-            // InternalJavaFXLang.g:9244:3: ruleEString
+            // InternalJavaFXLang.g:8919:2: ( ruleEString )
+            // InternalJavaFXLang.g:8920:3: ruleEString
             {
              before(grammarAccess.getBubbleChartFXAccess().getXAxisLabelEStringParserRuleCall_9_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28200,17 +27196,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__XAxisTypeAssignment_10_1"
-    // InternalJavaFXLang.g:9253:1: rule__BubbleChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:8929:1: rule__BubbleChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
     public final void rule__BubbleChartFX__XAxisTypeAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9257:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9258:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8933:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:8934:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9258:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9259:3: ruleAxisType
+            // InternalJavaFXLang.g:8934:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8935:3: ruleAxisType
             {
              before(grammarAccess.getBubbleChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28241,17 +27237,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__YAxisLabelAssignment_11_1"
-    // InternalJavaFXLang.g:9268:1: rule__BubbleChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8944:1: rule__BubbleChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
     public final void rule__BubbleChartFX__YAxisLabelAssignment_11_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9272:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9273:2: ( ruleEString )
+            // InternalJavaFXLang.g:8948:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8949:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9273:2: ( ruleEString )
-            // InternalJavaFXLang.g:9274:3: ruleEString
+            // InternalJavaFXLang.g:8949:2: ( ruleEString )
+            // InternalJavaFXLang.g:8950:3: ruleEString
             {
              before(grammarAccess.getBubbleChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28282,17 +27278,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BubbleChartFX__YAxisTypeAssignment_12_1"
-    // InternalJavaFXLang.g:9283:1: rule__BubbleChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:8959:1: rule__BubbleChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
     public final void rule__BubbleChartFX__YAxisTypeAssignment_12_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9287:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9288:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8963:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:8964:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9288:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9289:3: ruleAxisType
+            // InternalJavaFXLang.g:8964:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:8965:3: ruleAxisType
             {
              before(grammarAccess.getBubbleChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28323,17 +27319,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__NameAssignment_4"
-    // InternalJavaFXLang.g:9298:1: rule__AreaChartFX__NameAssignment_4 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:8974:1: rule__AreaChartFX__NameAssignment_4 : ( ruleEString ) ;
     public final void rule__AreaChartFX__NameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9302:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9303:2: ( ruleEString )
+            // InternalJavaFXLang.g:8978:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:8979:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9303:2: ( ruleEString )
-            // InternalJavaFXLang.g:9304:3: ruleEString
+            // InternalJavaFXLang.g:8979:2: ( ruleEString )
+            // InternalJavaFXLang.g:8980:3: ruleEString
             {
              before(grammarAccess.getAreaChartFXAccess().getNameEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -28364,17 +27360,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__LegendSideAssignment_5_1"
-    // InternalJavaFXLang.g:9313:1: rule__AreaChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:8989:1: rule__AreaChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
     public final void rule__AreaChartFX__LegendSideAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9317:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9318:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8993:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:8994:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9318:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9319:3: ruleOrientation
+            // InternalJavaFXLang.g:8994:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:8995:3: ruleOrientation
             {
              before(grammarAccess.getAreaChartFXAccess().getLegendSideOrientationEnumRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28405,17 +27401,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__ShowLegendAssignment_6_1"
-    // InternalJavaFXLang.g:9328:1: rule__AreaChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
+    // InternalJavaFXLang.g:9004:1: rule__AreaChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
     public final void rule__AreaChartFX__ShowLegendAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9332:1: ( ( ruleEBoolean ) )
-            // InternalJavaFXLang.g:9333:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9008:1: ( ( ruleEBoolean ) )
+            // InternalJavaFXLang.g:9009:2: ( ruleEBoolean )
             {
-            // InternalJavaFXLang.g:9333:2: ( ruleEBoolean )
-            // InternalJavaFXLang.g:9334:3: ruleEBoolean
+            // InternalJavaFXLang.g:9009:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9010:3: ruleEBoolean
             {
              before(grammarAccess.getAreaChartFXAccess().getShowLegendEBooleanParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28446,17 +27442,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__TitleAssignment_7_1"
-    // InternalJavaFXLang.g:9343:1: rule__AreaChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9019:1: rule__AreaChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
     public final void rule__AreaChartFX__TitleAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9347:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9348:2: ( ruleEString )
+            // InternalJavaFXLang.g:9023:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9024:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9348:2: ( ruleEString )
-            // InternalJavaFXLang.g:9349:3: ruleEString
+            // InternalJavaFXLang.g:9024:2: ( ruleEString )
+            // InternalJavaFXLang.g:9025:3: ruleEString
             {
              before(grammarAccess.getAreaChartFXAccess().getTitleEStringParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28487,17 +27483,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__TitleSideAssignment_8_1"
-    // InternalJavaFXLang.g:9358:1: rule__AreaChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:9034:1: rule__AreaChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
     public final void rule__AreaChartFX__TitleSideAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9362:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9363:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9038:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:9039:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9363:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9364:3: ruleOrientation
+            // InternalJavaFXLang.g:9039:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9040:3: ruleOrientation
             {
              before(grammarAccess.getAreaChartFXAccess().getTitleSideOrientationEnumRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28528,17 +27524,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__XAxisLabelAssignment_9_1"
-    // InternalJavaFXLang.g:9373:1: rule__AreaChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9049:1: rule__AreaChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
     public final void rule__AreaChartFX__XAxisLabelAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9377:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9378:2: ( ruleEString )
+            // InternalJavaFXLang.g:9053:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9054:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9378:2: ( ruleEString )
-            // InternalJavaFXLang.g:9379:3: ruleEString
+            // InternalJavaFXLang.g:9054:2: ( ruleEString )
+            // InternalJavaFXLang.g:9055:3: ruleEString
             {
              before(grammarAccess.getAreaChartFXAccess().getXAxisLabelEStringParserRuleCall_9_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28569,17 +27565,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__XAxisTypeAssignment_10_1"
-    // InternalJavaFXLang.g:9388:1: rule__AreaChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:9064:1: rule__AreaChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
     public final void rule__AreaChartFX__XAxisTypeAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9392:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9393:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:9068:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:9069:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9393:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9394:3: ruleAxisType
+            // InternalJavaFXLang.g:9069:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:9070:3: ruleAxisType
             {
              before(grammarAccess.getAreaChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28610,17 +27606,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__YAxisLabelAssignment_11_1"
-    // InternalJavaFXLang.g:9403:1: rule__AreaChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9079:1: rule__AreaChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
     public final void rule__AreaChartFX__YAxisLabelAssignment_11_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9407:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9408:2: ( ruleEString )
+            // InternalJavaFXLang.g:9083:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9084:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9408:2: ( ruleEString )
-            // InternalJavaFXLang.g:9409:3: ruleEString
+            // InternalJavaFXLang.g:9084:2: ( ruleEString )
+            // InternalJavaFXLang.g:9085:3: ruleEString
             {
              before(grammarAccess.getAreaChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28651,17 +27647,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AreaChartFX__YAxisTypeAssignment_12_1"
-    // InternalJavaFXLang.g:9418:1: rule__AreaChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:9094:1: rule__AreaChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
     public final void rule__AreaChartFX__YAxisTypeAssignment_12_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9422:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9423:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:9098:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:9099:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9423:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9424:3: ruleAxisType
+            // InternalJavaFXLang.g:9099:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:9100:3: ruleAxisType
             {
              before(grammarAccess.getAreaChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28692,17 +27688,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__NameAssignment_4"
-    // InternalJavaFXLang.g:9433:1: rule__PieChartFX__NameAssignment_4 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9109:1: rule__PieChartFX__NameAssignment_4 : ( ruleEString ) ;
     public final void rule__PieChartFX__NameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9437:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9438:2: ( ruleEString )
+            // InternalJavaFXLang.g:9113:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9114:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9438:2: ( ruleEString )
-            // InternalJavaFXLang.g:9439:3: ruleEString
+            // InternalJavaFXLang.g:9114:2: ( ruleEString )
+            // InternalJavaFXLang.g:9115:3: ruleEString
             {
              before(grammarAccess.getPieChartFXAccess().getNameEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -28733,17 +27729,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__LegendSideAssignment_5_1"
-    // InternalJavaFXLang.g:9448:1: rule__PieChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:9124:1: rule__PieChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
     public final void rule__PieChartFX__LegendSideAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9452:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9453:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9128:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:9129:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9453:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9454:3: ruleOrientation
+            // InternalJavaFXLang.g:9129:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9130:3: ruleOrientation
             {
              before(grammarAccess.getPieChartFXAccess().getLegendSideOrientationEnumRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28774,17 +27770,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__ShowLegendAssignment_6_1"
-    // InternalJavaFXLang.g:9463:1: rule__PieChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
+    // InternalJavaFXLang.g:9139:1: rule__PieChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
     public final void rule__PieChartFX__ShowLegendAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9467:1: ( ( ruleEBoolean ) )
-            // InternalJavaFXLang.g:9468:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9143:1: ( ( ruleEBoolean ) )
+            // InternalJavaFXLang.g:9144:2: ( ruleEBoolean )
             {
-            // InternalJavaFXLang.g:9468:2: ( ruleEBoolean )
-            // InternalJavaFXLang.g:9469:3: ruleEBoolean
+            // InternalJavaFXLang.g:9144:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9145:3: ruleEBoolean
             {
              before(grammarAccess.getPieChartFXAccess().getShowLegendEBooleanParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28815,17 +27811,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__TitleAssignment_7_1"
-    // InternalJavaFXLang.g:9478:1: rule__PieChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9154:1: rule__PieChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
     public final void rule__PieChartFX__TitleAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9482:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9483:2: ( ruleEString )
+            // InternalJavaFXLang.g:9158:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9159:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9483:2: ( ruleEString )
-            // InternalJavaFXLang.g:9484:3: ruleEString
+            // InternalJavaFXLang.g:9159:2: ( ruleEString )
+            // InternalJavaFXLang.g:9160:3: ruleEString
             {
              before(grammarAccess.getPieChartFXAccess().getTitleEStringParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28856,17 +27852,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PieChartFX__TitleSideAssignment_8_1"
-    // InternalJavaFXLang.g:9493:1: rule__PieChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:9169:1: rule__PieChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
     public final void rule__PieChartFX__TitleSideAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9497:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9498:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9173:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:9174:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9498:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9499:3: ruleOrientation
+            // InternalJavaFXLang.g:9174:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9175:3: ruleOrientation
             {
              before(grammarAccess.getPieChartFXAccess().getTitleSideOrientationEnumRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28896,182 +27892,18 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__PieChartFX__TitleSideAssignment_8_1"
 
 
-    // $ANTLR start "rule__PieChartFX__XAxisLabelAssignment_9_1"
-    // InternalJavaFXLang.g:9508:1: rule__PieChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
-    public final void rule__PieChartFX__XAxisLabelAssignment_9_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:9512:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9513:2: ( ruleEString )
-            {
-            // InternalJavaFXLang.g:9513:2: ( ruleEString )
-            // InternalJavaFXLang.g:9514:3: ruleEString
-            {
-             before(grammarAccess.getPieChartFXAccess().getXAxisLabelEStringParserRuleCall_9_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getPieChartFXAccess().getXAxisLabelEStringParserRuleCall_9_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__XAxisLabelAssignment_9_1"
-
-
-    // $ANTLR start "rule__PieChartFX__XAxisTypeAssignment_10_1"
-    // InternalJavaFXLang.g:9523:1: rule__PieChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
-    public final void rule__PieChartFX__XAxisTypeAssignment_10_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:9527:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9528:2: ( ruleAxisType )
-            {
-            // InternalJavaFXLang.g:9528:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9529:3: ruleAxisType
-            {
-             before(grammarAccess.getPieChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleAxisType();
-
-            state._fsp--;
-
-             after(grammarAccess.getPieChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__XAxisTypeAssignment_10_1"
-
-
-    // $ANTLR start "rule__PieChartFX__YAxisLabelAssignment_11_1"
-    // InternalJavaFXLang.g:9538:1: rule__PieChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
-    public final void rule__PieChartFX__YAxisLabelAssignment_11_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:9542:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9543:2: ( ruleEString )
-            {
-            // InternalJavaFXLang.g:9543:2: ( ruleEString )
-            // InternalJavaFXLang.g:9544:3: ruleEString
-            {
-             before(grammarAccess.getPieChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getPieChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__YAxisLabelAssignment_11_1"
-
-
-    // $ANTLR start "rule__PieChartFX__YAxisTypeAssignment_12_1"
-    // InternalJavaFXLang.g:9553:1: rule__PieChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
-    public final void rule__PieChartFX__YAxisTypeAssignment_12_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJavaFXLang.g:9557:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9558:2: ( ruleAxisType )
-            {
-            // InternalJavaFXLang.g:9558:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9559:3: ruleAxisType
-            {
-             before(grammarAccess.getPieChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleAxisType();
-
-            state._fsp--;
-
-             after(grammarAccess.getPieChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PieChartFX__YAxisTypeAssignment_12_1"
-
-
     // $ANTLR start "rule__LineChartFX__NameAssignment_4"
-    // InternalJavaFXLang.g:9568:1: rule__LineChartFX__NameAssignment_4 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9184:1: rule__LineChartFX__NameAssignment_4 : ( ruleEString ) ;
     public final void rule__LineChartFX__NameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9572:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9573:2: ( ruleEString )
+            // InternalJavaFXLang.g:9188:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9189:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9573:2: ( ruleEString )
-            // InternalJavaFXLang.g:9574:3: ruleEString
+            // InternalJavaFXLang.g:9189:2: ( ruleEString )
+            // InternalJavaFXLang.g:9190:3: ruleEString
             {
              before(grammarAccess.getLineChartFXAccess().getNameEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -29102,17 +27934,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__LegendSideAssignment_5_1"
-    // InternalJavaFXLang.g:9583:1: rule__LineChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:9199:1: rule__LineChartFX__LegendSideAssignment_5_1 : ( ruleOrientation ) ;
     public final void rule__LineChartFX__LegendSideAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9587:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9588:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9203:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:9204:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9588:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9589:3: ruleOrientation
+            // InternalJavaFXLang.g:9204:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9205:3: ruleOrientation
             {
              before(grammarAccess.getLineChartFXAccess().getLegendSideOrientationEnumRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29143,17 +27975,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__ShowLegendAssignment_6_1"
-    // InternalJavaFXLang.g:9598:1: rule__LineChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
+    // InternalJavaFXLang.g:9214:1: rule__LineChartFX__ShowLegendAssignment_6_1 : ( ruleEBoolean ) ;
     public final void rule__LineChartFX__ShowLegendAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9602:1: ( ( ruleEBoolean ) )
-            // InternalJavaFXLang.g:9603:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9218:1: ( ( ruleEBoolean ) )
+            // InternalJavaFXLang.g:9219:2: ( ruleEBoolean )
             {
-            // InternalJavaFXLang.g:9603:2: ( ruleEBoolean )
-            // InternalJavaFXLang.g:9604:3: ruleEBoolean
+            // InternalJavaFXLang.g:9219:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9220:3: ruleEBoolean
             {
              before(grammarAccess.getLineChartFXAccess().getShowLegendEBooleanParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29184,17 +28016,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__TitleAssignment_7_1"
-    // InternalJavaFXLang.g:9613:1: rule__LineChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9229:1: rule__LineChartFX__TitleAssignment_7_1 : ( ruleEString ) ;
     public final void rule__LineChartFX__TitleAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9617:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9618:2: ( ruleEString )
+            // InternalJavaFXLang.g:9233:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9234:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9618:2: ( ruleEString )
-            // InternalJavaFXLang.g:9619:3: ruleEString
+            // InternalJavaFXLang.g:9234:2: ( ruleEString )
+            // InternalJavaFXLang.g:9235:3: ruleEString
             {
              before(grammarAccess.getLineChartFXAccess().getTitleEStringParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29225,17 +28057,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__TitleSideAssignment_8_1"
-    // InternalJavaFXLang.g:9628:1: rule__LineChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
+    // InternalJavaFXLang.g:9244:1: rule__LineChartFX__TitleSideAssignment_8_1 : ( ruleOrientation ) ;
     public final void rule__LineChartFX__TitleSideAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9632:1: ( ( ruleOrientation ) )
-            // InternalJavaFXLang.g:9633:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9248:1: ( ( ruleOrientation ) )
+            // InternalJavaFXLang.g:9249:2: ( ruleOrientation )
             {
-            // InternalJavaFXLang.g:9633:2: ( ruleOrientation )
-            // InternalJavaFXLang.g:9634:3: ruleOrientation
+            // InternalJavaFXLang.g:9249:2: ( ruleOrientation )
+            // InternalJavaFXLang.g:9250:3: ruleOrientation
             {
              before(grammarAccess.getLineChartFXAccess().getTitleSideOrientationEnumRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29266,17 +28098,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__XAxisLabelAssignment_9_1"
-    // InternalJavaFXLang.g:9643:1: rule__LineChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9259:1: rule__LineChartFX__XAxisLabelAssignment_9_1 : ( ruleEString ) ;
     public final void rule__LineChartFX__XAxisLabelAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9647:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9648:2: ( ruleEString )
+            // InternalJavaFXLang.g:9263:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9264:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9648:2: ( ruleEString )
-            // InternalJavaFXLang.g:9649:3: ruleEString
+            // InternalJavaFXLang.g:9264:2: ( ruleEString )
+            // InternalJavaFXLang.g:9265:3: ruleEString
             {
              before(grammarAccess.getLineChartFXAccess().getXAxisLabelEStringParserRuleCall_9_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29307,17 +28139,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__XAxisTypeAssignment_10_1"
-    // InternalJavaFXLang.g:9658:1: rule__LineChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:9274:1: rule__LineChartFX__XAxisTypeAssignment_10_1 : ( ruleAxisType ) ;
     public final void rule__LineChartFX__XAxisTypeAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9662:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9663:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:9278:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:9279:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9663:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9664:3: ruleAxisType
+            // InternalJavaFXLang.g:9279:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:9280:3: ruleAxisType
             {
              before(grammarAccess.getLineChartFXAccess().getXAxisTypeAxisTypeEnumRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29348,17 +28180,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__YAxisLabelAssignment_11_1"
-    // InternalJavaFXLang.g:9673:1: rule__LineChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9289:1: rule__LineChartFX__YAxisLabelAssignment_11_1 : ( ruleEString ) ;
     public final void rule__LineChartFX__YAxisLabelAssignment_11_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9677:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9678:2: ( ruleEString )
+            // InternalJavaFXLang.g:9293:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9294:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9678:2: ( ruleEString )
-            // InternalJavaFXLang.g:9679:3: ruleEString
+            // InternalJavaFXLang.g:9294:2: ( ruleEString )
+            // InternalJavaFXLang.g:9295:3: ruleEString
             {
              before(grammarAccess.getLineChartFXAccess().getYAxisLabelEStringParserRuleCall_11_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29389,17 +28221,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LineChartFX__YAxisTypeAssignment_12_1"
-    // InternalJavaFXLang.g:9688:1: rule__LineChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
+    // InternalJavaFXLang.g:9304:1: rule__LineChartFX__YAxisTypeAssignment_12_1 : ( ruleAxisType ) ;
     public final void rule__LineChartFX__YAxisTypeAssignment_12_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9692:1: ( ( ruleAxisType ) )
-            // InternalJavaFXLang.g:9693:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:9308:1: ( ( ruleAxisType ) )
+            // InternalJavaFXLang.g:9309:2: ( ruleAxisType )
             {
-            // InternalJavaFXLang.g:9693:2: ( ruleAxisType )
-            // InternalJavaFXLang.g:9694:3: ruleAxisType
+            // InternalJavaFXLang.g:9309:2: ( ruleAxisType )
+            // InternalJavaFXLang.g:9310:3: ruleAxisType
             {
              before(grammarAccess.getLineChartFXAccess().getYAxisTypeAxisTypeEnumRuleCall_12_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29430,17 +28262,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__NameAssignment_2"
-    // InternalJavaFXLang.g:9703:1: rule__Binding__NameAssignment_2 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9319:1: rule__Binding__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__Binding__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9707:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9708:2: ( ruleEString )
+            // InternalJavaFXLang.g:9323:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9324:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9708:2: ( ruleEString )
-            // InternalJavaFXLang.g:9709:3: ruleEString
+            // InternalJavaFXLang.g:9324:2: ( ruleEString )
+            // InternalJavaFXLang.g:9325:3: ruleEString
             {
              before(grammarAccess.getBindingAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -29471,17 +28303,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__PropertyAssignment_4_0"
-    // InternalJavaFXLang.g:9718:1: rule__Binding__PropertyAssignment_4_0 : ( ruleBindingProperty ) ;
+    // InternalJavaFXLang.g:9334:1: rule__Binding__PropertyAssignment_4_0 : ( ruleBindingProperty ) ;
     public final void rule__Binding__PropertyAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9722:1: ( ( ruleBindingProperty ) )
-            // InternalJavaFXLang.g:9723:2: ( ruleBindingProperty )
+            // InternalJavaFXLang.g:9338:1: ( ( ruleBindingProperty ) )
+            // InternalJavaFXLang.g:9339:2: ( ruleBindingProperty )
             {
-            // InternalJavaFXLang.g:9723:2: ( ruleBindingProperty )
-            // InternalJavaFXLang.g:9724:3: ruleBindingProperty
+            // InternalJavaFXLang.g:9339:2: ( ruleBindingProperty )
+            // InternalJavaFXLang.g:9340:3: ruleBindingProperty
             {
              before(grammarAccess.getBindingAccess().getPropertyBindingPropertyParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -29512,17 +28344,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__PropertyAssignment_4_1"
-    // InternalJavaFXLang.g:9733:1: rule__Binding__PropertyAssignment_4_1 : ( ruleBindingProperty ) ;
+    // InternalJavaFXLang.g:9349:1: rule__Binding__PropertyAssignment_4_1 : ( ruleBindingProperty ) ;
     public final void rule__Binding__PropertyAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9737:1: ( ( ruleBindingProperty ) )
-            // InternalJavaFXLang.g:9738:2: ( ruleBindingProperty )
+            // InternalJavaFXLang.g:9353:1: ( ( ruleBindingProperty ) )
+            // InternalJavaFXLang.g:9354:2: ( ruleBindingProperty )
             {
-            // InternalJavaFXLang.g:9738:2: ( ruleBindingProperty )
-            // InternalJavaFXLang.g:9739:3: ruleBindingProperty
+            // InternalJavaFXLang.g:9354:2: ( ruleBindingProperty )
+            // InternalJavaFXLang.g:9355:3: ruleBindingProperty
             {
              before(grammarAccess.getBindingAccess().getPropertyBindingPropertyParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29553,17 +28385,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BindingProperty__TypeAssignment_1"
-    // InternalJavaFXLang.g:9748:1: rule__BindingProperty__TypeAssignment_1 : ( ruleBindinType ) ;
+    // InternalJavaFXLang.g:9364:1: rule__BindingProperty__TypeAssignment_1 : ( ruleBindinType ) ;
     public final void rule__BindingProperty__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9752:1: ( ( ruleBindinType ) )
-            // InternalJavaFXLang.g:9753:2: ( ruleBindinType )
+            // InternalJavaFXLang.g:9368:1: ( ( ruleBindinType ) )
+            // InternalJavaFXLang.g:9369:2: ( ruleBindinType )
             {
-            // InternalJavaFXLang.g:9753:2: ( ruleBindinType )
-            // InternalJavaFXLang.g:9754:3: ruleBindinType
+            // InternalJavaFXLang.g:9369:2: ( ruleBindinType )
+            // InternalJavaFXLang.g:9370:3: ruleBindinType
             {
              before(grammarAccess.getBindingPropertyAccess().getTypeBindinTypeEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29594,17 +28426,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BindingProperty__NameAssignment_2"
-    // InternalJavaFXLang.g:9763:1: rule__BindingProperty__NameAssignment_2 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9379:1: rule__BindingProperty__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__BindingProperty__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9767:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9768:2: ( ruleEString )
+            // InternalJavaFXLang.g:9383:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9384:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9768:2: ( ruleEString )
-            // InternalJavaFXLang.g:9769:3: ruleEString
+            // InternalJavaFXLang.g:9384:2: ( ruleEString )
+            // InternalJavaFXLang.g:9385:3: ruleEString
             {
              before(grammarAccess.getBindingPropertyAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -29635,17 +28467,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__NameAssignment_3_1"
-    // InternalJavaFXLang.g:9778:1: rule__FilteredTableViewFX__NameAssignment_3_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9394:1: rule__FilteredTableViewFX__NameAssignment_3_1 : ( ruleEString ) ;
     public final void rule__FilteredTableViewFX__NameAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9782:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9783:2: ( ruleEString )
+            // InternalJavaFXLang.g:9398:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9399:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9783:2: ( ruleEString )
-            // InternalJavaFXLang.g:9784:3: ruleEString
+            // InternalJavaFXLang.g:9399:2: ( ruleEString )
+            // InternalJavaFXLang.g:9400:3: ruleEString
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getNameEStringParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29676,21 +28508,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__UsedModelAssignment_4_1"
-    // InternalJavaFXLang.g:9793:1: rule__FilteredTableViewFX__UsedModelAssignment_4_1 : ( ( ruleEString ) ) ;
+    // InternalJavaFXLang.g:9409:1: rule__FilteredTableViewFX__UsedModelAssignment_4_1 : ( ( ruleEString ) ) ;
     public final void rule__FilteredTableViewFX__UsedModelAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9797:1: ( ( ( ruleEString ) ) )
-            // InternalJavaFXLang.g:9798:2: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9413:1: ( ( ( ruleEString ) ) )
+            // InternalJavaFXLang.g:9414:2: ( ( ruleEString ) )
             {
-            // InternalJavaFXLang.g:9798:2: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9799:3: ( ruleEString )
+            // InternalJavaFXLang.g:9414:2: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9415:3: ( ruleEString )
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getUsedModelModelFXCrossReference_4_1_0()); 
-            // InternalJavaFXLang.g:9800:3: ( ruleEString )
-            // InternalJavaFXLang.g:9801:4: ruleEString
+            // InternalJavaFXLang.g:9416:3: ( ruleEString )
+            // InternalJavaFXLang.g:9417:4: ruleEString
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getUsedModelModelFXEStringParserRuleCall_4_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -29725,17 +28557,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__UseFilterAssignment_5_1"
-    // InternalJavaFXLang.g:9812:1: rule__FilteredTableViewFX__UseFilterAssignment_5_1 : ( ruleEBoolean ) ;
+    // InternalJavaFXLang.g:9428:1: rule__FilteredTableViewFX__UseFilterAssignment_5_1 : ( ruleEBoolean ) ;
     public final void rule__FilteredTableViewFX__UseFilterAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9816:1: ( ( ruleEBoolean ) )
-            // InternalJavaFXLang.g:9817:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9432:1: ( ( ruleEBoolean ) )
+            // InternalJavaFXLang.g:9433:2: ( ruleEBoolean )
             {
-            // InternalJavaFXLang.g:9817:2: ( ruleEBoolean )
-            // InternalJavaFXLang.g:9818:3: ruleEBoolean
+            // InternalJavaFXLang.g:9433:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9434:3: ruleEBoolean
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getUseFilterEBooleanParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29766,17 +28598,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__ColumnsAssignment_6_0"
-    // InternalJavaFXLang.g:9827:1: rule__FilteredTableViewFX__ColumnsAssignment_6_0 : ( ruleTableColumnFX ) ;
+    // InternalJavaFXLang.g:9443:1: rule__FilteredTableViewFX__ColumnsAssignment_6_0 : ( ruleTableColumnFX ) ;
     public final void rule__FilteredTableViewFX__ColumnsAssignment_6_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9831:1: ( ( ruleTableColumnFX ) )
-            // InternalJavaFXLang.g:9832:2: ( ruleTableColumnFX )
+            // InternalJavaFXLang.g:9447:1: ( ( ruleTableColumnFX ) )
+            // InternalJavaFXLang.g:9448:2: ( ruleTableColumnFX )
             {
-            // InternalJavaFXLang.g:9832:2: ( ruleTableColumnFX )
-            // InternalJavaFXLang.g:9833:3: ruleTableColumnFX
+            // InternalJavaFXLang.g:9448:2: ( ruleTableColumnFX )
+            // InternalJavaFXLang.g:9449:3: ruleTableColumnFX
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_0_0()); 
             pushFollow(FOLLOW_2);
@@ -29807,17 +28639,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FilteredTableViewFX__ColumnsAssignment_6_1"
-    // InternalJavaFXLang.g:9842:1: rule__FilteredTableViewFX__ColumnsAssignment_6_1 : ( ruleTableColumnFX ) ;
+    // InternalJavaFXLang.g:9458:1: rule__FilteredTableViewFX__ColumnsAssignment_6_1 : ( ruleTableColumnFX ) ;
     public final void rule__FilteredTableViewFX__ColumnsAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9846:1: ( ( ruleTableColumnFX ) )
-            // InternalJavaFXLang.g:9847:2: ( ruleTableColumnFX )
+            // InternalJavaFXLang.g:9462:1: ( ( ruleTableColumnFX ) )
+            // InternalJavaFXLang.g:9463:2: ( ruleTableColumnFX )
             {
-            // InternalJavaFXLang.g:9847:2: ( ruleTableColumnFX )
-            // InternalJavaFXLang.g:9848:3: ruleTableColumnFX
+            // InternalJavaFXLang.g:9463:2: ( ruleTableColumnFX )
+            // InternalJavaFXLang.g:9464:3: ruleTableColumnFX
             {
              before(grammarAccess.getFilteredTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29848,17 +28680,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__NameAssignment_2"
-    // InternalJavaFXLang.g:9857:1: rule__DerivedBean__NameAssignment_2 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9473:1: rule__DerivedBean__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__DerivedBean__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9861:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9862:2: ( ruleEString )
+            // InternalJavaFXLang.g:9477:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9478:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9862:2: ( ruleEString )
-            // InternalJavaFXLang.g:9863:3: ruleEString
+            // InternalJavaFXLang.g:9478:2: ( ruleEString )
+            // InternalJavaFXLang.g:9479:3: ruleEString
             {
              before(grammarAccess.getDerivedBeanAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -29889,17 +28721,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__InstanceTypeAssignment_4_1"
-    // InternalJavaFXLang.g:9872:1: rule__DerivedBean__InstanceTypeAssignment_4_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9488:1: rule__DerivedBean__InstanceTypeAssignment_4_1 : ( ruleEString ) ;
     public final void rule__DerivedBean__InstanceTypeAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9876:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9877:2: ( ruleEString )
+            // InternalJavaFXLang.g:9492:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9493:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9877:2: ( ruleEString )
-            // InternalJavaFXLang.g:9878:3: ruleEString
+            // InternalJavaFXLang.g:9493:2: ( ruleEString )
+            // InternalJavaFXLang.g:9494:3: ruleEString
             {
              before(grammarAccess.getDerivedBeanAccess().getInstanceTypeEStringParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29930,17 +28762,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__AttributesAssignment_5_0"
-    // InternalJavaFXLang.g:9887:1: rule__DerivedBean__AttributesAssignment_5_0 : ( ruleAttributeFX ) ;
+    // InternalJavaFXLang.g:9503:1: rule__DerivedBean__AttributesAssignment_5_0 : ( ruleAttributeFX ) ;
     public final void rule__DerivedBean__AttributesAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9891:1: ( ( ruleAttributeFX ) )
-            // InternalJavaFXLang.g:9892:2: ( ruleAttributeFX )
+            // InternalJavaFXLang.g:9507:1: ( ( ruleAttributeFX ) )
+            // InternalJavaFXLang.g:9508:2: ( ruleAttributeFX )
             {
-            // InternalJavaFXLang.g:9892:2: ( ruleAttributeFX )
-            // InternalJavaFXLang.g:9893:3: ruleAttributeFX
+            // InternalJavaFXLang.g:9508:2: ( ruleAttributeFX )
+            // InternalJavaFXLang.g:9509:3: ruleAttributeFX
             {
              before(grammarAccess.getDerivedBeanAccess().getAttributesAttributeFXParserRuleCall_5_0_0()); 
             pushFollow(FOLLOW_2);
@@ -29971,17 +28803,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DerivedBean__AttributesAssignment_5_1"
-    // InternalJavaFXLang.g:9902:1: rule__DerivedBean__AttributesAssignment_5_1 : ( ruleAttributeFX ) ;
+    // InternalJavaFXLang.g:9518:1: rule__DerivedBean__AttributesAssignment_5_1 : ( ruleAttributeFX ) ;
     public final void rule__DerivedBean__AttributesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9906:1: ( ( ruleAttributeFX ) )
-            // InternalJavaFXLang.g:9907:2: ( ruleAttributeFX )
+            // InternalJavaFXLang.g:9522:1: ( ( ruleAttributeFX ) )
+            // InternalJavaFXLang.g:9523:2: ( ruleAttributeFX )
             {
-            // InternalJavaFXLang.g:9907:2: ( ruleAttributeFX )
-            // InternalJavaFXLang.g:9908:3: ruleAttributeFX
+            // InternalJavaFXLang.g:9523:2: ( ruleAttributeFX )
+            // InternalJavaFXLang.g:9524:3: ruleAttributeFX
             {
              before(grammarAccess.getDerivedBeanAccess().getAttributesAttributeFXParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30012,17 +28844,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__NameAssignment_2"
-    // InternalJavaFXLang.g:9917:1: rule__Bean__NameAssignment_2 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9533:1: rule__Bean__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__Bean__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9921:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9922:2: ( ruleEString )
+            // InternalJavaFXLang.g:9537:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9538:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9922:2: ( ruleEString )
-            // InternalJavaFXLang.g:9923:3: ruleEString
+            // InternalJavaFXLang.g:9538:2: ( ruleEString )
+            // InternalJavaFXLang.g:9539:3: ruleEString
             {
              before(grammarAccess.getBeanAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -30053,17 +28885,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__AttributesAssignment_4_0"
-    // InternalJavaFXLang.g:9932:1: rule__Bean__AttributesAssignment_4_0 : ( ruleAttributeFX ) ;
+    // InternalJavaFXLang.g:9548:1: rule__Bean__AttributesAssignment_4_0 : ( ruleAttributeFX ) ;
     public final void rule__Bean__AttributesAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9936:1: ( ( ruleAttributeFX ) )
-            // InternalJavaFXLang.g:9937:2: ( ruleAttributeFX )
+            // InternalJavaFXLang.g:9552:1: ( ( ruleAttributeFX ) )
+            // InternalJavaFXLang.g:9553:2: ( ruleAttributeFX )
             {
-            // InternalJavaFXLang.g:9937:2: ( ruleAttributeFX )
-            // InternalJavaFXLang.g:9938:3: ruleAttributeFX
+            // InternalJavaFXLang.g:9553:2: ( ruleAttributeFX )
+            // InternalJavaFXLang.g:9554:3: ruleAttributeFX
             {
              before(grammarAccess.getBeanAccess().getAttributesAttributeFXParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -30094,17 +28926,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Bean__AttributesAssignment_4_1"
-    // InternalJavaFXLang.g:9947:1: rule__Bean__AttributesAssignment_4_1 : ( ruleAttributeFX ) ;
+    // InternalJavaFXLang.g:9563:1: rule__Bean__AttributesAssignment_4_1 : ( ruleAttributeFX ) ;
     public final void rule__Bean__AttributesAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9951:1: ( ( ruleAttributeFX ) )
-            // InternalJavaFXLang.g:9952:2: ( ruleAttributeFX )
+            // InternalJavaFXLang.g:9567:1: ( ( ruleAttributeFX ) )
+            // InternalJavaFXLang.g:9568:2: ( ruleAttributeFX )
             {
-            // InternalJavaFXLang.g:9952:2: ( ruleAttributeFX )
-            // InternalJavaFXLang.g:9953:3: ruleAttributeFX
+            // InternalJavaFXLang.g:9568:2: ( ruleAttributeFX )
+            // InternalJavaFXLang.g:9569:3: ruleAttributeFX
             {
              before(grammarAccess.getBeanAccess().getAttributesAttributeFXParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30135,17 +28967,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__NameAssignment_3_1"
-    // InternalJavaFXLang.g:9962:1: rule__TableViewFX__NameAssignment_3_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9578:1: rule__TableViewFX__NameAssignment_3_1 : ( ruleEString ) ;
     public final void rule__TableViewFX__NameAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9966:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9967:2: ( ruleEString )
+            // InternalJavaFXLang.g:9582:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9583:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:9967:2: ( ruleEString )
-            // InternalJavaFXLang.g:9968:3: ruleEString
+            // InternalJavaFXLang.g:9583:2: ( ruleEString )
+            // InternalJavaFXLang.g:9584:3: ruleEString
             {
              before(grammarAccess.getTableViewFXAccess().getNameEStringParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30176,21 +29008,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__UsedModelAssignment_4_1"
-    // InternalJavaFXLang.g:9977:1: rule__TableViewFX__UsedModelAssignment_4_1 : ( ( ruleEString ) ) ;
+    // InternalJavaFXLang.g:9593:1: rule__TableViewFX__UsedModelAssignment_4_1 : ( ( ruleEString ) ) ;
     public final void rule__TableViewFX__UsedModelAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:9981:1: ( ( ( ruleEString ) ) )
-            // InternalJavaFXLang.g:9982:2: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9597:1: ( ( ( ruleEString ) ) )
+            // InternalJavaFXLang.g:9598:2: ( ( ruleEString ) )
             {
-            // InternalJavaFXLang.g:9982:2: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:9983:3: ( ruleEString )
+            // InternalJavaFXLang.g:9598:2: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9599:3: ( ruleEString )
             {
              before(grammarAccess.getTableViewFXAccess().getUsedModelModelFXCrossReference_4_1_0()); 
-            // InternalJavaFXLang.g:9984:3: ( ruleEString )
-            // InternalJavaFXLang.g:9985:4: ruleEString
+            // InternalJavaFXLang.g:9600:3: ( ruleEString )
+            // InternalJavaFXLang.g:9601:4: ruleEString
             {
              before(grammarAccess.getTableViewFXAccess().getUsedModelModelFXEStringParserRuleCall_4_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -30225,17 +29057,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__ColumnsAssignment_5_0"
-    // InternalJavaFXLang.g:9996:1: rule__TableViewFX__ColumnsAssignment_5_0 : ( ruleTableColumnFX ) ;
+    // InternalJavaFXLang.g:9612:1: rule__TableViewFX__ColumnsAssignment_5_0 : ( ruleTableColumnFX ) ;
     public final void rule__TableViewFX__ColumnsAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:10000:1: ( ( ruleTableColumnFX ) )
-            // InternalJavaFXLang.g:10001:2: ( ruleTableColumnFX )
+            // InternalJavaFXLang.g:9616:1: ( ( ruleTableColumnFX ) )
+            // InternalJavaFXLang.g:9617:2: ( ruleTableColumnFX )
             {
-            // InternalJavaFXLang.g:10001:2: ( ruleTableColumnFX )
-            // InternalJavaFXLang.g:10002:3: ruleTableColumnFX
+            // InternalJavaFXLang.g:9617:2: ( ruleTableColumnFX )
+            // InternalJavaFXLang.g:9618:3: ruleTableColumnFX
             {
              before(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_0_0()); 
             pushFollow(FOLLOW_2);
@@ -30266,17 +29098,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableViewFX__ColumnsAssignment_5_1"
-    // InternalJavaFXLang.g:10011:1: rule__TableViewFX__ColumnsAssignment_5_1 : ( ruleTableColumnFX ) ;
+    // InternalJavaFXLang.g:9627:1: rule__TableViewFX__ColumnsAssignment_5_1 : ( ruleTableColumnFX ) ;
     public final void rule__TableViewFX__ColumnsAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:10015:1: ( ( ruleTableColumnFX ) )
-            // InternalJavaFXLang.g:10016:2: ( ruleTableColumnFX )
+            // InternalJavaFXLang.g:9631:1: ( ( ruleTableColumnFX ) )
+            // InternalJavaFXLang.g:9632:2: ( ruleTableColumnFX )
             {
-            // InternalJavaFXLang.g:10016:2: ( ruleTableColumnFX )
-            // InternalJavaFXLang.g:10017:3: ruleTableColumnFX
+            // InternalJavaFXLang.g:9632:2: ( ruleTableColumnFX )
+            // InternalJavaFXLang.g:9633:3: ruleTableColumnFX
             {
              before(grammarAccess.getTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30307,17 +29139,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__NameAssignment_3_1"
-    // InternalJavaFXLang.g:10026:1: rule__TableColumnFX__NameAssignment_3_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9642:1: rule__TableColumnFX__NameAssignment_3_1 : ( ruleEString ) ;
     public final void rule__TableColumnFX__NameAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:10030:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:10031:2: ( ruleEString )
+            // InternalJavaFXLang.g:9646:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9647:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:10031:2: ( ruleEString )
-            // InternalJavaFXLang.g:10032:3: ruleEString
+            // InternalJavaFXLang.g:9647:2: ( ruleEString )
+            // InternalJavaFXLang.g:9648:3: ruleEString
             {
              before(grammarAccess.getTableColumnFXAccess().getNameEStringParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30348,17 +29180,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__WidthAssignment_4_1"
-    // InternalJavaFXLang.g:10041:1: rule__TableColumnFX__WidthAssignment_4_1 : ( ruleEInt ) ;
+    // InternalJavaFXLang.g:9657:1: rule__TableColumnFX__WidthAssignment_4_1 : ( ruleEInt ) ;
     public final void rule__TableColumnFX__WidthAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:10045:1: ( ( ruleEInt ) )
-            // InternalJavaFXLang.g:10046:2: ( ruleEInt )
+            // InternalJavaFXLang.g:9661:1: ( ( ruleEInt ) )
+            // InternalJavaFXLang.g:9662:2: ( ruleEInt )
             {
-            // InternalJavaFXLang.g:10046:2: ( ruleEInt )
-            // InternalJavaFXLang.g:10047:3: ruleEInt
+            // InternalJavaFXLang.g:9662:2: ( ruleEInt )
+            // InternalJavaFXLang.g:9663:3: ruleEInt
             {
              before(grammarAccess.getTableColumnFXAccess().getWidthEIntParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30389,21 +29221,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__UsedAttributeAssignment_5_1"
-    // InternalJavaFXLang.g:10056:1: rule__TableColumnFX__UsedAttributeAssignment_5_1 : ( ( ruleEString ) ) ;
+    // InternalJavaFXLang.g:9672:1: rule__TableColumnFX__UsedAttributeAssignment_5_1 : ( ( ruleEString ) ) ;
     public final void rule__TableColumnFX__UsedAttributeAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:10060:1: ( ( ( ruleEString ) ) )
-            // InternalJavaFXLang.g:10061:2: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9676:1: ( ( ( ruleEString ) ) )
+            // InternalJavaFXLang.g:9677:2: ( ( ruleEString ) )
             {
-            // InternalJavaFXLang.g:10061:2: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:10062:3: ( ruleEString )
+            // InternalJavaFXLang.g:9677:2: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9678:3: ( ruleEString )
             {
              before(grammarAccess.getTableColumnFXAccess().getUsedAttributeAttributeFXCrossReference_5_1_0()); 
-            // InternalJavaFXLang.g:10063:3: ( ruleEString )
-            // InternalJavaFXLang.g:10064:4: ruleEString
+            // InternalJavaFXLang.g:9679:3: ( ruleEString )
+            // InternalJavaFXLang.g:9680:4: ruleEString
             {
              before(grammarAccess.getTableColumnFXAccess().getUsedAttributeAttributeFXEStringParserRuleCall_5_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -30438,17 +29270,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TableColumnFX__UseFilterAssignment_6_1"
-    // InternalJavaFXLang.g:10075:1: rule__TableColumnFX__UseFilterAssignment_6_1 : ( ruleEBoolean ) ;
+    // InternalJavaFXLang.g:9691:1: rule__TableColumnFX__UseFilterAssignment_6_1 : ( ruleEBoolean ) ;
     public final void rule__TableColumnFX__UseFilterAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:10079:1: ( ( ruleEBoolean ) )
-            // InternalJavaFXLang.g:10080:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9695:1: ( ( ruleEBoolean ) )
+            // InternalJavaFXLang.g:9696:2: ( ruleEBoolean )
             {
-            // InternalJavaFXLang.g:10080:2: ( ruleEBoolean )
-            // InternalJavaFXLang.g:10081:3: ruleEBoolean
+            // InternalJavaFXLang.g:9696:2: ( ruleEBoolean )
+            // InternalJavaFXLang.g:9697:3: ruleEBoolean
             {
              before(grammarAccess.getTableColumnFXAccess().getUseFilterEBooleanParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30479,17 +29311,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AttributeFX__TypeAssignment_1"
-    // InternalJavaFXLang.g:10090:1: rule__AttributeFX__TypeAssignment_1 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9706:1: rule__AttributeFX__TypeAssignment_1 : ( ruleEString ) ;
     public final void rule__AttributeFX__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:10094:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:10095:2: ( ruleEString )
+            // InternalJavaFXLang.g:9710:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9711:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:10095:2: ( ruleEString )
-            // InternalJavaFXLang.g:10096:3: ruleEString
+            // InternalJavaFXLang.g:9711:2: ( ruleEString )
+            // InternalJavaFXLang.g:9712:3: ruleEString
             {
              before(grammarAccess.getAttributeFXAccess().getTypeEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30520,17 +29352,17 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AttributeFX__NameAssignment_2"
-    // InternalJavaFXLang.g:10105:1: rule__AttributeFX__NameAssignment_2 : ( ruleEString ) ;
+    // InternalJavaFXLang.g:9721:1: rule__AttributeFX__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__AttributeFX__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJavaFXLang.g:10109:1: ( ( ruleEString ) )
-            // InternalJavaFXLang.g:10110:2: ( ruleEString )
+            // InternalJavaFXLang.g:9725:1: ( ( ruleEString ) )
+            // InternalJavaFXLang.g:9726:2: ( ruleEString )
             {
-            // InternalJavaFXLang.g:10110:2: ( ruleEString )
-            // InternalJavaFXLang.g:10111:3: ruleEString
+            // InternalJavaFXLang.g:9726:2: ( ruleEString )
+            // InternalJavaFXLang.g:9727:3: ruleEString
             {
              before(grammarAccess.getAttributeFXAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -30591,20 +29423,21 @@ public class InternalJavaFXLangParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000400000000000L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000013F80000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000003F80000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000003F80002L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0118000010000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0100000000000002L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000010000030L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000032L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0108000010000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x3C00000000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x4000000000000040L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x000000F010000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000013F80000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000003F80000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000003F80002L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0118000010000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0100000000000002L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000010000030L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000032L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0108000010000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x3C00000000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x4000000000000040L});
 
 }

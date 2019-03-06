@@ -287,17 +287,7 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PieChartFX returns PieChartFX
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         legendSide=Orientation? 
-	 *         showLegend=EBoolean? 
-	 *         title=EString? 
-	 *         titleSide=Orientation? 
-	 *         xAxisLabel=EString? 
-	 *         xAxisType=AxisType? 
-	 *         yAxisLabel=EString? 
-	 *         yAxisType=AxisType?
-	 *     )
+	 *     (name=EString legendSide=Orientation? showLegend=EBoolean? title=EString? titleSide=Orientation?)
 	 */
 	protected void sequence_PieChartFX(ISerializationContext context, PieChartFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

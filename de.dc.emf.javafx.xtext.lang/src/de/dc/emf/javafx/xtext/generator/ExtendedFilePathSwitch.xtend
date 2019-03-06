@@ -1,17 +1,16 @@
 package de.dc.emf.javafx.xtext.generator
 
 import de.dc.emf.javafx.model.javafx.Bean
+import de.dc.emf.javafx.model.javafx.Binding
+import de.dc.emf.javafx.model.javafx.ChartFX
 import de.dc.emf.javafx.model.javafx.DerivedBean
+import de.dc.emf.javafx.model.javafx.FilteredTableViewFX
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableColumnFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
 import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.util.EcoreUtil
-import de.dc.emf.javafx.model.javafx.Binding
-import de.dc.emf.javafx.model.javafx.LineChartFX
-import de.dc.emf.javafx.model.javafx.FilteredTableViewFX
-import de.dc.emf.javafx.model.javafx.PieChartFX
 
 class ExtendedFilePathSwitch extends JavafxSwitch<String>{
 	
@@ -23,8 +22,7 @@ class ExtendedFilePathSwitch extends JavafxSwitch<String>{
 	override caseBean(Bean object)'''«object.package»/model/«object.name.toFirstUpper».java'''
 	override caseDerivedBean(DerivedBean object)'''«object.package»/model/«object.name.toFirstUpper».java'''
 	override caseBinding(Binding object)'''«object.package»/binding/«object.name.toFirstUpper».java'''
-	override caseLineChartFX(LineChartFX object)'''«object.package»/chart/«object.name.toFirstUpper».java'''
-	override casePieChartFX(PieChartFX object)'''«object.package»/chart/«object.name.toFirstUpper».java'''
+	override caseChartFX(ChartFX object)'''«object.package»/chart/«object.name.toFirstUpper».java'''
 	
 	def static getPackage(EObject obj)'''«(EcoreUtil.getRootContainer(obj.eContainer) as ProjectFX).packagePath.replace('.', '/')»'''
 }

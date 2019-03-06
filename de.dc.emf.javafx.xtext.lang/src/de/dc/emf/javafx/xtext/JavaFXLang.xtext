@@ -87,10 +87,6 @@ PieChartFX returns PieChartFX:
 		('showLegend:' showLegend=EBoolean)?
 		('title:' title=EString)?
 		('titleSide:' titleSide=Orientation)?
-		('xAxisLabel:' xAxisLabel=EString)?
-		('xAxisType:' xAxisType=AxisType)?
-		('yAxisLabel:' yAxisLabel=EString)?
-		('yAxisType:' yAxisType=AxisType)?
 	'}'
 ;
 

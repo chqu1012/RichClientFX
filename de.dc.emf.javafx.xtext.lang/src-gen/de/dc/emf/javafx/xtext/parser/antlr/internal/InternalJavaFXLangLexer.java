@@ -1178,10 +1178,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3152:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalJavaFXLang.g:3152:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJavaFXLang.g:3052:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalJavaFXLang.g:3052:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalJavaFXLang.g:3152:11: ( '^' )?
+            // InternalJavaFXLang.g:3052:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1190,7 +1190,7 @@ public class InternalJavaFXLangLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalJavaFXLang.g:3152:11: '^'
+                    // InternalJavaFXLang.g:3052:11: '^'
                     {
                     match('^'); 
 
@@ -1208,7 +1208,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalJavaFXLang.g:3152:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJavaFXLang.g:3052:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1257,10 +1257,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3154:10: ( ( '0' .. '9' )+ )
-            // InternalJavaFXLang.g:3154:12: ( '0' .. '9' )+
+            // InternalJavaFXLang.g:3054:10: ( ( '0' .. '9' )+ )
+            // InternalJavaFXLang.g:3054:12: ( '0' .. '9' )+
             {
-            // InternalJavaFXLang.g:3154:12: ( '0' .. '9' )+
+            // InternalJavaFXLang.g:3054:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1274,7 +1274,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalJavaFXLang.g:3154:13: '0' .. '9'
+            	    // InternalJavaFXLang.g:3054:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1306,10 +1306,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3156:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalJavaFXLang.g:3156:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalJavaFXLang.g:3056:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalJavaFXLang.g:3056:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalJavaFXLang.g:3156:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalJavaFXLang.g:3056:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1327,10 +1327,10 @@ public class InternalJavaFXLangLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalJavaFXLang.g:3156:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalJavaFXLang.g:3056:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalJavaFXLang.g:3156:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalJavaFXLang.g:3056:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1346,7 +1346,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalJavaFXLang.g:3156:21: '\\\\' .
+                    	    // InternalJavaFXLang.g:3056:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1354,7 +1354,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalJavaFXLang.g:3156:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalJavaFXLang.g:3056:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1379,10 +1379,10 @@ public class InternalJavaFXLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalJavaFXLang.g:3156:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalJavaFXLang.g:3056:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalJavaFXLang.g:3156:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalJavaFXLang.g:3056:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1398,7 +1398,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalJavaFXLang.g:3156:54: '\\\\' .
+                    	    // InternalJavaFXLang.g:3056:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1406,7 +1406,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalJavaFXLang.g:3156:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalJavaFXLang.g:3056:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1449,12 +1449,12 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3158:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalJavaFXLang.g:3158:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalJavaFXLang.g:3058:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalJavaFXLang.g:3058:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalJavaFXLang.g:3158:24: ( options {greedy=false; } : . )*
+            // InternalJavaFXLang.g:3058:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1479,7 +1479,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalJavaFXLang.g:3158:52: .
+            	    // InternalJavaFXLang.g:3058:52: .
             	    {
             	    matchAny(); 
 
@@ -1509,12 +1509,12 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3160:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalJavaFXLang.g:3160:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalJavaFXLang.g:3060:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalJavaFXLang.g:3060:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalJavaFXLang.g:3160:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalJavaFXLang.g:3060:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1527,7 +1527,7 @@ public class InternalJavaFXLangLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalJavaFXLang.g:3160:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalJavaFXLang.g:3060:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1547,7 +1547,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalJavaFXLang.g:3160:40: ( ( '\\r' )? '\\n' )?
+            // InternalJavaFXLang.g:3060:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1556,9 +1556,9 @@ public class InternalJavaFXLangLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalJavaFXLang.g:3160:41: ( '\\r' )? '\\n'
+                    // InternalJavaFXLang.g:3060:41: ( '\\r' )? '\\n'
                     {
-                    // InternalJavaFXLang.g:3160:41: ( '\\r' )?
+                    // InternalJavaFXLang.g:3060:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1567,7 +1567,7 @@ public class InternalJavaFXLangLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalJavaFXLang.g:3160:41: '\\r'
+                            // InternalJavaFXLang.g:3060:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1599,10 +1599,10 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3162:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalJavaFXLang.g:3162:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJavaFXLang.g:3062:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalJavaFXLang.g:3062:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalJavaFXLang.g:3162:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJavaFXLang.g:3062:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1656,8 +1656,8 @@ public class InternalJavaFXLangLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJavaFXLang.g:3164:16: ( . )
-            // InternalJavaFXLang.g:3164:18: .
+            // InternalJavaFXLang.g:3064:16: ( . )
+            // InternalJavaFXLang.g:3064:18: .
             {
             matchAny(); 
 

@@ -1,8 +1,7 @@
 package de.dc.emf.javafx.xtext.generator
 
+import de.dc.emf.javafx.model.javafx.ChartFX
 import de.dc.emf.javafx.model.javafx.FilteredTableViewFX
-import de.dc.emf.javafx.model.javafx.LineChartFX
-import de.dc.emf.javafx.model.javafx.PieChartFX
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
 import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
@@ -25,17 +24,10 @@ class ExtendedTemplateSwitch extends JavafxSwitch<String>{
 	}
 	'''	
 	
-	override caseLineChartFX(LineChartFX object)'''
+	override caseChartFX(ChartFX object)'''
 	«val packagePath = (EcoreUtil.getRootContainer(object.eContainer) as ProjectFX).packagePath»
-	package «packagePath».chart;
-	public class «object.name.toFirstUpper» extends Base«object.name.toFirstUpper» {
-	}
-	'''
-
-	override casePieChartFX(PieChartFX object)'''
-	«val packagePath = (EcoreUtil.getRootContainer(object.eContainer) as ProjectFX).packagePath»
-	package «packagePath».chart;
-	public class «object.name.toFirstUpper» extends Base«object.name.toFirstUpper» {
-	}
+		package «packagePath».chart;
+		public class «object.name.toFirstUpper» extends Base«object.name.toFirstUpper» {
+		}
 	'''
 }
