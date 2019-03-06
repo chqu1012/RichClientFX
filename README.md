@@ -22,7 +22,7 @@ Running application
 - [ ] Code Generation of TreeTableView
 - [ ] Code Generation of ListView
 - [ ] Code Generation of Custom forms
-- [ ] Code Generation of LineChart
+- [x] Code Generation of LineChart
 - [ ] Code Generation of PieChart
 - [ ] Code Generation of AreaChart
 - [ ] FXML Code Generation
@@ -87,6 +87,27 @@ ProjectFX ContactProject{
 	}
 }
 ```
+
+### How to define a LineChart with data list
+```java
+LineChart{
+	name: BudgetChartOther
+	legendSide:Top
+	title:"Other Budget Chart"
+	titleSide:Top
+	xAxisLabel:"Budget"
+	yAxisLabel:"Month"
+	dataList{
+		data('10','20') 
+		data('20','23')  
+		data('25','25') 
+		data('30','30') 
+	}
+}
+```
+
+![LineChart Example](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.model.res/images/04-LineChartView.png)
+
 
 ## ChangeLog
 
