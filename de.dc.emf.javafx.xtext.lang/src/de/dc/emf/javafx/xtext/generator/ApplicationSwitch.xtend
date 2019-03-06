@@ -74,27 +74,18 @@ class ApplicationSwitch extends JavafxSwitch<String>{
 			«name» chart = new «name»();
 			
 			for (int i = 0; i < 15; i++) {
-				List<«name».Data<«xAxisType»,«yAxisType»>> list = new ArrayList<«name».Data<«xAxisType»,«yAxisType»>>();
-				createData(list, i*5);
-				chart.createSeries("Series "+i, list);
+				chart.createSeries("Series "+i, getData());
 			}
 	
 			return chart;
 		}
 	
-		private void createData(List<«name».Data<«xAxisType»,«yAxisType»>> list, int deltaXValue) {
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(23+deltaXValue, 23));   
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(14+deltaXValue, 14)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(15+deltaXValue, 15)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(24+deltaXValue, 24)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(34+deltaXValue, 34)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(36+deltaXValue, 36)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(22+deltaXValue, 22)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(45+deltaXValue, 45)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(43+deltaXValue, 43)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(17+deltaXValue, 17)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(29+deltaXValue, 29)); 
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(25+deltaXValue, 25));
+		private List<«name».Data<«xAxisType»,«yAxisType»>> getData() {
+			List<«name».Data<«xAxisType»,«yAxisType»>> list = new ArrayList<«name».Data<«xAxisType»,«yAxisType»>>();
+			«FOR data: object.data»
+			list.add(new «name».Data<«xAxisType»,«yAxisType»>(«data.XValue», «data.YValue»));   
+			«ENDFOR»
+			return list;
 		}
 	}
 	'''

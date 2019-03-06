@@ -95,6 +95,9 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup_10(), "rule__LineChartFX__Group_10__0");
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup_11(), "rule__LineChartFX__Group_11__0");
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup_12(), "rule__LineChartFX__Group_12__0");
+			builder.put(grammarAccess.getLineChartFXAccess().getGroup_13(), "rule__LineChartFX__Group_13__0");
+			builder.put(grammarAccess.getLineChartFXAccess().getGroup_13_2(), "rule__LineChartFX__Group_13_2__0");
+			builder.put(grammarAccess.getChartFXDataAccess().getGroup(), "rule__ChartFXData__Group__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup_4(), "rule__Binding__Group_4__0");
 			builder.put(grammarAccess.getBindingPropertyAccess().getGroup(), "rule__BindingProperty__Group__0");
@@ -179,6 +182,10 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLineChartFXAccess().getXAxisTypeAssignment_10_1(), "rule__LineChartFX__XAxisTypeAssignment_10_1");
 			builder.put(grammarAccess.getLineChartFXAccess().getYAxisLabelAssignment_11_1(), "rule__LineChartFX__YAxisLabelAssignment_11_1");
 			builder.put(grammarAccess.getLineChartFXAccess().getYAxisTypeAssignment_12_1(), "rule__LineChartFX__YAxisTypeAssignment_12_1");
+			builder.put(grammarAccess.getLineChartFXAccess().getDataAssignment_13_2_0(), "rule__LineChartFX__DataAssignment_13_2_0");
+			builder.put(grammarAccess.getLineChartFXAccess().getDataAssignment_13_2_1(), "rule__LineChartFX__DataAssignment_13_2_1");
+			builder.put(grammarAccess.getChartFXDataAccess().getXValueAssignment_3(), "rule__ChartFXData__XValueAssignment_3");
+			builder.put(grammarAccess.getChartFXDataAccess().getYValueAssignment_5(), "rule__ChartFXData__YValueAssignment_5");
 			builder.put(grammarAccess.getBindingAccess().getNameAssignment_2(), "rule__Binding__NameAssignment_2");
 			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_0(), "rule__Binding__PropertyAssignment_4_0");
 			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_1(), "rule__Binding__PropertyAssignment_4_1");

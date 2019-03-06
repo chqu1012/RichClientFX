@@ -142,6 +142,29 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.ChartFXData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChartFXDataItemProvider chartFXDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.ChartFXData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChartFXDataAdapter() {
+		if (chartFXDataItemProvider == null) {
+			chartFXDataItemProvider = new ChartFXDataItemProvider(this);
+		}
+
+		return chartFXDataItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.LineChartFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,6 +607,8 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			namedElementItemProvider.dispose();
 		if (filteredElementItemProvider != null)
 			filteredElementItemProvider.dispose();
+		if (chartFXDataItemProvider != null)
+			chartFXDataItemProvider.dispose();
 		if (lineChartFXItemProvider != null)
 			lineChartFXItemProvider.dispose();
 		if (pieChartFXItemProvider != null)

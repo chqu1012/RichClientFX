@@ -5,6 +5,7 @@ import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.ChartFX;
+import de.dc.emf.javafx.model.javafx.ChartFXData;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.ModelFX;
@@ -43,6 +44,11 @@ public class EnableGeneratorSwitch extends JavafxSwitch<Boolean> {
   
   @Override
   public Boolean caseBindingProperty(final BindingProperty object) {
+    return Boolean.valueOf(false);
+  }
+  
+  @Override
+  public Boolean caseChartFXData(final ChartFXData object) {
     return Boolean.valueOf(false);
   }
   

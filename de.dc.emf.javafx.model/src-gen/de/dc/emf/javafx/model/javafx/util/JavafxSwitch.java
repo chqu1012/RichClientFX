@@ -196,6 +196,13 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case JavafxPackage.CHART_FX_DATA: {
+			ChartFXData chartFXData = (ChartFXData) theEObject;
+			T result = caseChartFXData(chartFXData);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case JavafxPackage.LINE_CHART_FX: {
 			LineChartFX lineChartFX = (LineChartFX) theEObject;
 			T result = caseLineChartFX(lineChartFX);
@@ -324,6 +331,21 @@ public class JavafxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseChartFX(ChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Chart FX Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Chart FX Data</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChartFXData(ChartFXData object) {
 		return null;
 	}
 

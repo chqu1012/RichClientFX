@@ -79,6 +79,8 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createNamedElement();
 		case JavafxPackage.FILTERED_ELEMENT:
 			return createFilteredElement();
+		case JavafxPackage.CHART_FX_DATA:
+			return createChartFXData();
 		case JavafxPackage.LINE_CHART_FX:
 			return createLineChartFX();
 		case JavafxPackage.PIE_CHART_FX:
@@ -162,6 +164,16 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	public FilteredElement createFilteredElement() {
 		FilteredElementImpl filteredElement = new FilteredElementImpl();
 		return filteredElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChartFXData createChartFXData() {
+		ChartFXDataImpl chartFXData = new ChartFXDataImpl();
+		return chartFXData;
 	}
 
 	/**

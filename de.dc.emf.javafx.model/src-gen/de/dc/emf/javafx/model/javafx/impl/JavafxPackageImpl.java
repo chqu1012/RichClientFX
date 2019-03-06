@@ -12,6 +12,7 @@ import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.BindingType;
 import de.dc.emf.javafx.model.javafx.BubbleChartFX;
 import de.dc.emf.javafx.model.javafx.ChartFX;
+import de.dc.emf.javafx.model.javafx.ChartFXData;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredElement;
@@ -70,6 +71,13 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass chartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chartFXDataEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -444,6 +452,42 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getChartFX_Data() {
+		return (EReference) chartFXEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChartFXData() {
+		return chartFXDataEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFXData_XValue() {
+		return (EAttribute) chartFXDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChartFXData_YValue() {
+		return (EAttribute) chartFXDataEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLineChartFX() {
 		return lineChartFXEClass;
 	}
@@ -801,6 +845,11 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEAttribute(chartFXEClass, CHART_FX__YAXIS_TYPE);
 		createEAttribute(chartFXEClass, CHART_FX__XAXIS_LABEL);
 		createEAttribute(chartFXEClass, CHART_FX__YAXIS_LABEL);
+		createEReference(chartFXEClass, CHART_FX__DATA);
+
+		chartFXDataEClass = createEClass(CHART_FX_DATA);
+		createEAttribute(chartFXDataEClass, CHART_FX_DATA__XVALUE);
+		createEAttribute(chartFXDataEClass, CHART_FX_DATA__YVALUE);
 
 		lineChartFXEClass = createEClass(LINE_CHART_FX);
 
@@ -972,6 +1021,16 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		initEAttribute(getChartFX_XAxisLabel(), ecorePackage.getEString(), "xAxisLabel", null, 0, 1, ChartFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChartFX_YAxisLabel(), ecorePackage.getEString(), "yAxisLabel", null, 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getChartFX_Data(), this.getChartFXData(), null, "data", null, 0, -1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(chartFXDataEClass, ChartFXData.class, "ChartFXData", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChartFXData_XValue(), ecorePackage.getEString(), "xValue", null, 0, 1, ChartFXData.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXData_YValue(), ecorePackage.getEString(), "yValue", null, 0, 1, ChartFXData.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineChartFXEClass, LineChartFX.class, "LineChartFX", !IS_ABSTRACT, !IS_INTERFACE,

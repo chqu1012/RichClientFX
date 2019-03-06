@@ -51,6 +51,7 @@ public class ChartFXItemProvider extends NamedElementItemProvider {
 			addYAxisTypePropertyDescriptor(object);
 			addXAxisLabelPropertyDescriptor(object);
 			addYAxisLabelPropertyDescriptor(object);
+			addDataPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -181,6 +182,20 @@ public class ChartFXItemProvider extends NamedElementItemProvider {
 								"_UI_ChartFX_type"),
 						JavafxPackage.Literals.CHART_FX__YAXIS_LABEL, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Data feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDataPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ChartFX_data_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ChartFX_data_feature", "_UI_ChartFX_type"),
+						JavafxPackage.Literals.CHART_FX__DATA, true, false, true, null, null, null));
 	}
 
 	/**

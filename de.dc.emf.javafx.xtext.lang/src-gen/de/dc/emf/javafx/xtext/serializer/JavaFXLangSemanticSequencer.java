@@ -11,6 +11,7 @@ import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.BubbleChartFX;
+import de.dc.emf.javafx.model.javafx.ChartFXData;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
@@ -66,6 +67,9 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case JavafxPackage.BUBBLE_CHART_FX:
 				sequence_BubbleChartFX(context, (BubbleChartFX) semanticObject); 
+				return; 
+			case JavafxPackage.CHART_FX_DATA:
+				sequence_ChartFXData(context, (ChartFXData) semanticObject); 
 				return; 
 			case JavafxPackage.DERIVED_BEAN:
 				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
@@ -234,6 +238,27 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     ChartFXData returns ChartFXData
+	 *
+	 * Constraint:
+	 *     (xValue=EString yValue=EString)
+	 */
+	protected void sequence_ChartFXData(ISerializationContext context, ChartFXData semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.CHART_FX_DATA__XVALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.CHART_FX_DATA__XVALUE));
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.CHART_FX_DATA__YVALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.CHART_FX_DATA__YVALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getChartFXDataAccess().getXValueEStringParserRuleCall_3_0(), semanticObject.getXValue());
+		feeder.accept(grammarAccess.getChartFXDataAccess().getYValueEStringParserRuleCall_5_0(), semanticObject.getYValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ModelFX returns DerivedBean
 	 *     DerivedBean returns DerivedBean
 	 *
@@ -273,7 +298,8 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         xAxisLabel=EString? 
 	 *         xAxisType=AxisType? 
 	 *         yAxisLabel=EString? 
-	 *         yAxisType=AxisType?
+	 *         yAxisType=AxisType? 
+	 *         (data+=ChartFXData data+=ChartFXData*)?
 	 *     )
 	 */
 	protected void sequence_LineChartFX(ISerializationContext context, LineChartFX semanticObject) {

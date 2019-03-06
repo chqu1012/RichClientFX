@@ -13,6 +13,7 @@ import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableColumnFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
 import de.dc.emf.javafx.model.javafx.util.JavafxSwitch
+import de.dc.emf.javafx.model.javafx.ChartFXData
 
 class EnableGeneratorSwitch extends JavafxSwitch<Boolean>{
 	
@@ -22,6 +23,7 @@ class EnableGeneratorSwitch extends JavafxSwitch<Boolean>{
 	override caseProjectFX(ProjectFX object) {false}
 	override caseTableColumnFX(TableColumnFX object) {false}
 	override caseBindingProperty(BindingProperty object) {false}
+	override caseChartFXData(ChartFXData object) {false}
 		
 	override caseChartFX(ChartFX object) {true}
 	override caseDerivedBean(DerivedBean object) {true}

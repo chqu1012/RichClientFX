@@ -73,6 +73,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="yAxisType" eType="#//AxisType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xAxisLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="yAxisLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" upperBound="-1" eType="#//ChartFXData"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChartFXData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LineChartFX" eSuperTypes="#//ChartFX"/>
   <eClassifiers xsi:type="ecore:EClass" name="PieChartFX" eSuperTypes="#//ChartFX"/>

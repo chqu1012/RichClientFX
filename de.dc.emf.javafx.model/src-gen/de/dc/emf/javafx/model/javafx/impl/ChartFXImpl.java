@@ -4,14 +4,21 @@ package de.dc.emf.javafx.model.javafx.impl;
 
 import de.dc.emf.javafx.model.javafx.AxisType;
 import de.dc.emf.javafx.model.javafx.ChartFX;
+import de.dc.emf.javafx.model.javafx.ChartFXData;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.Orientation;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +36,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ChartFXImpl#getYAxisType <em>YAxis Type</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ChartFXImpl#getXAxisLabel <em>XAxis Label</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ChartFXImpl#getYAxisLabel <em>YAxis Label</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.impl.ChartFXImpl#getData <em>Data</em>}</li>
  * </ul>
  *
  * @generated
@@ -193,6 +201,16 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * @ordered
 	 */
 	protected String yAxisLabel = YAXIS_LABEL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getData() <em>Data</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getData()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ChartFXData> data;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -393,6 +411,32 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ChartFXData> getData() {
+		if (data == null) {
+			data = new EObjectContainmentEList<ChartFXData>(ChartFXData.class, this, JavafxPackage.CHART_FX__DATA);
+		}
+		return data;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case JavafxPackage.CHART_FX__DATA:
+			return ((InternalEList<?>) getData()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -412,6 +456,8 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 			return getXAxisLabel();
 		case JavafxPackage.CHART_FX__YAXIS_LABEL:
 			return getYAxisLabel();
+		case JavafxPackage.CHART_FX__DATA:
+			return getData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -421,6 +467,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -447,6 +494,10 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 			return;
 		case JavafxPackage.CHART_FX__YAXIS_LABEL:
 			setYAxisLabel((String) newValue);
+			return;
+		case JavafxPackage.CHART_FX__DATA:
+			getData().clear();
+			getData().addAll((Collection<? extends ChartFXData>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -484,6 +535,9 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 		case JavafxPackage.CHART_FX__YAXIS_LABEL:
 			setYAxisLabel(YAXIS_LABEL_EDEFAULT);
 			return;
+		case JavafxPackage.CHART_FX__DATA:
+			getData().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -512,6 +566,8 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 			return XAXIS_LABEL_EDEFAULT == null ? xAxisLabel != null : !XAXIS_LABEL_EDEFAULT.equals(xAxisLabel);
 		case JavafxPackage.CHART_FX__YAXIS_LABEL:
 			return YAXIS_LABEL_EDEFAULT == null ? yAxisLabel != null : !YAXIS_LABEL_EDEFAULT.equals(yAxisLabel);
+		case JavafxPackage.CHART_FX__DATA:
+			return data != null && !data.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
