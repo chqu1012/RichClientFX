@@ -13,6 +13,12 @@ ProjectFX ContactProject{
 			titleSide:Top
 			xAxisLabel:"Budget"
 			yAxisLabel:"Month"
+			dataList{
+				data('10','20') 
+				data('20','23')  
+				data('25','25') 
+				data('30','30') 
+			}
 		}
 		
 		LineChart{ 

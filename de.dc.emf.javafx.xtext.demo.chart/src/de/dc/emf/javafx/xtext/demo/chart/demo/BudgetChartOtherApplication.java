@@ -7,6 +7,8 @@ import javafx.scene.*;
 import javafx.stage.*;
 public class BudgetChartOtherApplication extends Application{
 
+	private int x = 5;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -22,26 +24,19 @@ public class BudgetChartOtherApplication extends Application{
 		BudgetChartOther chart = new BudgetChartOther();
 		
 		for (int i = 0; i < 15; i++) {
-			List<BudgetChartOther.Data<Number,Number>> list = new ArrayList<BudgetChartOther.Data<Number,Number>>();
-			createData(list, i*5);
-			chart.createSeries("Series "+i, list);
+			chart.createSeries("Series "+i, getData());
 		}
 
 		return chart;
 	}
 
-	private void createData(List<BudgetChartOther.Data<Number,Number>> list, int deltaXValue) {
-		list.add(new BudgetChartOther.Data<Number,Number>(23+deltaXValue, 23));   
-		list.add(new BudgetChartOther.Data<Number,Number>(14+deltaXValue, 14)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(15+deltaXValue, 15)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(24+deltaXValue, 24)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(34+deltaXValue, 34)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(36+deltaXValue, 36)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(22+deltaXValue, 22)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(45+deltaXValue, 45)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(43+deltaXValue, 43)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(17+deltaXValue, 17)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(29+deltaXValue, 29)); 
-		list.add(new BudgetChartOther.Data<Number,Number>(25+deltaXValue, 25));
+	private List<BudgetChartOther.Data<Number,Number>> getData() {
+		List<BudgetChartOther.Data<Number,Number>> list = new ArrayList<BudgetChartOther.Data<Number,Number>>();
+		list.add(new BudgetChartOther.Data<Number,Number>(10+x, 20));   
+		list.add(new BudgetChartOther.Data<Number,Number>(20+x, 23));   
+		list.add(new BudgetChartOther.Data<Number,Number>(25+x, 25));   
+		list.add(new BudgetChartOther.Data<Number,Number>(30+x, 30));   
+		x=x+5;
+		return list;
 	}
 }
