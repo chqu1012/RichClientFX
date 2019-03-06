@@ -12,6 +12,7 @@ import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.BubbleChartFX;
 import de.dc.emf.javafx.model.javafx.ChartFXData;
+import de.dc.emf.javafx.model.javafx.ChartSeries;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
@@ -70,6 +71,9 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case JavafxPackage.CHART_FX_DATA:
 				sequence_ChartFXData(context, (ChartFXData) semanticObject); 
+				return; 
+			case JavafxPackage.CHART_SERIES:
+				sequence_ChartSeries(context, (ChartSeries) semanticObject); 
 				return; 
 			case JavafxPackage.DERIVED_BEAN:
 				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
@@ -259,6 +263,18 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     ChartSeries returns ChartSeries
+	 *
+	 * Constraint:
+	 *     (name=EString (dataList+=ChartFXData dataList+=ChartFXData*)?)
+	 */
+	protected void sequence_ChartSeries(ISerializationContext context, ChartSeries semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ModelFX returns DerivedBean
 	 *     DerivedBean returns DerivedBean
 	 *
@@ -299,7 +315,7 @@ public class JavaFXLangSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         xAxisType=AxisType? 
 	 *         yAxisLabel=EString? 
 	 *         yAxisType=AxisType? 
-	 *         (data+=ChartFXData data+=ChartFXData*)?
+	 *         (series+=ChartSeries series+=ChartSeries*)?
 	 *     )
 	 */
 	protected void sequence_LineChartFX(ISerializationContext context, LineChartFX semanticObject) {

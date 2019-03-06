@@ -49,6 +49,15 @@ public interface JavafxFactory extends EFactory {
 	FilteredElement createFilteredElement();
 
 	/**
+	 * Returns a new object of class '<em>Chart Series</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Chart Series</em>'.
+	 * @generated
+	 */
+	ChartSeries createChartSeries();
+
+	/**
 	 * Returns a new object of class '<em>Chart FX Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

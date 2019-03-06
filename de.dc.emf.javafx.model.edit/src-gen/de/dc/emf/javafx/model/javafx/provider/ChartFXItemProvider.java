@@ -3,6 +3,7 @@
 package de.dc.emf.javafx.model.javafx.provider;
 
 import de.dc.emf.javafx.model.javafx.ChartFX;
+import de.dc.emf.javafx.model.javafx.JavafxFactory;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 
 import java.util.Collection;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -51,7 +53,6 @@ public class ChartFXItemProvider extends NamedElementItemProvider {
 			addYAxisTypePropertyDescriptor(object);
 			addXAxisLabelPropertyDescriptor(object);
 			addYAxisLabelPropertyDescriptor(object);
-			addDataPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -185,17 +186,33 @@ public class ChartFXItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Data feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDataPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ChartFX_data_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ChartFX_data_feature", "_UI_ChartFX_type"),
-						JavafxPackage.Literals.CHART_FX__DATA, true, false, true, null, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(JavafxPackage.Literals.CHART_FX__SERIES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -243,6 +260,9 @@ public class ChartFXItemProvider extends NamedElementItemProvider {
 		case JavafxPackage.CHART_FX__YAXIS_LABEL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
+		case JavafxPackage.CHART_FX__SERIES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -257,6 +277,9 @@ public class ChartFXItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.CHART_FX__SERIES,
+				JavafxFactory.eINSTANCE.createChartSeries()));
 	}
 
 }

@@ -20,16 +20,6 @@ public class BudgetChartApplication extends Application{
 	
 	protected Parent getRoot() {
 		BudgetChart chart = new BudgetChart();
-		
-		for (int i = 0; i < 15; i++) {
-			chart.createSeries("Series "+i, getData());
-		}
-
 		return chart;
-	}
-
-	private List<BudgetChart.Data<Number,Number>> getData() {
-		List<BudgetChart.Data<Number,Number>> list = new ArrayList<BudgetChart.Data<Number,Number>>();
-		return list;
 	}
 }

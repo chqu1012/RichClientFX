@@ -1099,14 +1099,10 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cYAxisTypeAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
 		private final RuleCall cYAxisTypeAxisTypeEnumRuleCall_12_1_0 = (RuleCall)cYAxisTypeAssignment_12_1.eContents().get(0);
 		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
-		private final Keyword cDataListKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
-		private final Group cGroup_13_2 = (Group)cGroup_13.eContents().get(2);
-		private final Assignment cDataAssignment_13_2_0 = (Assignment)cGroup_13_2.eContents().get(0);
-		private final RuleCall cDataChartFXDataParserRuleCall_13_2_0_0 = (RuleCall)cDataAssignment_13_2_0.eContents().get(0);
-		private final Assignment cDataAssignment_13_2_1 = (Assignment)cGroup_13_2.eContents().get(1);
-		private final RuleCall cDataChartFXDataParserRuleCall_13_2_1_0 = (RuleCall)cDataAssignment_13_2_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_13_3 = (Keyword)cGroup_13.eContents().get(3);
+		private final Assignment cSeriesAssignment_13_0 = (Assignment)cGroup_13.eContents().get(0);
+		private final RuleCall cSeriesChartSeriesParserRuleCall_13_0_0 = (RuleCall)cSeriesAssignment_13_0.eContents().get(0);
+		private final Assignment cSeriesAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
+		private final RuleCall cSeriesChartSeriesParserRuleCall_13_1_0 = (RuleCall)cSeriesAssignment_13_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//LineChartFX:
@@ -1114,15 +1110,15 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	'LineChart' '{'
 		//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
 		//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
-		//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)? ('dataList' '{'
-		//	(data+=ChartFXData data+=ChartFXData*) '}')?
+		//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)? (series+=ChartSeries
+		//	series+=ChartSeries*)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{LineChartFX} 'LineChart' '{' 'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:'
 		//showLegend=EBoolean)? ('title:' title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:'
 		//xAxisLabel=EString)? ('xAxisType:' xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:'
-		//yAxisType=AxisType)? ('dataList' '{' (data+=ChartFXData data+=ChartFXData*) '}')? '}'
+		//yAxisType=AxisType)? (series+=ChartSeries series+=ChartSeries*)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{LineChartFX}
@@ -1239,35 +1235,101 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		//AxisType
 		public RuleCall getYAxisTypeAxisTypeEnumRuleCall_12_1_0() { return cYAxisTypeAxisTypeEnumRuleCall_12_1_0; }
 		
-		//('dataList' '{' (data+=ChartFXData data+=ChartFXData*) '}')?
+		//(series+=ChartSeries series+=ChartSeries*)?
 		public Group getGroup_13() { return cGroup_13; }
 		
-		//'dataList'
-		public Keyword getDataListKeyword_13_0() { return cDataListKeyword_13_0; }
+		//series+=ChartSeries
+		public Assignment getSeriesAssignment_13_0() { return cSeriesAssignment_13_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_13_1() { return cLeftCurlyBracketKeyword_13_1; }
+		//ChartSeries
+		public RuleCall getSeriesChartSeriesParserRuleCall_13_0_0() { return cSeriesChartSeriesParserRuleCall_13_0_0; }
 		
-		//data+=ChartFXData data+=ChartFXData*
-		public Group getGroup_13_2() { return cGroup_13_2; }
+		//series+=ChartSeries*
+		public Assignment getSeriesAssignment_13_1() { return cSeriesAssignment_13_1; }
 		
-		//data+=ChartFXData
-		public Assignment getDataAssignment_13_2_0() { return cDataAssignment_13_2_0; }
-		
-		//ChartFXData
-		public RuleCall getDataChartFXDataParserRuleCall_13_2_0_0() { return cDataChartFXDataParserRuleCall_13_2_0_0; }
-		
-		//data+=ChartFXData*
-		public Assignment getDataAssignment_13_2_1() { return cDataAssignment_13_2_1; }
-		
-		//ChartFXData
-		public RuleCall getDataChartFXDataParserRuleCall_13_2_1_0() { return cDataChartFXDataParserRuleCall_13_2_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_13_3() { return cRightCurlyBracketKeyword_13_3; }
+		//ChartSeries
+		public RuleCall getSeriesChartSeriesParserRuleCall_13_1_0() { return cSeriesChartSeriesParserRuleCall_13_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_14() { return cRightCurlyBracketKeyword_14; }
+	}
+	public class ChartSeriesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.ChartSeries");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cChartSeriesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSeriesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cDataListKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final Assignment cDataListAssignment_5_2_0 = (Assignment)cGroup_5_2.eContents().get(0);
+		private final RuleCall cDataListChartFXDataParserRuleCall_5_2_0_0 = (RuleCall)cDataListAssignment_5_2_0.eContents().get(0);
+		private final Assignment cDataListAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final RuleCall cDataListChartFXDataParserRuleCall_5_2_1_0 = (RuleCall)cDataListAssignment_5_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//ChartSeries:
+		//	{ChartSeries}
+		//	'series' '{'
+		//	'name:' name=EString ('dataList' '{' (dataList+=ChartFXData dataList+=ChartFXData*) '}')?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ChartSeries} 'series' '{' 'name:' name=EString ('dataList' '{' (dataList+=ChartFXData dataList+=ChartFXData*) '}')? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{ChartSeries}
+		public Action getChartSeriesAction_0() { return cChartSeriesAction_0; }
+		
+		//'series'
+		public Keyword getSeriesKeyword_1() { return cSeriesKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'name:'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//('dataList' '{' (dataList+=ChartFXData dataList+=ChartFXData*) '}')?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'dataList'
+		public Keyword getDataListKeyword_5_0() { return cDataListKeyword_5_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_5_1() { return cLeftCurlyBracketKeyword_5_1; }
+		
+		//dataList+=ChartFXData dataList+=ChartFXData*
+		public Group getGroup_5_2() { return cGroup_5_2; }
+		
+		//dataList+=ChartFXData
+		public Assignment getDataListAssignment_5_2_0() { return cDataListAssignment_5_2_0; }
+		
+		//ChartFXData
+		public RuleCall getDataListChartFXDataParserRuleCall_5_2_0_0() { return cDataListChartFXDataParserRuleCall_5_2_0_0; }
+		
+		//dataList+=ChartFXData*
+		public Assignment getDataListAssignment_5_2_1() { return cDataListAssignment_5_2_1; }
+		
+		//ChartFXData
+		public RuleCall getDataListChartFXDataParserRuleCall_5_2_1_0() { return cDataListChartFXDataParserRuleCall_5_2_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5_3() { return cRightCurlyBracketKeyword_5_3; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class ChartFXDataElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.JavaFXLang.ChartFXData");
@@ -2100,6 +2162,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	private final AreaChartFXElements pAreaChartFX;
 	private final PieChartFXElements pPieChartFX;
 	private final LineChartFXElements pLineChartFX;
+	private final ChartSeriesElements pChartSeries;
 	private final ChartFXDataElements pChartFXData;
 	private final AxisTypeElements eAxisType;
 	private final OrientationElements eOrientation;
@@ -2135,6 +2198,7 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAreaChartFX = new AreaChartFXElements();
 		this.pPieChartFX = new PieChartFXElements();
 		this.pLineChartFX = new LineChartFXElements();
+		this.pChartSeries = new ChartSeriesElements();
 		this.pChartFXData = new ChartFXDataElements();
 		this.eAxisType = new AxisTypeElements();
 		this.eOrientation = new OrientationElements();
@@ -2286,8 +2350,8 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	'LineChart' '{'
 	//	'name:' name=EString ('legendSide:' legendSide=Orientation)? ('showLegend:' showLegend=EBoolean)? ('title:'
 	//	title=EString)? ('titleSide:' titleSide=Orientation)? ('xAxisLabel:' xAxisLabel=EString)? ('xAxisType:'
-	//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)? ('dataList' '{'
-	//	(data+=ChartFXData data+=ChartFXData*) '}')?
+	//	xAxisType=AxisType)? ('yAxisLabel:' yAxisLabel=EString)? ('yAxisType:' yAxisType=AxisType)? (series+=ChartSeries
+	//	series+=ChartSeries*)?
 	//	'}';
 	public LineChartFXElements getLineChartFXAccess() {
 		return pLineChartFX;
@@ -2295,6 +2359,19 @@ public class JavaFXLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getLineChartFXRule() {
 		return getLineChartFXAccess().getRule();
+	}
+	
+	//ChartSeries:
+	//	{ChartSeries}
+	//	'series' '{'
+	//	'name:' name=EString ('dataList' '{' (dataList+=ChartFXData dataList+=ChartFXData*) '}')?
+	//	'}';
+	public ChartSeriesElements getChartSeriesAccess() {
+		return pChartSeries;
+	}
+	
+	public ParserRule getChartSeriesRule() {
+		return getChartSeriesAccess().getRule();
 	}
 	
 	//ChartFXData:

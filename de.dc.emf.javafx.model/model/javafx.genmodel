@@ -80,7 +80,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/yAxisType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/xAxisLabel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFX/yAxisLabel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//ChartFX/data"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javafx.ecore#//ChartFX/series"/>
+    </genClasses>
+    <genClasses ecoreClass="javafx.ecore#//ChartSeries">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javafx.ecore#//ChartSeries/dataList"/>
     </genClasses>
     <genClasses ecoreClass="javafx.ecore#//ChartFXData">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javafx.ecore#//ChartFXData/xValue"/>

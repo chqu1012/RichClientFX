@@ -137,6 +137,11 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseChartSeries(ChartSeries object) {
+			return createChartSeriesAdapter();
+		}
+
+		@Override
 		public Adapter caseChartFXData(ChartFXData object) {
 			return createChartFXDataAdapter();
 		}
@@ -243,6 +248,20 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.ChartSeries <em>Chart Series</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.ChartSeries
+	 * @generated
+	 */
+	public Adapter createChartSeriesAdapter() {
 		return null;
 	}
 

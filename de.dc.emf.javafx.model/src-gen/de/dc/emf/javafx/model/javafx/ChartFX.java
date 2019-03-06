@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.dc.emf.javafx.model.javafx.ChartFX#getYAxisType <em>YAxis Type</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.ChartFX#getXAxisLabel <em>XAxis Label</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.ChartFX#getYAxisLabel <em>YAxis Label</em>}</li>
- *   <li>{@link de.dc.emf.javafx.model.javafx.ChartFX#getData <em>Data</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.ChartFX#getSeries <em>Series</em>}</li>
  * </ul>
  *
  * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX()
@@ -254,19 +254,19 @@ public interface ChartFX extends NamedElement {
 	void setYAxisLabel(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Data</b></em>' containment reference list.
-	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.ChartFXData}.
+	 * Returns the value of the '<em><b>Series</b></em>' containment reference list.
+	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.ChartSeries}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Data</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Series</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data</em>' containment reference list.
-	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_Data()
+	 * @return the value of the '<em>Series</em>' containment reference list.
+	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_Series()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ChartFXData> getData();
+	EList<ChartSeries> getSeries();
 
 } // ChartFX

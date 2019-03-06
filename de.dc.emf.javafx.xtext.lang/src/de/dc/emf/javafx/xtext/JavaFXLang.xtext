@@ -102,7 +102,15 @@ LineChartFX returns LineChartFX:
 		('xAxisType:' xAxisType=AxisType)?
 		('yAxisLabel:' yAxisLabel=EString)?
 		('yAxisType:' yAxisType=AxisType)?
-		('dataList' '{' (data+=ChartFXData (data+=ChartFXData)*) '}')?
+		((series+=ChartSeries (series+=ChartSeries)*))?
+	'}'
+;
+
+ChartSeries returns ChartSeries:
+	{ChartSeries} 
+	'series' '{' 
+		'name:' name=EString
+		('dataList' '{' (dataList+=ChartFXData (dataList+=ChartFXData)*) '}')?
 	'}'
 ;
 

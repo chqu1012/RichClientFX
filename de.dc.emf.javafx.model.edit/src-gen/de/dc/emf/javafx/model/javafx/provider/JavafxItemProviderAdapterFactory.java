@@ -142,6 +142,29 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.ChartSeries} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChartSeriesItemProvider chartSeriesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.ChartSeries}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChartSeriesAdapter() {
+		if (chartSeriesItemProvider == null) {
+			chartSeriesItemProvider = new ChartSeriesItemProvider(this);
+		}
+
+		return chartSeriesItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.ChartFXData} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,6 +630,8 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			namedElementItemProvider.dispose();
 		if (filteredElementItemProvider != null)
 			filteredElementItemProvider.dispose();
+		if (chartSeriesItemProvider != null)
+			chartSeriesItemProvider.dispose();
 		if (chartFXDataItemProvider != null)
 			chartFXDataItemProvider.dispose();
 		if (lineChartFXItemProvider != null)

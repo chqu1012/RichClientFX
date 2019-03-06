@@ -7,8 +7,6 @@ import javafx.scene.*;
 import javafx.stage.*;
 public class BudgetChartOtherApplication extends Application{
 
-	private int x = 5;
-	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -22,21 +20,18 @@ public class BudgetChartOtherApplication extends Application{
 	
 	protected Parent getRoot() {
 		BudgetChartOther chart = new BudgetChartOther();
-		
-		for (int i = 0; i < 15; i++) {
-			chart.createSeries("Series "+i, getData());
-		}
-
+		List<BudgetChartOther.Data<Number,Number>> exampleData2List = new ArrayList<BudgetChartOther.Data<Number,Number>>();
+		exampleData2List.add(new BudgetChartOther.Data<Number,Number>(10, 20));   
+		exampleData2List.add(new BudgetChartOther.Data<Number,Number>(20, 23));   
+		exampleData2List.add(new BudgetChartOther.Data<Number,Number>(25, 25));   
+		exampleData2List.add(new BudgetChartOther.Data<Number,Number>(30, 30));   
+		chart.createSeries("exampleData2", exampleData2List);
+		List<BudgetChartOther.Data<Number,Number>> exampleData10List = new ArrayList<BudgetChartOther.Data<Number,Number>>();
+		exampleData10List.add(new BudgetChartOther.Data<Number,Number>(0, 0));   
+		exampleData10List.add(new BudgetChartOther.Data<Number,Number>(25, 23));   
+		exampleData10List.add(new BudgetChartOther.Data<Number,Number>(40, 25));   
+		exampleData10List.add(new BudgetChartOther.Data<Number,Number>(80, 30));   
+		chart.createSeries("exampleData10", exampleData10List);
 		return chart;
-	}
-
-	private List<BudgetChartOther.Data<Number,Number>> getData() {
-		List<BudgetChartOther.Data<Number,Number>> list = new ArrayList<BudgetChartOther.Data<Number,Number>>();
-		list.add(new BudgetChartOther.Data<Number,Number>(10+x, 20));   
-		list.add(new BudgetChartOther.Data<Number,Number>(20+x, 23));   
-		list.add(new BudgetChartOther.Data<Number,Number>(25+x, 25));   
-		list.add(new BudgetChartOther.Data<Number,Number>(30+x, 30));   
-		x=x+5;
-		return list;
 	}
 }

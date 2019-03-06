@@ -1883,29 +1883,130 @@ ruleLineChartFX returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_21='dataList'
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getSeriesChartSeriesParserRuleCall_13_0_0());
+					}
+					lv_series_21_0=ruleChartSeries
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						add(
+							$current,
+							"series",
+							lv_series_21_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.ChartSeries");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLineChartFXAccess().getSeriesChartSeriesParserRuleCall_13_1_0());
+					}
+					lv_series_22_0=ruleChartSeries
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+						}
+						add(
+							$current,
+							"series",
+							lv_series_22_0,
+							"de.dc.emf.javafx.xtext.JavaFXLang.ChartSeries");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
+		otherlv_23='}'
+		{
+			newLeafNode(otherlv_23, grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_14());
+		}
+	)
+;
+
+// Entry rule entryRuleChartSeries
+entryRuleChartSeries returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getChartSeriesRule()); }
+	iv_ruleChartSeries=ruleChartSeries
+	{ $current=$iv_ruleChartSeries.current; }
+	EOF;
+
+// Rule ChartSeries
+ruleChartSeries returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
 			{
-				newLeafNode(otherlv_21, grammarAccess.getLineChartFXAccess().getDataListKeyword_13_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getChartSeriesAccess().getChartSeriesAction_0(),
+					$current);
 			}
-			otherlv_22='{'
+		)
+		otherlv_1='series'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getChartSeriesAccess().getSeriesKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getChartSeriesAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='name:'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getChartSeriesAccess().getNameKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getChartSeriesAccess().getNameEStringParserRuleCall_4_0());
+				}
+				lv_name_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getChartSeriesRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_4_0,
+						"de.dc.emf.javafx.xtext.JavaFXLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_5='dataList'
 			{
-				newLeafNode(otherlv_22, grammarAccess.getLineChartFXAccess().getLeftCurlyBracketKeyword_13_1());
+				newLeafNode(otherlv_5, grammarAccess.getChartSeriesAccess().getDataListKeyword_5_0());
+			}
+			otherlv_6='{'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getChartSeriesAccess().getLeftCurlyBracketKeyword_5_1());
 			}
 			(
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getLineChartFXAccess().getDataChartFXDataParserRuleCall_13_2_0_0());
+							newCompositeNode(grammarAccess.getChartSeriesAccess().getDataListChartFXDataParserRuleCall_5_2_0_0());
 						}
-						lv_data_23_0=ruleChartFXData
+						lv_dataList_7_0=ruleChartFXData
 						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+								$current = createModelElementForParent(grammarAccess.getChartSeriesRule());
 							}
 							add(
 								$current,
-								"data",
-								lv_data_23_0,
+								"dataList",
+								lv_dataList_7_0,
 								"de.dc.emf.javafx.xtext.JavaFXLang.ChartFXData");
 							afterParserOrEnumRuleCall();
 						}
@@ -1914,31 +2015,31 @@ ruleLineChartFX returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getLineChartFXAccess().getDataChartFXDataParserRuleCall_13_2_1_0());
+							newCompositeNode(grammarAccess.getChartSeriesAccess().getDataListChartFXDataParserRuleCall_5_2_1_0());
 						}
-						lv_data_24_0=ruleChartFXData
+						lv_dataList_8_0=ruleChartFXData
 						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getLineChartFXRule());
+								$current = createModelElementForParent(grammarAccess.getChartSeriesRule());
 							}
 							add(
 								$current,
-								"data",
-								lv_data_24_0,
+								"dataList",
+								lv_dataList_8_0,
 								"de.dc.emf.javafx.xtext.JavaFXLang.ChartFXData");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)*
 			)
-			otherlv_25='}'
+			otherlv_9='}'
 			{
-				newLeafNode(otherlv_25, grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_13_3());
+				newLeafNode(otherlv_9, grammarAccess.getChartSeriesAccess().getRightCurlyBracketKeyword_5_3());
 			}
 		)?
-		otherlv_26='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_26, grammarAccess.getLineChartFXAccess().getRightCurlyBracketKeyword_14());
+			newLeafNode(otherlv_10, grammarAccess.getChartSeriesAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

@@ -13,6 +13,7 @@ import de.dc.emf.javafx.model.javafx.BindingType;
 import de.dc.emf.javafx.model.javafx.BubbleChartFX;
 import de.dc.emf.javafx.model.javafx.ChartFX;
 import de.dc.emf.javafx.model.javafx.ChartFXData;
+import de.dc.emf.javafx.model.javafx.ChartSeries;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredElement;
@@ -71,6 +72,13 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass chartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chartSeriesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -452,8 +460,26 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getChartFX_Data() {
+	public EReference getChartFX_Series() {
 		return (EReference) chartFXEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChartSeries() {
+		return chartSeriesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChartSeries_DataList() {
+		return (EReference) chartSeriesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -845,7 +871,10 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEAttribute(chartFXEClass, CHART_FX__YAXIS_TYPE);
 		createEAttribute(chartFXEClass, CHART_FX__XAXIS_LABEL);
 		createEAttribute(chartFXEClass, CHART_FX__YAXIS_LABEL);
-		createEReference(chartFXEClass, CHART_FX__DATA);
+		createEReference(chartFXEClass, CHART_FX__SERIES);
+
+		chartSeriesEClass = createEClass(CHART_SERIES);
+		createEReference(chartSeriesEClass, CHART_SERIES__DATA_LIST);
 
 		chartFXDataEClass = createEClass(CHART_FX_DATA);
 		createEAttribute(chartFXDataEClass, CHART_FX_DATA__XVALUE);
@@ -910,6 +939,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		filteredTableViewFXEClass.getESuperTypes().add(this.getFilteredElement());
 		filteredTableViewFXEClass.getESuperTypes().add(this.getTableViewFX());
 		chartFXEClass.getESuperTypes().add(this.getNamedElement());
+		chartSeriesEClass.getESuperTypes().add(this.getNamedElement());
 		lineChartFXEClass.getESuperTypes().add(this.getChartFX());
 		pieChartFXEClass.getESuperTypes().add(this.getChartFX());
 		areaChartFXEClass.getESuperTypes().add(this.getChartFX());
@@ -1022,9 +1052,15 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChartFX_YAxisLabel(), ecorePackage.getEString(), "yAxisLabel", null, 0, 1, ChartFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getChartFX_Data(), this.getChartFXData(), null, "data", null, 0, -1, ChartFX.class,
+		initEReference(getChartFX_Series(), this.getChartSeries(), null, "series", null, 0, -1, ChartFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(chartSeriesEClass, ChartSeries.class, "ChartSeries", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getChartSeries_DataList(), this.getChartFXData(), null, "dataList", null, 0, -1,
+				ChartSeries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chartFXDataEClass, ChartFXData.class, "ChartFXData", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

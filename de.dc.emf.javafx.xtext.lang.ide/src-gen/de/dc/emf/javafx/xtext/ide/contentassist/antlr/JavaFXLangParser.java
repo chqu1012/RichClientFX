@@ -96,7 +96,9 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup_11(), "rule__LineChartFX__Group_11__0");
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup_12(), "rule__LineChartFX__Group_12__0");
 			builder.put(grammarAccess.getLineChartFXAccess().getGroup_13(), "rule__LineChartFX__Group_13__0");
-			builder.put(grammarAccess.getLineChartFXAccess().getGroup_13_2(), "rule__LineChartFX__Group_13_2__0");
+			builder.put(grammarAccess.getChartSeriesAccess().getGroup(), "rule__ChartSeries__Group__0");
+			builder.put(grammarAccess.getChartSeriesAccess().getGroup_5(), "rule__ChartSeries__Group_5__0");
+			builder.put(grammarAccess.getChartSeriesAccess().getGroup_5_2(), "rule__ChartSeries__Group_5_2__0");
 			builder.put(grammarAccess.getChartFXDataAccess().getGroup(), "rule__ChartFXData__Group__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup_4(), "rule__Binding__Group_4__0");
@@ -182,8 +184,11 @@ public class JavaFXLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLineChartFXAccess().getXAxisTypeAssignment_10_1(), "rule__LineChartFX__XAxisTypeAssignment_10_1");
 			builder.put(grammarAccess.getLineChartFXAccess().getYAxisLabelAssignment_11_1(), "rule__LineChartFX__YAxisLabelAssignment_11_1");
 			builder.put(grammarAccess.getLineChartFXAccess().getYAxisTypeAssignment_12_1(), "rule__LineChartFX__YAxisTypeAssignment_12_1");
-			builder.put(grammarAccess.getLineChartFXAccess().getDataAssignment_13_2_0(), "rule__LineChartFX__DataAssignment_13_2_0");
-			builder.put(grammarAccess.getLineChartFXAccess().getDataAssignment_13_2_1(), "rule__LineChartFX__DataAssignment_13_2_1");
+			builder.put(grammarAccess.getLineChartFXAccess().getSeriesAssignment_13_0(), "rule__LineChartFX__SeriesAssignment_13_0");
+			builder.put(grammarAccess.getLineChartFXAccess().getSeriesAssignment_13_1(), "rule__LineChartFX__SeriesAssignment_13_1");
+			builder.put(grammarAccess.getChartSeriesAccess().getNameAssignment_4(), "rule__ChartSeries__NameAssignment_4");
+			builder.put(grammarAccess.getChartSeriesAccess().getDataListAssignment_5_2_0(), "rule__ChartSeries__DataListAssignment_5_2_0");
+			builder.put(grammarAccess.getChartSeriesAccess().getDataListAssignment_5_2_1(), "rule__ChartSeries__DataListAssignment_5_2_1");
 			builder.put(grammarAccess.getChartFXDataAccess().getXValueAssignment_3(), "rule__ChartFXData__XValueAssignment_3");
 			builder.put(grammarAccess.getChartFXDataAccess().getYValueAssignment_5(), "rule__ChartFXData__YValueAssignment_5");
 			builder.put(grammarAccess.getBindingAccess().getNameAssignment_2(), "rule__Binding__NameAssignment_2");

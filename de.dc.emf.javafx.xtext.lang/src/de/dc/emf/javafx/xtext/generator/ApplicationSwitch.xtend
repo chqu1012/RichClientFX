@@ -72,20 +72,14 @@ class ApplicationSwitch extends JavafxSwitch<String>{
 		
 		protected Parent getRoot() {
 			«name» chart = new «name»();
-			
-			for (int i = 0; i < 15; i++) {
-				chart.createSeries("Series "+i, getData());
-			}
-	
-			return chart;
-		}
-	
-		private List<«name».Data<«xAxisType»,«yAxisType»>> getData() {
-			List<«name».Data<«xAxisType»,«yAxisType»>> list = new ArrayList<«name».Data<«xAxisType»,«yAxisType»>>();
-			«FOR data: object.data»
-			list.add(new «name».Data<«xAxisType»,«yAxisType»>(«data.XValue», «data.YValue»));   
+			«FOR series : object.series»
+			List<«name».Data<«xAxisType»,«yAxisType»>> «series.name»List = new ArrayList<«name».Data<«xAxisType»,«yAxisType»>>();
+			«FOR data: series.dataList»
+			«series.name»List.add(new «name».Data<«xAxisType»,«yAxisType»>(«data.XValue», «data.YValue»));   
 			«ENDFOR»
-			return list;
+			chart.createSeries("«series.name»", «series.name»List);
+			«ENDFOR»
+			return chart;
 		}
 	}
 	'''

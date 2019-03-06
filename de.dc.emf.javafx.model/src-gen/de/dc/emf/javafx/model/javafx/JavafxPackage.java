@@ -810,13 +810,13 @@ public interface JavafxPackage extends EPackage {
 	int CHART_FX__YAXIS_LABEL = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHART_FX__DATA = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int CHART_FX__SERIES = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Chart FX</em>' class.
@@ -837,6 +837,52 @@ public interface JavafxPackage extends EPackage {
 	int CHART_FX_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.ChartSeriesImpl <em>Chart Series</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.ChartSeriesImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartSeries()
+	 * @generated
+	 */
+	int CHART_SERIES = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_SERIES__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Data List</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_SERIES__DATA_LIST = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Chart Series</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_SERIES_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Chart Series</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_SERIES_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.ChartFXDataImpl <em>Chart FX Data</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -844,7 +890,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartFXData()
 	 * @generated
 	 */
-	int CHART_FX_DATA = 14;
+	int CHART_FX_DATA = 15;
 
 	/**
 	 * The feature id for the '<em><b>XValue</b></em>' attribute.
@@ -890,7 +936,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getLineChartFX()
 	 * @generated
 	 */
-	int LINE_CHART_FX = 15;
+	int LINE_CHART_FX = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -974,13 +1020,13 @@ public interface JavafxPackage extends EPackage {
 	int LINE_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINE_CHART_FX__DATA = CHART_FX__DATA;
+	int LINE_CHART_FX__SERIES = CHART_FX__SERIES;
 
 	/**
 	 * The number of structural features of the '<em>Line Chart FX</em>' class.
@@ -1008,7 +1054,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getPieChartFX()
 	 * @generated
 	 */
-	int PIE_CHART_FX = 16;
+	int PIE_CHART_FX = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1092,13 +1138,13 @@ public interface JavafxPackage extends EPackage {
 	int PIE_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIE_CHART_FX__DATA = CHART_FX__DATA;
+	int PIE_CHART_FX__SERIES = CHART_FX__SERIES;
 
 	/**
 	 * The number of structural features of the '<em>Pie Chart FX</em>' class.
@@ -1126,7 +1172,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAreaChartFX()
 	 * @generated
 	 */
-	int AREA_CHART_FX = 17;
+	int AREA_CHART_FX = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1210,13 +1256,13 @@ public interface JavafxPackage extends EPackage {
 	int AREA_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AREA_CHART_FX__DATA = CHART_FX__DATA;
+	int AREA_CHART_FX__SERIES = CHART_FX__SERIES;
 
 	/**
 	 * The number of structural features of the '<em>Area Chart FX</em>' class.
@@ -1244,7 +1290,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBubbleChartFX()
 	 * @generated
 	 */
-	int BUBBLE_CHART_FX = 18;
+	int BUBBLE_CHART_FX = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1328,13 +1374,13 @@ public interface JavafxPackage extends EPackage {
 	int BUBBLE_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUBBLE_CHART_FX__DATA = CHART_FX__DATA;
+	int BUBBLE_CHART_FX__SERIES = CHART_FX__SERIES;
 
 	/**
 	 * The number of structural features of the '<em>Bubble Chart FX</em>' class.
@@ -1362,7 +1408,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getScatterChartFX()
 	 * @generated
 	 */
-	int SCATTER_CHART_FX = 19;
+	int SCATTER_CHART_FX = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1446,13 +1492,13 @@ public interface JavafxPackage extends EPackage {
 	int SCATTER_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCATTER_CHART_FX__DATA = CHART_FX__DATA;
+	int SCATTER_CHART_FX__SERIES = CHART_FX__SERIES;
 
 	/**
 	 * The number of structural features of the '<em>Scatter Chart FX</em>' class.
@@ -1480,7 +1526,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBarChartFX()
 	 * @generated
 	 */
-	int BAR_CHART_FX = 20;
+	int BAR_CHART_FX = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1564,13 +1610,13 @@ public interface JavafxPackage extends EPackage {
 	int BAR_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_CHART_FX__DATA = CHART_FX__DATA;
+	int BAR_CHART_FX__SERIES = CHART_FX__SERIES;
 
 	/**
 	 * The number of structural features of the '<em>Bar Chart FX</em>' class.
@@ -1598,7 +1644,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingType()
 	 * @generated
 	 */
-	int BINDING_TYPE = 21;
+	int BINDING_TYPE = 22;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.Orientation <em>Orientation</em>}' enum.
@@ -1608,7 +1654,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 22;
+	int ORIENTATION = 23;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.AxisType <em>Axis Type</em>}' enum.
@@ -1618,7 +1664,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAxisType()
 	 * @generated
 	 */
-	int AXIS_TYPE = 23;
+	int AXIS_TYPE = 24;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ProjectFX <em>Project FX</em>}'.
@@ -1826,15 +1872,36 @@ public interface JavafxPackage extends EPackage {
 	EAttribute getChartFX_YAxisLabel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.ChartFX#getData <em>Data</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.ChartFX#getSeries <em>Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Data</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getData()
+	 * @return the meta object for the containment reference list '<em>Series</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartFX#getSeries()
 	 * @see #getChartFX()
 	 * @generated
 	 */
-	EReference getChartFX_Data();
+	EReference getChartFX_Series();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ChartSeries <em>Chart Series</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chart Series</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartSeries
+	 * @generated
+	 */
+	EClass getChartSeries();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.ChartSeries#getDataList <em>Data List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data List</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ChartSeries#getDataList()
+	 * @see #getChartSeries()
+	 * @generated
+	 */
+	EReference getChartSeries_DataList();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ChartFXData <em>Chart FX Data</em>}'.
@@ -2374,12 +2441,30 @@ public interface JavafxPackage extends EPackage {
 		EAttribute CHART_FX__YAXIS_LABEL = eINSTANCE.getChartFX_YAxisLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Data</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Series</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CHART_FX__DATA = eINSTANCE.getChartFX_Data();
+		EReference CHART_FX__SERIES = eINSTANCE.getChartFX_Series();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ChartSeriesImpl <em>Chart Series</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.ChartSeriesImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartSeries()
+		 * @generated
+		 */
+		EClass CHART_SERIES = eINSTANCE.getChartSeries();
+
+		/**
+		 * The meta object literal for the '<em><b>Data List</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHART_SERIES__DATA_LIST = eINSTANCE.getChartSeries_DataList();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ChartFXDataImpl <em>Chart FX Data</em>}' class.

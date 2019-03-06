@@ -20,16 +20,6 @@ public class StudentsOverviewChartApplication extends Application{
 	
 	protected Parent getRoot() {
 		StudentsOverviewChart chart = new StudentsOverviewChart();
-		
-		for (int i = 0; i < 15; i++) {
-			chart.createSeries("Series "+i, getData());
-		}
-
 		return chart;
-	}
-
-	private List<StudentsOverviewChart.Data<Number,Number>> getData() {
-		List<StudentsOverviewChart.Data<Number,Number>> list = new ArrayList<StudentsOverviewChart.Data<Number,Number>>();
-		return list;
 	}
 }
