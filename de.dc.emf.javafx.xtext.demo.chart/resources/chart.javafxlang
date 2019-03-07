@@ -13,22 +13,34 @@ ProjectFX ContactProject{
 			titleSide:Top
 			xAxisLabel:"Budget"
 			yAxisLabel:"Month"
-			series{ 
+			series{  
 				name:"exampleData2" 
 				dataList{
+					data('0','5') 
 					data('10','20') 
 					data('20','23')   
 					data('25','25') 
 					data('30','30') 
 				}
 			}
-			series{ 
+			series{
 				name:"exampleData10"
 				dataList{ 
-					data('0','0') 
-					data('25','23')   
+					data('0','5') 
+					data('25','5')   
+					data('40','7') 
+					data('80','9') 
+				}
+			}
+
+			series{  
+				name:"exampleData15"
+				dataList{ 
+					data('0','5') 
+					data('5','10') 
+					data('20','15')   
 					data('40','25') 
-					data('80','30') 
+					data('80','29') 
 				}
 			}
 		}
