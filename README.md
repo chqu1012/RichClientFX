@@ -61,7 +61,7 @@ ProjectFX ContactProject{
 
 Each Filter columns as activate the filter by ```useFilter: true```
 
-```
+```java
 ProjectFX ContactProject{
 	packagePath 'de.dc.emf.javafx.xtext.demo.contact'
 	
@@ -107,6 +107,51 @@ LineChart{
 ```
 
 ![LineChart Example](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.model.res/images/04-LineChartView.png)
+
+### LineChart with 3 series
+
+```java
+LineChart{
+	name: BudgetChartOther
+	legendSide:Top
+	title:"Other Budget Chart"
+	titleSide:Top
+	xAxisLabel:"Budget"
+	yAxisLabel:"Month"
+	series{  
+		name:"exampleData2" 
+		dataList{
+			data('0','5') 
+			data('10','20') 
+			data('20','23')   
+			data('25','25') 
+			data('30','30') 
+		}
+	}
+	series{
+		name:"exampleData10"
+		dataList{ 
+			data('0','5') 
+			data('25','5')   
+			data('40','7') 
+			data('80','9') 
+		}
+	}
+
+	series{  
+		name:"exampleData15"
+		dataList{ 
+			data('0','5') 
+			data('5','10') 
+			data('20','15')   
+			data('40','25') 
+			data('80','29') 
+		}
+	}
+}
+```
+
+![LineChart Example](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.model.res/images/05-LineChartView-With-3-Series.png)
 
 
 ## ChangeLog
