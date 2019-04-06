@@ -87,6 +87,7 @@ PieChartFX returns PieChartFX:
 		('showLegend:' showLegend=EBoolean)?
 		('title:' title=EString)?
 		('titleSide:' titleSide=Orientation)?
+		((series+=ChartSeries (series+=ChartSeries)*))?
 	'}'
 ;
 

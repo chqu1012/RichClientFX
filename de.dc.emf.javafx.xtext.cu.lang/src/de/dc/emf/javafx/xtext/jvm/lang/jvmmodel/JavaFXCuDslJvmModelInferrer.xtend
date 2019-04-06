@@ -16,50 +16,81 @@ import org.eclipse.xtext.common.types.JvmVisibility
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import org.eclipse.xtext.common.types.JvmTypeParameter
+import org.eclipse.xtext.common.types.TypesFactory
+import org.eclipse.xtext.common.types.util.TypeReferences
+import org.eclipse.xtext.common.types.JvmFormalParameter
+import javafx.collections.FXCollections
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
 	@Inject extension JvmTypesBuilder
+	@Inject extension TypeReferences typeReferences
 
 	def dispatch void infer(ProjectFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		val packagePath = element.packagePath+'.'
 		
 		element.controls.filter[ it instanceof TableViewFX].forEach[content|
 			acceptor.accept(element.toClass(packagePath+'Base'+content.name)) [
+				val JvmTypeParameter param = TypesFactory::eINSTANCE.createJvmTypeParameter
+				param.setName("T")
+				typeParameters += param
+				
 				val table = content as TableViewFX
-				superTypes+=TableView.typeRef()
+				superTypes+=TableView.typeRef(typeReferences.createTypeRef(param))
 				
-				members += element.toField('masterData', ObservableList.typeRef)
-				members += element.toField('filteredMasterData', FilteredList.typeRef)
-				
-				table.columns.forEach[col|
-					members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef)
+				members += element.toField('masterData', ObservableList.typeRef)[
+					initializer = '''«FXCollections».observableArrayList()'''
+				]
+				members += element.toField('filteredMasterData', FilteredList.typeRef())[
+					initializer = '''new «FilteredList»<>(masterData, p->true)'''
 				]
 				
-//				val modelName = '''«IF table.usedModel===null»«ELSE»«table.usedModel.name.toFirstUpper»«ENDIF»'''
-//				
-//				element.toConstructor[
-//					body = '''
-//					«FOR col : table.columns»
-//					«col.name.toFirstLower»Column = createColumn("«col.name.toFirstUpper»", «col.width»,  new Base«modelName»CellFeatures(«modelName»Type.«col.name.toFirstUpper»));
-//					«ENDFOR»
-//					'''
-//				]
-//				
-//				members += element.toMethod('createColumn', TableColumn.typeRef)[
-//					visibility=JvmVisibility.PROTECTED
-//					parameters+=element.toParameter('name', String.typeRef)
-//					parameters+=element.toParameter('width', Double.typeRef)
-//					parameters+=element.toParameter('width', Callback.typeRef)
-//					parameters+=element.toParameter('cellFeatures', ObservableValue.typeRef)
-//					body = '''
-//					TableColumn column = new TableColumn(name);
-//					column.setPrefWidth(width);
-//					column.setCellValueFactory(cellFeatures);
-//					getColumns().add(column);
-//					return column;					
-//					'''
-//				]
+				table.columns.forEach[col|
+					members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param)))
+				]
+				
+				val modelName = '''«IF table.usedModel===null»«ELSE»«table.usedModel.name.toFirstUpper»«ENDIF»'''
+				
+				members += element.toConstructor[
+					body = '''
+					«FOR col : table.columns»
+					«col.name.toFirstLower»Column = createColumn(«modelName»Type.«col.name.toFirstUpper».name(), Double.valueOf(«col.width»),  new Base«modelName»CellFeatures(«modelName»Type.«col.name.toFirstUpper»));
+					«ENDFOR»
+					setItems(filteredMasterData);
+					'''
+				]
+				
+				// #createColumn Method
+				members += element.toMethod('createColumn', TableColumn.typeRef)[
+					visibility=JvmVisibility.PROTECTED
+					parameters+=element.toParameter('name', String.typeRef)
+					parameters+=element.toParameter('width', Double.typeRef)
+					parameters+=element.toParameter('cellFeatures', Callback.typeRef)
+					body = '''
+				    «TableColumn»<T, T> column = new «TableColumn»(name);
+				    column.setPrefWidth(width);
+				    column.setCellValueFactory(cellFeatures);
+				    getColumns().add(column);		
+				    return column;	
+					'''
+				]
+
+				// #setInput Method
+				members += element.toMethod('setInput', "void".typeRef)[
+					visibility=JvmVisibility.PROTECTED
+					
+					val JvmFormalParameter arg = TypesFactory::eINSTANCE.createJvmFormalParameter
+					arg.name = "items"
+					arg.parameterType = ObservableList.typeRef(typeReferences.createTypeRef(param))
+					
+					parameters += arg
+					body = '''
+					masterData.clear();
+					masterData.addAll(items);
+					'''
+				]
+				
 			]
 		]
 	}

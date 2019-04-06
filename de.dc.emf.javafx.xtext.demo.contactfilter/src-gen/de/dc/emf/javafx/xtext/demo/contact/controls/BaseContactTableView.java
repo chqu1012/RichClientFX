@@ -4,6 +4,7 @@ import de.dc.emf.javafx.xtext.demo.contact.model.*;
 import de.dc.emf.javafx.xtext.demo.contact.controls.cell.*;
 import javafx.beans.binding.Bindings;
 import javafx.collections.*;
+import javafx.collections.*;
 import javafx.beans.value.*;
 import javafx.util.*;
 import javafx.collections.transformation.FilteredList;
