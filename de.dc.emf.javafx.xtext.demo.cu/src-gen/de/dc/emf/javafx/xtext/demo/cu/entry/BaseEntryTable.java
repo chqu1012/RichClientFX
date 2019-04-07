@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -67,10 +68,20 @@ public class BaseEntryTable extends BorderPane {
                 searchTextfield.textProperty()));
     tableView.setItems(filteredMasterData);
     tableView.setOnKeyReleased(e ->{ 
-    	if(getTop()==null) {
-    		setTop(topPane);
+    	if (e.getCode().equals(KeyCode.ESCAPE)) {
+    		setTop(null);
+    		searchProperty.set("");
+    	}else if(e.getCode().equals(KeyCode.BACK_SPACE)){
+    		if(getTop()==null) {
+    			setTop(topPane);
+    		}
+    		searchTextfield.requestFocus();
+    	}else {
+    		if(getTop()==null) {
+    			setTop(topPane);
+    		}
+    		searchProperty.set(searchProperty.get()+e.getText());
     	}
-    	searchProperty.set(searchProperty.get()+e.getText());
     });
     filteredMasterData.predicateProperty().bind(Bindings.createObjectBinding(()->nameFilter.get(), nameFilter));
   }

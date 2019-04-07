@@ -143,4 +143,6 @@ Import-Package: com.sun.javafx,
  javafx.scene.web,
  javafx.stage,
  javafx.util,
- javafx.util.converter
+ javafx.util.converter,
+ org.apache.log4j
+

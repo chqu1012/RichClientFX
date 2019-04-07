@@ -21,11 +21,15 @@ Require-Bundle: de.dc.emf.javafx.xtext.cu.lang,
  org.eclipse.compare,
  org.eclipse.xtext.builder,
  org.eclipse.xtend.lib;resolution:=optional,
- org.eclipse.jdt.debug.ui
+ org.eclipse.jdt.debug.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.forms
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.dc.emf.javafx.xtext.jvm.lang.ui.contentassist,
  de.dc.emf.javafx.xtext.jvm.lang.ui.quickfix,
  de.dc.emf.javafx.xtext.cu.lang.ui.internal,
- de.dc.emf.javafx.xtext.jvm.lang.ui.editor
+ de.dc.emf.javafx.xtext.jvm.lang.ui.editor,
+ de.dc.emf.javafx.xtext.jvm.lang.ui.wizard
 Bundle-Activator: de.dc.emf.javafx.xtext.cu.lang.ui.internal.LangActivator

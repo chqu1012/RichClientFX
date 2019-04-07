@@ -89,17 +89,17 @@ public class BaseTabke extends BorderPane {
     	if (e.getCode().equals(KeyCode.ESCAPE)) {
     		setTop(null);
     		searchProperty.set("");
-		}else if(e.getCode().equals(KeyCode.BACK_SPACE)){
-			if(getTop()==null) {
-				setTop(topPane);
-			}
-			searchTextfield.requestFocus();
-		}else {
-			if(getTop()==null) {
-				setTop(topPane);
-			}
-			searchProperty.set(searchProperty.get()+e.getText());
-		}
+    	}else if(e.getCode().equals(KeyCode.BACK_SPACE)){
+    		if(getTop()==null) {
+    			setTop(topPane);
+    		}
+    		searchTextfield.requestFocus();
+    	}else {
+    		if(getTop()==null) {
+    			setTop(topPane);
+    		}
+    		searchProperty.set(searchProperty.get()+e.getText());
+    	}
     });
     filteredMasterData.predicateProperty().bind(Bindings.createObjectBinding(()->nameFilter.get().or(ageFilter.get()).or(genderFilter.get()).or(addressFilter.get()), nameFilter,ageFilter,genderFilter,addressFilter));
   }

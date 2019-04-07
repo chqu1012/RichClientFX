@@ -422,30 +422,8 @@
 				</reference>
 			</activeWhen>
 		</handler>
-		<handler
-			class="de.dc.emf.javafx.xtext.jvm.lang.ui.JavaFXCuDslExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.imports.OrganizeImportsHandler"
-			commandId="org.eclipse.xtext.xbase.ui.organizeImports">
-			<activeWhen>
-				<reference
-					definitionId="de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.Editor.opened">
-				</reference>
-			</activeWhen>
-		</handler>
 	</extension>
 	<extension point="org.eclipse.ui.menus">
-		<menuContribution
-			locationURI="popup:#TextEditorContext?after=group.edit">
-			 <command
-				 commandId="org.eclipse.xtext.xbase.ui.organizeImports"
-				 style="push"
-				 tooltip="Organize Imports">
-				<visibleWhen checkEnabled="false">
-					<reference
-						definitionId="de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.Editor.opened">
-					</reference>
-				</visibleWhen>
-			</command>
-		</menuContribution>
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.open">
 			<command commandId="org.eclipse.xtext.xbase.ui.hierarchy.OpenTypeHierarchy"
@@ -611,5 +589,62 @@
 			extension="jfxcu"
 			type="text">
 		</fileTypes>
+	</extension>
+	<extension
+		point="org.eclipse.ui.newWizards">
+		<category id="de.dc.emf.javafx.xtext.jvm.lang.ui.category" name="JavaFXCuDsl">
+		</category>
+		<wizard
+			category="de.dc.emf.javafx.xtext.jvm.lang.ui.category"
+			class="de.dc.emf.javafx.xtext.jvm.lang.ui.JavaFXCuDslExecutableExtensionFactory:org.eclipse.xtext.ui.wizard.template.TemplateNewProjectWizard"
+			id="de.dc.emf.javafx.xtext.jvm.lang.ui.wizard.JavaFXCuDslNewProjectWizard"
+			name="JavaFXCuDsl Project"
+			icon="icons/new_JavaFXCuDsl_proj.gif"
+			project="true">
+		</wizard>
+	</extension>
+	<extension
+	      point="org.eclipse.xtext.ui.projectTemplate">
+	   <projectTemplateProvider
+	         class="de.dc.emf.javafx.xtext.jvm.lang.ui.wizard.JavaFXCuDslProjectTemplateProvider"
+	         grammarName="de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl">
+	   </projectTemplateProvider>
+	</extension>
+	<extension
+		point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+			<newWizardShortcut id="de.dc.emf.javafx.xtext.jvm.lang.ui.wizard.JavaFXCuDslNewProjectWizard"/>
+		</perspectiveExtension>
+		<perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+			<newWizardShortcut id="de.dc.emf.javafx.xtext.jvm.lang.ui.wizard.JavaFXCuDslNewProjectWizard"/>
+		</perspectiveExtension>
+	</extension>
+	<extension
+		point="org.eclipse.ui.newWizards">
+		<category id="de.dc.emf.javafx.xtext.jvm.lang.ui.category" name="JavaFXCuDsl">
+		</category>
+		<wizard
+			category="de.dc.emf.javafx.xtext.jvm.lang.ui.category"
+			class="de.dc.emf.javafx.xtext.jvm.lang.ui.JavaFXCuDslExecutableExtensionFactory:org.eclipse.xtext.ui.wizard.template.TemplateNewFileWizard"
+			id="de.dc.emf.javafx.xtext.jvm.lang.ui.wizard.JavaFXCuDslNewFileWizard"
+			name="JavaFXCuDsl File"
+			icon="icons/new_JavaFXCuDsl_file.png">
+		</wizard>
+	</extension>
+	<extension
+	      point="org.eclipse.xtext.ui.fileTemplate">
+	   <fileTemplateProvider
+	         class="de.dc.emf.javafx.xtext.jvm.lang.ui.wizard.JavaFXCuDslFileTemplateProvider"
+	         grammarName="de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl">
+	   </fileTemplateProvider>
+	</extension>
+	<extension
+		point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+			<newWizardShortcut id="de.dc.emf.javafx.xtext.jvm.lang.ui.wizard.JavaFXCuDslNewFileWizard"/>
+		</perspectiveExtension>
+		<perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+			<newWizardShortcut id="de.dc.emf.javafx.xtext.jvm.lang.ui.wizard.JavaFXCuDslNewFileWizard"/>
+		</perspectiveExtension>
 	</extension>
 </plugin>

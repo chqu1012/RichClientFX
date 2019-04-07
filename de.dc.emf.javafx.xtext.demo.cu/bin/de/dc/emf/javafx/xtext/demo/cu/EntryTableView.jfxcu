@@ -1,22 +1,19 @@
-ProjectFX{
-	packagePath "de.dc.emf.javafx.xtext.demo.cu.entry"
-	name:"HalloWelte" 
+packagePath "de.dc.emf.javafx.xtext.demo.cu.entry"
 
-	controls{
-		TableViewFX{  
-			name:'EntryTable'
-			usedModel:"Entry" 
-			Column(name:Id)
-			Column(name:Name width:300 useFilter)
-			Column(name:Timestamp)
-		} 
-	}
-	 
-	models{
-		class Entry{
-			int id
-			String name
-			"java.time.LocalDateTime" timestamp
-		}
+controls{
+	TableViewFX{  
+		name:'EntryTable'
+		usedModel:"Entry" 
+		Column(name:Id)
+		Column(name:Name width:300 useFilter)
+		Column(name:Timestamp)
 	} 
 }
+ 
+models{
+	class Entry{
+		int id
+		String name
+		"java.time.LocalDateTime" timestamp
+	}
+} 

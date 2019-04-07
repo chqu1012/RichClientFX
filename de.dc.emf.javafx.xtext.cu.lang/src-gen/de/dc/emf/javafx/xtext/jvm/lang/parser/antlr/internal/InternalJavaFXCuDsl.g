@@ -78,31 +78,16 @@ ruleProjectFX returns [EObject current=null]
 }:
 	(
 		(
+			otherlv_0='packagePath'
 			{
-				$current = forceCreateModelElement(
-					grammarAccess.getProjectFXAccess().getProjectFXAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='ProjectFX'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getProjectFXAccess().getProjectFXKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='packagePath'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getProjectFXAccess().getPackagePathKeyword_3_0());
+				newLeafNode(otherlv_0, grammarAccess.getProjectFXAccess().getPackagePathKeyword_0_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getPackagePathEStringParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getProjectFXAccess().getPackagePathEStringParserRuleCall_0_1_0());
 					}
-					lv_packagePath_4_0=ruleEString
+					lv_packagePath_1_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
@@ -110,7 +95,7 @@ ruleProjectFX returns [EObject current=null]
 						set(
 							$current,
 							"packagePath",
-							lv_packagePath_4_0,
+							lv_packagePath_1_0,
 							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.EString");
 						afterParserOrEnumRuleCall();
 					}
@@ -118,54 +103,81 @@ ruleProjectFX returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_5='name:'
+			otherlv_2='controls'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getProjectFXAccess().getNameKeyword_4_0());
+				newLeafNode(otherlv_2, grammarAccess.getProjectFXAccess().getControlsKeyword_1_0());
+			}
+			otherlv_3='{'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_1_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getNameEStringParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getProjectFXAccess().getControlsControlFXParserRuleCall_1_2_0());
 					}
-					lv_name_6_0=ruleEString
+					lv_controls_4_0=ruleControlFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
 						}
-						set(
+						add(
 							$current,
-							"name",
-							lv_name_6_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.EString");
+							"controls",
+							lv_controls_4_0,
+							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ControlFX");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProjectFXAccess().getControlsControlFXParserRuleCall_1_3_0());
+					}
+					lv_controls_5_0=ruleControlFX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
+						}
+						add(
+							$current,
+							"controls",
+							lv_controls_5_0,
+							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ControlFX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			otherlv_6='}'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_1_4());
+			}
 		)?
 		(
-			otherlv_7='controls'
+			otherlv_7='models'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getProjectFXAccess().getControlsKeyword_5_0());
+				newLeafNode(otherlv_7, grammarAccess.getProjectFXAccess().getModelsKeyword_2_0());
 			}
 			otherlv_8='{'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_5_1());
+				newLeafNode(otherlv_8, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_2_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getControlsControlFXParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getProjectFXAccess().getModelsModelFXParserRuleCall_2_2_0());
 					}
-					lv_controls_9_0=ruleControlFX
+					lv_models_9_0=ruleModelFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
 						}
 						add(
 							$current,
-							"controls",
-							lv_controls_9_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ControlFX");
+							"models",
+							lv_models_9_0,
+							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ModelFX");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -173,51 +185,51 @@ ruleProjectFX returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getControlsControlFXParserRuleCall_5_3_0());
+						newCompositeNode(grammarAccess.getProjectFXAccess().getModelsModelFXParserRuleCall_2_3_0());
 					}
-					lv_controls_10_0=ruleControlFX
+					lv_models_10_0=ruleModelFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
 						}
 						add(
 							$current,
-							"controls",
-							lv_controls_10_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ControlFX");
+							"models",
+							lv_models_10_0,
+							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ModelFX");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
 			otherlv_11='}'
 			{
-				newLeafNode(otherlv_11, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_5_4());
+				newLeafNode(otherlv_11, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_2_4());
 			}
 		)?
 		(
-			otherlv_12='models'
+			otherlv_12='bindings'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getProjectFXAccess().getModelsKeyword_6_0());
+				newLeafNode(otherlv_12, grammarAccess.getProjectFXAccess().getBindingsKeyword_3_0());
 			}
 			otherlv_13='{'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_6_1());
+				newLeafNode(otherlv_13, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_3_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getModelsModelFXParserRuleCall_6_2_0());
+						newCompositeNode(grammarAccess.getProjectFXAccess().getBindingsBindingParserRuleCall_3_2_0());
 					}
-					lv_models_14_0=ruleModelFX
+					lv_bindings_14_0=ruleBinding
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
 						}
 						add(
 							$current,
-							"models",
-							lv_models_14_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ModelFX");
+							"bindings",
+							lv_bindings_14_0,
+							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.Binding");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -225,51 +237,51 @@ ruleProjectFX returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getModelsModelFXParserRuleCall_6_3_0());
+						newCompositeNode(grammarAccess.getProjectFXAccess().getBindingsBindingParserRuleCall_3_3_0());
 					}
-					lv_models_15_0=ruleModelFX
+					lv_bindings_15_0=ruleBinding
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
 						}
 						add(
 							$current,
-							"models",
-							lv_models_15_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ModelFX");
+							"bindings",
+							lv_bindings_15_0,
+							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.Binding");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
 			otherlv_16='}'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_6_4());
+				newLeafNode(otherlv_16, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_3_4());
 			}
 		)?
 		(
-			otherlv_17='bindings'
+			otherlv_17='charts'
 			{
-				newLeafNode(otherlv_17, grammarAccess.getProjectFXAccess().getBindingsKeyword_7_0());
+				newLeafNode(otherlv_17, grammarAccess.getProjectFXAccess().getChartsKeyword_4_0());
 			}
 			otherlv_18='{'
 			{
-				newLeafNode(otherlv_18, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_7_1());
+				newLeafNode(otherlv_18, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_4_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getBindingsBindingParserRuleCall_7_2_0());
+						newCompositeNode(grammarAccess.getProjectFXAccess().getChartsChartFXParserRuleCall_4_2_0());
 					}
-					lv_bindings_19_0=ruleBinding
+					lv_charts_19_0=ruleChartFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
 						}
 						add(
 							$current,
-							"bindings",
-							lv_bindings_19_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.Binding");
+							"charts",
+							lv_charts_19_0,
+							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ChartFX");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -277,83 +289,27 @@ ruleProjectFX returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getBindingsBindingParserRuleCall_7_3_0());
+						newCompositeNode(grammarAccess.getProjectFXAccess().getChartsChartFXParserRuleCall_4_3_0());
 					}
-					lv_bindings_20_0=ruleBinding
+					lv_charts_20_0=ruleChartFX
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
 						}
 						add(
 							$current,
-							"bindings",
-							lv_bindings_20_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.Binding");
+							"charts",
+							lv_charts_20_0,
+							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ChartFX");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
 			otherlv_21='}'
 			{
-				newLeafNode(otherlv_21, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_7_4());
+				newLeafNode(otherlv_21, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_4_4());
 			}
 		)?
-		(
-			otherlv_22='charts'
-			{
-				newLeafNode(otherlv_22, grammarAccess.getProjectFXAccess().getChartsKeyword_8_0());
-			}
-			otherlv_23='{'
-			{
-				newLeafNode(otherlv_23, grammarAccess.getProjectFXAccess().getLeftCurlyBracketKeyword_8_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getChartsChartFXParserRuleCall_8_2_0());
-					}
-					lv_charts_24_0=ruleChartFX
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
-						}
-						add(
-							$current,
-							"charts",
-							lv_charts_24_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ChartFX");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProjectFXAccess().getChartsChartFXParserRuleCall_8_3_0());
-					}
-					lv_charts_25_0=ruleChartFX
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProjectFXRule());
-						}
-						add(
-							$current,
-							"charts",
-							lv_charts_25_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ChartFX");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-			otherlv_26='}'
-			{
-				newLeafNode(otherlv_26, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_8_4());
-			}
-		)?
-		otherlv_27='}'
-		{
-			newLeafNode(otherlv_27, grammarAccess.getProjectFXAccess().getRightCurlyBracketKeyword_9());
-		}
 	)
 ;
 
@@ -372,25 +328,14 @@ ruleControlFX returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	(
-		{
-			newCompositeNode(grammarAccess.getControlFXAccess().getTableViewFXParserRuleCall_0());
-		}
-		this_TableViewFX_0=ruleTableViewFX
-		{
-			$current = $this_TableViewFX_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getControlFXAccess().getFilteredTableViewFXParserRuleCall_1());
-		}
-		this_FilteredTableViewFX_1=ruleFilteredTableViewFX
-		{
-			$current = $this_FilteredTableViewFX_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
+	{
+		newCompositeNode(grammarAccess.getControlFXAccess().getTableViewFXParserRuleCall());
+	}
+	this_TableViewFX_0=ruleTableViewFX
+	{
+		$current = $this_TableViewFX_0.current;
+		afterParserOrEnumRuleCall();
+	}
 ;
 
 // Entry rule entryRuleModelFX
@@ -753,145 +698,6 @@ ruleTableViewFX returns [EObject current=null]
 		otherlv_9='}'
 		{
 			newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_6());
-		}
-	)
-;
-
-// Entry rule entryRuleFilteredTableViewFX
-entryRuleFilteredTableViewFX returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getFilteredTableViewFXRule()); }
-	iv_ruleFilteredTableViewFX=ruleFilteredTableViewFX
-	{ $current=$iv_ruleFilteredTableViewFX.current; }
-	EOF;
-
-// Rule FilteredTableViewFX
-ruleFilteredTableViewFX returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getFilteredTableViewFXAccess().getFilteredTableViewFXAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='FilteredTableViewFX'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getFilteredTableViewFXAccess().getFilteredTableViewFXKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getFilteredTableViewFXAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='name:'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getFilteredTableViewFXAccess().getNameKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getNameEStringParserRuleCall_3_1_0());
-					}
-					lv_name_4_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFilteredTableViewFXRule());
-						}
-						set(
-							$current,
-							"name",
-							lv_name_4_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.EString");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		(
-			(
-				lv_useFilter_5_0='useFilter'
-				{
-					newLeafNode(lv_useFilter_5_0, grammarAccess.getFilteredTableViewFXAccess().getUseFilterUseFilterKeyword_4_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFilteredTableViewFXRule());
-					}
-					setWithLastConsumed($current, "useFilter", true, "useFilter");
-				}
-			)
-		)?
-		(
-			otherlv_6='usedModel:'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getFilteredTableViewFXAccess().getUsedModelKeyword_5_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getFilteredTableViewFXRule());
-						}
-					}
-					{
-						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getUsedModelModelFXCrossReference_5_1_0());
-					}
-					ruleEString
-					{
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_0_0());
-					}
-					lv_columns_8_0=ruleTableColumnFX
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFilteredTableViewFXRule());
-						}
-						add(
-							$current,
-							"columns",
-							lv_columns_8_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.TableColumnFX");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFilteredTableViewFXAccess().getColumnsTableColumnFXParserRuleCall_6_1_0());
-					}
-					lv_columns_9_0=ruleTableColumnFX
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFilteredTableViewFXRule());
-						}
-						add(
-							$current,
-							"columns",
-							lv_columns_9_0,
-							"de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.TableColumnFX");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-		)?
-		otherlv_10='}'
-		{
-			newLeafNode(otherlv_10, grammarAccess.getFilteredTableViewFXAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

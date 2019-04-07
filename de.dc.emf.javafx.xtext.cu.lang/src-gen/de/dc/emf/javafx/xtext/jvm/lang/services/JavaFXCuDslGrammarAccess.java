@@ -31,215 +31,172 @@ public class JavaFXCuDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ProjectFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ProjectFX");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cProjectFXAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cProjectFXKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cPackagePathKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cPackagePathAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cPackagePathEStringParserRuleCall_0_1_0 = (RuleCall)cPackagePathAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cControlsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cControlsAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cControlsControlFXParserRuleCall_1_2_0 = (RuleCall)cControlsAssignment_1_2.eContents().get(0);
+		private final Assignment cControlsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cControlsControlFXParserRuleCall_1_3_0 = (RuleCall)cControlsAssignment_1_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cModelsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cModelsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cModelsModelFXParserRuleCall_2_2_0 = (RuleCall)cModelsAssignment_2_2.eContents().get(0);
+		private final Assignment cModelsAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cModelsModelFXParserRuleCall_2_3_0 = (RuleCall)cModelsAssignment_2_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cPackagePathKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cPackagePathAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cPackagePathEStringParserRuleCall_3_1_0 = (RuleCall)cPackagePathAssignment_3_1.eContents().get(0);
+		private final Keyword cBindingsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cBindingsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cBindingsBindingParserRuleCall_3_2_0 = (RuleCall)cBindingsAssignment_3_2.eContents().get(0);
+		private final Assignment cBindingsAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cBindingsBindingParserRuleCall_3_3_0 = (RuleCall)cBindingsAssignment_3_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cControlsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cControlsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cControlsControlFXParserRuleCall_5_2_0 = (RuleCall)cControlsAssignment_5_2.eContents().get(0);
-		private final Assignment cControlsAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
-		private final RuleCall cControlsControlFXParserRuleCall_5_3_0 = (RuleCall)cControlsAssignment_5_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cModelsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cModelsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cModelsModelFXParserRuleCall_6_2_0 = (RuleCall)cModelsAssignment_6_2.eContents().get(0);
-		private final Assignment cModelsAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
-		private final RuleCall cModelsModelFXParserRuleCall_6_3_0 = (RuleCall)cModelsAssignment_6_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cBindingsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cBindingsAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cBindingsBindingParserRuleCall_7_2_0 = (RuleCall)cBindingsAssignment_7_2.eContents().get(0);
-		private final Assignment cBindingsAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
-		private final RuleCall cBindingsBindingParserRuleCall_7_3_0 = (RuleCall)cBindingsAssignment_7_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cChartsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
-		private final Assignment cChartsAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cChartsChartFXParserRuleCall_8_2_0 = (RuleCall)cChartsAssignment_8_2.eContents().get(0);
-		private final Assignment cChartsAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
-		private final RuleCall cChartsChartFXParserRuleCall_8_3_0 = (RuleCall)cChartsAssignment_8_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cChartsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cChartsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cChartsChartFXParserRuleCall_4_2_0 = (RuleCall)cChartsAssignment_4_2.eContents().get(0);
+		private final Assignment cChartsAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
+		private final RuleCall cChartsChartFXParserRuleCall_4_3_0 = (RuleCall)cChartsAssignment_4_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		
 		//ProjectFX:
-		//	{ProjectFX}
-		//	'ProjectFX'
-		//	'{' ('packagePath' packagePath=EString)? ('name:' name=EString)? ('controls' '{' controls+=ControlFX
-		//	controls+=ControlFX* '}')? ('models' '{' models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding
-		//	bindings+=Binding* '}')? ('charts' '{' charts+=ChartFX charts+=ChartFX* '}')?
-		//	'}';
+		//	('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
+		//	models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')? ('charts' '{'
+		//	charts+=ChartFX charts+=ChartFX* '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ProjectFX} 'ProjectFX' '{' ('packagePath' packagePath=EString)? ('name:' name=EString)? ('controls' '{'
-		//controls+=ControlFX controls+=ControlFX* '}')? ('models' '{' models+=ModelFX models+=ModelFX* '}')? ('bindings' '{'
-		//bindings+=Binding bindings+=Binding* '}')? ('charts' '{' charts+=ChartFX charts+=ChartFX* '}')? '}'
+		//('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
+		//models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')? ('charts' '{'
+		//charts+=ChartFX charts+=ChartFX* '}')?
 		public Group getGroup() { return cGroup; }
 		
-		//{ProjectFX}
-		public Action getProjectFXAction_0() { return cProjectFXAction_0; }
-		
-		//'ProjectFX'
-		public Keyword getProjectFXKeyword_1() { return cProjectFXKeyword_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
 		//('packagePath' packagePath=EString)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'packagePath'
-		public Keyword getPackagePathKeyword_3_0() { return cPackagePathKeyword_3_0; }
+		public Keyword getPackagePathKeyword_0_0() { return cPackagePathKeyword_0_0; }
 		
 		//packagePath=EString
-		public Assignment getPackagePathAssignment_3_1() { return cPackagePathAssignment_3_1; }
+		public Assignment getPackagePathAssignment_0_1() { return cPackagePathAssignment_0_1; }
 		
 		//EString
-		public RuleCall getPackagePathEStringParserRuleCall_3_1_0() { return cPackagePathEStringParserRuleCall_3_1_0; }
-		
-		//('name:' name=EString)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'name:'
-		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
-		
-		//name=EString
-		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		public RuleCall getPackagePathEStringParserRuleCall_0_1_0() { return cPackagePathEStringParserRuleCall_0_1_0; }
 		
 		//('controls' '{' controls+=ControlFX controls+=ControlFX* '}')?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//'controls'
-		public Keyword getControlsKeyword_5_0() { return cControlsKeyword_5_0; }
+		public Keyword getControlsKeyword_1_0() { return cControlsKeyword_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5_1() { return cLeftCurlyBracketKeyword_5_1; }
+		public Keyword getLeftCurlyBracketKeyword_1_1() { return cLeftCurlyBracketKeyword_1_1; }
 		
 		//controls+=ControlFX
-		public Assignment getControlsAssignment_5_2() { return cControlsAssignment_5_2; }
+		public Assignment getControlsAssignment_1_2() { return cControlsAssignment_1_2; }
 		
 		//ControlFX
-		public RuleCall getControlsControlFXParserRuleCall_5_2_0() { return cControlsControlFXParserRuleCall_5_2_0; }
+		public RuleCall getControlsControlFXParserRuleCall_1_2_0() { return cControlsControlFXParserRuleCall_1_2_0; }
 		
 		//controls+=ControlFX*
-		public Assignment getControlsAssignment_5_3() { return cControlsAssignment_5_3; }
+		public Assignment getControlsAssignment_1_3() { return cControlsAssignment_1_3; }
 		
 		//ControlFX
-		public RuleCall getControlsControlFXParserRuleCall_5_3_0() { return cControlsControlFXParserRuleCall_5_3_0; }
+		public RuleCall getControlsControlFXParserRuleCall_1_3_0() { return cControlsControlFXParserRuleCall_1_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5_4() { return cRightCurlyBracketKeyword_5_4; }
+		public Keyword getRightCurlyBracketKeyword_1_4() { return cRightCurlyBracketKeyword_1_4; }
 		
 		//('models' '{' models+=ModelFX models+=ModelFX* '}')?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'models'
-		public Keyword getModelsKeyword_6_0() { return cModelsKeyword_6_0; }
+		public Keyword getModelsKeyword_2_0() { return cModelsKeyword_2_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
 		
 		//models+=ModelFX
-		public Assignment getModelsAssignment_6_2() { return cModelsAssignment_6_2; }
+		public Assignment getModelsAssignment_2_2() { return cModelsAssignment_2_2; }
 		
 		//ModelFX
-		public RuleCall getModelsModelFXParserRuleCall_6_2_0() { return cModelsModelFXParserRuleCall_6_2_0; }
+		public RuleCall getModelsModelFXParserRuleCall_2_2_0() { return cModelsModelFXParserRuleCall_2_2_0; }
 		
 		//models+=ModelFX*
-		public Assignment getModelsAssignment_6_3() { return cModelsAssignment_6_3; }
+		public Assignment getModelsAssignment_2_3() { return cModelsAssignment_2_3; }
 		
 		//ModelFX
-		public RuleCall getModelsModelFXParserRuleCall_6_3_0() { return cModelsModelFXParserRuleCall_6_3_0; }
+		public RuleCall getModelsModelFXParserRuleCall_2_3_0() { return cModelsModelFXParserRuleCall_2_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
+		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
 		
 		//('bindings' '{' bindings+=Binding bindings+=Binding* '}')?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'bindings'
-		public Keyword getBindingsKeyword_7_0() { return cBindingsKeyword_7_0; }
+		public Keyword getBindingsKeyword_3_0() { return cBindingsKeyword_3_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
+		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
 		
 		//bindings+=Binding
-		public Assignment getBindingsAssignment_7_2() { return cBindingsAssignment_7_2; }
+		public Assignment getBindingsAssignment_3_2() { return cBindingsAssignment_3_2; }
 		
 		//Binding
-		public RuleCall getBindingsBindingParserRuleCall_7_2_0() { return cBindingsBindingParserRuleCall_7_2_0; }
+		public RuleCall getBindingsBindingParserRuleCall_3_2_0() { return cBindingsBindingParserRuleCall_3_2_0; }
 		
 		//bindings+=Binding*
-		public Assignment getBindingsAssignment_7_3() { return cBindingsAssignment_7_3; }
+		public Assignment getBindingsAssignment_3_3() { return cBindingsAssignment_3_3; }
 		
 		//Binding
-		public RuleCall getBindingsBindingParserRuleCall_7_3_0() { return cBindingsBindingParserRuleCall_7_3_0; }
+		public RuleCall getBindingsBindingParserRuleCall_3_3_0() { return cBindingsBindingParserRuleCall_3_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
+		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
 		
 		//('charts' '{' charts+=ChartFX charts+=ChartFX* '}')?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'charts'
-		public Keyword getChartsKeyword_8_0() { return cChartsKeyword_8_0; }
+		public Keyword getChartsKeyword_4_0() { return cChartsKeyword_4_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_8_1() { return cLeftCurlyBracketKeyword_8_1; }
+		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
 		
 		//charts+=ChartFX
-		public Assignment getChartsAssignment_8_2() { return cChartsAssignment_8_2; }
+		public Assignment getChartsAssignment_4_2() { return cChartsAssignment_4_2; }
 		
 		//ChartFX
-		public RuleCall getChartsChartFXParserRuleCall_8_2_0() { return cChartsChartFXParserRuleCall_8_2_0; }
+		public RuleCall getChartsChartFXParserRuleCall_4_2_0() { return cChartsChartFXParserRuleCall_4_2_0; }
 		
 		//charts+=ChartFX*
-		public Assignment getChartsAssignment_8_3() { return cChartsAssignment_8_3; }
+		public Assignment getChartsAssignment_4_3() { return cChartsAssignment_4_3; }
 		
 		//ChartFX
-		public RuleCall getChartsChartFXParserRuleCall_8_3_0() { return cChartsChartFXParserRuleCall_8_3_0; }
+		public RuleCall getChartsChartFXParserRuleCall_4_3_0() { return cChartsChartFXParserRuleCall_4_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8_4() { return cRightCurlyBracketKeyword_8_4; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
 	}
 	public class ControlFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ControlFX");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTableViewFXParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cFilteredTableViewFXParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTableViewFXParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//ControlFX:
-		//	TableViewFX | FilteredTableViewFX;
+		//	TableViewFX;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TableViewFX | FilteredTableViewFX
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
 		//TableViewFX
-		public RuleCall getTableViewFXParserRuleCall_0() { return cTableViewFXParserRuleCall_0; }
-		
-		//FilteredTableViewFX
-		public RuleCall getFilteredTableViewFXParserRuleCall_1() { return cFilteredTableViewFXParserRuleCall_1; }
+		public RuleCall getTableViewFXParserRuleCall() { return cTableViewFXParserRuleCall; }
 	}
 	public class ModelFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.ModelFX");
@@ -458,102 +415,6 @@ public class JavaFXCuDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
-	}
-	public class FilteredTableViewFXElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.FilteredTableViewFX");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cFilteredTableViewFXAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cFilteredTableViewFXKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
-		private final Assignment cUseFilterAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final Keyword cUseFilterUseFilterKeyword_4_0 = (Keyword)cUseFilterAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cUsedModelKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cUsedModelAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final CrossReference cUsedModelModelFXCrossReference_5_1_0 = (CrossReference)cUsedModelAssignment_5_1.eContents().get(0);
-		private final RuleCall cUsedModelModelFXEStringParserRuleCall_5_1_0_1 = (RuleCall)cUsedModelModelFXCrossReference_5_1_0.eContents().get(1);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Assignment cColumnsAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
-		private final RuleCall cColumnsTableColumnFXParserRuleCall_6_0_0 = (RuleCall)cColumnsAssignment_6_0.eContents().get(0);
-		private final Assignment cColumnsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cColumnsTableColumnFXParserRuleCall_6_1_0 = (RuleCall)cColumnsAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		
-		//FilteredTableViewFX:
-		//	{FilteredTableViewFX}
-		//	'FilteredTableViewFX'
-		//	'{' ('name:' name=EString) useFilter?='useFilter'? ('usedModel:' usedModel=[ModelFX|EString])?
-		//	(columns+=TableColumnFX columns+=TableColumnFX*)?
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{FilteredTableViewFX} 'FilteredTableViewFX' '{' ('name:' name=EString) useFilter?='useFilter'? ('usedModel:'
-		//usedModel=[ModelFX|EString])? (columns+=TableColumnFX columns+=TableColumnFX*)? '}'
-		public Group getGroup() { return cGroup; }
-		
-		//{FilteredTableViewFX}
-		public Action getFilteredTableViewFXAction_0() { return cFilteredTableViewFXAction_0; }
-		
-		//'FilteredTableViewFX'
-		public Keyword getFilteredTableViewFXKeyword_1() { return cFilteredTableViewFXKeyword_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//'name:' name=EString
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'name:'
-		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
-		
-		//name=EString
-		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
-		
-		//useFilter?='useFilter'?
-		public Assignment getUseFilterAssignment_4() { return cUseFilterAssignment_4; }
-		
-		//'useFilter'
-		public Keyword getUseFilterUseFilterKeyword_4_0() { return cUseFilterUseFilterKeyword_4_0; }
-		
-		//('usedModel:' usedModel=[ModelFX|EString])?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'usedModel:'
-		public Keyword getUsedModelKeyword_5_0() { return cUsedModelKeyword_5_0; }
-		
-		//usedModel=[ModelFX|EString]
-		public Assignment getUsedModelAssignment_5_1() { return cUsedModelAssignment_5_1; }
-		
-		//[ModelFX|EString]
-		public CrossReference getUsedModelModelFXCrossReference_5_1_0() { return cUsedModelModelFXCrossReference_5_1_0; }
-		
-		//EString
-		public RuleCall getUsedModelModelFXEStringParserRuleCall_5_1_0_1() { return cUsedModelModelFXEStringParserRuleCall_5_1_0_1; }
-		
-		//(columns+=TableColumnFX columns+=TableColumnFX*)?
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//columns+=TableColumnFX
-		public Assignment getColumnsAssignment_6_0() { return cColumnsAssignment_6_0; }
-		
-		//TableColumnFX
-		public RuleCall getColumnsTableColumnFXParserRuleCall_6_0_0() { return cColumnsTableColumnFXParserRuleCall_6_0_0; }
-		
-		//columns+=TableColumnFX*
-		public Assignment getColumnsAssignment_6_1() { return cColumnsAssignment_6_1; }
-		
-		//TableColumnFX
-		public RuleCall getColumnsTableColumnFXParserRuleCall_6_1_0() { return cColumnsTableColumnFXParserRuleCall_6_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class TableColumnFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.emf.javafx.xtext.jvm.lang.JavaFXCuDsl.TableColumnFX");
@@ -2076,7 +1937,6 @@ public class JavaFXCuDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final EStringElements pEString;
 	private final BindingElements pBinding;
 	private final TableViewFXElements pTableViewFX;
-	private final FilteredTableViewFXElements pFilteredTableViewFX;
 	private final TableColumnFXElements pTableColumnFX;
 	private final EIntElements pEInt;
 	private final AttributeFXElements pAttributeFX;
@@ -2114,7 +1974,6 @@ public class JavaFXCuDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEString = new EStringElements();
 		this.pBinding = new BindingElements();
 		this.pTableViewFX = new TableViewFXElements();
-		this.pFilteredTableViewFX = new FilteredTableViewFXElements();
 		this.pTableColumnFX = new TableColumnFXElements();
 		this.pEInt = new EIntElements();
 		this.pAttributeFX = new AttributeFXElements();
@@ -2165,12 +2024,9 @@ public class JavaFXCuDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//ProjectFX:
-	//	{ProjectFX}
-	//	'ProjectFX'
-	//	'{' ('packagePath' packagePath=EString)? ('name:' name=EString)? ('controls' '{' controls+=ControlFX
-	//	controls+=ControlFX* '}')? ('models' '{' models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding
-	//	bindings+=Binding* '}')? ('charts' '{' charts+=ChartFX charts+=ChartFX* '}')?
-	//	'}';
+	//	('packagePath' packagePath=EString)? ('controls' '{' controls+=ControlFX controls+=ControlFX* '}')? ('models' '{'
+	//	models+=ModelFX models+=ModelFX* '}')? ('bindings' '{' bindings+=Binding bindings+=Binding* '}')? ('charts' '{'
+	//	charts+=ChartFX charts+=ChartFX* '}')?;
 	public ProjectFXElements getProjectFXAccess() {
 		return pProjectFX;
 	}
@@ -2180,7 +2036,7 @@ public class JavaFXCuDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ControlFX:
-	//	TableViewFX | FilteredTableViewFX;
+	//	TableViewFX;
 	public ControlFXElements getControlFXAccess() {
 		return pControlFX;
 	}
@@ -2243,20 +2099,6 @@ public class JavaFXCuDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTableViewFXRule() {
 		return getTableViewFXAccess().getRule();
-	}
-	
-	//FilteredTableViewFX:
-	//	{FilteredTableViewFX}
-	//	'FilteredTableViewFX'
-	//	'{' ('name:' name=EString) useFilter?='useFilter'? ('usedModel:' usedModel=[ModelFX|EString])?
-	//	(columns+=TableColumnFX columns+=TableColumnFX*)?
-	//	'}';
-	public FilteredTableViewFXElements getFilteredTableViewFXAccess() {
-		return pFilteredTableViewFX;
-	}
-	
-	public ParserRule getFilteredTableViewFXRule() {
-		return getFilteredTableViewFXAccess().getRule();
 	}
 	
 	//TableColumnFX:

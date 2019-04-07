@@ -30,6 +30,15 @@ Workflow {
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
+			projectWizard = {
+				generate = true
+				pluginProject = false
+			}
+
+			fileWizard = {
+				generate = true
+			}
+
 			formatter = {
 				generateStub = true
 			}

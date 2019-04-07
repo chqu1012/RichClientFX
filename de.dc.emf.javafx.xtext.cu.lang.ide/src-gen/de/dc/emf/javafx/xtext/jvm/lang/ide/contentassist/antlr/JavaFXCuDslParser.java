@@ -31,7 +31,6 @@ public class JavaFXCuDslParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, JavaFXCuDslGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getControlFXAccess().getAlternatives(), "rule__ControlFX__Alternatives");
 			builder.put(grammarAccess.getModelFXAccess().getAlternatives(), "rule__ModelFX__Alternatives");
 			builder.put(grammarAccess.getChartFXAccess().getAlternatives(), "rule__ChartFX__Alternatives");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
@@ -79,22 +78,17 @@ public class JavaFXCuDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOrientationAccess().getAlternatives(), "rule__Orientation__Alternatives");
 			builder.put(grammarAccess.getAxisTypeAccess().getAlternatives(), "rule__AxisType__Alternatives");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup(), "rule__ProjectFX__Group__0");
+			builder.put(grammarAccess.getProjectFXAccess().getGroup_0(), "rule__ProjectFX__Group_0__0");
+			builder.put(grammarAccess.getProjectFXAccess().getGroup_1(), "rule__ProjectFX__Group_1__0");
+			builder.put(grammarAccess.getProjectFXAccess().getGroup_2(), "rule__ProjectFX__Group_2__0");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_3(), "rule__ProjectFX__Group_3__0");
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_4(), "rule__ProjectFX__Group_4__0");
-			builder.put(grammarAccess.getProjectFXAccess().getGroup_5(), "rule__ProjectFX__Group_5__0");
-			builder.put(grammarAccess.getProjectFXAccess().getGroup_6(), "rule__ProjectFX__Group_6__0");
-			builder.put(grammarAccess.getProjectFXAccess().getGroup_7(), "rule__ProjectFX__Group_7__0");
-			builder.put(grammarAccess.getProjectFXAccess().getGroup_8(), "rule__ProjectFX__Group_8__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup_4(), "rule__Binding__Group_4__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup(), "rule__TableViewFX__Group__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_3(), "rule__TableViewFX__Group_3__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_4(), "rule__TableViewFX__Group_4__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_5(), "rule__TableViewFX__Group_5__0");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getGroup(), "rule__FilteredTableViewFX__Group__0");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getGroup_3(), "rule__FilteredTableViewFX__Group_3__0");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getGroup_5(), "rule__FilteredTableViewFX__Group_5__0");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getGroup_6(), "rule__FilteredTableViewFX__Group_6__0");
 			builder.put(grammarAccess.getTableColumnFXAccess().getGroup(), "rule__TableColumnFX__Group__0");
 			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_3(), "rule__TableColumnFX__Group_3__0");
 			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_4(), "rule__TableColumnFX__Group_4__0");
@@ -340,16 +334,15 @@ public class JavaFXCuDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getXImportDeclarationAccess().getGroup(), "rule__XImportDeclaration__Group__0");
 			builder.put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 			builder.put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
-			builder.put(grammarAccess.getProjectFXAccess().getPackagePathAssignment_3_1(), "rule__ProjectFX__PackagePathAssignment_3_1");
-			builder.put(grammarAccess.getProjectFXAccess().getNameAssignment_4_1(), "rule__ProjectFX__NameAssignment_4_1");
-			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_5_2(), "rule__ProjectFX__ControlsAssignment_5_2");
-			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_5_3(), "rule__ProjectFX__ControlsAssignment_5_3");
-			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_2(), "rule__ProjectFX__ModelsAssignment_6_2");
-			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_6_3(), "rule__ProjectFX__ModelsAssignment_6_3");
-			builder.put(grammarAccess.getProjectFXAccess().getBindingsAssignment_7_2(), "rule__ProjectFX__BindingsAssignment_7_2");
-			builder.put(grammarAccess.getProjectFXAccess().getBindingsAssignment_7_3(), "rule__ProjectFX__BindingsAssignment_7_3");
-			builder.put(grammarAccess.getProjectFXAccess().getChartsAssignment_8_2(), "rule__ProjectFX__ChartsAssignment_8_2");
-			builder.put(grammarAccess.getProjectFXAccess().getChartsAssignment_8_3(), "rule__ProjectFX__ChartsAssignment_8_3");
+			builder.put(grammarAccess.getProjectFXAccess().getPackagePathAssignment_0_1(), "rule__ProjectFX__PackagePathAssignment_0_1");
+			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_1_2(), "rule__ProjectFX__ControlsAssignment_1_2");
+			builder.put(grammarAccess.getProjectFXAccess().getControlsAssignment_1_3(), "rule__ProjectFX__ControlsAssignment_1_3");
+			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_2_2(), "rule__ProjectFX__ModelsAssignment_2_2");
+			builder.put(grammarAccess.getProjectFXAccess().getModelsAssignment_2_3(), "rule__ProjectFX__ModelsAssignment_2_3");
+			builder.put(grammarAccess.getProjectFXAccess().getBindingsAssignment_3_2(), "rule__ProjectFX__BindingsAssignment_3_2");
+			builder.put(grammarAccess.getProjectFXAccess().getBindingsAssignment_3_3(), "rule__ProjectFX__BindingsAssignment_3_3");
+			builder.put(grammarAccess.getProjectFXAccess().getChartsAssignment_4_2(), "rule__ProjectFX__ChartsAssignment_4_2");
+			builder.put(grammarAccess.getProjectFXAccess().getChartsAssignment_4_3(), "rule__ProjectFX__ChartsAssignment_4_3");
 			builder.put(grammarAccess.getBindingAccess().getNameAssignment_2(), "rule__Binding__NameAssignment_2");
 			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_0(), "rule__Binding__PropertyAssignment_4_0");
 			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_1(), "rule__Binding__PropertyAssignment_4_1");
@@ -357,11 +350,6 @@ public class JavaFXCuDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTableViewFXAccess().getUsedModelAssignment_4_1(), "rule__TableViewFX__UsedModelAssignment_4_1");
 			builder.put(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_0(), "rule__TableViewFX__ColumnsAssignment_5_0");
 			builder.put(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_1(), "rule__TableViewFX__ColumnsAssignment_5_1");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getNameAssignment_3_1(), "rule__FilteredTableViewFX__NameAssignment_3_1");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getUseFilterAssignment_4(), "rule__FilteredTableViewFX__UseFilterAssignment_4");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getUsedModelAssignment_5_1(), "rule__FilteredTableViewFX__UsedModelAssignment_5_1");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getColumnsAssignment_6_0(), "rule__FilteredTableViewFX__ColumnsAssignment_6_0");
-			builder.put(grammarAccess.getFilteredTableViewFXAccess().getColumnsAssignment_6_1(), "rule__FilteredTableViewFX__ColumnsAssignment_6_1");
 			builder.put(grammarAccess.getTableColumnFXAccess().getNameAssignment_3_1(), "rule__TableColumnFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getTableColumnFXAccess().getWidthAssignment_4_1(), "rule__TableColumnFX__WidthAssignment_4_1");
 			builder.put(grammarAccess.getTableColumnFXAccess().getUsedAttributeAssignment_5_1(), "rule__TableColumnFX__UsedAttributeAssignment_5_1");

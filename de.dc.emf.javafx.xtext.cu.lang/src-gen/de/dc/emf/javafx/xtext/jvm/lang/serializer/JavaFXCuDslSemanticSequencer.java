@@ -12,7 +12,6 @@ import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
 import de.dc.emf.javafx.model.javafx.BubbleChartFX;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
-import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.PieChartFX;
@@ -114,9 +113,6 @@ public class JavaFXCuDslSemanticSequencer extends XbaseSemanticSequencer {
 				return; 
 			case JavafxPackage.DERIVED_BEAN:
 				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
-				return; 
-			case JavafxPackage.FILTERED_TABLE_VIEW_FX:
-				sequence_FilteredTableViewFX(context, (FilteredTableViewFX) semanticObject); 
 				return; 
 			case JavafxPackage.LINE_CHART_FX:
 				sequence_LineChartFX(context, (LineChartFX) semanticObject); 
@@ -531,19 +527,6 @@ public class JavaFXCuDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ControlFX returns FilteredTableViewFX
-	 *     FilteredTableViewFX returns FilteredTableViewFX
-	 *
-	 * Constraint:
-	 *     (name=EString useFilter?='useFilter'? usedModel=[ModelFX|EString]? (columns+=TableColumnFX columns+=TableColumnFX*)?)
-	 */
-	protected void sequence_FilteredTableViewFX(ISerializationContext context, FilteredTableViewFX semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     ChartFX returns LineChartFX
 	 *     LineChartFX returns LineChartFX
 	 *
@@ -594,13 +577,26 @@ public class JavaFXCuDslSemanticSequencer extends XbaseSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         packagePath=EString? 
-	 *         name=EString? 
-	 *         (controls+=ControlFX controls+=ControlFX*)? 
-	 *         (models+=ModelFX models+=ModelFX*)? 
-	 *         (bindings+=Binding bindings+=Binding*)? 
-	 *         (charts+=ChartFX charts+=ChartFX*)?
-	 *     )
+	 *         packagePath=EString | 
+	 *         (packagePath=EString (charts+=ChartFX charts+=ChartFX*)) | 
+	 *         (
+	 *             packagePath=EString 
+	 *             controls+=ControlFX 
+	 *             controls+=ControlFX* 
+	 *             (((models+=ModelFX models+=ModelFX*)? (charts+=ChartFX charts+=ChartFX*)) | (charts+=ChartFX charts+=ChartFX*))?
+	 *         ) | 
+	 *         (packagePath=EString models+=ModelFX models+=ModelFX* (charts+=ChartFX charts+=ChartFX*)) | 
+	 *         (
+	 *             (
+	 *                 packagePath=EString | 
+	 *                 (packagePath=EString controls+=ControlFX controls+=ControlFX* (models+=ModelFX models+=ModelFX*)?) | 
+	 *                 (packagePath=EString models+=ModelFX models+=ModelFX*)
+	 *             ) 
+	 *             bindings+=Binding 
+	 *             bindings+=Binding* 
+	 *             (charts+=ChartFX charts+=ChartFX*)
+	 *         )
+	 *     )?
 	 */
 	protected void sequence_ProjectFX(ISerializationContext context, ProjectFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
