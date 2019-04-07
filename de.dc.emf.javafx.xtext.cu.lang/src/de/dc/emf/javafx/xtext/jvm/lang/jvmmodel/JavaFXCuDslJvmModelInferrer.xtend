@@ -39,6 +39,7 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import javafx.beans.property.SimpleObjectProperty
+import javafx.scene.input.KeyCode
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -113,10 +114,20 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				«ENDFOR»
 				tableView.setItems(filteredMasterData);
 				tableView.setOnKeyReleased(e ->{ 
-					if(getTop()==null) {
-						setTop(topPane);
+					if (e.getCode().equals(«KeyCode».ESCAPE)) {
+						setTop(null);
+						searchProperty.set("");
+					}else if(e.getCode().equals(«KeyCode».BACK_SPACE)){
+						if(getTop()==null) {
+							setTop(topPane);
+						}
+						searchTextfield.requestFocus();
+					}else {
+						if(getTop()==null) {
+							setTop(topPane);
+						}
+						searchProperty.set(searchProperty.get()+e.getText());
 					}
-					searchProperty.set(searchProperty.get()+e.getText());
 				});
 				«val filterbinding = element.columns.filter[useFilter].map[name.toFirstLower+'Filter.get()'].reduce[p1, p2|p1+'.or('+p2+')']»
 				«val filters = element.columns.filter[useFilter].map[name.toFirstLower+'Filter'].reduce[p1, p2|p1+','+p2]»
