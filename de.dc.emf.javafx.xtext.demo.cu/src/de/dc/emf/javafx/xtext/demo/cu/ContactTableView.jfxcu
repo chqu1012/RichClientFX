@@ -3,14 +3,14 @@ ProjectFX{
 	name:"HalloWelte" 
 
 	controls{
-		TableViewFX{
+		TableViewFX{ 
 			name:'Tabke'
-			usedModel:"Contact"
+			usedModel:"Contact" 
 			Column(name:Name width:300 useFilter)
 			Column(name:Age useFilter)
 			Column(name:Gender useFilter)
 			Column(name:Address useFilter)
-		}
+		} 
 	}
 	 
 	models{ 
@@ -19,6 +19,6 @@ ProjectFX{
 			int age
 			boolean gender
 			String address
-		} 
+		}
 	} 
 }

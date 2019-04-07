@@ -4,14 +4,19 @@
 package de.dc.emf.javafx.xtext.jvm.lang.jvmmodel
 
 import com.google.inject.Inject
+import de.dc.emf.javafx.model.javafx.Bean
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
+import javafx.beans.property.SimpleStringProperty
+import javafx.beans.value.ObservableValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.collections.transformation.FilteredList
 import javafx.scene.control.TableColumn
+import javafx.scene.control.TableColumn.CellDataFeatures
 import javafx.scene.control.TableView
 import javafx.util.Callback
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.common.types.JvmFormalParameter
 import org.eclipse.xtext.common.types.JvmTypeParameter
 import org.eclipse.xtext.common.types.JvmVisibility
@@ -20,17 +25,29 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.eclipse.emf.ecore.util.EcoreUtil
-import java.util.ArrayList
-import javafx.beans.value.ObservableValue
-import javafx.scene.control.TableColumn.CellDataFeatures
-import javafx.beans.property.SimpleStringProperty
-import org.eclipse.xtext.xbase.jvmmodel.JvmAnnotationReferenceBuilder
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
 	@Inject extension JvmTypesBuilder
 	@Inject extension TypeReferences typeReferences
+
+	def dispatch void infer(Bean element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+		acceptor.accept(element.toClass(packagePath+'model.'+element.name)) [
+			element.attributes.forEach[attribute|
+				members += element.toField(attribute.name.toFirstLower, typeRef(attribute.type))
+				if (attribute.type=='Boolean' || attribute.type=='boolean' || attribute.type=='Bool' || attribute.type=='bool') {
+					members += element.toMethod('get'+attribute.name.toFirstUpper, typeRef(attribute.type))[
+						visibility=JvmVisibility.PUBLIC
+						body = '''return this.«attribute.name.toFirstLower»;'''
+					]
+				}else{
+					members += element.toGetter(attribute.name.toFirstLower, typeRef(attribute.type))
+				}
+				members += element.toSetter(attribute.name.toFirstLower, typeRef(attribute.type))
+			]
+		]
+	}
 
 	def dispatch void infer(TableViewFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
