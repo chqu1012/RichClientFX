@@ -9,6 +9,9 @@ import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
 import java.util.HashMap
 import java.util.Map
+import java.util.function.Predicate
+import javafx.beans.binding.Bindings
+import javafx.beans.property.ObjectProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.StringProperty
 import javafx.beans.value.ObservableValue
@@ -16,6 +19,7 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.collections.transformation.FilteredList
 import javafx.geometry.Insets
+import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableColumn.CellDataFeatures
@@ -23,6 +27,7 @@ import javafx.scene.control.TableView
 import javafx.scene.control.TextField
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.HBox
+import javafx.scene.layout.Priority
 import javafx.util.Callback
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.common.types.JvmFormalParameter
@@ -33,9 +38,7 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import javafx.beans.binding.Bindings
-import javafx.scene.control.Button
-import javafx.scene.layout.Priority
+import javafx.beans.property.SimpleObjectProperty
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -63,22 +66,23 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 	def dispatch void infer(TableViewFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
 		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
-			val JvmTypeParameter param = TypesFactory::eINSTANCE.createJvmTypeParameter
-			param.setName("T")
-			typeParameters += param
-			
 			superTypes+=BorderPane.typeRef
 			
-			members += element.toField('masterData', ObservableList.typeRef(typeReferences.createTypeRef(param)))[initializer = '''«FXCollections».observableArrayList()''']
-			members += element.toField('filteredMasterData', FilteredList.typeRef(typeReferences.createTypeRef(param)))[initializer = '''new «FilteredList»<>(masterData, p->true)''']
-			members += element.toField('columns', Map.typeRef(typeRef(packagePath+'model.'+element.usedModel.name+'Type'), TableColumn.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param))))[initializer = '''new «HashMap»<>()''']
-			members += element.toField('tableView', TableView.typeRef(typeReferences.createTypeRef(param)))[initializer = ''' new «TableView»<T>()''']
+			val model = typeRef(packagePath+'model.'+element.usedModel.name.toFirstUpper)
+			
+			members += element.toField('masterData', ObservableList.typeRef(model))[initializer = '''«FXCollections».observableArrayList()''']
+			members += element.toField('filteredMasterData', FilteredList.typeRef(model))[initializer = '''new «FilteredList»<>(masterData, p->true)''']
+			members += element.toField('columns', Map.typeRef(typeRef(packagePath+'model.'+element.usedModel.name+'Type'), TableColumn.typeRef(model, model)))[initializer = '''new «HashMap»<>()''']
+			members += element.toField('tableView', TableView.typeRef(model))[initializer = ''' new «TableView»<«model»>()''']
 			members += element.toField('searchTextfield', TextField.typeRef)[initializer = '''new TextField()''']
 			members += element.toField('topPane', HBox.typeRef)[initializer = '''new HBox()''']
 			members += element.toField('searchProperty', StringProperty.typeRef)[initializer = '''new «SimpleStringProperty»("")''']
 			
 			element.columns.forEach[col|
-				members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param)))
+				members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef(model, model))
+				if (col.useFilter) {
+					members += element.toField(col.name.toFirstLower+'Filter', ObjectProperty.typeRef(Predicate.typeRef(model)))[initializer = '''new «SimpleObjectProperty»<>()''']
+				}
 			]
 			
 			val modelName = '''«IF element.usedModel===null»«ELSE»«element.usedModel.name.toFirstUpper»«ENDIF»'''
@@ -100,6 +104,13 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				«FOR col : element.columns»
 				«col.name.toFirstLower»Column = createColumn(«modelType».«col.name.toFirstUpper».name(), Double.valueOf(«col.width»),  new «feature»(«modelType».«col.name.toFirstUpper»));
 				«ENDFOR»
+				«FOR col : element.columns»
+				«IF col.useFilter»
+				«col.name.toFirstLower+'Filter'».bind(«Bindings».createObjectBinding(() -> 
+				            current -> String.valueOf(current.get«col.name.toFirstUpper»()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
+				            searchTextfield.textProperty()));
+				«ENDIF»
+				«ENDFOR»
 				tableView.setItems(filteredMasterData);
 				tableView.setOnKeyReleased(e ->{ 
 					if(getTop()==null) {
@@ -107,6 +118,9 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 					}
 					searchProperty.set(searchProperty.get()+e.getText());
 				});
+				«val filterbinding = element.columns.filter[useFilter].map[name.toFirstLower+'Filter.get()'].reduce[p1, p2|p1+'.or('+p2+')']»
+				«val filters = element.columns.filter[useFilter].map[name.toFirstLower+'Filter'].reduce[p1, p2|p1+','+p2]»
+				filteredMasterData.predicateProperty().bind(«Bindings».createObjectBinding(()->«filterbinding», «filters»));
 				'''
 			]
 			
@@ -150,7 +164,7 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				parameters+=element.toParameter('width', Double.typeRef)
 				parameters+=element.toParameter('cellFeatures', Callback.typeRef)
 				body = '''
-			    «TableColumn»<T, T> column = new «TableColumn»(name);
+			    «TableColumn»<«model», «model»> column = new «TableColumn»(name);
 			    column.setPrefWidth(width);
 			    column.setCellValueFactory(cellFeatures);
 			    columns.put(«element.usedModel.name+'Type'».valueOf(name), column);
@@ -165,7 +179,7 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				
 				val JvmFormalParameter arg = TypesFactory::eINSTANCE.createJvmFormalParameter
 				arg.name = "items"
-				arg.parameterType = ObservableList.typeRef(typeReferences.createTypeRef(param))
+				arg.parameterType = ObservableList.typeRef(model)
 				
 				parameters += arg
 				body = '''
@@ -183,7 +197,7 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				
 				val JvmFormalParameter arg2 = TypesFactory::eINSTANCE.createJvmFormalParameter
 				arg2.name = "feature"
-				arg2.parameterType = Callback.typeRef(TableColumn.CellDataFeatures.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param)), ObservableValue.typeRef(typeReferences.createTypeRef(param)))
+				arg2.parameterType = Callback.typeRef(TableColumn.CellDataFeatures.typeRef(model, model), ObservableValue.typeRef(model))
 				
 				parameters += arg1
 				parameters += arg2
@@ -191,8 +205,8 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				body = '''columns.get(type).setCellValueFactory(feature);'''
 			]
 			
-			members += element.toGetter('masterData', ObservableList.typeRef(typeReferences.createTypeRef(param)));
-			members += element.toGetter('filteredMasterData', FilteredList.typeRef(typeReferences.createTypeRef(param)));
+			members += element.toGetter('masterData', ObservableList.typeRef(model));
+			members += element.toGetter('filteredMasterData', FilteredList.typeRef(model));
 		]
 		
 		acceptor.accept(element.toEnumerationType(packagePath+'model.'+element.usedModel.name+'Type') [

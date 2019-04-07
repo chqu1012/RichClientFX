@@ -34,12 +34,12 @@ public class ContactApplication extends Application{
 	}
 	
 	protected Parent getRoot() {
-		BaseTabke<Contact> baseTabke = new BaseTabke<Contact>();
+		BaseTabke baseTabke = new BaseTabke();
 		List<Contact> contacts = prepareContactData();
 		baseTabke.setFeatureFor(ContactType.Gender, new ContactCellFeatures(ContactType.Gender));
 		baseTabke.setInput(FXCollections.observableArrayList(contacts));
 		
-		BaseEntryTable<Entry> entryTable = new BaseEntryTable<>();
+		BaseEntryTable entryTable = new BaseEntryTable();
 		List<Entry> entries = prepareEntryData();
 		entryTable.setFeatureFor(EntryType.Timestamp, new EntryCellFeatures(EntryType.Timestamp));
 		entryTable.setInput(FXCollections.observableArrayList(entries));

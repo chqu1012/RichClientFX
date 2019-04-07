@@ -12,8 +12,8 @@ ProjectFX{
 			Column(name:Address useFilter)
 		} 
 	}
-	
-	models{    
+	 
+	models{
 		class Contact{
 			String name
 			int age 

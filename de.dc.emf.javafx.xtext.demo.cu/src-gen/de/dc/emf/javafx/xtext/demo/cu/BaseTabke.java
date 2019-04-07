@@ -1,10 +1,14 @@
 package de.dc.emf.javafx.xtext.demo.cu;
 
 import de.dc.emf.javafx.xtext.demo.cu.feature.BaseContactCellFeatures;
+import de.dc.emf.javafx.xtext.demo.cu.model.Contact;
 import de.dc.emf.javafx.xtext.demo.cu.model.ContactType;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Predicate;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -23,14 +27,14 @@ import javafx.scene.layout.Priority;
 import javafx.util.Callback;
 
 @SuppressWarnings("all")
-public class BaseTabke<T> extends BorderPane {
-  private ObservableList<T> masterData = FXCollections.observableArrayList();
+public class BaseTabke extends BorderPane {
+  private ObservableList<Contact> masterData = FXCollections.observableArrayList();
   
-  private FilteredList<T> filteredMasterData = new FilteredList<>(masterData, p->true);
+  private FilteredList<Contact> filteredMasterData = new FilteredList<>(masterData, p->true);
   
-  private Map<ContactType, TableColumn<T, T>> columns = new HashMap<>();
+  private Map<ContactType, TableColumn<Contact, Contact>> columns = new HashMap<>();
   
-  private TableView<T> tableView =  new TableView<T>();
+  private TableView<Contact> tableView =  new TableView<Contact>();
   
   private TextField searchTextfield = new TextField();
   
@@ -38,13 +42,21 @@ public class BaseTabke<T> extends BorderPane {
   
   private StringProperty searchProperty = new SimpleStringProperty("");
   
-  private TableColumn<T, T> nameColumn;
+  private TableColumn<Contact, Contact> nameColumn;
   
-  private TableColumn<T, T> ageColumn;
+  private ObjectProperty<Predicate<Contact>> nameFilter = new SimpleObjectProperty<>();
   
-  private TableColumn<T, T> genderColumn;
+  private TableColumn<Contact, Contact> ageColumn;
   
-  private TableColumn<T, T> addressColumn;
+  private ObjectProperty<Predicate<Contact>> ageFilter = new SimpleObjectProperty<>();
+  
+  private TableColumn<Contact, Contact> genderColumn;
+  
+  private ObjectProperty<Predicate<Contact>> genderFilter = new SimpleObjectProperty<>();
+  
+  private TableColumn<Contact, Contact> addressColumn;
+  
+  private ObjectProperty<Predicate<Contact>> addressFilter = new SimpleObjectProperty<>();
   
   public BaseTabke() {
     initTableView();
@@ -59,6 +71,18 @@ public class BaseTabke<T> extends BorderPane {
     ageColumn = createColumn(ContactType.Age.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Age));
     genderColumn = createColumn(ContactType.Gender.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Gender));
     addressColumn = createColumn(ContactType.Address.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Address));
+    nameFilter.bind(Bindings.createObjectBinding(() -> 
+                current -> String.valueOf(current.getName()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
+                searchTextfield.textProperty()));
+    ageFilter.bind(Bindings.createObjectBinding(() -> 
+                current -> String.valueOf(current.getAge()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
+                searchTextfield.textProperty()));
+    genderFilter.bind(Bindings.createObjectBinding(() -> 
+                current -> String.valueOf(current.getGender()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
+                searchTextfield.textProperty()));
+    addressFilter.bind(Bindings.createObjectBinding(() -> 
+                current -> String.valueOf(current.getAddress()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
+                searchTextfield.textProperty()));
     tableView.setItems(filteredMasterData);
     tableView.setOnKeyReleased(e ->{ 
     	if(getTop()==null) {
@@ -66,6 +90,7 @@ public class BaseTabke<T> extends BorderPane {
     	}
     	searchProperty.set(searchProperty.get()+e.getText());
     });
+    filteredMasterData.predicateProperty().bind(Bindings.createObjectBinding(()->nameFilter.get().or(ageFilter.get()).or(genderFilter.get()).or(addressFilter.get()), nameFilter,ageFilter,genderFilter,addressFilter));
   }
   
   public void initTopPane() {
@@ -75,7 +100,7 @@ public class BaseTabke<T> extends BorderPane {
     Label label = new Label("Search:");
     label.setMaxHeight(Double.MAX_VALUE);
     
-    searchTextfield.setPromptText("Search for entries");
+    searchTextfield.setPromptText("Search for Contacts");
     searchTextfield.textProperty().bindBidirectional(searchProperty);
     
     Label filterLabel = new Label("Filter Result:");
@@ -99,7 +124,7 @@ public class BaseTabke<T> extends BorderPane {
   }
   
   protected TableColumn createColumn(final String name, final Double width, final Callback cellFeatures) {
-    TableColumn<T, T> column = new TableColumn(name);
+    TableColumn<Contact, Contact> column = new TableColumn(name);
     column.setPrefWidth(width);
     column.setCellValueFactory(cellFeatures);
     columns.put(ContactType.valueOf(name), column);
@@ -107,20 +132,20 @@ public class BaseTabke<T> extends BorderPane {
     return column;	
   }
   
-  public void setInput(final ObservableList<T> items) {
+  public void setInput(final ObservableList<Contact> items) {
     masterData.clear();
     masterData.addAll(items);
   }
   
-  public void setFeatureFor(final ContactType type, final Callback<TableColumn.CellDataFeatures<T, T>, ObservableValue<T>> feature) {
+  public void setFeatureFor(final ContactType type, final Callback<TableColumn.CellDataFeatures<Contact, Contact>, ObservableValue<Contact>> feature) {
     columns.get(type).setCellValueFactory(feature);
   }
   
-  public ObservableList<T> getMasterData() {
+  public ObservableList<Contact> getMasterData() {
     return this.masterData;
   }
   
-  public FilteredList<T> getFilteredMasterData() {
+  public FilteredList<Contact> getFilteredMasterData() {
     return this.filteredMasterData;
   }
 }

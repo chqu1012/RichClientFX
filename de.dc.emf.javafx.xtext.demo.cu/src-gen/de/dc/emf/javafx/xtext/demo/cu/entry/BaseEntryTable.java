@@ -1,10 +1,14 @@
 package de.dc.emf.javafx.xtext.demo.cu.entry;
 
 import de.dc.emf.javafx.xtext.demo.cu.entry.feature.BaseEntryCellFeatures;
+import de.dc.emf.javafx.xtext.demo.cu.entry.model.Entry;
 import de.dc.emf.javafx.xtext.demo.cu.entry.model.EntryType;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Predicate;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -23,14 +27,14 @@ import javafx.scene.layout.Priority;
 import javafx.util.Callback;
 
 @SuppressWarnings("all")
-public class BaseEntryTable<T> extends BorderPane {
-  private ObservableList<T> masterData = FXCollections.observableArrayList();
+public class BaseEntryTable extends BorderPane {
+  private ObservableList<Entry> masterData = FXCollections.observableArrayList();
   
-  private FilteredList<T> filteredMasterData = new FilteredList<>(masterData, p->true);
+  private FilteredList<Entry> filteredMasterData = new FilteredList<>(masterData, p->true);
   
-  private Map<EntryType, TableColumn<T, T>> columns = new HashMap<>();
+  private Map<EntryType, TableColumn<Entry, Entry>> columns = new HashMap<>();
   
-  private TableView<T> tableView =  new TableView<T>();
+  private TableView<Entry> tableView =  new TableView<Entry>();
   
   private TextField searchTextfield = new TextField();
   
@@ -38,11 +42,13 @@ public class BaseEntryTable<T> extends BorderPane {
   
   private StringProperty searchProperty = new SimpleStringProperty("");
   
-  private TableColumn<T, T> idColumn;
+  private TableColumn<Entry, Entry> idColumn;
   
-  private TableColumn<T, T> nameColumn;
+  private TableColumn<Entry, Entry> nameColumn;
   
-  private TableColumn<T, T> timestampColumn;
+  private ObjectProperty<Predicate<Entry>> nameFilter = new SimpleObjectProperty<>();
+  
+  private TableColumn<Entry, Entry> timestampColumn;
   
   public BaseEntryTable() {
     initTableView();
@@ -56,6 +62,9 @@ public class BaseEntryTable<T> extends BorderPane {
     idColumn = createColumn(EntryType.Id.name(), Double.valueOf(200),  new BaseEntryCellFeatures(EntryType.Id));
     nameColumn = createColumn(EntryType.Name.name(), Double.valueOf(300),  new BaseEntryCellFeatures(EntryType.Name));
     timestampColumn = createColumn(EntryType.Timestamp.name(), Double.valueOf(200),  new BaseEntryCellFeatures(EntryType.Timestamp));
+    nameFilter.bind(Bindings.createObjectBinding(() -> 
+                current -> String.valueOf(current.getName()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
+                searchTextfield.textProperty()));
     tableView.setItems(filteredMasterData);
     tableView.setOnKeyReleased(e ->{ 
     	if(getTop()==null) {
@@ -63,6 +72,7 @@ public class BaseEntryTable<T> extends BorderPane {
     	}
     	searchProperty.set(searchProperty.get()+e.getText());
     });
+    filteredMasterData.predicateProperty().bind(Bindings.createObjectBinding(()->nameFilter.get(), nameFilter));
   }
   
   public void initTopPane() {
@@ -72,7 +82,7 @@ public class BaseEntryTable<T> extends BorderPane {
     Label label = new Label("Search:");
     label.setMaxHeight(Double.MAX_VALUE);
     
-    searchTextfield.setPromptText("Search for entries");
+    searchTextfield.setPromptText("Search for Entrys");
     searchTextfield.textProperty().bindBidirectional(searchProperty);
     
     Label filterLabel = new Label("Filter Result:");
@@ -96,7 +106,7 @@ public class BaseEntryTable<T> extends BorderPane {
   }
   
   protected TableColumn createColumn(final String name, final Double width, final Callback cellFeatures) {
-    TableColumn<T, T> column = new TableColumn(name);
+    TableColumn<Entry, Entry> column = new TableColumn(name);
     column.setPrefWidth(width);
     column.setCellValueFactory(cellFeatures);
     columns.put(EntryType.valueOf(name), column);
@@ -104,20 +114,20 @@ public class BaseEntryTable<T> extends BorderPane {
     return column;	
   }
   
-  public void setInput(final ObservableList<T> items) {
+  public void setInput(final ObservableList<Entry> items) {
     masterData.clear();
     masterData.addAll(items);
   }
   
-  public void setFeatureFor(final EntryType type, final Callback<TableColumn.CellDataFeatures<T, T>, ObservableValue<T>> feature) {
+  public void setFeatureFor(final EntryType type, final Callback<TableColumn.CellDataFeatures<Entry, Entry>, ObservableValue<Entry>> feature) {
     columns.get(type).setCellValueFactory(feature);
   }
   
-  public ObservableList<T> getMasterData() {
+  public ObservableList<Entry> getMasterData() {
     return this.masterData;
   }
   
-  public FilteredList<T> getFilteredMasterData() {
+  public FilteredList<Entry> getFilteredMasterData() {
     return this.filteredMasterData;
   }
 }
