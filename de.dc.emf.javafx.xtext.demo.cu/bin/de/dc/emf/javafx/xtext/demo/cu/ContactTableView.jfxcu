@@ -3,7 +3,7 @@ ProjectFX{
 	name:"HalloWelte" 
 
 	controls{
-		TableViewFX{ 
+		TableViewFX{  
 			name:'Tabke'
 			usedModel:"Contact" 
 			Column(name:Name width:300 useFilter)
@@ -13,10 +13,10 @@ ProjectFX{
 		} 
 	}
 	 
-	models{ 
+	models{    
 		class Contact{
 			String name
-			int age
+			int age 
 			boolean gender
 			String address
 		}

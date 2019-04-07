@@ -25,6 +25,9 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import java.lang.reflect.Constructor
+import java.util.Map
+import java.util.HashMap
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -64,17 +67,21 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			members += element.toField('filteredMasterData', FilteredList.typeRef(typeReferences.createTypeRef(param)))[
 				initializer = '''new «FilteredList»<>(masterData, p->true)'''
 			]
+			members += element.toField('columns', Map.typeRef(typeRef(packagePath+'model.'+element.usedModel.name+'Type'), TableColumn.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param))))[
+				initializer = '''new «HashMap»<>()'''
+			]
 			
 			element.columns.forEach[col|
 				members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param)))
 			]
 			
 			val modelName = '''«IF element.usedModel===null»«ELSE»«element.usedModel.name.toFirstUpper»«ENDIF»'''
-			
+			val modelType = typeRef(packagePath+'model.'+modelName+'Type')
+			val feature = typeRef(packagePath+'feature.Base'+modelName+'CellFeatures')
 			members += element.toConstructor[
 				body = '''
 				«FOR col : element.columns»
-				«col.name.toFirstLower»Column = createColumn(«modelName»Type.«col.name.toFirstUpper».name(), Double.valueOf(«col.width»),  new Base«modelName»CellFeatures(«modelName»Type.«col.name.toFirstUpper»));
+				«col.name.toFirstLower»Column = createColumn(«modelType».«col.name.toFirstUpper».name(), Double.valueOf(«col.width»),  new «feature»(«modelType».«col.name.toFirstUpper»));
 				«ENDFOR»
 				setItems(filteredMasterData);
 				'''
@@ -90,14 +97,15 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			    «TableColumn»<T, T> column = new «TableColumn»(name);
 			    column.setPrefWidth(width);
 			    column.setCellValueFactory(cellFeatures);
+			    columns.put(«element.usedModel.name+'Type'».valueOf(name), column);
 			    getColumns().add(column);		
 			    return column;	
 				'''
 			]
 
 			// #setInput Method
-			members += element.toMethod('setInput', "void".typeRef)[
-				visibility=JvmVisibility.PROTECTED
+			members += element.toMethod('setInput', typeRef('void'))[
+				visibility=JvmVisibility.PUBLIC
 				
 				val JvmFormalParameter arg = TypesFactory::eINSTANCE.createJvmFormalParameter
 				arg.name = "items"
@@ -108,6 +116,23 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				masterData.clear();
 				masterData.addAll(items);
 				'''
+			]
+			
+			members += element.toMethod('setFeatureFor', typeRef('void'))[
+				visibility=JvmVisibility.PUBLIC
+				
+				val JvmFormalParameter arg1 = TypesFactory::eINSTANCE.createJvmFormalParameter
+				arg1.name = "type"
+				arg1.parameterType = (packagePath+'model.'+element.usedModel.name+'Type').typeRef
+				
+				val JvmFormalParameter arg2 = TypesFactory::eINSTANCE.createJvmFormalParameter
+				arg2.name = "feature"
+				arg2.parameterType = Callback.typeRef(TableColumn.CellDataFeatures.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param)), ObservableValue.typeRef(typeReferences.createTypeRef(param)))
+				
+				parameters += arg1
+				parameters += arg2
+				
+				body = '''columns.get(type).setCellValueFactory(feature);'''
 			]
 			
 			members += element.toGetter('masterData', ObservableList.typeRef(typeReferences.createTypeRef(param)));

@@ -1,5 +1,10 @@
 package de.dc.emf.javafx.xtext.demo.cu;
 
+import de.dc.emf.javafx.xtext.demo.cu.feature.BaseContactCellFeatures;
+import de.dc.emf.javafx.xtext.demo.cu.model.ContactType;
+import java.util.HashMap;
+import java.util.Map;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -12,6 +17,8 @@ public class BaseTabke<T> extends TableView<T> {
   private ObservableList<T> masterData = FXCollections.observableArrayList();
   
   private FilteredList<T> filteredMasterData = new FilteredList<>(masterData, p->true);
+  
+  private Map<ContactType, TableColumn<T, T>> columns = new HashMap<>();
   
   private TableColumn<T, T> nameColumn;
   
@@ -33,13 +40,18 @@ public class BaseTabke<T> extends TableView<T> {
     TableColumn<T, T> column = new TableColumn(name);
     column.setPrefWidth(width);
     column.setCellValueFactory(cellFeatures);
+    columns.put(ContactType.valueOf(name), column);
     getColumns().add(column);		
     return column;	
   }
   
-  protected void setInput(final ObservableList<T> items) {
+  public void setInput(final ObservableList<T> items) {
     masterData.clear();
     masterData.addAll(items);
+  }
+  
+  public void setFeatureFor(final ContactType type, final Callback<TableColumn.CellDataFeatures<T, T>, ObservableValue<T>> feature) {
+    columns.get(type).setCellValueFactory(feature);
   }
   
   public ObservableList<T> getMasterData() {
