@@ -9,9 +9,9 @@ import javafx.util.Callback;
 
 @SuppressWarnings("all")
 public class BaseTabke<T> extends TableView<T> {
-  private ObservableList masterData = FXCollections.observableArrayList();
+  private ObservableList<T> masterData = FXCollections.observableArrayList();
   
-  private FilteredList filteredMasterData = new FilteredList<>(masterData, p->true);
+  private FilteredList<T> filteredMasterData = new FilteredList<>(masterData, p->true);
   
   private TableColumn<T, T> nameColumn;
   
@@ -22,7 +22,7 @@ public class BaseTabke<T> extends TableView<T> {
   private TableColumn<T, T> addressColumn;
   
   public BaseTabke() {
-    nameColumn = createColumn(ContactType.Name.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Name));
+    nameColumn = createColumn(ContactType.Name.name(), Double.valueOf(300),  new BaseContactCellFeatures(ContactType.Name));
     ageColumn = createColumn(ContactType.Age.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Age));
     genderColumn = createColumn(ContactType.Gender.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Gender));
     addressColumn = createColumn(ContactType.Address.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Address));
@@ -40,5 +40,13 @@ public class BaseTabke<T> extends TableView<T> {
   protected void setInput(final ObservableList<T> items) {
     masterData.clear();
     masterData.addAll(items);
+  }
+  
+  public ObservableList<T> getMasterData() {
+    return this.masterData;
+  }
+  
+  public FilteredList<T> getFilteredMasterData() {
+    return this.filteredMasterData;
   }
 }

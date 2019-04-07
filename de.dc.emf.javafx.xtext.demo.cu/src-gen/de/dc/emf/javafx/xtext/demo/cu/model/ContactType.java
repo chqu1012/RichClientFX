@@ -1,4 +1,4 @@
-package de.dc.emf.javafx.xtext.demo.cu;
+package de.dc.emf.javafx.xtext.demo.cu.model;
 
 @SuppressWarnings("all")
 public enum ContactType {
