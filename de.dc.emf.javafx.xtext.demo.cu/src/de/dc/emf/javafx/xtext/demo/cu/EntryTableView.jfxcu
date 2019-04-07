@@ -12,7 +12,7 @@ ProjectFX{
 		} 
 	}
 	 
-	models{    
+	models{
 		class Entry{
 			int id
 			String name

@@ -12,7 +12,7 @@ ProjectFX{
 			Column(name:Address useFilter)
 		} 
 	}
-	 
+	
 	models{    
 		class Contact{
 			String name

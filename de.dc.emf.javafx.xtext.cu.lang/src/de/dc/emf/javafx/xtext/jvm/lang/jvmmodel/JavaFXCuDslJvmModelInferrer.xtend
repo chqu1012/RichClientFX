@@ -7,14 +7,22 @@ import com.google.inject.Inject
 import de.dc.emf.javafx.model.javafx.Bean
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
+import java.util.HashMap
+import java.util.Map
 import javafx.beans.property.SimpleStringProperty
+import javafx.beans.property.StringProperty
 import javafx.beans.value.ObservableValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.collections.transformation.FilteredList
+import javafx.geometry.Insets
+import javafx.scene.control.Label
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableColumn.CellDataFeatures
 import javafx.scene.control.TableView
+import javafx.scene.control.TextField
+import javafx.scene.layout.BorderPane
+import javafx.scene.layout.HBox
 import javafx.util.Callback
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.common.types.JvmFormalParameter
@@ -25,9 +33,9 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import java.lang.reflect.Constructor
-import java.util.Map
-import java.util.HashMap
+import javafx.beans.binding.Bindings
+import javafx.scene.control.Button
+import javafx.scene.layout.Priority
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -59,17 +67,15 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			param.setName("T")
 			typeParameters += param
 			
-			superTypes+=TableView.typeRef(typeReferences.createTypeRef(param))
+			superTypes+=BorderPane.typeRef
 			
-			members += element.toField('masterData', ObservableList.typeRef(typeReferences.createTypeRef(param)))[
-				initializer = '''«FXCollections».observableArrayList()'''
-			]
-			members += element.toField('filteredMasterData', FilteredList.typeRef(typeReferences.createTypeRef(param)))[
-				initializer = '''new «FilteredList»<>(masterData, p->true)'''
-			]
-			members += element.toField('columns', Map.typeRef(typeRef(packagePath+'model.'+element.usedModel.name+'Type'), TableColumn.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param))))[
-				initializer = '''new «HashMap»<>()'''
-			]
+			members += element.toField('masterData', ObservableList.typeRef(typeReferences.createTypeRef(param)))[initializer = '''«FXCollections».observableArrayList()''']
+			members += element.toField('filteredMasterData', FilteredList.typeRef(typeReferences.createTypeRef(param)))[initializer = '''new «FilteredList»<>(masterData, p->true)''']
+			members += element.toField('columns', Map.typeRef(typeRef(packagePath+'model.'+element.usedModel.name+'Type'), TableColumn.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param))))[initializer = '''new «HashMap»<>()''']
+			members += element.toField('tableView', TableView.typeRef(typeReferences.createTypeRef(param)))[initializer = ''' new «TableView»<T>()''']
+			members += element.toField('searchTextfield', TextField.typeRef)[initializer = '''new TextField()''']
+			members += element.toField('topPane', HBox.typeRef)[initializer = '''new HBox()''']
+			members += element.toField('searchProperty', StringProperty.typeRef)[initializer = '''new «SimpleStringProperty»("")''']
 			
 			element.columns.forEach[col|
 				members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef(typeReferences.createTypeRef(param), typeReferences.createTypeRef(param)))
@@ -80,10 +86,60 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			val feature = typeRef(packagePath+'feature.Base'+modelName+'CellFeatures')
 			members += element.toConstructor[
 				body = '''
+				initTableView();
+				initTopPane();
+				
+				setTop(topPane);
+				setCenter(tableView);
+				'''
+			]
+			
+			// #initTableView Method
+			members += element.toMethod('initTableView', typeRef('void'))[
+				body = '''
 				«FOR col : element.columns»
 				«col.name.toFirstLower»Column = createColumn(«modelType».«col.name.toFirstUpper».name(), Double.valueOf(«col.width»),  new «feature»(«modelType».«col.name.toFirstUpper»));
 				«ENDFOR»
-				setItems(filteredMasterData);
+				tableView.setItems(filteredMasterData);
+				tableView.setOnKeyReleased(e ->{ 
+					if(getTop()==null) {
+						setTop(topPane);
+					}
+					searchProperty.set(searchProperty.get()+e.getText());
+				});
+				'''
+			]
+			
+			// #initTableView Method
+			members += element.toMethod('initTopPane', typeRef('void'))[
+				body = '''
+				topPane.setSpacing(10d);
+				topPane.setPadding(new «Insets»(5d));
+				
+				«Label» label = new Label("Search:");
+				label.setMaxHeight(«Double».MAX_VALUE);
+				
+				searchTextfield.setPromptText("Search for «element.usedModel.name»s");
+				searchTextfield.textProperty().bindBidirectional(searchProperty);
+				
+				«Label» filterLabel = new Label("Filter Result:");
+				filterLabel.setMaxHeight(«Double».MAX_VALUE);
+				
+				«Label» filterResultlabel = new Label("0");
+				filterResultlabel.setMaxHeight(«Double».MAX_VALUE);
+				filterResultlabel.textProperty().bind(«Bindings».size(filteredMasterData).asString());						
+				Label emtyLabel = new Label("");
+				emtyLabel.setMaxHeight(Double.MAX_VALUE);
+				emtyLabel.setMaxWidth(Double.MAX_VALUE);
+				«HBox».setHgrow(emtyLabel, «Priority».ALWAYS);
+				
+				«Button» closeButton = new Button("Close");
+				closeButton.setOnAction(e -> {
+					setTop(null);
+					searchProperty.set("");
+				});
+				
+				topPane.getChildren().addAll(label, searchTextfield, filterLabel, filterResultlabel, emtyLabel, closeButton);
 				'''
 			]
 			
@@ -98,7 +154,7 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			    column.setPrefWidth(width);
 			    column.setCellValueFactory(cellFeatures);
 			    columns.put(«element.usedModel.name+'Type'».valueOf(name), column);
-			    getColumns().add(column);		
+			    tableView.getColumns().add(column);		
 			    return column;	
 				'''
 			]
