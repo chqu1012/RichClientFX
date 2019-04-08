@@ -2,13 +2,13 @@ packagePath "de.dc.emf.javafx.xtext.demo.cu"
 
 controls{
 	TableViewFX{  
-		name:'Tabke'
+		name:'Tabke' 
 		usedModel:"Contact" 
 		Column(name:Name width:300 useFilter)
 		Column(name:Age useFilter)
 		Column(name:Gender useFilter)
-		Column(name:Address useFilter)
-	}
+		Column(name:Address useFilter) 
+	} 
 }
  
 models{

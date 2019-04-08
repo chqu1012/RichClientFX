@@ -41,6 +41,9 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import javafx.scene.control.cell.PropertyValueFactory
+import javafx.beans.value.ChangeListener
+import java.util.List
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -80,7 +83,9 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			members += element.toField('topPane', HBox.typeRef)[initializer = '''new HBox()''']
 			members += element.toField('rightPane', AnchorPane.typeRef)[initializer = '''new AnchorPane()''']
 			members += element.toField('searchProperty', StringProperty.typeRef)[initializer = '''new «SimpleStringProperty»("")''']
-			
+			members += element.toField('propertyView', TableView.typeRef)[initializer = '''new TableView<>()''']
+			members += element.toField('properties', ObservableList.typeRef((packagePath+'model.PropertyValue').typeRef))[initializer = '''«FXCollections».observableArrayList()''']
+
 			element.columns.forEach[col|
 				members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef(model, model))
 				if (col.useFilter) {
@@ -132,6 +137,16 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 						searchProperty.set(searchProperty.get()+e.getText());
 					}
 				});
+				
+				tableView.getSelectionModel().selectedItemProperty().addListener((«ChangeListener»<«model»>) (obs, oldV, newV) -> {
+					if(newV!=null){
+						«FOR i : 0..(element.columns.size-1)»
+						properties.get(«i»).setValue(String.valueOf(newV.get«element.columns.get(i).name.toFirstUpper»()));
+						«ENDFOR»
+						propertyView.refresh();
+					}
+				});
+				
 				«IF element.columns.filter[useFilter].size>0»
 				«val filterbinding = element.columns.filter[useFilter].map[name.toFirstLower+'Filter.get()'].reduce[p1, p2|p1+'.or('+p2+')']»
 				«val filters = element.columns.filter[useFilter].map[name.toFirstLower+'Filter'].reduce[p1, p2|p1+','+p2]»
@@ -143,16 +158,24 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			// #initTableView Method
 			members += element.toMethod('initRightPane', typeRef('void'))[
 				body ='''
-				 «TableView»<Object> propertyView = new TableView<>();
-				 propertyView.getColumns().add(new «TableColumn»<>("Property"));
-				 propertyView.getColumns().add(new TableColumn<>("Value"));
-				 
-				 «AnchorPane».setBottomAnchor(propertyView, 0d);
-				 AnchorPane.setTopAnchor(propertyView, 0d);
-				 AnchorPane.setLeftAnchor(propertyView, 0d);
-				 AnchorPane.setRightAnchor(propertyView, 0d);
-				 
-				 rightPane.getChildren().add(propertyView);
+					«TableColumn»<«'PropertyValue'.typeRef», Object> propertyColumn = new TableColumn<>("Property");
+					propertyColumn.setCellValueFactory(new «PropertyValueFactory»<>("property"));
+					propertyView.getColumns().add(propertyColumn);
+					«TableColumn»<PropertyValue, Object> valueColumn = new TableColumn<>("Value");
+					valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
+					propertyView.getColumns().add(valueColumn);
+					
+					«AnchorPane».setBottomAnchor(propertyView, 0d);
+					AnchorPane.setTopAnchor(propertyView, 0d);
+					AnchorPane.setLeftAnchor(propertyView, 0d);
+					AnchorPane.setRightAnchor(propertyView, 0d);
+											    
+					for («typeRef(packagePath+'model.'+element.usedModel.name+'Type')» type : «typeRef(packagePath+'model.'+element.usedModel.name+'Type')».values()) {
+						properties.add(new «typeRef(packagePath+'model.PropertyValue')»(type.name(), ""));
+					}
+					propertyView.setItems(properties);
+					
+					rightPane.getChildren().add(propertyView);
 				'''
 			]
 
@@ -306,6 +329,23 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 					body = '''return «String».valueOf(item.get«column.name»());'''
 		   		]
 			}
+	   	])
+	   	
+	   	acceptor.accept(element.toClass(packagePath+'model.PropertyValue') [
+	   		members += element.toField('property', String.typeRef)
+	   		members += element.toGetter('property', String.typeRef)
+	   		members += element.toSetter('property', String.typeRef)
+	   		members += element.toField('value', String.typeRef)
+	   		members += element.toGetter('value', String.typeRef)
+	   		members += element.toSetter('value', String.typeRef)
+	   		members += element.toConstructor[
+	   			parameters+=element.toParameter('property', String.typeRef)
+	   			parameters+=element.toParameter('value', String.typeRef)
+	   			body = '''
+	   			this.property = property;
+	   			this.value = value;
+	   			'''
+	   		]
 	   	])
 	}
 	

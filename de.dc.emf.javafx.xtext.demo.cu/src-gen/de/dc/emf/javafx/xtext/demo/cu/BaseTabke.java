@@ -3,6 +3,7 @@ package de.dc.emf.javafx.xtext.demo.cu;
 import de.dc.emf.javafx.xtext.demo.cu.feature.BaseContactCellFeatures;
 import de.dc.emf.javafx.xtext.demo.cu.model.Contact;
 import de.dc.emf.javafx.xtext.demo.cu.model.ContactType;
+import de.dc.emf.javafx.xtext.demo.cu.model.PropertyValue;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -11,6 +12,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -45,6 +48,10 @@ public class BaseTabke extends BorderPane {
   private AnchorPane rightPane = new AnchorPane();
   
   private StringProperty searchProperty = new SimpleStringProperty("");
+  
+  private TableView propertyView = new TableView<>();
+  
+  private ObservableList<PropertyValue> properties = FXCollections.observableArrayList();
   
   private TableColumn<Contact, Contact> nameColumn;
   
@@ -105,18 +112,37 @@ public class BaseTabke extends BorderPane {
     		searchProperty.set(searchProperty.get()+e.getText());
     	}
     });
+    
+    tableView.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Contact>) (obs, oldV, newV) -> {
+    	if(newV!=null){
+    		properties.get(0).setValue(String.valueOf(newV.getName()));
+    		properties.get(1).setValue(String.valueOf(newV.getAge()));
+    		properties.get(2).setValue(String.valueOf(newV.getGender()));
+    		properties.get(3).setValue(String.valueOf(newV.getAddress()));
+    		propertyView.refresh();
+    	}
+    });
+    
     filteredMasterData.predicateProperty().bind(Bindings.createObjectBinding(()->nameFilter.get().or(ageFilter.get()).or(genderFilter.get()).or(addressFilter.get()), nameFilter,ageFilter,genderFilter,addressFilter));
   }
   
   public void initRightPane() {
-    TableView<Object> propertyView = new TableView<>();
-    propertyView.getColumns().add(new TableColumn<>("Property"));
-    propertyView.getColumns().add(new TableColumn<>("Value"));
+    TableColumn<PropertyValue, Object> propertyColumn = new TableColumn<>("Property");
+    propertyColumn.setCellValueFactory(new PropertyValueFactory<>("property"));
+    propertyView.getColumns().add(propertyColumn);
+    TableColumn<PropertyValue, Object> valueColumn = new TableColumn<>("Value");
+    valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
+    propertyView.getColumns().add(valueColumn);
     
     AnchorPane.setBottomAnchor(propertyView, 0d);
     AnchorPane.setTopAnchor(propertyView, 0d);
     AnchorPane.setLeftAnchor(propertyView, 0d);
     AnchorPane.setRightAnchor(propertyView, 0d);
+    						    
+    for (ContactType type : ContactType.values()) {
+    	properties.add(new PropertyValue(type.name(), ""));
+    }
+    propertyView.setItems(properties);
     
     rightPane.getChildren().add(propertyView);
   }
