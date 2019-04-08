@@ -3,17 +3,24 @@
 package de.dc.emf.javafx.model.javafx.presentation;
 
 import java.io.File;
+import java.net.URL;
 import java.util.Arrays;
 
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.edit.ui.action.LoadResourceAction;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
-
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
@@ -38,14 +45,10 @@ import org.eclipse.ui.application.IWorkbenchConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
-
-import org.eclipse.emf.common.ui.URIEditorInput;
-import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.edit.ui.action.LoadResourceAction;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
-
-import de.dc.emf.javafx.model.javafx.presentation.JavafxEditorPlugin;
+import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.internal.ide.IDEInternalWorkbenchImages;
+import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
+import org.osgi.framework.Bundle;
 
 /**
  * Customized {@link WorkbenchAdvisor} for the RCP application.
@@ -535,15 +538,75 @@ public final class JavafxEditorAdvisor extends WorkbenchAdvisor {
 	 * @see org.eclipse.ui.application.WorkbenchAdvisor#initialize(org.eclipse.ui.application.IWorkbenchConfigurer)
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public void initialize(IWorkbenchConfigurer configurer) {
 		super.initialize(configurer);
 		configurer.setSaveAndRestore(true);
 		org.eclipse.ui.ide.IDE.registerAdapters();
+		
+		final String ICONS_PATH = "icons/full/";
+	    Bundle ideBundle = Platform.getBundle(IDEWorkbenchPlugin.IDE_WORKBENCH);
+
+	    declareWorkbenchImage(
+	            configurer, 
+	            ideBundle,
+	            IDE.SharedImages.IMG_OBJ_PROJECT, 
+	            ICONS_PATH + "obj16/prj_obj.png",
+	            true);
+
+	    declareWorkbenchImage(
+	            configurer, 
+	            ideBundle,
+	            IDE.SharedImages.IMG_OBJ_PROJECT_CLOSED, 
+	            ICONS_PATH + "obj16/cprj_obj.png", 
+	            true);
+
+	    declareWorkbenchImage(
+	            configurer, 
+	            ideBundle, 
+	            IDEInternalWorkbenchImages.IMG_ETOOL_PROBLEMS_VIEW, 
+	            ICONS_PATH + "eview16/problems_view.png", 
+	            true);
+
+	    declareWorkbenchImage(
+	            configurer, 
+	            ideBundle, 
+	            IDEInternalWorkbenchImages.IMG_ETOOL_PROBLEMS_VIEW_ERROR, 
+	            ICONS_PATH + "eview16/problems_view_error.png", 
+	            true);
+
+
+	    declareWorkbenchImage(
+	            configurer, 
+	            ideBundle, 
+	            IDEInternalWorkbenchImages.IMG_ETOOL_PROBLEMS_VIEW_WARNING, 
+	            ICONS_PATH + "eview16/problems_view_warning.png", 
+	            true);
+
+	    declareWorkbenchImage(
+	            configurer, 
+	            ideBundle, 
+	            IDEInternalWorkbenchImages.IMG_OBJS_ERROR_PATH, 
+	            ICONS_PATH + "obj16/error_tsk.png", 
+	            true);
+
+	    declareWorkbenchImage(
+	            configurer, 
+	            ideBundle, 
+	            IDEInternalWorkbenchImages.IMG_OBJS_WARNING_PATH, 
+	            ICONS_PATH + "obj16/warn_tsk.png", 
+	            true);
 	}
 
+	private void declareWorkbenchImage(IWorkbenchConfigurer configurer_p, Bundle ideBundle, String symbolicName, String path, boolean shared)  
+	{
+	    URL url = ideBundle.getEntry(path);
+	    ImageDescriptor desc = ImageDescriptor.createFromURL(url);
+	    configurer_p.declareImage(symbolicName, desc, shared);
+	}
+	
 	/**
 	 * @see org.eclipse.ui.application.WorkbenchAdvisor#createWorkbenchWindowAdvisor(org.eclipse.ui.application.IWorkbenchWindowConfigurer)
 	 * <!-- begin-user-doc -->

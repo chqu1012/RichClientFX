@@ -12,6 +12,7 @@ import java.util.Map
 import java.util.function.Predicate
 import javafx.beans.binding.Bindings
 import javafx.beans.property.ObjectProperty
+import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.StringProperty
 import javafx.beans.value.ObservableValue
@@ -25,6 +26,8 @@ import javafx.scene.control.TableColumn
 import javafx.scene.control.TableColumn.CellDataFeatures
 import javafx.scene.control.TableView
 import javafx.scene.control.TextField
+import javafx.scene.input.KeyCode
+import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
@@ -38,9 +41,6 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import javafx.beans.property.SimpleObjectProperty
-import javafx.scene.input.KeyCode
-import javafx.scene.layout.AnchorPane
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -132,9 +132,11 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 						searchProperty.set(searchProperty.get()+e.getText());
 					}
 				});
+				«IF element.columns.filter[useFilter].size>0»
 				«val filterbinding = element.columns.filter[useFilter].map[name.toFirstLower+'Filter.get()'].reduce[p1, p2|p1+'.or('+p2+')']»
 				«val filters = element.columns.filter[useFilter].map[name.toFirstLower+'Filter'].reduce[p1, p2|p1+','+p2]»
 				filteredMasterData.predicateProperty().bind(«Bindings».createObjectBinding(()->«filterbinding», «filters»));
+				«ENDIF»
 				'''
 			]
 			
@@ -142,7 +144,7 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			members += element.toMethod('initRightPane', typeRef('void'))[
 				body ='''
 				 «TableView»<Object> propertyView = new TableView<>();
-				 opertyView.getColumns().add(new «TableColumn»<>("Property"));
+				 propertyView.getColumns().add(new «TableColumn»<>("Property"));
 				 propertyView.getColumns().add(new TableColumn<>("Value"));
 				 
 				 «AnchorPane».setBottomAnchor(propertyView, 0d);
@@ -194,7 +196,7 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 					searchProperty.set("");
 				});
 				
-				topPane.getChildren().addAll(label, searchTextfield, filterLabel, filterResultlabel, emtyLabel, closeButton);
+				topPane.getChildren().addAll(label, searchTextfield, filterLabel, filterResultlabel, emtyLabel, showPropertyButton, closeButton);
 				'''
 			]
 			
