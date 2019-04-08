@@ -8,7 +8,7 @@ controls{
 		Column(name:Age useFilter)
 		Column(name:Gender useFilter)
 		Column(name:Address useFilter)
-	} 
+	}
 }
  
 models{
