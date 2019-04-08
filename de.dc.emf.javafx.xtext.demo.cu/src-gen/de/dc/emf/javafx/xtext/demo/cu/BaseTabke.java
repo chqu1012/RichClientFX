@@ -1,11 +1,12 @@
 package de.dc.emf.javafx.xtext.demo.cu;
 
-import de.dc.emf.javafx.xtext.demo.cu.feature.BaseContactCellFeatures;
-import de.dc.emf.javafx.xtext.demo.cu.model.Contact;
-import de.dc.emf.javafx.xtext.demo.cu.model.ContactType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
+
+import de.dc.emf.javafx.xtext.demo.cu.feature.BaseContactCellFeatures;
+import de.dc.emf.javafx.xtext.demo.cu.model.Contact;
+import de.dc.emf.javafx.xtext.demo.cu.model.ContactType;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -22,6 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -40,6 +42,8 @@ public class BaseTabke extends BorderPane {
   private TextField searchTextfield = new TextField();
   
   private HBox topPane = new HBox();
+
+  private AnchorPane rightPane = new AnchorPane();
   
   private StringProperty searchProperty = new SimpleStringProperty("");
   
@@ -62,9 +66,23 @@ public class BaseTabke extends BorderPane {
   public BaseTabke() {
     initTableView();
     initTopPane();
+    initRightPane();
     
     setTop(topPane);
     setCenter(tableView);
+  }
+  
+  public void initRightPane() {
+	  TableView<Object> propertyView = new TableView<>();
+	  propertyView.getColumns().add(new TableColumn<>("Property"));
+	  propertyView.getColumns().add(new TableColumn<>("Value"));
+	  
+	  AnchorPane.setBottomAnchor(propertyView, 0d);
+	  AnchorPane.setTopAnchor(propertyView, 0d);
+	  AnchorPane.setLeftAnchor(propertyView, 0d);
+	  AnchorPane.setRightAnchor(propertyView, 0d);
+	  
+	  rightPane.getChildren().add(propertyView);
   }
   
   public void initTableView() {
@@ -125,13 +143,24 @@ public class BaseTabke extends BorderPane {
     emtyLabel.setMaxWidth(Double.MAX_VALUE);
     HBox.setHgrow(emtyLabel, Priority.ALWAYS);
     
+    Button showPropertyButton = new Button("Show Property View");
+    showPropertyButton.setOnAction(e->{
+    	if (getRight()==null) {
+			setRight(rightPane);
+			showPropertyButton.setText("Show Property View");
+		}else {
+			setRight(null);
+			showPropertyButton.setText("Hide Property View");
+		}
+    });
+    
     Button closeButton = new Button("Close");
     closeButton.setOnAction(e -> {
     	setTop(null);
     	searchProperty.set("");
     });
     
-    topPane.getChildren().addAll(label, searchTextfield, filterLabel, filterResultlabel, emtyLabel, closeButton);
+    topPane.getChildren().addAll(label, searchTextfield, filterLabel, filterResultlabel, emtyLabel, showPropertyButton, closeButton);
   }
   
   protected TableColumn createColumn(final String name, final Double width, final Callback cellFeatures) {
