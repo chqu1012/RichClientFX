@@ -40,6 +40,7 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import javafx.beans.property.SimpleObjectProperty
 import javafx.scene.input.KeyCode
+import javafx.scene.layout.AnchorPane
 
 class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -77,6 +78,7 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			members += element.toField('tableView', TableView.typeRef(model))[initializer = ''' new «TableView»<«model»>()''']
 			members += element.toField('searchTextfield', TextField.typeRef)[initializer = '''new TextField()''']
 			members += element.toField('topPane', HBox.typeRef)[initializer = '''new HBox()''']
+			members += element.toField('rightPane', AnchorPane.typeRef)[initializer = '''new AnchorPane()''']
 			members += element.toField('searchProperty', StringProperty.typeRef)[initializer = '''new «SimpleStringProperty»("")''']
 			
 			element.columns.forEach[col|
@@ -93,6 +95,7 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				body = '''
 				initTableView();
 				initTopPane();
+				initRightPane();
 				
 				setTop(topPane);
 				setCenter(tableView);
@@ -136,6 +139,22 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 			]
 			
 			// #initTableView Method
+			members += element.toMethod('initRightPane', typeRef('void'))[
+				body ='''
+				 «TableView»<Object> propertyView = new TableView<>();
+				 opertyView.getColumns().add(new «TableColumn»<>("Property"));
+				 propertyView.getColumns().add(new TableColumn<>("Value"));
+				 
+				 «AnchorPane».setBottomAnchor(propertyView, 0d);
+				 AnchorPane.setTopAnchor(propertyView, 0d);
+				 AnchorPane.setLeftAnchor(propertyView, 0d);
+				 AnchorPane.setRightAnchor(propertyView, 0d);
+				 
+				 rightPane.getChildren().add(propertyView);
+				'''
+			]
+
+			// #initTableView Method
 			members += element.toMethod('initTopPane', typeRef('void'))[
 				body = '''
 				topPane.setSpacing(10d);
@@ -157,6 +176,17 @@ class JavaFXCuDslJvmModelInferrer extends AbstractModelInferrer {
 				emtyLabel.setMaxHeight(Double.MAX_VALUE);
 				emtyLabel.setMaxWidth(Double.MAX_VALUE);
 				«HBox».setHgrow(emtyLabel, «Priority».ALWAYS);
+				
+			    «Button» showPropertyButton = new Button("Show Property View");
+				showPropertyButton.setOnAction(e->{
+					if(getRight()==null) {
+						setRight(rightPane);
+						showPropertyButton.setText("Show Property View");
+					}else {
+						setRight(null);
+						showPropertyButton.setText("Hide Property View");
+					}
+				});
 				
 				«Button» closeButton = new Button("Close");
 				closeButton.setOnAction(e -> {
