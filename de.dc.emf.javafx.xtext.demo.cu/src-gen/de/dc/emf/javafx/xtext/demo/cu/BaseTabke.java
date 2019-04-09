@@ -17,12 +17,14 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
@@ -83,6 +85,19 @@ public class BaseTabke extends BorderPane {
     ageColumn = createColumn(ContactType.Age.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Age));
     genderColumn = createColumn(ContactType.Gender.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Gender));
     addressColumn = createColumn(ContactType.Address.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Address));
+    addressColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Contact,Contact>>() {
+		
+		@Override
+		public void handle(CellEditEvent<Contact, Contact> arg0) {
+		     final Contact value = arg0.getNewValue() != null ? arg0.getNewValue() :
+		    	 arg0.getOldValue();
+		        ((Contact) arg0.getTableView().getItems()
+		            .get(arg0.getTablePosition().getRow()))
+		        .setAddress(value.getAddress());
+		        tableView.refresh();			
+		}
+	});
+    
     nameFilter.bind(Bindings.createObjectBinding(() -> 
                 current -> String.valueOf(current.getName()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
                 searchTextfield.textProperty()));
@@ -95,6 +110,8 @@ public class BaseTabke extends BorderPane {
     addressFilter.bind(Bindings.createObjectBinding(() -> 
                 current -> String.valueOf(current.getAddress()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
                 searchTextfield.textProperty()));
+    tableView.setEditable(true);
+    tableView.getSelectionModel().cellSelectionEnabledProperty().set(true);
     tableView.setItems(filteredMasterData);
     tableView.setOnKeyReleased(e ->{ 
     	if (e.getCode().equals(KeyCode.ESCAPE)) {
