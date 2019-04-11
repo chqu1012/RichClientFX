@@ -41,6 +41,7 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import de.dc.emf.javafx.model.javafx.Bean
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -332,5 +333,23 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	   			'''
 	   		]
 	   	])
+	}
+
+	def dispatch void infer(Bean element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+		acceptor.accept(element.toClass(packagePath+element.name)) [
+			element.attributes.forEach[attribute|
+				members += element.toField(attribute.name.toFirstLower, typeRef(attribute.type))
+				if (attribute.type=='Boolean' || attribute.type=='boolean' || attribute.type=='Bool' || attribute.type=='bool') {
+					members += element.toMethod('get'+attribute.name.toFirstUpper, typeRef(attribute.type))[
+						visibility=JvmVisibility.PUBLIC
+						body = '''return this.«attribute.name.toFirstLower»;'''
+					]
+				}else{
+					members += element.toGetter(attribute.name.toFirstLower, typeRef(attribute.type))
+				}
+				members += element.toSetter(attribute.name.toFirstLower, typeRef(attribute.type))
+			]
+		]
 	}
 }

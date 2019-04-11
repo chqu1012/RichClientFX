@@ -3,7 +3,10 @@
  */
 package de.dc.javafx.xcore.lang.jvmmodel;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
@@ -951,8 +954,55 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
     acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, (packagePath + "model.PropertyValue"), _function_3));
   }
   
+  protected void _infer(final Bean element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    EObject _rootContainer = EcoreUtil.getRootContainer(element);
+    String _packagePath = ((ProjectFX) _rootContainer).getPackagePath();
+    final String packagePath = (_packagePath + ".");
+    String _name = element.getName();
+    String _plus = (packagePath + _name);
+    final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+      final Consumer<AttributeFX> _function_1 = (AttributeFX attribute) -> {
+        EList<JvmMember> _members = it.getMembers();
+        JvmField _field = this._jvmTypesBuilder.toField(element, StringExtensions.toFirstLower(attribute.getName()), this._typeReferenceBuilder.typeRef(attribute.getType()));
+        this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
+        if ((((Objects.equal(attribute.getType(), "Boolean") || Objects.equal(attribute.getType(), "boolean")) || Objects.equal(attribute.getType(), "Bool")) || Objects.equal(attribute.getType(), "bool"))) {
+          EList<JvmMember> _members_1 = it.getMembers();
+          String _firstUpper = StringExtensions.toFirstUpper(attribute.getName());
+          String _plus_1 = ("get" + _firstUpper);
+          final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
+            it_1.setVisibility(JvmVisibility.PUBLIC);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("return this.");
+                String _firstLower = StringExtensions.toFirstLower(attribute.getName());
+                _builder.append(_firstLower);
+                _builder.append(";");
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(element, _plus_1, this._typeReferenceBuilder.typeRef(attribute.getType()), _function_2);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method);
+        } else {
+          EList<JvmMember> _members_2 = it.getMembers();
+          JvmOperation _getter = this._jvmTypesBuilder.toGetter(element, StringExtensions.toFirstLower(attribute.getName()), this._typeReferenceBuilder.typeRef(attribute.getType()));
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _getter);
+        }
+        EList<JvmMember> _members_3 = it.getMembers();
+        JvmOperation _setter = this._jvmTypesBuilder.toSetter(element, StringExtensions.toFirstLower(attribute.getName()), this._typeReferenceBuilder.typeRef(attribute.getType()));
+        this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _setter);
+      };
+      element.getAttributes().forEach(_function_1);
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, _plus), _function);
+  }
+  
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    if (element instanceof TableViewFX) {
+    if (element instanceof Bean) {
+      _infer((Bean)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof TableViewFX) {
       _infer((TableViewFX)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof ProjectFX) {

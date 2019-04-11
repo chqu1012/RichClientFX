@@ -1,39 +1,41 @@
 package de.dc.javafx.xcore.example.model;
 
+@SuppressWarnings("all")
 public class Contact {
+  private String name;
+  
+  
+  public Contact(String name, int age, boolean gender) {
+	this.name = name;
+	this.age = age;
+	this.gender = gender;
+}
 
-	private String name;
-	private int age;
-	private boolean gender;
-
-	public Contact(String name, int age, boolean gender) {
-		this.name = name;
-		this.age = age;
-		this.gender = gender;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public boolean getGender() {
-		return gender;
-	}
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
-
+public String getName() {
+    return this.name;
+  }
+  
+  public void setName(final String name) {
+    this.name = name;
+  }
+  
+  private int age;
+  
+  public int getAge() {
+    return this.age;
+  }
+  
+  public void setAge(final int age) {
+    this.age = age;
+  }
+  
+  private boolean gender;
+  
+  public boolean getGender() {
+    return this.gender;
+  }
+  
+  public void setGender(final boolean gender) {
+    this.gender = gender;
+  }
 }

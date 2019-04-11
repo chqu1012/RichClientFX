@@ -7,5 +7,5 @@ controls{
 		column(name:Name) 
 		column(name:Age useFilter) 
 		column(name:Gender) 
-	} 
+	}
 }
