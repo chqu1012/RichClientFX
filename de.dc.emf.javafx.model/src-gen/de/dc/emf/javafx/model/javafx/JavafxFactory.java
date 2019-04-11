@@ -31,6 +31,78 @@ public interface JavafxFactory extends EFactory {
 	ProjectFX createProjectFX();
 
 	/**
+	 * Returns a new object of class '<em>Table Column FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Column FX</em>'.
+	 * @generated
+	 */
+	TableColumnFX createTableColumnFX();
+
+	/**
+	 * Returns a new object of class '<em>Attribute FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attribute FX</em>'.
+	 * @generated
+	 */
+	AttributeFX createAttributeFX();
+
+	/**
+	 * Returns a new object of class '<em>Bean</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bean</em>'.
+	 * @generated
+	 */
+	Bean createBean();
+
+	/**
+	 * Returns a new object of class '<em>Derived Bean</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Derived Bean</em>'.
+	 * @generated
+	 */
+	DerivedBean createDerivedBean();
+
+	/**
+	 * Returns a new object of class '<em>Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binding</em>'.
+	 * @generated
+	 */
+	Binding createBinding();
+
+	/**
+	 * Returns a new object of class '<em>Binding Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binding Property</em>'.
+	 * @generated
+	 */
+	BindingProperty createBindingProperty();
+
+	/**
+	 * Returns a new object of class '<em>Table View FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table View FX</em>'.
+	 * @generated
+	 */
+	TableViewFX createTableViewFX();
+
+	/**
+	 * Returns a new object of class '<em>Filtered Table View FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filtered Table View FX</em>'.
+	 * @generated
+	 */
+	FilteredTableViewFX createFilteredTableViewFX();
+
+	/**
 	 * Returns a new object of class '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,78 +191,6 @@ public interface JavafxFactory extends EFactory {
 	 * @generated
 	 */
 	BarChartFX createBarChartFX();
-
-	/**
-	 * Returns a new object of class '<em>Table View FX</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Table View FX</em>'.
-	 * @generated
-	 */
-	TableViewFX createTableViewFX();
-
-	/**
-	 * Returns a new object of class '<em>Filtered Table View FX</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Filtered Table View FX</em>'.
-	 * @generated
-	 */
-	FilteredTableViewFX createFilteredTableViewFX();
-
-	/**
-	 * Returns a new object of class '<em>Table Column FX</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Table Column FX</em>'.
-	 * @generated
-	 */
-	TableColumnFX createTableColumnFX();
-
-	/**
-	 * Returns a new object of class '<em>Attribute FX</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Attribute FX</em>'.
-	 * @generated
-	 */
-	AttributeFX createAttributeFX();
-
-	/**
-	 * Returns a new object of class '<em>Bean</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bean</em>'.
-	 * @generated
-	 */
-	Bean createBean();
-
-	/**
-	 * Returns a new object of class '<em>Derived Bean</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Derived Bean</em>'.
-	 * @generated
-	 */
-	DerivedBean createDerivedBean();
-
-	/**
-	 * Returns a new object of class '<em>Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binding</em>'.
-	 * @generated
-	 */
-	Binding createBinding();
-
-	/**
-	 * Returns a new object of class '<em>Binding Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binding Property</em>'.
-	 * @generated
-	 */
-	BindingProperty createBindingProperty();
 
 	/**
 	 * Returns the package supported by this factory.

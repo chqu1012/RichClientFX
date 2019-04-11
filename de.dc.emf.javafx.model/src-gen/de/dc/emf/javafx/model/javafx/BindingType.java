@@ -77,10 +77,11 @@ public enum BindingType implements Enumerator {
 	 * @ordered
 	 */
 	OBJECT_PROPERTY(5, "ObjectProperty", "ObjectProperty"),
+
 	/**
 	 * The '<em><b>Observable List</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #OBSERVABLE_LIST_VALUE
 	 * @generated
 	 * @ordered
@@ -90,10 +91,6 @@ public enum BindingType implements Enumerator {
 	/**
 	 * The '<em><b>String Property</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>String Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #STRING_PROPERTY
 	 * @model name="StringProperty"
@@ -105,10 +102,6 @@ public enum BindingType implements Enumerator {
 	/**
 	 * The '<em><b>Integer Property</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Integer Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTEGER_PROPERTY
 	 * @model name="IntegerProperty"
@@ -120,10 +113,6 @@ public enum BindingType implements Enumerator {
 	/**
 	 * The '<em><b>Double Property</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Double Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DOUBLE_PROPERTY
 	 * @model name="DoubleProperty"
@@ -135,10 +124,6 @@ public enum BindingType implements Enumerator {
 	/**
 	 * The '<em><b>Float Property</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Float Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FLOAT_PROPERTY
 	 * @model name="FloatProperty"
@@ -150,10 +135,6 @@ public enum BindingType implements Enumerator {
 	/**
 	 * The '<em><b>Boolean Property</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Boolean Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BOOLEAN_PROPERTY
 	 * @model name="BooleanProperty"
@@ -165,10 +146,6 @@ public enum BindingType implements Enumerator {
 	/**
 	 * The '<em><b>Object Property</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Object Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #OBJECT_PROPERTY
 	 * @model name="ObjectProperty"
@@ -180,10 +157,6 @@ public enum BindingType implements Enumerator {
 	/**
 	 * The '<em><b>Observable List</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Observable List</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #OBSERVABLE_LIST
 	 * @model name="ObservableList"
@@ -311,6 +284,7 @@ public enum BindingType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -320,6 +294,7 @@ public enum BindingType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -329,6 +304,7 @@ public enum BindingType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

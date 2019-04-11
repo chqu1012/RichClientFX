@@ -7,8 +7,8 @@ import de.dc.emf.javafx.model.javafx.FilteredTableViewFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
-
 import de.dc.emf.javafx.model.javafx.TableViewFX;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -104,6 +104,7 @@ public class FilteredTableViewFXImpl extends ControlFXImpl implements FilteredTa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUseFilter() {
 		return useFilter;
 	}
@@ -113,6 +114,7 @@ public class FilteredTableViewFXImpl extends ControlFXImpl implements FilteredTa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUseFilter(boolean newUseFilter) {
 		boolean oldUseFilter = useFilter;
 		useFilter = newUseFilter;
@@ -126,6 +128,7 @@ public class FilteredTableViewFXImpl extends ControlFXImpl implements FilteredTa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TableColumnFX> getColumns() {
 		if (columns == null) {
 			columns = new EObjectContainmentEList<TableColumnFX>(TableColumnFX.class, this,
@@ -139,6 +142,7 @@ public class FilteredTableViewFXImpl extends ControlFXImpl implements FilteredTa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ModelFX getUsedModel() {
 		if (usedModel != null && usedModel.eIsProxy()) {
 			InternalEObject oldUsedModel = (InternalEObject) usedModel;
@@ -166,6 +170,7 @@ public class FilteredTableViewFXImpl extends ControlFXImpl implements FilteredTa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUsedModel(ModelFX newUsedModel) {
 		ModelFX oldUsedModel = usedModel;
 		usedModel = newUsedModel;

@@ -47,7 +47,7 @@ public class TableColumnSwitch extends JavafxSwitch<String> {
   }
   
   @Override
-  public String caseTableViewFX(final TableViewFX object) {
+  public CharSequence caseTableViewFX(final TableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
     String _replace = FilePathSwitch.getPackage(object).toString().replace("/", ".");
@@ -202,6 +202,6 @@ public class TableColumnSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
 }

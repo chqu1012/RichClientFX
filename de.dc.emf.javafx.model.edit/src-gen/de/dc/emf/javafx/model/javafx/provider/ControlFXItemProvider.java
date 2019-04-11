@@ -45,17 +45,6 @@ public class ControlFXItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns ControlFX.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ControlFX"));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

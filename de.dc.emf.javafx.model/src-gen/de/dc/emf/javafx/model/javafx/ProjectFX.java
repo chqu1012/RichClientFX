@@ -29,10 +29,6 @@ public interface ProjectFX extends NamedElement {
 	 * Returns the value of the '<em><b>Controls</b></em>' containment reference list.
 	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.ControlFX}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Controls</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Controls</em>' containment reference list.
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getProjectFX_Controls()
@@ -44,15 +40,11 @@ public interface ProjectFX extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Package Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Package Path</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Package Path</em>' attribute.
 	 * @see #setPackagePath(String)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getProjectFX_PackagePath()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getPackagePath();
@@ -71,10 +63,6 @@ public interface ProjectFX extends NamedElement {
 	 * Returns the value of the '<em><b>Models</b></em>' containment reference list.
 	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.ModelFX}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Models</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Models</em>' containment reference list.
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getProjectFX_Models()
@@ -87,10 +75,6 @@ public interface ProjectFX extends NamedElement {
 	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
 	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.Binding}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bindings</em>' containment reference list.
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getProjectFX_Bindings()
@@ -103,10 +87,6 @@ public interface ProjectFX extends NamedElement {
 	 * Returns the value of the '<em><b>Charts</b></em>' containment reference list.
 	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.ChartFX}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Charts</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Charts</em>' containment reference list.
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getProjectFX_Charts()

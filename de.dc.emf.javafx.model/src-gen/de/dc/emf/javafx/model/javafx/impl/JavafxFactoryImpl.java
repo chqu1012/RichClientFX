@@ -143,6 +143,7 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProjectFX createProjectFX() {
 		ProjectFXImpl projectFX = new ProjectFXImpl();
 		return projectFX;
@@ -153,126 +154,7 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamedElement createNamedElement() {
-		NamedElementImpl namedElement = new NamedElementImpl();
-		return namedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FilteredElement createFilteredElement() {
-		FilteredElementImpl filteredElement = new FilteredElementImpl();
-		return filteredElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ChartSeries createChartSeries() {
-		ChartSeriesImpl chartSeries = new ChartSeriesImpl();
-		return chartSeries;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ChartFXData createChartFXData() {
-		ChartFXDataImpl chartFXData = new ChartFXDataImpl();
-		return chartFXData;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LineChartFX createLineChartFX() {
-		LineChartFXImpl lineChartFX = new LineChartFXImpl();
-		return lineChartFX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PieChartFX createPieChartFX() {
-		PieChartFXImpl pieChartFX = new PieChartFXImpl();
-		return pieChartFX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AreaChartFX createAreaChartFX() {
-		AreaChartFXImpl areaChartFX = new AreaChartFXImpl();
-		return areaChartFX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BubbleChartFX createBubbleChartFX() {
-		BubbleChartFXImpl bubbleChartFX = new BubbleChartFXImpl();
-		return bubbleChartFX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ScatterChartFX createScatterChartFX() {
-		ScatterChartFXImpl scatterChartFX = new ScatterChartFXImpl();
-		return scatterChartFX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BarChartFX createBarChartFX() {
-		BarChartFXImpl barChartFX = new BarChartFXImpl();
-		return barChartFX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TableViewFX createTableViewFX() {
-		TableViewFXImpl tableViewFX = new TableViewFXImpl();
-		return tableViewFX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FilteredTableViewFX createFilteredTableViewFX() {
-		FilteredTableViewFXImpl filteredTableViewFX = new FilteredTableViewFXImpl();
-		return filteredTableViewFX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public TableColumnFX createTableColumnFX() {
 		TableColumnFXImpl tableColumnFX = new TableColumnFXImpl();
 		return tableColumnFX;
@@ -283,6 +165,7 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AttributeFX createAttributeFX() {
 		AttributeFXImpl attributeFX = new AttributeFXImpl();
 		return attributeFX;
@@ -293,6 +176,7 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Bean createBean() {
 		BeanImpl bean = new BeanImpl();
 		return bean;
@@ -303,6 +187,7 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DerivedBean createDerivedBean() {
 		DerivedBeanImpl derivedBean = new DerivedBeanImpl();
 		return derivedBean;
@@ -313,6 +198,7 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Binding createBinding() {
 		BindingImpl binding = new BindingImpl();
 		return binding;
@@ -323,9 +209,142 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BindingProperty createBindingProperty() {
 		BindingPropertyImpl bindingProperty = new BindingPropertyImpl();
 		return bindingProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TableViewFX createTableViewFX() {
+		TableViewFXImpl tableViewFX = new TableViewFXImpl();
+		return tableViewFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FilteredTableViewFX createFilteredTableViewFX() {
+		FilteredTableViewFXImpl filteredTableViewFX = new FilteredTableViewFXImpl();
+		return filteredTableViewFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NamedElement createNamedElement() {
+		NamedElementImpl namedElement = new NamedElementImpl();
+		return namedElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FilteredElement createFilteredElement() {
+		FilteredElementImpl filteredElement = new FilteredElementImpl();
+		return filteredElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ChartSeries createChartSeries() {
+		ChartSeriesImpl chartSeries = new ChartSeriesImpl();
+		return chartSeries;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ChartFXData createChartFXData() {
+		ChartFXDataImpl chartFXData = new ChartFXDataImpl();
+		return chartFXData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LineChartFX createLineChartFX() {
+		LineChartFXImpl lineChartFX = new LineChartFXImpl();
+		return lineChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PieChartFX createPieChartFX() {
+		PieChartFXImpl pieChartFX = new PieChartFXImpl();
+		return pieChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AreaChartFX createAreaChartFX() {
+		AreaChartFXImpl areaChartFX = new AreaChartFXImpl();
+		return areaChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BubbleChartFX createBubbleChartFX() {
+		BubbleChartFXImpl bubbleChartFX = new BubbleChartFXImpl();
+		return bubbleChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ScatterChartFX createScatterChartFX() {
+		ScatterChartFXImpl scatterChartFX = new ScatterChartFXImpl();
+		return scatterChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BarChartFX createBarChartFX() {
+		BarChartFXImpl barChartFX = new BarChartFXImpl();
+		return barChartFX;
 	}
 
 	/**
@@ -399,6 +418,7 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JavafxPackage getJavafxPackage() {
 		return (JavafxPackage) getEPackage();
 	}

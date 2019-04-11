@@ -33,15 +33,11 @@ public interface ChartFX extends NamedElement {
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
 	 * The default value is <code>" "</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_Title()
-	 * @model default=" "
+	 * @model default=" " unique="false"
 	 * @generated
 	 */
 	String getTitle();
@@ -61,16 +57,12 @@ public interface ChartFX extends NamedElement {
 	 * The default value is <code>"Top"</code>.
 	 * The literals are from the enumeration {@link de.dc.emf.javafx.model.javafx.Orientation}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Title Side</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Title Side</em>' attribute.
 	 * @see de.dc.emf.javafx.model.javafx.Orientation
 	 * @see #setTitleSide(Orientation)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_TitleSide()
-	 * @model default="Top"
+	 * @model default="Top" unique="false"
 	 * @generated
 	 */
 	Orientation getTitleSide();
@@ -90,15 +82,11 @@ public interface ChartFX extends NamedElement {
 	 * Returns the value of the '<em><b>Show Legend</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Show Legend</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Show Legend</em>' attribute.
 	 * @see #setShowLegend(boolean)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_ShowLegend()
-	 * @model default="true"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	boolean isShowLegend();
@@ -118,16 +106,12 @@ public interface ChartFX extends NamedElement {
 	 * The default value is <code>"Bottom"</code>.
 	 * The literals are from the enumeration {@link de.dc.emf.javafx.model.javafx.Orientation}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Legend Side</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Legend Side</em>' attribute.
 	 * @see de.dc.emf.javafx.model.javafx.Orientation
 	 * @see #setLegendSide(Orientation)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_LegendSide()
-	 * @model default="Bottom"
+	 * @model default="Bottom" unique="false"
 	 * @generated
 	 */
 	Orientation getLegendSide();
@@ -147,16 +131,12 @@ public interface ChartFX extends NamedElement {
 	 * Returns the value of the '<em><b>XAxis Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link de.dc.emf.javafx.model.javafx.AxisType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>XAxis Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XAxis Type</em>' attribute.
 	 * @see de.dc.emf.javafx.model.javafx.AxisType
 	 * @see #setXAxisType(AxisType)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_XAxisType()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	AxisType getXAxisType();
@@ -176,16 +156,12 @@ public interface ChartFX extends NamedElement {
 	 * Returns the value of the '<em><b>YAxis Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link de.dc.emf.javafx.model.javafx.AxisType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>YAxis Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>YAxis Type</em>' attribute.
 	 * @see de.dc.emf.javafx.model.javafx.AxisType
 	 * @see #setYAxisType(AxisType)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_YAxisType()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	AxisType getYAxisType();
@@ -204,15 +180,11 @@ public interface ChartFX extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>XAxis Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>XAxis Label</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XAxis Label</em>' attribute.
 	 * @see #setXAxisLabel(String)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_XAxisLabel()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getXAxisLabel();
@@ -230,15 +202,11 @@ public interface ChartFX extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>YAxis Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>YAxis Label</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>YAxis Label</em>' attribute.
 	 * @see #setYAxisLabel(String)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_YAxisLabel()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getYAxisLabel();
@@ -257,10 +225,6 @@ public interface ChartFX extends NamedElement {
 	 * Returns the value of the '<em><b>Series</b></em>' containment reference list.
 	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.ChartSeries}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Series</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Series</em>' containment reference list.
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFX_Series()

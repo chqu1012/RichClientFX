@@ -1,0 +1,124 @@
+@Ecore(nsURI="http://www.frateranatis.org/javafx")
+@GenModel(multipleEditorPages="false", creationIcons="false", editDirectory="/de.dc.emf.javafx.model.edit/src-gen",
+	editorDirectory="/de.dc.emf.javafx.model.editor/src-gen", richClientPlatform="true", codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", runtimePlatform="RCP")
+package de.dc.emf.javafx.model.javafx
+
+class ProjectFX extends NamedElement {
+	contains ControlFX[] controls
+	String packagePath
+	contains ModelFX[] models
+	contains Binding[] bindings
+	contains ChartFX[] charts
+}
+
+abstract class ControlFX extends NamedElement {
+}
+
+class TableColumnFX extends NamedElement {
+	int width = "200"
+	refers AttributeFX usedAttribute
+	boolean useFilter
+}
+
+abstract class ModelFX extends NamedElement {
+	contains AttributeFX[] attributes
+}
+
+class AttributeFX extends NamedElement {
+	String ^type
+}
+
+class Bean extends ModelFX {
+}
+
+class DerivedBean extends ModelFX {
+	String instanceType
+}
+
+class Binding {
+	String name
+	contains BindingProperty[] property
+}
+
+class BindingProperty {
+	String name
+	BindingType ^type
+}
+
+class TableViewFX extends ControlFX {
+	contains TableColumnFX[] columns
+	refers ModelFX usedModel
+}
+
+class FilteredTableViewFX extends ControlFX , FilteredElement , TableViewFX {
+}
+
+enum BindingType {
+	StringProperty
+	IntegerProperty = 1
+	DoubleProperty = 2
+	FloatProperty = 3
+	BooleanProperty = 4
+	ObjectProperty = 5
+	ObservableList = 6
+}
+
+class NamedElement {
+	String name
+}
+
+class FilteredElement {
+	boolean useFilter
+}
+
+abstract class ChartFX extends NamedElement {
+	String title = " "
+	Orientation titleSide = "Top"
+	boolean showLegend = "true"
+	Orientation legendSide = "Bottom"
+	AxisType xAxisType
+	AxisType yAxisType
+	String xAxisLabel
+	String yAxisLabel
+	contains ChartSeries[] series
+}
+
+class ChartSeries extends NamedElement {
+	contains ChartFXData[] dataList
+}
+
+class ChartFXData {
+	String xValue
+	String yValue
+}
+
+class LineChartFX extends ChartFX {
+}
+
+class PieChartFX extends ChartFX {
+}
+
+class AreaChartFX extends ChartFX {
+}
+
+class BubbleChartFX extends ChartFX {
+}
+
+class ScatterChartFX extends ChartFX {
+}
+
+class BarChartFX extends ChartFX {
+}
+
+enum Orientation {
+	Left
+	Right = 1
+	Top = 2
+	Bottom = 3
+}
+
+enum AxisType {
+	Number
+	Category = 1
+}

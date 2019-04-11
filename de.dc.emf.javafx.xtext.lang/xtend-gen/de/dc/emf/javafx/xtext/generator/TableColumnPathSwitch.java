@@ -22,7 +22,7 @@ public class TableColumnPathSwitch extends JavafxSwitch<String> {
   }
   
   @Override
-  public String caseTableViewFX(final TableViewFX object) {
+  public CharSequence caseTableViewFX(final TableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -30,6 +30,6 @@ public class TableColumnPathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getUsedModel().getName());
     _builder.append(_firstUpper);
     _builder.append("CellFeatures.java");
-    return _builder.toString();
+    return _builder;
   }
 }

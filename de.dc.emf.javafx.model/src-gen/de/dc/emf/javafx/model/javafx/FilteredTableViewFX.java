@@ -13,5 +13,4 @@ package de.dc.emf.javafx.model.javafx;
  * @generated
  */
 public interface FilteredTableViewFX extends ControlFX, FilteredElement, TableViewFX {
-
 } // FilteredTableViewFX

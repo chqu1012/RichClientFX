@@ -91,6 +91,7 @@ public class ChartFXDataImpl extends MinimalEObjectImpl.Container implements Cha
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getXValue() {
 		return xValue;
 	}
@@ -100,6 +101,7 @@ public class ChartFXDataImpl extends MinimalEObjectImpl.Container implements Cha
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setXValue(String newXValue) {
 		String oldXValue = xValue;
 		xValue = newXValue;
@@ -113,6 +115,7 @@ public class ChartFXDataImpl extends MinimalEObjectImpl.Container implements Cha
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getYValue() {
 		return yValue;
 	}
@@ -122,6 +125,7 @@ public class ChartFXDataImpl extends MinimalEObjectImpl.Container implements Cha
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setYValue(String newYValue) {
 		String oldYValue = yValue;
 		yValue = newYValue;

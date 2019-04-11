@@ -9,7 +9,7 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 @SuppressWarnings("all")
 public class FilteredElementPathSwitch extends JavafxSwitch<String> {
   @Override
-  public String caseTableViewFX(final TableViewFX object) {
+  public CharSequence caseTableViewFX(final TableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -17,6 +17,6 @@ public class FilteredElementPathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
-    return _builder.toString();
+    return _builder;
   }
 }

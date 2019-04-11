@@ -13,7 +13,7 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 @SuppressWarnings("all")
 public class ExtendedTemplateSwitch extends JavafxSwitch<String> {
   @Override
-  public String caseFilteredTableViewFX(final FilteredTableViewFX object) {
+  public CharSequence caseFilteredTableViewFX(final FilteredTableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object);
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -32,11 +32,11 @@ public class ExtendedTemplateSwitch extends JavafxSwitch<String> {
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseTableViewFX(final TableViewFX object) {
+  public CharSequence caseTableViewFX(final TableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object.eContainer());
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -55,7 +55,7 @@ public class ExtendedTemplateSwitch extends JavafxSwitch<String> {
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override

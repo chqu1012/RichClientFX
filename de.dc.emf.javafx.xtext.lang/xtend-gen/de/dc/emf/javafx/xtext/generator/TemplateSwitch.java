@@ -29,7 +29,7 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 @SuppressWarnings("all")
 public class TemplateSwitch extends JavafxSwitch<String> {
   @Override
-  public String caseFilteredTableViewFX(final FilteredTableViewFX object) {
+  public CharSequence caseFilteredTableViewFX(final FilteredTableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object);
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -392,11 +392,11 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseDerivedBean(final DerivedBean object) {
+  public CharSequence caseDerivedBean(final DerivedBean object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object.eContainer());
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -554,11 +554,11 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseBean(final Bean object) {
+  public CharSequence caseBean(final Bean object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object.eContainer());
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -692,11 +692,11 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     }
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseTableViewFX(final TableViewFX object) {
+  public CharSequence caseTableViewFX(final TableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object.eContainer());
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -863,11 +863,11 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseBinding(final Binding object) {
+  public CharSequence caseBinding(final Binding object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object);
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -1036,11 +1036,11 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     }
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseLineChartFX(final LineChartFX object) {
+  public CharSequence caseLineChartFX(final LineChartFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object);
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -1204,11 +1204,11 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String casePieChartFX(final PieChartFX object) {
+  public CharSequence casePieChartFX(final PieChartFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object);
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -1280,6 +1280,6 @@ public class TemplateSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
 }

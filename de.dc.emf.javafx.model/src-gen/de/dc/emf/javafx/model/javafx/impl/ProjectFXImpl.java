@@ -126,6 +126,7 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ControlFX> getControls() {
 		if (controls == null) {
 			controls = new EObjectContainmentEList<ControlFX>(ControlFX.class, this,
@@ -139,6 +140,7 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPackagePath() {
 		return packagePath;
 	}
@@ -148,6 +150,7 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPackagePath(String newPackagePath) {
 		String oldPackagePath = packagePath;
 		packagePath = newPackagePath;
@@ -161,6 +164,7 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ModelFX> getModels() {
 		if (models == null) {
 			models = new EObjectContainmentEList<ModelFX>(ModelFX.class, this, JavafxPackage.PROJECT_FX__MODELS);
@@ -173,6 +177,7 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Binding> getBindings() {
 		if (bindings == null) {
 			bindings = new EObjectContainmentEList<Binding>(Binding.class, this, JavafxPackage.PROJECT_FX__BINDINGS);
@@ -185,6 +190,7 @@ public class ProjectFXImpl extends NamedElementImpl implements ProjectFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ChartFX> getCharts() {
 		if (charts == null) {
 			charts = new EObjectContainmentEList<ChartFX>(ChartFX.class, this, JavafxPackage.PROJECT_FX__CHARTS);

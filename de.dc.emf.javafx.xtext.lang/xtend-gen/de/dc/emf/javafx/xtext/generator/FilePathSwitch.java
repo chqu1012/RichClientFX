@@ -18,7 +18,7 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 @SuppressWarnings("all")
 public class FilePathSwitch extends JavafxSwitch<String> {
   @Override
-  public String caseTableViewFX(final TableViewFX object) {
+  public CharSequence caseTableViewFX(final TableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -26,11 +26,11 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseFilteredTableViewFX(final FilteredTableViewFX object) {
+  public CharSequence caseFilteredTableViewFX(final FilteredTableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -38,11 +38,11 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseTableColumnFX(final TableColumnFX object) {
+  public CharSequence caseTableColumnFX(final TableColumnFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _eContainer = object.eContainer();
     final String modelName = StringExtensions.toFirstUpper(((TableViewFX) _eContainer).getUsedModel().getName());
@@ -54,11 +54,11 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getUsedAttribute().getName());
     _builder.append(_firstUpper);
     _builder.append("CellFeatures.java");
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseBean(final Bean object) {
+  public CharSequence caseBean(final Bean object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -66,11 +66,11 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseDerivedBean(final DerivedBean object) {
+  public CharSequence caseDerivedBean(final DerivedBean object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -78,11 +78,11 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseBinding(final Binding object) {
+  public CharSequence caseBinding(final Binding object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -90,11 +90,11 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseLineChartFX(final LineChartFX object) {
+  public CharSequence caseLineChartFX(final LineChartFX object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -102,11 +102,11 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String casePieChartFX(final PieChartFX object) {
+  public CharSequence casePieChartFX(final PieChartFX object) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _package = FilePathSwitch.getPackage(object);
     _builder.append(_package);
@@ -114,7 +114,7 @@ public class FilePathSwitch extends JavafxSwitch<String> {
     String _firstUpper = StringExtensions.toFirstUpper(object.getName());
     _builder.append(_firstUpper);
     _builder.append(".java");
-    return _builder.toString();
+    return _builder;
   }
   
   public static CharSequence getPackage(final EObject obj) {

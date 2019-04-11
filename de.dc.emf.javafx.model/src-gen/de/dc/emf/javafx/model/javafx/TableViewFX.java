@@ -26,10 +26,6 @@ public interface TableViewFX extends ControlFX {
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
 	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.TableColumnFX}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getTableViewFX_Columns()
@@ -41,10 +37,6 @@ public interface TableViewFX extends ControlFX {
 	/**
 	 * Returns the value of the '<em><b>Used Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Used Model</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Used Model</em>' reference.
 	 * @see #setUsedModel(ModelFX)

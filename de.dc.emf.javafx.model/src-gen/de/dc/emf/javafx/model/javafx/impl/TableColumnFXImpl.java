@@ -9,8 +9,8 @@ import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -103,6 +103,7 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getWidth() {
 		return width;
 	}
@@ -112,6 +113,7 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWidth(int newWidth) {
 		int oldWidth = width;
 		width = newWidth;
@@ -125,6 +127,7 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AttributeFX getUsedAttribute() {
 		if (usedAttribute != null && usedAttribute.eIsProxy()) {
 			InternalEObject oldUsedAttribute = (InternalEObject) usedAttribute;
@@ -152,6 +155,7 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUsedAttribute(AttributeFX newUsedAttribute) {
 		AttributeFX oldUsedAttribute = usedAttribute;
 		usedAttribute = newUsedAttribute;
@@ -165,6 +169,7 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUseFilter() {
 		return useFilter;
 	}
@@ -174,6 +179,7 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUseFilter(boolean newUseFilter) {
 		boolean oldUseFilter = useFilter;
 		useFilter = newUseFilter;

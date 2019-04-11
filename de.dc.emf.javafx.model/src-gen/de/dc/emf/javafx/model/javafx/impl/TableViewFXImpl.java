@@ -81,6 +81,7 @@ public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TableColumnFX> getColumns() {
 		if (columns == null) {
 			columns = new EObjectContainmentEList<TableColumnFX>(TableColumnFX.class, this,
@@ -94,6 +95,7 @@ public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ModelFX getUsedModel() {
 		if (usedModel != null && usedModel.eIsProxy()) {
 			InternalEObject oldUsedModel = (InternalEObject) usedModel;
@@ -121,6 +123,7 @@ public class TableViewFXImpl extends ControlFXImpl implements TableViewFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUsedModel(ModelFX newUsedModel) {
 		ModelFX oldUsedModel = usedModel;
 		usedModel = newUsedModel;

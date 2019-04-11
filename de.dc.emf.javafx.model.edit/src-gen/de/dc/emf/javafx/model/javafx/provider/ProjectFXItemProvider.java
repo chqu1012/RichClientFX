@@ -47,26 +47,9 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addControlsPropertyDescriptor(object);
 			addPackagePathPropertyDescriptor(object);
-			addModelsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Controls feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addControlsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ProjectFX_controls_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ProjectFX_controls_feature",
-								"_UI_ProjectFX_type"),
-						JavafxPackage.Literals.PROJECT_FX__CONTROLS, true, false, true, null, null, null));
 	}
 
 	/**
@@ -83,21 +66,6 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 								"_UI_ProjectFX_type"),
 						JavafxPackage.Literals.PROJECT_FX__PACKAGE_PATH, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Models feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addModelsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ProjectFX_models_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ProjectFX_models_feature",
-								"_UI_ProjectFX_type"),
-						JavafxPackage.Literals.PROJECT_FX__MODELS, true, false, true, null, null, null));
 	}
 
 	/**

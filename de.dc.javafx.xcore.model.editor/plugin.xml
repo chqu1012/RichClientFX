@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="JavafxEditorAdvisorApplication">
+      <!-- @generated javafx -->
+      <application>
+         <run class="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated javafx -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisor$Perspective"
+            id="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated javafx -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated javafx -->
+      <key
+            commandId="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated javafx -->
+      <actionSet
+            label="%_UI_JavafxEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="JavafxEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorOpenURICommand"
+               class="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorOpenCommand"
+               class="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated javafx -->
+      <actionSet
+            label="%_UI_JavafxModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.emf.javafx.model.javafx.presentation.JavafxActionBarContributorActionSet">
+         <action
+               label="%_UI_JavafxModelWizard_label"
+               class="de.dc.emf.javafx.model.javafx.presentation.JavafxActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.emf.javafx.model.javafx.presentation.JavafxActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated javafx -->
+      <editor
+            id="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorID"
+            name="%_UI_JavafxEditor_label"
+            icon="icons/full/obj16/JavafxModelFile.gif"
+            extensions="javafx"
+            class="de.dc.emf.javafx.model.javafx.presentation.JavafxEditor"
+            contributorClass="de.dc.emf.javafx.model.javafx.presentation.JavafxActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -18,8 +18,8 @@ import de.dc.emf.javafx.model.javafx.util.JavafxSwitch;
 @SuppressWarnings("all")
 public class EnableGeneratorSwitch extends JavafxSwitch<Boolean> {
   @Override
-  public Boolean caseAttributeFX(final AttributeFX object) {
-    return Boolean.valueOf(false);
+  public boolean caseAttributeFX(final AttributeFX object) {
+    return false;
   }
   
   @Override
@@ -28,28 +28,28 @@ public class EnableGeneratorSwitch extends JavafxSwitch<Boolean> {
   }
   
   @Override
-  public Boolean caseNamedElement(final NamedElement object) {
-    return Boolean.valueOf(false);
+  public boolean caseNamedElement(final NamedElement object) {
+    return false;
   }
   
   @Override
-  public Boolean caseProjectFX(final ProjectFX object) {
-    return Boolean.valueOf(false);
+  public boolean caseProjectFX(final ProjectFX object) {
+    return false;
   }
   
   @Override
-  public Boolean caseTableColumnFX(final TableColumnFX object) {
-    return Boolean.valueOf(false);
+  public boolean caseTableColumnFX(final TableColumnFX object) {
+    return false;
   }
   
   @Override
-  public Boolean caseBindingProperty(final BindingProperty object) {
-    return Boolean.valueOf(false);
+  public boolean caseBindingProperty(final BindingProperty object) {
+    return false;
   }
   
   @Override
-  public Boolean caseChartFXData(final ChartFXData object) {
-    return Boolean.valueOf(false);
+  public boolean caseChartFXData(final ChartFXData object) {
+    return false;
   }
   
   @Override
@@ -58,18 +58,18 @@ public class EnableGeneratorSwitch extends JavafxSwitch<Boolean> {
   }
   
   @Override
-  public Boolean caseDerivedBean(final DerivedBean object) {
-    return Boolean.valueOf(true);
+  public boolean caseDerivedBean(final DerivedBean object) {
+    return true;
   }
   
   @Override
-  public Boolean caseBean(final Bean object) {
-    return Boolean.valueOf(true);
+  public boolean caseBean(final Bean object) {
+    return true;
   }
   
   @Override
-  public Boolean caseBinding(final Binding object) {
-    return Boolean.valueOf(true);
+  public boolean caseBinding(final Binding object) {
+    return true;
   }
   
   @Override
@@ -78,7 +78,7 @@ public class EnableGeneratorSwitch extends JavafxSwitch<Boolean> {
   }
   
   @Override
-  public Boolean caseTableViewFX(final TableViewFX object) {
-    return Boolean.valueOf(true);
+  public boolean caseTableViewFX(final TableViewFX object) {
+    return true;
   }
 }

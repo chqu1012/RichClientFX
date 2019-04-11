@@ -69,6 +69,7 @@ public class DerivedBeanImpl extends ModelFXImpl implements DerivedBean {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getInstanceType() {
 		return instanceType;
 	}
@@ -78,6 +79,7 @@ public class DerivedBeanImpl extends ModelFXImpl implements DerivedBean {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInstanceType(String newInstanceType) {
 		String oldInstanceType = instanceType;
 		instanceType = newInstanceType;

@@ -25,10 +25,6 @@ public interface ChartSeries extends NamedElement {
 	 * Returns the value of the '<em><b>Data List</b></em>' containment reference list.
 	 * The list contents are of type {@link de.dc.emf.javafx.model.javafx.ChartFXData}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Data List</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data List</em>' containment reference list.
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartSeries_DataList()

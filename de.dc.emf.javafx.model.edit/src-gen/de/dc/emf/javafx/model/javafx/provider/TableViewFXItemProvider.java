@@ -46,25 +46,9 @@ public class TableViewFXItemProvider extends ControlFXItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addColumnsPropertyDescriptor(object);
 			addUsedModelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Columns feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColumnsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_TableViewFX_columns_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_TableViewFX_columns_feature",
-								"_UI_TableViewFX_type"),
-						JavafxPackage.Literals.TABLE_VIEW_FX__COLUMNS, true, false, true, null, null, null));
 	}
 
 	/**

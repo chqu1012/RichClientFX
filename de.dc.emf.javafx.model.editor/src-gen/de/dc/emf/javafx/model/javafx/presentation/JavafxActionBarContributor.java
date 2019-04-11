@@ -64,6 +64,7 @@ public class JavafxActionBarContributor extends EditingDomainActionBarContributo
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public void run(IAction action) {
 			JavafxModelWizard wizard = new JavafxModelWizard();
 			wizard.init(getWindow().getWorkbench(), StructuredSelection.EMPTY);
@@ -224,6 +225,7 @@ public class JavafxActionBarContributor extends EditingDomainActionBarContributo
 		// Force an update because Eclipse hides empty menus now.
 		//
 		submenuManager.addMenuListener(new IMenuListener() {
+			@Override
 			public void menuAboutToShow(IMenuManager menuManager) {
 				menuManager.updateAll(true);
 			}
@@ -270,6 +272,7 @@ public class JavafxActionBarContributor extends EditingDomainActionBarContributo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
 		//

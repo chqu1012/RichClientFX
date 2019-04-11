@@ -18,7 +18,7 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 @SuppressWarnings("all")
 public class ApplicationSwitch extends JavafxSwitch<String> {
   @Override
-  public String caseTableViewFX(final TableViewFX object) {
+  public CharSequence caseTableViewFX(final TableViewFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object);
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -123,11 +123,11 @@ public class ApplicationSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String caseLineChartFX(final LineChartFX object) {
+  public CharSequence caseLineChartFX(final LineChartFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object);
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -282,11 +282,11 @@ public class ApplicationSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   @Override
-  public String casePieChartFX(final PieChartFX object) {
+  public CharSequence casePieChartFX(final PieChartFX object) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _rootContainer = EcoreUtil.getRootContainer(object);
     final String packagePath = ((ProjectFX) _rootContainer).getPackagePath();
@@ -419,6 +419,6 @@ public class ApplicationSwitch extends JavafxSwitch<String> {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
 }

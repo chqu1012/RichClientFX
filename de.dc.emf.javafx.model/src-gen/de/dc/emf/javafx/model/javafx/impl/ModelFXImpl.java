@@ -66,6 +66,7 @@ public abstract class ModelFXImpl extends NamedElementImpl implements ModelFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AttributeFX> getAttributes() {
 		if (attributes == null) {
 			attributes = new EObjectContainmentEList<AttributeFX>(AttributeFX.class, this,

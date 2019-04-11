@@ -25,15 +25,11 @@ public interface ChartFXData extends EObject {
 	/**
 	 * Returns the value of the '<em><b>XValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>XValue</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XValue</em>' attribute.
 	 * @see #setXValue(String)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFXData_XValue()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getXValue();
@@ -51,15 +47,11 @@ public interface ChartFXData extends EObject {
 	/**
 	 * Returns the value of the '<em><b>YValue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>YValue</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>YValue</em>' attribute.
 	 * @see #setYValue(String)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getChartFXData_YValue()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getYValue();

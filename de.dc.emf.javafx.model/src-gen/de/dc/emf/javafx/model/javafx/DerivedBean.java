@@ -22,15 +22,11 @@ public interface DerivedBean extends ModelFX {
 	/**
 	 * Returns the value of the '<em><b>Instance Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Instance Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Instance Type</em>' attribute.
 	 * @see #setInstanceType(String)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getDerivedBean_InstanceType()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getInstanceType();

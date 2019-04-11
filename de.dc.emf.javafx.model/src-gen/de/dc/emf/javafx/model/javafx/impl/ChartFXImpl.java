@@ -9,14 +9,17 @@ import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.Orientation;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -236,6 +239,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -245,6 +249,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -257,6 +262,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Orientation getTitleSide() {
 		return titleSide;
 	}
@@ -266,6 +272,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitleSide(Orientation newTitleSide) {
 		Orientation oldTitleSide = titleSide;
 		titleSide = newTitleSide == null ? TITLE_SIDE_EDEFAULT : newTitleSide;
@@ -279,6 +286,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isShowLegend() {
 		return showLegend;
 	}
@@ -288,6 +296,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setShowLegend(boolean newShowLegend) {
 		boolean oldShowLegend = showLegend;
 		showLegend = newShowLegend;
@@ -301,6 +310,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Orientation getLegendSide() {
 		return legendSide;
 	}
@@ -310,6 +320,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLegendSide(Orientation newLegendSide) {
 		Orientation oldLegendSide = legendSide;
 		legendSide = newLegendSide == null ? LEGEND_SIDE_EDEFAULT : newLegendSide;
@@ -323,6 +334,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AxisType getXAxisType() {
 		return xAxisType;
 	}
@@ -332,6 +344,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setXAxisType(AxisType newXAxisType) {
 		AxisType oldXAxisType = xAxisType;
 		xAxisType = newXAxisType == null ? XAXIS_TYPE_EDEFAULT : newXAxisType;
@@ -345,6 +358,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AxisType getYAxisType() {
 		return yAxisType;
 	}
@@ -354,6 +368,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setYAxisType(AxisType newYAxisType) {
 		AxisType oldYAxisType = yAxisType;
 		yAxisType = newYAxisType == null ? YAXIS_TYPE_EDEFAULT : newYAxisType;
@@ -367,6 +382,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getXAxisLabel() {
 		return xAxisLabel;
 	}
@@ -376,6 +392,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setXAxisLabel(String newXAxisLabel) {
 		String oldXAxisLabel = xAxisLabel;
 		xAxisLabel = newXAxisLabel;
@@ -389,6 +406,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getYAxisLabel() {
 		return yAxisLabel;
 	}
@@ -398,6 +416,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setYAxisLabel(String newYAxisLabel) {
 		String oldYAxisLabel = yAxisLabel;
 		yAxisLabel = newYAxisLabel;
@@ -411,6 +430,7 @@ public abstract class ChartFXImpl extends NamedElementImpl implements ChartFX {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ChartSeries> getSeries() {
 		if (series == null) {
 			series = new EObjectContainmentEList<ChartSeries>(ChartSeries.class, this, JavafxPackage.CHART_FX__SERIES);

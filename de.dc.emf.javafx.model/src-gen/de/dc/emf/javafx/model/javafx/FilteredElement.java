@@ -24,15 +24,11 @@ public interface FilteredElement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Use Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Use Filter</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Use Filter</em>' attribute.
 	 * @see #setUseFilter(boolean)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getFilteredElement_UseFilter()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	boolean isUseFilter();

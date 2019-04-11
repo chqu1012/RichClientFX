@@ -70,6 +70,7 @@ public class FilteredElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUseFilter() {
 		return useFilter;
 	}
@@ -79,6 +80,7 @@ public class FilteredElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUseFilter(boolean newUseFilter) {
 		boolean oldUseFilter = useFilter;
 		useFilter = newUseFilter;

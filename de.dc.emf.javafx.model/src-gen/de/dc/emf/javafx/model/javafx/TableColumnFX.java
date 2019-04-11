@@ -25,15 +25,11 @@ public interface TableColumnFX extends NamedElement {
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
 	 * The default value is <code>"200"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(int)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getTableColumnFX_Width()
-	 * @model default="200"
+	 * @model default="200" unique="false"
 	 * @generated
 	 */
 	int getWidth();
@@ -51,10 +47,6 @@ public interface TableColumnFX extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Used Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Used Attribute</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Used Attribute</em>' reference.
 	 * @see #setUsedAttribute(AttributeFX)
@@ -77,15 +69,11 @@ public interface TableColumnFX extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Use Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Use Filter</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Use Filter</em>' attribute.
 	 * @see #setUseFilter(boolean)
 	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getTableColumnFX_UseFilter()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	boolean isUseFilter();

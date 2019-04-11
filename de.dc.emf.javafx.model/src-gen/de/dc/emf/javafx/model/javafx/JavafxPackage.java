@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.dc.emf.javafx.model.javafx.JavafxFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.emf.javafx.model.edit/src-gen' editorDirectory='/de.dc.emf.javafx.model.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' basePackage='de.dc.emf.javafx.model'"
  * @generated
  */
 public interface JavafxPackage extends EPackage {
@@ -212,16 +213,6 @@ public interface JavafxPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTROL_FX_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl <em>Table View FX</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl
-	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTableViewFX()
-	 * @generated
-	 */
-	int TABLE_VIEW_FX = 9;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl <em>Table Column FX</em>}' class.
@@ -571,6 +562,16 @@ public interface JavafxPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINDING_PROPERTY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl <em>Table View FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTableViewFX()
+	 * @generated
+	 */
+	int TABLE_VIEW_FX = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1732,6 +1733,238 @@ public interface JavafxPackage extends EPackage {
 	EReference getProjectFX_Charts();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ControlFX <em>Control FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Control FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ControlFX
+	 * @generated
+	 */
+	EClass getControlFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.TableColumnFX <em>Table Column FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Column FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX
+	 * @generated
+	 */
+	EClass getTableColumnFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#getWidth()
+	 * @see #getTableColumnFX()
+	 * @generated
+	 */
+	EAttribute getTableColumnFX_Width();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getUsedAttribute <em>Used Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Used Attribute</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#getUsedAttribute()
+	 * @see #getTableColumnFX()
+	 * @generated
+	 */
+	EReference getTableColumnFX_UsedAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter <em>Use Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Filter</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter()
+	 * @see #getTableColumnFX()
+	 * @generated
+	 */
+	EAttribute getTableColumnFX_UseFilter();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ModelFX <em>Model FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ModelFX
+	 * @generated
+	 */
+	EClass getModelFX();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.ModelFX#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ModelFX#getAttributes()
+	 * @see #getModelFX()
+	 * @generated
+	 */
+	EReference getModelFX_Attributes();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.AttributeFX <em>Attribute FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.AttributeFX
+	 * @generated
+	 */
+	EClass getAttributeFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.AttributeFX#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.AttributeFX#getType()
+	 * @see #getAttributeFX()
+	 * @generated
+	 */
+	EAttribute getAttributeFX_Type();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.Bean <em>Bean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bean</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Bean
+	 * @generated
+	 */
+	EClass getBean();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.DerivedBean <em>Derived Bean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Derived Bean</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.DerivedBean
+	 * @generated
+	 */
+	EClass getDerivedBean();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.DerivedBean#getInstanceType <em>Instance Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Instance Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.DerivedBean#getInstanceType()
+	 * @see #getDerivedBean()
+	 * @generated
+	 */
+	EAttribute getDerivedBean_InstanceType();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.Binding <em>Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binding</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Binding
+	 * @generated
+	 */
+	EClass getBinding();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.Binding#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Binding#getName()
+	 * @see #getBinding()
+	 * @generated
+	 */
+	EAttribute getBinding_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.Binding#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Property</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.Binding#getProperty()
+	 * @see #getBinding()
+	 * @generated
+	 */
+	EReference getBinding_Property();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.BindingProperty <em>Binding Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binding Property</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BindingProperty
+	 * @generated
+	 */
+	EClass getBindingProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.BindingProperty#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BindingProperty#getName()
+	 * @see #getBindingProperty()
+	 * @generated
+	 */
+	EAttribute getBindingProperty_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.BindingProperty#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BindingProperty#getType()
+	 * @see #getBindingProperty()
+	 * @generated
+	 */
+	EAttribute getBindingProperty_Type();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.TableViewFX <em>Table View FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table View FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableViewFX
+	 * @generated
+	 */
+	EClass getTableViewFX();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.TableViewFX#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableViewFX#getColumns()
+	 * @see #getTableViewFX()
+	 * @generated
+	 */
+	EReference getTableViewFX_Columns();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.dc.emf.javafx.model.javafx.TableViewFX#getUsedModel <em>Used Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Used Model</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableViewFX#getUsedModel()
+	 * @see #getTableViewFX()
+	 * @generated
+	 */
+	EReference getTableViewFX_UsedModel();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.FilteredTableViewFX <em>Filtered Table View FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filtered Table View FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.FilteredTableViewFX
+	 * @generated
+	 */
+	EClass getFilteredTableViewFX();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1996,238 +2229,6 @@ public interface JavafxPackage extends EPackage {
 	EClass getBarChartFX();
 
 	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ControlFX <em>Control FX</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Control FX</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.ControlFX
-	 * @generated
-	 */
-	EClass getControlFX();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.TableViewFX <em>Table View FX</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Table View FX</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.TableViewFX
-	 * @generated
-	 */
-	EClass getTableViewFX();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.TableViewFX#getColumns <em>Columns</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Columns</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.TableViewFX#getColumns()
-	 * @see #getTableViewFX()
-	 * @generated
-	 */
-	EReference getTableViewFX_Columns();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.dc.emf.javafx.model.javafx.TableViewFX#getUsedModel <em>Used Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Used Model</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.TableViewFX#getUsedModel()
-	 * @see #getTableViewFX()
-	 * @generated
-	 */
-	EReference getTableViewFX_UsedModel();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.FilteredTableViewFX <em>Filtered Table View FX</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Filtered Table View FX</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.FilteredTableViewFX
-	 * @generated
-	 */
-	EClass getFilteredTableViewFX();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.TableColumnFX <em>Table Column FX</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Table Column FX</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX
-	 * @generated
-	 */
-	EClass getTableColumnFX();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getWidth <em>Width</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Width</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#getWidth()
-	 * @see #getTableColumnFX()
-	 * @generated
-	 */
-	EAttribute getTableColumnFX_Width();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getUsedAttribute <em>Used Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Used Attribute</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#getUsedAttribute()
-	 * @see #getTableColumnFX()
-	 * @generated
-	 */
-	EReference getTableColumnFX_UsedAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter <em>Use Filter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Use Filter</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter()
-	 * @see #getTableColumnFX()
-	 * @generated
-	 */
-	EAttribute getTableColumnFX_UseFilter();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ModelFX <em>Model FX</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model FX</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.ModelFX
-	 * @generated
-	 */
-	EClass getModelFX();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.ModelFX#getAttributes <em>Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.ModelFX#getAttributes()
-	 * @see #getModelFX()
-	 * @generated
-	 */
-	EReference getModelFX_Attributes();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.AttributeFX <em>Attribute FX</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Attribute FX</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.AttributeFX
-	 * @generated
-	 */
-	EClass getAttributeFX();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.AttributeFX#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.AttributeFX#getType()
-	 * @see #getAttributeFX()
-	 * @generated
-	 */
-	EAttribute getAttributeFX_Type();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.Bean <em>Bean</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Bean</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.Bean
-	 * @generated
-	 */
-	EClass getBean();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.DerivedBean <em>Derived Bean</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Derived Bean</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.DerivedBean
-	 * @generated
-	 */
-	EClass getDerivedBean();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.DerivedBean#getInstanceType <em>Instance Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Instance Type</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.DerivedBean#getInstanceType()
-	 * @see #getDerivedBean()
-	 * @generated
-	 */
-	EAttribute getDerivedBean_InstanceType();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.Binding <em>Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Binding</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.Binding
-	 * @generated
-	 */
-	EClass getBinding();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.Binding#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.Binding#getName()
-	 * @see #getBinding()
-	 * @generated
-	 */
-	EAttribute getBinding_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.Binding#getProperty <em>Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Property</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.Binding#getProperty()
-	 * @see #getBinding()
-	 * @generated
-	 */
-	EReference getBinding_Property();
-
-	/**
-	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.BindingProperty <em>Binding Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Binding Property</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.BindingProperty
-	 * @generated
-	 */
-	EClass getBindingProperty();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.BindingProperty#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.BindingProperty#getName()
-	 * @see #getBindingProperty()
-	 * @generated
-	 */
-	EAttribute getBindingProperty_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.BindingProperty#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.dc.emf.javafx.model.javafx.BindingProperty#getType()
-	 * @see #getBindingProperty()
-	 * @generated
-	 */
-	EAttribute getBindingProperty_Type();
-
-	/**
 	 * Returns the meta object for enum '{@link de.dc.emf.javafx.model.javafx.BindingType <em>Binding Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2329,6 +2330,202 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROJECT_FX__CHARTS = eINSTANCE.getProjectFX_Charts();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ControlFXImpl <em>Control FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.ControlFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getControlFX()
+		 * @generated
+		 */
+		EClass CONTROL_FX = eINSTANCE.getControlFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl <em>Table Column FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTableColumnFX()
+		 * @generated
+		 */
+		EClass TABLE_COLUMN_FX = eINSTANCE.getTableColumnFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_COLUMN_FX__WIDTH = eINSTANCE.getTableColumnFX_Width();
+
+		/**
+		 * The meta object literal for the '<em><b>Used Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_COLUMN_FX__USED_ATTRIBUTE = eINSTANCE.getTableColumnFX_UsedAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_COLUMN_FX__USE_FILTER = eINSTANCE.getTableColumnFX_UseFilter();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ModelFXImpl <em>Model FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.ModelFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getModelFX()
+		 * @generated
+		 */
+		EClass MODEL_FX = eINSTANCE.getModelFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_FX__ATTRIBUTES = eINSTANCE.getModelFX_Attributes();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.AttributeFXImpl <em>Attribute FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.AttributeFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAttributeFX()
+		 * @generated
+		 */
+		EClass ATTRIBUTE_FX = eINSTANCE.getAttributeFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE_FX__TYPE = eINSTANCE.getAttributeFX_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BeanImpl <em>Bean</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BeanImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBean()
+		 * @generated
+		 */
+		EClass BEAN = eINSTANCE.getBean();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.DerivedBeanImpl <em>Derived Bean</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.DerivedBeanImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getDerivedBean()
+		 * @generated
+		 */
+		EClass DERIVED_BEAN = eINSTANCE.getDerivedBean();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DERIVED_BEAN__INSTANCE_TYPE = eINSTANCE.getDerivedBean_InstanceType();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BindingImpl <em>Binding</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BindingImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBinding()
+		 * @generated
+		 */
+		EClass BINDING = eINSTANCE.getBinding();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINDING__NAME = eINSTANCE.getBinding_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINDING__PROPERTY = eINSTANCE.getBinding_Property();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BindingPropertyImpl <em>Binding Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BindingPropertyImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingProperty()
+		 * @generated
+		 */
+		EClass BINDING_PROPERTY = eINSTANCE.getBindingProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINDING_PROPERTY__NAME = eINSTANCE.getBindingProperty_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINDING_PROPERTY__TYPE = eINSTANCE.getBindingProperty_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl <em>Table View FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTableViewFX()
+		 * @generated
+		 */
+		EClass TABLE_VIEW_FX = eINSTANCE.getTableViewFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_VIEW_FX__COLUMNS = eINSTANCE.getTableViewFX_Columns();
+
+		/**
+		 * The meta object literal for the '<em><b>Used Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_VIEW_FX__USED_MODEL = eINSTANCE.getTableViewFX_UsedModel();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredTableViewFXImpl <em>Filtered Table View FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.FilteredTableViewFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredTableViewFX()
+		 * @generated
+		 */
+		EClass FILTERED_TABLE_VIEW_FX = eINSTANCE.getFilteredTableViewFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -2551,202 +2748,6 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BAR_CHART_FX = eINSTANCE.getBarChartFX();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ControlFXImpl <em>Control FX</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.ControlFXImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getControlFX()
-		 * @generated
-		 */
-		EClass CONTROL_FX = eINSTANCE.getControlFX();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl <em>Table View FX</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.TableViewFXImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTableViewFX()
-		 * @generated
-		 */
-		EClass TABLE_VIEW_FX = eINSTANCE.getTableViewFX();
-
-		/**
-		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE_VIEW_FX__COLUMNS = eINSTANCE.getTableViewFX_Columns();
-
-		/**
-		 * The meta object literal for the '<em><b>Used Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE_VIEW_FX__USED_MODEL = eINSTANCE.getTableViewFX_UsedModel();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredTableViewFXImpl <em>Filtered Table View FX</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.FilteredTableViewFXImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredTableViewFX()
-		 * @generated
-		 */
-		EClass FILTERED_TABLE_VIEW_FX = eINSTANCE.getFilteredTableViewFX();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl <em>Table Column FX</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTableColumnFX()
-		 * @generated
-		 */
-		EClass TABLE_COLUMN_FX = eINSTANCE.getTableColumnFX();
-
-		/**
-		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_COLUMN_FX__WIDTH = eINSTANCE.getTableColumnFX_Width();
-
-		/**
-		 * The meta object literal for the '<em><b>Used Attribute</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE_COLUMN_FX__USED_ATTRIBUTE = eINSTANCE.getTableColumnFX_UsedAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Use Filter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_COLUMN_FX__USE_FILTER = eINSTANCE.getTableColumnFX_UseFilter();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ModelFXImpl <em>Model FX</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.ModelFXImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getModelFX()
-		 * @generated
-		 */
-		EClass MODEL_FX = eINSTANCE.getModelFX();
-
-		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_FX__ATTRIBUTES = eINSTANCE.getModelFX_Attributes();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.AttributeFXImpl <em>Attribute FX</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.AttributeFXImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAttributeFX()
-		 * @generated
-		 */
-		EClass ATTRIBUTE_FX = eINSTANCE.getAttributeFX();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ATTRIBUTE_FX__TYPE = eINSTANCE.getAttributeFX_Type();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BeanImpl <em>Bean</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.BeanImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBean()
-		 * @generated
-		 */
-		EClass BEAN = eINSTANCE.getBean();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.DerivedBeanImpl <em>Derived Bean</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.DerivedBeanImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getDerivedBean()
-		 * @generated
-		 */
-		EClass DERIVED_BEAN = eINSTANCE.getDerivedBean();
-
-		/**
-		 * The meta object literal for the '<em><b>Instance Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DERIVED_BEAN__INSTANCE_TYPE = eINSTANCE.getDerivedBean_InstanceType();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BindingImpl <em>Binding</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.BindingImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBinding()
-		 * @generated
-		 */
-		EClass BINDING = eINSTANCE.getBinding();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BINDING__NAME = eINSTANCE.getBinding_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BINDING__PROPERTY = eINSTANCE.getBinding_Property();
-
-		/**
-		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BindingPropertyImpl <em>Binding Property</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.dc.emf.javafx.model.javafx.impl.BindingPropertyImpl
-		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingProperty()
-		 * @generated
-		 */
-		EClass BINDING_PROPERTY = eINSTANCE.getBindingProperty();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BINDING_PROPERTY__NAME = eINSTANCE.getBindingProperty_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BINDING_PROPERTY__TYPE = eINSTANCE.getBindingProperty_Type();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.BindingType <em>Binding Type</em>}' enum.

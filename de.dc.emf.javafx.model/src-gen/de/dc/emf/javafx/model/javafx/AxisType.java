@@ -41,10 +41,6 @@ public enum AxisType implements Enumerator {
 	/**
 	 * The '<em><b>Number</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Number</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NUMBER
 	 * @model name="Number"
@@ -56,10 +52,6 @@ public enum AxisType implements Enumerator {
 	/**
 	 * The '<em><b>Category</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Category</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CATEGORY
 	 * @model name="Category"
@@ -176,6 +168,7 @@ public enum AxisType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -185,6 +178,7 @@ public enum AxisType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -194,6 +188,7 @@ public enum AxisType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
