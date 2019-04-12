@@ -19,6 +19,7 @@ class ProjectFX extends NamedElement {
 }
 
 abstract class ControlFX extends NamedElement {
+	boolean generateDemo = 'false'
 }
 
 class TableColumnFX extends NamedElement {

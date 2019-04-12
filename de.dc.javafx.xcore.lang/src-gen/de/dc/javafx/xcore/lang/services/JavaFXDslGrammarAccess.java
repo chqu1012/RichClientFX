@@ -351,16 +351,21 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cUsedModelKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cUsedModelAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cUsedModelJvmTypeReferenceParserRuleCall_4_1_0 = (RuleCall)cUsedModelAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cGenerateDemoKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cGenerateDemoAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cGenerateDemoEBooleanParserRuleCall_5_1_0 = (RuleCall)cGenerateDemoAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//TreeViewFX:
 		//	{TreeViewFX}
 		//	'TreeViewFX'
-		//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)?
+		//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('generateDemo:' generateDemo=EBoolean)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TreeViewFX} 'TreeViewFX' '{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? '}'
+		//{TreeViewFX} 'TreeViewFX' '{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('generateDemo:'
+		//generateDemo=EBoolean)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{TreeViewFX}
@@ -396,8 +401,20 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		//JvmTypeReference
 		public RuleCall getUsedModelJvmTypeReferenceParserRuleCall_4_1_0() { return cUsedModelJvmTypeReferenceParserRuleCall_4_1_0; }
 		
+		//('generateDemo:' generateDemo=EBoolean)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'generateDemo:'
+		public Keyword getGenerateDemoKeyword_5_0() { return cGenerateDemoKeyword_5_0; }
+		
+		//generateDemo=EBoolean
+		public Assignment getGenerateDemoAssignment_5_1() { return cGenerateDemoAssignment_5_1; }
+		
+		//EBoolean
+		public RuleCall getGenerateDemoEBooleanParserRuleCall_5_1_0() { return cGenerateDemoEBooleanParserRuleCall_5_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class TableViewFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.TableViewFX");
@@ -418,18 +435,22 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cColumnsTableColumnFXParserRuleCall_5_0_0 = (RuleCall)cColumnsAssignment_5_0.eContents().get(0);
 		private final Assignment cColumnsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cColumnsTableColumnFXParserRuleCall_5_1_0 = (RuleCall)cColumnsAssignment_5_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cGenerateDemoKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cGenerateDemoAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cGenerateDemoEBooleanParserRuleCall_6_1_0 = (RuleCall)cGenerateDemoAssignment_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//TableViewFX:
 		//	{TableViewFX}
 		//	'TableViewFX'
 		//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? (columns+=TableColumnFX
-		//	columns+=TableColumnFX*)?
+		//	columns+=TableColumnFX*)? ('generateDemo:' generateDemo=EBoolean)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TableViewFX} 'TableViewFX' '{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)?
-		//(columns+=TableColumnFX columns+=TableColumnFX*)? '}'
+		//(columns+=TableColumnFX columns+=TableColumnFX*)? ('generateDemo:' generateDemo=EBoolean)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{TableViewFX}
@@ -480,8 +501,20 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		//TableColumnFX
 		public RuleCall getColumnsTableColumnFXParserRuleCall_5_1_0() { return cColumnsTableColumnFXParserRuleCall_5_1_0; }
 		
+		//('generateDemo:' generateDemo=EBoolean)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'generateDemo:'
+		public Keyword getGenerateDemoKeyword_6_0() { return cGenerateDemoKeyword_6_0; }
+		
+		//generateDemo=EBoolean
+		public Assignment getGenerateDemoAssignment_6_1() { return cGenerateDemoAssignment_6_1; }
+		
+		//EBoolean
+		public RuleCall getGenerateDemoEBooleanParserRuleCall_6_1_0() { return cGenerateDemoEBooleanParserRuleCall_6_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class TableColumnFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.TableColumnFX");
@@ -2406,7 +2439,7 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	//TreeViewFX:
 	//	{TreeViewFX}
 	//	'TreeViewFX'
-	//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)?
+	//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('generateDemo:' generateDemo=EBoolean)?
 	//	'}';
 	public TreeViewFXElements getTreeViewFXAccess() {
 		return pTreeViewFX;
@@ -2420,7 +2453,7 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	{TableViewFX}
 	//	'TableViewFX'
 	//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? (columns+=TableColumnFX
-	//	columns+=TableColumnFX*)?
+	//	columns+=TableColumnFX*)? ('generateDemo:' generateDemo=EBoolean)?
 	//	'}';
 	public TableViewFXElements getTableViewFXAccess() {
 		return pTableViewFX;

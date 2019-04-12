@@ -37,6 +37,7 @@ TreeViewFX returns TreeViewFX:
 	'{'
 		('name:' name=EString)?
 		('usedModel:' usedModel=JvmTypeReference)?
+		('generateDemo:' generateDemo=EBoolean)?
 	'}';
 
 TableViewFX returns TableViewFX:
@@ -46,6 +47,7 @@ TableViewFX returns TableViewFX:
 		('name:' name=EString)?
 		('usedModel:' usedModel=JvmTypeReference)?
 		(columns+=TableColumnFX (columns+=TableColumnFX)*)?
+		('generateDemo:' generateDemo=EBoolean)?
 	'}';
 
 TableColumnFX returns TableColumnFX:

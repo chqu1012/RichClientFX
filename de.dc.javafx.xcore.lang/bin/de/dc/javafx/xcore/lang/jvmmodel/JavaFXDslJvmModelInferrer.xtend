@@ -46,6 +46,10 @@ import de.dc.emf.javafx.model.javafx.TreeViewFX
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeView
 import javafx.scene.control.TreeCell
+import javafx.application.Application
+import javafx.scene.Scene
+import javafx.scene.Parent
+import javafx.stage.Stage
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -361,9 +365,10 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	
 	def dispatch void infer(TreeViewFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+		val model = element.usedModel
+
 		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
 			superTypes+=BorderPane.typeRef
-			val model = element.usedModel
 			
 			members += element.toField('rootNode', TreeItem.typeRef(model))[
 				visibility=JvmVisibility.PROTECTED
@@ -419,5 +424,42 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				'''
 			]
 		]
+		
+		if(element.generateDemo){
+			acceptor.accept(element.toClass(packagePath+"demo."+element.name+'Application')) [
+				superTypes+=Application.typeRef
+				
+				members += element.toMethod("start", 'void'.typeRef)[
+					annotations += element.toAnnotation(Override)
+					parameters += element.toParameter('primaryStage', Stage.typeRef)
+					body = '''
+					primaryStage.setScene(new «Scene»(getRoot(), 600, 400));
+					primaryStage.show();
+					'''
+				]
+				
+				members += element.toMethod("getRoot", Parent.typeRef)[
+					body = '''
+					«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
+					for (int i = 0; i < 20; i++) {
+						String key = "Eins"+i;
+						view.addItemTo(«(packagePath+'Base'+element.name).typeRef».ROOT_KEY, new «model»(key, 1, true));
+						for (int j = 0; j < 30; j++) {
+							view.addItemTo(key, new «model»("Zwei"+j, i+j, true));
+						}
+						
+					}
+					return view;
+					'''
+					
+				]
+	
+				members += element.toMethod("main", 'void'.typeRef)[
+					static = true
+					parameters += element.toParameter('args', String.typeRef.addArrayTypeDimension)
+					body ='''launch(args);'''
+				]
+			]
+		}
 	}
 }

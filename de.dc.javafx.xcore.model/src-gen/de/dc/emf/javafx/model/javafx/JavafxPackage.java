@@ -197,13 +197,22 @@ public interface JavafxPackage extends EPackage {
 	int CONTROL_FX__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_FX__GENERATE_DEMO = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Control FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int CONTROL_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Control FX</em>' class.
@@ -583,6 +592,15 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_VIEW_FX__NAME = CONTROL_FX__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX__GENERATE_DEMO = CONTROL_FX__GENERATE_DEMO;
+
+	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -636,6 +654,15 @@ public interface JavafxPackage extends EPackage {
 	 * @ordered
 	 */
 	int TREE_VIEW_FX__NAME = CONTROL_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_VIEW_FX__GENERATE_DEMO = CONTROL_FX__GENERATE_DEMO;
 
 	/**
 	 * The feature id for the '<em><b>Used Model</b></em>' containment reference.
@@ -1735,6 +1762,17 @@ public interface JavafxPackage extends EPackage {
 	EClass getControlFX();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ControlFX#isGenerateDemo <em>Generate Demo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generate Demo</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ControlFX#isGenerateDemo()
+	 * @see #getControlFX()
+	 * @generated
+	 */
+	EAttribute getControlFX_GenerateDemo();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.TableColumnFX <em>Table Column FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2353,6 +2391,14 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTROL_FX = eINSTANCE.getControlFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Demo</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTROL_FX__GENERATE_DEMO = eINSTANCE.getControlFX_GenerateDemo();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl <em>Table Column FX</em>}' class.

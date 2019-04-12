@@ -3,6 +3,7 @@ packagePath "de.dc.javafx.xcore.example"
 controls{
 	TreeViewFX{
 		name: ContactTreeView
-		usedModel: de.dc.javafx.xcore.example.model.Contact
-	}
+		usedModel: de.dc.javafx.xcore.example.model.Contact 
+		generateDemo: false 
+	} 
 }

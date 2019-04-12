@@ -375,6 +375,16 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getControlFX_GenerateDemo() {
+		return (EAttribute) controlFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTableColumnFX() {
 		return tableColumnFXEClass;
 	}
@@ -917,6 +927,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEReference(projectFXEClass, PROJECT_FX__CHARTS);
 
 		controlFXEClass = createEClass(CONTROL_FX);
+		createEAttribute(controlFXEClass, CONTROL_FX__GENERATE_DEMO);
 
 		tableColumnFXEClass = createEClass(TABLE_COLUMN_FX);
 		createEAttribute(tableColumnFXEClass, TABLE_COLUMN_FX__WIDTH);
@@ -1066,6 +1077,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 
 		initEClass(controlFXEClass, ControlFX.class, "ControlFX", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getControlFX_GenerateDemo(), theEcorePackage.getEBoolean(), "generateDemo", "false", 0, 1,
+				ControlFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableColumnFXEClass, TableColumnFX.class, "TableColumnFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

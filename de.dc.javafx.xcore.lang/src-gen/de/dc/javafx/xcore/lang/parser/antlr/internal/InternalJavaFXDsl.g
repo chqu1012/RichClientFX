@@ -669,9 +669,34 @@ ruleTreeViewFX returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_7='}'
+		(
+			otherlv_7='generateDemo:'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getTreeViewFXAccess().getGenerateDemoKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTreeViewFXAccess().getGenerateDemoEBooleanParserRuleCall_5_1_0());
+					}
+					lv_generateDemo_8_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTreeViewFXRule());
+						}
+						set(
+							$current,
+							"generateDemo",
+							lv_generateDemo_8_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getTreeViewFXAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_9, grammarAccess.getTreeViewFXAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -797,9 +822,34 @@ ruleTableViewFX returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_9='}'
+		(
+			otherlv_9='generateDemo:'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getGenerateDemoKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getGenerateDemoEBooleanParserRuleCall_6_1_0());
+					}
+					lv_generateDemo_10_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
+						}
+						set(
+							$current,
+							"generateDemo",
+							lv_generateDemo_10_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_11, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
