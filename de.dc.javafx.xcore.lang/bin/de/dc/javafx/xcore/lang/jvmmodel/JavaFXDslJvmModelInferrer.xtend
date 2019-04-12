@@ -193,6 +193,11 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	   	acceptor.demo(element, packagePath, element.toMethod('getRoot', Parent.typeRef)[
 	   		body = '''
 	   		«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
+	   		«ObservableList»<«model»> items = «FXCollections».observableArrayList();
+	   		for (int i = 0; i < 30; i++) {
+		   		«model» item = new «model»();
+	   			tems.add(item);
+	   		}
 	   		return view;
 	   		'''
 	   	])

@@ -449,6 +449,26 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
           _builder.append(_typeRef_1);
           _builder.append("();");
           _builder.newLineIfNotEmpty();
+          _builder.append(ObservableList.class);
+          _builder.append("<");
+          _builder.append(model);
+          _builder.append("> items = ");
+          _builder.append(FXCollections.class);
+          _builder.append(".observableArrayList();");
+          _builder.newLineIfNotEmpty();
+          _builder.append("for (int i = 0; i < 30; i++) {");
+          _builder.newLine();
+          _builder.append("\t\t   \t\t");
+          _builder.append(model, "\t\t   \t\t");
+          _builder.append(" item = new ");
+          _builder.append(model, "\t\t   \t\t");
+          _builder.append("();");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t");
+          _builder.append("tems.add(item);");
+          _builder.newLine();
+          _builder.append("}");
+          _builder.newLine();
           _builder.append("return view;");
           _builder.newLine();
         }

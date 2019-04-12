@@ -1,7 +1,10 @@
 package de.dc.javafx.xcore.example.demo;
 
 import de.dc.javafx.xcore.example.BaseContactTable;
+import de.dc.javafx.xcore.example.model.Contact;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -16,6 +19,15 @@ public class ContactTableApplication extends Application {
   
   public Parent getRoot() {
     BaseContactTable view = new BaseContactTable();
+    ObservableList<Contact> items = FXCollections.observableArrayList();
+    for (int i = 0; i < 30; i++) {
+		Contact item = new Contact();
+		item.setName("Peter Jack "+i);
+		item.setAge(i);
+		item.setGender(true);
+		items.add(item);
+	}
+    view.setInput(items);
     return view;
   }
   

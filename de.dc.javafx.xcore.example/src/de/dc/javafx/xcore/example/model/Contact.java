@@ -3,6 +3,9 @@ package de.dc.javafx.xcore.example.model;
 @SuppressWarnings("all")
 public class Contact {
 
+	public Contact() {
+	}
+	
 	private String address;
 
 	private String name;
