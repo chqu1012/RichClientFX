@@ -62,10 +62,11 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	
 	def dispatch void infer(TableViewFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+		val model = element.usedModel
+
 		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
 			superTypes+=BorderPane.typeRef
 			
-			val model = element.usedModel
 			
 			members += element.toField('masterData', ObservableList.typeRef(model))[initializer = '''«FXCollections».observableArrayList()''']
 			members += element.toField('filteredMasterData', FilteredList.typeRef(model))[initializer = '''new «FilteredList»<>(masterData, p->true)''']
@@ -285,7 +286,6 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	    ])
 	    
 	   	acceptor.accept(element.toClass(packagePath+'feature.Base'+element.usedModel.simpleName+'CellFeatures') [
-	   		val model = typeRef(packagePath+'model.'+element.usedModel.simpleName)
 	   		val modelType = typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')
 	   		superTypes += #[Callback.typeRef(TableColumn.CellDataFeatures.typeRef(model, model), ObservableValue.typeRef(model))]
 	   		
@@ -343,6 +343,40 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	   			'''
 	   		]
 	   	])
+	   	
+	   	if(element.generateDemo){
+			acceptor.accept(element.toClass(packagePath+"demo."+element.name+'Application')) [
+				superTypes+=Application.typeRef
+				
+				members += element.toMethod("start", 'void'.typeRef)[
+					annotations += element.toAnnotation(Override)
+					parameters += element.toParameter('primaryStage', Stage.typeRef)
+					body = '''
+					primaryStage.setScene(new «Scene»(getRoot(), 600, 400));
+					primaryStage.show();
+					'''
+				]
+				
+				members += element.toMethod("getRoot", Parent.typeRef)[
+					body = '''
+					«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
+					«ObservableList»<«model»> items = FXCollections.observableArrayList();
+					for (int i = 0; i < 50; i++) {
+						items.add(new «model»("Peter"+i, i, true));
+					}
+					view.setInput(items);
+					return view;
+					'''
+					
+				]
+	
+				members += element.toMethod("main", 'void'.typeRef)[
+					static = true
+					parameters += element.toParameter('args', String.typeRef.addArrayTypeDimension)
+					body ='''launch(args);'''
+				]
+			]
+		}
 	}
 
 	def dispatch void infer(Bean element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
