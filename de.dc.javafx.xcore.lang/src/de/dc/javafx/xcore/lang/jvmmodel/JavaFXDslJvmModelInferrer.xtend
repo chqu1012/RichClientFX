@@ -174,8 +174,10 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				«Label» label = new Label("Search:");
 				label.setMaxHeight(«Double».MAX_VALUE);
 				
-				searchTextfield.setPromptText("Search for «element.usedModel.simpleName»s");
+				«val searchFields = element.columns.filter[useFilter].map[name].reduce[p1, p2|p1+', '+p2]»
+				searchTextfield.setPromptText("Search for «element.usedModel.simpleName»s by «searchFields»");
 				searchTextfield.textProperty().bindBidirectional(searchProperty);
+				HBox.setHgrow(searchTextfield, Priority.ALWAYS);
 				
 				«Label» filterLabel = new Label("Filter Result:");
 				filterLabel.setMaxHeight(«Double».MAX_VALUE);

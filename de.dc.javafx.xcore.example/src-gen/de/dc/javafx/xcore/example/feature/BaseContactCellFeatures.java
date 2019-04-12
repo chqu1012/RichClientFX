@@ -28,6 +28,8 @@ public class BaseContactCellFeatures implements Callback<TableColumn.CellDataFea
     		return getAge(item);
     	case Gender:
     		return getGender(item);
+    	case Address:
+    		return getAddress(item);
     	default:
     		return "";
     	}
@@ -43,5 +45,9 @@ public class BaseContactCellFeatures implements Callback<TableColumn.CellDataFea
   
   protected String getGender(final Contact item) {
     return String.valueOf(item.getGender());
+  }
+  
+  protected String getAddress(final Contact item) {
+    return String.valueOf(item.getAddress());
   }
 }

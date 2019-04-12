@@ -61,6 +61,8 @@ public class BaseContactTable extends BorderPane {
   
   private TableColumn<Contact, Contact> genderColumn;
   
+  private TableColumn<Contact, Contact> addressColumn;
+  
   public BaseContactTable() {
     initTableView();
     initTopPane();
@@ -74,6 +76,7 @@ public class BaseContactTable extends BorderPane {
     nameColumn = createColumn(ContactType.Name.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Name));
     ageColumn = createColumn(ContactType.Age.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Age));
     genderColumn = createColumn(ContactType.Gender.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Gender));
+    addressColumn = createColumn(ContactType.Address.name(), Double.valueOf(200),  new BaseContactCellFeatures(ContactType.Address));
     ageFilter.bind(Bindings.createObjectBinding(() -> 
                 current -> String.valueOf(current.getAge()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
                 searchTextfield.textProperty()));
@@ -100,6 +103,7 @@ public class BaseContactTable extends BorderPane {
     		properties.get(0).setValue(String.valueOf(newV.getName()));
     		properties.get(1).setValue(String.valueOf(newV.getAge()));
     		properties.get(2).setValue(String.valueOf(newV.getGender()));
+    		properties.get(3).setValue(String.valueOf(newV.getAddress()));
     		propertyView.refresh();
     	}
     });
@@ -135,8 +139,9 @@ public class BaseContactTable extends BorderPane {
     Label label = new Label("Search:");
     label.setMaxHeight(Double.MAX_VALUE);
     
-    searchTextfield.setPromptText("Search for Contacts");
+    searchTextfield.setPromptText("Search for Contacts by Age");
     searchTextfield.textProperty().bindBidirectional(searchProperty);
+    HBox.setHgrow(searchTextfield, Priority.ALWAYS);
     
     Label filterLabel = new Label("Filter Result:");
     filterLabel.setMaxHeight(Double.MAX_VALUE);

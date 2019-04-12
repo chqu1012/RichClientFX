@@ -576,12 +576,27 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
             _builder.append(".MAX_VALUE);");
             _builder.newLineIfNotEmpty();
             _builder.newLine();
+            final Function1<TableColumnFX, Boolean> _function = (TableColumnFX it_2) -> {
+              return Boolean.valueOf(it_2.isUseFilter());
+            };
+            final Function1<TableColumnFX, String> _function_1 = (TableColumnFX it_2) -> {
+              return it_2.getName();
+            };
+            final Function2<String, String, String> _function_2 = (String p1, String p2) -> {
+              return ((p1 + ", ") + p2);
+            };
+            final String searchFields = IterableExtensions.<String>reduce(IterableExtensions.<TableColumnFX, String>map(IterableExtensions.<TableColumnFX>filter(element.getColumns(), _function), _function_1), _function_2);
+            _builder.newLineIfNotEmpty();
             _builder.append("searchTextfield.setPromptText(\"Search for ");
             String _simpleName = element.getUsedModel().getSimpleName();
             _builder.append(_simpleName);
-            _builder.append("s\");");
+            _builder.append("s by ");
+            _builder.append(searchFields);
+            _builder.append("\");");
             _builder.newLineIfNotEmpty();
             _builder.append("searchTextfield.textProperty().bindBidirectional(searchProperty);");
+            _builder.newLine();
+            _builder.append("HBox.setHgrow(searchTextfield, Priority.ALWAYS);");
             _builder.newLine();
             _builder.newLine();
             _builder.append(Label.class);

@@ -6,5 +6,7 @@ public enum ContactType {
   
   Age,
   
-  Gender;
+  Gender,
+  
+  Address;
 }
