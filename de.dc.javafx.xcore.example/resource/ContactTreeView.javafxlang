@@ -2,7 +2,7 @@ packagePath "de.dc.javafx.xcore.example"
 
 controls{
 	TreeViewFX{
-		name: ContactTreeView
+		name: ContactTreeView 
 		usedModel: de.dc.javafx.xcore.example.model.Contact 
 		showPropertyView: true
 		generateDemo: true

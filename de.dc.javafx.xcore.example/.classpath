@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resource"/>
 	<classpathentry kind="src" path="src-gen"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.dc.javafx.xcore.lang.lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

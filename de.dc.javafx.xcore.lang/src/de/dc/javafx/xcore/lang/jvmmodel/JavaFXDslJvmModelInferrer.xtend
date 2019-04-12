@@ -50,6 +50,12 @@ import javafx.application.Application
 import javafx.scene.Scene
 import javafx.scene.Parent
 import javafx.stage.Stage
+import de.dc.javafx.xcore.lang.lib.BaseTableView
+import de.dc.javafx.xcore.lang.lib.model.PropertyValue
+import org.eclipse.xtend.typesystem.emf.EcoreUtil2
+import de.dc.emf.javafx.model.javafx.ControlFX
+import org.eclipse.xtext.common.types.JvmOperation
+import javafx.scene.Node
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -63,246 +69,11 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	def dispatch void infer(TableViewFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
 		val model = element.usedModel
-
-		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
-			superTypes+=BorderPane.typeRef
-			
-			members += element.toField('masterData', ObservableList.typeRef(model))[initializer = '''«FXCollections».observableArrayList()''']
-			members += element.toField('filteredMasterData', FilteredList.typeRef(model))[initializer = '''new «FilteredList»<>(masterData, p->true)''']
-			members += element.toField('columns', Map.typeRef(typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type'), TableColumn.typeRef(model, model)))[initializer = '''new «HashMap»<>()''']
-			members += element.toField('tableView', TableView.typeRef(model))[initializer = ''' new «TableView»<«model»>()''']
-			members += element.toField('searchTextfield', TextField.typeRef)[initializer = '''new TextField()''']
-			members += element.toField('topPane', HBox.typeRef)[initializer = '''new HBox()''']
-			members += element.toField('rightPane', AnchorPane.typeRef)[initializer = '''new AnchorPane()''']
-			members += element.toField('searchProperty', StringProperty.typeRef)[initializer = '''new «SimpleStringProperty»("")''']
-			members += element.toField('propertyView', TableView.typeRef)[initializer = '''new TableView<>()''']
-			members += element.toField('properties', ObservableList.typeRef((packagePath+'model.'+element.name+'PropertyValue').typeRef))[initializer = '''«FXCollections».observableArrayList()''']
-
-			element.columns.forEach[col|
-				members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef(model, model))
-				if (col.useFilter) {
-					members += element.toField(col.name.toFirstLower+'Filter', ObjectProperty.typeRef(Predicate.typeRef(model)))[initializer = '''new «SimpleObjectProperty»<>()''']
-				}
-			]
-			
-			val modelName = '''«IF element.usedModel===null»«ELSE»«element.usedModel.simpleName.toFirstUpper»«ENDIF»'''
-			val modelType = typeRef(packagePath+'model.'+modelName+'Type')
-			val feature = typeRef(packagePath+'feature.Base'+modelName+'CellFeatures')
-			members += element.toConstructor[
-				body = '''
-				initTableView();
-				initTopPane();
-				initRightPane();
-				
-				setTop(topPane);
-				setCenter(tableView);
-				
-				showPropertyView(«element.showPropertyView»);
-				showToolbar(«element.showToolbar»);
-				'''
-			]
-			
-			// #showPropertyView Method
-			members += element.toMethod('showPropertyView', typeRef('void'))[
-				parameters += element.toParameter('showPropertyView', Boolean.typeRef)
-				body ='''
-				if (showPropertyView) {
-					if (getRight() == null) {
-						setRight(propertyView);
-					}
-				} else {
-					setRight(null);
-				}
-				'''
-			]
-
-			// #showToolbar Method
-			members += element.toMethod('showToolbar', typeRef('void'))[
-				parameters += element.toParameter('showToolbar', Boolean.typeRef)
-				body ='''
-				if (showToolbar) {
-					if (getTop() == null) {
-						setTop(topPane);
-					}
-				} else {
-					setTop(null);
-				}
-				'''
-			]
-			
-			// #initTableView Method
-			members += element.toMethod('initTableView', typeRef('void'))[
-				body = '''
-				«FOR col : element.columns»
-				«col.name.toFirstLower»Column = createColumn(«modelType».«col.name.toFirstUpper».name(), Double.valueOf(«col.width»),  new «feature»(«modelType».«col.name.toFirstUpper»));
-				«ENDFOR»
-				«FOR col : element.columns»
-				«IF col.useFilter»
-				«col.name.toFirstLower+'Filter'».bind(«Bindings».createObjectBinding(() -> 
-				            current -> String.valueOf(current.get«col.name.toFirstUpper»()).toLowerCase().contains(searchTextfield.getText().toLowerCase()), 
-				            searchTextfield.textProperty()));
-				«ENDIF»
-				«ENDFOR»
-				tableView.setItems(filteredMasterData);
-				tableView.setOnKeyReleased(e ->{ 
-					if (e.getCode().equals(«KeyCode».ESCAPE)) {
-						setTop(null);
-						searchProperty.set("");
-					}else if(e.getCode().equals(«KeyCode».BACK_SPACE)){
-						if(getTop()==null) {
-							setTop(topPane);
-						}
-						searchTextfield.requestFocus();
-					}else {
-						if(getTop()==null) {
-							setTop(topPane);
-						}
-						searchProperty.set(searchProperty.get()+e.getText());
-					}
-				});
-				
-				tableView.getSelectionModel().selectedItemProperty().addListener((«ChangeListener»<«model»>) (obs, oldV, newV) -> {
-					if(newV!=null){
-						«IF element.columns.size>0»
-						«FOR i : 0..(element.columns.size-1)»
-						properties.get(«i»).setValue(String.valueOf(newV.get«element.columns.get(i).name.toFirstUpper»()));
-						«ENDFOR»
-						«ENDIF»
-						propertyView.refresh();
-					}
-				});
-				
-				«IF element.columns.filter[useFilter].size>0»
-				«val filterbinding = element.columns.filter[useFilter].map[name.toFirstLower+'Filter.get()'].reduce[p1, p2|p1+'.or('+p2+')']»
-				«val filters = element.columns.filter[useFilter].map[name.toFirstLower+'Filter'].reduce[p1, p2|p1+','+p2]»
-				filteredMasterData.predicateProperty().bind(«Bindings».createObjectBinding(()->«filterbinding», «filters»));
-				«ENDIF»
-				'''
-			]
-			
-			// #initTableView Method
-			members += element.toMethod('initRightPane', typeRef('void'))[
-				body ='''
-					«TableColumn»<«(element.name+'PropertyValue').typeRef», Object> propertyColumn = new TableColumn<>("Property");
-					propertyColumn.setCellValueFactory(new «PropertyValueFactory»<>("property"));
-					propertyView.getColumns().add(propertyColumn);
-					«TableColumn»<«element.name»PropertyValue, Object> valueColumn = new TableColumn<>("Value");
-					valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
-					propertyView.getColumns().add(valueColumn);
-					
-					«AnchorPane».setBottomAnchor(propertyView, 0d);
-					AnchorPane.setTopAnchor(propertyView, 0d);
-					AnchorPane.setLeftAnchor(propertyView, 0d);
-					AnchorPane.setRightAnchor(propertyView, 0d);
-											    
-					for («typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')» type : «typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')».values()) {
-						properties.add(new «typeRef(packagePath+'model.'+element.name+'PropertyValue')»(type.name(), ""));
-					}
-					propertyView.setItems(properties);
-					
-					rightPane.getChildren().add(propertyView);
-				'''
-			]
-
-			// #initTableView Method
-			members += element.toMethod('initTopPane', typeRef('void'))[
-				body = '''
-				topPane.setSpacing(10d);
-				topPane.setPadding(new «Insets»(5d));
-				
-				«Label» label = new Label("Search:");
-				label.setMaxHeight(«Double».MAX_VALUE);
-				
-				«val searchFields = element.columns.filter[useFilter].map[name].reduce[p1, p2|p1+', '+p2]»
-				searchTextfield.setPromptText("Search for «element.usedModel.simpleName»s by «searchFields»");
-				searchTextfield.textProperty().bindBidirectional(searchProperty);
-				HBox.setHgrow(searchTextfield, Priority.ALWAYS);
-				
-				«Label» filterLabel = new Label("Filter Result:");
-				filterLabel.setMaxHeight(«Double».MAX_VALUE);
-				
-				«Label» filterResultlabel = new Label("0");
-				filterResultlabel.setMaxHeight(«Double».MAX_VALUE);
-				filterResultlabel.textProperty().bind(«Bindings».size(filteredMasterData).asString());						
-				Label emtyLabel = new Label("");
-				emtyLabel.setMaxHeight(Double.MAX_VALUE);
-				emtyLabel.setMaxWidth(Double.MAX_VALUE);
-				«HBox».setHgrow(emtyLabel, «Priority».ALWAYS);
-				
-			    «Button» showPropertyButton = new Button("Show Property View");
-				showPropertyButton.setOnAction(e->{
-					if(getRight()==null) {
-						setRight(rightPane);
-						showPropertyButton.setText("Show Property View");
-					}else {
-						setRight(null);
-						showPropertyButton.setText("Hide Property View");
-					}
-				});
-				
-				«Button» closeButton = new Button("Close");
-				closeButton.setOnAction(e -> {
-					setTop(null);
-					searchProperty.set("");
-				});
-				
-				topPane.getChildren().addAll(label, searchTextfield, filterLabel, filterResultlabel, emtyLabel, showPropertyButton, closeButton);
-				'''
-			]
-			
-			// #createColumn Method
-			members += element.toMethod('createColumn', TableColumn.typeRef)[
-				visibility=JvmVisibility.PROTECTED
-				parameters+=element.toParameter('name', String.typeRef)
-				parameters+=element.toParameter('width', Double.typeRef)
-				parameters+=element.toParameter('cellFeatures', Callback.typeRef)
-				body = '''
-			    «TableColumn»<«model», «model»> column = new «TableColumn»(name);
-			    column.setPrefWidth(width);
-			    column.setCellValueFactory(cellFeatures);
-			    columns.put(«element.usedModel.simpleName+'Type'».valueOf(name), column);
-			    tableView.getColumns().add(column);		
-			    return column;	
-				'''
-			]
-
-			// #setInput Method
-			members += element.toMethod('setInput', typeRef('void'))[
-				visibility=JvmVisibility.PUBLIC
-				
-				val JvmFormalParameter arg = TypesFactory::eINSTANCE.createJvmFormalParameter
-				arg.name = "items"
-				arg.parameterType = ObservableList.typeRef(model)
-				
-				parameters += arg
-				body = '''
-				masterData.clear();
-				masterData.addAll(items);
-				'''
-			]
-			
-			members += element.toMethod('setFeatureFor', typeRef('void'))[
-				visibility=JvmVisibility.PUBLIC
-				
-				val JvmFormalParameter arg1 = TypesFactory::eINSTANCE.createJvmFormalParameter
-				arg1.name = "type"
-				arg1.parameterType = (packagePath+'model.'+element.usedModel.simpleName+'Type').typeRef
-				
-				val JvmFormalParameter arg2 = TypesFactory::eINSTANCE.createJvmFormalParameter
-				arg2.name = "feature"
-				arg2.parameterType = Callback.typeRef(TableColumn.CellDataFeatures.typeRef(model, model), ObservableValue.typeRef(model))
-				
-				parameters += arg1
-				parameters += arg2
-				
-				body = '''columns.get(type).setCellValueFactory(feature);'''
-			]
-			
-			members += element.toGetter('masterData', ObservableList.typeRef(model));
-			members += element.toGetter('filteredMasterData', FilteredList.typeRef(model));
-		]
 		
-		acceptor.accept(element.toEnumerationType(packagePath+'model.'+element.usedModel.simpleName+'Type') [
+		val type = packagePath+'model.'+element.usedModel.simpleName+'Type'
+		val feature = packagePath+'feature.Base'+element.usedModel.simpleName+'CellFeatures'
+		
+		acceptor.accept(element.toEnumerationType(type) [
 	      for (literal : element.columns) {
 	      	val jvmLiteral = TypesFactory::eINSTANCE.createJvmEnumerationLiteral
 			jvmLiteral.simpleName = literal.name
@@ -315,7 +86,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	      }
 	    ])
 	    
-	   	acceptor.accept(element.toClass(packagePath+'feature.Base'+element.usedModel.simpleName+'CellFeatures') [
+	   	acceptor.accept(element.toClass(feature) [
 	   		val modelType = typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')
 	   		superTypes += #[Callback.typeRef(TableColumn.CellDataFeatures.typeRef(model, model), ObservableValue.typeRef(model))]
 	   		
@@ -356,28 +127,81 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 		   		]
 			}
 	   	])
-	   	
-	   	acceptor.accept(element.toClass(packagePath+'model.'+element.name+'PropertyValue') [
-	   		members += element.toField('property', String.typeRef)
-	   		members += element.toGetter('property', String.typeRef)
-	   		members += element.toSetter('property', String.typeRef)
-	   		members += element.toField('value', String.typeRef)
-	   		members += element.toGetter('value', String.typeRef)
-	   		members += element.toSetter('value', String.typeRef)
-	   		members += element.toConstructor[
-	   			parameters+=element.toParameter('property', String.typeRef)
-	   			parameters+=element.toParameter('value', String.typeRef)
-	   			body = '''
-	   			this.property = property;
-	   			this.value = value;
-	   			'''
-	   		]
+
+		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
+			superTypes += BaseTableView.typeRef(model)
+			
+			members += element.toMethod('onTableViewSelectionChanged', 'void'.typeRef)[
+				annotations += element.toAnnotation(Override)
+				parameters += element.toParameter('oldV', model)
+				parameters += element.toParameter('newV', model)
+				body = '''
+				«FOR i : 0..(element.columns.size-1)»
+				«val c = element.columns.get(i)»
+				properties.get(«i»).setValue(«String».valueOf(newV.get«c.name.toFirstUpper»()));
+				«ENDFOR»
+				'''
+			]
+
+			members += element.toMethod('initProperties', 'void'.typeRef)[
+				annotations += element.toAnnotation(Override)
+				parameters += element.toParameter('properties', ObservableList.typeRef(PropertyValue.typeRef))
+				body = '''
+				for (ContactType type : ContactType.values()) {
+					properties.add(new PropertyValue(type.name(), ""));
+				}
+				'''
+			]
+
+			members += element.toMethod('initColumns', 'void'.typeRef)[
+				annotations += element.toAnnotation(Override)
+				body = '''
+				«FOR c : element.columns»
+				createColumn(ContactType.«c.name.toFirstUpper», 200.0);
+				«ENDFOR»
+				'''
+			]
+
+			members += element.toMethod('createColumn', 'void'.typeRef)[
+				parameters += element.toParameter('type', type.typeRef)
+				parameters += element.toParameter('size', Double.typeRef)
+				body = '''createColumn(type.name(), size, new «feature.typeRef»(type));'''
+			]
+			
+			members += element.toMethod('initSearchfilterBinding', ObservableValue.typeRef)[
+				annotations += element.toAnnotation(Override)
+				body = '''
+				«StringProperty» searchTextProperty = searchTextfield.textProperty();
+				«FOR c : element.columns»
+				«IF c.useFilter»
+				«val filter = c.name.toLowerCase+'Filter'»
+				«ObjectProperty»<«Predicate»<«model»>> «filter» = new «SimpleObjectProperty»<>();
+				«filter».bind(«Bindings».createObjectBinding(() -> current -> {
+					String searchContent = searchTextfield.getText().toLowerCase();
+					String data = «String».valueOf(current.getAge()).toLowerCase();
+					return data.contains(searchContent);
+				}, searchTextProperty));
+				«ENDIF»
+				«ENDFOR»
+				«val filterConcat = element.columns.filter[useFilter].map[name.toFirstLower+'Filter.get()'].reduce[p1, p2|p1+'.or('+p2+')']»
+				«val filterSeparate = element.columns.filter[useFilter].map[name.toFirstLower+'Filter'].reduce[p1, p2|p1+', '+p2]»
+				return Bindings.createObjectBinding(()->«filterConcat», «filterSeparate»);	
+				'''
+			]
+		]
+
+	   	acceptor.demo(element, packagePath, element.toMethod('getRoot', Parent.typeRef)[
+	   		body = '''
+	   		«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
+	   		return view;
+	   		'''
 	   	])
-	   	
-	   	if(element.generateDemo){
+	}
+	
+	def void demo(IJvmDeclaredTypeAcceptor acceptor,ControlFX element, String packagePath, JvmOperation operation){
+		if(element.generateDemo){
 			acceptor.accept(element.toClass(packagePath+"demo."+element.name+'Application')) [
 				superTypes+=Application.typeRef
-				
 				members += element.toMethod("start", 'void'.typeRef)[
 					annotations += element.toAnnotation(Override)
 					parameters += element.toParameter('primaryStage', Stage.typeRef)
@@ -386,20 +210,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 					primaryStage.show();
 					'''
 				]
-				
-				members += element.toMethod("getRoot", Parent.typeRef)[
-					body = '''
-					«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
-					«ObservableList»<«model»> items = «FXCollections».observableArrayList();
-					for (int i = 0; i < 50; i++) {
-						items.add(new «model»("Peter"+i, i, true));
-					}
-					view.setInput(items);
-					return view;
-					'''
-					
-				]
-	
+				members += operation
 				members += element.toMethod("main", 'void'.typeRef)[
 					static = true
 					parameters += element.toParameter('args', String.typeRef.addArrayTypeDimension)

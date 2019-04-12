@@ -2,7 +2,7 @@ packagePath "de.dc.javafx.xcore.example"
 
 controls{
 	TableViewFX{
-		name: ContactTable
+		name: ContactTable 
 		usedModel: de.dc.javafx.xcore.example.model.Contact
 		column(name:Name) 
 		column(name:Age useFilter) 
