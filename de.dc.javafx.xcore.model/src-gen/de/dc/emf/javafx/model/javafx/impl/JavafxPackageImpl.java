@@ -565,8 +565,28 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTableViewFX_ShowPropertyView() {
+		return (EAttribute) tableViewFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableViewFX_ShowToolbar() {
+		return (EAttribute) tableViewFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getTableViewFX_Columns() {
-		return (EReference) tableViewFXEClass.getEStructuralFeatures().get(0);
+		return (EReference) tableViewFXEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -576,7 +596,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 */
 	@Override
 	public EReference getTableViewFX_UsedModel() {
-		return (EReference) tableViewFXEClass.getEStructuralFeatures().get(1);
+		return (EReference) tableViewFXEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -954,6 +974,8 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEAttribute(bindingPropertyEClass, BINDING_PROPERTY__TYPE);
 
 		tableViewFXEClass = createEClass(TABLE_VIEW_FX);
+		createEAttribute(tableViewFXEClass, TABLE_VIEW_FX__SHOW_PROPERTY_VIEW);
+		createEAttribute(tableViewFXEClass, TABLE_VIEW_FX__SHOW_TOOLBAR);
 		createEReference(tableViewFXEClass, TABLE_VIEW_FX__COLUMNS);
 		createEReference(tableViewFXEClass, TABLE_VIEW_FX__USED_MODEL);
 
@@ -1131,6 +1153,12 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 
 		initEClass(tableViewFXEClass, TableViewFX.class, "TableViewFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableViewFX_ShowPropertyView(), theEcorePackage.getEBoolean(), "showPropertyView", "true", 0,
+				1, TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableViewFX_ShowToolbar(), theEcorePackage.getEBoolean(), "showToolbar", "true", 0, 1,
+				TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEReference(getTableViewFX_Columns(), this.getTableColumnFX(), null, "columns", null, 0, -1,
 				TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

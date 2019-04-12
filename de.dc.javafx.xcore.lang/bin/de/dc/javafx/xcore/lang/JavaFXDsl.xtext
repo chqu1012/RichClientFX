@@ -47,6 +47,8 @@ TableViewFX returns TableViewFX:
 		('name:' name=EString)?
 		('usedModel:' usedModel=JvmTypeReference)?
 		(columns+=TableColumnFX (columns+=TableColumnFX)*)?
+		('showPropertyView:' showPropertyView=EBoolean)?
+		('showToolbar:' showToolbar=EBoolean)?
 		('generateDemo:' generateDemo=EBoolean)?
 	'}';
 

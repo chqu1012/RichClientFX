@@ -54,6 +54,8 @@ class BindingProperty {
 }
 
 class TableViewFX extends ControlFX {
+	boolean showPropertyView = 'true'
+	boolean showToolbar = 'true'
 	contains TableColumnFX[] columns
 	contains JvmTypeReference[0..1] usedModel
 }

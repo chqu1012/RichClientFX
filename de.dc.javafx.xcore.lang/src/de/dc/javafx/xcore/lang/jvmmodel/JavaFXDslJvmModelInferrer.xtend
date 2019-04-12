@@ -97,6 +97,37 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				
 				setTop(topPane);
 				setCenter(tableView);
+				
+				showPropertyView(«element.showPropertyView»);
+				showToolbar(«element.showToolbar»);
+				'''
+			]
+			
+			// #showPropertyView Method
+			members += element.toMethod('showPropertyView', typeRef('void'))[
+				parameters += element.toParameter('showPropertyView', Boolean.typeRef)
+				body ='''
+				if (showPropertyView) {
+					if (getRight() == null) {
+						setRight(propertyView);
+					}
+				} else {
+					setRight(null);
+				}
+				'''
+			]
+
+			// #showToolbar Method
+			members += element.toMethod('showToolbar', typeRef('void'))[
+				parameters += element.toParameter('showToolbar', Boolean.typeRef)
+				body ='''
+				if (showToolbar) {
+					if (getTop() == null) {
+						setTop(topPane);
+					}
+				} else {
+					setTop(null);
+				}
 				'''
 			]
 			
@@ -360,7 +391,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				members += element.toMethod("getRoot", Parent.typeRef)[
 					body = '''
 					«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
-					«ObservableList»<«model»> items = FXCollections.observableArrayList();
+					«ObservableList»<«model»> items = «FXCollections».observableArrayList();
 					for (int i = 0; i < 50; i++) {
 						items.add(new «model»("Peter"+i, i, true));
 					}

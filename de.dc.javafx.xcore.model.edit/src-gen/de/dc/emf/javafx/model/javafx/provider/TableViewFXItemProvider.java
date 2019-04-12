@@ -13,7 +13,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.xtext.common.types.TypesFactory;
 
@@ -45,8 +47,42 @@ public class TableViewFXItemProvider extends ControlFXItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addShowPropertyViewPropertyDescriptor(object);
+			addShowToolbarPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Show Property View feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShowPropertyViewPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_TableViewFX_showPropertyView_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_TableViewFX_showPropertyView_feature",
+								"_UI_TableViewFX_type"),
+						JavafxPackage.Literals.TABLE_VIEW_FX__SHOW_PROPERTY_VIEW, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Show Toolbar feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShowToolbarPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_TableViewFX_showToolbar_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_TableViewFX_showToolbar_feature",
+								"_UI_TableViewFX_type"),
+						JavafxPackage.Literals.TABLE_VIEW_FX__SHOW_TOOLBAR, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -126,6 +162,10 @@ public class TableViewFXItemProvider extends ControlFXItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TableViewFX.class)) {
+		case JavafxPackage.TABLE_VIEW_FX__SHOW_PROPERTY_VIEW:
+		case JavafxPackage.TABLE_VIEW_FX__SHOW_TOOLBAR:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		case JavafxPackage.TABLE_VIEW_FX__COLUMNS:
 		case JavafxPackage.TABLE_VIEW_FX__USED_MODEL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

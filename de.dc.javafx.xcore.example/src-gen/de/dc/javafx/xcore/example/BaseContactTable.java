@@ -70,6 +70,29 @@ public class BaseContactTable extends BorderPane {
     
     setTop(topPane);
     setCenter(tableView);
+    
+    showPropertyView(false);
+    showToolbar(true);
+  }
+  
+  public void showPropertyView(final Boolean showPropertyView) {
+    if (showPropertyView) {
+    	if (getRight() == null) {
+    		setRight(propertyView);
+    	}
+    } else {
+    	setRight(null);
+    }
+  }
+  
+  public void showToolbar(final Boolean showToolbar) {
+    if (showToolbar) {
+    	if (getTop() == null) {
+    		setTop(topPane);
+    	}
+    } else {
+    	setTop(null);
+    }
   }
   
   public void initTableView() {

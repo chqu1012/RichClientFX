@@ -601,13 +601,31 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_VIEW_FX__GENERATE_DEMO = CONTROL_FX__GENERATE_DEMO;
 
 	/**
+	 * The feature id for the '<em><b>Show Property View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX__SHOW_PROPERTY_VIEW = CONTROL_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Show Toolbar</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_VIEW_FX__SHOW_TOOLBAR = CONTROL_FX_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_VIEW_FX__COLUMNS = CONTROL_FX_FEATURE_COUNT + 0;
+	int TABLE_VIEW_FX__COLUMNS = CONTROL_FX_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Used Model</b></em>' containment reference.
@@ -616,7 +634,7 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 1;
+	int TABLE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Table View FX</em>' class.
@@ -625,7 +643,7 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 2;
+	int TABLE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Table View FX</em>' class.
@@ -1963,6 +1981,28 @@ public interface JavafxPackage extends EPackage {
 	EClass getTableViewFX();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TableViewFX#isShowPropertyView <em>Show Property View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Property View</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableViewFX#isShowPropertyView()
+	 * @see #getTableViewFX()
+	 * @generated
+	 */
+	EAttribute getTableViewFX_ShowPropertyView();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TableViewFX#isShowToolbar <em>Show Toolbar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Toolbar</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableViewFX#isShowToolbar()
+	 * @see #getTableViewFX()
+	 * @generated
+	 */
+	EAttribute getTableViewFX_ShowToolbar();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.TableViewFX#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2559,6 +2599,22 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TABLE_VIEW_FX = eINSTANCE.getTableViewFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Show Property View</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_VIEW_FX__SHOW_PROPERTY_VIEW = eINSTANCE.getTableViewFX_ShowPropertyView();
+
+		/**
+		 * The meta object literal for the '<em><b>Show Toolbar</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_VIEW_FX__SHOW_TOOLBAR = eINSTANCE.getTableViewFX_ShowToolbar();
 
 		/**
 		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.

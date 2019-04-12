@@ -1,0 +1,15 @@
+packagePath "de.dc.javafx.xcore.example"
+
+controls{
+	TableViewFX{
+		name: ContactTable
+		usedModel: de.dc.javafx.xcore.example.model.Contact
+		column(name:Name) 
+		column(name:Age useFilter) 
+		column(name:Gender)
+		column(name:Address) 
+		showPropertyView: false
+		showToolbar: true
+		generateDemo: true 
+	}  
+}  

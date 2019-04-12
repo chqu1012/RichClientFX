@@ -742,7 +742,14 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	 *     TableViewFX returns TableViewFX
 	 *
 	 * Constraint:
-	 *     (name=EString? usedModel=JvmTypeReference? (columns+=TableColumnFX columns+=TableColumnFX*)? generateDemo=EBoolean?)
+	 *     (
+	 *         name=EString? 
+	 *         usedModel=JvmTypeReference? 
+	 *         (columns+=TableColumnFX columns+=TableColumnFX*)? 
+	 *         showPropertyView=EBoolean? 
+	 *         showToolbar=EBoolean? 
+	 *         generateDemo=EBoolean?
+	 *     )
 	 */
 	protected void sequence_TableViewFX(ISerializationContext context, TableViewFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

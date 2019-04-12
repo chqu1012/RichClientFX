@@ -823,16 +823,66 @@ ruleTableViewFX returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_9='generateDemo:'
+			otherlv_9='showPropertyView:'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getGenerateDemoKeyword_6_0());
+				newLeafNode(otherlv_9, grammarAccess.getTableViewFXAccess().getShowPropertyViewKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTableViewFXAccess().getGenerateDemoEBooleanParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getShowPropertyViewEBooleanParserRuleCall_6_1_0());
 					}
-					lv_generateDemo_10_0=ruleEBoolean
+					lv_showPropertyView_10_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
+						}
+						set(
+							$current,
+							"showPropertyView",
+							lv_showPropertyView_10_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='showToolbar:'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getTableViewFXAccess().getShowToolbarKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getShowToolbarEBooleanParserRuleCall_7_1_0());
+					}
+					lv_showToolbar_12_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
+						}
+						set(
+							$current,
+							"showToolbar",
+							lv_showToolbar_12_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_13='generateDemo:'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getTableViewFXAccess().getGenerateDemoKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTableViewFXAccess().getGenerateDemoEBooleanParserRuleCall_8_1_0());
+					}
+					lv_generateDemo_14_0=ruleEBoolean
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
@@ -840,16 +890,16 @@ ruleTableViewFX returns [EObject current=null]
 						set(
 							$current,
 							"generateDemo",
-							lv_generateDemo_10_0,
+							lv_generateDemo_14_0,
 							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_11='}'
+		otherlv_15='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_15, grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;

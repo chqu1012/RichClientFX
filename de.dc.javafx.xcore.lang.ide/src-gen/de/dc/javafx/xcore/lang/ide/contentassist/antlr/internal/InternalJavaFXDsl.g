@@ -5574,6 +5574,7 @@ rule__TableViewFX__Group__7
 	}
 :
 	rule__TableViewFX__Group__7__Impl
+	rule__TableViewFX__Group__8
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5585,9 +5586,62 @@ rule__TableViewFX__Group__7__Impl
 	}
 :
 (
-	{ before(grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_7()); }
+	{ before(grammarAccess.getTableViewFXAccess().getGroup_7()); }
+	(rule__TableViewFX__Group_7__0)?
+	{ after(grammarAccess.getTableViewFXAccess().getGroup_7()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group__8
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TableViewFX__Group__8__Impl
+	rule__TableViewFX__Group__9
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group__8__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTableViewFXAccess().getGroup_8()); }
+	(rule__TableViewFX__Group_8__0)?
+	{ after(grammarAccess.getTableViewFXAccess().getGroup_8()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group__9
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TableViewFX__Group__9__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group__9__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_9()); }
 	'}'
-	{ after(grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_7()); }
+	{ after(grammarAccess.getTableViewFXAccess().getRightCurlyBracketKeyword_9()); }
 )
 ;
 finally {
@@ -5775,9 +5829,9 @@ rule__TableViewFX__Group_6__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getTableViewFXAccess().getGenerateDemoKeyword_6_0()); }
-	'generateDemo:'
-	{ after(grammarAccess.getTableViewFXAccess().getGenerateDemoKeyword_6_0()); }
+	{ before(grammarAccess.getTableViewFXAccess().getShowPropertyViewKeyword_6_0()); }
+	'showPropertyView:'
+	{ after(grammarAccess.getTableViewFXAccess().getShowPropertyViewKeyword_6_0()); }
 )
 ;
 finally {
@@ -5801,9 +5855,117 @@ rule__TableViewFX__Group_6__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getTableViewFXAccess().getGenerateDemoAssignment_6_1()); }
-	(rule__TableViewFX__GenerateDemoAssignment_6_1)
-	{ after(grammarAccess.getTableViewFXAccess().getGenerateDemoAssignment_6_1()); }
+	{ before(grammarAccess.getTableViewFXAccess().getShowPropertyViewAssignment_6_1()); }
+	(rule__TableViewFX__ShowPropertyViewAssignment_6_1)
+	{ after(grammarAccess.getTableViewFXAccess().getShowPropertyViewAssignment_6_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__TableViewFX__Group_7__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TableViewFX__Group_7__0__Impl
+	rule__TableViewFX__Group_7__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group_7__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTableViewFXAccess().getShowToolbarKeyword_7_0()); }
+	'showToolbar:'
+	{ after(grammarAccess.getTableViewFXAccess().getShowToolbarKeyword_7_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group_7__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TableViewFX__Group_7__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group_7__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTableViewFXAccess().getShowToolbarAssignment_7_1()); }
+	(rule__TableViewFX__ShowToolbarAssignment_7_1)
+	{ after(grammarAccess.getTableViewFXAccess().getShowToolbarAssignment_7_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__TableViewFX__Group_8__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TableViewFX__Group_8__0__Impl
+	rule__TableViewFX__Group_8__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group_8__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTableViewFXAccess().getGenerateDemoKeyword_8_0()); }
+	'generateDemo:'
+	{ after(grammarAccess.getTableViewFXAccess().getGenerateDemoKeyword_8_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group_8__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TableViewFX__Group_8__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__Group_8__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTableViewFXAccess().getGenerateDemoAssignment_8_1()); }
+	(rule__TableViewFX__GenerateDemoAssignment_8_1)
+	{ after(grammarAccess.getTableViewFXAccess().getGenerateDemoAssignment_8_1()); }
 )
 ;
 finally {
@@ -26009,15 +26171,45 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TableViewFX__GenerateDemoAssignment_6_1
+rule__TableViewFX__ShowPropertyViewAssignment_6_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getTableViewFXAccess().getGenerateDemoEBooleanParserRuleCall_6_1_0()); }
+		{ before(grammarAccess.getTableViewFXAccess().getShowPropertyViewEBooleanParserRuleCall_6_1_0()); }
 		ruleEBoolean
-		{ after(grammarAccess.getTableViewFXAccess().getGenerateDemoEBooleanParserRuleCall_6_1_0()); }
+		{ after(grammarAccess.getTableViewFXAccess().getShowPropertyViewEBooleanParserRuleCall_6_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__ShowToolbarAssignment_7_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTableViewFXAccess().getShowToolbarEBooleanParserRuleCall_7_1_0()); }
+		ruleEBoolean
+		{ after(grammarAccess.getTableViewFXAccess().getShowToolbarEBooleanParserRuleCall_7_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableViewFX__GenerateDemoAssignment_8_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTableViewFXAccess().getGenerateDemoEBooleanParserRuleCall_8_1_0()); }
+		ruleEBoolean
+		{ after(grammarAccess.getTableViewFXAccess().getGenerateDemoEBooleanParserRuleCall_8_1_0()); }
 	)
 ;
 finally {
