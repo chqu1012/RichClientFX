@@ -3,9 +3,15 @@
  */
 package de.dc.javafx.xcore.lang
 
+import de.dc.javafx.xcore.lang.generator.JavaFXDslGenerator
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class JavaFXDslRuntimeModule extends AbstractJavaFXDslRuntimeModule {
+	
+	override bindIGenerator() {
+		JavaFXDslGenerator
+	}
+	
 }
