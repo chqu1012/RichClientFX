@@ -670,16 +670,41 @@ ruleTreeViewFX returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_7='generateDemo:'
+			otherlv_7='showPropertyView:'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getTreeViewFXAccess().getGenerateDemoKeyword_5_0());
+				newLeafNode(otherlv_7, grammarAccess.getTreeViewFXAccess().getShowPropertyViewKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTreeViewFXAccess().getGenerateDemoEBooleanParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getTreeViewFXAccess().getShowPropertyViewEBooleanParserRuleCall_5_1_0());
 					}
-					lv_generateDemo_8_0=ruleEBoolean
+					lv_showPropertyView_8_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTreeViewFXRule());
+						}
+						set(
+							$current,
+							"showPropertyView",
+							lv_showPropertyView_8_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='generateDemo:'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getTreeViewFXAccess().getGenerateDemoKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTreeViewFXAccess().getGenerateDemoEBooleanParserRuleCall_6_1_0());
+					}
+					lv_generateDemo_10_0=ruleEBoolean
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTreeViewFXRule());
@@ -687,16 +712,16 @@ ruleTreeViewFX returns [EObject current=null]
 						set(
 							$current,
 							"generateDemo",
-							lv_generateDemo_8_0,
+							lv_generateDemo_10_0,
 							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_9='}'
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getTreeViewFXAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_11, grammarAccess.getTreeViewFXAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

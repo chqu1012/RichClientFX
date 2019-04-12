@@ -10,6 +10,6 @@ controls{
 		column(name:Address) 
 		showPropertyView: false
 		showToolbar: true
-		generateDemo: true 
+		generateDemo: true
 	}  
 }  

@@ -67,7 +67,6 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
 			superTypes+=BorderPane.typeRef
 			
-			
 			members += element.toField('masterData', ObservableList.typeRef(model))[initializer = '''«FXCollections».observableArrayList()''']
 			members += element.toField('filteredMasterData', FilteredList.typeRef(model))[initializer = '''new «FilteredList»<>(masterData, p->true)''']
 			members += element.toField('columns', Map.typeRef(typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type'), TableColumn.typeRef(model, model)))[initializer = '''new «HashMap»<>()''']
@@ -77,7 +76,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			members += element.toField('rightPane', AnchorPane.typeRef)[initializer = '''new AnchorPane()''']
 			members += element.toField('searchProperty', StringProperty.typeRef)[initializer = '''new «SimpleStringProperty»("")''']
 			members += element.toField('propertyView', TableView.typeRef)[initializer = '''new TableView<>()''']
-			members += element.toField('properties', ObservableList.typeRef((packagePath+'model.PropertyValue').typeRef))[initializer = '''«FXCollections».observableArrayList()''']
+			members += element.toField('properties', ObservableList.typeRef((packagePath+'model.'+element.name+'PropertyValue').typeRef))[initializer = '''«FXCollections».observableArrayList()''']
 
 			element.columns.forEach[col|
 				members += element.toField(col.name.toFirstLower+'Column', TableColumn.typeRef(model, model))
@@ -184,10 +183,10 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			// #initTableView Method
 			members += element.toMethod('initRightPane', typeRef('void'))[
 				body ='''
-					«TableColumn»<«'PropertyValue'.typeRef», Object> propertyColumn = new TableColumn<>("Property");
+					«TableColumn»<«(element.name+'PropertyValue').typeRef», Object> propertyColumn = new TableColumn<>("Property");
 					propertyColumn.setCellValueFactory(new «PropertyValueFactory»<>("property"));
 					propertyView.getColumns().add(propertyColumn);
-					«TableColumn»<PropertyValue, Object> valueColumn = new TableColumn<>("Value");
+					«TableColumn»<«element.name»PropertyValue, Object> valueColumn = new TableColumn<>("Value");
 					valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
 					propertyView.getColumns().add(valueColumn);
 					
@@ -197,7 +196,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 					AnchorPane.setRightAnchor(propertyView, 0d);
 											    
 					for («typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')» type : «typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')».values()) {
-						properties.add(new «typeRef(packagePath+'model.PropertyValue')»(type.name(), ""));
+						properties.add(new «typeRef(packagePath+'model.'+element.name+'PropertyValue')»(type.name(), ""));
 					}
 					propertyView.setItems(properties);
 					
@@ -326,7 +325,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				parameters+=element.toParameter('type', modelType)
 				body = '''this.type = type;'''
 			]
-	   		
+			
 	   		members += element.toMethod("call", ObservableValue.typeRef)[
 	   			visibility=JvmVisibility.PUBLIC
 	   			annotations+=element.toAnnotation('java.lang.Override')
@@ -358,7 +357,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			}
 	   	])
 	   	
-	   	acceptor.accept(element.toClass(packagePath+'model.PropertyValue') [
+	   	acceptor.accept(element.toClass(packagePath+'model.'+element.name+'PropertyValue') [
 	   		members += element.toField('property', String.typeRef)
 	   		members += element.toGetter('property', String.typeRef)
 	   		members += element.toSetter('property', String.typeRef)
@@ -435,6 +434,9 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
 			superTypes+=BorderPane.typeRef
 			
+			members += element.toField('properties', ObservableList.typeRef((packagePath+'model.'+element.name+'PropertyValue').typeRef))[initializer = '''«FXCollections».observableArrayList()''']
+			members += element.toField('propertyView', TableView.typeRef)[initializer = '''new TableView<>()''']
+			members += element.toField('rightPane', AnchorPane.typeRef)[initializer = '''new AnchorPane()''']
 			members += element.toField('rootNode', TreeItem.typeRef(model))[
 				visibility=JvmVisibility.PROTECTED
 				initializer = '''new TreeItem<«model»>()'''
@@ -472,9 +474,69 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				registry.put(ROOT_KEY, rootNode);
 				treeView.setRoot(rootNode);
 				
+				initRightPane();
+				
+				setRight(rightPane);
 				setCenter(treeView);
+				
+				showPropertyView(«element.showPropertyView»);
 				'''
 			]
+			
+			// #showPropertyView Method
+			members += element.toMethod('showPropertyView', typeRef('void'))[
+				parameters += element.toParameter('showPropertyView', Boolean.typeRef)
+				body ='''
+				if (showPropertyView) {
+					if (getRight() == null) {
+						setRight(propertyView);
+					}
+				} else {
+					setRight(null);
+				}
+				'''
+			]
+			
+			// #initRightPane Method
+			members += element.toMethod('initRightPane', typeRef('void'))[
+				body ='''
+					«TableColumn»<«(element.name+'PropertyValue').typeRef», Object> propertyColumn = new TableColumn<>("Property");
+					propertyColumn.setCellValueFactory(new «PropertyValueFactory»<>("property"));
+					propertyView.getColumns().add(propertyColumn);
+					«TableColumn»<«element.name»PropertyValue, Object> valueColumn = new TableColumn<>("Value");
+					valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
+					propertyView.getColumns().add(valueColumn);
+					
+					«AnchorPane».setBottomAnchor(propertyView, 0d);
+					AnchorPane.setTopAnchor(propertyView, 0d);
+					AnchorPane.setLeftAnchor(propertyView, 0d);
+					AnchorPane.setRightAnchor(propertyView, 0d);
+											    
+					for («typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')» type : «typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')».values()) {
+						properties.add(new «typeRef(packagePath+'model.'+element.name+'PropertyValue')»(type.name(), ""));
+					}
+					propertyView.setItems(properties);
+					
+					rightPane.getChildren().add(propertyView);
+				'''
+			]
+			
+			acceptor.accept(element.toClass(packagePath+'model.'+element.name+'PropertyValue') [
+		   		members += element.toField('property', String.typeRef)
+		   		members += element.toGetter('property', String.typeRef)
+		   		members += element.toSetter('property', String.typeRef)
+		   		members += element.toField('value', String.typeRef)
+		   		members += element.toGetter('value', String.typeRef)
+		   		members += element.toSetter('value', String.typeRef)
+		   		members += element.toConstructor[
+		   			parameters+=element.toParameter('property', String.typeRef)
+		   			parameters+=element.toParameter('value', String.typeRef)
+		   			body = '''
+		   			this.property = property;
+		   			this.value = value;
+		   			'''
+		   		]
+		   	])
 			
 			members += element.toMethod('addItemTo', typeRef('void'))[
 				parameters+=element.toParameter('parentKey', String.typeRef)

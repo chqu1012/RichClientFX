@@ -3,6 +3,7 @@
  */
 package de.dc.javafx.xcore.lang.validation
 
+import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 
@@ -21,5 +22,7 @@ class JavaFXDslValidator extends AbstractJavaFXDslValidator {
 //					INVALID_NAME)
 //		}
 //	}
+
+
 	
 }

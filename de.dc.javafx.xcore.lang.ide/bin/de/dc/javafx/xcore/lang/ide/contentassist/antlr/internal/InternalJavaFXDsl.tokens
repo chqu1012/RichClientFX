@@ -60,7 +60,7 @@
 'Right'=60
 'ScatterChartFX'=103
 'StringProperty'=52
-'TableViewFX'=77
+'TableViewFX'=78
 'Top'=61
 'TreeViewFX'=73
 '['=111
@@ -82,7 +82,7 @@
 'false'=17
 'finally'=130
 'for'=121
-'generateDemo:'=76
+'generateDemo:'=77
 'if'=115
 'import'=49
 'instanceType:'=86
@@ -96,7 +96,7 @@
 'return'=128
 'series'=99
 'showLegend'=93
-'showPropertyView:'=78
+'showPropertyView:'=76
 'showToolbar:'=79
 'static'=48
 'super'=51

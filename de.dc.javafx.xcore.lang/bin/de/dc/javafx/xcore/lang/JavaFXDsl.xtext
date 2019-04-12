@@ -37,6 +37,7 @@ TreeViewFX returns TreeViewFX:
 	'{'
 		('name:' name=EString)?
 		('usedModel:' usedModel=JvmTypeReference)?
+		('showPropertyView:' showPropertyView=EBoolean)?
 		('generateDemo:' generateDemo=EBoolean)?
 	'}';
 

@@ -2,8 +2,8 @@ package de.dc.javafx.xcore.example;
 
 import de.dc.javafx.xcore.example.feature.BaseContactCellFeatures;
 import de.dc.javafx.xcore.example.model.Contact;
+import de.dc.javafx.xcore.example.model.ContactTablePropertyValue;
 import de.dc.javafx.xcore.example.model.ContactType;
-import de.dc.javafx.xcore.example.model.PropertyValue;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -51,7 +51,7 @@ public class BaseContactTable extends BorderPane {
   
   private TableView propertyView = new TableView<>();
   
-  private ObservableList<PropertyValue> properties = FXCollections.observableArrayList();
+  private ObservableList<ContactTablePropertyValue> properties = FXCollections.observableArrayList();
   
   private TableColumn<Contact, Contact> nameColumn;
   
@@ -135,10 +135,10 @@ public class BaseContactTable extends BorderPane {
   }
   
   public void initRightPane() {
-    TableColumn<PropertyValue, Object> propertyColumn = new TableColumn<>("Property");
+    TableColumn<ContactTablePropertyValue, Object> propertyColumn = new TableColumn<>("Property");
     propertyColumn.setCellValueFactory(new PropertyValueFactory<>("property"));
     propertyView.getColumns().add(propertyColumn);
-    TableColumn<PropertyValue, Object> valueColumn = new TableColumn<>("Value");
+    TableColumn<ContactTablePropertyValue, Object> valueColumn = new TableColumn<>("Value");
     valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
     propertyView.getColumns().add(valueColumn);
     
@@ -148,7 +148,7 @@ public class BaseContactTable extends BorderPane {
     AnchorPane.setRightAnchor(propertyView, 0d);
     						    
     for (ContactType type : ContactType.values()) {
-    	properties.add(new PropertyValue(type.name(), ""));
+    	properties.add(new ContactTablePropertyValue(type.name(), ""));
     }
     propertyView.setItems(properties);
     

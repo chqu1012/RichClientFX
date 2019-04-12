@@ -13,6 +13,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.TreeViewFX#isShowPropertyView <em>Show Property View</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.TreeViewFX#getUsedModel <em>Used Model</em>}</li>
  * </ul>
  *
@@ -21,6 +22,29 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * @generated
  */
 public interface TreeViewFX extends ControlFX {
+	/**
+	 * Returns the value of the '<em><b>Show Property View</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Show Property View</em>' attribute.
+	 * @see #setShowPropertyView(boolean)
+	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getTreeViewFX_ShowPropertyView()
+	 * @model default="true" unique="false"
+	 * @generated
+	 */
+	boolean isShowPropertyView();
+
+	/**
+	 * Sets the value of the '{@link de.dc.emf.javafx.model.javafx.TreeViewFX#isShowPropertyView <em>Show Property View</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Show Property View</em>' attribute.
+	 * @see #isShowPropertyView()
+	 * @generated
+	 */
+	void setShowPropertyView(boolean value);
+
 	/**
 	 * Returns the value of the '<em><b>Used Model</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

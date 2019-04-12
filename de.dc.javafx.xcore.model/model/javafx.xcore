@@ -61,6 +61,7 @@ class TableViewFX extends ControlFX {
 }
 
 class TreeViewFX extends ControlFX {
+	boolean showPropertyView = 'true'
 	contains JvmTypeReference[0..1] usedModel
 }
 

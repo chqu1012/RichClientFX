@@ -683,13 +683,22 @@ public interface JavafxPackage extends EPackage {
 	int TREE_VIEW_FX__GENERATE_DEMO = CONTROL_FX__GENERATE_DEMO;
 
 	/**
+	 * The feature id for the '<em><b>Show Property View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_VIEW_FX__SHOW_PROPERTY_VIEW = CONTROL_FX_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Used Model</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 0;
+	int TREE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Tree View FX</em>' class.
@@ -698,7 +707,7 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 1;
+	int TREE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Tree View FX</em>' class.
@@ -2035,6 +2044,17 @@ public interface JavafxPackage extends EPackage {
 	EClass getTreeViewFX();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TreeViewFX#isShowPropertyView <em>Show Property View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Property View</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TreeViewFX#isShowPropertyView()
+	 * @see #getTreeViewFX()
+	 * @generated
+	 */
+	EAttribute getTreeViewFX_ShowPropertyView();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link de.dc.emf.javafx.model.javafx.TreeViewFX#getUsedModel <em>Used Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2641,6 +2661,14 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TREE_VIEW_FX = eINSTANCE.getTreeViewFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Show Property View</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TREE_VIEW_FX__SHOW_PROPERTY_VIEW = eINSTANCE.getTreeViewFX_ShowPropertyView();
 
 		/**
 		 * The meta object literal for the '<em><b>Used Model</b></em>' containment reference feature.

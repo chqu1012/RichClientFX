@@ -762,7 +762,7 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	 *     TreeViewFX returns TreeViewFX
 	 *
 	 * Constraint:
-	 *     (name=EString? usedModel=JvmTypeReference? generateDemo=EBoolean?)
+	 *     (name=EString? usedModel=JvmTypeReference? showPropertyView=EBoolean? generateDemo=EBoolean?)
 	 */
 	protected void sequence_TreeViewFX(ISerializationContext context, TreeViewFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

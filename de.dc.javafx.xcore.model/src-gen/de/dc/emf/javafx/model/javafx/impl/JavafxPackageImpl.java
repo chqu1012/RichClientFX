@@ -615,8 +615,18 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTreeViewFX_ShowPropertyView() {
+		return (EAttribute) treeViewFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getTreeViewFX_UsedModel() {
-		return (EReference) treeViewFXEClass.getEStructuralFeatures().get(0);
+		return (EReference) treeViewFXEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -980,6 +990,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEReference(tableViewFXEClass, TABLE_VIEW_FX__USED_MODEL);
 
 		treeViewFXEClass = createEClass(TREE_VIEW_FX);
+		createEAttribute(treeViewFXEClass, TREE_VIEW_FX__SHOW_PROPERTY_VIEW);
 		createEReference(treeViewFXEClass, TREE_VIEW_FX__USED_MODEL);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
@@ -1168,6 +1179,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 
 		initEClass(treeViewFXEClass, TreeViewFX.class, "TreeViewFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTreeViewFX_ShowPropertyView(), theEcorePackage.getEBoolean(), "showPropertyView", "true", 0,
+				1, TreeViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEReference(getTreeViewFX_UsedModel(), theTypesPackage.getJvmTypeReference(), null, "usedModel", null, 0, 1,
 				TreeViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
