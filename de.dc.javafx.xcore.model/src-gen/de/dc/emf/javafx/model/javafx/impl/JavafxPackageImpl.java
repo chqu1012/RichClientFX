@@ -28,6 +28,7 @@ import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.ScatterChartFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
+import de.dc.emf.javafx.model.javafx.TreeViewFX;
 import de.dc.emf.javafx.model.javafx.XYChartFX;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -117,6 +118,13 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass tableViewFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass treeViewFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -567,6 +575,26 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getTreeViewFX() {
+		return treeViewFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTreeViewFX_UsedModel() {
+		return (EReference) treeViewFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -918,6 +946,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEReference(tableViewFXEClass, TABLE_VIEW_FX__COLUMNS);
 		createEReference(tableViewFXEClass, TABLE_VIEW_FX__USED_MODEL);
 
+		treeViewFXEClass = createEClass(TREE_VIEW_FX);
+		createEReference(treeViewFXEClass, TREE_VIEW_FX__USED_MODEL);
+
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
@@ -1003,6 +1034,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		beanEClass.getESuperTypes().add(this.getModelFX());
 		derivedBeanEClass.getESuperTypes().add(this.getModelFX());
 		tableViewFXEClass.getESuperTypes().add(this.getControlFX());
+		treeViewFXEClass.getESuperTypes().add(this.getControlFX());
 		chartFXEClass.getESuperTypes().add(this.getNamedElement());
 		xyChartFXEClass.getESuperTypes().add(this.getChartFX());
 		chartSeriesEClass.getESuperTypes().add(this.getNamedElement());
@@ -1090,6 +1122,12 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTableViewFX_UsedModel(), theTypesPackage.getJvmTypeReference(), null, "usedModel", null, 0, 1,
 				TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(treeViewFXEClass, TreeViewFX.class, "TreeViewFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTreeViewFX_UsedModel(), theTypesPackage.getJvmTypeReference(), null, "usedModel", null, 0, 1,
+				TreeViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,

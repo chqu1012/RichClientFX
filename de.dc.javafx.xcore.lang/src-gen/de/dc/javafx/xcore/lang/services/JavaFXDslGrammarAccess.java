@@ -190,14 +190,22 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ControlFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.ControlFX");
-		private final RuleCall cTableViewFXParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTableViewFXParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTreeViewFXParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//ControlFX:
-		//	TableViewFX;
+		//	TableViewFX | TreeViewFX;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//TableViewFX | TreeViewFX
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//TableViewFX
-		public RuleCall getTableViewFXParserRuleCall() { return cTableViewFXParserRuleCall; }
+		public RuleCall getTableViewFXParserRuleCall_0() { return cTableViewFXParserRuleCall_0; }
+		
+		//TreeViewFX
+		public RuleCall getTreeViewFXParserRuleCall_1() { return cTreeViewFXParserRuleCall_1; }
 	}
 	public class ModelFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.ModelFX");
@@ -325,6 +333,68 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//BindingProperty
 		public RuleCall getPropertyBindingPropertyParserRuleCall_4_1_0() { return cPropertyBindingPropertyParserRuleCall_4_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class TreeViewFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.TreeViewFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cTreeViewFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cTreeViewFXKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cUsedModelKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cUsedModelAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cUsedModelJvmTypeReferenceParserRuleCall_4_1_0 = (RuleCall)cUsedModelAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//TreeViewFX:
+		//	{TreeViewFX}
+		//	'TreeViewFX'
+		//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{TreeViewFX} 'TreeViewFX' '{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{TreeViewFX}
+		public Action getTreeViewFXAction_0() { return cTreeViewFXAction_0; }
+		
+		//'TreeViewFX'
+		public Keyword getTreeViewFXKeyword_1() { return cTreeViewFXKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('name:' name=EString)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'name:'
+		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		
+		//('usedModel:' usedModel=JvmTypeReference)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'usedModel:'
+		public Keyword getUsedModelKeyword_4_0() { return cUsedModelKeyword_4_0; }
+		
+		//usedModel=JvmTypeReference
+		public Assignment getUsedModelAssignment_4_1() { return cUsedModelAssignment_4_1; }
+		
+		//JvmTypeReference
+		public RuleCall getUsedModelJvmTypeReferenceParserRuleCall_4_1_0() { return cUsedModelJvmTypeReferenceParserRuleCall_4_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -2168,6 +2238,7 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ChartFXElements pChartFX;
 	private final EStringElements pEString;
 	private final BindingElements pBinding;
+	private final TreeViewFXElements pTreeViewFX;
 	private final TableViewFXElements pTableViewFX;
 	private final TableColumnFXElements pTableColumnFX;
 	private final EIntElements pEInt;
@@ -2211,6 +2282,7 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pChartFX = new ChartFXElements();
 		this.pEString = new EStringElements();
 		this.pBinding = new BindingElements();
+		this.pTreeViewFX = new TreeViewFXElements();
 		this.pTableViewFX = new TableViewFXElements();
 		this.pTableColumnFX = new TableColumnFXElements();
 		this.pEInt = new EIntElements();
@@ -2280,7 +2352,7 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ControlFX:
-	//	TableViewFX;
+	//	TableViewFX | TreeViewFX;
 	public ControlFXElements getControlFXAccess() {
 		return pControlFX;
 	}
@@ -2329,6 +2401,19 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getBindingRule() {
 		return getBindingAccess().getRule();
+	}
+	
+	//TreeViewFX:
+	//	{TreeViewFX}
+	//	'TreeViewFX'
+	//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)?
+	//	'}';
+	public TreeViewFXElements getTreeViewFXAccess() {
+		return pTreeViewFX;
+	}
+	
+	public ParserRule getTreeViewFXRule() {
+		return getTreeViewFXAccess().getRule();
 	}
 	
 	//TableViewFX:

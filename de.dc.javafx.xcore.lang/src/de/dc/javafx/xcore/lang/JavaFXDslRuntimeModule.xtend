@@ -10,8 +10,8 @@ import de.dc.javafx.xcore.lang.generator.JavaFXDslGenerator
  */
 class JavaFXDslRuntimeModule extends AbstractJavaFXDslRuntimeModule {
 	
-	override bindIGenerator() {
-		JavaFXDslGenerator
-	}
+//	override bindIGenerator() {
+//		JavaFXDslGenerator
+//	}
 	
 }

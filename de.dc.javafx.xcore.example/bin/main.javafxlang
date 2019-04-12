@@ -8,5 +8,5 @@ controls{
 		column(name:Age useFilter) 
 		column(name:Gender)
 		column(name:Address) 
-	}
-}
+	} 
+}  

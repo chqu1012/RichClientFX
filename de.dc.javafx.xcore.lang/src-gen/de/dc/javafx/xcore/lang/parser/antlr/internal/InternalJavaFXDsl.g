@@ -328,14 +328,25 @@ ruleControlFX returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getControlFXAccess().getTableViewFXParserRuleCall());
-	}
-	this_TableViewFX_0=ruleTableViewFX
-	{
-		$current = $this_TableViewFX_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		{
+			newCompositeNode(grammarAccess.getControlFXAccess().getTableViewFXParserRuleCall_0());
+		}
+		this_TableViewFX_0=ruleTableViewFX
+		{
+			$current = $this_TableViewFX_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getControlFXAccess().getTreeViewFXParserRuleCall_1());
+		}
+		this_TreeViewFX_1=ruleTreeViewFX
+		{
+			$current = $this_TreeViewFX_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
 ;
 
 // Entry rule entryRuleModelFX
@@ -573,6 +584,94 @@ ruleBinding returns [EObject current=null]
 		otherlv_6='}'
 		{
 			newLeafNode(otherlv_6, grammarAccess.getBindingAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleTreeViewFX
+entryRuleTreeViewFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTreeViewFXRule()); }
+	iv_ruleTreeViewFX=ruleTreeViewFX
+	{ $current=$iv_ruleTreeViewFX.current; }
+	EOF;
+
+// Rule TreeViewFX
+ruleTreeViewFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getTreeViewFXAccess().getTreeViewFXAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='TreeViewFX'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getTreeViewFXAccess().getTreeViewFXKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getTreeViewFXAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			otherlv_3='name:'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getTreeViewFXAccess().getNameKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTreeViewFXAccess().getNameEStringParserRuleCall_3_1_0());
+					}
+					lv_name_4_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTreeViewFXRule());
+						}
+						set(
+							$current,
+							"name",
+							lv_name_4_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_5='usedModel:'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getTreeViewFXAccess().getUsedModelKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTreeViewFXAccess().getUsedModelJvmTypeReferenceParserRuleCall_4_1_0());
+					}
+					lv_usedModel_6_0=ruleJvmTypeReference
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTreeViewFXRule());
+						}
+						set(
+							$current,
+							"usedModel",
+							lv_usedModel_6_0,
+							"org.eclipse.xtext.xbase.Xtype.JvmTypeReference");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_7='}'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getTreeViewFXAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;

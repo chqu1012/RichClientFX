@@ -277,7 +277,7 @@ public final class JavafxEditorAdvisor extends WorkbenchAdvisor {
 			menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_START));
 
 			IDFindExtBug.fix(menu);
-			
+
 			addToMenuAndRegister(menu, ActionFactory.UNDO.create(window));
 			addToMenuAndRegister(menu, ActionFactory.REDO.create(window));
 			menu.add(new GroupMarker(IWorkbenchActionConstants.UNDO_EXT));

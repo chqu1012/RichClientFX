@@ -57,6 +57,10 @@ class TableViewFX extends ControlFX {
 	contains JvmTypeReference[0..1] usedModel
 }
 
+class TreeViewFX extends ControlFX {
+	contains JvmTypeReference[0..1] usedModel
+}
+
 enum BindingType {
 	StringProperty
 	IntegerProperty = 1

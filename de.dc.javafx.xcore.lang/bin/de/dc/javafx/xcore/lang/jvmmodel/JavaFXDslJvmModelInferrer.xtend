@@ -42,6 +42,10 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import de.dc.emf.javafx.model.javafx.Bean
+import de.dc.emf.javafx.model.javafx.TreeViewFX
+import javafx.scene.control.TreeItem
+import javafx.scene.control.TreeView
+import javafx.scene.control.TreeCell
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -351,6 +355,68 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 					members += element.toGetter(attribute.name.toFirstLower, typeRef(attribute.type))
 				}
 				members += element.toSetter(attribute.name.toFirstLower, typeRef(attribute.type))
+			]
+		]
+	}
+	
+	def dispatch void infer(TreeViewFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
+			superTypes+=BorderPane.typeRef
+			val model = element.usedModel
+			
+			members += element.toField('rootNode', TreeItem.typeRef(model))[
+				visibility=JvmVisibility.PROTECTED
+				initializer = '''new TreeItem<«model»>()'''
+			]
+			members += element.toField('registry', Map.typeRef(String.typeRef, TreeItem.typeRef(model)))[
+				visibility=JvmVisibility.PROTECTED
+				initializer = '''new «HashMap.typeRef(String.typeRef, TreeItem.typeRef(model))»()'''
+			]
+			members += element.toField('treeView', TreeView.typeRef(model))[
+				visibility=JvmVisibility.PROTECTED
+				initializer = '''new TreeView<>()'''
+			]
+			members += element.toField('ROOT_KEY', String.typeRef)[
+				visibility=JvmVisibility.PUBLIC
+				final = true
+				static = true
+				initializer = '''"root"'''
+			]
+			
+			members += element.toConstructor[
+				body = '''
+				treeView.setShowRoot(false);
+				treeView.setCellFactory(p -> new «TreeCell»<«model»>() {
+					@Override
+					protected void updateItem(Contact item, boolean empty) {
+						super.updateItem(item, empty);
+						if (item==null || empty) {
+							setText(null);
+						}else {
+							setText(item.getName());
+						}
+					}
+				});
+				
+				registry.put(ROOT_KEY, rootNode);
+				treeView.setRoot(rootNode);
+				
+				setCenter(treeView);
+				'''
+			]
+			
+			members += element.toMethod('addItemTo', typeRef('void'))[
+				parameters+=element.toParameter('parentKey', String.typeRef)
+				parameters+=element.toParameter('item', model)
+				body = ''' 
+				«TreeItem»<«model»> node = registry.get(parentKey);
+				if (node!=null) {
+					TreeItem<«model»> treeItem = new TreeItem<>(item);
+					node.getChildren().add(treeItem);
+					registry.put(item.getName(), treeItem);
+				}
+				'''
 			]
 		]
 	}

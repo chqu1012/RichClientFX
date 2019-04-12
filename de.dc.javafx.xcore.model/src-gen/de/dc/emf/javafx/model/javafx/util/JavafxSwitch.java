@@ -158,6 +158,17 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case JavafxPackage.TREE_VIEW_FX: {
+			TreeViewFX treeViewFX = (TreeViewFX) theEObject;
+			T result = caseTreeViewFX(treeViewFX);
+			if (result == null)
+				result = caseControlFX(treeViewFX);
+			if (result == null)
+				result = caseNamedElement(treeViewFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case JavafxPackage.NAMED_ELEMENT: {
 			NamedElement namedElement = (NamedElement) theEObject;
 			T result = caseNamedElement(namedElement);
@@ -434,6 +445,21 @@ public class JavafxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTableViewFX(TableViewFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree View FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree View FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTreeViewFX(TreeViewFX object) {
 		return null;
 	}
 

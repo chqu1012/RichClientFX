@@ -13,7 +13,7 @@ ProjectFX:
 ;
 
 ControlFX returns ControlFX:
-	TableViewFX;
+	TableViewFX | TreeViewFX;
 
 ModelFX returns ModelFX:
 	Bean | DerivedBean;
@@ -29,6 +29,14 @@ Binding returns Binding:
 	{Binding}
 	'BindingFX' name=EString '{'
 		(property+=BindingProperty (property+=BindingProperty)*)?
+	'}';
+
+TreeViewFX returns TreeViewFX:
+	{TreeViewFX}
+	'TreeViewFX'
+	'{'
+		('name:' name=EString)?
+		('usedModel:' usedModel=JvmTypeReference)?
 	'}';
 
 TableViewFX returns TableViewFX:

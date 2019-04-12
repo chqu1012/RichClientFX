@@ -66,7 +66,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 10;
+	int NAMED_ELEMENT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -619,6 +619,52 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_VIEW_FX_OPERATION_COUNT = CONTROL_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.TreeViewFXImpl <em>Tree View FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.TreeViewFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTreeViewFX()
+	 * @generated
+	 */
+	int TREE_VIEW_FX = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_VIEW_FX__NAME = CONTROL_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Used Model</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_VIEW_FX__USED_MODEL = CONTROL_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Tree View FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_VIEW_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Tree View FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_VIEW_FX_OPERATION_COUNT = CONTROL_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredElementImpl <em>Filtered Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -626,7 +672,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredElement()
 	 * @generated
 	 */
-	int FILTERED_ELEMENT = 11;
+	int FILTERED_ELEMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
@@ -663,7 +709,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartFX()
 	 * @generated
 	 */
-	int CHART_FX = 12;
+	int CHART_FX = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -745,7 +791,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getXYChartFX()
 	 * @generated
 	 */
-	int XY_CHART_FX = 13;
+	int XY_CHART_FX = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -863,7 +909,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartSeries()
 	 * @generated
 	 */
-	int CHART_SERIES = 14;
+	int CHART_SERIES = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -909,7 +955,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartFXData()
 	 * @generated
 	 */
-	int CHART_FX_DATA = 15;
+	int CHART_FX_DATA = 16;
 
 	/**
 	 * The feature id for the '<em><b>XValue</b></em>' attribute.
@@ -955,7 +1001,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getLineChartFX()
 	 * @generated
 	 */
-	int LINE_CHART_FX = 16;
+	int LINE_CHART_FX = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1073,7 +1119,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getPieChartFX()
 	 * @generated
 	 */
-	int PIE_CHART_FX = 17;
+	int PIE_CHART_FX = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1155,7 +1201,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAreaChartFX()
 	 * @generated
 	 */
-	int AREA_CHART_FX = 18;
+	int AREA_CHART_FX = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1273,7 +1319,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBubbleChartFX()
 	 * @generated
 	 */
-	int BUBBLE_CHART_FX = 19;
+	int BUBBLE_CHART_FX = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1391,7 +1437,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getScatterChartFX()
 	 * @generated
 	 */
-	int SCATTER_CHART_FX = 20;
+	int SCATTER_CHART_FX = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1509,7 +1555,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBarChartFX()
 	 * @generated
 	 */
-	int BAR_CHART_FX = 21;
+	int BAR_CHART_FX = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1591,7 +1637,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingType()
 	 * @generated
 	 */
-	int BINDING_TYPE = 22;
+	int BINDING_TYPE = 23;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.Orientation <em>Orientation</em>}' enum.
@@ -1601,7 +1647,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 23;
+	int ORIENTATION = 24;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.AxisType <em>Axis Type</em>}' enum.
@@ -1611,7 +1657,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAxisType()
 	 * @generated
 	 */
-	int AXIS_TYPE = 24;
+	int AXIS_TYPE = 25;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ProjectFX <em>Project FX</em>}'.
@@ -1899,6 +1945,27 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTableViewFX_UsedModel();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.TreeViewFX <em>Tree View FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tree View FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TreeViewFX
+	 * @generated
+	 */
+	EClass getTreeViewFX();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.emf.javafx.model.javafx.TreeViewFX#getUsedModel <em>Used Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Used Model</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TreeViewFX#getUsedModel()
+	 * @see #getTreeViewFX()
+	 * @generated
+	 */
+	EReference getTreeViewFX_UsedModel();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.NamedElement <em>Named Element</em>}'.
@@ -2462,6 +2529,24 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_VIEW_FX__USED_MODEL = eINSTANCE.getTableViewFX_UsedModel();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.TreeViewFXImpl <em>Tree View FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.TreeViewFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTreeViewFX()
+		 * @generated
+		 */
+		EClass TREE_VIEW_FX = eINSTANCE.getTreeViewFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Used Model</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TREE_VIEW_FX__USED_MODEL = eINSTANCE.getTreeViewFX_UsedModel();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.NamedElementImpl <em>Named Element</em>}' class.

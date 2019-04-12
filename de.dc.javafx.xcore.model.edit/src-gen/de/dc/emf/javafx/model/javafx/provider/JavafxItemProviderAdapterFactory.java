@@ -257,6 +257,29 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.TreeViewFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TreeViewFXItemProvider treeViewFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.TreeViewFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTreeViewFXAdapter() {
+		if (treeViewFXItemProvider == null) {
+			treeViewFXItemProvider = new TreeViewFXItemProvider(this);
+		}
+
+		return treeViewFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.NamedElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,6 +630,8 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			bindingPropertyItemProvider.dispose();
 		if (tableViewFXItemProvider != null)
 			tableViewFXItemProvider.dispose();
+		if (treeViewFXItemProvider != null)
+			treeViewFXItemProvider.dispose();
 		if (namedElementItemProvider != null)
 			namedElementItemProvider.dispose();
 		if (filteredElementItemProvider != null)

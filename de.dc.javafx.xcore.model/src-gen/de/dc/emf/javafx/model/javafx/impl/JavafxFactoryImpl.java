@@ -73,6 +73,8 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createBindingProperty();
 		case JavafxPackage.TABLE_VIEW_FX:
 			return createTableViewFX();
+		case JavafxPackage.TREE_VIEW_FX:
+			return createTreeViewFX();
 		case JavafxPackage.NAMED_ELEMENT:
 			return createNamedElement();
 		case JavafxPackage.FILTERED_ELEMENT:
@@ -222,6 +224,17 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	public TableViewFX createTableViewFX() {
 		TableViewFXImpl tableViewFX = new TableViewFXImpl();
 		return tableViewFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TreeViewFX createTreeViewFX() {
+		TreeViewFXImpl treeViewFX = new TreeViewFXImpl();
+		return treeViewFX;
 	}
 
 	/**

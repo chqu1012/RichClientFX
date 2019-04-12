@@ -4,16 +4,10 @@
 package de.dc.javafx.xcore.lang;
 
 import de.dc.javafx.xcore.lang.AbstractJavaFXDslRuntimeModule;
-import de.dc.javafx.xcore.lang.generator.JavaFXDslGenerator;
-import org.eclipse.xtext.generator.IGenerator;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
 public class JavaFXDslRuntimeModule extends AbstractJavaFXDslRuntimeModule {
-  @Override
-  public Class<? extends IGenerator> bindIGenerator() {
-    return JavaFXDslGenerator.class;
-  }
 }

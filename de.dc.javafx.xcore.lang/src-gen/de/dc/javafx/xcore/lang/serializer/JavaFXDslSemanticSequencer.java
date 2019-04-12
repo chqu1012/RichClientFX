@@ -21,6 +21,7 @@ import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.ScatterChartFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
+import de.dc.emf.javafx.model.javafx.TreeViewFX;
 import de.dc.javafx.xcore.lang.services.JavaFXDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -142,6 +143,9 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 				return; 
 			case JavafxPackage.TABLE_VIEW_FX:
 				sequence_TableViewFX(context, (TableViewFX) semanticObject); 
+				return; 
+			case JavafxPackage.TREE_VIEW_FX:
+				sequence_TreeViewFX(context, (TreeViewFX) semanticObject); 
 				return; 
 			}
 		else if (epackage == TypesPackage.eINSTANCE)
@@ -741,6 +745,19 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	 *     (name=EString? usedModel=JvmTypeReference? (columns+=TableColumnFX columns+=TableColumnFX*)?)
 	 */
 	protected void sequence_TableViewFX(ISerializationContext context, TableViewFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ControlFX returns TreeViewFX
+	 *     TreeViewFX returns TreeViewFX
+	 *
+	 * Constraint:
+	 *     (name=EString? usedModel=JvmTypeReference?)
+	 */
+	protected void sequence_TreeViewFX(ISerializationContext context, TreeViewFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
