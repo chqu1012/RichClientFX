@@ -147,9 +147,22 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case JavafxPackage.BASE_VIEW_FX: {
+			BaseViewFX baseViewFX = (BaseViewFX) theEObject;
+			T result = caseBaseViewFX(baseViewFX);
+			if (result == null)
+				result = caseControlFX(baseViewFX);
+			if (result == null)
+				result = caseNamedElement(baseViewFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case JavafxPackage.TABLE_VIEW_FX: {
 			TableViewFX tableViewFX = (TableViewFX) theEObject;
 			T result = caseTableViewFX(tableViewFX);
+			if (result == null)
+				result = caseBaseViewFX(tableViewFX);
 			if (result == null)
 				result = caseControlFX(tableViewFX);
 			if (result == null)
@@ -162,9 +175,24 @@ public class JavafxSwitch<T> extends Switch<T> {
 			TreeViewFX treeViewFX = (TreeViewFX) theEObject;
 			T result = caseTreeViewFX(treeViewFX);
 			if (result == null)
+				result = caseBaseViewFX(treeViewFX);
+			if (result == null)
 				result = caseControlFX(treeViewFX);
 			if (result == null)
 				result = caseNamedElement(treeViewFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.LIST_VIEW_FX: {
+			ListViewFX listViewFX = (ListViewFX) theEObject;
+			T result = caseListViewFX(listViewFX);
+			if (result == null)
+				result = caseBaseViewFX(listViewFX);
+			if (result == null)
+				result = caseControlFX(listViewFX);
+			if (result == null)
+				result = caseNamedElement(listViewFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -434,6 +462,21 @@ public class JavafxSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Base View FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Base View FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBaseViewFX(BaseViewFX object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Table View FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -460,6 +503,21 @@ public class JavafxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTreeViewFX(TreeViewFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List View FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List View FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseListViewFX(ListViewFX object) {
 		return null;
 	}
 

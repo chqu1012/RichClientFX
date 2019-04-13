@@ -280,6 +280,29 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.ListViewFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListViewFXItemProvider listViewFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.ListViewFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListViewFXAdapter() {
+		if (listViewFXItemProvider == null) {
+			listViewFXItemProvider = new ListViewFXItemProvider(this);
+		}
+
+		return listViewFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.NamedElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -632,6 +655,8 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			tableViewFXItemProvider.dispose();
 		if (treeViewFXItemProvider != null)
 			treeViewFXItemProvider.dispose();
+		if (listViewFXItemProvider != null)
+			listViewFXItemProvider.dispose();
 		if (namedElementItemProvider != null)
 			namedElementItemProvider.dispose();
 		if (filteredElementItemProvider != null)

@@ -6,6 +6,7 @@ import de.dc.emf.javafx.model.javafx.AreaChartFX;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.AxisType;
 import de.dc.emf.javafx.model.javafx.BarChartFX;
+import de.dc.emf.javafx.model.javafx.BaseViewFX;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
 import de.dc.emf.javafx.model.javafx.BindingProperty;
@@ -20,6 +21,7 @@ import de.dc.emf.javafx.model.javafx.FilteredElement;
 import de.dc.emf.javafx.model.javafx.JavafxFactory;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
+import de.dc.emf.javafx.model.javafx.ListViewFX;
 import de.dc.emf.javafx.model.javafx.ModelFX;
 import de.dc.emf.javafx.model.javafx.NamedElement;
 import de.dc.emf.javafx.model.javafx.Orientation;
@@ -117,6 +119,13 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass baseViewFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass tableViewFXEClass = null;
 
 	/**
@@ -125,6 +134,13 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass treeViewFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass listViewFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -565,6 +581,46 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getBaseViewFX() {
+		return baseViewFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBaseViewFX_ShowPropertyView() {
+		return (EAttribute) baseViewFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBaseViewFX_ShowToolbar() {
+		return (EAttribute) baseViewFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBaseViewFX_UsedModel() {
+		return (EReference) baseViewFXEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTableViewFX() {
 		return tableViewFXEClass;
 	}
@@ -575,38 +631,8 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTableViewFX_ShowPropertyView() {
-		return (EAttribute) tableViewFXEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTableViewFX_ShowToolbar() {
-		return (EAttribute) tableViewFXEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getTableViewFX_Columns() {
-		return (EReference) tableViewFXEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTableViewFX_UsedModel() {
-		return (EReference) tableViewFXEClass.getEStructuralFeatures().get(3);
+		return (EReference) tableViewFXEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -625,18 +651,8 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTreeViewFX_ShowPropertyView() {
-		return (EAttribute) treeViewFXEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTreeViewFX_UsedModel() {
-		return (EReference) treeViewFXEClass.getEStructuralFeatures().get(1);
+	public EClass getListViewFX() {
+		return listViewFXEClass;
 	}
 
 	/**
@@ -994,15 +1010,17 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEAttribute(bindingPropertyEClass, BINDING_PROPERTY__NAME);
 		createEAttribute(bindingPropertyEClass, BINDING_PROPERTY__TYPE);
 
+		baseViewFXEClass = createEClass(BASE_VIEW_FX);
+		createEAttribute(baseViewFXEClass, BASE_VIEW_FX__SHOW_PROPERTY_VIEW);
+		createEAttribute(baseViewFXEClass, BASE_VIEW_FX__SHOW_TOOLBAR);
+		createEReference(baseViewFXEClass, BASE_VIEW_FX__USED_MODEL);
+
 		tableViewFXEClass = createEClass(TABLE_VIEW_FX);
-		createEAttribute(tableViewFXEClass, TABLE_VIEW_FX__SHOW_PROPERTY_VIEW);
-		createEAttribute(tableViewFXEClass, TABLE_VIEW_FX__SHOW_TOOLBAR);
 		createEReference(tableViewFXEClass, TABLE_VIEW_FX__COLUMNS);
-		createEReference(tableViewFXEClass, TABLE_VIEW_FX__USED_MODEL);
 
 		treeViewFXEClass = createEClass(TREE_VIEW_FX);
-		createEAttribute(treeViewFXEClass, TREE_VIEW_FX__SHOW_PROPERTY_VIEW);
-		createEReference(treeViewFXEClass, TREE_VIEW_FX__USED_MODEL);
+
+		listViewFXEClass = createEClass(LIST_VIEW_FX);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -1088,8 +1106,10 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		attributeFXEClass.getESuperTypes().add(this.getNamedElement());
 		beanEClass.getESuperTypes().add(this.getModelFX());
 		derivedBeanEClass.getESuperTypes().add(this.getModelFX());
-		tableViewFXEClass.getESuperTypes().add(this.getControlFX());
-		treeViewFXEClass.getESuperTypes().add(this.getControlFX());
+		baseViewFXEClass.getESuperTypes().add(this.getControlFX());
+		tableViewFXEClass.getESuperTypes().add(this.getBaseViewFX());
+		treeViewFXEClass.getESuperTypes().add(this.getBaseViewFX());
+		listViewFXEClass.getESuperTypes().add(this.getBaseViewFX());
 		chartFXEClass.getESuperTypes().add(this.getNamedElement());
 		xyChartFXEClass.getESuperTypes().add(this.getChartFX());
 		chartSeriesEClass.getESuperTypes().add(this.getNamedElement());
@@ -1176,29 +1196,29 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
+		initEClass(baseViewFXEClass, BaseViewFX.class, "BaseViewFX", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBaseViewFX_ShowPropertyView(), theEcorePackage.getEBoolean(), "showPropertyView", "true", 0,
+				1, BaseViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBaseViewFX_ShowToolbar(), theEcorePackage.getEBoolean(), "showToolbar", "true", 0, 1,
+				BaseViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getBaseViewFX_UsedModel(), theTypesPackage.getJvmTypeReference(), null, "usedModel", null, 0, 1,
+				BaseViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(tableViewFXEClass, TableViewFX.class, "TableViewFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTableViewFX_ShowPropertyView(), theEcorePackage.getEBoolean(), "showPropertyView", "true", 0,
-				1, TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableViewFX_ShowToolbar(), theEcorePackage.getEBoolean(), "showToolbar", "true", 0, 1,
-				TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
 		initEReference(getTableViewFX_Columns(), this.getTableColumnFX(), null, "columns", null, 0, -1,
-				TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTableViewFX_UsedModel(), theTypesPackage.getJvmTypeReference(), null, "usedModel", null, 0, 1,
 				TableViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(treeViewFXEClass, TreeViewFX.class, "TreeViewFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTreeViewFX_ShowPropertyView(), theEcorePackage.getEBoolean(), "showPropertyView", "true", 0,
-				1, TreeViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getTreeViewFX_UsedModel(), theTypesPackage.getJvmTypeReference(), null, "usedModel", null, 0, 1,
-				TreeViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(listViewFXEClass, ListViewFX.class, "ListViewFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

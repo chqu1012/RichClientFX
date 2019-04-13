@@ -2,29 +2,30 @@
  */
 package de.dc.emf.javafx.model.javafx.provider;
 
-import de.dc.emf.javafx.model.javafx.TreeViewFX;
+import de.dc.emf.javafx.model.javafx.ListViewFX;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link de.dc.emf.javafx.model.javafx.TreeViewFX} object.
+ * This is the item provider adapter for a {@link de.dc.emf.javafx.model.javafx.ListViewFX} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TreeViewFXItemProvider extends BaseViewFXItemProvider {
+public class ListViewFXItemProvider extends BaseViewFXItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TreeViewFXItemProvider(AdapterFactory adapterFactory) {
+	public ListViewFXItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +45,14 @@ public class TreeViewFXItemProvider extends BaseViewFXItemProvider {
 	}
 
 	/**
-	 * This returns TreeViewFX.gif.
+	 * This returns ListViewFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TreeViewFX"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ListViewFX"));
 	}
 
 	/**
@@ -72,9 +73,9 @@ public class TreeViewFXItemProvider extends BaseViewFXItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TreeViewFX) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_TreeViewFX_type")
-				: getString("_UI_TreeViewFX_type") + " " + label;
+		String label = ((ListViewFX) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_ListViewFX_type")
+				: getString("_UI_ListViewFX_type") + " " + label;
 	}
 
 	/**

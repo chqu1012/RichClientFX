@@ -2,9 +2,8 @@
  */
 package de.dc.emf.javafx.model.javafx.provider;
 
-import de.dc.emf.javafx.model.javafx.JavafxFactory;
+import de.dc.emf.javafx.model.javafx.BaseViewFX;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
-import de.dc.emf.javafx.model.javafx.ProjectFX;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,20 +18,22 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.eclipse.xtext.common.types.TypesFactory;
+
 /**
- * This is the item provider adapter for a {@link de.dc.emf.javafx.model.javafx.ProjectFX} object.
+ * This is the item provider adapter for a {@link de.dc.emf.javafx.model.javafx.BaseViewFX} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectFXItemProvider extends NamedElementItemProvider {
+public class BaseViewFXItemProvider extends ControlFXItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProjectFXItemProvider(AdapterFactory adapterFactory) {
+	public BaseViewFXItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,25 +48,42 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPackagePathPropertyDescriptor(object);
+			addShowPropertyViewPropertyDescriptor(object);
+			addShowToolbarPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Package Path feature.
+	 * This adds a property descriptor for the Show Property View feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPackagePathPropertyDescriptor(Object object) {
+	protected void addShowPropertyViewPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ProjectFX_packagePath_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ProjectFX_packagePath_feature",
-								"_UI_ProjectFX_type"),
-						JavafxPackage.Literals.PROJECT_FX__PACKAGE_PATH, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_BaseViewFX_showPropertyView_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BaseViewFX_showPropertyView_feature",
+								"_UI_BaseViewFX_type"),
+						JavafxPackage.Literals.BASE_VIEW_FX__SHOW_PROPERTY_VIEW, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Show Toolbar feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShowToolbarPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BaseViewFX_showToolbar_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BaseViewFX_showToolbar_feature",
+								"_UI_BaseViewFX_type"),
+						JavafxPackage.Literals.BASE_VIEW_FX__SHOW_TOOLBAR, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -80,10 +98,7 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JavafxPackage.Literals.PROJECT_FX__CONTROLS);
-			childrenFeatures.add(JavafxPackage.Literals.PROJECT_FX__MODELS);
-			childrenFeatures.add(JavafxPackage.Literals.PROJECT_FX__BINDINGS);
-			childrenFeatures.add(JavafxPackage.Literals.PROJECT_FX__CHARTS);
+			childrenFeatures.add(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL);
 		}
 		return childrenFeatures;
 	}
@@ -99,17 +114,6 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns ProjectFX.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProjectFX"));
 	}
 
 	/**
@@ -130,9 +134,9 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProjectFX) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ProjectFX_type")
-				: getString("_UI_ProjectFX_type") + " " + label;
+		String label = ((BaseViewFX) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_BaseViewFX_type")
+				: getString("_UI_BaseViewFX_type") + " " + label;
 	}
 
 	/**
@@ -146,14 +150,12 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProjectFX.class)) {
-		case JavafxPackage.PROJECT_FX__PACKAGE_PATH:
+		switch (notification.getFeatureID(BaseViewFX.class)) {
+		case JavafxPackage.BASE_VIEW_FX__SHOW_PROPERTY_VIEW:
+		case JavafxPackage.BASE_VIEW_FX__SHOW_TOOLBAR:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case JavafxPackage.PROJECT_FX__CONTROLS:
-		case JavafxPackage.PROJECT_FX__MODELS:
-		case JavafxPackage.PROJECT_FX__BINDINGS:
-		case JavafxPackage.PROJECT_FX__CHARTS:
+		case JavafxPackage.BASE_VIEW_FX__USED_MODEL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -171,41 +173,32 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
-				JavafxFactory.eINSTANCE.createTableViewFX()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmParameterizedTypeReference()));
 
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
-				JavafxFactory.eINSTANCE.createTreeViewFX()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmGenericArrayTypeReference()));
 
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
-				JavafxFactory.eINSTANCE.createListViewFX()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmWildcardTypeReference()));
 
-		newChildDescriptors.add(
-				createChildParameter(JavafxPackage.Literals.PROJECT_FX__MODELS, JavafxFactory.eINSTANCE.createBean()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmAnyTypeReference()));
 
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__MODELS,
-				JavafxFactory.eINSTANCE.createDerivedBean()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmMultiTypeReference()));
 
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__BINDINGS,
-				JavafxFactory.eINSTANCE.createBinding()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmDelegateTypeReference()));
 
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
-				JavafxFactory.eINSTANCE.createLineChartFX()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmSynonymTypeReference()));
 
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
-				JavafxFactory.eINSTANCE.createPieChartFX()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmUnknownTypeReference()));
 
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
-				JavafxFactory.eINSTANCE.createAreaChartFX()));
-
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
-				JavafxFactory.eINSTANCE.createBubbleChartFX()));
-
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
-				JavafxFactory.eINSTANCE.createScatterChartFX()));
-
-		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CHARTS,
-				JavafxFactory.eINSTANCE.createBarChartFX()));
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.BASE_VIEW_FX__USED_MODEL,
+				TypesFactory.eINSTANCE.createJvmInnerTypeReference()));
 	}
 
 }

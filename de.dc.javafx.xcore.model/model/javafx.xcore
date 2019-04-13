@@ -54,16 +54,20 @@ class BindingProperty {
 	BindingType ^type
 }
 
-class TableViewFX extends ControlFX {
+abstract class BaseViewFX extends ControlFX{
 	boolean showPropertyView = 'true'
 	boolean showToolbar = 'true'
-	contains TableColumnFX[] columns
 	contains JvmTypeReference[0..1] usedModel
 }
 
-class TreeViewFX extends ControlFX {
-	boolean showPropertyView = 'true'
-	contains JvmTypeReference[0..1] usedModel
+class TableViewFX extends BaseViewFX {
+	contains TableColumnFX[] columns
+}
+
+class TreeViewFX extends BaseViewFX {
+}
+
+class ListViewFX extends BaseViewFX {
 }
 
 enum BindingType {

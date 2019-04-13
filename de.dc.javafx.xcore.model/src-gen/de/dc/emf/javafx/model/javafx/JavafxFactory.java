@@ -103,6 +103,15 @@ public interface JavafxFactory extends EFactory {
 	TreeViewFX createTreeViewFX();
 
 	/**
+	 * Returns a new object of class '<em>List View FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List View FX</em>'.
+	 * @generated
+	 */
+	ListViewFX createListViewFX();
+
+	/**
 	 * Returns a new object of class '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

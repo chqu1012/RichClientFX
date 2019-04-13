@@ -112,6 +112,11 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseBaseViewFX(BaseViewFX object) {
+			return createBaseViewFXAdapter();
+		}
+
+		@Override
 		public Adapter caseTableViewFX(TableViewFX object) {
 			return createTableViewFXAdapter();
 		}
@@ -119,6 +124,11 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseTreeViewFX(TreeViewFX object) {
 			return createTreeViewFXAdapter();
+		}
+
+		@Override
+		public Adapter caseListViewFX(ListViewFX object) {
+			return createListViewFXAdapter();
 		}
 
 		@Override
@@ -327,6 +337,20 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.BaseViewFX <em>Base View FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.BaseViewFX
+	 * @generated
+	 */
+	public Adapter createBaseViewFXAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.TableViewFX <em>Table View FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -351,6 +375,20 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTreeViewFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.ListViewFX <em>List View FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.ListViewFX
+	 * @generated
+	 */
+	public Adapter createListViewFXAdapter() {
 		return null;
 	}
 

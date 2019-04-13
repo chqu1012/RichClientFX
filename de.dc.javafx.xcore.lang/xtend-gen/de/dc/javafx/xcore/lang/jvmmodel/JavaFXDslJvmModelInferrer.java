@@ -762,14 +762,14 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
   }
   
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    if (element instanceof Bean) {
-      _infer((Bean)element, acceptor, isPreIndexingPhase);
-      return;
-    } else if (element instanceof TableViewFX) {
+    if (element instanceof TableViewFX) {
       _infer((TableViewFX)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof TreeViewFX) {
       _infer((TreeViewFX)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof Bean) {
+      _infer((Bean)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof ProjectFX) {
       _infer((ProjectFX)element, acceptor, isPreIndexingPhase);

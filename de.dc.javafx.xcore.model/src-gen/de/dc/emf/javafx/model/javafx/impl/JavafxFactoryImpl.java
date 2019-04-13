@@ -75,6 +75,8 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createTableViewFX();
 		case JavafxPackage.TREE_VIEW_FX:
 			return createTreeViewFX();
+		case JavafxPackage.LIST_VIEW_FX:
+			return createListViewFX();
 		case JavafxPackage.NAMED_ELEMENT:
 			return createNamedElement();
 		case JavafxPackage.FILTERED_ELEMENT:
@@ -235,6 +237,17 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	public TreeViewFX createTreeViewFX() {
 		TreeViewFXImpl treeViewFX = new TreeViewFXImpl();
 		return treeViewFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ListViewFX createListViewFX() {
+		ListViewFXImpl listViewFX = new ListViewFXImpl();
+		return listViewFX;
 	}
 
 	/**
