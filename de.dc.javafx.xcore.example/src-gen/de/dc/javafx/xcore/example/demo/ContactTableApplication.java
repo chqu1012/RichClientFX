@@ -21,12 +21,9 @@ public class ContactTableApplication extends Application {
     BaseContactTable view = new BaseContactTable();
     ObservableList<Contact> items = FXCollections.observableArrayList();
     for (int i = 0; i < 30; i++) {
-		Contact item = new Contact();
-		item.setName("Peter Jack "+i);
-		item.setAge(i);
-		item.setGender(true);
-		items.add(item);
-	}
+    	Contact item = new Contact();
+    	items.add(item);
+    }
     view.setInput(items);
     return view;
   }

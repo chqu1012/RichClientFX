@@ -1,7 +1,9 @@
 package de.dc.javafx.xcore.example.model;
 
+import de.dc.javafx.xcore.lang.lib.model.*;
+
 @SuppressWarnings("all")
-public class Contact {
+public class Contact extends TreeElement{
 
 	public Contact() {
 	}

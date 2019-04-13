@@ -1,17 +1,17 @@
 package de.dc.javafx.xcore.example.feature;
 
 import de.dc.javafx.xcore.example.model.Contact;
-import de.dc.javafx.xcore.example.model.ContactType;
+import de.dc.javafx.xcore.example.model.ContactTableType;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 
 @SuppressWarnings("all")
-public class BaseContactCellFeatures implements Callback<TableColumn.CellDataFeatures<Contact, Contact>, ObservableValue<Contact>> {
-  private ContactType type;
+public class BaseContactTableCellFeatures implements Callback<TableColumn.CellDataFeatures<Contact, Contact>, ObservableValue<Contact>> {
+  private ContactTableType type;
   
-  public BaseContactCellFeatures(final ContactType type) {
+  public BaseContactTableCellFeatures(final ContactTableType type) {
     this.type = type;
   }
   

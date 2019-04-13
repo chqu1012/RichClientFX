@@ -57,6 +57,7 @@ import de.dc.emf.javafx.model.javafx.ControlFX
 import org.eclipse.xtext.common.types.JvmOperation
 import javafx.scene.Node
 import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature
+import de.dc.javafx.xcore.lang.lib.BaseTreeView
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -71,8 +72,8 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
 		val model = element.usedModel
 		
-		val type = packagePath+'model.'+element.usedModel.simpleName+'Type'
-		val feature = packagePath+'feature.Base'+element.usedModel.simpleName+'CellFeatures'
+		val type = packagePath+'model.'+element.name+'Type'
+		val feature = packagePath+'feature.Base'+element.name+'CellFeatures'
 		
 		acceptor.accept(element.toEnumerationType(type) [
 	      for (literal : element.columns) {
@@ -81,12 +82,11 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	    ])
 	    
 	   	acceptor.accept(element.toClass(feature) [
-	   		val modelType = typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')
 	   		superTypes += #[Callback.typeRef(TableColumn.CellDataFeatures.typeRef(model, model), ObservableValue.typeRef(model))]
 	   		
-	   		members += element.toField('type', modelType)
+	   		members += element.toField('type', type.typeRef)
 			members += element.toConstructor[
-				parameters+=element.toParameter('type', modelType)
+				parameters+=element.toParameter('type', type.typeRef)
 				body = '''this.type = type;'''
 			]
 			
@@ -140,8 +140,8 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				annotations += element.toAnnotation(Override)
 				parameters += element.toParameter('properties', ObservableList.typeRef(PropertyValue.typeRef))
 				body = '''
-				for (ContactType type : ContactType.values()) {
-					properties.add(new PropertyValue(type.name(), ""));
+				for («type.typeRef» type : «type.typeRef».values()) {
+					properties.add(new «PropertyValue»(type.name(), ""));
 				}
 				'''
 			]
@@ -150,7 +150,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				annotations += element.toAnnotation(Override)
 				body = '''
 				«FOR c : element.columns»
-				createColumn(ContactType.«c.name.toFirstUpper», 200.0);
+				createColumn(«type.typeRef».«c.name.toFirstUpper», 200.0);
 				«ENDFOR»
 				'''
 			]
@@ -188,9 +188,10 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	   		«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
 	   		«ObservableList»<«model»> items = «FXCollections».observableArrayList();
 	   		for (int i = 0; i < 30; i++) {
-		   		«model» item = new «model»();
-	   			tems.add(item);
+	   			«model» item = new «model»();
+	   			items.add(item);
 	   		}
+	   		view.setInput(items);
 	   		return view;
 	   		'''
 	   	])
@@ -239,33 +240,50 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	def dispatch void infer(TreeViewFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
 		val model = element.usedModel
-
+		val feature = packagePath+'feature.'+element.name+'CellFeature'
+		val type = packagePath+'model.'+element.name+'Type'
+		
 		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
-			superTypes+=BorderPane.typeRef
+			superTypes+=BaseTreeView.typeRef(model)
 			
+			acceptor.accept(element.toEnumerationType(type) [])
+	    
 			members += element.toMethod('getCellFeature', TreeCellFeature.typeRef(model))[
 				annotations += element.toAnnotation(Override)
-				body = '''new ContactTreeCellFeature()'''
+				body = '''return new «feature.typeRef»();'''
 			]
 
 			members += element.toMethod('initProperties', 'void'.typeRef)[
 				annotations += element.toAnnotation(Override)
+				parameters += element.toParameter('properties', ObservableList.typeRef(PropertyValue.typeRef))
 				body = '''
-				for (ContactType type : ContactType.values()) {
-					properties.add(new PropertyValue(type.name(), ""));
+				for («type.typeRef» type : «type.typeRef».values()) {
+					properties.add(new «PropertyValue»(type.name(), ""));
 				}
 				'''
 			]
 
 			members += element.toMethod('onTreeViewSelectionChanged', 'void'.typeRef)[
+				visibility = JvmVisibility.PROTECTED
 				annotations += element.toAnnotation(Override)
-				parameters += element.toParameter('oldV', model)
-				parameters += element.toParameter('newV', model)
+				parameters += element.toParameter('oldV', TreeItem.typeRef(model))
+				parameters += element.toParameter('newV', TreeItem.typeRef(model))
 				body = '''
 				// TODO: Implement the fields to show in propertyview
 				// properties.get(0).setValue("Hello World");
 				'''
 			]
+		]
+		
+		acceptor.accept(element.toClass(feature)) [
+			superTypes+=TreeCellFeature.typeRef(model)
+			
+			members += element.toMethod('getValue', String.typeRef)[
+				annotations += element.toAnnotation(Override)
+				parameters += element.toParameter('item', model)
+				body = '''return item.getName()==null?"":item.getName();'''
+			]
+						
 		]
 		
 		acceptor.demo(element, packagePath, element.toMethod("getRoot", Parent.typeRef)[

@@ -1,8 +1,8 @@
 package de.dc.javafx.xcore.example;
 
-import de.dc.javafx.xcore.example.feature.BaseContactCellFeatures;
+import de.dc.javafx.xcore.example.feature.BaseContactTableCellFeatures;
 import de.dc.javafx.xcore.example.model.Contact;
-import de.dc.javafx.xcore.example.model.ContactType;
+import de.dc.javafx.xcore.example.model.ContactTableType;
 import de.dc.javafx.xcore.lang.lib.BaseTableView;
 import de.dc.javafx.xcore.lang.lib.model.PropertyValue;
 import java.util.function.Predicate;
@@ -25,21 +25,21 @@ public class BaseContactTable extends BaseTableView<Contact> {
   
   @Override
   public void initProperties(final ObservableList<PropertyValue> properties) {
-    for (ContactType type : ContactType.values()) {
+    for (ContactTableType type : ContactTableType.values()) {
     	properties.add(new PropertyValue(type.name(), ""));
     }
   }
   
   @Override
   public void initColumns() {
-    createColumn(ContactType.Name, 200.0);
-    createColumn(ContactType.Age, 200.0);
-    createColumn(ContactType.Gender, 200.0);
-    createColumn(ContactType.Address, 200.0);
+    createColumn(ContactTableType.Name, 200.0);
+    createColumn(ContactTableType.Age, 200.0);
+    createColumn(ContactTableType.Gender, 200.0);
+    createColumn(ContactTableType.Address, 200.0);
   }
   
-  public void createColumn(final ContactType type, final Double size) {
-    createColumn(type.name(), size, new BaseContactCellFeatures(type));
+  public void createColumn(final ContactTableType type, final Double size) {
+    createColumn(type.name(), size, new BaseContactTableCellFeatures(type));
   }
   
   @Override
