@@ -13,7 +13,7 @@ ProjectFX:
 ;
 
 ControlFX returns ControlFX:
-	TableViewFX | TreeViewFX;
+	TableViewFX | TreeViewFX | ListViewFX;
 
 ModelFX returns ModelFX:
 	Bean | DerivedBean;
@@ -38,6 +38,19 @@ TreeViewFX returns TreeViewFX:
 		('name:' name=EString)?
 		('usedModel:' usedModel=JvmTypeReference)?
 		('showPropertyView:' showPropertyView=EBoolean)?
+		('showToolbar:' showToolbar=EBoolean)?
+		('generateDemo:' generateDemo=EBoolean)?
+	'}';
+
+ListViewFX returns ListViewFX:
+	{ListViewFX}
+	'ListViewFX'
+	'{'
+		('name:' name=EString)?
+		('usedModel:' usedModel=JvmTypeReference)?
+		('showPropertyView:' showPropertyView=EBoolean)?
+		('showToolbar:' showToolbar=EBoolean)?
+		('orientation:' orientation=Orientation)?
 		('generateDemo:' generateDemo=EBoolean)?
 	'}';
 

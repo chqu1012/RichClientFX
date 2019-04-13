@@ -16,6 +16,7 @@ import de.dc.emf.javafx.model.javafx.ChartSeries;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
+import de.dc.emf.javafx.model.javafx.ListViewFX;
 import de.dc.emf.javafx.model.javafx.PieChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.ScatterChartFX;
@@ -128,6 +129,9 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 				return; 
 			case JavafxPackage.LINE_CHART_FX:
 				sequence_LineChartFX(context, (LineChartFX) semanticObject); 
+				return; 
+			case JavafxPackage.LIST_VIEW_FX:
+				sequence_ListViewFX(context, (ListViewFX) semanticObject); 
 				return; 
 			case JavafxPackage.PIE_CHART_FX:
 				sequence_PieChartFX(context, (PieChartFX) semanticObject); 
@@ -650,6 +654,19 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	
 	/**
 	 * Contexts:
+	 *     ControlFX returns ListViewFX
+	 *     ListViewFX returns ListViewFX
+	 *
+	 * Constraint:
+	 *     (name=EString? usedModel=JvmTypeReference? showPropertyView=EBoolean? showToolbar=EBoolean? generateDemo=EBoolean?)
+	 */
+	protected void sequence_ListViewFX(ISerializationContext context, ListViewFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ChartFX returns PieChartFX
 	 *     PieChartFX returns PieChartFX
 	 *
@@ -762,7 +779,7 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	 *     TreeViewFX returns TreeViewFX
 	 *
 	 * Constraint:
-	 *     (name=EString? usedModel=JvmTypeReference? showPropertyView=EBoolean? generateDemo=EBoolean?)
+	 *     (name=EString? usedModel=JvmTypeReference? showPropertyView=EBoolean? showToolbar=EBoolean? generateDemo=EBoolean?)
 	 */
 	protected void sequence_TreeViewFX(ISerializationContext context, TreeViewFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

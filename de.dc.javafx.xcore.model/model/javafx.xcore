@@ -65,9 +65,12 @@ class TableViewFX extends BaseViewFX {
 }
 
 class TreeViewFX extends BaseViewFX {
+	contains JvmTypeReference[0..1] cellValueFactory
 }
 
 class ListViewFX extends BaseViewFX {
+	Orientation orientation
+	contains JvmTypeReference[0..1] cellFactory
 }
 
 enum BindingType {

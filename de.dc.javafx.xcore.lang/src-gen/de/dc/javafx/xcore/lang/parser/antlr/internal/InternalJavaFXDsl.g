@@ -346,6 +346,15 @@ ruleControlFX returns [EObject current=null]
 			$current = $this_TreeViewFX_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getControlFXAccess().getListViewFXParserRuleCall_2());
+		}
+		this_ListViewFX_2=ruleListViewFX
+		{
+			$current = $this_ListViewFX_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -695,16 +704,41 @@ ruleTreeViewFX returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_9='generateDemo:'
+			otherlv_9='showToolbar:'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getTreeViewFXAccess().getGenerateDemoKeyword_6_0());
+				newLeafNode(otherlv_9, grammarAccess.getTreeViewFXAccess().getShowToolbarKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTreeViewFXAccess().getGenerateDemoEBooleanParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getTreeViewFXAccess().getShowToolbarEBooleanParserRuleCall_6_1_0());
 					}
-					lv_generateDemo_10_0=ruleEBoolean
+					lv_showToolbar_10_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTreeViewFXRule());
+						}
+						set(
+							$current,
+							"showToolbar",
+							lv_showToolbar_10_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='generateDemo:'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getTreeViewFXAccess().getGenerateDemoKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTreeViewFXAccess().getGenerateDemoEBooleanParserRuleCall_7_1_0());
+					}
+					lv_generateDemo_12_0=ruleEBoolean
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTreeViewFXRule());
@@ -712,16 +746,179 @@ ruleTreeViewFX returns [EObject current=null]
 						set(
 							$current,
 							"generateDemo",
-							lv_generateDemo_10_0,
+							lv_generateDemo_12_0,
 							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_11='}'
+		otherlv_13='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getTreeViewFXAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_13, grammarAccess.getTreeViewFXAccess().getRightCurlyBracketKeyword_8());
+		}
+	)
+;
+
+// Entry rule entryRuleListViewFX
+entryRuleListViewFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getListViewFXRule()); }
+	iv_ruleListViewFX=ruleListViewFX
+	{ $current=$iv_ruleListViewFX.current; }
+	EOF;
+
+// Rule ListViewFX
+ruleListViewFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getListViewFXAccess().getListViewFXAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='ListViewFX'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getListViewFXAccess().getListViewFXKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getListViewFXAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			otherlv_3='name:'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getListViewFXAccess().getNameKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getListViewFXAccess().getNameEStringParserRuleCall_3_1_0());
+					}
+					lv_name_4_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getListViewFXRule());
+						}
+						set(
+							$current,
+							"name",
+							lv_name_4_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_5='usedModel:'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getListViewFXAccess().getUsedModelKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getListViewFXAccess().getUsedModelJvmTypeReferenceParserRuleCall_4_1_0());
+					}
+					lv_usedModel_6_0=ruleJvmTypeReference
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getListViewFXRule());
+						}
+						set(
+							$current,
+							"usedModel",
+							lv_usedModel_6_0,
+							"org.eclipse.xtext.xbase.Xtype.JvmTypeReference");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_7='showPropertyView:'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getListViewFXAccess().getShowPropertyViewKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getListViewFXAccess().getShowPropertyViewEBooleanParserRuleCall_5_1_0());
+					}
+					lv_showPropertyView_8_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getListViewFXRule());
+						}
+						set(
+							$current,
+							"showPropertyView",
+							lv_showPropertyView_8_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='showToolbar:'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getListViewFXAccess().getShowToolbarKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getListViewFXAccess().getShowToolbarEBooleanParserRuleCall_6_1_0());
+					}
+					lv_showToolbar_10_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getListViewFXRule());
+						}
+						set(
+							$current,
+							"showToolbar",
+							lv_showToolbar_10_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='generateDemo:'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getListViewFXAccess().getGenerateDemoKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getListViewFXAccess().getGenerateDemoEBooleanParserRuleCall_7_1_0());
+					}
+					lv_generateDemo_12_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getListViewFXRule());
+						}
+						set(
+							$current,
+							"generateDemo",
+							lv_generateDemo_12_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_13='}'
+		{
+			newLeafNode(otherlv_13, grammarAccess.getListViewFXAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;

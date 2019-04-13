@@ -95,6 +95,13 @@ public class JavaFXDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTreeViewFXAccess().getGroup_4(), "rule__TreeViewFX__Group_4__0");
 			builder.put(grammarAccess.getTreeViewFXAccess().getGroup_5(), "rule__TreeViewFX__Group_5__0");
 			builder.put(grammarAccess.getTreeViewFXAccess().getGroup_6(), "rule__TreeViewFX__Group_6__0");
+			builder.put(grammarAccess.getTreeViewFXAccess().getGroup_7(), "rule__TreeViewFX__Group_7__0");
+			builder.put(grammarAccess.getListViewFXAccess().getGroup(), "rule__ListViewFX__Group__0");
+			builder.put(grammarAccess.getListViewFXAccess().getGroup_3(), "rule__ListViewFX__Group_3__0");
+			builder.put(grammarAccess.getListViewFXAccess().getGroup_4(), "rule__ListViewFX__Group_4__0");
+			builder.put(grammarAccess.getListViewFXAccess().getGroup_5(), "rule__ListViewFX__Group_5__0");
+			builder.put(grammarAccess.getListViewFXAccess().getGroup_6(), "rule__ListViewFX__Group_6__0");
+			builder.put(grammarAccess.getListViewFXAccess().getGroup_7(), "rule__ListViewFX__Group_7__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup(), "rule__TableViewFX__Group__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_3(), "rule__TableViewFX__Group_3__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup_4(), "rule__TableViewFX__Group_4__0");
@@ -393,7 +400,13 @@ public class JavaFXDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTreeViewFXAccess().getNameAssignment_3_1(), "rule__TreeViewFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getTreeViewFXAccess().getUsedModelAssignment_4_1(), "rule__TreeViewFX__UsedModelAssignment_4_1");
 			builder.put(grammarAccess.getTreeViewFXAccess().getShowPropertyViewAssignment_5_1(), "rule__TreeViewFX__ShowPropertyViewAssignment_5_1");
-			builder.put(grammarAccess.getTreeViewFXAccess().getGenerateDemoAssignment_6_1(), "rule__TreeViewFX__GenerateDemoAssignment_6_1");
+			builder.put(grammarAccess.getTreeViewFXAccess().getShowToolbarAssignment_6_1(), "rule__TreeViewFX__ShowToolbarAssignment_6_1");
+			builder.put(grammarAccess.getTreeViewFXAccess().getGenerateDemoAssignment_7_1(), "rule__TreeViewFX__GenerateDemoAssignment_7_1");
+			builder.put(grammarAccess.getListViewFXAccess().getNameAssignment_3_1(), "rule__ListViewFX__NameAssignment_3_1");
+			builder.put(grammarAccess.getListViewFXAccess().getUsedModelAssignment_4_1(), "rule__ListViewFX__UsedModelAssignment_4_1");
+			builder.put(grammarAccess.getListViewFXAccess().getShowPropertyViewAssignment_5_1(), "rule__ListViewFX__ShowPropertyViewAssignment_5_1");
+			builder.put(grammarAccess.getListViewFXAccess().getShowToolbarAssignment_6_1(), "rule__ListViewFX__ShowToolbarAssignment_6_1");
+			builder.put(grammarAccess.getListViewFXAccess().getGenerateDemoAssignment_7_1(), "rule__ListViewFX__GenerateDemoAssignment_7_1");
 			builder.put(grammarAccess.getTableViewFXAccess().getNameAssignment_3_1(), "rule__TableViewFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getTableViewFXAccess().getUsedModelAssignment_4_1(), "rule__TableViewFX__UsedModelAssignment_4_1");
 			builder.put(grammarAccess.getTableViewFXAccess().getColumnsAssignment_5_0(), "rule__TableViewFX__ColumnsAssignment_5_0");

@@ -792,13 +792,22 @@ public interface JavafxPackage extends EPackage {
 	int TREE_VIEW_FX__USED_MODEL = BASE_VIEW_FX__USED_MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Cell Value Factory</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_VIEW_FX__CELL_VALUE_FACTORY = BASE_VIEW_FX_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Tree View FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_VIEW_FX_FEATURE_COUNT = BASE_VIEW_FX_FEATURE_COUNT + 0;
+	int TREE_VIEW_FX_FEATURE_COUNT = BASE_VIEW_FX_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Tree View FX</em>' class.
@@ -865,13 +874,31 @@ public interface JavafxPackage extends EPackage {
 	int LIST_VIEW_FX__USED_MODEL = BASE_VIEW_FX__USED_MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Orientation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_VIEW_FX__ORIENTATION = BASE_VIEW_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Cell Factory</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_VIEW_FX__CELL_FACTORY = BASE_VIEW_FX_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>List View FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_VIEW_FX_FEATURE_COUNT = BASE_VIEW_FX_FEATURE_COUNT + 0;
+	int LIST_VIEW_FX_FEATURE_COUNT = BASE_VIEW_FX_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>List View FX</em>' class.
@@ -2229,6 +2256,17 @@ public interface JavafxPackage extends EPackage {
 	EClass getTreeViewFX();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.emf.javafx.model.javafx.TreeViewFX#getCellValueFactory <em>Cell Value Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cell Value Factory</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TreeViewFX#getCellValueFactory()
+	 * @see #getTreeViewFX()
+	 * @generated
+	 */
+	EReference getTreeViewFX_CellValueFactory();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ListViewFX <em>List View FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2237,6 +2275,28 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getListViewFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.ListViewFX#getOrientation <em>Orientation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Orientation</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ListViewFX#getOrientation()
+	 * @see #getListViewFX()
+	 * @generated
+	 */
+	EAttribute getListViewFX_Orientation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.emf.javafx.model.javafx.ListViewFX#getCellFactory <em>Cell Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cell Factory</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.ListViewFX#getCellFactory()
+	 * @see #getListViewFX()
+	 * @generated
+	 */
+	EReference getListViewFX_CellFactory();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.NamedElement <em>Named Element</em>}'.
@@ -2854,6 +2914,14 @@ public interface JavafxPackage extends EPackage {
 		EClass TREE_VIEW_FX = eINSTANCE.getTreeViewFX();
 
 		/**
+		 * The meta object literal for the '<em><b>Cell Value Factory</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TREE_VIEW_FX__CELL_VALUE_FACTORY = eINSTANCE.getTreeViewFX_CellValueFactory();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.ListViewFXImpl <em>List View FX</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2862,6 +2930,22 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LIST_VIEW_FX = eINSTANCE.getListViewFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Orientation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST_VIEW_FX__ORIENTATION = eINSTANCE.getListViewFX_Orientation();
+
+		/**
+		 * The meta object literal for the '<em><b>Cell Factory</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST_VIEW_FX__CELL_FACTORY = eINSTANCE.getListViewFX_CellFactory();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.NamedElementImpl <em>Named Element</em>}' class.
