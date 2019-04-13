@@ -793,8 +793,17 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
             _builder.append("return new ");
-            JvmTypeReference _typeRef = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(feature);
-            _builder.append(_typeRef);
+            {
+              JvmTypeReference _cellFactory = element.getCellFactory();
+              boolean _tripleNotEquals = (_cellFactory != null);
+              if (_tripleNotEquals) {
+                JvmTypeReference _cellFactory_1 = element.getCellFactory();
+                _builder.append(_cellFactory_1);
+              } else {
+                JvmTypeReference _typeRef = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(feature);
+                _builder.append(_typeRef);
+              }
+            }
             _builder.append("();");
           }
         };

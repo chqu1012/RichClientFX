@@ -658,7 +658,15 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	 *     ListViewFX returns ListViewFX
 	 *
 	 * Constraint:
-	 *     (name=EString? usedModel=JvmTypeReference? showPropertyView=EBoolean? showToolbar=EBoolean? generateDemo=EBoolean?)
+	 *     (
+	 *         name=EString? 
+	 *         usedModel=JvmTypeReference? 
+	 *         cellFactory=JvmTypeReference? 
+	 *         showPropertyView=EBoolean? 
+	 *         showToolbar=EBoolean? 
+	 *         orientation=Orientation? 
+	 *         generateDemo=EBoolean?
+	 *     )
 	 */
 	protected void sequence_ListViewFX(ISerializationContext context, ListViewFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -48,6 +48,7 @@ ListViewFX returns ListViewFX:
 	'{'
 		('name:' name=EString)?
 		('usedModel:' usedModel=JvmTypeReference)?
+		('cellFactory:' cellFactory=JvmTypeReference)?
 		('showPropertyView:' showPropertyView=EBoolean)?
 		('showToolbar:' showToolbar=EBoolean)?
 		('orientation:' orientation=Orientation)?

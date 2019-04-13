@@ -468,29 +468,39 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cUsedModelAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cUsedModelJvmTypeReferenceParserRuleCall_4_1_0 = (RuleCall)cUsedModelAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cShowPropertyViewKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cShowPropertyViewAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cShowPropertyViewEBooleanParserRuleCall_5_1_0 = (RuleCall)cShowPropertyViewAssignment_5_1.eContents().get(0);
+		private final Keyword cCellFactoryKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cCellFactoryAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cCellFactoryJvmTypeReferenceParserRuleCall_5_1_0 = (RuleCall)cCellFactoryAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cShowToolbarKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cShowToolbarAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cShowToolbarEBooleanParserRuleCall_6_1_0 = (RuleCall)cShowToolbarAssignment_6_1.eContents().get(0);
+		private final Keyword cShowPropertyViewKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cShowPropertyViewAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cShowPropertyViewEBooleanParserRuleCall_6_1_0 = (RuleCall)cShowPropertyViewAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cGenerateDemoKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cGenerateDemoAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cGenerateDemoEBooleanParserRuleCall_7_1_0 = (RuleCall)cGenerateDemoAssignment_7_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cShowToolbarKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cShowToolbarAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cShowToolbarEBooleanParserRuleCall_7_1_0 = (RuleCall)cShowToolbarAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cOrientationKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cOrientationAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cOrientationOrientationEnumRuleCall_8_1_0 = (RuleCall)cOrientationAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cGenerateDemoKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cGenerateDemoAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cGenerateDemoEBooleanParserRuleCall_9_1_0 = (RuleCall)cGenerateDemoAssignment_9_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//ListViewFX:
 		//	{ListViewFX}
 		//	'ListViewFX'
-		//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('showPropertyView:'
-		//	showPropertyView=EBoolean)? ('showToolbar:' showToolbar=EBoolean)? ('generateDemo:' generateDemo=EBoolean)?
+		//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('cellFactory:' cellFactory=JvmTypeReference)?
+		//	('showPropertyView:' showPropertyView=EBoolean)? ('showToolbar:' showToolbar=EBoolean)? ('orientation:'
+		//	orientation=Orientation)? ('generateDemo:' generateDemo=EBoolean)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ListViewFX} 'ListViewFX' '{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('showPropertyView:'
-		//showPropertyView=EBoolean)? ('showToolbar:' showToolbar=EBoolean)? ('generateDemo:' generateDemo=EBoolean)? '}'
+		//{ListViewFX} 'ListViewFX' '{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('cellFactory:'
+		//cellFactory=JvmTypeReference)? ('showPropertyView:' showPropertyView=EBoolean)? ('showToolbar:' showToolbar=EBoolean)?
+		//('orientation:' orientation=Orientation)? ('generateDemo:' generateDemo=EBoolean)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{ListViewFX}
@@ -526,44 +536,68 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		//JvmTypeReference
 		public RuleCall getUsedModelJvmTypeReferenceParserRuleCall_4_1_0() { return cUsedModelJvmTypeReferenceParserRuleCall_4_1_0; }
 		
-		//('showPropertyView:' showPropertyView=EBoolean)?
+		//('cellFactory:' cellFactory=JvmTypeReference)?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//'showPropertyView:'
-		public Keyword getShowPropertyViewKeyword_5_0() { return cShowPropertyViewKeyword_5_0; }
+		//'cellFactory:'
+		public Keyword getCellFactoryKeyword_5_0() { return cCellFactoryKeyword_5_0; }
 		
-		//showPropertyView=EBoolean
-		public Assignment getShowPropertyViewAssignment_5_1() { return cShowPropertyViewAssignment_5_1; }
+		//cellFactory=JvmTypeReference
+		public Assignment getCellFactoryAssignment_5_1() { return cCellFactoryAssignment_5_1; }
 		
-		//EBoolean
-		public RuleCall getShowPropertyViewEBooleanParserRuleCall_5_1_0() { return cShowPropertyViewEBooleanParserRuleCall_5_1_0; }
+		//JvmTypeReference
+		public RuleCall getCellFactoryJvmTypeReferenceParserRuleCall_5_1_0() { return cCellFactoryJvmTypeReferenceParserRuleCall_5_1_0; }
 		
-		//('showToolbar:' showToolbar=EBoolean)?
+		//('showPropertyView:' showPropertyView=EBoolean)?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//'showToolbar:'
-		public Keyword getShowToolbarKeyword_6_0() { return cShowToolbarKeyword_6_0; }
+		//'showPropertyView:'
+		public Keyword getShowPropertyViewKeyword_6_0() { return cShowPropertyViewKeyword_6_0; }
 		
-		//showToolbar=EBoolean
-		public Assignment getShowToolbarAssignment_6_1() { return cShowToolbarAssignment_6_1; }
+		//showPropertyView=EBoolean
+		public Assignment getShowPropertyViewAssignment_6_1() { return cShowPropertyViewAssignment_6_1; }
 		
 		//EBoolean
-		public RuleCall getShowToolbarEBooleanParserRuleCall_6_1_0() { return cShowToolbarEBooleanParserRuleCall_6_1_0; }
+		public RuleCall getShowPropertyViewEBooleanParserRuleCall_6_1_0() { return cShowPropertyViewEBooleanParserRuleCall_6_1_0; }
 		
-		//('generateDemo:' generateDemo=EBoolean)?
+		//('showToolbar:' showToolbar=EBoolean)?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'generateDemo:'
-		public Keyword getGenerateDemoKeyword_7_0() { return cGenerateDemoKeyword_7_0; }
+		//'showToolbar:'
+		public Keyword getShowToolbarKeyword_7_0() { return cShowToolbarKeyword_7_0; }
 		
-		//generateDemo=EBoolean
-		public Assignment getGenerateDemoAssignment_7_1() { return cGenerateDemoAssignment_7_1; }
+		//showToolbar=EBoolean
+		public Assignment getShowToolbarAssignment_7_1() { return cShowToolbarAssignment_7_1; }
 		
 		//EBoolean
-		public RuleCall getGenerateDemoEBooleanParserRuleCall_7_1_0() { return cGenerateDemoEBooleanParserRuleCall_7_1_0; }
+		public RuleCall getShowToolbarEBooleanParserRuleCall_7_1_0() { return cShowToolbarEBooleanParserRuleCall_7_1_0; }
+		
+		//('orientation:' orientation=Orientation)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'orientation:'
+		public Keyword getOrientationKeyword_8_0() { return cOrientationKeyword_8_0; }
+		
+		//orientation=Orientation
+		public Assignment getOrientationAssignment_8_1() { return cOrientationAssignment_8_1; }
+		
+		//Orientation
+		public RuleCall getOrientationOrientationEnumRuleCall_8_1_0() { return cOrientationOrientationEnumRuleCall_8_1_0; }
+		
+		//('generateDemo:' generateDemo=EBoolean)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'generateDemo:'
+		public Keyword getGenerateDemoKeyword_9_0() { return cGenerateDemoKeyword_9_0; }
+		
+		//generateDemo=EBoolean
+		public Assignment getGenerateDemoAssignment_9_1() { return cGenerateDemoAssignment_9_1; }
+		
+		//EBoolean
+		public RuleCall getGenerateDemoEBooleanParserRuleCall_9_1_0() { return cGenerateDemoEBooleanParserRuleCall_9_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 	public class TableViewFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.TableViewFX");
@@ -2656,8 +2690,9 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	//ListViewFX:
 	//	{ListViewFX}
 	//	'ListViewFX'
-	//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('showPropertyView:'
-	//	showPropertyView=EBoolean)? ('showToolbar:' showToolbar=EBoolean)? ('generateDemo:' generateDemo=EBoolean)?
+	//	'{' ('name:' name=EString)? ('usedModel:' usedModel=JvmTypeReference)? ('cellFactory:' cellFactory=JvmTypeReference)?
+	//	('showPropertyView:' showPropertyView=EBoolean)? ('showToolbar:' showToolbar=EBoolean)? ('orientation:'
+	//	orientation=Orientation)? ('generateDemo:' generateDemo=EBoolean)?
 	//	'}';
 	public ListViewFXElements getListViewFXAccess() {
 		return pListViewFX;

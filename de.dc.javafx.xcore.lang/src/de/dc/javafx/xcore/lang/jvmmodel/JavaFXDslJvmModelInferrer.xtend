@@ -299,7 +299,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	    
 			members += element.toMethod('getCellFeature', ListCellFeature.typeRef(model))[
 				annotations += element.toAnnotation(Override)
-				body = '''return new «feature.typeRef»();'''
+				body = '''return new «IF element.cellFactory !== null»«element.cellFactory»«ELSE»«feature.typeRef»«ENDIF»();'''
 			]
 
 			members += element.toMethod('initProperties', 'void'.typeRef)[
