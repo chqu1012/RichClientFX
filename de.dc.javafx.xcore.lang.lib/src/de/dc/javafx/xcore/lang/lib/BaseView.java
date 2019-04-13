@@ -33,8 +33,6 @@ public abstract class BaseView<T> extends BorderPane {
 
 	protected HBox topPane = new HBox();
 
-	protected AnchorPane rightPane = new AnchorPane();
-
 	protected StringProperty searchProperty = new SimpleStringProperty("");
 
 	protected TableView<PropertyValue> propertyView = new TableView<>();
@@ -52,7 +50,7 @@ public abstract class BaseView<T> extends BorderPane {
 	    setCenter(getCenterPane());
 	    initView();
 	    
-	    showPropertyView(false);
+	    showPropertyView(true);
 	    showToolbar(true);
 	  }
 
@@ -97,8 +95,6 @@ public abstract class BaseView<T> extends BorderPane {
 
 		initProperties(properties);
 		propertyView.setItems(properties);
-
-		rightPane.getChildren().add(propertyView);
 	}
 
 	protected abstract void initProperties(ObservableList<PropertyValue> properties);
@@ -129,7 +125,7 @@ public abstract class BaseView<T> extends BorderPane {
 		showPropertyButton.setOnAction(e -> {
 			if (showPropertyView) {
 				if (getRight() == null) {
-					setRight(rightPane);
+					setRight(propertyView);
 					showPropertyButton.setText("Hide Property View");
 				} else {
 					setRight(null);

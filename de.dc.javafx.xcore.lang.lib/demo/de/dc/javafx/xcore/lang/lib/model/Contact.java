@@ -1,7 +1,7 @@
 package de.dc.javafx.xcore.lang.lib.model;
 
 @SuppressWarnings("all")
-public class Contact {
+public class Contact extends TreeElement{
 
 	private String address;
 
