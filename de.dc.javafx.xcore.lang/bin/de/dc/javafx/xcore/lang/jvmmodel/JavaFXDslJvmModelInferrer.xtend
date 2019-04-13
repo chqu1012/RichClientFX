@@ -37,6 +37,10 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import de.dc.emf.javafx.model.javafx.ListViewFX
+import de.dc.javafx.xcore.lang.lib.BaseListView
+import de.dc.javafx.xcore.lang.lib.feature.ContactListCellFeature
+import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -103,7 +107,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
 			superTypes += BaseTableView.typeRef(model)
 			
-			members += element.toMethod('onTableViewSelectionChanged', 'void'.typeRef)[
+			members += element.toMethod('onViewSelectionChanged', 'void'.typeRef)[
 				annotations += element.toAnnotation(Override)
 				parameters += element.toParameter('oldV', model)
 				parameters += element.toParameter('newV', model)
@@ -277,6 +281,68 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				}
 				
 			}
+			return view;
+			'''
+		])
+	}
+	
+	def dispatch void infer(ListViewFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+		val model = element.usedModel
+		val feature = packagePath+'feature.'+element.name+'CellFeature'
+		val type = packagePath+'model.'+element.name+'Type'
+		
+		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
+			superTypes+=BaseListView.typeRef(model)
+			
+			acceptor.accept(element.toEnumerationType(type) [])
+	    
+			members += element.toMethod('getCellFeature', ListCellFeature.typeRef(model))[
+				annotations += element.toAnnotation(Override)
+				body = '''return new «feature.typeRef»();'''
+			]
+
+			members += element.toMethod('initProperties', 'void'.typeRef)[
+				annotations += element.toAnnotation(Override)
+				parameters += element.toParameter('properties', ObservableList.typeRef(PropertyValue.typeRef))
+				body = '''
+				// TODO: To customize the propertyview details, enhanced the «type.typeRef»
+				for («type.typeRef» type : «type.typeRef».values()) {
+					properties.add(new «PropertyValue»(type.name(), ""));
+				}
+				'''
+			]
+
+			members += element.toMethod('onViewSelectionChanged', 'void'.typeRef)[
+				visibility = JvmVisibility.PROTECTED
+				annotations += element.toAnnotation(Override)
+				parameters += element.toParameter('oldV', model)
+				parameters += element.toParameter('newV', model)
+				body = '''
+				// TODO: Implement the fields to show in propertyview
+				// properties.get(0).setValue("Hello World");
+				'''
+			]
+		]
+		
+		acceptor.accept(element.toClass(feature)) [
+			superTypes+=ListCellFeature.typeRef(model)
+			
+			members += element.toMethod('getValue', String.typeRef)[
+				annotations += element.toAnnotation(Override)
+				parameters += element.toParameter('item', model)
+				body = '''return item.toString();'''
+			]
+		]
+		
+		acceptor.demo(element, packagePath, element.toMethod("getRoot", Parent.typeRef)[
+			body = '''
+			«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
+			«ObservableList»<«model»> items = «FXCollections».observableArrayList();
+			for (int i = 0; i < 50; i++) {
+				items.add(new «model»());
+			}
+			view.setInput(items);
 			return view;
 			'''
 		])

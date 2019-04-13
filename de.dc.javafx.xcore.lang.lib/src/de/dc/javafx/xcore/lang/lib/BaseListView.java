@@ -36,6 +36,7 @@ public abstract class BaseListView<T> extends BaseView<T> {
 				searchProperty.set(searchProperty.get() + e.getText());
 			}
 		});
+	    view.setCellFactory(getCellFeature());	    
 	    
 	    setRight(propertyView);
 	    setCenter(view);
@@ -43,6 +44,8 @@ public abstract class BaseListView<T> extends BaseView<T> {
 	    showPropertyView(true);
 	    showToolbar(true);
 	}
+
+	protected abstract Callback<ListView<T>, ListCell<T>> getCellFeature();
 
 	protected abstract void onViewSelectionChanged(T oldV, T newV);
 

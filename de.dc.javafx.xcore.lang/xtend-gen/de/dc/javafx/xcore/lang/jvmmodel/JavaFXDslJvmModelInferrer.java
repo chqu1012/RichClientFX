@@ -8,12 +8,15 @@ import com.google.inject.Inject;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.ControlFX;
+import de.dc.emf.javafx.model.javafx.ListViewFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
 import de.dc.emf.javafx.model.javafx.TreeViewFX;
+import de.dc.javafx.xcore.lang.lib.BaseListView;
 import de.dc.javafx.xcore.lang.lib.BaseTableView;
 import de.dc.javafx.xcore.lang.lib.BaseTreeView;
+import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature;
 import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature;
 import de.dc.javafx.xcore.lang.lib.model.PropertyValue;
 import java.util.Arrays;
@@ -254,7 +257,7 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
         };
         this._jvmTypesBuilder.setBody(it_1, _client);
       };
-      JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "onTableViewSelectionChanged", this._typeReferenceBuilder.typeRef("void"), _function_3);
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "onViewSelectionChanged", this._typeReferenceBuilder.typeRef("void"), _function_3);
       this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
       EList<JvmMember> _members_1 = it.getMembers();
       final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
@@ -761,8 +764,176 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
     this.demo(acceptor, element, packagePath, this._jvmTypesBuilder.toMethod(element, "getRoot", this._typeReferenceBuilder.typeRef(Parent.class), _function_2));
   }
   
+  protected void _infer(final ListViewFX element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    EObject _rootContainer = EcoreUtil.getRootContainer(element);
+    String _packagePath = ((ProjectFX) _rootContainer).getPackagePath();
+    final String packagePath = (_packagePath + ".");
+    final JvmTypeReference model = element.getUsedModel();
+    String _name = element.getName();
+    String _plus = ((packagePath + "feature.") + _name);
+    final String feature = (_plus + "CellFeature");
+    String _name_1 = element.getName();
+    String _plus_1 = ((packagePath + "model.") + _name_1);
+    final String type = (_plus_1 + "Type");
+    String _name_2 = element.getName();
+    String _plus_2 = ((packagePath + "Base") + _name_2);
+    final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+      EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(BaseListView.class, model);
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      final Procedure1<JvmEnumerationType> _function_1 = (JvmEnumerationType it_1) -> {
+      };
+      acceptor.<JvmEnumerationType>accept(this._jvmTypesBuilder.toEnumerationType(element, type, _function_1));
+      EList<JvmMember> _members = it.getMembers();
+      final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return new ");
+            JvmTypeReference _typeRef = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(feature);
+            _builder.append(_typeRef);
+            _builder.append("();");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "getCellFeature", this._typeReferenceBuilder.typeRef(ListCellFeature.class, model), _function_2);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+      EList<JvmMember> _members_1 = it.getMembers();
+      final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        EList<JvmFormalParameter> _parameters = it_1.getParameters();
+        JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "properties", this._typeReferenceBuilder.typeRef(ObservableList.class, this._typeReferenceBuilder.typeRef(PropertyValue.class)));
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("// TODO: To customize the propertyview details, enhanced the ");
+            JvmTypeReference _typeRef = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(type);
+            _builder.append(_typeRef);
+            _builder.newLineIfNotEmpty();
+            _builder.append("for (");
+            JvmTypeReference _typeRef_1 = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(type);
+            _builder.append(_typeRef_1);
+            _builder.append(" type : ");
+            JvmTypeReference _typeRef_2 = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(type);
+            _builder.append(_typeRef_2);
+            _builder.append(".values()) {");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("properties.add(new ");
+            _builder.append(PropertyValue.class, "\t");
+            _builder.append("(type.name(), \"\"));");
+            _builder.newLineIfNotEmpty();
+            _builder.append("}");
+            _builder.newLine();
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(element, "initProperties", this._typeReferenceBuilder.typeRef("void"), _function_3);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method_1);
+      EList<JvmMember> _members_2 = it.getMembers();
+      final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+        it_1.setVisibility(JvmVisibility.PROTECTED);
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        EList<JvmFormalParameter> _parameters = it_1.getParameters();
+        JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "oldV", model);
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+        EList<JvmFormalParameter> _parameters_1 = it_1.getParameters();
+        JvmFormalParameter _parameter_1 = this._jvmTypesBuilder.toParameter(element, "newV", model);
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_1, _parameter_1);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("// TODO: Implement the fields to show in propertyview");
+            _builder.newLine();
+            _builder.append("// properties.get(0).setValue(\"Hello World\");");
+            _builder.newLine();
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method_2 = this._jvmTypesBuilder.toMethod(element, "onViewSelectionChanged", this._typeReferenceBuilder.typeRef("void"), _function_4);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_2);
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, _plus_2), _function);
+    final Procedure1<JvmGenericType> _function_1 = (JvmGenericType it) -> {
+      EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(ListCellFeature.class, model);
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      EList<JvmMember> _members = it.getMembers();
+      final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        EList<JvmFormalParameter> _parameters = it_1.getParameters();
+        JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "item", model);
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return item.toString();");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "getValue", this._typeReferenceBuilder.typeRef(String.class), _function_2);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, feature), _function_1);
+    final Procedure1<JvmOperation> _function_2 = (JvmOperation it) -> {
+      StringConcatenationClient _client = new StringConcatenationClient() {
+        @Override
+        protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+          String _name = element.getName();
+          JvmTypeReference _typeRef = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(((packagePath + "Base") + _name));
+          _builder.append(_typeRef);
+          _builder.append(" view = new ");
+          String _name_1 = element.getName();
+          JvmTypeReference _typeRef_1 = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(((packagePath + "Base") + _name_1));
+          _builder.append(_typeRef_1);
+          _builder.append("();");
+          _builder.newLineIfNotEmpty();
+          _builder.append(ObservableList.class);
+          _builder.append("<");
+          _builder.append(model);
+          _builder.append("> items = ");
+          _builder.append(FXCollections.class);
+          _builder.append(".observableArrayList();");
+          _builder.newLineIfNotEmpty();
+          _builder.append("for (int i = 0; i < 50; i++) {");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("items.add(new ");
+          _builder.append(model, "\t");
+          _builder.append("());");
+          _builder.newLineIfNotEmpty();
+          _builder.append("}");
+          _builder.newLine();
+          _builder.append("view.setInput(items);");
+          _builder.newLine();
+          _builder.append("return view;");
+          _builder.newLine();
+        }
+      };
+      this._jvmTypesBuilder.setBody(it, _client);
+    };
+    this.demo(acceptor, element, packagePath, this._jvmTypesBuilder.toMethod(element, "getRoot", this._typeReferenceBuilder.typeRef(Parent.class), _function_2));
+  }
+  
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    if (element instanceof TableViewFX) {
+    if (element instanceof ListViewFX) {
+      _infer((ListViewFX)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof TableViewFX) {
       _infer((TableViewFX)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof TreeViewFX) {

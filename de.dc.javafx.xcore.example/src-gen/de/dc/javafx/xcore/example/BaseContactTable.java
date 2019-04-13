@@ -19,7 +19,7 @@ import javafx.scene.control.TableColumn;
 @SuppressWarnings("all")
 public class BaseContactTable extends BaseTableView<Contact> {
   @Override
-  public void onTableViewSelectionChanged(final Contact oldV, final Contact newV) {
+  public void onViewSelectionChanged(final Contact oldV, final Contact newV) {
     properties.get(0).setValue(String.valueOf(newV.getName()));
     properties.get(1).setValue(String.valueOf(newV.getAge()));
     properties.get(2).setValue(String.valueOf(newV.getGender()));

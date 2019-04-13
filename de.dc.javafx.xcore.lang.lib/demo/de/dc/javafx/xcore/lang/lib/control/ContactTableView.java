@@ -17,7 +17,7 @@ import javafx.collections.ObservableList;
 public class ContactTableView extends BaseTableView<Contact> {
 
 	@Override
-	protected void onTableViewSelectionChanged(Contact oldV, Contact newV) {
+	protected void onViewSelectionChanged(Contact oldV, Contact newV) {
 		properties.get(0).setValue(String.valueOf(newV.getName()));
 		properties.get(1).setValue(String.valueOf(newV.getAddress()));
 		properties.get(2).setValue(String.valueOf(newV.getAge()));

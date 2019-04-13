@@ -17,21 +17,21 @@ public abstract class BaseTableView<T> extends BaseView<T> {
 
 	protected Map<String, TableColumn<T, T>> columns;
 
-	protected TableView<T> tableView;
+	protected TableView<T> view;
 
 	@Override
 	protected Node getCenterPane() {
 		columns = new HashMap<>();
-		tableView = new TableView<T>();
-		return tableView;
+		view = new TableView<T>();
+		return view;
 	}
 
 	@Override
 	protected void initView() {
 		initColumns();
 		
-		tableView.setItems(filteredMasterData);
-		tableView.setOnKeyReleased(e -> {
+		view.setItems(filteredMasterData);
+		view.setOnKeyReleased(e -> {
 			if (e.getCode().equals(KeyCode.ESCAPE)) {
 				setTop(null);
 				searchProperty.set("");
@@ -48,9 +48,9 @@ public abstract class BaseTableView<T> extends BaseView<T> {
 			}
 		});
 
-		tableView.getSelectionModel().selectedItemProperty().addListener((ChangeListener<T>) (obs, oldV, newV) -> {
+		view.getSelectionModel().selectedItemProperty().addListener((ChangeListener<T>) (obs, oldV, newV) -> {
 			if (newV != null) {
-				onTableViewSelectionChanged(oldV, newV);
+				onViewSelectionChanged(oldV, newV);
 				propertyView.refresh();
 			}
 		});
@@ -62,14 +62,14 @@ public abstract class BaseTableView<T> extends BaseView<T> {
 
 	protected abstract void initColumns();
 
-	protected abstract void onTableViewSelectionChanged(T oldV, T newV);
+	protected abstract void onViewSelectionChanged(T oldV, T newV);
 
 	protected TableColumn<T,T> createColumn(String name, Double width, Callback<TableColumn.CellDataFeatures<T, T>, ObservableValue<T>> cellFeatures) {
 		TableColumn<T, T> column = new TableColumn<T,T>(name);
 		column.setPrefWidth(width);
 		column.setCellValueFactory(cellFeatures);
 		columns.put(name, column);
-		tableView.getColumns().add(column);
+		view.getColumns().add(column);
 		return column;
 	}
 

@@ -1,0 +1,10 @@
+packagePath "de.dc.javafx.xcore.example"
+
+controls{
+	ListViewFX{
+		name: ContactListView 
+		usedModel: de.dc.javafx.xcore.example.model.Contact 
+		showPropertyView: true
+		generateDemo: true
+	} 
+}
