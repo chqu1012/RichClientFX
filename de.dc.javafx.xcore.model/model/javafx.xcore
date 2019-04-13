@@ -25,6 +25,7 @@ abstract class ControlFX extends NamedElement {
 class TableColumnFX extends NamedElement {
 	int width = "200"
 	refers AttributeFX usedAttribute
+	contains JvmTypeReference[0..1] cellValueFactory
 	boolean useFilter
 }
 

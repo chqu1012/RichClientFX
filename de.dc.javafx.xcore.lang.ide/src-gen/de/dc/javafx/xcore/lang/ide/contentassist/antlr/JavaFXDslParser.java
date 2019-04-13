@@ -106,6 +106,7 @@ public class JavaFXDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_3(), "rule__TableColumnFX__Group_3__0");
 			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_4(), "rule__TableColumnFX__Group_4__0");
 			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_5(), "rule__TableColumnFX__Group_5__0");
+			builder.put(grammarAccess.getTableColumnFXAccess().getGroup_6(), "rule__TableColumnFX__Group_6__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getAttributeFXAccess().getGroup(), "rule__AttributeFX__Group__0");
 			builder.put(grammarAccess.getBeanAccess().getGroup(), "rule__Bean__Group__0");
@@ -403,7 +404,8 @@ public class JavaFXDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTableColumnFXAccess().getNameAssignment_3_1(), "rule__TableColumnFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getTableColumnFXAccess().getWidthAssignment_4_1(), "rule__TableColumnFX__WidthAssignment_4_1");
 			builder.put(grammarAccess.getTableColumnFXAccess().getUsedAttributeAssignment_5_1(), "rule__TableColumnFX__UsedAttributeAssignment_5_1");
-			builder.put(grammarAccess.getTableColumnFXAccess().getUseFilterAssignment_6(), "rule__TableColumnFX__UseFilterAssignment_6");
+			builder.put(grammarAccess.getTableColumnFXAccess().getCellValueFactoryAssignment_6_1(), "rule__TableColumnFX__CellValueFactoryAssignment_6_1");
+			builder.put(grammarAccess.getTableColumnFXAccess().getUseFilterAssignment_7(), "rule__TableColumnFX__UseFilterAssignment_7");
 			builder.put(grammarAccess.getAttributeFXAccess().getTypeAssignment_1(), "rule__AttributeFX__TypeAssignment_1");
 			builder.put(grammarAccess.getAttributeFXAccess().getNameAssignment_2(), "rule__AttributeFX__NameAssignment_2");
 			builder.put(grammarAccess.getBeanAccess().getNameAssignment_2(), "rule__Bean__NameAssignment_2");

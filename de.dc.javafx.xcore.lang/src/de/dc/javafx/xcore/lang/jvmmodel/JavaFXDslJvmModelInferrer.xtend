@@ -4,60 +4,39 @@
 package de.dc.javafx.xcore.lang.jvmmodel
 
 import com.google.inject.Inject
+import de.dc.emf.javafx.model.javafx.Bean
+import de.dc.emf.javafx.model.javafx.ControlFX
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
-import java.util.HashMap
-import java.util.Map
+import de.dc.emf.javafx.model.javafx.TreeViewFX
+import de.dc.javafx.xcore.lang.lib.BaseTableView
+import de.dc.javafx.xcore.lang.lib.BaseTreeView
+import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature
+import de.dc.javafx.xcore.lang.lib.model.PropertyValue
 import java.util.function.Predicate
+import javafx.application.Application
 import javafx.beans.binding.Bindings
 import javafx.beans.property.ObjectProperty
 import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.StringProperty
-import javafx.beans.value.ChangeListener
 import javafx.beans.value.ObservableValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import javafx.collections.transformation.FilteredList
-import javafx.geometry.Insets
-import javafx.scene.control.Button
-import javafx.scene.control.Label
+import javafx.scene.Parent
+import javafx.scene.Scene
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableColumn.CellDataFeatures
-import javafx.scene.control.TableView
-import javafx.scene.control.TextField
-import javafx.scene.control.cell.PropertyValueFactory
-import javafx.scene.input.KeyCode
-import javafx.scene.layout.AnchorPane
-import javafx.scene.layout.BorderPane
-import javafx.scene.layout.HBox
-import javafx.scene.layout.Priority
+import javafx.scene.control.TreeItem
+import javafx.stage.Stage
 import javafx.util.Callback
 import org.eclipse.emf.ecore.util.EcoreUtil
-import org.eclipse.xtext.common.types.JvmFormalParameter
+import org.eclipse.xtext.common.types.JvmOperation
 import org.eclipse.xtext.common.types.JvmVisibility
-import org.eclipse.xtext.common.types.TypesFactory
 import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import de.dc.emf.javafx.model.javafx.Bean
-import de.dc.emf.javafx.model.javafx.TreeViewFX
-import javafx.scene.control.TreeItem
-import javafx.scene.control.TreeView
-import javafx.scene.control.TreeCell
-import javafx.application.Application
-import javafx.scene.Scene
-import javafx.scene.Parent
-import javafx.stage.Stage
-import de.dc.javafx.xcore.lang.lib.BaseTableView
-import de.dc.javafx.xcore.lang.lib.model.PropertyValue
-import org.eclipse.xtend.typesystem.emf.EcoreUtil2
-import de.dc.emf.javafx.model.javafx.ControlFX
-import org.eclipse.xtext.common.types.JvmOperation
-import javafx.scene.Node
-import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature
-import de.dc.javafx.xcore.lang.lib.BaseTreeView
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -150,15 +129,15 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				annotations += element.toAnnotation(Override)
 				body = '''
 				«FOR c : element.columns»
-				createColumn(«type.typeRef».«c.name.toFirstUpper», 200.0);
+				createColumn(«type.typeRef».«c.name.toFirstUpper», Double.valueOf(«c.width»))«IF c.cellValueFactory !== null».setCellValueFactory(new «c.cellValueFactory»())«ENDIF»;
 				«ENDFOR»
 				'''
 			]
 
-			members += element.toMethod('createColumn', 'void'.typeRef)[
+			members += element.toMethod('createColumn', TableColumn.typeRef(model, model))[
 				parameters += element.toParameter('type', type.typeRef)
 				parameters += element.toParameter('size', Double.typeRef)
-				body = '''createColumn(type.name(), size, new «feature.typeRef»(type));'''
+				body = '''return createColumn(type.name(), size, new «feature.typeRef»(type));'''
 			]
 			
 			members += element.toMethod('initSearchfilterBinding', ObservableValue.typeRef)[
@@ -257,6 +236,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				annotations += element.toAnnotation(Override)
 				parameters += element.toParameter('properties', ObservableList.typeRef(PropertyValue.typeRef))
 				body = '''
+				// TODO: To customize the propertyview details, enhanced the «type.typeRef»
 				for («type.typeRef» type : «type.typeRef».values()) {
 					properties.add(new «PropertyValue»(type.name(), ""));
 				}

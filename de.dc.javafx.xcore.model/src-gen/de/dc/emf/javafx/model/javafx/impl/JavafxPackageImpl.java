@@ -415,8 +415,18 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getTableColumnFX_CellValueFactory() {
+		return (EReference) tableColumnFXEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getTableColumnFX_UseFilter() {
-		return (EAttribute) tableColumnFXEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) tableColumnFXEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -962,6 +972,7 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		tableColumnFXEClass = createEClass(TABLE_COLUMN_FX);
 		createEAttribute(tableColumnFXEClass, TABLE_COLUMN_FX__WIDTH);
 		createEReference(tableColumnFXEClass, TABLE_COLUMN_FX__USED_ATTRIBUTE);
+		createEReference(tableColumnFXEClass, TABLE_COLUMN_FX__CELL_VALUE_FACTORY);
 		createEAttribute(tableColumnFXEClass, TABLE_COLUMN_FX__USE_FILTER);
 
 		modelFXEClass = createEClass(MODEL_FX);
@@ -1122,6 +1133,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		initEReference(getTableColumnFX_UsedAttribute(), this.getAttributeFX(), null, "usedAttribute", null, 0, 1,
 				TableColumnFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableColumnFX_CellValueFactory(), theTypesPackage.getJvmTypeReference(), null,
+				"cellValueFactory", null, 0, 1, TableColumnFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumnFX_UseFilter(), theEcorePackage.getEBoolean(), "useFilter", null, 0, 1,
 				TableColumnFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);

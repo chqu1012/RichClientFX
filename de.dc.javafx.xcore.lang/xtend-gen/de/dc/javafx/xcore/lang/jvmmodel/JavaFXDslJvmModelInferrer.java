@@ -305,7 +305,21 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
                 _builder.append(".");
                 String _firstUpper = StringExtensions.toFirstUpper(c.getName());
                 _builder.append(_firstUpper);
-                _builder.append(", 200.0);");
+                _builder.append(", Double.valueOf(");
+                int _width = c.getWidth();
+                _builder.append(_width);
+                _builder.append("))");
+                {
+                  JvmTypeReference _cellValueFactory = c.getCellValueFactory();
+                  boolean _tripleNotEquals = (_cellValueFactory != null);
+                  if (_tripleNotEquals) {
+                    _builder.append(".setCellValueFactory(new ");
+                    JvmTypeReference _cellValueFactory_1 = c.getCellValueFactory();
+                    _builder.append(_cellValueFactory_1);
+                    _builder.append("())");
+                  }
+                }
+                _builder.append(";");
                 _builder.newLineIfNotEmpty();
               }
             }
@@ -326,7 +340,7 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
         StringConcatenationClient _client = new StringConcatenationClient() {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-            _builder.append("createColumn(type.name(), size, new ");
+            _builder.append("return createColumn(type.name(), size, new ");
             JvmTypeReference _typeRef = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(feature);
             _builder.append(_typeRef);
             _builder.append("(type));");
@@ -334,7 +348,7 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
         };
         this._jvmTypesBuilder.setBody(it_1, _client);
       };
-      JvmOperation _method_3 = this._jvmTypesBuilder.toMethod(element, "createColumn", this._typeReferenceBuilder.typeRef("void"), _function_6);
+      JvmOperation _method_3 = this._jvmTypesBuilder.toMethod(element, "createColumn", this._typeReferenceBuilder.typeRef(TableColumn.class, model, model), _function_6);
       this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_3);
       EList<JvmMember> _members_4 = it.getMembers();
       final Procedure1<JvmOperation> _function_7 = (JvmOperation it_1) -> {
@@ -620,12 +634,16 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
         StringConcatenationClient _client = new StringConcatenationClient() {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-            _builder.append("for (");
+            _builder.append("// TODO: To customize the propertyview details, enhanced the ");
             JvmTypeReference _typeRef = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(type);
             _builder.append(_typeRef);
-            _builder.append(" type : ");
+            _builder.newLineIfNotEmpty();
+            _builder.append("for (");
             JvmTypeReference _typeRef_1 = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(type);
             _builder.append(_typeRef_1);
+            _builder.append(" type : ");
+            JvmTypeReference _typeRef_2 = JavaFXDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(type);
+            _builder.append(_typeRef_2);
             _builder.append(".values()) {");
             _builder.newLineIfNotEmpty();
             _builder.append("\t");

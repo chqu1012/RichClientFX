@@ -586,20 +586,26 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cUsedAttributeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final CrossReference cUsedAttributeAttributeFXCrossReference_5_1_0 = (CrossReference)cUsedAttributeAssignment_5_1.eContents().get(0);
 		private final RuleCall cUsedAttributeAttributeFXEStringParserRuleCall_5_1_0_1 = (RuleCall)cUsedAttributeAttributeFXCrossReference_5_1_0.eContents().get(1);
-		private final Assignment cUseFilterAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final Keyword cUseFilterUseFilterKeyword_6_0 = (Keyword)cUseFilterAssignment_6.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cCellValueFactoryKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cCellValueFactoryAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cCellValueFactoryJvmTypeReferenceParserRuleCall_6_1_0 = (RuleCall)cCellValueFactoryAssignment_6_1.eContents().get(0);
+		private final Assignment cUseFilterAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final Keyword cUseFilterUseFilterKeyword_7_0 = (Keyword)cUseFilterAssignment_7.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//TableColumnFX:
 		//	{TableColumnFX}
 		//	'column'
 		//	'(' ('name:' name=EString) ('width:' width=EInt)? ('usedAttribute:' usedAttribute=[AttributeFX|EString])?
+		//	('cellValueFactory:' cellValueFactory=JvmTypeReference)?
 		//	useFilter?='useFilter'?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TableColumnFX} 'column' '(' ('name:' name=EString) ('width:' width=EInt)? ('usedAttribute:'
-		//usedAttribute=[AttributeFX|EString])? useFilter?='useFilter'? ')'
+		//usedAttribute=[AttributeFX|EString])? ('cellValueFactory:' cellValueFactory=JvmTypeReference)? useFilter?='useFilter'?
+		//')'
 		public Group getGroup() { return cGroup; }
 		
 		//{TableColumnFX}
@@ -650,14 +656,26 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getUsedAttributeAttributeFXEStringParserRuleCall_5_1_0_1() { return cUsedAttributeAttributeFXEStringParserRuleCall_5_1_0_1; }
 		
+		//('cellValueFactory:' cellValueFactory=JvmTypeReference)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'cellValueFactory:'
+		public Keyword getCellValueFactoryKeyword_6_0() { return cCellValueFactoryKeyword_6_0; }
+		
+		//cellValueFactory=JvmTypeReference
+		public Assignment getCellValueFactoryAssignment_6_1() { return cCellValueFactoryAssignment_6_1; }
+		
+		//JvmTypeReference
+		public RuleCall getCellValueFactoryJvmTypeReferenceParserRuleCall_6_1_0() { return cCellValueFactoryJvmTypeReferenceParserRuleCall_6_1_0; }
+		
 		//useFilter?='useFilter'?
-		public Assignment getUseFilterAssignment_6() { return cUseFilterAssignment_6; }
+		public Assignment getUseFilterAssignment_7() { return cUseFilterAssignment_7; }
 		
 		//'useFilter'
-		public Keyword getUseFilterUseFilterKeyword_6_0() { return cUseFilterUseFilterKeyword_6_0; }
+		public Keyword getUseFilterUseFilterKeyword_7_0() { return cUseFilterUseFilterKeyword_7_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.EInt");
@@ -2520,6 +2538,7 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	{TableColumnFX}
 	//	'column'
 	//	'(' ('name:' name=EString) ('width:' width=EInt)? ('usedAttribute:' usedAttribute=[AttributeFX|EString])?
+	//	('cellValueFactory:' cellValueFactory=JvmTypeReference)?
 	//	useFilter?='useFilter'?
 	//	')';
 	public TableColumnFXElements getTableColumnFXAccess() {

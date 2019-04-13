@@ -18,6 +18,7 @@ public class BaseContactTreeView extends BaseTreeView<Contact> {
   
   @Override
   public void initProperties(final ObservableList<PropertyValue> properties) {
+    // TODO: To customize the propertyview details, enhanced the ContactTreeViewType
     for (ContactTreeViewType type : ContactTreeViewType.values()) {
     	properties.add(new PropertyValue(type.name(), ""));
     }

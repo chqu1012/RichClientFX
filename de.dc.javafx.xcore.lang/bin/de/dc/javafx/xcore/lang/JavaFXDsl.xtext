@@ -60,6 +60,7 @@ TableColumnFX returns TableColumnFX:
 		('name:' name=EString)
 		('width:' width=EInt)?
 		('usedAttribute:' usedAttribute=[AttributeFX|EString])?
+		('cellValueFactory:' cellValueFactory=JvmTypeReference)?
 		(useFilter?='useFilter')?
 	')';
 

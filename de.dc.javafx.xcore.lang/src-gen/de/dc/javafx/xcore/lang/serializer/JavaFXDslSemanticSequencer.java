@@ -729,7 +729,7 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	 *     TableColumnFX returns TableColumnFX
 	 *
 	 * Constraint:
-	 *     (name=EString width=EInt? usedAttribute=[AttributeFX|EString]? useFilter?='useFilter'?)
+	 *     (name=EString width=EInt? usedAttribute=[AttributeFX|EString]? cellValueFactory=JvmTypeReference? useFilter?='useFilter'?)
 	 */
 	protected void sequence_TableColumnFX(ISerializationContext context, TableColumnFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

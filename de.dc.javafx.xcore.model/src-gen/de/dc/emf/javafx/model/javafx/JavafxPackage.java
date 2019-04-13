@@ -261,13 +261,22 @@ public interface JavafxPackage extends EPackage {
 	int TABLE_COLUMN_FX__USED_ATTRIBUTE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Cell Value Factory</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN_FX__CELL_VALUE_FACTORY = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FX__USE_FILTER = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TABLE_COLUMN_FX__USE_FILTER = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Table Column FX</em>' class.
@@ -276,7 +285,7 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int TABLE_COLUMN_FX_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Table Column FX</em>' class.
@@ -1832,6 +1841,17 @@ public interface JavafxPackage extends EPackage {
 	EReference getTableColumnFX_UsedAttribute();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getCellValueFactory <em>Cell Value Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cell Value Factory</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TableColumnFX#getCellValueFactory()
+	 * @see #getTableColumnFX()
+	 * @generated
+	 */
+	EReference getTableColumnFX_CellValueFactory();
+
+	/**
 	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter <em>Use Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2485,6 +2505,14 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_COLUMN_FX__USED_ATTRIBUTE = eINSTANCE.getTableColumnFX_UsedAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Cell Value Factory</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_COLUMN_FX__CELL_VALUE_FACTORY = eINSTANCE.getTableColumnFX_CellValueFactory();
 
 		/**
 		 * The meta object literal for the '<em><b>Use Filter</b></em>' attribute feature.

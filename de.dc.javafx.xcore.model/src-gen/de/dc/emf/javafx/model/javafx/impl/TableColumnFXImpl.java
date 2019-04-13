@@ -7,11 +7,14 @@ import de.dc.emf.javafx.model.javafx.JavafxPackage;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl#getUsedAttribute <em>Used Attribute</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl#getCellValueFactory <em>Cell Value Factory</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.impl.TableColumnFXImpl#isUseFilter <em>Use Filter</em>}</li>
  * </ul>
  *
@@ -58,6 +62,16 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * @ordered
 	 */
 	protected AttributeFX usedAttribute;
+
+	/**
+	 * The cached value of the '{@link #getCellValueFactory() <em>Cell Value Factory</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCellValueFactory()
+	 * @generated
+	 * @ordered
+	 */
+	protected JvmTypeReference cellValueFactory;
 
 	/**
 	 * The default value of the '{@link #isUseFilter() <em>Use Filter</em>}' attribute.
@@ -170,6 +184,58 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * @generated
 	 */
 	@Override
+	public JvmTypeReference getCellValueFactory() {
+		return cellValueFactory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCellValueFactory(JvmTypeReference newCellValueFactory, NotificationChain msgs) {
+		JvmTypeReference oldCellValueFactory = cellValueFactory;
+		cellValueFactory = newCellValueFactory;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY, oldCellValueFactory, newCellValueFactory);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCellValueFactory(JvmTypeReference newCellValueFactory) {
+		if (newCellValueFactory != cellValueFactory) {
+			NotificationChain msgs = null;
+			if (cellValueFactory != null)
+				msgs = ((InternalEObject) cellValueFactory).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY, null, msgs);
+			if (newCellValueFactory != null)
+				msgs = ((InternalEObject) newCellValueFactory).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY, null, msgs);
+			msgs = basicSetCellValueFactory(newCellValueFactory, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY,
+					newCellValueFactory, newCellValueFactory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean isUseFilter() {
 		return useFilter;
 	}
@@ -194,6 +260,20 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY:
+			return basicSetCellValueFactory(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case JavafxPackage.TABLE_COLUMN_FX__WIDTH:
@@ -202,6 +282,8 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 			if (resolve)
 				return getUsedAttribute();
 			return basicGetUsedAttribute();
+		case JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY:
+			return getCellValueFactory();
 		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
 			return isUseFilter();
 		}
@@ -221,6 +303,9 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 			return;
 		case JavafxPackage.TABLE_COLUMN_FX__USED_ATTRIBUTE:
 			setUsedAttribute((AttributeFX) newValue);
+			return;
+		case JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY:
+			setCellValueFactory((JvmTypeReference) newValue);
 			return;
 		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
 			setUseFilter((Boolean) newValue);
@@ -243,6 +328,9 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 		case JavafxPackage.TABLE_COLUMN_FX__USED_ATTRIBUTE:
 			setUsedAttribute((AttributeFX) null);
 			return;
+		case JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY:
+			setCellValueFactory((JvmTypeReference) null);
+			return;
 		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
 			setUseFilter(USE_FILTER_EDEFAULT);
 			return;
@@ -262,6 +350,8 @@ public class TableColumnFXImpl extends NamedElementImpl implements TableColumnFX
 			return width != WIDTH_EDEFAULT;
 		case JavafxPackage.TABLE_COLUMN_FX__USED_ATTRIBUTE:
 			return usedAttribute != null;
+		case JavafxPackage.TABLE_COLUMN_FX__CELL_VALUE_FACTORY:
+			return cellValueFactory != null;
 		case JavafxPackage.TABLE_COLUMN_FX__USE_FILTER:
 			return useFilter != USE_FILTER_EDEFAULT;
 		}

@@ -1,6 +1,8 @@
 package de.dc.javafx.xcore.example;
 
+import de.dc.javafx.xcore.example.feature.AgeTreeCellFeature;
 import de.dc.javafx.xcore.example.feature.BaseContactTableCellFeatures;
+import de.dc.javafx.xcore.example.feature.GenderTreeCellFeature;
 import de.dc.javafx.xcore.example.model.Contact;
 import de.dc.javafx.xcore.example.model.ContactTableType;
 import de.dc.javafx.xcore.lang.lib.BaseTableView;
@@ -12,6 +14,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
 
 @SuppressWarnings("all")
 public class BaseContactTable extends BaseTableView<Contact> {
@@ -32,14 +35,14 @@ public class BaseContactTable extends BaseTableView<Contact> {
   
   @Override
   public void initColumns() {
-    createColumn(ContactTableType.Name, 200.0);
-    createColumn(ContactTableType.Age, 200.0);
-    createColumn(ContactTableType.Gender, 200.0);
-    createColumn(ContactTableType.Address, 200.0);
+    createColumn(ContactTableType.Name, Double.valueOf(200));
+    createColumn(ContactTableType.Age, Double.valueOf(200)).setCellValueFactory(new AgeTreeCellFeature());
+    createColumn(ContactTableType.Gender, Double.valueOf(200)).setCellValueFactory(new GenderTreeCellFeature());
+    createColumn(ContactTableType.Address, Double.valueOf(200));
   }
   
-  public void createColumn(final ContactTableType type, final Double size) {
-    createColumn(type.name(), size, new BaseContactTableCellFeatures(type));
+  public TableColumn<Contact, Contact> createColumn(final ContactTableType type, final Double size) {
+    return createColumn(type.name(), size, new BaseContactTableCellFeatures(type));
   }
   
   @Override

@@ -2,6 +2,8 @@
  */
 package de.dc.emf.javafx.model.javafx;
 
+import org.eclipse.xtext.common.types.JvmTypeReference;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Table Column FX</b></em>'.
@@ -13,6 +15,7 @@ package de.dc.emf.javafx.model.javafx;
  * <ul>
  *   <li>{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getWidth <em>Width</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getUsedAttribute <em>Used Attribute</em>}</li>
+ *   <li>{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getCellValueFactory <em>Cell Value Factory</em>}</li>
  *   <li>{@link de.dc.emf.javafx.model.javafx.TableColumnFX#isUseFilter <em>Use Filter</em>}</li>
  * </ul>
  *
@@ -65,6 +68,28 @@ public interface TableColumnFX extends NamedElement {
 	 * @generated
 	 */
 	void setUsedAttribute(AttributeFX value);
+
+	/**
+	 * Returns the value of the '<em><b>Cell Value Factory</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cell Value Factory</em>' containment reference.
+	 * @see #setCellValueFactory(JvmTypeReference)
+	 * @see de.dc.emf.javafx.model.javafx.JavafxPackage#getTableColumnFX_CellValueFactory()
+	 * @model containment="true"
+	 * @generated
+	 */
+	JvmTypeReference getCellValueFactory();
+
+	/**
+	 * Sets the value of the '{@link de.dc.emf.javafx.model.javafx.TableColumnFX#getCellValueFactory <em>Cell Value Factory</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cell Value Factory</em>' containment reference.
+	 * @see #getCellValueFactory()
+	 * @generated
+	 */
+	void setCellValueFactory(JvmTypeReference value);
 
 	/**
 	 * Returns the value of the '<em><b>Use Filter</b></em>' attribute.

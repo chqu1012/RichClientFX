@@ -1033,10 +1033,35 @@ ruleTableColumnFX returns [EObject current=null]
 			)
 		)?
 		(
+			otherlv_9='cellValueFactory:'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getTableColumnFXAccess().getCellValueFactoryKeyword_6_0());
+			}
 			(
-				lv_useFilter_9_0='useFilter'
+				(
+					{
+						newCompositeNode(grammarAccess.getTableColumnFXAccess().getCellValueFactoryJvmTypeReferenceParserRuleCall_6_1_0());
+					}
+					lv_cellValueFactory_10_0=ruleJvmTypeReference
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTableColumnFXRule());
+						}
+						set(
+							$current,
+							"cellValueFactory",
+							lv_cellValueFactory_10_0,
+							"org.eclipse.xtext.xbase.Xtype.JvmTypeReference");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			(
+				lv_useFilter_11_0='useFilter'
 				{
-					newLeafNode(lv_useFilter_9_0, grammarAccess.getTableColumnFXAccess().getUseFilterUseFilterKeyword_6_0());
+					newLeafNode(lv_useFilter_11_0, grammarAccess.getTableColumnFXAccess().getUseFilterUseFilterKeyword_7_0());
 				}
 				{
 					if ($current==null) {
@@ -1046,9 +1071,9 @@ ruleTableColumnFX returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_10=')'
+		otherlv_12=')'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getTableColumnFXAccess().getRightParenthesisKeyword_7());
+			newLeafNode(otherlv_12, grammarAccess.getTableColumnFXAccess().getRightParenthesisKeyword_8());
 		}
 	)
 ;
