@@ -24,7 +24,6 @@ public class ContactTreeApplication extends Application {
 			for (int j = 0; j < 30; j++) {
 				view.addItemTo(key, new Contact("Zwei" + j, i + j, true));
 			}
-
 		}
 		return view;
 	}

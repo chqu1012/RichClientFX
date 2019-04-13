@@ -56,6 +56,7 @@ import org.eclipse.xtend.typesystem.emf.EcoreUtil2
 import de.dc.emf.javafx.model.javafx.ControlFX
 import org.eclipse.xtext.common.types.JvmOperation
 import javafx.scene.Node
+import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -75,14 +76,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 		
 		acceptor.accept(element.toEnumerationType(type) [
 	      for (literal : element.columns) {
-	      	val jvmLiteral = TypesFactory::eINSTANCE.createJvmEnumerationLiteral
-			jvmLiteral.simpleName = literal.name
-			jvmLiteral.visibility = JvmVisibility::PUBLIC
-			jvmLiteral.^static = true
-			var t1 = TypesFactory::eINSTANCE.createJvmParameterizedTypeReference
-			t1.type = it
-			jvmLiteral.type = t1
-			members += jvmLiteral
+			members += element.toEnumerationLiteral(literal.name)
 	      }
 	    ])
 	    
@@ -91,7 +85,6 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	   		superTypes += #[Callback.typeRef(TableColumn.CellDataFeatures.typeRef(model, model), ObservableValue.typeRef(model))]
 	   		
 	   		members += element.toField('type', modelType)
-	   		
 			members += element.toConstructor[
 				parameters+=element.toParameter('type', modelType)
 				body = '''this.type = type;'''
@@ -250,159 +243,44 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 		acceptor.accept(element.toClass(packagePath+'Base'+element.name)) [
 			superTypes+=BorderPane.typeRef
 			
-			members += element.toField('properties', ObservableList.typeRef((packagePath+'model.'+element.name+'PropertyValue').typeRef))[initializer = '''«FXCollections».observableArrayList()''']
-			members += element.toField('propertyView', TableView.typeRef)[initializer = '''new TableView<>()''']
-			members += element.toField('rightPane', AnchorPane.typeRef)[initializer = '''new AnchorPane()''']
-			members += element.toField('rootNode', TreeItem.typeRef(model))[
-				visibility=JvmVisibility.PROTECTED
-				initializer = '''new TreeItem<«model»>()'''
+			members += element.toMethod('getCellFeature', TreeCellFeature.typeRef(model))[
+				annotations += element.toAnnotation(Override)
+				body = '''new ContactTreeCellFeature()'''
 			]
-			members += element.toField('registry', Map.typeRef(String.typeRef, TreeItem.typeRef(model)))[
-				visibility=JvmVisibility.PROTECTED
-				initializer = '''new «HashMap.typeRef(String.typeRef, TreeItem.typeRef(model))»()'''
-			]
-			members += element.toField('treeView', TreeView.typeRef(model))[
-				visibility=JvmVisibility.PROTECTED
-				initializer = '''new TreeView<>()'''
-			]
-			members += element.toField('ROOT_KEY', String.typeRef)[
-				visibility=JvmVisibility.PUBLIC
-				final = true
-				static = true
-				initializer = '''"root"'''
-			]
-			
-			members += element.toConstructor[
+
+			members += element.toMethod('initProperties', 'void'.typeRef)[
+				annotations += element.toAnnotation(Override)
 				body = '''
-				treeView.setShowRoot(false);
-				treeView.setCellFactory(p -> new «TreeCell»<«model»>() {
-					@Override
-					protected void updateItem(Contact item, boolean empty) {
-						super.updateItem(item, empty);
-						if (item==null || empty) {
-							setText(null);
-						}else {
-							setText(item.getName());
-						}
-					}
-				});
-				
-				registry.put(ROOT_KEY, rootNode);
-				treeView.setRoot(rootNode);
-				
-				initRightPane();
-				
-				setRight(rightPane);
-				setCenter(treeView);
-				
-				showPropertyView(«element.showPropertyView»);
-				'''
-			]
-			
-			// #showPropertyView Method
-			members += element.toMethod('showPropertyView', typeRef('void'))[
-				parameters += element.toParameter('showPropertyView', Boolean.typeRef)
-				body ='''
-				if (showPropertyView) {
-					if (getRight() == null) {
-						setRight(propertyView);
-					}
-				} else {
-					setRight(null);
+				for (ContactType type : ContactType.values()) {
+					properties.add(new PropertyValue(type.name(), ""));
 				}
 				'''
 			]
-			
-			// #initRightPane Method
-			members += element.toMethod('initRightPane', typeRef('void'))[
-				body ='''
-					«TableColumn»<«(element.name+'PropertyValue').typeRef», Object> propertyColumn = new TableColumn<>("Property");
-					propertyColumn.setCellValueFactory(new «PropertyValueFactory»<>("property"));
-					propertyView.getColumns().add(propertyColumn);
-					«TableColumn»<«element.name»PropertyValue, Object> valueColumn = new TableColumn<>("Value");
-					valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
-					propertyView.getColumns().add(valueColumn);
-					
-					«AnchorPane».setBottomAnchor(propertyView, 0d);
-					AnchorPane.setTopAnchor(propertyView, 0d);
-					AnchorPane.setLeftAnchor(propertyView, 0d);
-					AnchorPane.setRightAnchor(propertyView, 0d);
-											    
-					for («typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')» type : «typeRef(packagePath+'model.'+element.usedModel.simpleName+'Type')».values()) {
-						properties.add(new «typeRef(packagePath+'model.'+element.name+'PropertyValue')»(type.name(), ""));
-					}
-					propertyView.setItems(properties);
-					
-					rightPane.getChildren().add(propertyView);
-				'''
-			]
-			
-			acceptor.accept(element.toClass(packagePath+'model.'+element.name+'PropertyValue') [
-		   		members += element.toField('property', String.typeRef)
-		   		members += element.toGetter('property', String.typeRef)
-		   		members += element.toSetter('property', String.typeRef)
-		   		members += element.toField('value', String.typeRef)
-		   		members += element.toGetter('value', String.typeRef)
-		   		members += element.toSetter('value', String.typeRef)
-		   		members += element.toConstructor[
-		   			parameters+=element.toParameter('property', String.typeRef)
-		   			parameters+=element.toParameter('value', String.typeRef)
-		   			body = '''
-		   			this.property = property;
-		   			this.value = value;
-		   			'''
-		   		]
-		   	])
-			
-			members += element.toMethod('addItemTo', typeRef('void'))[
-				parameters+=element.toParameter('parentKey', String.typeRef)
-				parameters+=element.toParameter('item', model)
-				body = ''' 
-				«TreeItem»<«model»> node = registry.get(parentKey);
-				if (node!=null) {
-					TreeItem<«model»> treeItem = new TreeItem<>(item);
-					node.getChildren().add(treeItem);
-					registry.put(item.getName(), treeItem);
-				}
+
+			members += element.toMethod('onTreeViewSelectionChanged', 'void'.typeRef)[
+				annotations += element.toAnnotation(Override)
+				parameters += element.toParameter('oldV', model)
+				parameters += element.toParameter('newV', model)
+				body = '''
+				// TODO: Implement the fields to show in propertyview
+				// properties.get(0).setValue("Hello World");
 				'''
 			]
 		]
 		
-		if(element.generateDemo){
-			acceptor.accept(element.toClass(packagePath+"demo."+element.name+'Application')) [
-				superTypes+=Application.typeRef
+		acceptor.demo(element, packagePath, element.toMethod("getRoot", Parent.typeRef)[
+			body = '''
+			«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
+			for (int i = 0; i < 20; i++) {
+				String key = "Eins"+i;
+				view.addItemTo(«(packagePath+'Base'+element.name).typeRef».ROOT_KEY, new «model»(key, 1, true));
+				for (int j = 0; j < 30; j++) {
+					view.addItemTo(key, new «model»("Zwei"+j, i+j, true));
+				}
 				
-				members += element.toMethod("start", 'void'.typeRef)[
-					annotations += element.toAnnotation(Override)
-					parameters += element.toParameter('primaryStage', Stage.typeRef)
-					body = '''
-					primaryStage.setScene(new «Scene»(getRoot(), 600, 400));
-					primaryStage.show();
-					'''
-				]
-				
-				members += element.toMethod("getRoot", Parent.typeRef)[
-					body = '''
-					«(packagePath+'Base'+element.name).typeRef» view = new «(packagePath+'Base'+element.name).typeRef»();
-					for (int i = 0; i < 20; i++) {
-						String key = "Eins"+i;
-						view.addItemTo(«(packagePath+'Base'+element.name).typeRef».ROOT_KEY, new «model»(key, 1, true));
-						for (int j = 0; j < 30; j++) {
-							view.addItemTo(key, new «model»("Zwei"+j, i+j, true));
-						}
-						
-					}
-					return view;
-					'''
-					
-				]
-	
-				members += element.toMethod("main", 'void'.typeRef)[
-					static = true
-					parameters += element.toParameter('args', String.typeRef.addArrayTypeDimension)
-					body ='''launch(args);'''
-				]
-			]
-		}
+			}
+			return view;
+			'''
+		])
 	}
 }
