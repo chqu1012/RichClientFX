@@ -355,6 +355,15 @@ ruleControlFX returns [EObject current=null]
 			$current = $this_ListViewFX_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getControlFXAccess().getTileBarFXParserRuleCall_3());
+		}
+		this_TileBarFX_3=ruleTileBarFX
+		{
+			$current = $this_TileBarFX_3.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -593,6 +602,226 @@ ruleBinding returns [EObject current=null]
 		otherlv_6='}'
 		{
 			newLeafNode(otherlv_6, grammarAccess.getBindingAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleTileBarFX
+entryRuleTileBarFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTileBarFXRule()); }
+	iv_ruleTileBarFX=ruleTileBarFX
+	{ $current=$iv_ruleTileBarFX.current; }
+	EOF;
+
+// Rule TileBarFX
+ruleTileBarFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getTileBarFXAccess().getTileBarFXAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='TileBarFX'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getTileBarFXAccess().getTileBarFXKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getTileBarFXAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='tiles'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getTileBarFXAccess().getTilesKeyword_3());
+		}
+		otherlv_4='+='
+		{
+			newLeafNode(otherlv_4, grammarAccess.getTileBarFXAccess().getPlusSignEqualsSignKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTileBarFXAccess().getTilesTileFXParserRuleCall_5_0());
+				}
+				lv_tiles_5_0=ruleTileFX
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTileBarFXRule());
+					}
+					add(
+						$current,
+						"tiles",
+						lv_tiles_5_0,
+						"de.dc.javafx.xcore.lang.JavaFXDsl.TileFX");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6='}'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getTileBarFXAccess().getRightCurlyBracketKeyword_6());
+		}
+	)
+;
+
+// Entry rule entryRuleTileFX
+entryRuleTileFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTileFXRule()); }
+	iv_ruleTileFX=ruleTileFX
+	{ $current=$iv_ruleTileFX.current; }
+	EOF;
+
+// Rule TileFX
+ruleTileFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	{
+		newCompositeNode(grammarAccess.getTileFXAccess().getKeyValueTileFXParserRuleCall());
+	}
+	this_KeyValueTileFX_0=ruleKeyValueTileFX
+	{
+		$current = $this_KeyValueTileFX_0.current;
+		afterParserOrEnumRuleCall();
+	}
+;
+
+// Entry rule entryRuleKeyValueTileFX
+entryRuleKeyValueTileFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getKeyValueTileFXRule()); }
+	iv_ruleKeyValueTileFX=ruleKeyValueTileFX
+	{ $current=$iv_ruleKeyValueTileFX.current; }
+	EOF;
+
+// Rule KeyValueTileFX
+ruleKeyValueTileFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getKeyValueTileFXAccess().getKeyValueTileFXAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='TileBarFX'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getKeyValueTileFXAccess().getTileBarFXKeyword_1());
+		}
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getKeyValueTileFXAccess().getLeftParenthesisKeyword_2());
+		}
+		(
+			otherlv_3='id:'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getKeyValueTileFXAccess().getIdKeyword_3_0());
+			}
+			(
+				(
+					lv_name_4_0=RULE_ID
+					{
+						newLeafNode(lv_name_4_0, grammarAccess.getKeyValueTileFXAccess().getNameIDTerminalRuleCall_3_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getKeyValueTileFXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_4_0,
+							"org.eclipse.xtext.xbase.Xtype.ID");
+					}
+				)
+			)
+			(
+				otherlv_5=','
+				{
+					newLeafNode(otherlv_5, grammarAccess.getKeyValueTileFXAccess().getCommaKeyword_3_2());
+				}
+			)?
+		)
+		(
+			otherlv_6='key:'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getKeyValueTileFXAccess().getKeyKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getKeyValueTileFXAccess().getKeyEStringParserRuleCall_4_1_0());
+					}
+					lv_key_7_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getKeyValueTileFXRule());
+						}
+						set(
+							$current,
+							"key",
+							lv_key_7_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_8=','
+				{
+					newLeafNode(otherlv_8, grammarAccess.getKeyValueTileFXAccess().getCommaKeyword_4_2());
+				}
+			)?
+		)
+		(
+			otherlv_9='value:'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getKeyValueTileFXAccess().getValueKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getKeyValueTileFXAccess().getValueEStringParserRuleCall_5_1_0());
+					}
+					lv_value_10_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getKeyValueTileFXRule());
+						}
+						set(
+							$current,
+							"value",
+							lv_value_10_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_11=','
+				{
+					newLeafNode(otherlv_11, grammarAccess.getKeyValueTileFXAccess().getCommaKeyword_5_2());
+				}
+			)?
+		)
+		otherlv_12=')'
+		{
+			newLeafNode(otherlv_12, grammarAccess.getKeyValueTileFXAccess().getRightParenthesisKeyword_6());
 		}
 	)
 ;

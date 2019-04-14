@@ -194,12 +194,13 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTableViewFXParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTreeViewFXParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cListViewFXParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cTileBarFXParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//ControlFX:
-		//	TableViewFX | TreeViewFX | ListViewFX;
+		//	TableViewFX | TreeViewFX | ListViewFX | TileBarFX;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TableViewFX | TreeViewFX | ListViewFX
+		//TableViewFX | TreeViewFX | ListViewFX | TileBarFX
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//TableViewFX
@@ -210,6 +211,9 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ListViewFX
 		public RuleCall getListViewFXParserRuleCall_2() { return cListViewFXParserRuleCall_2; }
+		
+		//TileBarFX
+		public RuleCall getTileBarFXParserRuleCall_3() { return cTileBarFXParserRuleCall_3; }
 	}
 	public class ModelFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.ModelFX");
@@ -340,6 +344,154 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class TileBarFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.TileBarFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cTileBarFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cTileBarFXKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTilesKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cPlusSignEqualsSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cTilesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cTilesTileFXParserRuleCall_5_0 = (RuleCall)cTilesAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//TileBarFX:
+		//	{TileBarFX}
+		//	'TileBarFX'
+		//	'{'
+		//	'tiles' '+=' tiles+=TileFX
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{TileBarFX} 'TileBarFX' '{' 'tiles' '+=' tiles+=TileFX '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{TileBarFX}
+		public Action getTileBarFXAction_0() { return cTileBarFXAction_0; }
+		
+		//'TileBarFX'
+		public Keyword getTileBarFXKeyword_1() { return cTileBarFXKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'tiles'
+		public Keyword getTilesKeyword_3() { return cTilesKeyword_3; }
+		
+		//'+='
+		public Keyword getPlusSignEqualsSignKeyword_4() { return cPlusSignEqualsSignKeyword_4; }
+		
+		//tiles+=TileFX
+		public Assignment getTilesAssignment_5() { return cTilesAssignment_5; }
+		
+		//TileFX
+		public RuleCall getTilesTileFXParserRuleCall_5_0() { return cTilesTileFXParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class TileFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.TileFX");
+		private final RuleCall cKeyValueTileFXParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//TileFX BaseTileFX:
+		//	KeyValueTileFX;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//KeyValueTileFX
+		public RuleCall getKeyValueTileFXParserRuleCall() { return cKeyValueTileFXParserRuleCall; }
+	}
+	public class KeyValueTileFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.KeyValueTileFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cKeyValueTileFXAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cTileBarFXKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cIdKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final Keyword cCommaKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cKeyKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cKeyAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cKeyEStringParserRuleCall_4_1_0 = (RuleCall)cKeyAssignment_4_1.eContents().get(0);
+		private final Keyword cCommaKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cValueKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cValueAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cValueEStringParserRuleCall_5_1_0 = (RuleCall)cValueAssignment_5_1.eContents().get(0);
+		private final Keyword cCommaKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//KeyValueTileFX:
+		//	{KeyValueTileFX}
+		//	'TileBarFX'
+		//	'(' ('id:' name=ID ','?) ('key:' key=EString ','?) ('value:' value=EString ','?)
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{KeyValueTileFX} 'TileBarFX' '(' ('id:' name=ID ','?) ('key:' key=EString ','?) ('value:' value=EString ','?) ')'
+		public Group getGroup() { return cGroup; }
+		
+		//{KeyValueTileFX}
+		public Action getKeyValueTileFXAction_0() { return cKeyValueTileFXAction_0; }
+		
+		//'TileBarFX'
+		public Keyword getTileBarFXKeyword_1() { return cTileBarFXKeyword_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//'id:' name=ID ','?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'id:'
+		public Keyword getIdKeyword_3_0() { return cIdKeyword_3_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_1_0() { return cNameIDTerminalRuleCall_3_1_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_3_2() { return cCommaKeyword_3_2; }
+		
+		//'key:' key=EString ','?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'key:'
+		public Keyword getKeyKeyword_4_0() { return cKeyKeyword_4_0; }
+		
+		//key=EString
+		public Assignment getKeyAssignment_4_1() { return cKeyAssignment_4_1; }
+		
+		//EString
+		public RuleCall getKeyEStringParserRuleCall_4_1_0() { return cKeyEStringParserRuleCall_4_1_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_4_2() { return cCommaKeyword_4_2; }
+		
+		//'value:' value=EString ','?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'value:'
+		public Keyword getValueKeyword_5_0() { return cValueKeyword_5_0; }
+		
+		//value=EString
+		public Assignment getValueAssignment_5_1() { return cValueAssignment_5_1; }
+		
+		//EString
+		public RuleCall getValueEStringParserRuleCall_5_1_0() { return cValueEStringParserRuleCall_5_1_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_5_2() { return cCommaKeyword_5_2; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 	public class TreeViewFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.JavaFXDsl.TreeViewFX");
@@ -2506,6 +2658,9 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ChartFXElements pChartFX;
 	private final EStringElements pEString;
 	private final BindingElements pBinding;
+	private final TileBarFXElements pTileBarFX;
+	private final TileFXElements pTileFX;
+	private final KeyValueTileFXElements pKeyValueTileFX;
 	private final TreeViewFXElements pTreeViewFX;
 	private final ListViewFXElements pListViewFX;
 	private final TableViewFXElements pTableViewFX;
@@ -2551,6 +2706,9 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pChartFX = new ChartFXElements();
 		this.pEString = new EStringElements();
 		this.pBinding = new BindingElements();
+		this.pTileBarFX = new TileBarFXElements();
+		this.pTileFX = new TileFXElements();
+		this.pKeyValueTileFX = new KeyValueTileFXElements();
 		this.pTreeViewFX = new TreeViewFXElements();
 		this.pListViewFX = new ListViewFXElements();
 		this.pTableViewFX = new TableViewFXElements();
@@ -2622,7 +2780,7 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ControlFX:
-	//	TableViewFX | TreeViewFX | ListViewFX;
+	//	TableViewFX | TreeViewFX | ListViewFX | TileBarFX;
 	public ControlFXElements getControlFXAccess() {
 		return pControlFX;
 	}
@@ -2671,6 +2829,43 @@ public class JavaFXDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getBindingRule() {
 		return getBindingAccess().getRule();
+	}
+	
+	//TileBarFX:
+	//	{TileBarFX}
+	//	'TileBarFX'
+	//	'{'
+	//	'tiles' '+=' tiles+=TileFX
+	//	'}';
+	public TileBarFXElements getTileBarFXAccess() {
+		return pTileBarFX;
+	}
+	
+	public ParserRule getTileBarFXRule() {
+		return getTileBarFXAccess().getRule();
+	}
+	
+	//TileFX BaseTileFX:
+	//	KeyValueTileFX;
+	public TileFXElements getTileFXAccess() {
+		return pTileFX;
+	}
+	
+	public ParserRule getTileFXRule() {
+		return getTileFXAccess().getRule();
+	}
+	
+	//KeyValueTileFX:
+	//	{KeyValueTileFX}
+	//	'TileBarFX'
+	//	'(' ('id:' name=ID ','?) ('key:' key=EString ','?) ('value:' value=EString ','?)
+	//	')';
+	public KeyValueTileFXElements getKeyValueTileFXAccess() {
+		return pKeyValueTileFX;
+	}
+	
+	public ParserRule getKeyValueTileFXRule() {
+		return getKeyValueTileFXAccess().getRule();
 	}
 	
 	//TreeViewFX:

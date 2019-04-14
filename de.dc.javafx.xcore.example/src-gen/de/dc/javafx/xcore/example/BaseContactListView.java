@@ -26,6 +26,6 @@ public class BaseContactListView extends BaseListView<Contact> {
   @Override
   protected void onViewSelectionChanged(final Contact oldV, final Contact newV) {
     // TODO: Implement the fields to show in propertyview
-    // properties.get(0).setValue("Hello World"); 
+    // properties.get(0).setValue("Hello World");
   }
 }

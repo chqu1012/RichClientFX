@@ -1,0 +1,7 @@
+packagePath "de.dc.javafx.xcore.example.tiles"
+
+controls{
+	TileBarFX{
+		tiles += TileBarFX(id:ContactCounter, key:'Count of Contacts', value:'0')
+	}
+}

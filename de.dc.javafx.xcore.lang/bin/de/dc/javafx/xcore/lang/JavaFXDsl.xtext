@@ -13,7 +13,7 @@ ProjectFX:
 ;
 
 ControlFX returns ControlFX:
-	TableViewFX | TreeViewFX | ListViewFX;
+	TableViewFX | TreeViewFX | ListViewFX | TileBarFX;
 
 ModelFX returns ModelFX:
 	Bean | DerivedBean;
@@ -30,6 +30,29 @@ Binding returns Binding:
 	'BindingFX' name=EString '{'
 		(property+=BindingProperty (property+=BindingProperty)*)?
 	'}';
+
+TileBarFX returns TileBarFX:
+	{TileBarFX}
+	'TileBarFX'
+	'{'
+		'tiles' '+=' tiles+=TileFX
+	'}'
+;
+
+TileFX returns BaseTileFX:
+	KeyValueTileFX
+;
+
+
+KeyValueTileFX returns KeyValueTileFX:
+	{KeyValueTileFX}
+	'TileBarFX'
+	'('
+		('id:' name=ID ','?)
+		('key:' key=EString ','?)
+		('value:' value=EString ','?)
+	')'
+;
 
 TreeViewFX returns TreeViewFX:
 	{TreeViewFX}

@@ -4,7 +4,7 @@ controls{
 	ListViewFX{
 		name: ContactListView
 		usedModel: de.dc.javafx.xcore.example.model.Contact 
-		cellFactory: de.dc.javafx.xcore.example.feature.NameListCellFeature
+		cellFactory: NameListCellFeature
 		showPropertyView: true
 		generateDemo: true
 	} 

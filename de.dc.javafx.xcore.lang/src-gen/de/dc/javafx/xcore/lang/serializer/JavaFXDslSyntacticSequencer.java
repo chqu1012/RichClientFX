@@ -21,6 +21,9 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class JavaFXDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected JavaFXDslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_KeyValueTileFX_CommaKeyword_3_2_q;
+	protected AbstractElementAlias match_KeyValueTileFX_CommaKeyword_4_2_q;
+	protected AbstractElementAlias match_KeyValueTileFX_CommaKeyword_5_2_q;
 	protected AbstractElementAlias match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
@@ -32,6 +35,9 @@ public class JavaFXDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (JavaFXDslGrammarAccess) access;
+		match_KeyValueTileFX_CommaKeyword_3_2_q = new TokenAlias(false, true, grammarAccess.getKeyValueTileFXAccess().getCommaKeyword_3_2());
+		match_KeyValueTileFX_CommaKeyword_4_2_q = new TokenAlias(false, true, grammarAccess.getKeyValueTileFXAccess().getCommaKeyword_4_2());
+		match_KeyValueTileFX_CommaKeyword_5_2_q = new TokenAlias(false, true, grammarAccess.getKeyValueTileFXAccess().getCommaKeyword_5_2());
 		match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXAnnotationAccess().getLeftParenthesisKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getXAnnotationAccess().getRightParenthesisKeyword_3_2()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
@@ -78,7 +84,13 @@ public class JavaFXDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q.equals(syntax))
+			if (match_KeyValueTileFX_CommaKeyword_3_2_q.equals(syntax))
+				emit_KeyValueTileFX_CommaKeyword_3_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_KeyValueTileFX_CommaKeyword_4_2_q.equals(syntax))
+				emit_KeyValueTileFX_CommaKeyword_4_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_KeyValueTileFX_CommaKeyword_5_2_q.equals(syntax))
+				emit_KeyValueTileFX_CommaKeyword_5_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q.equals(syntax))
 				emit_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -96,6 +108,39 @@ public class JavaFXDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) 'key:' key=EString
+	 */
+	protected void emit_KeyValueTileFX_CommaKeyword_3_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     key=EString (ambiguity) 'value:' value=EString
+	 */
+	protected void emit_KeyValueTileFX_CommaKeyword_4_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     value=EString (ambiguity) ')' (rule end)
+	 */
+	protected void emit_KeyValueTileFX_CommaKeyword_5_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     ('(' ')')?

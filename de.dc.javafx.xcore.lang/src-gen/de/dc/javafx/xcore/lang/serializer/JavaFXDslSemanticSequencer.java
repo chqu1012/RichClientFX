@@ -15,6 +15,7 @@ import de.dc.emf.javafx.model.javafx.ChartFXData;
 import de.dc.emf.javafx.model.javafx.ChartSeries;
 import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
+import de.dc.emf.javafx.model.javafx.KeyValueTileFX;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ListViewFX;
 import de.dc.emf.javafx.model.javafx.PieChartFX;
@@ -22,6 +23,7 @@ import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.ScatterChartFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
+import de.dc.emf.javafx.model.javafx.TileBarFX;
 import de.dc.emf.javafx.model.javafx.TreeViewFX;
 import de.dc.javafx.xcore.lang.services.JavaFXDslGrammarAccess;
 import java.util.Set;
@@ -127,6 +129,9 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 			case JavafxPackage.DERIVED_BEAN:
 				sequence_DerivedBean(context, (DerivedBean) semanticObject); 
 				return; 
+			case JavafxPackage.KEY_VALUE_TILE_FX:
+				sequence_KeyValueTileFX(context, (KeyValueTileFX) semanticObject); 
+				return; 
 			case JavafxPackage.LINE_CHART_FX:
 				sequence_LineChartFX(context, (LineChartFX) semanticObject); 
 				return; 
@@ -147,6 +152,9 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 				return; 
 			case JavafxPackage.TABLE_VIEW_FX:
 				sequence_TableViewFX(context, (TableViewFX) semanticObject); 
+				return; 
+			case JavafxPackage.TILE_BAR_FX:
+				sequence_TileBarFX(context, (TileBarFX) semanticObject); 
 				return; 
 			case JavafxPackage.TREE_VIEW_FX:
 				sequence_TreeViewFX(context, (TreeViewFX) semanticObject); 
@@ -630,6 +638,31 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	
 	/**
 	 * Contexts:
+	 *     TileFX returns KeyValueTileFX
+	 *     KeyValueTileFX returns KeyValueTileFX
+	 *
+	 * Constraint:
+	 *     (name=ID key=EString value=EString)
+	 */
+	protected void sequence_KeyValueTileFX(ISerializationContext context, KeyValueTileFX semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.KEY_VALUE_TILE_FX__KEY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.KEY_VALUE_TILE_FX__KEY));
+			if (transientValues.isValueTransient(semanticObject, JavafxPackage.Literals.KEY_VALUE_TILE_FX__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavafxPackage.Literals.KEY_VALUE_TILE_FX__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getKeyValueTileFXAccess().getNameIDTerminalRuleCall_3_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getKeyValueTileFXAccess().getKeyEStringParserRuleCall_4_1_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getKeyValueTileFXAccess().getValueEStringParserRuleCall_5_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ChartFX returns LineChartFX
 	 *     LineChartFX returns LineChartFX
 	 *
@@ -777,6 +810,19 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	 *     )
 	 */
 	protected void sequence_TableViewFX(ISerializationContext context, TableViewFX semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ControlFX returns TileBarFX
+	 *     TileBarFX returns TileBarFX
+	 *
+	 * Constraint:
+	 *     tiles+=TileFX
+	 */
+	protected void sequence_TileBarFX(ISerializationContext context, TileBarFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

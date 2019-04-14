@@ -90,6 +90,11 @@ public class JavaFXDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProjectFXAccess().getGroup_4(), "rule__ProjectFX__Group_4__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup_4(), "rule__Binding__Group_4__0");
+			builder.put(grammarAccess.getTileBarFXAccess().getGroup(), "rule__TileBarFX__Group__0");
+			builder.put(grammarAccess.getKeyValueTileFXAccess().getGroup(), "rule__KeyValueTileFX__Group__0");
+			builder.put(grammarAccess.getKeyValueTileFXAccess().getGroup_3(), "rule__KeyValueTileFX__Group_3__0");
+			builder.put(grammarAccess.getKeyValueTileFXAccess().getGroup_4(), "rule__KeyValueTileFX__Group_4__0");
+			builder.put(grammarAccess.getKeyValueTileFXAccess().getGroup_5(), "rule__KeyValueTileFX__Group_5__0");
 			builder.put(grammarAccess.getTreeViewFXAccess().getGroup(), "rule__TreeViewFX__Group__0");
 			builder.put(grammarAccess.getTreeViewFXAccess().getGroup_3(), "rule__TreeViewFX__Group_3__0");
 			builder.put(grammarAccess.getTreeViewFXAccess().getGroup_4(), "rule__TreeViewFX__Group_4__0");
@@ -399,6 +404,10 @@ public class JavaFXDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBindingAccess().getNameAssignment_2(), "rule__Binding__NameAssignment_2");
 			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_0(), "rule__Binding__PropertyAssignment_4_0");
 			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_1(), "rule__Binding__PropertyAssignment_4_1");
+			builder.put(grammarAccess.getTileBarFXAccess().getTilesAssignment_5(), "rule__TileBarFX__TilesAssignment_5");
+			builder.put(grammarAccess.getKeyValueTileFXAccess().getNameAssignment_3_1(), "rule__KeyValueTileFX__NameAssignment_3_1");
+			builder.put(grammarAccess.getKeyValueTileFXAccess().getKeyAssignment_4_1(), "rule__KeyValueTileFX__KeyAssignment_4_1");
+			builder.put(grammarAccess.getKeyValueTileFXAccess().getValueAssignment_5_1(), "rule__KeyValueTileFX__ValueAssignment_5_1");
 			builder.put(grammarAccess.getTreeViewFXAccess().getNameAssignment_3_1(), "rule__TreeViewFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getTreeViewFXAccess().getUsedModelAssignment_4_1(), "rule__TreeViewFX__UsedModelAssignment_4_1");
 			builder.put(grammarAccess.getTreeViewFXAccess().getShowPropertyViewAssignment_5_1(), "rule__TreeViewFX__ShowPropertyViewAssignment_5_1");
