@@ -1,6 +1,6 @@
 package de.dc.javafx.xcore.example;
 
-import de.dc.javafx.xcore.example.feature.ContactListViewCellFeature;
+import de.dc.javafx.xcore.example.feature.NameListCellFeature;
 import de.dc.javafx.xcore.example.model.Contact;
 import de.dc.javafx.xcore.example.model.ContactListViewType;
 import de.dc.javafx.xcore.lang.lib.BaseListView;
@@ -12,7 +12,7 @@ import javafx.collections.ObservableList;
 public class BaseContactListView extends BaseListView<Contact> {
   @Override
   public ListCellFeature<Contact> getCellFeature() {
-    return new ContactListViewCellFeature();
+    return new NameListCellFeature();
   }
   
   @Override
@@ -26,6 +26,6 @@ public class BaseContactListView extends BaseListView<Contact> {
   @Override
   protected void onViewSelectionChanged(final Contact oldV, final Contact newV) {
     // TODO: Implement the fields to show in propertyview
-    // properties.get(0).setValue("Hello World");
+    // properties.get(0).setValue("Hello World"); 
   }
 }

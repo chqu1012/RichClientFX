@@ -2,8 +2,9 @@ packagePath "de.dc.javafx.xcore.example"
 
 controls{
 	ListViewFX{
-		name: ContactListView 
+		name: ContactListView
 		usedModel: de.dc.javafx.xcore.example.model.Contact 
+		cellFactory: de.dc.javafx.xcore.example.feature.NameListCellFeature
 		showPropertyView: true
 		generateDemo: true
 	} 
