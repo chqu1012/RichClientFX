@@ -6,6 +6,7 @@ import de.dc.emf.javafx.model.javafx.AreaChartFX;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.AxisType;
 import de.dc.emf.javafx.model.javafx.BarChartFX;
+import de.dc.emf.javafx.model.javafx.BaseTileFX;
 import de.dc.emf.javafx.model.javafx.BaseViewFX;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.Binding;
@@ -20,6 +21,7 @@ import de.dc.emf.javafx.model.javafx.DerivedBean;
 import de.dc.emf.javafx.model.javafx.FilteredElement;
 import de.dc.emf.javafx.model.javafx.JavafxFactory;
 import de.dc.emf.javafx.model.javafx.JavafxPackage;
+import de.dc.emf.javafx.model.javafx.KeyValueTileFX;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ListViewFX;
 import de.dc.emf.javafx.model.javafx.ModelFX;
@@ -30,6 +32,7 @@ import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.ScatterChartFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
+import de.dc.emf.javafx.model.javafx.TileBarFX;
 import de.dc.emf.javafx.model.javafx.TreeViewFX;
 import de.dc.emf.javafx.model.javafx.XYChartFX;
 
@@ -141,6 +144,27 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	private EClass listViewFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tileBarFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass baseTileFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyValueTileFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -691,6 +715,66 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getTileBarFX() {
+		return tileBarFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTileBarFX_Tiles() {
+		return (EReference) tileBarFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBaseTileFX() {
+		return baseTileFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getKeyValueTileFX() {
+		return keyValueTileFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getKeyValueTileFX_Key() {
+		return (EAttribute) keyValueTileFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getKeyValueTileFX_Value() {
+		return (EAttribute) keyValueTileFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -1055,6 +1139,15 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		createEAttribute(listViewFXEClass, LIST_VIEW_FX__ORIENTATION);
 		createEReference(listViewFXEClass, LIST_VIEW_FX__CELL_FACTORY);
 
+		tileBarFXEClass = createEClass(TILE_BAR_FX);
+		createEReference(tileBarFXEClass, TILE_BAR_FX__TILES);
+
+		baseTileFXEClass = createEClass(BASE_TILE_FX);
+
+		keyValueTileFXEClass = createEClass(KEY_VALUE_TILE_FX);
+		createEAttribute(keyValueTileFXEClass, KEY_VALUE_TILE_FX__KEY);
+		createEAttribute(keyValueTileFXEClass, KEY_VALUE_TILE_FX__VALUE);
+
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
@@ -1143,6 +1236,9 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		tableViewFXEClass.getESuperTypes().add(this.getBaseViewFX());
 		treeViewFXEClass.getESuperTypes().add(this.getBaseViewFX());
 		listViewFXEClass.getESuperTypes().add(this.getBaseViewFX());
+		tileBarFXEClass.getESuperTypes().add(this.getControlFX());
+		baseTileFXEClass.getESuperTypes().add(this.getControlFX());
+		keyValueTileFXEClass.getESuperTypes().add(this.getBaseTileFX());
 		chartFXEClass.getESuperTypes().add(this.getNamedElement());
 		xyChartFXEClass.getESuperTypes().add(this.getChartFX());
 		chartSeriesEClass.getESuperTypes().add(this.getNamedElement());
@@ -1261,6 +1357,24 @@ public class JavafxPackageImpl extends EPackageImpl implements JavafxPackage {
 		initEReference(getListViewFX_CellFactory(), theTypesPackage.getJvmTypeReference(), null, "cellFactory", null, 0,
 				1, ListViewFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tileBarFXEClass, TileBarFX.class, "TileBarFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTileBarFX_Tiles(), this.getBaseTileFX(), null, "tiles", null, 0, -1, TileBarFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(baseTileFXEClass, BaseTileFX.class, "BaseTileFX", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(keyValueTileFXEClass, KeyValueTileFX.class, "KeyValueTileFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKeyValueTileFX_Key(), theEcorePackage.getEString(), "key", "", 0, 1, KeyValueTileFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getKeyValueTileFX_Value(), theEcorePackage.getEString(), "value", "", 0, 1, KeyValueTileFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

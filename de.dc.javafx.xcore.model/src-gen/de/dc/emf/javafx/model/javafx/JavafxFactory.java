@@ -112,6 +112,24 @@ public interface JavafxFactory extends EFactory {
 	ListViewFX createListViewFX();
 
 	/**
+	 * Returns a new object of class '<em>Tile Bar FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tile Bar FX</em>'.
+	 * @generated
+	 */
+	TileBarFX createTileBarFX();
+
+	/**
+	 * Returns a new object of class '<em>Key Value Tile FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Key Value Tile FX</em>'.
+	 * @generated
+	 */
+	KeyValueTileFX createKeyValueTileFX();
+
+	/**
 	 * Returns a new object of class '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -73,6 +73,18 @@ class ListViewFX extends BaseViewFX {
 	contains JvmTypeReference[0..1] cellFactory
 }
 
+class TileBarFX extends ControlFX{
+	contains BaseTileFX[0..*] tiles
+}
+
+abstract class BaseTileFX extends ControlFX{
+}
+
+class KeyValueTileFX extends BaseTileFX{
+	String key = ''
+	String value = ''
+}
+
 enum BindingType {
 	StringProperty
 	IntegerProperty = 1

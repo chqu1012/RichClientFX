@@ -77,6 +77,10 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 			return createTreeViewFX();
 		case JavafxPackage.LIST_VIEW_FX:
 			return createListViewFX();
+		case JavafxPackage.TILE_BAR_FX:
+			return createTileBarFX();
+		case JavafxPackage.KEY_VALUE_TILE_FX:
+			return createKeyValueTileFX();
 		case JavafxPackage.NAMED_ELEMENT:
 			return createNamedElement();
 		case JavafxPackage.FILTERED_ELEMENT:
@@ -248,6 +252,28 @@ public class JavafxFactoryImpl extends EFactoryImpl implements JavafxFactory {
 	public ListViewFX createListViewFX() {
 		ListViewFXImpl listViewFX = new ListViewFXImpl();
 		return listViewFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TileBarFX createTileBarFX() {
+		TileBarFXImpl tileBarFX = new TileBarFXImpl();
+		return tileBarFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public KeyValueTileFX createKeyValueTileFX() {
+		KeyValueTileFXImpl keyValueTileFX = new KeyValueTileFXImpl();
+		return keyValueTileFX;
 	}
 
 	/**

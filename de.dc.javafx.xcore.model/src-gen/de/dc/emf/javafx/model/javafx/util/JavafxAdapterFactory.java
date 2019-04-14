@@ -132,6 +132,21 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseTileBarFX(TileBarFX object) {
+			return createTileBarFXAdapter();
+		}
+
+		@Override
+		public Adapter caseBaseTileFX(BaseTileFX object) {
+			return createBaseTileFXAdapter();
+		}
+
+		@Override
+		public Adapter caseKeyValueTileFX(KeyValueTileFX object) {
+			return createKeyValueTileFXAdapter();
+		}
+
+		@Override
 		public Adapter caseNamedElement(NamedElement object) {
 			return createNamedElementAdapter();
 		}
@@ -389,6 +404,48 @@ public class JavafxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createListViewFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.TileBarFX <em>Tile Bar FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.TileBarFX
+	 * @generated
+	 */
+	public Adapter createTileBarFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.BaseTileFX <em>Base Tile FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.BaseTileFX
+	 * @generated
+	 */
+	public Adapter createBaseTileFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.emf.javafx.model.javafx.KeyValueTileFX <em>Key Value Tile FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.emf.javafx.model.javafx.KeyValueTileFX
+	 * @generated
+	 */
+	public Adapter createKeyValueTileFXAdapter() {
 		return null;
 	}
 

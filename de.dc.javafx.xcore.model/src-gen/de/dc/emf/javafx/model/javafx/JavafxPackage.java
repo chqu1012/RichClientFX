@@ -66,7 +66,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 13;
+	int NAMED_ELEMENT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -910,6 +910,171 @@ public interface JavafxPackage extends EPackage {
 	int LIST_VIEW_FX_OPERATION_COUNT = BASE_VIEW_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.TileBarFXImpl <em>Tile Bar FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.TileBarFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTileBarFX()
+	 * @generated
+	 */
+	int TILE_BAR_FX = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TILE_BAR_FX__NAME = CONTROL_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TILE_BAR_FX__GENERATE_DEMO = CONTROL_FX__GENERATE_DEMO;
+
+	/**
+	 * The feature id for the '<em><b>Tiles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TILE_BAR_FX__TILES = CONTROL_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Tile Bar FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TILE_BAR_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Tile Bar FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TILE_BAR_FX_OPERATION_COUNT = CONTROL_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.BaseTileFXImpl <em>Base Tile FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.BaseTileFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBaseTileFX()
+	 * @generated
+	 */
+	int BASE_TILE_FX = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_TILE_FX__NAME = CONTROL_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_TILE_FX__GENERATE_DEMO = CONTROL_FX__GENERATE_DEMO;
+
+	/**
+	 * The number of structural features of the '<em>Base Tile FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_TILE_FX_FEATURE_COUNT = CONTROL_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Base Tile FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_TILE_FX_OPERATION_COUNT = CONTROL_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.KeyValueTileFXImpl <em>Key Value Tile FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.emf.javafx.model.javafx.impl.KeyValueTileFXImpl
+	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getKeyValueTileFX()
+	 * @generated
+	 */
+	int KEY_VALUE_TILE_FX = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_TILE_FX__NAME = BASE_TILE_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_TILE_FX__GENERATE_DEMO = BASE_TILE_FX__GENERATE_DEMO;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_TILE_FX__KEY = BASE_TILE_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_TILE_FX__VALUE = BASE_TILE_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Key Value Tile FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_TILE_FX_FEATURE_COUNT = BASE_TILE_FX_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Key Value Tile FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_TILE_FX_OPERATION_COUNT = BASE_TILE_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.impl.FilteredElementImpl <em>Filtered Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,7 +1082,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getFilteredElement()
 	 * @generated
 	 */
-	int FILTERED_ELEMENT = 14;
+	int FILTERED_ELEMENT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Use Filter</b></em>' attribute.
@@ -954,7 +1119,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartFX()
 	 * @generated
 	 */
-	int CHART_FX = 15;
+	int CHART_FX = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1036,7 +1201,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getXYChartFX()
 	 * @generated
 	 */
-	int XY_CHART_FX = 16;
+	int XY_CHART_FX = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1154,7 +1319,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartSeries()
 	 * @generated
 	 */
-	int CHART_SERIES = 17;
+	int CHART_SERIES = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1200,7 +1365,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getChartFXData()
 	 * @generated
 	 */
-	int CHART_FX_DATA = 18;
+	int CHART_FX_DATA = 21;
 
 	/**
 	 * The feature id for the '<em><b>XValue</b></em>' attribute.
@@ -1246,7 +1411,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getLineChartFX()
 	 * @generated
 	 */
-	int LINE_CHART_FX = 19;
+	int LINE_CHART_FX = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1364,7 +1529,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getPieChartFX()
 	 * @generated
 	 */
-	int PIE_CHART_FX = 20;
+	int PIE_CHART_FX = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1446,7 +1611,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAreaChartFX()
 	 * @generated
 	 */
-	int AREA_CHART_FX = 21;
+	int AREA_CHART_FX = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1564,7 +1729,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBubbleChartFX()
 	 * @generated
 	 */
-	int BUBBLE_CHART_FX = 22;
+	int BUBBLE_CHART_FX = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1682,7 +1847,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getScatterChartFX()
 	 * @generated
 	 */
-	int SCATTER_CHART_FX = 23;
+	int SCATTER_CHART_FX = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1800,7 +1965,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBarChartFX()
 	 * @generated
 	 */
-	int BAR_CHART_FX = 24;
+	int BAR_CHART_FX = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1882,7 +2047,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBindingType()
 	 * @generated
 	 */
-	int BINDING_TYPE = 25;
+	int BINDING_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.Orientation <em>Orientation</em>}' enum.
@@ -1892,7 +2057,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 26;
+	int ORIENTATION = 29;
 
 	/**
 	 * The meta object id for the '{@link de.dc.emf.javafx.model.javafx.AxisType <em>Axis Type</em>}' enum.
@@ -1902,7 +2067,7 @@ public interface JavafxPackage extends EPackage {
 	 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getAxisType()
 	 * @generated
 	 */
-	int AXIS_TYPE = 27;
+	int AXIS_TYPE = 30;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.ProjectFX <em>Project FX</em>}'.
@@ -2297,6 +2462,69 @@ public interface JavafxPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getListViewFX_CellFactory();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.TileBarFX <em>Tile Bar FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tile Bar FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TileBarFX
+	 * @generated
+	 */
+	EClass getTileBarFX();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.emf.javafx.model.javafx.TileBarFX#getTiles <em>Tiles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tiles</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.TileBarFX#getTiles()
+	 * @see #getTileBarFX()
+	 * @generated
+	 */
+	EReference getTileBarFX_Tiles();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.BaseTileFX <em>Base Tile FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Base Tile FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.BaseTileFX
+	 * @generated
+	 */
+	EClass getBaseTileFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.KeyValueTileFX <em>Key Value Tile FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Key Value Tile FX</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.KeyValueTileFX
+	 * @generated
+	 */
+	EClass getKeyValueTileFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.KeyValueTileFX#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.KeyValueTileFX#getKey()
+	 * @see #getKeyValueTileFX()
+	 * @generated
+	 */
+	EAttribute getKeyValueTileFX_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.emf.javafx.model.javafx.KeyValueTileFX#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.dc.emf.javafx.model.javafx.KeyValueTileFX#getValue()
+	 * @see #getKeyValueTileFX()
+	 * @generated
+	 */
+	EAttribute getKeyValueTileFX_Value();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.emf.javafx.model.javafx.NamedElement <em>Named Element</em>}'.
@@ -2946,6 +3174,60 @@ public interface JavafxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LIST_VIEW_FX__CELL_FACTORY = eINSTANCE.getListViewFX_CellFactory();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.TileBarFXImpl <em>Tile Bar FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.TileBarFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getTileBarFX()
+		 * @generated
+		 */
+		EClass TILE_BAR_FX = eINSTANCE.getTileBarFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Tiles</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TILE_BAR_FX__TILES = eINSTANCE.getTileBarFX_Tiles();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.BaseTileFXImpl <em>Base Tile FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.BaseTileFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getBaseTileFX()
+		 * @generated
+		 */
+		EClass BASE_TILE_FX = eINSTANCE.getBaseTileFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.KeyValueTileFXImpl <em>Key Value Tile FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.emf.javafx.model.javafx.impl.KeyValueTileFXImpl
+		 * @see de.dc.emf.javafx.model.javafx.impl.JavafxPackageImpl#getKeyValueTileFX()
+		 * @generated
+		 */
+		EClass KEY_VALUE_TILE_FX = eINSTANCE.getKeyValueTileFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KEY_VALUE_TILE_FX__KEY = eINSTANCE.getKeyValueTileFX_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KEY_VALUE_TILE_FX__VALUE = eINSTANCE.getKeyValueTileFX_Value();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.emf.javafx.model.javafx.impl.NamedElementImpl <em>Named Element</em>}' class.

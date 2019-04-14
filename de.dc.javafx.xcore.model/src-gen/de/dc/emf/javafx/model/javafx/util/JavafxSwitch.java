@@ -197,6 +197,41 @@ public class JavafxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case JavafxPackage.TILE_BAR_FX: {
+			TileBarFX tileBarFX = (TileBarFX) theEObject;
+			T result = caseTileBarFX(tileBarFX);
+			if (result == null)
+				result = caseControlFX(tileBarFX);
+			if (result == null)
+				result = caseNamedElement(tileBarFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.BASE_TILE_FX: {
+			BaseTileFX baseTileFX = (BaseTileFX) theEObject;
+			T result = caseBaseTileFX(baseTileFX);
+			if (result == null)
+				result = caseControlFX(baseTileFX);
+			if (result == null)
+				result = caseNamedElement(baseTileFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JavafxPackage.KEY_VALUE_TILE_FX: {
+			KeyValueTileFX keyValueTileFX = (KeyValueTileFX) theEObject;
+			T result = caseKeyValueTileFX(keyValueTileFX);
+			if (result == null)
+				result = caseBaseTileFX(keyValueTileFX);
+			if (result == null)
+				result = caseControlFX(keyValueTileFX);
+			if (result == null)
+				result = caseNamedElement(keyValueTileFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case JavafxPackage.NAMED_ELEMENT: {
 			NamedElement namedElement = (NamedElement) theEObject;
 			T result = caseNamedElement(namedElement);
@@ -518,6 +553,51 @@ public class JavafxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseListViewFX(ListViewFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tile Bar FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tile Bar FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTileBarFX(TileBarFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Base Tile FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Base Tile FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBaseTileFX(BaseTileFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Value Tile FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Value Tile FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKeyValueTileFX(KeyValueTileFX object) {
 		return null;
 	}
 

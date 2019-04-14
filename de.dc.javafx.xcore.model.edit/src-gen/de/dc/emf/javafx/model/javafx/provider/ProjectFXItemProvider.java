@@ -180,6 +180,12 @@ public class ProjectFXItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
 				JavafxFactory.eINSTANCE.createListViewFX()));
 
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
+				JavafxFactory.eINSTANCE.createTileBarFX()));
+
+		newChildDescriptors.add(createChildParameter(JavafxPackage.Literals.PROJECT_FX__CONTROLS,
+				JavafxFactory.eINSTANCE.createKeyValueTileFX()));
+
 		newChildDescriptors.add(
 				createChildParameter(JavafxPackage.Literals.PROJECT_FX__MODELS, JavafxFactory.eINSTANCE.createBean()));
 

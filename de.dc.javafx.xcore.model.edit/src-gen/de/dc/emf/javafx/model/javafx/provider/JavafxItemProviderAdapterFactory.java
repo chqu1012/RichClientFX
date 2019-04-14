@@ -303,6 +303,52 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.TileBarFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TileBarFXItemProvider tileBarFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.TileBarFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTileBarFXAdapter() {
+		if (tileBarFXItemProvider == null) {
+			tileBarFXItemProvider = new TileBarFXItemProvider(this);
+		}
+
+		return tileBarFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.KeyValueTileFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyValueTileFXItemProvider keyValueTileFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.emf.javafx.model.javafx.KeyValueTileFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyValueTileFXAdapter() {
+		if (keyValueTileFXItemProvider == null) {
+			keyValueTileFXItemProvider = new KeyValueTileFXItemProvider(this);
+		}
+
+		return keyValueTileFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.emf.javafx.model.javafx.NamedElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -657,6 +703,10 @@ public class JavafxItemProviderAdapterFactory extends JavafxAdapterFactory
 			treeViewFXItemProvider.dispose();
 		if (listViewFXItemProvider != null)
 			listViewFXItemProvider.dispose();
+		if (tileBarFXItemProvider != null)
+			tileBarFXItemProvider.dispose();
+		if (keyValueTileFXItemProvider != null)
+			keyValueTileFXItemProvider.dispose();
 		if (namedElementItemProvider != null)
 			namedElementItemProvider.dispose();
 		if (filteredElementItemProvider != null)
