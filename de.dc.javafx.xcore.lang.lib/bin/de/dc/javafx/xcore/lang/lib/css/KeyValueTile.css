@@ -1,0 +1,9 @@
+.root{
+	-fx-background-color: #8D8D8D;
+	-fx-background-radius: 10;
+}
+
+.root:hover{
+    -fx-background-color: #555555;
+    -fx-effect: dropshadow(three-pass-box, lightgray, 10, 0, 0, 0);
+}
