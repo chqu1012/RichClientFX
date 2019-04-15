@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import de.dc.javafx.xcore.lang.lib.feature.CellValueFeature;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;

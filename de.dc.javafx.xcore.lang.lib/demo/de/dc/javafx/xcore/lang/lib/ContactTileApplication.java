@@ -22,9 +22,8 @@ public class ContactTileApplication extends Application {
 		view.setHgap(10d);
 		view.setVgap(10d);
 		for (int i = 0; i < 20; i++) {
-			ContactTile contactTile = new ContactTile();
+			ContactTile contactTile = new ContactTile("Maria"+i);
 			contactTile.setPrefSize(100d, 100d);
-			contactTile.setKey("Maria");
 			contactTile.setValue(String.valueOf(20*i));
 			view.getChildren().add(contactTile);
 		}

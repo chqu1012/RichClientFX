@@ -3,9 +3,14 @@ package de.dc.javafx.xcore.lang.lib;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class BaseKeyValueTile extends AbstractFxmlAnchorControl {
+public class BaseKeyValueTile extends BaseTile {
 
 	@FXML Label valueLabel, keyLabel;
+
+	public BaseKeyValueTile(String key) {
+		super(key);
+		keyLabel.setText(key);
+	}
 	
 	@Override
 	protected String getFxmlPath() {
@@ -16,7 +21,9 @@ public class BaseKeyValueTile extends AbstractFxmlAnchorControl {
 		valueLabel.setText(value);
 	}
 
+	@Override
 	public void setKey(String key) {
+		super.setKey(key);
 		keyLabel.setText(key);
 	}
 }
