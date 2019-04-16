@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="de.dc.javafx.xcore.lang.edit.feature"
+	label="EmfSupportDsl Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="de.dc.javafx.xcore.lang.edit"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="de.dc.javafx.xcore.lang.edit.ide"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="de.dc.javafx.xcore.lang.edit.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>

@@ -52,7 +52,7 @@
 	<classpathentry exported="true" kind="lib" path="libs/org.eclipse.fx.core.source_3.6.0.201904161317.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/org.eclipse.fx.emf.databinding_3.6.0.201904161317.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/org.eclipse.fx.emf.databinding.source_3.6.0.201904161317.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/org.eclipse.fx.emf.edit.ui_3.6.0.201904161317.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/org.eclipse.fx.emf.edit.ui_3.6.0.201904161317.jar" sourcepath="libs/org.eclipse.fx.emf.edit.ui.source_3.6.0.201904161317.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/org.eclipse.fx.emf.edit.ui.source_3.6.0.201904161317.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/org.eclipse.fx.formats.svg_3.6.0.201904161317.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/org.eclipse.fx.formats.svg.source_3.6.0.201904161317.jar"/>
