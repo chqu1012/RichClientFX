@@ -5239,9 +5239,9 @@ rule__TileBarFX__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getTileBarFXAccess().getTilesKeyword_3()); }
-	'tiles'
-	{ after(grammarAccess.getTileBarFXAccess().getTilesKeyword_3()); }
+	{ before(grammarAccess.getTileBarFXAccess().getNameKeyword_3()); }
+	'name:'
+	{ after(grammarAccess.getTileBarFXAccess().getNameKeyword_3()); }
 )
 ;
 finally {
@@ -5266,9 +5266,9 @@ rule__TileBarFX__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getTileBarFXAccess().getPlusSignEqualsSignKeyword_4()); }
-	'+='
-	{ after(grammarAccess.getTileBarFXAccess().getPlusSignEqualsSignKeyword_4()); }
+	{ before(grammarAccess.getTileBarFXAccess().getNameAssignment_4()); }
+	(rule__TileBarFX__NameAssignment_4)
+	{ after(grammarAccess.getTileBarFXAccess().getNameAssignment_4()); }
 )
 ;
 finally {
@@ -5293,9 +5293,9 @@ rule__TileBarFX__Group__5__Impl
 	}
 :
 (
-	{ before(grammarAccess.getTileBarFXAccess().getTilesAssignment_5()); }
-	(rule__TileBarFX__TilesAssignment_5)
-	{ after(grammarAccess.getTileBarFXAccess().getTilesAssignment_5()); }
+	{ before(grammarAccess.getTileBarFXAccess().getGroup_5()); }
+	(rule__TileBarFX__Group_5__0)*
+	{ after(grammarAccess.getTileBarFXAccess().getGroup_5()); }
 )
 ;
 finally {
@@ -5322,6 +5322,87 @@ rule__TileBarFX__Group__6__Impl
 	{ before(grammarAccess.getTileBarFXAccess().getRightCurlyBracketKeyword_6()); }
 	'}'
 	{ after(grammarAccess.getTileBarFXAccess().getRightCurlyBracketKeyword_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__TileBarFX__Group_5__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TileBarFX__Group_5__0__Impl
+	rule__TileBarFX__Group_5__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TileBarFX__Group_5__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTileBarFXAccess().getTilesKeyword_5_0()); }
+	'tiles'
+	{ after(grammarAccess.getTileBarFXAccess().getTilesKeyword_5_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TileBarFX__Group_5__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TileBarFX__Group_5__1__Impl
+	rule__TileBarFX__Group_5__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TileBarFX__Group_5__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTileBarFXAccess().getPlusSignEqualsSignKeyword_5_1()); }
+	'+='
+	{ after(grammarAccess.getTileBarFXAccess().getPlusSignEqualsSignKeyword_5_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TileBarFX__Group_5__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TileBarFX__Group_5__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TileBarFX__Group_5__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTileBarFXAccess().getTilesAssignment_5_2()); }
+	(rule__TileBarFX__TilesAssignment_5_2)
+	{ after(grammarAccess.getTileBarFXAccess().getTilesAssignment_5_2()); }
 )
 ;
 finally {
@@ -5374,9 +5455,9 @@ rule__KeyValueTileFX__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getKeyValueTileFXAccess().getTileBarFXKeyword_1()); }
-	'TileBarFX'
-	{ after(grammarAccess.getKeyValueTileFXAccess().getTileBarFXKeyword_1()); }
+	{ before(grammarAccess.getKeyValueTileFXAccess().getKeyValueTileFXKeyword_1()); }
+	'KeyValueTileFX'
+	{ after(grammarAccess.getKeyValueTileFXAccess().getKeyValueTileFXKeyword_1()); }
 )
 ;
 finally {
@@ -27717,15 +27798,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TileBarFX__TilesAssignment_5
+rule__TileBarFX__NameAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getTileBarFXAccess().getTilesTileFXParserRuleCall_5_0()); }
+		{ before(grammarAccess.getTileBarFXAccess().getNameEStringParserRuleCall_4_0()); }
+		ruleEString
+		{ after(grammarAccess.getTileBarFXAccess().getNameEStringParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TileBarFX__TilesAssignment_5_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTileBarFXAccess().getTilesTileFXParserRuleCall_5_2_0()); }
 		ruleTileFX
-		{ after(grammarAccess.getTileBarFXAccess().getTilesTileFXParserRuleCall_5_0()); }
+		{ after(grammarAccess.getTileBarFXAccess().getTilesTileFXParserRuleCall_5_2_0()); }
 	)
 ;
 finally {

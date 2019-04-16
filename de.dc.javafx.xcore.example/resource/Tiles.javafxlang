@@ -2,6 +2,10 @@ packagePath "de.dc.javafx.xcore.example.tiles"
 
 controls{
 	TileBarFX{
-		tiles += TileBarFX(id:ContactCounter, key:'Count of Contacts', value:'0')
+		name: ContactTileBar
+		tiles += KeyValueTileFX(id:ContactCounter1, key:'Count of Contacts1', value:'10')
+		tiles += KeyValueTileFX(id:ContactCounter2, key:'Count of Contacts2', value:'20')
+		tiles += KeyValueTileFX(id:ContactCounter3, key:'Count of Contacts3', value:'30')
+		tiles += KeyValueTileFX(id:ContactCounter4, key:'Count of Contacts4', value:'40') 
 	}
 }

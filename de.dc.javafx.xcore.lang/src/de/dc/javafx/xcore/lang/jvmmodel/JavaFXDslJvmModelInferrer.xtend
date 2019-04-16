@@ -41,6 +41,10 @@ import de.dc.emf.javafx.model.javafx.ListViewFX
 import de.dc.javafx.xcore.lang.lib.BaseListView
 import de.dc.javafx.xcore.lang.lib.feature.ContactListCellFeature
 import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature
+import de.dc.emf.javafx.model.javafx.TileBarFX
+import de.dc.javafx.xcore.lang.lib.BaseKeyValueTile
+import de.dc.javafx.xcore.lang.lib.BaseTileBar
+import javafx.geometry.Insets
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -346,5 +350,31 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			return view;
 			'''
 		])
+	}
+	
+	def dispatch void infer(TileBarFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+		acceptor.accept(element.toClass(packagePath+element.name)) [
+			superTypes+=BaseTileBar.typeRef
+			
+			members += element.toConstructor[
+				body = '''
+				setPadding(new «Insets»(10d));
+				setHgap(10d);
+				setVgap(10d);
+				«FOR tile : element.tiles»
+				«BaseKeyValueTile» «tile.name.toFirstLower»Tile = new «BaseKeyValueTile»("«tile.name.toFirstUpper»");
+				«tile.name.toFirstLower»Tile.setValue("200");
+				add(«tile.name.toFirstLower»Tile);
+				«ENDFOR»
+				'''
+			]
+			
+			members += element.toMethod('findByKey', BaseKeyValueTile.typeRef)[
+				parameters += element.toParameter('key', String.typeRef)
+				body = '''return («BaseKeyValueTile») tiles.get(key);'''
+			]
+		]
+
 	}
 }

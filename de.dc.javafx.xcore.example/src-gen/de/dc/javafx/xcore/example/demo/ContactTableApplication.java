@@ -22,10 +22,6 @@ public class ContactTableApplication extends Application {
     ObservableList<Contact> items = FXCollections.observableArrayList();
     for (int i = 0; i < 30; i++) {
     	Contact item = new Contact();
-    	item.setName("Andy");
-    	item.setAge(i*30/15);
-    	item.setGender(true);
-    	item.setAddress("Neverworld");
     	items.add(item);
     }
     view.setInput(items);

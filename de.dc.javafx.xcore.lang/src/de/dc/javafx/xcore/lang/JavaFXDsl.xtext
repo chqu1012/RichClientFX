@@ -35,7 +35,8 @@ TileBarFX returns TileBarFX:
 	{TileBarFX}
 	'TileBarFX'
 	'{'
-		'tiles' '+=' tiles+=TileFX
+		'name:' name=EString
+		('tiles' '+=' tiles+=TileFX)*
 	'}'
 ;
 
@@ -46,7 +47,7 @@ TileFX returns BaseTileFX:
 
 KeyValueTileFX returns KeyValueTileFX:
 	{KeyValueTileFX}
-	'TileBarFX'
+	'KeyValueTileFX'
 	'('
 		('id:' name=ID ','?)
 		('key:' key=EString ','?)

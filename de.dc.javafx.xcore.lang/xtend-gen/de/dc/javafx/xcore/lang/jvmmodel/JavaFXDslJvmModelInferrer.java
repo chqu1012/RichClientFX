@@ -6,15 +6,19 @@ package de.dc.javafx.xcore.lang.jvmmodel;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
+import de.dc.emf.javafx.model.javafx.BaseTileFX;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.ListViewFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
+import de.dc.emf.javafx.model.javafx.TileBarFX;
 import de.dc.emf.javafx.model.javafx.TreeViewFX;
+import de.dc.javafx.xcore.lang.lib.BaseKeyValueTile;
 import de.dc.javafx.xcore.lang.lib.BaseListView;
 import de.dc.javafx.xcore.lang.lib.BaseTableView;
+import de.dc.javafx.xcore.lang.lib.BaseTileBar;
 import de.dc.javafx.xcore.lang.lib.BaseTreeView;
 import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature;
 import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature;
@@ -32,6 +36,7 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -938,6 +943,81 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
     this.demo(acceptor, element, packagePath, this._jvmTypesBuilder.toMethod(element, "getRoot", this._typeReferenceBuilder.typeRef(Parent.class), _function_2));
   }
   
+  protected void _infer(final TileBarFX element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    EObject _rootContainer = EcoreUtil.getRootContainer(element);
+    String _packagePath = ((ProjectFX) _rootContainer).getPackagePath();
+    final String packagePath = (_packagePath + ".");
+    String _name = element.getName();
+    String _plus = (packagePath + _name);
+    final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+      EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(BaseTileBar.class);
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      EList<JvmMember> _members = it.getMembers();
+      final Procedure1<JvmConstructor> _function_1 = (JvmConstructor it_1) -> {
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("setPadding(new ");
+            _builder.append(Insets.class);
+            _builder.append("(10d));");
+            _builder.newLineIfNotEmpty();
+            _builder.append("setHgap(10d);");
+            _builder.newLine();
+            _builder.append("setVgap(10d);");
+            _builder.newLine();
+            {
+              EList<BaseTileFX> _tiles = element.getTiles();
+              for(final BaseTileFX tile : _tiles) {
+                _builder.append(BaseKeyValueTile.class);
+                _builder.append(" ");
+                String _firstLower = StringExtensions.toFirstLower(tile.getName());
+                _builder.append(_firstLower);
+                _builder.append("Tile = new ");
+                _builder.append(BaseKeyValueTile.class);
+                _builder.append("(\"");
+                String _firstUpper = StringExtensions.toFirstUpper(tile.getName());
+                _builder.append(_firstUpper);
+                _builder.append("\");");
+                _builder.newLineIfNotEmpty();
+                String _firstLower_1 = StringExtensions.toFirstLower(tile.getName());
+                _builder.append(_firstLower_1);
+                _builder.append("Tile.setValue(\"200\");");
+                _builder.newLineIfNotEmpty();
+                _builder.append("add(");
+                String _firstLower_2 = StringExtensions.toFirstLower(tile.getName());
+                _builder.append(_firstLower_2);
+                _builder.append("Tile);");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmConstructor _constructor = this._jvmTypesBuilder.toConstructor(element, _function_1);
+      this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
+      EList<JvmMember> _members_1 = it.getMembers();
+      final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
+        EList<JvmFormalParameter> _parameters = it_1.getParameters();
+        JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "key", this._typeReferenceBuilder.typeRef(String.class));
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return (");
+            _builder.append(BaseKeyValueTile.class);
+            _builder.append(") tiles.get(key);");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "findByKey", this._typeReferenceBuilder.typeRef(BaseKeyValueTile.class), _function_2);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method);
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, _plus), _function);
+  }
+  
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     if (element instanceof ListViewFX) {
       _infer((ListViewFX)element, acceptor, isPreIndexingPhase);
@@ -950,6 +1030,9 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       return;
     } else if (element instanceof Bean) {
       _infer((Bean)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof TileBarFX) {
+      _infer((TileBarFX)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof ProjectFX) {
       _infer((ProjectFX)element, acceptor, isPreIndexingPhase);

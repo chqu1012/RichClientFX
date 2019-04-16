@@ -820,7 +820,7 @@ public class JavaFXDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequ
 	 *     TileBarFX returns TileBarFX
 	 *
 	 * Constraint:
-	 *     tiles+=TileFX
+	 *     (name=EString tiles+=TileFX*)
 	 */
 	protected void sequence_TileBarFX(ISerializationContext context, TileBarFX semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

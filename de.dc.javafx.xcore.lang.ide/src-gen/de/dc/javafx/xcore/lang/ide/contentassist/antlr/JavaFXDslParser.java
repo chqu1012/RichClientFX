@@ -91,6 +91,7 @@ public class JavaFXDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
 			builder.put(grammarAccess.getBindingAccess().getGroup_4(), "rule__Binding__Group_4__0");
 			builder.put(grammarAccess.getTileBarFXAccess().getGroup(), "rule__TileBarFX__Group__0");
+			builder.put(grammarAccess.getTileBarFXAccess().getGroup_5(), "rule__TileBarFX__Group_5__0");
 			builder.put(grammarAccess.getKeyValueTileFXAccess().getGroup(), "rule__KeyValueTileFX__Group__0");
 			builder.put(grammarAccess.getKeyValueTileFXAccess().getGroup_3(), "rule__KeyValueTileFX__Group_3__0");
 			builder.put(grammarAccess.getKeyValueTileFXAccess().getGroup_4(), "rule__KeyValueTileFX__Group_4__0");
@@ -404,7 +405,8 @@ public class JavaFXDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBindingAccess().getNameAssignment_2(), "rule__Binding__NameAssignment_2");
 			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_0(), "rule__Binding__PropertyAssignment_4_0");
 			builder.put(grammarAccess.getBindingAccess().getPropertyAssignment_4_1(), "rule__Binding__PropertyAssignment_4_1");
-			builder.put(grammarAccess.getTileBarFXAccess().getTilesAssignment_5(), "rule__TileBarFX__TilesAssignment_5");
+			builder.put(grammarAccess.getTileBarFXAccess().getNameAssignment_4(), "rule__TileBarFX__NameAssignment_4");
+			builder.put(grammarAccess.getTileBarFXAccess().getTilesAssignment_5_2(), "rule__TileBarFX__TilesAssignment_5_2");
 			builder.put(grammarAccess.getKeyValueTileFXAccess().getNameAssignment_3_1(), "rule__KeyValueTileFX__NameAssignment_3_1");
 			builder.put(grammarAccess.getKeyValueTileFXAccess().getKeyAssignment_4_1(), "rule__KeyValueTileFX__KeyAssignment_4_1");
 			builder.put(grammarAccess.getKeyValueTileFXAccess().getValueAssignment_5_1(), "rule__KeyValueTileFX__ValueAssignment_5_1");

@@ -637,36 +637,61 @@ ruleTileBarFX returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getTileBarFXAccess().getLeftCurlyBracketKeyword_2());
 		}
-		otherlv_3='tiles'
+		otherlv_3='name:'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getTileBarFXAccess().getTilesKeyword_3());
-		}
-		otherlv_4='+='
-		{
-			newLeafNode(otherlv_4, grammarAccess.getTileBarFXAccess().getPlusSignEqualsSignKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getTileBarFXAccess().getNameKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTileBarFXAccess().getTilesTileFXParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getTileBarFXAccess().getNameEStringParserRuleCall_4_0());
 				}
-				lv_tiles_5_0=ruleTileFX
+				lv_name_4_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTileBarFXRule());
 					}
-					add(
+					set(
 						$current,
-						"tiles",
-						lv_tiles_5_0,
-						"de.dc.javafx.xcore.lang.JavaFXDsl.TileFX");
+						"name",
+						lv_name_4_0,
+						"de.dc.javafx.xcore.lang.JavaFXDsl.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_6='}'
+		(
+			otherlv_5='tiles'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getTileBarFXAccess().getTilesKeyword_5_0());
+			}
+			otherlv_6='+='
+			{
+				newLeafNode(otherlv_6, grammarAccess.getTileBarFXAccess().getPlusSignEqualsSignKeyword_5_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTileBarFXAccess().getTilesTileFXParserRuleCall_5_2_0());
+					}
+					lv_tiles_7_0=ruleTileFX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTileBarFXRule());
+						}
+						add(
+							$current,
+							"tiles",
+							lv_tiles_7_0,
+							"de.dc.javafx.xcore.lang.JavaFXDsl.TileFX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_8='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getTileBarFXAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_8, grammarAccess.getTileBarFXAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -719,9 +744,9 @@ ruleKeyValueTileFX returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='TileBarFX'
+		otherlv_1='KeyValueTileFX'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getKeyValueTileFXAccess().getTileBarFXKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getKeyValueTileFXAccess().getKeyValueTileFXKeyword_1());
 		}
 		otherlv_2='('
 		{

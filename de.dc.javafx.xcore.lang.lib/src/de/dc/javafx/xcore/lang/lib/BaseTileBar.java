@@ -7,7 +7,7 @@ import javafx.scene.layout.FlowPane;
 
 public class BaseTileBar extends FlowPane {
 
-	private Map<String, BaseTile> tiles = new HashMap<>();
+	protected Map<String, BaseTile> tiles = new HashMap<>();
 	
 	public void add(BaseTile tile) {
 		tiles.put(tile.getKey(), tile);
