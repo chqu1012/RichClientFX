@@ -137,10 +137,6 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		};
 
 		eAttributeList = FXCollections.observableArrayList();
-//		eattributeComboBox.setItems(eAttributeList);
-//		eattributeComboBox.setConverter(stringConverter);
-
-		setDisable(true);
 	}
 
 	@Override
