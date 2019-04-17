@@ -40,6 +40,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isUseUndoRedo <em>Use Undo Redo</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isShowCommandStack <em>Show Command Stack</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isShowPropertyView <em>Show Property View</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isGenerateDemo <em>Generate Demo</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getSupportedControls <em>Supported Controls</em>}</li>
  * </ul>
  *
@@ -156,6 +157,26 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
    * @ordered
    */
   protected boolean showPropertyView = SHOW_PROPERTY_VIEW_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isGenerateDemo() <em>Generate Demo</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isGenerateDemo()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean GENERATE_DEMO_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isGenerateDemo() <em>Generate Demo</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isGenerateDemo()
+   * @generated
+   * @ordered
+   */
+  protected boolean generateDemo = GENERATE_DEMO_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getSupportedControls() <em>Supported Controls</em>}' containment reference list.
@@ -444,6 +465,31 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
    * @generated
    */
   @Override
+  public boolean isGenerateDemo()
+  {
+    return generateDemo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setGenerateDemo(boolean newGenerateDemo)
+  {
+    boolean oldGenerateDemo = generateDemo;
+    generateDemo = newGenerateDemo;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ECORE__GENERATE_DEMO, oldGenerateDemo, generateDemo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<SupportedControl> getSupportedControls()
   {
     if (supportedControls == null)
@@ -499,6 +545,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return isShowCommandStack();
       case EmfSupportDslPackage.ECORE__SHOW_PROPERTY_VIEW:
         return isShowPropertyView();
+      case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
+        return isGenerateDemo();
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         return getSupportedControls();
     }
@@ -536,6 +584,9 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return;
       case EmfSupportDslPackage.ECORE__SHOW_PROPERTY_VIEW:
         setShowPropertyView((Boolean)newValue);
+        return;
+      case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
+        setGenerateDemo((Boolean)newValue);
         return;
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         getSupportedControls().clear();
@@ -576,6 +627,9 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
       case EmfSupportDslPackage.ECORE__SHOW_PROPERTY_VIEW:
         setShowPropertyView(SHOW_PROPERTY_VIEW_EDEFAULT);
         return;
+      case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
+        setGenerateDemo(GENERATE_DEMO_EDEFAULT);
+        return;
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         getSupportedControls().clear();
         return;
@@ -607,6 +661,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return showCommandStack != SHOW_COMMAND_STACK_EDEFAULT;
       case EmfSupportDslPackage.ECORE__SHOW_PROPERTY_VIEW:
         return showPropertyView != SHOW_PROPERTY_VIEW_EDEFAULT;
+      case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
+        return generateDemo != GENERATE_DEMO_EDEFAULT;
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         return supportedControls != null && !supportedControls.isEmpty();
     }
@@ -632,6 +688,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
     result.append(showCommandStack);
     result.append(", showPropertyView: ");
     result.append(showPropertyView);
+    result.append(", generateDemo: ");
+    result.append(generateDemo);
     result.append(')');
     return result.toString();
   }

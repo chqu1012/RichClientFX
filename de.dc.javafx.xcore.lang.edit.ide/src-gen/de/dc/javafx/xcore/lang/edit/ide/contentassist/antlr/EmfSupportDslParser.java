@@ -78,7 +78,7 @@ public class EmfSupportDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1(), "rule__XImportDeclaration__Alternatives_1");
 			builder.put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1_0_3(), "rule__XImportDeclaration__Alternatives_1_0_3");
 			builder.put(grammarAccess.getEcoreAccess().getGroup(), "rule__Ecore__Group__0");
-			builder.put(grammarAccess.getEcoreAccess().getGroup_16(), "rule__Ecore__Group_16__0");
+			builder.put(grammarAccess.getEcoreAccess().getGroup_18(), "rule__Ecore__Group_18__0");
 			builder.put(grammarAccess.getTreeViewFXAccess().getGroup(), "rule__TreeViewFX__Group__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup(), "rule__TableViewFX__Group__0");
 			builder.put(grammarAccess.getTreeTableAccess().getGroup(), "rule__TreeTable__Group__0");
@@ -290,7 +290,8 @@ public class EmfSupportDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEcoreAccess().getUseUndoRedoAssignment_11(), "rule__Ecore__UseUndoRedoAssignment_11");
 			builder.put(grammarAccess.getEcoreAccess().getShowCommandStackAssignment_13(), "rule__Ecore__ShowCommandStackAssignment_13");
 			builder.put(grammarAccess.getEcoreAccess().getShowPropertyViewAssignment_15(), "rule__Ecore__ShowPropertyViewAssignment_15");
-			builder.put(grammarAccess.getEcoreAccess().getSupportedControlsAssignment_16_2(), "rule__Ecore__SupportedControlsAssignment_16_2");
+			builder.put(grammarAccess.getEcoreAccess().getGenerateDemoAssignment_17(), "rule__Ecore__GenerateDemoAssignment_17");
+			builder.put(grammarAccess.getEcoreAccess().getSupportedControlsAssignment_18_2(), "rule__Ecore__SupportedControlsAssignment_18_2");
 			builder.put(grammarAccess.getTreeViewFXAccess().getNameAssignment_3(), "rule__TreeViewFX__NameAssignment_3");
 			builder.put(grammarAccess.getTableViewFXAccess().getNameAssignment_3(), "rule__TableViewFX__NameAssignment_3");
 			builder.put(grammarAccess.getTreeTableAccess().getNameAssignment_3(), "rule__TreeTable__NameAssignment_3");

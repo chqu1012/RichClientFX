@@ -25,6 +25,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isUseUndoRedo <em>Use Undo Redo</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isShowCommandStack <em>Show Command Stack</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isShowPropertyView <em>Show Property View</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isGenerateDemo <em>Generate Demo</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getSupportedControls <em>Supported Controls</em>}</li>
  * </ul>
  *
@@ -187,6 +188,28 @@ public interface Ecore extends EObject
    * @generated
    */
   void setShowPropertyView(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Generate Demo</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Generate Demo</em>' attribute.
+   * @see #setGenerateDemo(boolean)
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getEcore_GenerateDemo()
+   * @model
+   * @generated
+   */
+  boolean isGenerateDemo();
+
+  /**
+   * Sets the value of the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isGenerateDemo <em>Generate Demo</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Generate Demo</em>' attribute.
+   * @see #isGenerateDemo()
+   * @generated
+   */
+  void setGenerateDemo(boolean value);
 
   /**
    * Returns the value of the '<em><b>Supported Controls</b></em>' containment reference list.

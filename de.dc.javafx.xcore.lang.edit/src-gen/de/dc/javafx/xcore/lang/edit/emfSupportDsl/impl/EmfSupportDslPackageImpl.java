@@ -253,9 +253,20 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
+  public EAttribute getEcore_GenerateDemo()
+  {
+    return (EAttribute)ecoreEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getEcore_SupportedControls()
   {
-    return (EReference)ecoreEClass.getEStructuralFeatures().get(7);
+    return (EReference)ecoreEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -366,6 +377,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
     createEAttribute(ecoreEClass, ECORE__USE_UNDO_REDO);
     createEAttribute(ecoreEClass, ECORE__SHOW_COMMAND_STACK);
     createEAttribute(ecoreEClass, ECORE__SHOW_PROPERTY_VIEW);
+    createEAttribute(ecoreEClass, ECORE__GENERATE_DEMO);
     createEReference(ecoreEClass, ECORE__SUPPORTED_CONTROLS);
 
     supportedControlEClass = createEClass(SUPPORTED_CONTROL);
@@ -426,6 +438,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
     initEAttribute(getEcore_UseUndoRedo(), ecorePackage.getEBoolean(), "useUndoRedo", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEcore_ShowCommandStack(), ecorePackage.getEBoolean(), "showCommandStack", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEcore_ShowPropertyView(), ecorePackage.getEBoolean(), "showPropertyView", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEcore_GenerateDemo(), ecorePackage.getEBoolean(), "generateDemo", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEcore_SupportedControls(), this.getSupportedControl(), null, "supportedControls", null, 0, -1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(supportedControlEClass, SupportedControl.class, "SupportedControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

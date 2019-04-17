@@ -72,23 +72,25 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
  				]
 	 		])
 	 		
-	 		acceptor.accept(element.toClass(name+'ViewApplication')[
-	 			superTypes += AbstractApplication.typeRef
-	 			
-	 			members += model.toMethod('getRoot', Parent.typeRef)[
-	 				annotations += model.toAnnotation(Override)
-	 				body = '''
-	 				«IEmfManager»<«model.rootType»> manager = new «name»Manager();
-	 				return new «name»View(manager );
-	 				'''
- 				]
- 				
-				members += element.toMethod("main", 'void'.typeRef)[
-					static = true
-					parameters += element.toParameter('args', String.typeRef.addArrayTypeDimension)
-					body ='''launch(args);'''
-				]
-	 		])
+	 		if(model.generateDemo){
+		 		acceptor.accept(element.toClass(name+'ViewApplication')[
+		 			superTypes += AbstractApplication.typeRef
+		 			
+		 			members += model.toMethod('getRoot', Parent.typeRef)[
+		 				annotations += model.toAnnotation(Override)
+		 				body = '''
+		 				«IEmfManager»<«model.rootType»> manager = new «name»Manager();
+		 				return new «name»View(manager );
+		 				'''
+	 				]
+	 				
+					members += element.toMethod("main", 'void'.typeRef)[
+						static = true
+						parameters += element.toParameter('args', String.typeRef.addArrayTypeDimension)
+						body ='''launch(args);'''
+					]
+		 		])
+	 		}
 		}
 	}
 }

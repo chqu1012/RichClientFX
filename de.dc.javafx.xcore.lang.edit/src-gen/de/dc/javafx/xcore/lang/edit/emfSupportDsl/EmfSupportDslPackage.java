@@ -159,13 +159,22 @@ public interface EmfSupportDslPackage extends EPackage
   int ECORE__SHOW_PROPERTY_VIEW = 6;
 
   /**
+   * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECORE__GENERATE_DEMO = 7;
+
+  /**
    * The feature id for the '<em><b>Supported Controls</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ECORE__SUPPORTED_CONTROLS = 7;
+  int ECORE__SUPPORTED_CONTROLS = 8;
 
   /**
    * The number of structural features of the '<em>Ecore</em>' class.
@@ -174,7 +183,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE_FEATURE_COUNT = 8;
+  int ECORE_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl <em>Supported Control</em>}' class.
@@ -398,6 +407,17 @@ public interface EmfSupportDslPackage extends EPackage
   EAttribute getEcore_ShowPropertyView();
 
   /**
+   * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isGenerateDemo <em>Generate Demo</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Generate Demo</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isGenerateDemo()
+   * @see #getEcore()
+   * @generated
+   */
+  EAttribute getEcore_GenerateDemo();
+
+  /**
    * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getSupportedControls <em>Supported Controls</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -576,6 +596,14 @@ public interface EmfSupportDslPackage extends EPackage
      * @generated
      */
     EAttribute ECORE__SHOW_PROPERTY_VIEW = eINSTANCE.getEcore_ShowPropertyView();
+
+    /**
+     * The meta object literal for the '<em><b>Generate Demo</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ECORE__GENERATE_DEMO = eINSTANCE.getEcore_GenerateDemo();
 
     /**
      * The meta object literal for the '<em><b>Supported Controls</b></em>' containment reference list feature.

@@ -281,21 +281,44 @@ ruleEcore returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_16='generateDemo:'
+		{
+			newLeafNode(otherlv_16, grammarAccess.getEcoreAccess().getGenerateDemoKeyword_16());
+		}
 		(
-			otherlv_16='controls'
+			(
+				{
+					newCompositeNode(grammarAccess.getEcoreAccess().getGenerateDemoEBooleanParserRuleCall_17_0());
+				}
+				lv_generateDemo_17_0=ruleEBoolean
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEcoreRule());
+					}
+					set(
+						$current,
+						"generateDemo",
+						lv_generateDemo_17_0,
+						"de.dc.javafx.xcore.lang.edit.EmfSupportDsl.EBoolean");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_18='controls'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getEcoreAccess().getControlsKeyword_16_0());
+				newLeafNode(otherlv_18, grammarAccess.getEcoreAccess().getControlsKeyword_18_0());
 			}
-			otherlv_17='+='
+			otherlv_19='+='
 			{
-				newLeafNode(otherlv_17, grammarAccess.getEcoreAccess().getPlusSignEqualsSignKeyword_16_1());
+				newLeafNode(otherlv_19, grammarAccess.getEcoreAccess().getPlusSignEqualsSignKeyword_18_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEcoreAccess().getSupportedControlsSupportedControlParserRuleCall_16_2_0());
+						newCompositeNode(grammarAccess.getEcoreAccess().getSupportedControlsSupportedControlParserRuleCall_18_2_0());
 					}
-					lv_supportedControls_18_0=ruleSupportedControl
+					lv_supportedControls_20_0=ruleSupportedControl
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEcoreRule());
@@ -303,16 +326,16 @@ ruleEcore returns [EObject current=null]
 						add(
 							$current,
 							"supportedControls",
-							lv_supportedControls_18_0,
+							lv_supportedControls_20_0,
 							"de.dc.javafx.xcore.lang.edit.EmfSupportDsl.SupportedControl");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_19='}'
+		otherlv_21='}'
 		{
-			newLeafNode(otherlv_19, grammarAccess.getEcoreAccess().getRightCurlyBracketKeyword_17());
+			newLeafNode(otherlv_21, grammarAccess.getEcoreAccess().getRightCurlyBracketKeyword_19());
 		}
 	)
 ;

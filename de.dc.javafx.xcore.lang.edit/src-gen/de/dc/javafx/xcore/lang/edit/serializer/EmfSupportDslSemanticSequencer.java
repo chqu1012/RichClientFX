@@ -417,6 +417,7 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	 *         useUndoRedo=EBoolean 
 	 *         showCommandStack=EBoolean 
 	 *         showPropertyView=EBoolean 
+	 *         generateDemo=EBoolean 
 	 *         supportedControls+=SupportedControl*
 	 *     )
 	 */

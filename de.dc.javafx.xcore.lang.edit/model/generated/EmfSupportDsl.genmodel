@@ -17,6 +17,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/useUndoRedo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/showCommandStack"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/showPropertyView"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/generateDemo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//Ecore/supportedControls"/>
     </genClasses>
     <genClasses ecoreClass="EmfSupportDsl.ecore#//SupportedControl">
