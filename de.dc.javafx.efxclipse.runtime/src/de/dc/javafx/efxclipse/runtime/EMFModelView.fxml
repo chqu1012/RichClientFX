@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" type="BorderPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dc.javafx.efxclipse.runtime.EMFModelView">
+   <center>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" BorderPane.alignment="CENTER">
+         <items>
+            <SplitPane dividerPositions="0.7612687813021702" prefHeight="200.0" prefWidth="200.0">
+               <items>
+                  <TreeView fx:id="treeView" prefHeight="698.0" prefWidth="648.0" />
+                  <TabPane>
+                     <tabs>
+                        <Tab closable="false" text="History">
+                           <content>
+                              <TitledPane animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="History">
+                                 <content>
+                                    <ListView fx:id="historyList" prefHeight="200.0" prefWidth="200.0" />
+                                 </content>
+                              </TitledPane>
+                           </content>
+                        </Tab>
+                        <Tab closable="false" text="Commands">
+                           <content>
+                              <TitledPane animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Commands" />
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </items>
+            </SplitPane>
+            <TitledPane animated="false" text="PropertyView">
+              <content>
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <TableView fx:id="tableView" layoutX="8.0" layoutY="-47.0" prefHeight="180.0" prefWidth="1196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="propertyColumn" prefWidth="216.99999392032623" text="C1" />
+                            <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="543.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+         </items>
+      </SplitPane>
+   </center>
+</fx:root>
