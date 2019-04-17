@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import de.dc.javafx.efxclipse.runtime.model.IEmfManager
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -24,6 +25,8 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 		for(model : element.ecore){
 			val name = model.name
 	 		acceptor.accept(element.toClass(name+'Manager')[
+	 			superTypes += IEmfManager.typeRef(model.rootType)
+	 			
 	 			members += element.toField('root', model.rootType)
 	 			members += element.toField('editingDomain', EditingDomain.typeRef)
 	 			members += element.toField('adapterFactory', ComposedAdapterFactory.typeRef)

@@ -5,6 +5,7 @@ package de.dc.javafx.xcore.lang.edit.jvmmodel;
 
 import com.google.inject.Inject;
 import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl;
+import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
 import java.util.Arrays;
@@ -41,6 +42,9 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
       {
         final String name = model.getName();
         final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+          EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+          JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(IEmfManager.class, model.getRootType());
+          this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
           EList<JvmMember> _members = it.getMembers();
           JvmField _field = this._jvmTypesBuilder.toField(element, "root", model.getRootType());
           this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
