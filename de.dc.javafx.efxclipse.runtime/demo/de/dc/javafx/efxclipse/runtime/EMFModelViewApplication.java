@@ -1,5 +1,6 @@
 package de.dc.javafx.efxclipse.runtime;
 
+import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,7 +15,8 @@ public class EMFModelViewApplication extends Application {
 	}
 
 	public Parent getRoot() {
-		return new EMFModelView();
+		IEmfManager<Object> manager = null;
+		return new EMFModelView<>(manager);
 	}
 
 	public static void main(final String[] args) {
