@@ -26,7 +26,7 @@
                      <tabs>
                         <Tab closable="false" text="History">
                            <content>
-                              <TitledPane animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="History">
+                              <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="History">
                                  <content>
                                     <ListView fx:id="historyList" prefHeight="200.0" prefWidth="200.0" />
                                  </content>
@@ -35,21 +35,21 @@
                         </Tab>
                         <Tab closable="false" text="Commands">
                            <content>
-                              <TitledPane animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Commands" />
+                              <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Commands" />
                            </content>
                         </Tab>
                      </tabs>
                   </TabPane>
                </items>
             </SplitPane>
-            <TitledPane animated="false" text="PropertyView">
+            <TitledPane animated="false" collapsible="false" text="PropertyView">
               <content>
                 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                      <children>
                         <TableView fx:id="tableView" layoutX="8.0" layoutY="-47.0" prefHeight="180.0" prefWidth="1196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="propertyColumn" prefWidth="216.99999392032623" text="C1" />
-                            <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="543.0" text="C2" />
+                            <TableColumn fx:id="propertyColumn" prefWidth="216.99999392032623" text="Property" />
+                            <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="543.0" text="Value" />
                           </columns>
                         </TableView>
                      </children>
