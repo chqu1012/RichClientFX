@@ -1,0 +1,3 @@
+.titled-pane > .content > * {
+    -fx-padding: 0px;
+}
