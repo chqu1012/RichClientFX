@@ -37,11 +37,16 @@ public abstract class AbstractEmfManager<T> implements IEmfManager<T> {
 	protected abstract AdapterFactory getModelItemProviderAdapterFactory();
 
 	protected abstract T initModel();
+	protected abstract T createNewModelOnNullCheck();
 
 	@Override
 	public T getRoot() {
+		if (root == null) {
+			root = createNewModelOnNullCheck();
+		}
 		return root;
 	}
+
 
 	@Override
 	public EditingDomain getEditingDomain() {
