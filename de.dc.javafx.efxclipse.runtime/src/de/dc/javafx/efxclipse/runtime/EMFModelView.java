@@ -1,12 +1,18 @@
 package de.dc.javafx.efxclipse.runtime;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.EventObject;
+import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
 import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
@@ -28,9 +34,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
-import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 public class EMFModelView<T> extends BorderPane implements CommandStackListener, ChangeListener<Object> {
@@ -45,20 +50,21 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	private TableView<EAttribute> tableView;
 
 	@FXML
-	private TableColumn<EAttribute, EAttribute> propertyColumn;
+	private TableColumn<EAttribute, String> propertyColumn;
 
 	@FXML
-	private TableColumn<EAttribute, EAttribute> valueColumn;
+	private TableColumn<EAttribute, String> valueColumn;
 
 	private IEmfManager<T> manager;
 
 	private EObject currentEObject;
 	private ObservableList<EAttribute> eAttributeList = FXCollections.observableArrayList();
 	private ObservableList<EAttribute> properties = FXCollections.observableArrayList();
-	
+
 	public EMFModelView(IEmfManager<T> manager) {
 		this.manager = manager;
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelView.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(
+				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelView.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 
@@ -67,9 +73,10 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		} catch (IOException exception) {
 			throw new RuntimeException(exception);
 		}
-		
+
 		manager.getCommandStack().addCommandStackListener(this);
-		historyList.setCellFactory(new CommandListCellFactory(manager.getAdapterFactory(), manager.getEditingDomain().getCommandStack()));
+		historyList.setCellFactory(
+				new CommandListCellFactory(manager.getAdapterFactory(), manager.getEditingDomain().getCommandStack()));
 		historyList.setEditable(false);
 
 		treeView.getSelectionModel().selectedItemProperty().addListener(this);
@@ -79,8 +86,9 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		treeView.setRoot(rootItem);
 
 		// connect to EMF.edit providers
-		AdapterFactoryTreeCellFactory<Object> treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(manager.getAdapterFactory());
-		
+		AdapterFactoryTreeCellFactory<Object> treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(
+				manager.getAdapterFactory());
+
 //		treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ModelPackage.eINSTANCE.getContact_Firstname(), manager.getEditingDomain()));
 
 		// adds drag support
@@ -90,33 +98,29 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		EditingDomainCellDropAdapter dropAdapter = new EditingDomainCellDropAdapter(manager.getEditingDomain());
 		dropAdapter.setFeedbackHandler(new CustomFeedbackHandler());
 		treeCellFactory.addCellCreationListener(dropAdapter);
-		
+
 		treeView.setCellFactory(treeCellFactory);
 		rootItem.setExpanded(true);
 		treeView.setEditable(false);
 
-		/*
-		 * Properties
-		 */
-		propertyColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<EAttribute,EAttribute>, ObservableValue<EAttribute>>() {
-			@Override
-			public ObservableValue call(CellDataFeatures<EAttribute, EAttribute> param) {
-				return new SimpleStringProperty(param.getValue().getName());
-			}
+		propertyColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
+		valueColumn.setCellFactory(TextFieldTableCell.<EAttribute>forTableColumn());
+		valueColumn.setOnEditCommit(evt -> {
+			EAttribute selectedAttribute = tableView.getSelectionModel().getSelectedItem();
+			Object value = EcoreUtil.createFromString(selectedAttribute.getEAttributeType(), evt.getNewValue());
+			SetCommand command = new SetCommand(manager.getEditingDomain(), currentEObject, selectedAttribute, value);
+			manager.getEditingDomain().getCommandStack().execute(command);
 		});
-		valueColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<EAttribute,EAttribute>, ObservableValue<EAttribute>>() {
-			@Override
-			public ObservableValue call(CellDataFeatures<EAttribute, EAttribute> param) {
-				TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
-				if (selectedItem != null) {
-					Object itemValue = selectedItem.getValue();
-					if (itemValue instanceof EObject) {
-						EObject element = (EObject) itemValue;
-						return new SimpleStringProperty(element.eGet(param.getValue())+"");
-					}
+		valueColumn.setCellValueFactory(param -> {
+			TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
+			if (selectedItem != null) {
+				Object itemValue = selectedItem.getValue();
+				if (itemValue instanceof EObject) {
+					EObject element = (EObject) itemValue;
+					return new SimpleStringProperty(element.eGet(param.getValue()) + "");
 				}
-				return new SimpleStringProperty("");
 			}
+			return new SimpleStringProperty("");
 		});
 		tableView.setItems(properties);
 		treeView.getSelectionModel().selectedItemProperty()
@@ -140,17 +144,28 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	}
 
 	@Override
-	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		
+	public void changed(ObservableValue<? extends Object> arg0, Object oldValue, Object newValue) {
+		if (newValue instanceof TreeItem<?>) {
+			Object value = ((TreeItem<?>) newValue).getValue();
+			if (value instanceof EObject) {
+				currentEObject = (EObject) value;
+				eAttributeList.clear();
+				EList<EAttribute> eAllAttributes = currentEObject.eClass().getEAllAttributes();
+				eAttributeList.addAll(eAllAttributes);
+				return;
+			}
+		}
+		currentEObject = null;
 	}
 
 	@Override
 	public void commandStackChanged(EventObject event) {
-		// TODO Auto-generated method stub
-		
+		historyList.getItems().clear();
+		List<Command> commandList = new ArrayList<>(manager.getCommandStack().getCommandList());
+		Collections.reverse(commandList);
+		historyList.getItems().addAll(commandList);
 	}
-	
+
 	private void refreshButtons() {
 //		undoButton.setDisable(!manager.getCommandStack().canUndo());
 //		redoButton.setDisable(!manager.getCommandStack().canRedo());

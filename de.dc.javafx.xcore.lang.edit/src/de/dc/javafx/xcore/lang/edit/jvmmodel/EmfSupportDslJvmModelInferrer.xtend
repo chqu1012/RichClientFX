@@ -43,13 +43,17 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 					commandStack = new «CommandStackImpl»();
 					editingDomain = new «AdapterFactoryEditingDomain»(adapterFactory, commandStack);
 					changeRecorder = new «ChangeRecorder»();
-«««					initModel();
 	 				'''
 	 			]
 	 			
-//	 			members += model.toMethod('initModel', 'void'.typeRef)[]
-	 			
-	 			members += element.toGetter('root', model.rootType)
+	 			members += element.toMethod('getRoot', model.rootType)[
+	 				body = '''
+	 				if (root==null) {
+	 				  root = ModelFactory.eINSTANCE.createAdbook();
+	 				}
+	 				return root;
+	 				'''
+	 			]
 	 			members += element.toGetter('editingDomain', EditingDomain.typeRef)
 	 			members += element.toGetter('adapterFactory', ComposedAdapterFactory.typeRef)
 	 			members += element.toGetter('changeRecorder', ChangeRecorder.typeRef)
