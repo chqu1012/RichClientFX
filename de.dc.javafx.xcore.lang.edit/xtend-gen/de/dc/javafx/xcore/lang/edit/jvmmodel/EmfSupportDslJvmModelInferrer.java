@@ -4,53 +4,65 @@
 package de.dc.javafx.xcore.lang.edit.jvmmodel;
 
 import com.google.inject.Inject;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
 import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.change.util.ChangeRecorder;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmGenericType;
+import org.eclipse.xtext.common.types.JvmMember;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
-/**
- * <p>Infers a JVM model from the source model.</p>
- * 
- * <p>The JVM model should contain all elements that would appear in the Java code
- * which is generated from the source model. Other models link against the JVM model rather than the source model.</p>
- */
 @SuppressWarnings("all")
 public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
-  /**
-   * convenience API to build and initialize JVM types and their members.
-   */
   @Inject
   @Extension
   private JvmTypesBuilder _jvmTypesBuilder;
   
-  /**
-   * The dispatch method {@code infer} is called for each instance of the
-   * given element's type that is contained in a resource.
-   * 
-   * @param element
-   *            the model to create one or more
-   *            {@link org.eclipse.xtext.common.types.JvmDeclaredType declared
-   *            types} from.
-   * @param acceptor
-   *            each created
-   *            {@link org.eclipse.xtext.common.types.JvmDeclaredType type}
-   *            without a container should be passed to the acceptor in order
-   *            get attached to the current resource. The acceptor's
-   *            {@link IJvmDeclaredTypeAcceptor#accept(org.eclipse.xtext.common.types.JvmDeclaredType)
-   *            accept(..)} method takes the constructed empty type for the
-   *            pre-indexing phase. This one is further initialized in the
-   *            indexing phase using the lambda you pass as the last argument.
-   * @param isPreIndexingPhase
-   *            whether the method is called in a pre-indexing phase, i.e.
-   *            when the global index is not yet fully updated. You must not
-   *            rely on linking using the index if isPreIndexingPhase is
-   *            <code>true</code>.
-   */
   protected void _infer(final Model element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    EList<Ecore> _ecore = element.getEcore();
+    for (final Ecore model : _ecore) {
+      {
+        final String name = model.getName();
+        final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+          EList<JvmMember> _members = it.getMembers();
+          JvmField _field = this._jvmTypesBuilder.toField(element, "root", model.getRootType());
+          this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
+          EList<JvmMember> _members_1 = it.getMembers();
+          JvmField _field_1 = this._jvmTypesBuilder.toField(element, "editingDomain", this._typeReferenceBuilder.typeRef(EditingDomain.class));
+          this._jvmTypesBuilder.<JvmField>operator_add(_members_1, _field_1);
+          EList<JvmMember> _members_2 = it.getMembers();
+          JvmField _field_2 = this._jvmTypesBuilder.toField(element, "adapterFactory", this._typeReferenceBuilder.typeRef(ComposedAdapterFactory.class));
+          this._jvmTypesBuilder.<JvmField>operator_add(_members_2, _field_2);
+          EList<JvmMember> _members_3 = it.getMembers();
+          JvmField _field_3 = this._jvmTypesBuilder.toField(element, "changeRecorder", this._typeReferenceBuilder.typeRef(ChangeRecorder.class));
+          this._jvmTypesBuilder.<JvmField>operator_add(_members_3, _field_3);
+          EList<JvmMember> _members_4 = it.getMembers();
+          JvmOperation _getter = this._jvmTypesBuilder.toGetter(element, "root", model.getRootType());
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _getter);
+          EList<JvmMember> _members_5 = it.getMembers();
+          JvmOperation _getter_1 = this._jvmTypesBuilder.toGetter(element, "editingDomain", this._typeReferenceBuilder.typeRef(EditingDomain.class));
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _getter_1);
+          EList<JvmMember> _members_6 = it.getMembers();
+          JvmOperation _getter_2 = this._jvmTypesBuilder.toGetter(element, "adapterFactory", this._typeReferenceBuilder.typeRef(ComposedAdapterFactory.class));
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_6, _getter_2);
+          EList<JvmMember> _members_7 = it.getMembers();
+          JvmOperation _getter_3 = this._jvmTypesBuilder.toGetter(element, "changeRecorder", this._typeReferenceBuilder.typeRef(ChangeRecorder.class));
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_7, _getter_3);
+        };
+        acceptor.<JvmGenericType>accept(
+          this._jvmTypesBuilder.toClass(element, (name + "Manager"), _function));
+      }
+    }
   }
   
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {

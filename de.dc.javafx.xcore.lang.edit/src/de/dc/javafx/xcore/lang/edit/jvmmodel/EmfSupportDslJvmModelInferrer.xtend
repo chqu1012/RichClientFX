@@ -8,55 +8,30 @@ import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import org.eclipse.emf.edit.domain.EditingDomain
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory
+import org.eclipse.emf.ecore.change.util.ChangeRecorder
 
-/**
- * <p>Infers a JVM model from the source model.</p> 
- *
- * <p>The JVM model should contain all elements that would appear in the Java code 
- * which is generated from the source model. Other models link against the JVM model rather than the source model.</p>     
- */
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
-	/**
-	 * convenience API to build and initialize JVM types and their members.
-	 */
 	@Inject extension JvmTypesBuilder
 
-	/**
-	 * The dispatch method {@code infer} is called for each instance of the
-	 * given element's type that is contained in a resource.
-	 * 
-	 * @param element
-	 *            the model to create one or more
-	 *            {@link org.eclipse.xtext.common.types.JvmDeclaredType declared
-	 *            types} from.
-	 * @param acceptor
-	 *            each created
-	 *            {@link org.eclipse.xtext.common.types.JvmDeclaredType type}
-	 *            without a container should be passed to the acceptor in order
-	 *            get attached to the current resource. The acceptor's
-	 *            {@link IJvmDeclaredTypeAcceptor#accept(org.eclipse.xtext.common.types.JvmDeclaredType)
-	 *            accept(..)} method takes the constructed empty type for the
-	 *            pre-indexing phase. This one is further initialized in the
-	 *            indexing phase using the lambda you pass as the last argument.
-	 * @param isPreIndexingPhase
-	 *            whether the method is called in a pre-indexing phase, i.e.
-	 *            when the global index is not yet fully updated. You must not
-	 *            rely on linking using the index if isPreIndexingPhase is
-	 *            <code>true</code>.
-	 */
 	def dispatch void infer(Model element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-		// Here you explain how your model is mapped to Java elements, by writing the actual translation code.
-		
-		// An implementation for the initial hello world example could look like this:
-// 		acceptor.accept(element.toClass("my.company.greeting.MyGreetings")) [
-// 			for (greeting : element.greetings) {
-// 				members += greeting.toMethod("hello" + greeting.name, typeRef(String)) [
-// 					body = '''
-//						return "Hello «greeting.name»";
-//					'''
-//				]
-//			}
-//		]
+		for(model : element.ecore){
+			val name = model.name
+	 		acceptor.accept(element.toClass(name+'Manager')[
+	 			members += element.toField('root', model.rootType)
+	 			members += element.toField('editingDomain', EditingDomain.typeRef)
+	 			members += element.toField('adapterFactory', ComposedAdapterFactory.typeRef)
+	 			members += element.toField('changeRecorder', ChangeRecorder.typeRef)
+//	 			members += element.toField('commandStack', CommandStackImpl.typeRef)
+	 			
+	 			members += element.toGetter('root', model.rootType)
+	 			members += element.toGetter('editingDomain', EditingDomain.typeRef)
+	 			members += element.toGetter('adapterFactory', ComposedAdapterFactory.typeRef)
+	 			members += element.toGetter('changeRecorder', ChangeRecorder.typeRef)
+//	 			members += element.toGetter('getCommandStack', CommandStackImpl.typeRef)
+	 		])
+		}
 	}
 }
