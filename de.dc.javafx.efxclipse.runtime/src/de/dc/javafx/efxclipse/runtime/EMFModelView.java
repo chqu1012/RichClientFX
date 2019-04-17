@@ -8,8 +8,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
+import javafx.scene.layout.BorderPane;
 
-public class EMFModelView {
+public class EMFModelView extends BorderPane{
 
 	@FXML
 	private TreeView<?> treeView;
@@ -27,7 +28,7 @@ public class EMFModelView {
 	private TableColumn<?, ?> valueColumn;
 
 	public EMFModelView() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EMFModelView.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelView.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 
