@@ -4,11 +4,14 @@
 package de.dc.javafx.xcore.lang.edit.jvmmodel;
 
 import com.google.inject.Inject;
+import de.dc.javafx.efxclipse.runtime.EMFModelView;
 import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
+import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import java.util.Arrays;
+import javafx.scene.Parent;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.change.util.ChangeRecorder;
@@ -18,8 +21,10 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.xtend2.lib.StringConcatenationClient;
+import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmConstructor;
 import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmMember;
 import org.eclipse.xtext.common.types.JvmOperation;
@@ -46,19 +51,19 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(IEmfManager.class, model.getRootType());
           this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
           EList<JvmMember> _members = it.getMembers();
-          JvmField _field = this._jvmTypesBuilder.toField(element, "root", model.getRootType());
+          JvmField _field = this._jvmTypesBuilder.toField(model, "root", model.getRootType());
           this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
           EList<JvmMember> _members_1 = it.getMembers();
-          JvmField _field_1 = this._jvmTypesBuilder.toField(element, "editingDomain", this._typeReferenceBuilder.typeRef(EditingDomain.class));
+          JvmField _field_1 = this._jvmTypesBuilder.toField(model, "editingDomain", this._typeReferenceBuilder.typeRef(EditingDomain.class));
           this._jvmTypesBuilder.<JvmField>operator_add(_members_1, _field_1);
           EList<JvmMember> _members_2 = it.getMembers();
-          JvmField _field_2 = this._jvmTypesBuilder.toField(element, "adapterFactory", this._typeReferenceBuilder.typeRef(ComposedAdapterFactory.class));
+          JvmField _field_2 = this._jvmTypesBuilder.toField(model, "adapterFactory", this._typeReferenceBuilder.typeRef(ComposedAdapterFactory.class));
           this._jvmTypesBuilder.<JvmField>operator_add(_members_2, _field_2);
           EList<JvmMember> _members_3 = it.getMembers();
-          JvmField _field_3 = this._jvmTypesBuilder.toField(element, "changeRecorder", this._typeReferenceBuilder.typeRef(ChangeRecorder.class));
+          JvmField _field_3 = this._jvmTypesBuilder.toField(model, "changeRecorder", this._typeReferenceBuilder.typeRef(ChangeRecorder.class));
           this._jvmTypesBuilder.<JvmField>operator_add(_members_3, _field_3);
           EList<JvmMember> _members_4 = it.getMembers();
-          JvmField _field_4 = this._jvmTypesBuilder.toField(element, "commandStack", this._typeReferenceBuilder.typeRef(CommandStackImpl.class));
+          JvmField _field_4 = this._jvmTypesBuilder.toField(model, "commandStack", this._typeReferenceBuilder.typeRef(CommandStackImpl.class));
           this._jvmTypesBuilder.<JvmField>operator_add(_members_4, _field_4);
           EList<JvmMember> _members_5 = it.getMembers();
           final Procedure1<JvmConstructor> _function_1 = (JvmConstructor it_1) -> {
@@ -111,8 +116,14 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
                 _builder.append("if (root==null) {");
                 _builder.newLine();
                 _builder.append("  ");
-                _builder.append("root = ModelFactory.eINSTANCE.createAdbook();");
-                _builder.newLine();
+                _builder.append("root = ");
+                JvmTypeReference _modelFactory = model.getModelFactory();
+                _builder.append(_modelFactory, "  ");
+                _builder.append(".eINSTANCE.create");
+                String _simpleName = model.getRootType().getSimpleName();
+                _builder.append(_simpleName, "  ");
+                _builder.append("();");
+                _builder.newLineIfNotEmpty();
                 _builder.append("}");
                 _builder.newLine();
                 _builder.append("return root;");
@@ -121,23 +132,94 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
             };
             this._jvmTypesBuilder.setBody(it_1, _client);
           };
-          JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "getRoot", model.getRootType(), _function_2);
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(model, "getRoot", model.getRootType(), _function_2);
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_6, _method);
           EList<JvmMember> _members_7 = it.getMembers();
-          JvmOperation _getter = this._jvmTypesBuilder.toGetter(element, "editingDomain", this._typeReferenceBuilder.typeRef(EditingDomain.class));
+          JvmOperation _getter = this._jvmTypesBuilder.toGetter(model, "editingDomain", this._typeReferenceBuilder.typeRef(EditingDomain.class));
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_7, _getter);
           EList<JvmMember> _members_8 = it.getMembers();
-          JvmOperation _getter_1 = this._jvmTypesBuilder.toGetter(element, "adapterFactory", this._typeReferenceBuilder.typeRef(ComposedAdapterFactory.class));
+          JvmOperation _getter_1 = this._jvmTypesBuilder.toGetter(model, "adapterFactory", this._typeReferenceBuilder.typeRef(ComposedAdapterFactory.class));
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_8, _getter_1);
           EList<JvmMember> _members_9 = it.getMembers();
-          JvmOperation _getter_2 = this._jvmTypesBuilder.toGetter(element, "changeRecorder", this._typeReferenceBuilder.typeRef(ChangeRecorder.class));
+          JvmOperation _getter_2 = this._jvmTypesBuilder.toGetter(model, "changeRecorder", this._typeReferenceBuilder.typeRef(ChangeRecorder.class));
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_9, _getter_2);
           EList<JvmMember> _members_10 = it.getMembers();
-          JvmOperation _getter_3 = this._jvmTypesBuilder.toGetter(element, "commandStack", this._typeReferenceBuilder.typeRef(CommandStackImpl.class));
+          JvmOperation _getter_3 = this._jvmTypesBuilder.toGetter(model, "commandStack", this._typeReferenceBuilder.typeRef(CommandStackImpl.class));
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_10, _getter_3);
         };
         acceptor.<JvmGenericType>accept(
           this._jvmTypesBuilder.toClass(element, (name + "Manager"), _function));
+        final Procedure1<JvmGenericType> _function_1 = (JvmGenericType it) -> {
+          EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+          JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(EMFModelView.class, model.getRootType());
+          this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+          EList<JvmMember> _members = it.getMembers();
+          final Procedure1<JvmConstructor> _function_2 = (JvmConstructor it_1) -> {
+            EList<JvmFormalParameter> _parameters = it_1.getParameters();
+            JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(model, "manager", this._typeReferenceBuilder.typeRef(IEmfManager.class, model.getRootType()));
+            this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("super(manager);");
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmConstructor _constructor = this._jvmTypesBuilder.toConstructor(model, _function_2);
+          this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
+        };
+        acceptor.<JvmGenericType>accept(
+          this._jvmTypesBuilder.toClass(element, (name + "View"), _function_1));
+        final Procedure1<JvmGenericType> _function_2 = (JvmGenericType it) -> {
+          EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+          JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(AbstractApplication.class);
+          this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+          EList<JvmMember> _members = it.getMembers();
+          final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
+            EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+            JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(model, Override.class);
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append(IEmfManager.class);
+                _builder.append("<");
+                JvmTypeReference _rootType = model.getRootType();
+                _builder.append(_rootType);
+                _builder.append("> manager = new ");
+                _builder.append(name);
+                _builder.append("Manager();");
+                _builder.newLineIfNotEmpty();
+                _builder.append("return new ");
+                _builder.append(name);
+                _builder.append("View(manager );");
+                _builder.newLineIfNotEmpty();
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(model, "getRoot", this._typeReferenceBuilder.typeRef(Parent.class), _function_3);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+          EList<JvmMember> _members_1 = it.getMembers();
+          final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+            it_1.setStatic(true);
+            EList<JvmFormalParameter> _parameters = it_1.getParameters();
+            JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "args", this._jvmTypesBuilder.addArrayTypeDimension(this._typeReferenceBuilder.typeRef(String.class)));
+            this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("launch(args);");
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(element, "main", this._typeReferenceBuilder.typeRef("void"), _function_4);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method_1);
+        };
+        acceptor.<JvmGenericType>accept(
+          this._jvmTypesBuilder.toClass(element, (name + "ViewApplication"), _function_2));
       }
     }
   }

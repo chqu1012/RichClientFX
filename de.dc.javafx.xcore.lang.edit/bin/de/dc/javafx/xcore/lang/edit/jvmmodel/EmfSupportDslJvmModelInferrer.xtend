@@ -16,6 +16,9 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager
+import de.dc.javafx.efxclipse.runtime.EMFModelView
+import de.dc.javafx.xcore.lang.lib.AbstractApplication
+import javafx.scene.Parent
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -27,11 +30,11 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 		acceptor.accept(element.toClass(name+'Manager')[
 	 			superTypes += IEmfManager.typeRef(model.rootType)
 	 			
-	 			members += element.toField('root', model.rootType)
-	 			members += element.toField('editingDomain', EditingDomain.typeRef)
-	 			members += element.toField('adapterFactory', ComposedAdapterFactory.typeRef)
-	 			members += element.toField('changeRecorder', ChangeRecorder.typeRef)
-	 			members += element.toField('commandStack', CommandStackImpl.typeRef)
+	 			members += model.toField('root', model.rootType)
+	 			members += model.toField('editingDomain', EditingDomain.typeRef)
+	 			members += model.toField('adapterFactory', ComposedAdapterFactory.typeRef)
+	 			members += model.toField('changeRecorder', ChangeRecorder.typeRef)
+	 			members += model.toField('commandStack', CommandStackImpl.typeRef)
 	 			
 	 			members += model.toConstructor[
 	 				body = '''
@@ -46,18 +49,45 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 				'''
 	 			]
 	 			
-	 			members += element.toMethod('getRoot', model.rootType)[
+	 			members += model.toMethod('getRoot', model.rootType)[
 	 				body = '''
 	 				if (root==null) {
-	 				  root = ModelFactory.eINSTANCE.createAdbook();
+	 				  root = «model.modelFactory».eINSTANCE.create«model.rootType.simpleName»();
 	 				}
 	 				return root;
 	 				'''
 	 			]
-	 			members += element.toGetter('editingDomain', EditingDomain.typeRef)
-	 			members += element.toGetter('adapterFactory', ComposedAdapterFactory.typeRef)
-	 			members += element.toGetter('changeRecorder', ChangeRecorder.typeRef)
-	 			members += element.toGetter('commandStack', CommandStackImpl.typeRef)
+	 			members += model.toGetter('editingDomain', EditingDomain.typeRef)
+	 			members += model.toGetter('adapterFactory', ComposedAdapterFactory.typeRef)
+	 			members += model.toGetter('changeRecorder', ChangeRecorder.typeRef)
+	 			members += model.toGetter('commandStack', CommandStackImpl.typeRef)
+	 		])
+	 		
+	 		acceptor.accept(element.toClass(name+'View')[
+	 			superTypes += EMFModelView.typeRef(model.rootType)
+	 			
+	 			members += model.toConstructor[
+	 				parameters += model.toParameter('manager', IEmfManager.typeRef(model.rootType))
+	 				body = '''super(manager);'''
+ 				]
+	 		])
+	 		
+	 		acceptor.accept(element.toClass(name+'ViewApplication')[
+	 			superTypes += AbstractApplication.typeRef
+	 			
+	 			members += model.toMethod('getRoot', Parent.typeRef)[
+	 				annotations += model.toAnnotation(Override)
+	 				body = '''
+	 				«IEmfManager»<«model.rootType»> manager = new «name»Manager();
+	 				return new «name»View(manager );
+	 				'''
+ 				]
+ 				
+				members += element.toMethod("main", 'void'.typeRef)[
+					static = true
+					parameters += element.toParameter('args', String.typeRef.addArrayTypeDimension)
+					body ='''launch(args);'''
+				]
 	 		])
 		}
 	}
