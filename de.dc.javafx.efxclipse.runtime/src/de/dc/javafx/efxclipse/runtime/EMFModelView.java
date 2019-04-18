@@ -62,6 +62,8 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	protected ObservableList<EAttribute> eAttributeList = FXCollections.observableArrayList();
 	protected ObservableList<EAttribute> properties = FXCollections.observableArrayList();
 
+	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
+
 	public EMFModelView(IEmfManager<T> manager) {
 		this.manager = manager;
 		FXMLLoader fxmlLoader = new FXMLLoader(
@@ -86,11 +88,8 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 		treeView.setRoot(rootItem);
 
-		// connect to EMF.edit providers
-		AdapterFactoryTreeCellFactory<Object> treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(
+		treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(
 				manager.getAdapterFactory());
-
-//		treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ModelPackage.eINSTANCE.getContact_Firstname(), manager.getEditingDomain()));
 
 		// adds drag support
 		treeCellFactory.addCellCreationListener(new CellDragAdapter());

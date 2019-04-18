@@ -8,4 +8,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: de.dc.javafx.emfsupport.website.model;bundle-version="0.1.0",
  de.dc.javafx.emfsupport.website.model.edit;bundle-version="1.0.0",
  de.dc.javafx.efxclipse.runtime;bundle-version="3.6.0",
- de.dc.javafx.xcore.lang.lib;bundle-version="1.0.0"
+ de.dc.javafx.xcore.lang.lib;bundle-version="1.0.0",
+ javax.inject;bundle-version="1.0.0"
