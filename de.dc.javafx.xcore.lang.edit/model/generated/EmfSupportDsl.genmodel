@@ -11,6 +11,7 @@
     </genClasses>
     <genClasses ecoreClass="EmfSupportDsl.ecore#//Ecore">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/packagePath"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//Ecore/modelItemProviderAdapterFactory"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//Ecore/modelFactory"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//Ecore/rootType"/>

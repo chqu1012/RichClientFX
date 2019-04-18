@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="ModelEditorAdvisorApplication">
+      <!-- @generated website -->
+      <application>
+         <run class="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated website -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisor$Perspective"
+            id="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated website -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated website -->
+      <key
+            commandId="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated website -->
+      <actionSet
+            label="%_UI_ModelEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="ModelEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorOpenURICommand"
+               class="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorOpenCommand"
+               class="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated website -->
+      <actionSet
+            label="%_UI_ModelModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.javafx.emfsupport.website.model.presentation.ModelActionBarContributorActionSet">
+         <action
+               label="%_UI_ModelModelWizard_label"
+               class="de.dc.javafx.emfsupport.website.model.presentation.ModelActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.javafx.emfsupport.website.model.presentation.ModelActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated website -->
+      <editor
+            id="de.dc.javafx.emfsupport.website.model.presentation.ModelEditorID"
+            name="%_UI_ModelEditor_label"
+            icon="icons/full/obj16/ModelModelFile.gif"
+            extensions="model"
+            class="de.dc.javafx.emfsupport.website.model.presentation.ModelEditor"
+            contributorClass="de.dc.javafx.emfsupport.website.model.presentation.ModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

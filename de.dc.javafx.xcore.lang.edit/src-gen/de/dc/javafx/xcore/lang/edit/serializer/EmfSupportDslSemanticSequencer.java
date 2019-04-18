@@ -411,6 +411,7 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         packagePath=EString 
 	 *         modelItemProviderAdapterFactory=JvmTypeReference 
 	 *         modelFactory=JvmTypeReference 
 	 *         rootType=JvmTypeReference 

@@ -187,9 +187,9 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
-  public EReference getEcore_ModelItemProviderAdapterFactory()
+  public EAttribute getEcore_PackagePath()
   {
-    return (EReference)ecoreEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)ecoreEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -198,7 +198,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
-  public EReference getEcore_ModelFactory()
+  public EReference getEcore_ModelItemProviderAdapterFactory()
   {
     return (EReference)ecoreEClass.getEStructuralFeatures().get(2);
   }
@@ -209,7 +209,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
-  public EReference getEcore_RootType()
+  public EReference getEcore_ModelFactory()
   {
     return (EReference)ecoreEClass.getEStructuralFeatures().get(3);
   }
@@ -220,9 +220,9 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
-  public EAttribute getEcore_UseUndoRedo()
+  public EReference getEcore_RootType()
   {
-    return (EAttribute)ecoreEClass.getEStructuralFeatures().get(4);
+    return (EReference)ecoreEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -231,7 +231,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
-  public EAttribute getEcore_ShowCommandStack()
+  public EAttribute getEcore_UseUndoRedo()
   {
     return (EAttribute)ecoreEClass.getEStructuralFeatures().get(5);
   }
@@ -242,7 +242,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
-  public EAttribute getEcore_ShowPropertyView()
+  public EAttribute getEcore_ShowCommandStack()
   {
     return (EAttribute)ecoreEClass.getEStructuralFeatures().get(6);
   }
@@ -253,7 +253,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
-  public EAttribute getEcore_GenerateDemo()
+  public EAttribute getEcore_ShowPropertyView()
   {
     return (EAttribute)ecoreEClass.getEStructuralFeatures().get(7);
   }
@@ -264,9 +264,20 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
+  public EAttribute getEcore_GenerateDemo()
+  {
+    return (EAttribute)ecoreEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getEcore_SupportedControls()
   {
-    return (EReference)ecoreEClass.getEStructuralFeatures().get(8);
+    return (EReference)ecoreEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -371,6 +382,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
 
     ecoreEClass = createEClass(ECORE);
     createEAttribute(ecoreEClass, ECORE__NAME);
+    createEAttribute(ecoreEClass, ECORE__PACKAGE_PATH);
     createEReference(ecoreEClass, ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY);
     createEReference(ecoreEClass, ECORE__MODEL_FACTORY);
     createEReference(ecoreEClass, ECORE__ROOT_TYPE);
@@ -432,6 +444,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
 
     initEClass(ecoreEClass, Ecore.class, "Ecore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEcore_Name(), ecorePackage.getEString(), "name", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEcore_PackagePath(), ecorePackage.getEString(), "packagePath", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEcore_ModelItemProviderAdapterFactory(), theTypesPackage.getJvmTypeReference(), null, "modelItemProviderAdapterFactory", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEcore_ModelFactory(), theTypesPackage.getJvmTypeReference(), null, "modelFactory", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEcore_RootType(), theTypesPackage.getJvmTypeReference(), null, "rootType", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

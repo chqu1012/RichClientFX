@@ -19,6 +19,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getPackagePath <em>Package Path</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelItemProviderAdapterFactory <em>Model Item Provider Adapter Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelFactory <em>Model Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getRootType <em>Root Type</em>}</li>
@@ -56,6 +57,28 @@ public interface Ecore extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Package Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Package Path</em>' attribute.
+   * @see #setPackagePath(String)
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getEcore_PackagePath()
+   * @model
+   * @generated
+   */
+  String getPackagePath();
+
+  /**
+   * Sets the value of the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getPackagePath <em>Package Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Package Path</em>' attribute.
+   * @see #getPackagePath()
+   * @generated
+   */
+  void setPackagePath(String value);
 
   /**
    * Returns the value of the '<em><b>Model Item Provider Adapter Factory</b></em>' containment reference.

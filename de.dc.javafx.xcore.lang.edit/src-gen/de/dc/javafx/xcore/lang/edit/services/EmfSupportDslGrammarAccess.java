@@ -47,37 +47,41 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cModelItemProviderAdapterFactoryKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cModelItemProviderAdapterFactoryAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cModelItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_5_0 = (RuleCall)cModelItemProviderAdapterFactoryAssignment_5.eContents().get(0);
-		private final Keyword cModelFactoryKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cModelFactoryAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cModelFactoryJvmTypeReferenceParserRuleCall_7_0 = (RuleCall)cModelFactoryAssignment_7.eContents().get(0);
-		private final Keyword cRootTypeKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cRootTypeAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cRootTypeJvmTypeReferenceParserRuleCall_9_0 = (RuleCall)cRootTypeAssignment_9.eContents().get(0);
-		private final Keyword cUseUndoRedoKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cUseUndoRedoAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cUseUndoRedoEBooleanParserRuleCall_11_0 = (RuleCall)cUseUndoRedoAssignment_11.eContents().get(0);
-		private final Keyword cShowCommandStackKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Assignment cShowCommandStackAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cShowCommandStackEBooleanParserRuleCall_13_0 = (RuleCall)cShowCommandStackAssignment_13.eContents().get(0);
-		private final Keyword cShowPropertyViewKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Assignment cShowPropertyViewAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final RuleCall cShowPropertyViewEBooleanParserRuleCall_15_0 = (RuleCall)cShowPropertyViewAssignment_15.eContents().get(0);
-		private final Keyword cGenerateDemoKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Assignment cGenerateDemoAssignment_17 = (Assignment)cGroup.eContents().get(17);
-		private final RuleCall cGenerateDemoEBooleanParserRuleCall_17_0 = (RuleCall)cGenerateDemoAssignment_17.eContents().get(0);
-		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
-		private final Keyword cControlsKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
-		private final Keyword cPlusSignEqualsSignKeyword_18_1 = (Keyword)cGroup_18.eContents().get(1);
-		private final Assignment cSupportedControlsAssignment_18_2 = (Assignment)cGroup_18.eContents().get(2);
-		private final RuleCall cSupportedControlsSupportedControlParserRuleCall_18_2_0 = (RuleCall)cSupportedControlsAssignment_18_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final Keyword cPackagePathKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cPackagePathAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPackagePathEStringParserRuleCall_5_0 = (RuleCall)cPackagePathAssignment_5.eContents().get(0);
+		private final Keyword cModelItemProviderAdapterFactoryKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cModelItemProviderAdapterFactoryAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cModelItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_7_0 = (RuleCall)cModelItemProviderAdapterFactoryAssignment_7.eContents().get(0);
+		private final Keyword cModelFactoryKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cModelFactoryAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cModelFactoryJvmTypeReferenceParserRuleCall_9_0 = (RuleCall)cModelFactoryAssignment_9.eContents().get(0);
+		private final Keyword cRootTypeKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cRootTypeAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cRootTypeJvmTypeReferenceParserRuleCall_11_0 = (RuleCall)cRootTypeAssignment_11.eContents().get(0);
+		private final Keyword cUseUndoRedoKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cUseUndoRedoAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cUseUndoRedoEBooleanParserRuleCall_13_0 = (RuleCall)cUseUndoRedoAssignment_13.eContents().get(0);
+		private final Keyword cShowCommandStackKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Assignment cShowCommandStackAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cShowCommandStackEBooleanParserRuleCall_15_0 = (RuleCall)cShowCommandStackAssignment_15.eContents().get(0);
+		private final Keyword cShowPropertyViewKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Assignment cShowPropertyViewAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cShowPropertyViewEBooleanParserRuleCall_17_0 = (RuleCall)cShowPropertyViewAssignment_17.eContents().get(0);
+		private final Keyword cGenerateDemoKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Assignment cGenerateDemoAssignment_19 = (Assignment)cGroup.eContents().get(19);
+		private final RuleCall cGenerateDemoEBooleanParserRuleCall_19_0 = (RuleCall)cGenerateDemoAssignment_19.eContents().get(0);
+		private final Group cGroup_20 = (Group)cGroup.eContents().get(20);
+		private final Keyword cControlsKeyword_20_0 = (Keyword)cGroup_20.eContents().get(0);
+		private final Keyword cPlusSignEqualsSignKeyword_20_1 = (Keyword)cGroup_20.eContents().get(1);
+		private final Assignment cSupportedControlsAssignment_20_2 = (Assignment)cGroup_20.eContents().get(2);
+		private final RuleCall cSupportedControlsSupportedControlParserRuleCall_20_2_0 = (RuleCall)cSupportedControlsAssignment_20_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_21 = (Keyword)cGroup.eContents().get(21);
 		
 		//Ecore:
 		//	'EMFSupport' 'for' name=EString
 		//	'{'
+		//	'packagePath:' packagePath=EString
 		//	'modelItemProviderAdapterFactory:' modelItemProviderAdapterFactory=JvmTypeReference
 		//	'modelFactory:' modelFactory=JvmTypeReference
 		//	'rootType:' rootType=JvmTypeReference
@@ -88,10 +92,11 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'EMFSupport' 'for' name=EString '{' 'modelItemProviderAdapterFactory:' modelItemProviderAdapterFactory=JvmTypeReference
-		//'modelFactory:' modelFactory=JvmTypeReference 'rootType:' rootType=JvmTypeReference 'useUndoRedo:'
-		//useUndoRedo=EBoolean 'showCommandStack:' showCommandStack=EBoolean 'showPropertyView:' showPropertyView=EBoolean
-		//'generateDemo:' generateDemo=EBoolean ('controls' '+=' supportedControls+=SupportedControl)* '}'
+		//'EMFSupport' 'for' name=EString '{' 'packagePath:' packagePath=EString 'modelItemProviderAdapterFactory:'
+		//modelItemProviderAdapterFactory=JvmTypeReference 'modelFactory:' modelFactory=JvmTypeReference 'rootType:'
+		//rootType=JvmTypeReference 'useUndoRedo:' useUndoRedo=EBoolean 'showCommandStack:' showCommandStack=EBoolean
+		//'showPropertyView:' showPropertyView=EBoolean 'generateDemo:' generateDemo=EBoolean ('controls' '+='
+		//supportedControls+=SupportedControl)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'EMFSupport'
@@ -109,86 +114,95 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
+		//'packagePath:'
+		public Keyword getPackagePathKeyword_4() { return cPackagePathKeyword_4; }
+		
+		//packagePath=EString
+		public Assignment getPackagePathAssignment_5() { return cPackagePathAssignment_5; }
+		
+		//EString
+		public RuleCall getPackagePathEStringParserRuleCall_5_0() { return cPackagePathEStringParserRuleCall_5_0; }
+		
 		//'modelItemProviderAdapterFactory:'
-		public Keyword getModelItemProviderAdapterFactoryKeyword_4() { return cModelItemProviderAdapterFactoryKeyword_4; }
+		public Keyword getModelItemProviderAdapterFactoryKeyword_6() { return cModelItemProviderAdapterFactoryKeyword_6; }
 		
 		//modelItemProviderAdapterFactory=JvmTypeReference
-		public Assignment getModelItemProviderAdapterFactoryAssignment_5() { return cModelItemProviderAdapterFactoryAssignment_5; }
+		public Assignment getModelItemProviderAdapterFactoryAssignment_7() { return cModelItemProviderAdapterFactoryAssignment_7; }
 		
 		//JvmTypeReference
-		public RuleCall getModelItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_5_0() { return cModelItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_5_0; }
+		public RuleCall getModelItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_7_0() { return cModelItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_7_0; }
 		
 		//'modelFactory:'
-		public Keyword getModelFactoryKeyword_6() { return cModelFactoryKeyword_6; }
+		public Keyword getModelFactoryKeyword_8() { return cModelFactoryKeyword_8; }
 		
 		//modelFactory=JvmTypeReference
-		public Assignment getModelFactoryAssignment_7() { return cModelFactoryAssignment_7; }
+		public Assignment getModelFactoryAssignment_9() { return cModelFactoryAssignment_9; }
 		
 		//JvmTypeReference
-		public RuleCall getModelFactoryJvmTypeReferenceParserRuleCall_7_0() { return cModelFactoryJvmTypeReferenceParserRuleCall_7_0; }
+		public RuleCall getModelFactoryJvmTypeReferenceParserRuleCall_9_0() { return cModelFactoryJvmTypeReferenceParserRuleCall_9_0; }
 		
 		//'rootType:'
-		public Keyword getRootTypeKeyword_8() { return cRootTypeKeyword_8; }
+		public Keyword getRootTypeKeyword_10() { return cRootTypeKeyword_10; }
 		
 		//rootType=JvmTypeReference
-		public Assignment getRootTypeAssignment_9() { return cRootTypeAssignment_9; }
+		public Assignment getRootTypeAssignment_11() { return cRootTypeAssignment_11; }
 		
 		//JvmTypeReference
-		public RuleCall getRootTypeJvmTypeReferenceParserRuleCall_9_0() { return cRootTypeJvmTypeReferenceParserRuleCall_9_0; }
+		public RuleCall getRootTypeJvmTypeReferenceParserRuleCall_11_0() { return cRootTypeJvmTypeReferenceParserRuleCall_11_0; }
 		
 		//'useUndoRedo:'
-		public Keyword getUseUndoRedoKeyword_10() { return cUseUndoRedoKeyword_10; }
+		public Keyword getUseUndoRedoKeyword_12() { return cUseUndoRedoKeyword_12; }
 		
 		//useUndoRedo=EBoolean
-		public Assignment getUseUndoRedoAssignment_11() { return cUseUndoRedoAssignment_11; }
+		public Assignment getUseUndoRedoAssignment_13() { return cUseUndoRedoAssignment_13; }
 		
 		//EBoolean
-		public RuleCall getUseUndoRedoEBooleanParserRuleCall_11_0() { return cUseUndoRedoEBooleanParserRuleCall_11_0; }
+		public RuleCall getUseUndoRedoEBooleanParserRuleCall_13_0() { return cUseUndoRedoEBooleanParserRuleCall_13_0; }
 		
 		//'showCommandStack:'
-		public Keyword getShowCommandStackKeyword_12() { return cShowCommandStackKeyword_12; }
+		public Keyword getShowCommandStackKeyword_14() { return cShowCommandStackKeyword_14; }
 		
 		//showCommandStack=EBoolean
-		public Assignment getShowCommandStackAssignment_13() { return cShowCommandStackAssignment_13; }
+		public Assignment getShowCommandStackAssignment_15() { return cShowCommandStackAssignment_15; }
 		
 		//EBoolean
-		public RuleCall getShowCommandStackEBooleanParserRuleCall_13_0() { return cShowCommandStackEBooleanParserRuleCall_13_0; }
+		public RuleCall getShowCommandStackEBooleanParserRuleCall_15_0() { return cShowCommandStackEBooleanParserRuleCall_15_0; }
 		
 		//'showPropertyView:'
-		public Keyword getShowPropertyViewKeyword_14() { return cShowPropertyViewKeyword_14; }
+		public Keyword getShowPropertyViewKeyword_16() { return cShowPropertyViewKeyword_16; }
 		
 		//showPropertyView=EBoolean
-		public Assignment getShowPropertyViewAssignment_15() { return cShowPropertyViewAssignment_15; }
+		public Assignment getShowPropertyViewAssignment_17() { return cShowPropertyViewAssignment_17; }
 		
 		//EBoolean
-		public RuleCall getShowPropertyViewEBooleanParserRuleCall_15_0() { return cShowPropertyViewEBooleanParserRuleCall_15_0; }
+		public RuleCall getShowPropertyViewEBooleanParserRuleCall_17_0() { return cShowPropertyViewEBooleanParserRuleCall_17_0; }
 		
 		//'generateDemo:'
-		public Keyword getGenerateDemoKeyword_16() { return cGenerateDemoKeyword_16; }
+		public Keyword getGenerateDemoKeyword_18() { return cGenerateDemoKeyword_18; }
 		
 		//generateDemo=EBoolean
-		public Assignment getGenerateDemoAssignment_17() { return cGenerateDemoAssignment_17; }
+		public Assignment getGenerateDemoAssignment_19() { return cGenerateDemoAssignment_19; }
 		
 		//EBoolean
-		public RuleCall getGenerateDemoEBooleanParserRuleCall_17_0() { return cGenerateDemoEBooleanParserRuleCall_17_0; }
+		public RuleCall getGenerateDemoEBooleanParserRuleCall_19_0() { return cGenerateDemoEBooleanParserRuleCall_19_0; }
 		
 		//('controls' '+=' supportedControls+=SupportedControl)*
-		public Group getGroup_18() { return cGroup_18; }
+		public Group getGroup_20() { return cGroup_20; }
 		
 		//'controls'
-		public Keyword getControlsKeyword_18_0() { return cControlsKeyword_18_0; }
+		public Keyword getControlsKeyword_20_0() { return cControlsKeyword_20_0; }
 		
 		//'+='
-		public Keyword getPlusSignEqualsSignKeyword_18_1() { return cPlusSignEqualsSignKeyword_18_1; }
+		public Keyword getPlusSignEqualsSignKeyword_20_1() { return cPlusSignEqualsSignKeyword_20_1; }
 		
 		//supportedControls+=SupportedControl
-		public Assignment getSupportedControlsAssignment_18_2() { return cSupportedControlsAssignment_18_2; }
+		public Assignment getSupportedControlsAssignment_20_2() { return cSupportedControlsAssignment_20_2; }
 		
 		//SupportedControl
-		public RuleCall getSupportedControlsSupportedControlParserRuleCall_18_2_0() { return cSupportedControlsSupportedControlParserRuleCall_18_2_0; }
+		public RuleCall getSupportedControlsSupportedControlParserRuleCall_20_2_0() { return cSupportedControlsSupportedControlParserRuleCall_20_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_19() { return cRightCurlyBracketKeyword_19; }
+		public Keyword getRightCurlyBracketKeyword_21() { return cRightCurlyBracketKeyword_21; }
 	}
 	public class SupportedControlElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.SupportedControl");
@@ -459,6 +473,7 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	//Ecore:
 	//	'EMFSupport' 'for' name=EString
 	//	'{'
+	//	'packagePath:' packagePath=EString
 	//	'modelItemProviderAdapterFactory:' modelItemProviderAdapterFactory=JvmTypeReference
 	//	'modelFactory:' modelFactory=JvmTypeReference
 	//	'rootType:' rootType=JvmTypeReference

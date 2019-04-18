@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -14,14 +15,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <fx:root fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@css/EMFModelView.css" type="BorderPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" BorderPane.alignment="CENTER">
          <items>
             <SplitPane dividerPositions="0.7612687813021702" prefHeight="200.0" prefWidth="200.0">
                <items>
-                  <TreeView fx:id="treeView" prefHeight="698.0" prefWidth="648.0" />
+                  <TreeView fx:id="treeView" prefHeight="698.0" prefWidth="648.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#onNewMenuItemClicked" text="New" />
+                              <MenuItem mnemonicParsing="false" onAction="#onEditMenuItemClicked" text="Edit" />
+                              <MenuItem mnemonicParsing="false" onAction="#onDeleteMenuItemClicked" text="Delete" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TreeView>
                   <TabPane>
                      <tabs>
                         <Tab closable="false" text="History">

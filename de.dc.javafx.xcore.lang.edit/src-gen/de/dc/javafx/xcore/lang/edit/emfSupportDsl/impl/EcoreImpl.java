@@ -34,6 +34,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getPackagePath <em>Package Path</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getModelItemProviderAdapterFactory <em>Model Item Provider Adapter Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getModelFactory <em>Model Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getRootType <em>Root Type</em>}</li>
@@ -67,6 +68,26 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPackagePath() <em>Package Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPackagePath()
+   * @generated
+   * @ordered
+   */
+  protected static final String PACKAGE_PATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPackagePath() <em>Package Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPackagePath()
+   * @generated
+   * @ordered
+   */
+  protected String packagePath = PACKAGE_PATH_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getModelItemProviderAdapterFactory() <em>Model Item Provider Adapter Factory</em>}' containment reference.
@@ -232,6 +253,31 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ECORE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getPackagePath()
+  {
+    return packagePath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPackagePath(String newPackagePath)
+  {
+    String oldPackagePath = packagePath;
+    packagePath = newPackagePath;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ECORE__PACKAGE_PATH, oldPackagePath, packagePath));
   }
 
   /**
@@ -533,6 +579,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
     {
       case EmfSupportDslPackage.ECORE__NAME:
         return getName();
+      case EmfSupportDslPackage.ECORE__PACKAGE_PATH:
+        return getPackagePath();
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         return getModelItemProviderAdapterFactory();
       case EmfSupportDslPackage.ECORE__MODEL_FACTORY:
@@ -566,6 +614,9 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
     {
       case EmfSupportDslPackage.ECORE__NAME:
         setName((String)newValue);
+        return;
+      case EmfSupportDslPackage.ECORE__PACKAGE_PATH:
+        setPackagePath((String)newValue);
         return;
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         setModelItemProviderAdapterFactory((JvmTypeReference)newValue);
@@ -609,6 +660,9 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
       case EmfSupportDslPackage.ECORE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case EmfSupportDslPackage.ECORE__PACKAGE_PATH:
+        setPackagePath(PACKAGE_PATH_EDEFAULT);
+        return;
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         setModelItemProviderAdapterFactory((JvmTypeReference)null);
         return;
@@ -649,6 +703,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
     {
       case EmfSupportDslPackage.ECORE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EmfSupportDslPackage.ECORE__PACKAGE_PATH:
+        return PACKAGE_PATH_EDEFAULT == null ? packagePath != null : !PACKAGE_PATH_EDEFAULT.equals(packagePath);
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         return modelItemProviderAdapterFactory != null;
       case EmfSupportDslPackage.ECORE__MODEL_FACTORY:
@@ -682,6 +738,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", packagePath: ");
+    result.append(packagePath);
     result.append(", useUndoRedo: ");
     result.append(useUndoRedo);
     result.append(", showCommandStack: ");

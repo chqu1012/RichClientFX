@@ -105,13 +105,22 @@ public interface EmfSupportDslPackage extends EPackage
   int ECORE__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Package Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECORE__PACKAGE_PATH = 1;
+
+  /**
    * The feature id for the '<em><b>Model Item Provider Adapter Factory</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY = 1;
+  int ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY = 2;
 
   /**
    * The feature id for the '<em><b>Model Factory</b></em>' containment reference.
@@ -120,7 +129,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__MODEL_FACTORY = 2;
+  int ECORE__MODEL_FACTORY = 3;
 
   /**
    * The feature id for the '<em><b>Root Type</b></em>' containment reference.
@@ -129,7 +138,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__ROOT_TYPE = 3;
+  int ECORE__ROOT_TYPE = 4;
 
   /**
    * The feature id for the '<em><b>Use Undo Redo</b></em>' attribute.
@@ -138,7 +147,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__USE_UNDO_REDO = 4;
+  int ECORE__USE_UNDO_REDO = 5;
 
   /**
    * The feature id for the '<em><b>Show Command Stack</b></em>' attribute.
@@ -147,7 +156,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__SHOW_COMMAND_STACK = 5;
+  int ECORE__SHOW_COMMAND_STACK = 6;
 
   /**
    * The feature id for the '<em><b>Show Property View</b></em>' attribute.
@@ -156,7 +165,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__SHOW_PROPERTY_VIEW = 6;
+  int ECORE__SHOW_PROPERTY_VIEW = 7;
 
   /**
    * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
@@ -165,7 +174,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__GENERATE_DEMO = 7;
+  int ECORE__GENERATE_DEMO = 8;
 
   /**
    * The feature id for the '<em><b>Supported Controls</b></em>' containment reference list.
@@ -174,7 +183,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__SUPPORTED_CONTROLS = 8;
+  int ECORE__SUPPORTED_CONTROLS = 9;
 
   /**
    * The number of structural features of the '<em>Ecore</em>' class.
@@ -183,7 +192,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE_FEATURE_COUNT = 9;
+  int ECORE_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl <em>Supported Control</em>}' class.
@@ -339,6 +348,17 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    */
   EAttribute getEcore_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getPackagePath <em>Package Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Package Path</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getPackagePath()
+   * @see #getEcore()
+   * @generated
+   */
+  EAttribute getEcore_PackagePath();
 
   /**
    * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelItemProviderAdapterFactory <em>Model Item Provider Adapter Factory</em>}'.
@@ -548,6 +568,14 @@ public interface EmfSupportDslPackage extends EPackage
      * @generated
      */
     EAttribute ECORE__NAME = eINSTANCE.getEcore_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Package Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ECORE__PACKAGE_PATH = eINSTANCE.getEcore_PackagePath();
 
     /**
      * The meta object literal for the '<em><b>Model Item Provider Adapter Factory</b></em>' containment reference feature.

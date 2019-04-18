@@ -26,8 +26,9 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
 	def dispatch void infer(Model element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		for(model : element.ecore){
+			val path = model.packagePath.replaceAll("\'", "").replace("\"", "")
 			val name = model.name
-	 		acceptor.accept(element.toClass(name+'Manager')[
+	 		acceptor.accept(element.toClass(path+'.'+name+'Manager')[
 	 			superTypes += IEmfManager.typeRef(model.rootType)
 	 			
 	 			members += model.toField('root', model.rootType)
@@ -63,7 +64,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 			members += model.toGetter('commandStack', CommandStackImpl.typeRef)
 	 		])
 	 		
-	 		acceptor.accept(element.toClass(name+'View')[
+	 		acceptor.accept(element.toClass(path+'.'+name+'View')[
 	 			superTypes += EMFModelView.typeRef(model.rootType)
 	 			
 	 			members += model.toConstructor[
@@ -73,7 +74,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 		])
 	 		
 	 		if(model.generateDemo){
-		 		acceptor.accept(element.toClass(name+'ViewApplication')[
+		 		acceptor.accept(element.toClass(path+'.'+name+'ViewApplication')[
 		 			superTypes += AbstractApplication.typeRef
 		 			
 		 			members += model.toMethod('getRoot', Parent.typeRef)[

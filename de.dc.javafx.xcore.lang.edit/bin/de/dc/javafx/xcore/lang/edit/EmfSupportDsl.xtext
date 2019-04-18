@@ -9,6 +9,7 @@ Model:
 Ecore:
 'EMFSupport' 'for' name=EString
 '{'
+	'packagePath:' packagePath=EString
 	'modelItemProviderAdapterFactory:' modelItemProviderAdapterFactory=JvmTypeReference
 	'modelFactory:' modelFactory=JvmTypeReference
 	'rootType:' rootType=JvmTypeReference

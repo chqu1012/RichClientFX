@@ -45,6 +45,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
     EList<Ecore> _ecore = element.getEcore();
     for (final Ecore model : _ecore) {
       {
+        final String path = model.getPackagePath().replaceAll("\'", "").replace("\"", "");
         final String name = model.getName();
         final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
           EList<JvmTypeReference> _superTypes = it.getSuperTypes();
@@ -148,7 +149,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_10, _getter_3);
         };
         acceptor.<JvmGenericType>accept(
-          this._jvmTypesBuilder.toClass(element, (name + "Manager"), _function));
+          this._jvmTypesBuilder.toClass(element, (((path + ".") + name) + "Manager"), _function));
         final Procedure1<JvmGenericType> _function_1 = (JvmGenericType it) -> {
           EList<JvmTypeReference> _superTypes = it.getSuperTypes();
           JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(EMFModelView.class, model.getRootType());
@@ -170,7 +171,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
         };
         acceptor.<JvmGenericType>accept(
-          this._jvmTypesBuilder.toClass(element, (name + "View"), _function_1));
+          this._jvmTypesBuilder.toClass(element, (((path + ".") + name) + "View"), _function_1));
         boolean _isGenerateDemo = model.isGenerateDemo();
         if (_isGenerateDemo) {
           final Procedure1<JvmGenericType> _function_2 = (JvmGenericType it) -> {
@@ -221,7 +222,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
             this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method_1);
           };
           acceptor.<JvmGenericType>accept(
-            this._jvmTypesBuilder.toClass(element, (name + "ViewApplication"), _function_2));
+            this._jvmTypesBuilder.toClass(element, (((path + ".") + name) + "ViewApplication"), _function_2));
         }
       }
     }

@@ -27,6 +27,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;
@@ -41,25 +42,25 @@ import javafx.util.StringConverter;
 public class EMFModelView<T> extends BorderPane implements CommandStackListener, ChangeListener<Object> {
 
 	@FXML
-	private TreeView<Object> treeView;
+	protected TreeView<Object> treeView;
 
 	@FXML
-	private ListView<Command> historyList;
+	protected ListView<Command> historyList;
 
 	@FXML
-	private TableView<EAttribute> tableView;
+	protected TableView<EAttribute> tableView;
 
 	@FXML
-	private TableColumn<EAttribute, String> propertyColumn;
+	protected TableColumn<EAttribute, String> propertyColumn;
 
 	@FXML
-	private TableColumn<EAttribute, String> valueColumn;
+	protected TableColumn<EAttribute, String> valueColumn;
 
-	private IEmfManager<T> manager;
+	protected IEmfManager<T> manager;
 
-	private EObject currentEObject;
-	private ObservableList<EAttribute> eAttributeList = FXCollections.observableArrayList();
-	private ObservableList<EAttribute> properties = FXCollections.observableArrayList();
+	protected EObject currentEObject;
+	protected ObservableList<EAttribute> eAttributeList = FXCollections.observableArrayList();
+	protected ObservableList<EAttribute> properties = FXCollections.observableArrayList();
 
 	public EMFModelView(IEmfManager<T> manager) {
 		this.manager = manager;
@@ -185,4 +186,19 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 			}
 		}
 	}
+	
+    @FXML
+    protected void onDeleteMenuItemClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    protected void onEditMenuItemClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    protected void onNewMenuItemClicked(ActionEvent event) {
+    	
+    }
 }
