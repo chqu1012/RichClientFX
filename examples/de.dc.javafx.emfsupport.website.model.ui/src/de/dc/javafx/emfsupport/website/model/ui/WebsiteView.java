@@ -12,7 +12,7 @@ import de.dc.javafx.emfsupport.website.model.Website;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TreeItem;
 
-public class WebsiteView extends WebsiteModelView{
+public class WebsiteView extends BaseWebsiteModelView{
 
 	public WebsiteView(IEmfManager<Website> manager) {
 		super(manager);
@@ -34,6 +34,8 @@ public class WebsiteView extends WebsiteModelView{
 				command = AddCommand.create(manager.getEditingDomain(), owner, ModelPackage.AUTHOR, item);
 			}
 			manager.getCommandStack().execute(command);
+			
+			selection.setExpanded(true);
 		}
 	}
 }

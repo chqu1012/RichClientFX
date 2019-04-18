@@ -28,7 +28,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 		for(model : element.ecore){
 			val path = model.packagePath.replaceAll("\'", "").replace("\"", "")
 			val name = model.name
-	 		acceptor.accept(element.toClass(path+'.'+name+'Manager')[
+	 		acceptor.accept(element.toClass(path+'.Base'+name+'Manager')[
 	 			superTypes += IEmfManager.typeRef(model.rootType)
 	 			
 	 			members += model.toField('root', model.rootType)
@@ -64,7 +64,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 			members += model.toGetter('commandStack', CommandStackImpl.typeRef)
 	 		])
 	 		
-	 		acceptor.accept(element.toClass(path+'.'+name+'View')[
+	 		acceptor.accept(element.toClass(path+'.Base'+name+'View')[
 	 			superTypes += EMFModelView.typeRef(model.rootType)
 	 			
 	 			members += model.toConstructor[
@@ -74,15 +74,21 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 		])
 	 		
 	 		if(model.generateDemo){
-		 		acceptor.accept(element.toClass(path+'.'+name+'ViewApplication')[
+		 		acceptor.accept(element.toClass(path+'.Base'+name+'ViewApplication')[
 		 			superTypes += AbstractApplication.typeRef
 		 			
 		 			members += model.toMethod('getRoot', Parent.typeRef)[
 		 				annotations += model.toAnnotation(Override)
-		 				body = '''
-		 				«IEmfManager»<«model.rootType»> manager = new «name»Manager();
-		 				return new «name»View(manager );
-		 				'''
+		 				body = '''return getView(getManager());'''
+	 				]
+	 				
+	 				members += model.toMethod('getManager', IEmfManager.typeRef(model.rootType))[
+		 				body = '''return new Base«name»Manager();'''
+	 				]
+
+	 				members += model.toMethod('getView', EMFModelView.typeRef(model.rootType))[
+		 				parameters += model.toParameter('manager', IEmfManager.typeRef(model.rootType))
+		 				body = '''return new Base«name»View(manager);'''
 	 				]
 	 				
 					members += element.toMethod("main", 'void'.typeRef)[

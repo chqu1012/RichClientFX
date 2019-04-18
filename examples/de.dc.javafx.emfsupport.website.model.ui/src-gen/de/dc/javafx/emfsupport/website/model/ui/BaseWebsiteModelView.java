@@ -5,8 +5,8 @@ import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.emfsupport.website.model.Website;
 
 @SuppressWarnings("all")
-public class WebsiteModelView extends EMFModelView<Website> {
-  public WebsiteModelView(final IEmfManager<Website> manager) {
+public class BaseWebsiteModelView extends EMFModelView<Website> {
+  public BaseWebsiteModelView(final IEmfManager<Website> manager) {
     super(manager);
   }
 }

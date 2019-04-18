@@ -149,7 +149,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_10, _getter_3);
         };
         acceptor.<JvmGenericType>accept(
-          this._jvmTypesBuilder.toClass(element, (((path + ".") + name) + "Manager"), _function));
+          this._jvmTypesBuilder.toClass(element, (((path + ".Base") + name) + "Manager"), _function));
         final Procedure1<JvmGenericType> _function_1 = (JvmGenericType it) -> {
           EList<JvmTypeReference> _superTypes = it.getSuperTypes();
           JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(EMFModelView.class, model.getRootType());
@@ -171,7 +171,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
         };
         acceptor.<JvmGenericType>accept(
-          this._jvmTypesBuilder.toClass(element, (((path + ".") + name) + "View"), _function_1));
+          this._jvmTypesBuilder.toClass(element, (((path + ".Base") + name) + "View"), _function_1));
         boolean _isGenerateDemo = model.isGenerateDemo();
         if (_isGenerateDemo) {
           final Procedure1<JvmGenericType> _function_2 = (JvmGenericType it) -> {
@@ -186,18 +186,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
               StringConcatenationClient _client = new StringConcatenationClient() {
                 @Override
                 protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-                  _builder.append(IEmfManager.class);
-                  _builder.append("<");
-                  JvmTypeReference _rootType = model.getRootType();
-                  _builder.append(_rootType);
-                  _builder.append("> manager = new ");
-                  _builder.append(name);
-                  _builder.append("Manager();");
-                  _builder.newLineIfNotEmpty();
-                  _builder.append("return new ");
-                  _builder.append(name);
-                  _builder.append("View(manager );");
-                  _builder.newLineIfNotEmpty();
+                  _builder.append("return getView(getManager());");
                 }
               };
               this._jvmTypesBuilder.setBody(it_1, _client);
@@ -206,6 +195,37 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
             this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
             EList<JvmMember> _members_1 = it.getMembers();
             final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+              StringConcatenationClient _client = new StringConcatenationClient() {
+                @Override
+                protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                  _builder.append("return new Base");
+                  _builder.append(name);
+                  _builder.append("Manager();");
+                }
+              };
+              this._jvmTypesBuilder.setBody(it_1, _client);
+            };
+            JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(model, "getManager", this._typeReferenceBuilder.typeRef(IEmfManager.class, model.getRootType()), _function_4);
+            this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method_1);
+            EList<JvmMember> _members_2 = it.getMembers();
+            final Procedure1<JvmOperation> _function_5 = (JvmOperation it_1) -> {
+              EList<JvmFormalParameter> _parameters = it_1.getParameters();
+              JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(model, "manager", this._typeReferenceBuilder.typeRef(IEmfManager.class, model.getRootType()));
+              this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+              StringConcatenationClient _client = new StringConcatenationClient() {
+                @Override
+                protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                  _builder.append("return new Base");
+                  _builder.append(name);
+                  _builder.append("View(manager);");
+                }
+              };
+              this._jvmTypesBuilder.setBody(it_1, _client);
+            };
+            JvmOperation _method_2 = this._jvmTypesBuilder.toMethod(model, "getView", this._typeReferenceBuilder.typeRef(EMFModelView.class, model.getRootType()), _function_5);
+            this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_2);
+            EList<JvmMember> _members_3 = it.getMembers();
+            final Procedure1<JvmOperation> _function_6 = (JvmOperation it_1) -> {
               it_1.setStatic(true);
               EList<JvmFormalParameter> _parameters = it_1.getParameters();
               JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "args", this._jvmTypesBuilder.addArrayTypeDimension(this._typeReferenceBuilder.typeRef(String.class)));
@@ -218,11 +238,11 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
               };
               this._jvmTypesBuilder.setBody(it_1, _client);
             };
-            JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(element, "main", this._typeReferenceBuilder.typeRef("void"), _function_4);
-            this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method_1);
+            JvmOperation _method_3 = this._jvmTypesBuilder.toMethod(element, "main", this._typeReferenceBuilder.typeRef("void"), _function_6);
+            this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_3);
           };
           acceptor.<JvmGenericType>accept(
-            this._jvmTypesBuilder.toClass(element, (((path + ".") + name) + "ViewApplication"), _function_2));
+            this._jvmTypesBuilder.toClass(element, (((path + ".Base") + name) + "ViewApplication"), _function_2));
         }
       }
     }

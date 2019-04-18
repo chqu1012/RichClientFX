@@ -13,7 +13,7 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 
 @SuppressWarnings("all")
-public class WebsiteModelManager implements IEmfManager<Website> {
+public class BaseWebsiteModelManager implements IEmfManager<Website> {
   private Website root;
   
   private EditingDomain editingDomain;
@@ -24,7 +24,7 @@ public class WebsiteModelManager implements IEmfManager<Website> {
   
   private CommandStackImpl commandStack;
   
-  public WebsiteModelManager() {
+  public BaseWebsiteModelManager() {
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
     adapterFactory.addAdapterFactory(new ModelItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());

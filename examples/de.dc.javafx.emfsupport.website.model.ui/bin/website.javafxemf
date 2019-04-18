@@ -1,10 +1,10 @@
 EMFSupport for WebsiteModel{
-	packagePath: 'de.dc.javafx.emfsupport.website.model.ui'
+	packagePath: 'de.dc.javafx.emfsupport.website.model.ui' 
 	modelItemProviderAdapterFactory: de.dc.javafx.emfsupport.website.model.provider.ModelItemProviderAdapterFactory
 	modelFactory: de.dc.javafx.emfsupport.website.model.ModelFactory
 	rootType: de.dc.javafx.emfsupport.website.model.Website
 	useUndoRedo: true  
-	showCommandStack: true   
+	showCommandStack: true
 	showPropertyView: true
     generateDemo: true
     
