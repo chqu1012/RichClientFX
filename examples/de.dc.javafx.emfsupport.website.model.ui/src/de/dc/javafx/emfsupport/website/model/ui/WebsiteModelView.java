@@ -12,12 +12,12 @@ import de.dc.javafx.emfsupport.website.model.Website;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TreeItem;
 
-public class WebsiteView extends BaseWebsiteModelView{
+public class WebsiteModelView extends BaseWebsiteModelView {
 
-	public WebsiteView(IEmfManager<Website> manager) {
+	public WebsiteModelView(IEmfManager<Website> manager) {
 		super(manager);
 	}
-
+	
 	@Override
 	protected void onNewMenuItemClicked(ActionEvent event) {
 		super.onNewMenuItemClicked(event);

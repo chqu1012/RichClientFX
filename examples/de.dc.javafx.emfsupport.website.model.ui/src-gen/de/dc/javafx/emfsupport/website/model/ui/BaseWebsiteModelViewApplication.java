@@ -20,4 +20,8 @@ public class BaseWebsiteModelViewApplication extends AbstractApplication {
   public EMFModelView<Website> getView(final IEmfManager<Website> manager) {
     return new BaseWebsiteModelView(manager);
   }
+  
+  public static void main(final String[] args) {
+    launch(args);
+  }
 }

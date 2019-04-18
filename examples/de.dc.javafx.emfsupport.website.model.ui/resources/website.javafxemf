@@ -4,9 +4,9 @@ EMFSupport for WebsiteModel{
 	modelFactory: de.dc.javafx.emfsupport.website.model.ModelFactory
 	rootType: de.dc.javafx.emfsupport.website.model.Website
 	useUndoRedo: true  
-	showCommandStack: true
-	showPropertyView: true
+	showCommandStack: true 
+	showPropertyView: true 
     generateDemo: true
-    
+     
 	controls += TableView(name: AdbookTable)
 }

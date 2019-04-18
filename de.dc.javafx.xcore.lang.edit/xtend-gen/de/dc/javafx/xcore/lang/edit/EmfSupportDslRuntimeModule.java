@@ -3,11 +3,27 @@
  */
 package de.dc.javafx.xcore.lang.edit;
 
+import com.google.inject.Binder;
+import com.google.inject.Singleton;
 import de.dc.javafx.xcore.lang.edit.AbstractEmfSupportDslRuntimeModule;
+import de.dc.javafx.xcore.lang.edit.configuration.SourceOutputConfigurationProvider;
+import de.dc.javafx.xcore.lang.edit.generator.EmfSupportDslGenerator;
+import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
 public class EmfSupportDslRuntimeModule extends AbstractEmfSupportDslRuntimeModule {
+  @Override
+  public Class<? extends IGenerator> bindIGenerator() {
+    return EmfSupportDslGenerator.class;
+  }
+  
+  @Override
+  public void configure(final Binder binder) {
+    super.configure(binder);
+    binder.<IOutputConfigurationProvider>bind(IOutputConfigurationProvider.class).to(SourceOutputConfigurationProvider.class).in(Singleton.class);
+  }
 }
