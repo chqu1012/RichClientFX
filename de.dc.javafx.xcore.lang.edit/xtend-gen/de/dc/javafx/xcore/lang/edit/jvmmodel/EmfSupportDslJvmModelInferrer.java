@@ -15,6 +15,7 @@ import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
 import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import java.util.Arrays;
 import java.util.function.Consumer;
+import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
 import org.eclipse.emf.common.command.Command;
@@ -255,6 +256,12 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           model.getContextMenus().forEach(_function_3);
           EList<JvmMember> _members_1 = it.getMembers();
           final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+            EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+            JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(model, Override.class);
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+            EList<JvmFormalParameter> _parameters = it_1.getParameters();
+            JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(model, "action", this._typeReferenceBuilder.typeRef(ActionEvent.class));
+            this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
             StringConcatenationClient _client = new StringConcatenationClient() {
               @Override
               protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
@@ -302,6 +309,9 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
                         _builder.append("\t");
                         _builder.append("}");
                         _builder.newLine();
+                      } else {
+                        _builder.append("\t");
+                        _builder.newLine();
                       }
                     }
                   }
@@ -318,7 +328,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
             };
             this._jvmTypesBuilder.setBody(it_1, _client);
           };
-          JvmOperation _method = this._jvmTypesBuilder.toMethod(model, "execute", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_4);
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(model, "onNewMenuItemClicked", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_4);
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method);
         };
         acceptor.<JvmGenericType>accept(

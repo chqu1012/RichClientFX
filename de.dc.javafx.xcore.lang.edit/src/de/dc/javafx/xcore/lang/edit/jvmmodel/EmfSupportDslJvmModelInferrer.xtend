@@ -25,6 +25,7 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler
+import javafx.event.ActionEvent
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -103,7 +104,9 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 					}
 				]
 				
-				members += model.toMethod('execute', typeRef(Void.TYPE))[
+				members += model.toMethod('onNewMenuItemClicked', typeRef(Void.TYPE))[
+					annotations += model.toAnnotation(Override)
+					parameters += model.toParameter("action", ActionEvent.typeRef)
 					body = '''
 				 	«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
 				 	«EditingDomain» editingDomain = manager.getEditingDomain();
@@ -116,6 +119,8 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 				 		if (owner instanceof «menu.parentType») {
 				 			command = «AddCommand».create(editingDomain, owner, get«addMenu.id»Id(), create«addMenu.id»());
 				 		}
+				 		«ELSE»
+				 		
 				 		«ENDIF»
 				 		«ENDFOR»
 				 		manager.getCommandStack().execute(command);

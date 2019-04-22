@@ -1,12 +1,13 @@
 EMFSupport for WebsiteModel{
 	packagePath: 'de.dc.javafx.emfsupport.website.model.ui' 
 	modelItemProviderAdapterFactory: de.dc.javafx.emfsupport.website.model.provider.ModelItemProviderAdapterFactory
+	modelPackage: de.dc.javafx.emfsupport.website.model.ModelPackage
 	modelFactory: de.dc.javafx.emfsupport.website.model.ModelFactory
 	rootType: de.dc.javafx.emfsupport.website.model.Website
 	useUndoRedo: true  
 	showCommandStack: true 
 	showPropertyView: true 
-	
+ 
 	// Generate an example application
     generateDemo: true
 
@@ -21,13 +22,11 @@ EMFSupport for WebsiteModel{
 		id:AddPage 
 		parentType: de.dc.javafx.emfsupport.website.model.Website
 		createType: de.dc.javafx.emfsupport.website.model.Page 
-		modelPackage:de.dc.javafx.emfsupport.website.model.ModelPackage
 	)
 	contextMenus += addContextMenu(
 		id:AddAuthor 
 		parentType: de.dc.javafx.emfsupport.website.model.Page
 		createType: de.dc.javafx.emfsupport.website.model.Author
-		modelPackage:de.dc.javafx.emfsupport.website.model.ModelPackage
 	)
 	
 	controls += TableView(name: AdbookTable)

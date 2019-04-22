@@ -7,6 +7,7 @@ import de.dc.javafx.emfsupport.website.model.ModelFactory;
 import de.dc.javafx.emfsupport.website.model.ModelPackage;
 import de.dc.javafx.emfsupport.website.model.Page;
 import de.dc.javafx.emfsupport.website.model.Website;
+import javafx.event.ActionEvent;
 import javafx.scene.control.TreeItem;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -43,7 +44,8 @@ public class BaseWebsiteModelView extends EMFModelView<Website> {
     return ModelFactory.eINSTANCE.createAuthor();
   }
   
-  public void execute() {
+  @Override
+  public void onNewMenuItemClicked(final ActionEvent action) {
     TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
     EditingDomain editingDomain = manager.getEditingDomain();
     if (selection!=null) {
