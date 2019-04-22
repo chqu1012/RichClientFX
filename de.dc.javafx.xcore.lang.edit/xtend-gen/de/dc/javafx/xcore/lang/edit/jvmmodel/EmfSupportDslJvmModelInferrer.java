@@ -385,8 +385,9 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
             StringConcatenationClient _client = new StringConcatenationClient() {
               @Override
               protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-                _builder.append("TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();");
-                _builder.newLine();
+                _builder.append(TreeItem.class);
+                _builder.append("<Object> selection = treeView.getSelectionModel().getSelectedItem();");
+                _builder.newLineIfNotEmpty();
                 _builder.append("if(selection!=null){");
                 _builder.newLine();
                 _builder.append(" \t");

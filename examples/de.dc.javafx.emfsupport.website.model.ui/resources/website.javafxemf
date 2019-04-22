@@ -9,7 +9,7 @@ EMFSupport for WebsiteModel{
 	showPropertyView: true 
  
 	// Generate an example application
-    generateDemo: true
+    generateDemo: true 
 
 	// Edit Suppport, EAttributes is taken from EMF generated ModelPackage
 	// This attribute should exist, otherwise you will get a compile error.

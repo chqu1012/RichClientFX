@@ -150,7 +150,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 					annotations += model.toAnnotation(Override)
 					parameters += model.toParameter("action", ActionEvent.typeRef)
 					body = '''
-					TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
+					«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
 					if(selection!=null){
 					 	«Command» command = «CopyToClipboardCommand».create(editingDomain, selection.getValue());
 					 	if(command.canExecute()){
