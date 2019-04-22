@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
-import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
 import org.eclipse.fx.emf.edit.ui.dnd.CellDragAdapter;
 import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
@@ -59,6 +59,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	protected IEmfManager<T> manager;
 
 	protected EObject currentEObject;
+	protected EditingDomain editingDomain;
 	protected ObservableList<EAttribute> eAttributeList = FXCollections.observableArrayList();
 	protected ObservableList<EAttribute> properties = FXCollections.observableArrayList();
 
@@ -66,6 +67,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 	public EMFModelView(IEmfManager<T> manager) {
 		this.manager = manager;
+		this.editingDomain = manager.getEditingDomain();
 		FXMLLoader fxmlLoader = new FXMLLoader(
 				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelView.fxml"));
 		fxmlLoader.setRoot(this);

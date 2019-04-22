@@ -26,6 +26,7 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler
 import javafx.event.ActionEvent
+import org.eclipse.emf.edit.command.DeleteCommand
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -109,7 +110,6 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 					parameters += model.toParameter("action", ActionEvent.typeRef)
 					body = '''
 				 	«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
-				 	«EditingDomain» editingDomain = manager.getEditingDomain();
 				 	if (selection!=null) {
 				 		Object owner = selection.getValue();
 				 		«Command» command = null;
@@ -125,6 +125,18 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 				 		«ENDFOR»
 				 		manager.getCommandStack().execute(command);
 				 		selection.setExpanded(true);
+				 	}
+					'''
+				]
+				
+				members += model.toMethod('onDeleteMenuItemClicked', typeRef(Void.TYPE))[
+					annotations += model.toAnnotation(Override)
+					parameters += model.toParameter("action", ActionEvent.typeRef)
+					body = '''
+				 	«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
+				 	if (selection!=null) {
+				 		«Command» command = «DeleteCommand».create(manager.getEditingDomain(), selection.getValue());
+				 		manager.getCommandStack().execute(command);
 				 	}
 					'''
 				]
