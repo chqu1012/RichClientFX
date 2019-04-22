@@ -27,6 +27,8 @@
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#onNewMenuItemClicked" text="New" />
                               <MenuItem mnemonicParsing="false" onAction="#onEditMenuItemClicked" text="Edit" />
+                              <MenuItem mnemonicParsing="false" onAction="#onCopyMenuItemClicked" text="Copy" />
+                              <MenuItem mnemonicParsing="false" onAction="#onPasteMenuItemClicked" text="Paste" />
                               <MenuItem mnemonicParsing="false" onAction="#onDeleteMenuItemClicked" text="Delete" />
                           </items>
                         </ContextMenu>

@@ -27,6 +27,7 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler
 import javafx.event.ActionEvent
 import org.eclipse.emf.edit.command.DeleteCommand
+import org.eclipse.emf.edit.command.CopyToClipboardCommand
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -123,7 +124,9 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 				 		
 				 		«ENDIF»
 				 		«ENDFOR»
-				 		manager.getCommandStack().execute(command);
+				 		if(command.canExecute()){
+				 			manager.getCommandStack().execute(command);
+				 		}
 				 		selection.setExpanded(true);
 				 	}
 					'''
@@ -135,9 +138,25 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 					body = '''
 				 	«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
 				 	if (selection!=null) {
-				 		«Command» command = «DeleteCommand».create(manager.getEditingDomain(), selection.getValue());
-				 		manager.getCommandStack().execute(command);
+				 		«Command» command = «DeleteCommand».create(editingDomain, selection.getValue());
+				 		if(command.canExecute()){
+				 			manager.getCommandStack().execute(command);
+				 		}
 				 	}
+					'''
+				]
+
+				members += model.toMethod('onCopyMenuItemClicked', typeRef(Void.TYPE))[
+					annotations += model.toAnnotation(Override)
+					parameters += model.toParameter("action", ActionEvent.typeRef)
+					body = '''
+					TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
+					if(selection!=null){
+					 	«Command» command = «CopyToClipboardCommand».create(editingDomain, selection.getValue());
+					 	if(command.canExecute()){
+					 		manager.getCommandStack().execute(command);
+					 	}
+					}
 					'''
 				]
 	 		])

@@ -202,4 +202,14 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
     protected void onNewMenuItemClicked(ActionEvent event) {
     	
     }
+
+    @FXML
+    protected void onCopyMenuItemClicked(ActionEvent event) {
+    	
+    }
+
+    @FXML
+    protected void onPasteMenuItemClicked(ActionEvent event) {
+    	
+    }
 }

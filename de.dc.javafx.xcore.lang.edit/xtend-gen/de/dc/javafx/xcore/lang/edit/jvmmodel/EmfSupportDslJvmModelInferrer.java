@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.change.util.ChangeRecorder;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.CopyToClipboardCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -315,7 +316,13 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
                   }
                 }
                 _builder.append("\t");
+                _builder.append("if(command.canExecute()){");
+                _builder.newLine();
+                _builder.append("\t\t");
                 _builder.append("manager.getCommandStack().execute(command);");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("}");
                 _builder.newLine();
                 _builder.append("\t");
                 _builder.append("selection.setExpanded(true);");
@@ -348,10 +355,16 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
                 _builder.append(Command.class, "\t");
                 _builder.append(" command = ");
                 _builder.append(DeleteCommand.class, "\t");
-                _builder.append(".create(manager.getEditingDomain(), selection.getValue());");
+                _builder.append(".create(editingDomain, selection.getValue());");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
+                _builder.append("if(command.canExecute()){");
+                _builder.newLine();
+                _builder.append("\t\t");
                 _builder.append("manager.getCommandStack().execute(command);");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("}");
                 _builder.newLine();
                 _builder.append("}");
                 _builder.newLine();
@@ -361,6 +374,44 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           };
           JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(model, "onDeleteMenuItemClicked", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_5);
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_1);
+          EList<JvmMember> _members_3 = it.getMembers();
+          final Procedure1<JvmOperation> _function_6 = (JvmOperation it_1) -> {
+            EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+            JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(model, Override.class);
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+            EList<JvmFormalParameter> _parameters = it_1.getParameters();
+            JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(model, "action", this._typeReferenceBuilder.typeRef(ActionEvent.class));
+            this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();");
+                _builder.newLine();
+                _builder.append("if(selection!=null){");
+                _builder.newLine();
+                _builder.append(" \t");
+                _builder.append(Command.class, " \t");
+                _builder.append(" command = ");
+                _builder.append(CopyToClipboardCommand.class, " \t");
+                _builder.append(".create(editingDomain, selection.getValue());");
+                _builder.newLineIfNotEmpty();
+                _builder.append(" \t");
+                _builder.append("if(command.canExecute()){");
+                _builder.newLine();
+                _builder.append(" \t\t");
+                _builder.append("manager.getCommandStack().execute(command);");
+                _builder.newLine();
+                _builder.append(" \t");
+                _builder.append("}");
+                _builder.newLine();
+                _builder.append("}");
+                _builder.newLine();
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmOperation _method_2 = this._jvmTypesBuilder.toMethod(model, "onCopyMenuItemClicked", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_6);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_2);
         };
         acceptor.<JvmGenericType>accept(
           this._jvmTypesBuilder.toClass(element, (((path + ".Base") + name) + "View"), _function_1));
