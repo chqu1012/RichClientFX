@@ -22,12 +22,4 @@ public class CutHandler extends AbstractCommandHandler<Website>{
 		}
 		return false;
 	}
-
-	@Override
-	public void execute() {
-		if (command != null && command.canExecute()) {
-			manager.getEditingDomain().getCommandStack().execute(command);		
-		}
-	}
-
 }

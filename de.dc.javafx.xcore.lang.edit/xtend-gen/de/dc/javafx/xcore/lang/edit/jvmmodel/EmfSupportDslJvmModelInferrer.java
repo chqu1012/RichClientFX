@@ -7,14 +7,20 @@ import com.google.inject.Inject;
 import de.dc.javafx.efxclipse.runtime.EMFModelView;
 import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
 import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import java.util.Arrays;
+import java.util.function.Consumer;
 import javafx.scene.Parent;
+import javafx.scene.control.TreeItem;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.change.util.ChangeRecorder;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -29,6 +35,7 @@ import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmMember;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
@@ -40,6 +47,9 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
   @Inject
   @Extension
   private JvmTypesBuilder _jvmTypesBuilder;
+  
+  @Inject
+  private XbaseInterpreter xbaseInterpreter;
   
   protected void _infer(final Model element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     EList<Ecore> _ecore = element.getEcore();
@@ -169,6 +179,120 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           };
           JvmConstructor _constructor = this._jvmTypesBuilder.toConstructor(model, _function_2);
           this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
+          final Consumer<ContextMenu> _function_3 = (ContextMenu menu) -> {
+            if ((menu instanceof AddContextMenu)) {
+              final AddContextMenu addMenu = ((AddContextMenu) menu);
+              EList<JvmMember> _members_1 = it.getMembers();
+              String _id = ((AddContextMenu)menu).getId();
+              String _plus = ("get" + _id);
+              String _plus_1 = (_plus + "Id");
+              final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+                StringConcatenationClient _client = new StringConcatenationClient() {
+                  @Override
+                  protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                    _builder.append("return ");
+                    JvmTypeReference _modelPackage = addMenu.getModelPackage();
+                    _builder.append(_modelPackage);
+                    _builder.append(".");
+                    String _upperCase = addMenu.getCreateType().getSimpleName().toUpperCase();
+                    _builder.append(_upperCase);
+                    _builder.append(";");
+                  }
+                };
+                this._jvmTypesBuilder.setBody(it_1, _client);
+              };
+              JvmOperation _method = this._jvmTypesBuilder.toMethod(model, _plus_1, this._typeReferenceBuilder.typeRef(Integer.class), _function_4);
+              this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method);
+              EList<JvmMember> _members_2 = it.getMembers();
+              String _id_1 = ((AddContextMenu)menu).getId();
+              String _plus_2 = ("create" + _id_1);
+              final Procedure1<JvmOperation> _function_5 = (JvmOperation it_1) -> {
+                StringConcatenationClient _client = new StringConcatenationClient() {
+                  @Override
+                  protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                    _builder.append("return ");
+                    JvmTypeReference _modelFactory = model.getModelFactory();
+                    _builder.append(_modelFactory);
+                    _builder.append(".eINSTANCE.create");
+                    String _simpleName = addMenu.getCreateType().getSimpleName();
+                    _builder.append(_simpleName);
+                    _builder.append("();");
+                  }
+                };
+                this._jvmTypesBuilder.setBody(it_1, _client);
+              };
+              JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(model, _plus_2, addMenu.getCreateType(), _function_5);
+              this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_1);
+            }
+          };
+          model.getContextMenus().forEach(_function_3);
+          EList<JvmMember> _members_1 = it.getMembers();
+          final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append(TreeItem.class);
+                _builder.append("<Object> selection = treeView.getSelectionModel().getSelectedItem();");
+                _builder.newLineIfNotEmpty();
+                _builder.append(EditingDomain.class);
+                _builder.append(" editingDomain = manager.getEditingDomain();");
+                _builder.newLineIfNotEmpty();
+                _builder.append("if (selection!=null) {");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("Object owner = selection.getValue();");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append(Command.class, "\t");
+                _builder.append(" command = null;");
+                _builder.newLineIfNotEmpty();
+                {
+                  EList<ContextMenu> _contextMenus = model.getContextMenus();
+                  for(final ContextMenu menu : _contextMenus) {
+                    {
+                      if ((menu instanceof AddContextMenu)) {
+                        _builder.append("\t");
+                        final AddContextMenu addMenu = ((AddContextMenu) menu);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("\t");
+                        _builder.append("if (owner instanceof ");
+                        JvmTypeReference _parentType = ((AddContextMenu)menu).getParentType();
+                        _builder.append(_parentType, "\t");
+                        _builder.append(") {");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("\t");
+                        _builder.append("\t");
+                        _builder.append("command = ");
+                        _builder.append(AddCommand.class, "\t\t");
+                        _builder.append(".create(editingDomain, owner, get");
+                        String _id = addMenu.getId();
+                        _builder.append(_id, "\t\t");
+                        _builder.append("Id(), create");
+                        String _id_1 = addMenu.getId();
+                        _builder.append(_id_1, "\t\t");
+                        _builder.append("());");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("\t");
+                        _builder.append("}");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+                _builder.append("\t");
+                _builder.append("manager.getCommandStack().execute(command);");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("selection.setExpanded(true);");
+                _builder.newLine();
+                _builder.append("}");
+                _builder.newLine();
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(model, "execute", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_4);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method);
         };
         acceptor.<JvmGenericType>accept(
           this._jvmTypesBuilder.toClass(element, (((path + ".Base") + name) + "View"), _function_1));

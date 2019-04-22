@@ -4,30 +4,37 @@
 package de.dc.javafx.xcore.lang.edit.jvmmodel
 
 import com.google.inject.Inject
+import de.dc.javafx.efxclipse.runtime.EMFModelView
 import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl
+import de.dc.javafx.efxclipse.runtime.model.IEmfManager
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model
+import de.dc.javafx.xcore.lang.lib.AbstractApplication
+import javafx.scene.Parent
 import org.eclipse.emf.ecore.change.util.ChangeRecorder
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain
 import org.eclipse.emf.edit.domain.EditingDomain
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
+import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import de.dc.javafx.efxclipse.runtime.model.IEmfManager
-import de.dc.javafx.efxclipse.runtime.EMFModelView
-import de.dc.javafx.xcore.lang.lib.AbstractApplication
-import javafx.scene.Parent
+import javafx.scene.control.TreeItem
+import org.eclipse.emf.edit.command.AddCommand
+import org.eclipse.emf.common.command.Command
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
 	@Inject extension JvmTypesBuilder
-
+	@Inject XbaseInterpreter xbaseInterpreter;
+	
 	def dispatch void infer(Model element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		for(model : element.ecore){
 			val path = model.packagePath.replaceAll("\'", "").replace("\"", "")
 			val name = model.name
+			
 	 		acceptor.accept(element.toClass(path+'.Base'+name+'Manager')[
 	 			superTypes += IEmfManager.typeRef(model.rootType)
 	 			
@@ -36,7 +43,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 			members += model.toField('adapterFactory', ComposedAdapterFactory.typeRef)
 	 			members += model.toField('changeRecorder', ChangeRecorder.typeRef)
 	 			members += model.toField('commandStack', CommandStackImpl.typeRef)
-	 			
+
 	 			members += model.toConstructor[
 	 				body = '''
 					adapterFactory = new «ComposedAdapterFactory»(«ComposedAdapterFactory».Descriptor.Registry.INSTANCE);
@@ -71,6 +78,40 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 				parameters += model.toParameter('manager', IEmfManager.typeRef(model.rootType))
 	 				body = '''super(manager);'''
  				]
+ 				
+ 				model.contextMenus.forEach[menu|
+					if(menu instanceof AddContextMenu){
+						val addMenu = menu as AddContextMenu
+						members += model.toMethod('get'+menu.id+'Id', Integer.typeRef)[
+							body = '''return «addMenu.modelPackage».«addMenu.createType.simpleName.toUpperCase»;'''
+						]
+						
+						members += model.toMethod('create'+menu.id, addMenu.createType)[
+							body = '''return «model.modelFactory».eINSTANCE.create«addMenu.createType.simpleName»();'''
+						]
+					}
+				]
+				
+				members += model.toMethod('execute', typeRef(Void.TYPE))[
+					body = '''
+				 	«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
+				 	«EditingDomain» editingDomain = manager.getEditingDomain();
+				 	if (selection!=null) {
+				 		Object owner = selection.getValue();
+				 		«Command» command = null;
+				 		«FOR menu : model.contextMenus»
+				 		«IF menu instanceof AddContextMenu»
+				 		«val addMenu = menu as AddContextMenu»
+				 		if (owner instanceof «menu.parentType») {
+				 			command = «AddCommand».create(editingDomain, owner, get«addMenu.id»Id(), create«addMenu.id»());
+				 		}
+				 		«ENDIF»
+				 		«ENDFOR»
+				 		manager.getCommandStack().execute(command);
+				 		selection.setExpanded(true);
+				 	}
+					'''
+				]
 	 		])
 	 		
 	 		if(model.generateDemo){

@@ -21,6 +21,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class EmfSupportDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected EmfSupportDslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_AddContextMenu_CommaKeyword_11_q;
+	protected AbstractElementAlias match_AddContextMenu_CommaKeyword_4_q;
+	protected AbstractElementAlias match_AddContextMenu_CommaKeyword_5_2_q;
+	protected AbstractElementAlias match_AddContextMenu_CommaKeyword_8_q;
 	protected AbstractElementAlias match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
@@ -32,6 +36,10 @@ public class EmfSupportDslSyntacticSequencer extends AbstractSyntacticSequencer 
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (EmfSupportDslGrammarAccess) access;
+		match_AddContextMenu_CommaKeyword_11_q = new TokenAlias(false, true, grammarAccess.getAddContextMenuAccess().getCommaKeyword_11());
+		match_AddContextMenu_CommaKeyword_4_q = new TokenAlias(false, true, grammarAccess.getAddContextMenuAccess().getCommaKeyword_4());
+		match_AddContextMenu_CommaKeyword_5_2_q = new TokenAlias(false, true, grammarAccess.getAddContextMenuAccess().getCommaKeyword_5_2());
+		match_AddContextMenu_CommaKeyword_8_q = new TokenAlias(false, true, grammarAccess.getAddContextMenuAccess().getCommaKeyword_8());
 		match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXAnnotationAccess().getLeftParenthesisKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getXAnnotationAccess().getRightParenthesisKeyword_3_2()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
@@ -78,7 +86,15 @@ public class EmfSupportDslSyntacticSequencer extends AbstractSyntacticSequencer 
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q.equals(syntax))
+			if (match_AddContextMenu_CommaKeyword_11_q.equals(syntax))
+				emit_AddContextMenu_CommaKeyword_11_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_AddContextMenu_CommaKeyword_4_q.equals(syntax))
+				emit_AddContextMenu_CommaKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_AddContextMenu_CommaKeyword_5_2_q.equals(syntax))
+				emit_AddContextMenu_CommaKeyword_5_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_AddContextMenu_CommaKeyword_8_q.equals(syntax))
+				emit_AddContextMenu_CommaKeyword_8_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q.equals(syntax))
 				emit_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -96,6 +112,52 @@ public class EmfSupportDslSyntacticSequencer extends AbstractSyntacticSequencer 
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     createType=JvmTypeReference (ambiguity) ')' (rule end)
+	 *     createType=JvmTypeReference (ambiguity) 'modelPackage:' modelPackage=JvmTypeReference
+	 */
+	protected void emit_AddContextMenu_CommaKeyword_11_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     id=EString (ambiguity) 'name:' name=EString
+	 *     id=EString (ambiguity) 'parentType:' parentType=JvmTypeReference
+	 */
+	protected void emit_AddContextMenu_CommaKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=EString (ambiguity) 'parentType:' parentType=JvmTypeReference
+	 */
+	protected void emit_AddContextMenu_CommaKeyword_5_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     parentType=JvmTypeReference (ambiguity) 'createType:' createType=JvmTypeReference
+	 */
+	protected void emit_AddContextMenu_CommaKeyword_8_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     ('(' ')')?

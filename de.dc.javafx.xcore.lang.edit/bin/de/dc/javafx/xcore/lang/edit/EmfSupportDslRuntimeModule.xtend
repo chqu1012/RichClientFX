@@ -3,11 +3,11 @@
  */
 package de.dc.javafx.xcore.lang.edit
 
-import org.eclipse.xtext.generator.IGenerator
-import de.dc.javafx.xcore.lang.edit.generator.EmfSupportDslGenerator
 import com.google.inject.Binder
 import com.google.inject.Singleton
 import de.dc.javafx.xcore.lang.edit.configuration.SourceOutputConfigurationProvider
+import de.dc.javafx.xcore.lang.edit.generator.EmfSupportDslGenerator
+import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IOutputConfigurationProvider
 
 /**
@@ -24,5 +24,4 @@ class EmfSupportDslRuntimeModule extends AbstractEmfSupportDslRuntimeModule {
 		
 		binder.bind(IOutputConfigurationProvider).to(SourceOutputConfigurationProvider).in(Singleton);
 	}
-	
 }

@@ -42,6 +42,24 @@ public interface EmfSupportDslFactory extends EFactory
   Ecore createEcore();
 
   /**
+   * Returns a new object of class '<em>Context Menu</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context Menu</em>'.
+   * @generated
+   */
+  ContextMenu createContextMenu();
+
+  /**
+   * Returns a new object of class '<em>Add Context Menu</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add Context Menu</em>'.
+   * @generated
+   */
+  AddContextMenu createAddContextMenu();
+
+  /**
    * Returns a new object of class '<em>Supported Control</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -87,6 +87,21 @@ public class EmfSupportDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EmfSupportDslPackage.CONTEXT_MENU:
+      {
+        ContextMenu contextMenu = (ContextMenu)theEObject;
+        T result = caseContextMenu(contextMenu);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EmfSupportDslPackage.ADD_CONTEXT_MENU:
+      {
+        AddContextMenu addContextMenu = (AddContextMenu)theEObject;
+        T result = caseAddContextMenu(addContextMenu);
+        if (result == null) result = caseContextMenu(addContextMenu);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EmfSupportDslPackage.SUPPORTED_CONTROL:
       {
         SupportedControl supportedControl = (SupportedControl)theEObject;
@@ -149,6 +164,38 @@ public class EmfSupportDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEcore(Ecore object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Context Menu</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context Menu</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContextMenu(ContextMenu object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Add Context Menu</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Add Context Menu</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddContextMenu(AddContextMenu object)
   {
     return null;
   }

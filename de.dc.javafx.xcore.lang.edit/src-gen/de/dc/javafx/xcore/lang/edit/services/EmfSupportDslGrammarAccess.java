@@ -72,11 +72,16 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cGenerateDemoAssignment_19 = (Assignment)cGroup.eContents().get(19);
 		private final RuleCall cGenerateDemoEBooleanParserRuleCall_19_0 = (RuleCall)cGenerateDemoAssignment_19.eContents().get(0);
 		private final Group cGroup_20 = (Group)cGroup.eContents().get(20);
-		private final Keyword cControlsKeyword_20_0 = (Keyword)cGroup_20.eContents().get(0);
+		private final Keyword cContextMenusKeyword_20_0 = (Keyword)cGroup_20.eContents().get(0);
 		private final Keyword cPlusSignEqualsSignKeyword_20_1 = (Keyword)cGroup_20.eContents().get(1);
-		private final Assignment cSupportedControlsAssignment_20_2 = (Assignment)cGroup_20.eContents().get(2);
-		private final RuleCall cSupportedControlsSupportedControlParserRuleCall_20_2_0 = (RuleCall)cSupportedControlsAssignment_20_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_21 = (Keyword)cGroup.eContents().get(21);
+		private final Assignment cContextMenusAssignment_20_2 = (Assignment)cGroup_20.eContents().get(2);
+		private final RuleCall cContextMenusContextMenuParserRuleCall_20_2_0 = (RuleCall)cContextMenusAssignment_20_2.eContents().get(0);
+		private final Group cGroup_21 = (Group)cGroup.eContents().get(21);
+		private final Keyword cControlsKeyword_21_0 = (Keyword)cGroup_21.eContents().get(0);
+		private final Keyword cPlusSignEqualsSignKeyword_21_1 = (Keyword)cGroup_21.eContents().get(1);
+		private final Assignment cSupportedControlsAssignment_21_2 = (Assignment)cGroup_21.eContents().get(2);
+		private final RuleCall cSupportedControlsSupportedControlParserRuleCall_21_2_0 = (RuleCall)cSupportedControlsAssignment_21_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_22 = (Keyword)cGroup.eContents().get(22);
 		
 		//Ecore:
 		//	'EMFSupport' 'for' name=EString
@@ -88,15 +93,16 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	'useUndoRedo:' useUndoRedo=EBoolean
 		//	'showCommandStack:' showCommandStack=EBoolean
 		//	'showPropertyView:' showPropertyView=EBoolean
-		//	'generateDemo:' generateDemo=EBoolean ('controls' '+=' supportedControls+=SupportedControl)*
+		//	'generateDemo:' generateDemo=EBoolean ('contextMenus' '+=' contextMenus+=ContextMenu)* ('controls' '+='
+		//	supportedControls+=SupportedControl)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'EMFSupport' 'for' name=EString '{' 'packagePath:' packagePath=EString 'modelItemProviderAdapterFactory:'
 		//modelItemProviderAdapterFactory=JvmTypeReference 'modelFactory:' modelFactory=JvmTypeReference 'rootType:'
 		//rootType=JvmTypeReference 'useUndoRedo:' useUndoRedo=EBoolean 'showCommandStack:' showCommandStack=EBoolean
-		//'showPropertyView:' showPropertyView=EBoolean 'generateDemo:' generateDemo=EBoolean ('controls' '+='
-		//supportedControls+=SupportedControl)* '}'
+		//'showPropertyView:' showPropertyView=EBoolean 'generateDemo:' generateDemo=EBoolean ('contextMenus' '+='
+		//contextMenus+=ContextMenu)* ('controls' '+=' supportedControls+=SupportedControl)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'EMFSupport'
@@ -186,23 +192,161 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EBoolean
 		public RuleCall getGenerateDemoEBooleanParserRuleCall_19_0() { return cGenerateDemoEBooleanParserRuleCall_19_0; }
 		
-		//('controls' '+=' supportedControls+=SupportedControl)*
+		//('contextMenus' '+=' contextMenus+=ContextMenu)*
 		public Group getGroup_20() { return cGroup_20; }
 		
-		//'controls'
-		public Keyword getControlsKeyword_20_0() { return cControlsKeyword_20_0; }
+		//'contextMenus'
+		public Keyword getContextMenusKeyword_20_0() { return cContextMenusKeyword_20_0; }
 		
 		//'+='
 		public Keyword getPlusSignEqualsSignKeyword_20_1() { return cPlusSignEqualsSignKeyword_20_1; }
 		
+		//contextMenus+=ContextMenu
+		public Assignment getContextMenusAssignment_20_2() { return cContextMenusAssignment_20_2; }
+		
+		//ContextMenu
+		public RuleCall getContextMenusContextMenuParserRuleCall_20_2_0() { return cContextMenusContextMenuParserRuleCall_20_2_0; }
+		
+		//('controls' '+=' supportedControls+=SupportedControl)*
+		public Group getGroup_21() { return cGroup_21; }
+		
+		//'controls'
+		public Keyword getControlsKeyword_21_0() { return cControlsKeyword_21_0; }
+		
+		//'+='
+		public Keyword getPlusSignEqualsSignKeyword_21_1() { return cPlusSignEqualsSignKeyword_21_1; }
+		
 		//supportedControls+=SupportedControl
-		public Assignment getSupportedControlsAssignment_20_2() { return cSupportedControlsAssignment_20_2; }
+		public Assignment getSupportedControlsAssignment_21_2() { return cSupportedControlsAssignment_21_2; }
 		
 		//SupportedControl
-		public RuleCall getSupportedControlsSupportedControlParserRuleCall_20_2_0() { return cSupportedControlsSupportedControlParserRuleCall_20_2_0; }
+		public RuleCall getSupportedControlsSupportedControlParserRuleCall_21_2_0() { return cSupportedControlsSupportedControlParserRuleCall_21_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_21() { return cRightCurlyBracketKeyword_21; }
+		public Keyword getRightCurlyBracketKeyword_22() { return cRightCurlyBracketKeyword_22; }
+	}
+	public class ContextMenuElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.ContextMenu");
+		private final RuleCall cAddContextMenuParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//ContextMenu:
+		//	AddContextMenu;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//AddContextMenu
+		public RuleCall getAddContextMenuParserRuleCall() { return cAddContextMenuParserRuleCall; }
+	}
+	public class AddContextMenuElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.AddContextMenu");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAddContextMenuKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cIdKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cIdEStringParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cNameKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cNameAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_5_1_0 = (RuleCall)cNameAssignment_5_1.eContents().get(0);
+		private final Keyword cCommaKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Keyword cParentTypeKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cParentTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cParentTypeJvmTypeReferenceParserRuleCall_7_0 = (RuleCall)cParentTypeAssignment_7.eContents().get(0);
+		private final Keyword cCommaKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cCreateTypeKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cCreateTypeAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cCreateTypeJvmTypeReferenceParserRuleCall_10_0 = (RuleCall)cCreateTypeAssignment_10.eContents().get(0);
+		private final Keyword cCommaKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cModelPackageKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cModelPackageAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cModelPackageJvmTypeReferenceParserRuleCall_12_1_0 = (RuleCall)cModelPackageAssignment_12_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		
+		//AddContextMenu:
+		//	'addContextMenu' '('
+		//	'id:' id=EString ','? ('name:' name=EString ','?)?
+		//	'parentType:' parentType=JvmTypeReference ','?
+		//	'createType:' createType=JvmTypeReference ','? ('modelPackage:' modelPackage=JvmTypeReference)?
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'addContextMenu' '(' 'id:' id=EString ','? ('name:' name=EString ','?)? 'parentType:' parentType=JvmTypeReference ','?
+		//'createType:' createType=JvmTypeReference ','? ('modelPackage:' modelPackage=JvmTypeReference)? ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'addContextMenu'
+		public Keyword getAddContextMenuKeyword_0() { return cAddContextMenuKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//'id:'
+		public Keyword getIdKeyword_2() { return cIdKeyword_2; }
+		
+		//id=EString
+		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
+		
+		//EString
+		public RuleCall getIdEStringParserRuleCall_3_0() { return cIdEStringParserRuleCall_3_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//('name:' name=EString ','?)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'name:'
+		public Keyword getNameKeyword_5_0() { return cNameKeyword_5_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_5_1() { return cNameAssignment_5_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_5_1_0() { return cNameEStringParserRuleCall_5_1_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_5_2() { return cCommaKeyword_5_2; }
+		
+		//'parentType:'
+		public Keyword getParentTypeKeyword_6() { return cParentTypeKeyword_6; }
+		
+		//parentType=JvmTypeReference
+		public Assignment getParentTypeAssignment_7() { return cParentTypeAssignment_7; }
+		
+		//JvmTypeReference
+		public RuleCall getParentTypeJvmTypeReferenceParserRuleCall_7_0() { return cParentTypeJvmTypeReferenceParserRuleCall_7_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_8() { return cCommaKeyword_8; }
+		
+		//'createType:'
+		public Keyword getCreateTypeKeyword_9() { return cCreateTypeKeyword_9; }
+		
+		//createType=JvmTypeReference
+		public Assignment getCreateTypeAssignment_10() { return cCreateTypeAssignment_10; }
+		
+		//JvmTypeReference
+		public RuleCall getCreateTypeJvmTypeReferenceParserRuleCall_10_0() { return cCreateTypeJvmTypeReferenceParserRuleCall_10_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_11() { return cCommaKeyword_11; }
+		
+		//('modelPackage:' modelPackage=JvmTypeReference)?
+		public Group getGroup_12() { return cGroup_12; }
+		
+		//'modelPackage:'
+		public Keyword getModelPackageKeyword_12_0() { return cModelPackageKeyword_12_0; }
+		
+		//modelPackage=JvmTypeReference
+		public Assignment getModelPackageAssignment_12_1() { return cModelPackageAssignment_12_1; }
+		
+		//JvmTypeReference
+		public RuleCall getModelPackageJvmTypeReferenceParserRuleCall_12_1_0() { return cModelPackageJvmTypeReferenceParserRuleCall_12_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_13() { return cRightParenthesisKeyword_13; }
 	}
 	public class SupportedControlElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.SupportedControl");
@@ -389,6 +533,8 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final EcoreElements pEcore;
+	private final ContextMenuElements pContextMenu;
+	private final AddContextMenuElements pAddContextMenu;
 	private final SupportedControlElements pSupportedControl;
 	private final TreeViewFXElements pTreeViewFX;
 	private final TableViewFXElements pTableViewFX;
@@ -416,6 +562,8 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaXtype = gaXtype;
 		this.pModel = new ModelElements();
 		this.pEcore = new EcoreElements();
+		this.pContextMenu = new ContextMenuElements();
+		this.pAddContextMenu = new AddContextMenuElements();
 		this.pSupportedControl = new SupportedControlElements();
 		this.pTreeViewFX = new TreeViewFXElements();
 		this.pTableViewFX = new TableViewFXElements();
@@ -480,7 +628,8 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'useUndoRedo:' useUndoRedo=EBoolean
 	//	'showCommandStack:' showCommandStack=EBoolean
 	//	'showPropertyView:' showPropertyView=EBoolean
-	//	'generateDemo:' generateDemo=EBoolean ('controls' '+=' supportedControls+=SupportedControl)*
+	//	'generateDemo:' generateDemo=EBoolean ('contextMenus' '+=' contextMenus+=ContextMenu)* ('controls' '+='
+	//	supportedControls+=SupportedControl)*
 	//	'}';
 	public EcoreElements getEcoreAccess() {
 		return pEcore;
@@ -488,6 +637,30 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEcoreRule() {
 		return getEcoreAccess().getRule();
+	}
+	
+	//ContextMenu:
+	//	AddContextMenu;
+	public ContextMenuElements getContextMenuAccess() {
+		return pContextMenu;
+	}
+	
+	public ParserRule getContextMenuRule() {
+		return getContextMenuAccess().getRule();
+	}
+	
+	//AddContextMenu:
+	//	'addContextMenu' '('
+	//	'id:' id=EString ','? ('name:' name=EString ','?)?
+	//	'parentType:' parentType=JvmTypeReference ','?
+	//	'createType:' createType=JvmTypeReference ','? ('modelPackage:' modelPackage=JvmTypeReference)?
+	//	')';
+	public AddContextMenuElements getAddContextMenuAccess() {
+		return pAddContextMenu;
+	}
+	
+	public ParserRule getAddContextMenuRule() {
+		return getAddContextMenuAccess().getRule();
 	}
 	
 	//SupportedControl:

@@ -91,6 +91,8 @@ import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
 import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
+import org.eclipse.xtext.ui.wizard.IProjectCreator;
+import org.eclipse.xtext.ui.wizard.template.DefaultTemplateProjectCreator;
 import org.eclipse.xtext.xbase.annotations.ui.DefaultXbaseWithAnnotationsUiModule;
 import org.eclipse.xtext.xbase.ui.editor.XbaseDocumentProvider;
 import org.eclipse.xtext.xbase.ui.generator.trace.XbaseOpenGeneratedFileHandler;
@@ -389,6 +391,11 @@ public abstract class AbstractEmfSupportDslUiModule extends DefaultXbaseWithAnno
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public void configureCompareViewerTitle(Binder binder) {
 		binder.bind(String.class).annotatedWith(Names.named(UIBindings.COMPARE_VIEWER_TITLE)).toInstance("EmfSupportDsl Compare");
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.ui.projectWizard.TemplateProjectWizardFragment
+	public Class<? extends IProjectCreator> bindIProjectCreator() {
+		return DefaultTemplateProjectCreator.class;
 	}
 	
 }

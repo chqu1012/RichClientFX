@@ -4,6 +4,7 @@
 package de.dc.javafx.xcore.lang.edit.serializer;
 
 import com.google.inject.Inject;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
@@ -84,6 +85,9 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EmfSupportDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case EmfSupportDslPackage.ADD_CONTEXT_MENU:
+				sequence_AddContextMenu(context, (AddContextMenu) semanticObject); 
+				return; 
 			case EmfSupportDslPackage.ECORE:
 				sequence_Ecore(context, (Ecore) semanticObject); 
 				return; 
@@ -406,6 +410,19 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	
 	/**
 	 * Contexts:
+	 *     ContextMenu returns AddContextMenu
+	 *     AddContextMenu returns AddContextMenu
+	 *
+	 * Constraint:
+	 *     (id=EString name=EString? parentType=JvmTypeReference createType=JvmTypeReference modelPackage=JvmTypeReference?)
+	 */
+	protected void sequence_AddContextMenu(ISerializationContext context, AddContextMenu semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Ecore returns Ecore
 	 *
 	 * Constraint:
@@ -419,6 +436,7 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	 *         showCommandStack=EBoolean 
 	 *         showPropertyView=EBoolean 
 	 *         generateDemo=EBoolean 
+	 *         contextMenus+=ContextMenu* 
 	 *         supportedControls+=SupportedControl*
 	 *     )
 	 */

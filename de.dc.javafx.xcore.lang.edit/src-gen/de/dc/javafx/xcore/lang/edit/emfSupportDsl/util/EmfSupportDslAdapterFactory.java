@@ -86,6 +86,16 @@ public class EmfSupportDslAdapterFactory extends AdapterFactoryImpl
         return createEcoreAdapter();
       }
       @Override
+      public Adapter caseContextMenu(ContextMenu object)
+      {
+        return createContextMenuAdapter();
+      }
+      @Override
+      public Adapter caseAddContextMenu(AddContextMenu object)
+      {
+        return createAddContextMenuAdapter();
+      }
+      @Override
       public Adapter caseSupportedControl(SupportedControl object)
       {
         return createSupportedControlAdapter();
@@ -153,6 +163,36 @@ public class EmfSupportDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEcoreAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu <em>Context Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu
+   * @generated
+   */
+  public Adapter createContextMenuAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu <em>Add Context Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu
+   * @generated
+   */
+  public Adapter createAddContextMenuAdapter()
   {
     return null;
   }

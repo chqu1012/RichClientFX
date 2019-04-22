@@ -27,6 +27,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isShowCommandStack <em>Show Command Stack</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isShowPropertyView <em>Show Property View</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isGenerateDemo <em>Generate Demo</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getContextMenus <em>Context Menus</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getSupportedControls <em>Supported Controls</em>}</li>
  * </ul>
  *
@@ -233,6 +234,18 @@ public interface Ecore extends EObject
    * @generated
    */
   void setGenerateDemo(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Context Menus</b></em>' containment reference list.
+   * The list contents are of type {@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Context Menus</em>' containment reference list.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getEcore_ContextMenus()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ContextMenu> getContextMenus();
 
   /**
    * Returns the value of the '<em><b>Supported Controls</b></em>' containment reference list.

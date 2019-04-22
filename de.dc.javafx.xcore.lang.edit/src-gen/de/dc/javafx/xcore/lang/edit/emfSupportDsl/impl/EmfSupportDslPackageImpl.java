@@ -3,6 +3,8 @@
  */
 package de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl;
 
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslFactory;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage;
@@ -42,6 +44,20 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   private EClass ecoreEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextMenuEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass addContextMenuEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -275,9 +291,97 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
    * @generated
    */
   @Override
-  public EReference getEcore_SupportedControls()
+  public EReference getEcore_ContextMenus()
   {
     return (EReference)ecoreEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEcore_SupportedControls()
+  {
+    return (EReference)ecoreEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getContextMenu()
+  {
+    return contextMenuEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAddContextMenu()
+  {
+    return addContextMenuEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAddContextMenu_Id()
+  {
+    return (EAttribute)addContextMenuEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAddContextMenu_Name()
+  {
+    return (EAttribute)addContextMenuEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddContextMenu_ParentType()
+  {
+    return (EReference)addContextMenuEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddContextMenu_CreateType()
+  {
+    return (EReference)addContextMenuEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddContextMenu_ModelPackage()
+  {
+    return (EReference)addContextMenuEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -390,7 +494,17 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
     createEAttribute(ecoreEClass, ECORE__SHOW_COMMAND_STACK);
     createEAttribute(ecoreEClass, ECORE__SHOW_PROPERTY_VIEW);
     createEAttribute(ecoreEClass, ECORE__GENERATE_DEMO);
+    createEReference(ecoreEClass, ECORE__CONTEXT_MENUS);
     createEReference(ecoreEClass, ECORE__SUPPORTED_CONTROLS);
+
+    contextMenuEClass = createEClass(CONTEXT_MENU);
+
+    addContextMenuEClass = createEClass(ADD_CONTEXT_MENU);
+    createEAttribute(addContextMenuEClass, ADD_CONTEXT_MENU__ID);
+    createEAttribute(addContextMenuEClass, ADD_CONTEXT_MENU__NAME);
+    createEReference(addContextMenuEClass, ADD_CONTEXT_MENU__PARENT_TYPE);
+    createEReference(addContextMenuEClass, ADD_CONTEXT_MENU__CREATE_TYPE);
+    createEReference(addContextMenuEClass, ADD_CONTEXT_MENU__MODEL_PACKAGE);
 
     supportedControlEClass = createEClass(SUPPORTED_CONTROL);
     createEAttribute(supportedControlEClass, SUPPORTED_CONTROL__NAME);
@@ -435,6 +549,7 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    addContextMenuEClass.getESuperTypes().add(this.getContextMenu());
     treeViewFXEClass.getESuperTypes().add(this.getSupportedControl());
     tableViewFXEClass.getESuperTypes().add(this.getSupportedControl());
 
@@ -452,7 +567,17 @@ public class EmfSupportDslPackageImpl extends EPackageImpl implements EmfSupport
     initEAttribute(getEcore_ShowCommandStack(), ecorePackage.getEBoolean(), "showCommandStack", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEcore_ShowPropertyView(), ecorePackage.getEBoolean(), "showPropertyView", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEcore_GenerateDemo(), ecorePackage.getEBoolean(), "generateDemo", null, 0, 1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEcore_ContextMenus(), this.getContextMenu(), null, "contextMenus", null, 0, -1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEcore_SupportedControls(), this.getSupportedControl(), null, "supportedControls", null, 0, -1, Ecore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contextMenuEClass, ContextMenu.class, "ContextMenu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(addContextMenuEClass, AddContextMenu.class, "AddContextMenu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAddContextMenu_Id(), ecorePackage.getEString(), "id", null, 0, 1, AddContextMenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddContextMenu_Name(), ecorePackage.getEString(), "name", null, 0, 1, AddContextMenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddContextMenu_ParentType(), theTypesPackage.getJvmTypeReference(), null, "parentType", null, 0, 1, AddContextMenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddContextMenu_CreateType(), theTypesPackage.getJvmTypeReference(), null, "createType", null, 0, 1, AddContextMenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddContextMenu_ModelPackage(), theTypesPackage.getJvmTypeReference(), null, "modelPackage", null, 0, 1, AddContextMenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(supportedControlEClass, SupportedControl.class, "SupportedControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSupportedControl_Name(), ecorePackage.getEString(), "name", null, 0, 1, SupportedControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

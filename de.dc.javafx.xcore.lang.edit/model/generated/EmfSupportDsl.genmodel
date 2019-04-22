@@ -19,7 +19,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/showCommandStack"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/showPropertyView"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//Ecore/generateDemo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//Ecore/contextMenus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//Ecore/supportedControls"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfSupportDsl.ecore#//ContextMenu"/>
+    <genClasses ecoreClass="EmfSupportDsl.ecore#//AddContextMenu">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//AddContextMenu/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//AddContextMenu/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//AddContextMenu/parentType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//AddContextMenu/createType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//AddContextMenu/modelPackage"/>
     </genClasses>
     <genClasses ecoreClass="EmfSupportDsl.ecore#//SupportedControl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//SupportedControl/name"/>

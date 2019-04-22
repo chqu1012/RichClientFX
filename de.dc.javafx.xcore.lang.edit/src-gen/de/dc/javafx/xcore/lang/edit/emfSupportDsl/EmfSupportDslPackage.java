@@ -177,13 +177,22 @@ public interface EmfSupportDslPackage extends EPackage
   int ECORE__GENERATE_DEMO = 8;
 
   /**
+   * The feature id for the '<em><b>Context Menus</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECORE__CONTEXT_MENUS = 9;
+
+  /**
    * The feature id for the '<em><b>Supported Controls</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ECORE__SUPPORTED_CONTROLS = 9;
+  int ECORE__SUPPORTED_CONTROLS = 10;
 
   /**
    * The number of structural features of the '<em>Ecore</em>' class.
@@ -192,7 +201,90 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE_FEATURE_COUNT = 10;
+  int ECORE_FEATURE_COUNT = 11;
+
+  /**
+   * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ContextMenuImpl <em>Context Menu</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ContextMenuImpl
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getContextMenu()
+   * @generated
+   */
+  int CONTEXT_MENU = 2;
+
+  /**
+   * The number of structural features of the '<em>Context Menu</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_MENU_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl <em>Add Context Menu</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getAddContextMenu()
+   * @generated
+   */
+  int ADD_CONTEXT_MENU = 3;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_CONTEXT_MENU__ID = CONTEXT_MENU_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_CONTEXT_MENU__NAME = CONTEXT_MENU_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Parent Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_CONTEXT_MENU__PARENT_TYPE = CONTEXT_MENU_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Create Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_CONTEXT_MENU__CREATE_TYPE = CONTEXT_MENU_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Model Package</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_CONTEXT_MENU__MODEL_PACKAGE = CONTEXT_MENU_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Add Context Menu</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_CONTEXT_MENU_FEATURE_COUNT = CONTEXT_MENU_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl <em>Supported Control</em>}' class.
@@ -202,7 +294,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getSupportedControl()
    * @generated
    */
-  int SUPPORTED_CONTROL = 2;
+  int SUPPORTED_CONTROL = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -230,7 +322,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTreeViewFX()
    * @generated
    */
-  int TREE_VIEW_FX = 3;
+  int TREE_VIEW_FX = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -258,7 +350,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTableViewFX()
    * @generated
    */
-  int TABLE_VIEW_FX = 4;
+  int TABLE_VIEW_FX = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -286,7 +378,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTreeTable()
    * @generated
    */
-  int TREE_TABLE = 5;
+  int TREE_TABLE = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -438,6 +530,17 @@ public interface EmfSupportDslPackage extends EPackage
   EAttribute getEcore_GenerateDemo();
 
   /**
+   * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getContextMenus <em>Context Menus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Context Menus</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getContextMenus()
+   * @see #getEcore()
+   * @generated
+   */
+  EReference getEcore_ContextMenus();
+
+  /**
    * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getSupportedControls <em>Supported Controls</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -447,6 +550,81 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    */
   EReference getEcore_SupportedControls();
+
+  /**
+   * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu <em>Context Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Context Menu</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu
+   * @generated
+   */
+  EClass getContextMenu();
+
+  /**
+   * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu <em>Add Context Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Add Context Menu</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu
+   * @generated
+   */
+  EClass getAddContextMenu();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getId()
+   * @see #getAddContextMenu()
+   * @generated
+   */
+  EAttribute getAddContextMenu_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getName()
+   * @see #getAddContextMenu()
+   * @generated
+   */
+  EAttribute getAddContextMenu_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getParentType <em>Parent Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parent Type</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getParentType()
+   * @see #getAddContextMenu()
+   * @generated
+   */
+  EReference getAddContextMenu_ParentType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getCreateType <em>Create Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Create Type</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getCreateType()
+   * @see #getAddContextMenu()
+   * @generated
+   */
+  EReference getAddContextMenu_CreateType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getModelPackage <em>Model Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Model Package</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getModelPackage()
+   * @see #getAddContextMenu()
+   * @generated
+   */
+  EReference getAddContextMenu_ModelPackage();
 
   /**
    * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl <em>Supported Control</em>}'.
@@ -634,12 +812,80 @@ public interface EmfSupportDslPackage extends EPackage
     EAttribute ECORE__GENERATE_DEMO = eINSTANCE.getEcore_GenerateDemo();
 
     /**
+     * The meta object literal for the '<em><b>Context Menus</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ECORE__CONTEXT_MENUS = eINSTANCE.getEcore_ContextMenus();
+
+    /**
      * The meta object literal for the '<em><b>Supported Controls</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference ECORE__SUPPORTED_CONTROLS = eINSTANCE.getEcore_SupportedControls();
+
+    /**
+     * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ContextMenuImpl <em>Context Menu</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ContextMenuImpl
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getContextMenu()
+     * @generated
+     */
+    EClass CONTEXT_MENU = eINSTANCE.getContextMenu();
+
+    /**
+     * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl <em>Add Context Menu</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getAddContextMenu()
+     * @generated
+     */
+    EClass ADD_CONTEXT_MENU = eINSTANCE.getAddContextMenu();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_CONTEXT_MENU__ID = eINSTANCE.getAddContextMenu_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_CONTEXT_MENU__NAME = eINSTANCE.getAddContextMenu_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parent Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADD_CONTEXT_MENU__PARENT_TYPE = eINSTANCE.getAddContextMenu_ParentType();
+
+    /**
+     * The meta object literal for the '<em><b>Create Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADD_CONTEXT_MENU__CREATE_TYPE = eINSTANCE.getAddContextMenu_CreateType();
+
+    /**
+     * The meta object literal for the '<em><b>Model Package</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADD_CONTEXT_MENU__MODEL_PACKAGE = eINSTANCE.getAddContextMenu_ModelPackage();
 
     /**
      * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl <em>Supported Control</em>}' class.

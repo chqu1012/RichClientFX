@@ -3,6 +3,7 @@
  */
 package de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl;
 
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl;
@@ -42,6 +43,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isShowCommandStack <em>Show Command Stack</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isShowPropertyView <em>Show Property View</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isGenerateDemo <em>Generate Demo</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getContextMenus <em>Context Menus</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getSupportedControls <em>Supported Controls</em>}</li>
  * </ul>
  *
@@ -198,6 +200,16 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
    * @ordered
    */
   protected boolean generateDemo = GENERATE_DEMO_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getContextMenus() <em>Context Menus</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContextMenus()
+   * @generated
+   * @ordered
+   */
+  protected EList<ContextMenu> contextMenus;
 
   /**
    * The cached value of the '{@link #getSupportedControls() <em>Supported Controls</em>}' containment reference list.
@@ -536,6 +548,21 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
    * @generated
    */
   @Override
+  public EList<ContextMenu> getContextMenus()
+  {
+    if (contextMenus == null)
+    {
+      contextMenus = new EObjectContainmentEList<ContextMenu>(ContextMenu.class, this, EmfSupportDslPackage.ECORE__CONTEXT_MENUS);
+    }
+    return contextMenus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<SupportedControl> getSupportedControls()
   {
     if (supportedControls == null)
@@ -561,6 +588,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return basicSetModelFactory(null, msgs);
       case EmfSupportDslPackage.ECORE__ROOT_TYPE:
         return basicSetRootType(null, msgs);
+      case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
+        return ((InternalEList<?>)getContextMenus()).basicRemove(otherEnd, msgs);
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         return ((InternalEList<?>)getSupportedControls()).basicRemove(otherEnd, msgs);
     }
@@ -595,6 +624,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return isShowPropertyView();
       case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
         return isGenerateDemo();
+      case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
+        return getContextMenus();
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         return getSupportedControls();
     }
@@ -638,6 +669,10 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return;
       case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
         setGenerateDemo((Boolean)newValue);
+        return;
+      case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
+        getContextMenus().clear();
+        getContextMenus().addAll((Collection<? extends ContextMenu>)newValue);
         return;
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         getSupportedControls().clear();
@@ -684,6 +719,9 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
       case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
         setGenerateDemo(GENERATE_DEMO_EDEFAULT);
         return;
+      case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
+        getContextMenus().clear();
+        return;
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         getSupportedControls().clear();
         return;
@@ -719,6 +757,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return showPropertyView != SHOW_PROPERTY_VIEW_EDEFAULT;
       case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
         return generateDemo != GENERATE_DEMO_EDEFAULT;
+      case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
+        return contextMenus != null && !contextMenus.isEmpty();
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
         return supportedControls != null && !supportedControls.isEmpty();
     }

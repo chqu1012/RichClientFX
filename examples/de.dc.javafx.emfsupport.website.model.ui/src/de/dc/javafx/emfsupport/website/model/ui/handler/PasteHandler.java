@@ -11,7 +11,7 @@ public class PasteHandler extends AbstractCommandHandler<Website> {
 	public PasteHandler(IEmfManager<Website> manager) {
 		super(manager);
 	}
-
+	
 	public boolean canExecute(Object selection) {
 //		Group group = null;
 //
@@ -28,13 +28,6 @@ public class PasteHandler extends AbstractCommandHandler<Website> {
 //			return command.canExecute();
 //		}
 		return false;
-	}
-
-	@Override
-	public void execute() {
-		if (command != null && command.canExecute()) {
-			manager.getEditingDomain().getCommandStack().execute(command);		
-		}
 	}
 
 	@Override

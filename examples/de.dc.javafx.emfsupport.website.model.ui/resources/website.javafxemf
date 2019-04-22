@@ -7,6 +7,12 @@ EMFSupport for WebsiteModel{
 	showCommandStack: true 
 	showPropertyView: true 
     generateDemo: true
-     
+
+	contextMenus += addContextMenu(
+		id:AddPage 
+		parentType: de.dc.javafx.emfsupport.website.model.Website
+		createType: de.dc.javafx.emfsupport.website.model.Page 
+		modelPackage:de.dc.javafx.emfsupport.website.model.ModelPackage
+	)
 	controls += TableView(name: AdbookTable)
-}
+} 
