@@ -42,6 +42,15 @@ public interface EmfSupportDslFactory extends EFactory
   Ecore createEcore();
 
   /**
+   * Returns a new object of class '<em>Editable EAttributes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Editable EAttributes</em>'.
+   * @generated
+   */
+  EditableEAttributes createEditableEAttributes();
+
+  /**
    * Returns a new object of class '<em>Context Menu</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

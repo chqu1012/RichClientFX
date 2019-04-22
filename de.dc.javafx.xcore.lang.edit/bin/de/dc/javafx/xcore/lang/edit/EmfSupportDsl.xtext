@@ -10,18 +10,24 @@ Model:
 Ecore:
 'EMFSupport' 'for' name=EString
 '{'
-	'packagePath:' packagePath=EString
-	'modelItemProviderAdapterFactory:' modelItemProviderAdapterFactory=JvmTypeReference
-	'modelFactory:' modelFactory=JvmTypeReference
-	'rootType:' rootType=JvmTypeReference
-	'useUndoRedo:' useUndoRedo=EBoolean
-	'showCommandStack:' showCommandStack=EBoolean
-	'showPropertyView:' showPropertyView=EBoolean
-	'generateDemo:' generateDemo=EBoolean
+	'packagePath:' packagePath=EString ','?
+	'modelItemProviderAdapterFactory:' modelItemProviderAdapterFactory=JvmTypeReference ','?
+	'modelPackage:' modelPackage=JvmTypeReference ','?
+	'modelFactory:' modelFactory=JvmTypeReference ','?
+	'rootType:' rootType=JvmTypeReference ','?
+	'useUndoRedo:' useUndoRedo=EBoolean ','?
+	'showCommandStack:' showCommandStack=EBoolean ','?
+	'showPropertyView:' showPropertyView=EBoolean ','?
+	'generateDemo:' generateDemo=EBoolean ','?
 	
-	('contextMenus' '+=' contextMenus+=ContextMenu)*
-	('controls' '+=' supportedControls+=SupportedControl)*
+	('editables' '+=' editables+=EditableEAttributes ','?)*
+	('contextMenus' '+=' contextMenus+=ContextMenu ','?)*
+	('controls' '+=' supportedControls+=SupportedControl ','?)*
 '}'	
+;
+
+EditableEAttributes:
+	'EAttribute' '(' name=EString ')'
 ;
 
 ContextMenu:
@@ -31,10 +37,8 @@ ContextMenu:
 AddContextMenu:
 	'addContextMenu' '('
 		'id:' id=EString ','?
-		('name:' name=EString ','?)?
 		'parentType:' parentType=JvmTypeReference ','?
 		'createType:' createType=JvmTypeReference ','?
-		('modelPackage:' modelPackage=JvmTypeReference)?
 	')'
 ;
 

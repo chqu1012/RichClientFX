@@ -86,6 +86,11 @@ public class EmfSupportDslAdapterFactory extends AdapterFactoryImpl
         return createEcoreAdapter();
       }
       @Override
+      public Adapter caseEditableEAttributes(EditableEAttributes object)
+      {
+        return createEditableEAttributesAdapter();
+      }
+      @Override
       public Adapter caseContextMenu(ContextMenu object)
       {
         return createContextMenuAdapter();
@@ -163,6 +168,21 @@ public class EmfSupportDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEcoreAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes <em>Editable EAttributes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes
+   * @generated
+   */
+  public Adapter createEditableEAttributesAdapter()
   {
     return null;
   }

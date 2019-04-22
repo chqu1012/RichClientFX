@@ -15,10 +15,8 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getId <em>Id</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getCreateType <em>Create Type</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getModelPackage <em>Model Package</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getAddContextMenu()
@@ -48,28 +46,6 @@ public interface AddContextMenu extends ContextMenu
    * @generated
    */
   void setId(String value);
-
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getAddContextMenu_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Parent Type</b></em>' containment reference.
@@ -114,27 +90,5 @@ public interface AddContextMenu extends ContextMenu
    * @generated
    */
   void setCreateType(JvmTypeReference value);
-
-  /**
-   * Returns the value of the '<em><b>Model Package</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Model Package</em>' containment reference.
-   * @see #setModelPackage(JvmTypeReference)
-   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getAddContextMenu_ModelPackage()
-   * @model containment="true"
-   * @generated
-   */
-  JvmTypeReference getModelPackage();
-
-  /**
-   * Sets the value of the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getModelPackage <em>Model Package</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Model Package</em>' containment reference.
-   * @see #getModelPackage()
-   * @generated
-   */
-  void setModelPackage(JvmTypeReference value);
 
 } // AddContextMenu

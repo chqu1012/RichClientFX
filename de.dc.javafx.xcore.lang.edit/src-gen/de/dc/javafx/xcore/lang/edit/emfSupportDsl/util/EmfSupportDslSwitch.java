@@ -87,6 +87,13 @@ public class EmfSupportDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EmfSupportDslPackage.EDITABLE_EATTRIBUTES:
+      {
+        EditableEAttributes editableEAttributes = (EditableEAttributes)theEObject;
+        T result = caseEditableEAttributes(editableEAttributes);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EmfSupportDslPackage.CONTEXT_MENU:
       {
         ContextMenu contextMenu = (ContextMenu)theEObject;
@@ -164,6 +171,22 @@ public class EmfSupportDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEcore(Ecore object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Editable EAttributes</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Editable EAttributes</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEditableEAttributes(EditableEAttributes object)
   {
     return null;
   }

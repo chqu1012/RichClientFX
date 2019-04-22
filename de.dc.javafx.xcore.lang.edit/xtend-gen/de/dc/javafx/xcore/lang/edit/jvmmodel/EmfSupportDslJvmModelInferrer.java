@@ -10,6 +10,7 @@ import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
 import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import java.util.Arrays;
@@ -26,6 +27,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
 import org.eclipse.xtend2.lib.StringConcatenationClient;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmConstructor;
@@ -173,6 +175,31 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
               @Override
               protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
                 _builder.append("super(manager);");
+                _builder.newLine();
+                _builder.newLine();
+                _builder.append(EditingDomain.class);
+                _builder.append(" editDomain = manager.getEditingDomain();");
+                _builder.newLineIfNotEmpty();
+                _builder.newLine();
+                _builder.append("// add edit support");
+                _builder.newLine();
+                _builder.append("treeView.setEditable(true);");
+                _builder.newLine();
+                {
+                  EList<EditableEAttributes> _editables = model.getEditables();
+                  for(final EditableEAttributes editable : _editables) {
+                    _builder.append("treeCellFactory.addCellEditHandler(new ");
+                    _builder.append(EAttributeCellEditHandler.class);
+                    _builder.append("(");
+                    JvmTypeReference _modelPackage = model.getModelPackage();
+                    _builder.append(_modelPackage);
+                    _builder.append(".eINSTANCE.get");
+                    String _name = editable.getName();
+                    _builder.append(_name);
+                    _builder.append("(), editDomain));");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
               }
             };
             this._jvmTypesBuilder.setBody(it_1, _client);
@@ -191,7 +218,7 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
                   @Override
                   protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
                     _builder.append("return ");
-                    JvmTypeReference _modelPackage = addMenu.getModelPackage();
+                    JvmTypeReference _modelPackage = model.getModelPackage();
                     _builder.append(_modelPackage);
                     _builder.append(".");
                     String _upperCase = addMenu.getCreateType().getSimpleName().toUpperCase();

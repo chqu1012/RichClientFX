@@ -1,18 +1,33 @@
 EMFSupport for WebsiteModel{
 	packagePath: 'de.dc.javafx.emfsupport.website.model.ui' 
 	modelItemProviderAdapterFactory: de.dc.javafx.emfsupport.website.model.provider.ModelItemProviderAdapterFactory
+	modelPackage: de.dc.javafx.emfsupport.website.model.ModelPackage
 	modelFactory: de.dc.javafx.emfsupport.website.model.ModelFactory
 	rootType: de.dc.javafx.emfsupport.website.model.Website
 	useUndoRedo: true  
 	showCommandStack: true 
 	showPropertyView: true 
+
+	// Generate an example application
     generateDemo: true
 
+	// Edit Suppport, EAttributes is taken from EMF generated ModelPackage
+	// This attribute should exist, otherwise you will get a compile error.
+	editables += EAttribute(Website_Name)
+	editables += EAttribute(Page_Name)	
+	editables += EAttribute(Author_Firstname)
+
+	// Context Menu
 	contextMenus += addContextMenu(
 		id:AddPage 
 		parentType: de.dc.javafx.emfsupport.website.model.Website
 		createType: de.dc.javafx.emfsupport.website.model.Page 
-		modelPackage:de.dc.javafx.emfsupport.website.model.ModelPackage
 	)
+	contextMenus += addContextMenu(
+		id:AddAuthor 
+		parentType: de.dc.javafx.emfsupport.website.model.Page
+		createType: de.dc.javafx.emfsupport.website.model.Author
+	)
+	
 	controls += TableView(name: AdbookTable)
 } 

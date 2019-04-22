@@ -5,6 +5,7 @@ package de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl;
 
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl;
 
@@ -37,12 +38,14 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getPackagePath <em>Package Path</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getModelItemProviderAdapterFactory <em>Model Item Provider Adapter Factory</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getModelPackage <em>Model Package</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getModelFactory <em>Model Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getRootType <em>Root Type</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isUseUndoRedo <em>Use Undo Redo</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isShowCommandStack <em>Show Command Stack</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isShowPropertyView <em>Show Property View</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#isGenerateDemo <em>Generate Demo</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getEditables <em>Editables</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getContextMenus <em>Context Menus</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EcoreImpl#getSupportedControls <em>Supported Controls</em>}</li>
  * </ul>
@@ -100,6 +103,16 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
    * @ordered
    */
   protected JvmTypeReference modelItemProviderAdapterFactory;
+
+  /**
+   * The cached value of the '{@link #getModelPackage() <em>Model Package</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getModelPackage()
+   * @generated
+   * @ordered
+   */
+  protected JvmTypeReference modelPackage;
 
   /**
    * The cached value of the '{@link #getModelFactory() <em>Model Factory</em>}' containment reference.
@@ -200,6 +213,16 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
    * @ordered
    */
   protected boolean generateDemo = GENERATE_DEMO_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getEditables() <em>Editables</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEditables()
+   * @generated
+   * @ordered
+   */
+  protected EList<EditableEAttributes> editables;
 
   /**
    * The cached value of the '{@link #getContextMenus() <em>Context Menus</em>}' containment reference list.
@@ -340,6 +363,56 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY, newModelItemProviderAdapterFactory, newModelItemProviderAdapterFactory));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public JvmTypeReference getModelPackage()
+  {
+    return modelPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetModelPackage(JvmTypeReference newModelPackage, NotificationChain msgs)
+  {
+    JvmTypeReference oldModelPackage = modelPackage;
+    modelPackage = newModelPackage;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ECORE__MODEL_PACKAGE, oldModelPackage, newModelPackage);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setModelPackage(JvmTypeReference newModelPackage)
+  {
+    if (newModelPackage != modelPackage)
+    {
+      NotificationChain msgs = null;
+      if (modelPackage != null)
+        msgs = ((InternalEObject)modelPackage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfSupportDslPackage.ECORE__MODEL_PACKAGE, null, msgs);
+      if (newModelPackage != null)
+        msgs = ((InternalEObject)newModelPackage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EmfSupportDslPackage.ECORE__MODEL_PACKAGE, null, msgs);
+      msgs = basicSetModelPackage(newModelPackage, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ECORE__MODEL_PACKAGE, newModelPackage, newModelPackage));
   }
 
   /**
@@ -548,6 +621,21 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
    * @generated
    */
   @Override
+  public EList<EditableEAttributes> getEditables()
+  {
+    if (editables == null)
+    {
+      editables = new EObjectContainmentEList<EditableEAttributes>(EditableEAttributes.class, this, EmfSupportDslPackage.ECORE__EDITABLES);
+    }
+    return editables;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<ContextMenu> getContextMenus()
   {
     if (contextMenus == null)
@@ -584,10 +672,14 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
     {
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         return basicSetModelItemProviderAdapterFactory(null, msgs);
+      case EmfSupportDslPackage.ECORE__MODEL_PACKAGE:
+        return basicSetModelPackage(null, msgs);
       case EmfSupportDslPackage.ECORE__MODEL_FACTORY:
         return basicSetModelFactory(null, msgs);
       case EmfSupportDslPackage.ECORE__ROOT_TYPE:
         return basicSetRootType(null, msgs);
+      case EmfSupportDslPackage.ECORE__EDITABLES:
+        return ((InternalEList<?>)getEditables()).basicRemove(otherEnd, msgs);
       case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
         return ((InternalEList<?>)getContextMenus()).basicRemove(otherEnd, msgs);
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
@@ -612,6 +704,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return getPackagePath();
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         return getModelItemProviderAdapterFactory();
+      case EmfSupportDslPackage.ECORE__MODEL_PACKAGE:
+        return getModelPackage();
       case EmfSupportDslPackage.ECORE__MODEL_FACTORY:
         return getModelFactory();
       case EmfSupportDslPackage.ECORE__ROOT_TYPE:
@@ -624,6 +718,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return isShowPropertyView();
       case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
         return isGenerateDemo();
+      case EmfSupportDslPackage.ECORE__EDITABLES:
+        return getEditables();
       case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
         return getContextMenus();
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:
@@ -652,6 +748,9 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         setModelItemProviderAdapterFactory((JvmTypeReference)newValue);
         return;
+      case EmfSupportDslPackage.ECORE__MODEL_PACKAGE:
+        setModelPackage((JvmTypeReference)newValue);
+        return;
       case EmfSupportDslPackage.ECORE__MODEL_FACTORY:
         setModelFactory((JvmTypeReference)newValue);
         return;
@@ -669,6 +768,10 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return;
       case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
         setGenerateDemo((Boolean)newValue);
+        return;
+      case EmfSupportDslPackage.ECORE__EDITABLES:
+        getEditables().clear();
+        getEditables().addAll((Collection<? extends EditableEAttributes>)newValue);
         return;
       case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
         getContextMenus().clear();
@@ -701,6 +804,9 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         setModelItemProviderAdapterFactory((JvmTypeReference)null);
         return;
+      case EmfSupportDslPackage.ECORE__MODEL_PACKAGE:
+        setModelPackage((JvmTypeReference)null);
+        return;
       case EmfSupportDslPackage.ECORE__MODEL_FACTORY:
         setModelFactory((JvmTypeReference)null);
         return;
@@ -718,6 +824,9 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return;
       case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
         setGenerateDemo(GENERATE_DEMO_EDEFAULT);
+        return;
+      case EmfSupportDslPackage.ECORE__EDITABLES:
+        getEditables().clear();
         return;
       case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
         getContextMenus().clear();
@@ -745,6 +854,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return PACKAGE_PATH_EDEFAULT == null ? packagePath != null : !PACKAGE_PATH_EDEFAULT.equals(packagePath);
       case EmfSupportDslPackage.ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY:
         return modelItemProviderAdapterFactory != null;
+      case EmfSupportDslPackage.ECORE__MODEL_PACKAGE:
+        return modelPackage != null;
       case EmfSupportDslPackage.ECORE__MODEL_FACTORY:
         return modelFactory != null;
       case EmfSupportDslPackage.ECORE__ROOT_TYPE:
@@ -757,6 +868,8 @@ public class EcoreImpl extends MinimalEObjectImpl.Container implements Ecore
         return showPropertyView != SHOW_PROPERTY_VIEW_EDEFAULT;
       case EmfSupportDslPackage.ECORE__GENERATE_DEMO:
         return generateDemo != GENERATE_DEMO_EDEFAULT;
+      case EmfSupportDslPackage.ECORE__EDITABLES:
+        return editables != null && !editables.isEmpty();
       case EmfSupportDslPackage.ECORE__CONTEXT_MENUS:
         return contextMenus != null && !contextMenus.isEmpty();
       case EmfSupportDslPackage.ECORE__SUPPORTED_CONTROLS:

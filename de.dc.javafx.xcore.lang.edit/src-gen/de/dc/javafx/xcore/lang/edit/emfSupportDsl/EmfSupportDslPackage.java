@@ -123,13 +123,22 @@ public interface EmfSupportDslPackage extends EPackage
   int ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY = 2;
 
   /**
+   * The feature id for the '<em><b>Model Package</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECORE__MODEL_PACKAGE = 3;
+
+  /**
    * The feature id for the '<em><b>Model Factory</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ECORE__MODEL_FACTORY = 3;
+  int ECORE__MODEL_FACTORY = 4;
 
   /**
    * The feature id for the '<em><b>Root Type</b></em>' containment reference.
@@ -138,7 +147,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__ROOT_TYPE = 4;
+  int ECORE__ROOT_TYPE = 5;
 
   /**
    * The feature id for the '<em><b>Use Undo Redo</b></em>' attribute.
@@ -147,7 +156,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__USE_UNDO_REDO = 5;
+  int ECORE__USE_UNDO_REDO = 6;
 
   /**
    * The feature id for the '<em><b>Show Command Stack</b></em>' attribute.
@@ -156,7 +165,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__SHOW_COMMAND_STACK = 6;
+  int ECORE__SHOW_COMMAND_STACK = 7;
 
   /**
    * The feature id for the '<em><b>Show Property View</b></em>' attribute.
@@ -165,7 +174,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__SHOW_PROPERTY_VIEW = 7;
+  int ECORE__SHOW_PROPERTY_VIEW = 8;
 
   /**
    * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
@@ -174,7 +183,16 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__GENERATE_DEMO = 8;
+  int ECORE__GENERATE_DEMO = 9;
+
+  /**
+   * The feature id for the '<em><b>Editables</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECORE__EDITABLES = 10;
 
   /**
    * The feature id for the '<em><b>Context Menus</b></em>' containment reference list.
@@ -183,7 +201,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__CONTEXT_MENUS = 9;
+  int ECORE__CONTEXT_MENUS = 11;
 
   /**
    * The feature id for the '<em><b>Supported Controls</b></em>' containment reference list.
@@ -192,7 +210,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE__SUPPORTED_CONTROLS = 10;
+  int ECORE__SUPPORTED_CONTROLS = 12;
 
   /**
    * The number of structural features of the '<em>Ecore</em>' class.
@@ -201,7 +219,35 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECORE_FEATURE_COUNT = 11;
+  int ECORE_FEATURE_COUNT = 13;
+
+  /**
+   * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EditableEAttributesImpl <em>Editable EAttributes</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EditableEAttributesImpl
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getEditableEAttributes()
+   * @generated
+   */
+  int EDITABLE_EATTRIBUTES = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITABLE_EATTRIBUTES__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Editable EAttributes</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITABLE_EATTRIBUTES_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ContextMenuImpl <em>Context Menu</em>}' class.
@@ -211,7 +257,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getContextMenu()
    * @generated
    */
-  int CONTEXT_MENU = 2;
+  int CONTEXT_MENU = 3;
 
   /**
    * The number of structural features of the '<em>Context Menu</em>' class.
@@ -230,7 +276,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getAddContextMenu()
    * @generated
    */
-  int ADD_CONTEXT_MENU = 3;
+  int ADD_CONTEXT_MENU = 4;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -242,22 +288,13 @@ public interface EmfSupportDslPackage extends EPackage
   int ADD_CONTEXT_MENU__ID = CONTEXT_MENU_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADD_CONTEXT_MENU__NAME = CONTEXT_MENU_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Parent Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_CONTEXT_MENU__PARENT_TYPE = CONTEXT_MENU_FEATURE_COUNT + 2;
+  int ADD_CONTEXT_MENU__PARENT_TYPE = CONTEXT_MENU_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Create Type</b></em>' containment reference.
@@ -266,16 +303,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_CONTEXT_MENU__CREATE_TYPE = CONTEXT_MENU_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Model Package</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADD_CONTEXT_MENU__MODEL_PACKAGE = CONTEXT_MENU_FEATURE_COUNT + 4;
+  int ADD_CONTEXT_MENU__CREATE_TYPE = CONTEXT_MENU_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Add Context Menu</em>' class.
@@ -284,7 +312,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_CONTEXT_MENU_FEATURE_COUNT = CONTEXT_MENU_FEATURE_COUNT + 5;
+  int ADD_CONTEXT_MENU_FEATURE_COUNT = CONTEXT_MENU_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl <em>Supported Control</em>}' class.
@@ -294,7 +322,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getSupportedControl()
    * @generated
    */
-  int SUPPORTED_CONTROL = 4;
+  int SUPPORTED_CONTROL = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -322,7 +350,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTreeViewFX()
    * @generated
    */
-  int TREE_VIEW_FX = 5;
+  int TREE_VIEW_FX = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -350,7 +378,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTableViewFX()
    * @generated
    */
-  int TABLE_VIEW_FX = 6;
+  int TABLE_VIEW_FX = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -378,7 +406,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTreeTable()
    * @generated
    */
-  int TREE_TABLE = 7;
+  int TREE_TABLE = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -464,6 +492,17 @@ public interface EmfSupportDslPackage extends EPackage
   EReference getEcore_ModelItemProviderAdapterFactory();
 
   /**
+   * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelPackage <em>Model Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Model Package</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelPackage()
+   * @see #getEcore()
+   * @generated
+   */
+  EReference getEcore_ModelPackage();
+
+  /**
    * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelFactory <em>Model Factory</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -530,6 +569,17 @@ public interface EmfSupportDslPackage extends EPackage
   EAttribute getEcore_GenerateDemo();
 
   /**
+   * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getEditables <em>Editables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Editables</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getEditables()
+   * @see #getEcore()
+   * @generated
+   */
+  EReference getEcore_Editables();
+
+  /**
    * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getContextMenus <em>Context Menus</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -550,6 +600,27 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    */
   EReference getEcore_SupportedControls();
+
+  /**
+   * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes <em>Editable EAttributes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Editable EAttributes</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes
+   * @generated
+   */
+  EClass getEditableEAttributes();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes#getName()
+   * @see #getEditableEAttributes()
+   * @generated
+   */
+  EAttribute getEditableEAttributes_Name();
 
   /**
    * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu <em>Context Menu</em>}'.
@@ -583,17 +654,6 @@ public interface EmfSupportDslPackage extends EPackage
   EAttribute getAddContextMenu_Id();
 
   /**
-   * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getName()
-   * @see #getAddContextMenu()
-   * @generated
-   */
-  EAttribute getAddContextMenu_Name();
-
-  /**
    * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getParentType <em>Parent Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -614,17 +674,6 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    */
   EReference getAddContextMenu_CreateType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getModelPackage <em>Model Package</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Model Package</em>'.
-   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getModelPackage()
-   * @see #getAddContextMenu()
-   * @generated
-   */
-  EReference getAddContextMenu_ModelPackage();
 
   /**
    * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl <em>Supported Control</em>}'.
@@ -764,6 +813,14 @@ public interface EmfSupportDslPackage extends EPackage
     EReference ECORE__MODEL_ITEM_PROVIDER_ADAPTER_FACTORY = eINSTANCE.getEcore_ModelItemProviderAdapterFactory();
 
     /**
+     * The meta object literal for the '<em><b>Model Package</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ECORE__MODEL_PACKAGE = eINSTANCE.getEcore_ModelPackage();
+
+    /**
      * The meta object literal for the '<em><b>Model Factory</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -812,6 +869,14 @@ public interface EmfSupportDslPackage extends EPackage
     EAttribute ECORE__GENERATE_DEMO = eINSTANCE.getEcore_GenerateDemo();
 
     /**
+     * The meta object literal for the '<em><b>Editables</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ECORE__EDITABLES = eINSTANCE.getEcore_Editables();
+
+    /**
      * The meta object literal for the '<em><b>Context Menus</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -826,6 +891,24 @@ public interface EmfSupportDslPackage extends EPackage
      * @generated
      */
     EReference ECORE__SUPPORTED_CONTROLS = eINSTANCE.getEcore_SupportedControls();
+
+    /**
+     * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EditableEAttributesImpl <em>Editable EAttributes</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EditableEAttributesImpl
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getEditableEAttributes()
+     * @generated
+     */
+    EClass EDITABLE_EATTRIBUTES = eINSTANCE.getEditableEAttributes();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EDITABLE_EATTRIBUTES__NAME = eINSTANCE.getEditableEAttributes_Name();
 
     /**
      * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ContextMenuImpl <em>Context Menu</em>}' class.
@@ -856,14 +939,6 @@ public interface EmfSupportDslPackage extends EPackage
     EAttribute ADD_CONTEXT_MENU__ID = eINSTANCE.getAddContextMenu_Id();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ADD_CONTEXT_MENU__NAME = eINSTANCE.getAddContextMenu_Name();
-
-    /**
      * The meta object literal for the '<em><b>Parent Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -878,14 +953,6 @@ public interface EmfSupportDslPackage extends EPackage
      * @generated
      */
     EReference ADD_CONTEXT_MENU__CREATE_TYPE = eINSTANCE.getAddContextMenu_CreateType();
-
-    /**
-     * The meta object literal for the '<em><b>Model Package</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ADD_CONTEXT_MENU__MODEL_PACKAGE = eINSTANCE.getAddContextMenu_ModelPackage();
 
     /**
      * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl <em>Supported Control</em>}' class.

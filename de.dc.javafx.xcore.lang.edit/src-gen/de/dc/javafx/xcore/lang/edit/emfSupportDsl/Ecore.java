@@ -21,12 +21,14 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getPackagePath <em>Package Path</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelItemProviderAdapterFactory <em>Model Item Provider Adapter Factory</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelPackage <em>Model Package</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelFactory <em>Model Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getRootType <em>Root Type</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isUseUndoRedo <em>Use Undo Redo</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isShowCommandStack <em>Show Command Stack</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isShowPropertyView <em>Show Property View</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#isGenerateDemo <em>Generate Demo</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getEditables <em>Editables</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getContextMenus <em>Context Menus</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getSupportedControls <em>Supported Controls</em>}</li>
  * </ul>
@@ -102,6 +104,28 @@ public interface Ecore extends EObject
    * @generated
    */
   void setModelItemProviderAdapterFactory(JvmTypeReference value);
+
+  /**
+   * Returns the value of the '<em><b>Model Package</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Model Package</em>' containment reference.
+   * @see #setModelPackage(JvmTypeReference)
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getEcore_ModelPackage()
+   * @model containment="true"
+   * @generated
+   */
+  JvmTypeReference getModelPackage();
+
+  /**
+   * Sets the value of the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore#getModelPackage <em>Model Package</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Model Package</em>' containment reference.
+   * @see #getModelPackage()
+   * @generated
+   */
+  void setModelPackage(JvmTypeReference value);
 
   /**
    * Returns the value of the '<em><b>Model Factory</b></em>' containment reference.
@@ -234,6 +258,18 @@ public interface Ecore extends EObject
    * @generated
    */
   void setGenerateDemo(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Editables</b></em>' containment reference list.
+   * The list contents are of type {@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Editables</em>' containment reference list.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getEcore_Editables()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EditableEAttributes> getEditables();
 
   /**
    * Returns the value of the '<em><b>Context Menus</b></em>' containment reference list.

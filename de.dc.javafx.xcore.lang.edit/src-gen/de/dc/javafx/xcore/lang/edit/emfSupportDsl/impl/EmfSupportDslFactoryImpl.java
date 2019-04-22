@@ -67,6 +67,7 @@ public class EmfSupportDslFactoryImpl extends EFactoryImpl implements EmfSupport
     {
       case EmfSupportDslPackage.MODEL: return createModel();
       case EmfSupportDslPackage.ECORE: return createEcore();
+      case EmfSupportDslPackage.EDITABLE_EATTRIBUTES: return createEditableEAttributes();
       case EmfSupportDslPackage.CONTEXT_MENU: return createContextMenu();
       case EmfSupportDslPackage.ADD_CONTEXT_MENU: return createAddContextMenu();
       case EmfSupportDslPackage.SUPPORTED_CONTROL: return createSupportedControl();
@@ -100,6 +101,18 @@ public class EmfSupportDslFactoryImpl extends EFactoryImpl implements EmfSupport
   {
     EcoreImpl ecore = new EcoreImpl();
     return ecore;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EditableEAttributes createEditableEAttributes()
+  {
+    EditableEAttributesImpl editableEAttributes = new EditableEAttributesImpl();
+    return editableEAttributes;
   }
 
   /**

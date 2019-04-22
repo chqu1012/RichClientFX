@@ -6,6 +6,7 @@ package de.dc.javafx.xcore.lang.edit.serializer;
 import com.google.inject.Inject;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.TableViewFX;
@@ -90,6 +91,9 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 				return; 
 			case EmfSupportDslPackage.ECORE:
 				sequence_Ecore(context, (Ecore) semanticObject); 
+				return; 
+			case EmfSupportDslPackage.EDITABLE_EATTRIBUTES:
+				sequence_EditableEAttributes(context, (EditableEAttributes) semanticObject); 
 				return; 
 			case EmfSupportDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -414,10 +418,22 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	 *     AddContextMenu returns AddContextMenu
 	 *
 	 * Constraint:
-	 *     (id=EString name=EString? parentType=JvmTypeReference createType=JvmTypeReference modelPackage=JvmTypeReference?)
+	 *     (id=EString parentType=JvmTypeReference createType=JvmTypeReference)
 	 */
 	protected void sequence_AddContextMenu(ISerializationContext context, AddContextMenu semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__ID));
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__PARENT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__PARENT_TYPE));
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__CREATE_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__CREATE_TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAddContextMenuAccess().getIdEStringParserRuleCall_3_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getAddContextMenuAccess().getParentTypeJvmTypeReferenceParserRuleCall_6_0(), semanticObject.getParentType());
+		feeder.accept(grammarAccess.getAddContextMenuAccess().getCreateTypeJvmTypeReferenceParserRuleCall_9_0(), semanticObject.getCreateType());
+		feeder.finish();
 	}
 	
 	
@@ -430,18 +446,38 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	 *         name=EString 
 	 *         packagePath=EString 
 	 *         modelItemProviderAdapterFactory=JvmTypeReference 
+	 *         modelPackage=JvmTypeReference 
 	 *         modelFactory=JvmTypeReference 
 	 *         rootType=JvmTypeReference 
 	 *         useUndoRedo=EBoolean 
 	 *         showCommandStack=EBoolean 
 	 *         showPropertyView=EBoolean 
 	 *         generateDemo=EBoolean 
+	 *         editables+=EditableEAttributes* 
 	 *         contextMenus+=ContextMenu* 
 	 *         supportedControls+=SupportedControl*
 	 *     )
 	 */
 	protected void sequence_Ecore(ISerializationContext context, Ecore semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EditableEAttributes returns EditableEAttributes
+	 *
+	 * Constraint:
+	 *     name=EString
+	 */
+	protected void sequence_EditableEAttributes(ISerializationContext context, EditableEAttributes semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.EDITABLE_EATTRIBUTES__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.EDITABLE_EATTRIBUTES__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEditableEAttributesAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

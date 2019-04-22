@@ -25,10 +25,8 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl#getId <em>Id</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl#getCreateType <em>Create Type</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl#getModelPackage <em>Model Package</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,26 +54,6 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
   protected String id = ID_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getParentType() <em>Parent Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,16 +72,6 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
    * @ordered
    */
   protected JvmTypeReference createType;
-
-  /**
-   * The cached value of the '{@link #getModelPackage() <em>Model Package</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getModelPackage()
-   * @generated
-   * @ordered
-   */
-  protected JvmTypeReference modelPackage;
 
   /**
    * <!-- begin-user-doc -->
@@ -149,31 +117,6 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
     id = newId;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ADD_CONTEXT_MENU__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ADD_CONTEXT_MENU__NAME, oldName, name));
   }
 
   /**
@@ -282,56 +225,6 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
    * @generated
    */
   @Override
-  public JvmTypeReference getModelPackage()
-  {
-    return modelPackage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetModelPackage(JvmTypeReference newModelPackage, NotificationChain msgs)
-  {
-    JvmTypeReference oldModelPackage = modelPackage;
-    modelPackage = newModelPackage;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE, oldModelPackage, newModelPackage);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setModelPackage(JvmTypeReference newModelPackage)
-  {
-    if (newModelPackage != modelPackage)
-    {
-      NotificationChain msgs = null;
-      if (modelPackage != null)
-        msgs = ((InternalEObject)modelPackage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE, null, msgs);
-      if (newModelPackage != null)
-        msgs = ((InternalEObject)newModelPackage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE, null, msgs);
-      msgs = basicSetModelPackage(newModelPackage, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE, newModelPackage, newModelPackage));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -340,8 +233,6 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
         return basicSetParentType(null, msgs);
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__CREATE_TYPE:
         return basicSetCreateType(null, msgs);
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE:
-        return basicSetModelPackage(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -358,14 +249,10 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
     {
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__ID:
         return getId();
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__NAME:
-        return getName();
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__PARENT_TYPE:
         return getParentType();
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__CREATE_TYPE:
         return getCreateType();
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE:
-        return getModelPackage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -383,17 +270,11 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__ID:
         setId((String)newValue);
         return;
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__NAME:
-        setName((String)newValue);
-        return;
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__PARENT_TYPE:
         setParentType((JvmTypeReference)newValue);
         return;
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__CREATE_TYPE:
         setCreateType((JvmTypeReference)newValue);
-        return;
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE:
-        setModelPackage((JvmTypeReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -412,17 +293,11 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__ID:
         setId(ID_EDEFAULT);
         return;
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__PARENT_TYPE:
         setParentType((JvmTypeReference)null);
         return;
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__CREATE_TYPE:
         setCreateType((JvmTypeReference)null);
-        return;
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE:
-        setModelPackage((JvmTypeReference)null);
         return;
     }
     super.eUnset(featureID);
@@ -440,14 +315,10 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
     {
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__ID:
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__PARENT_TYPE:
         return parentType != null;
       case EmfSupportDslPackage.ADD_CONTEXT_MENU__CREATE_TYPE:
         return createType != null;
-      case EmfSupportDslPackage.ADD_CONTEXT_MENU__MODEL_PACKAGE:
-        return modelPackage != null;
     }
     return super.eIsSet(featureID);
   }
@@ -465,8 +336,6 @@ public class AddContextMenuImpl extends ContextMenuImpl implements AddContextMen
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (id: ");
     result.append(id);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

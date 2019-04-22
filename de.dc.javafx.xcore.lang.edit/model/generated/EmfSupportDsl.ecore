@@ -12,6 +12,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelItemProviderAdapterFactory"
         eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelPackage" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelFactory" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rootType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
@@ -20,20 +22,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showCommandStack" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showPropertyView" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="generateDemo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editables" upperBound="-1"
+        eType="#//EditableEAttributes" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contextMenus" upperBound="-1"
         eType="#//ContextMenu" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="supportedControls" upperBound="-1"
         eType="#//SupportedControl" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EditableEAttributes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextMenu"/>
   <eClassifiers xsi:type="ecore:EClass" name="AddContextMenu" eSuperTypes="#//ContextMenu">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="createType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelPackage" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SupportedControl">

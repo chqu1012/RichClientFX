@@ -11,7 +11,10 @@ import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model
 import de.dc.javafx.xcore.lang.lib.AbstractApplication
 import javafx.scene.Parent
+import javafx.scene.control.TreeItem
+import org.eclipse.emf.common.command.Command
 import org.eclipse.emf.ecore.change.util.ChangeRecorder
+import org.eclipse.emf.edit.command.AddCommand
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain
 import org.eclipse.emf.edit.domain.EditingDomain
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory
@@ -21,9 +24,7 @@ import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import javafx.scene.control.TreeItem
-import org.eclipse.emf.edit.command.AddCommand
-import org.eclipse.emf.common.command.Command
+import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -76,14 +77,24 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 	 			
 	 			members += model.toConstructor[
 	 				parameters += model.toParameter('manager', IEmfManager.typeRef(model.rootType))
-	 				body = '''super(manager);'''
+	 				body = '''
+					super(manager);
+					
+					«EditingDomain» editDomain = manager.getEditingDomain();
+					
+					// add edit support
+					treeView.setEditable(true);
+					«FOR editable : model.editables»
+					treeCellFactory.addCellEditHandler(new «EAttributeCellEditHandler»(«model.modelPackage».eINSTANCE.get«editable.name»(), editDomain));
+					«ENDFOR»
+	 				'''
  				]
  				
  				model.contextMenus.forEach[menu|
 					if(menu instanceof AddContextMenu){
 						val addMenu = menu as AddContextMenu
 						members += model.toMethod('get'+menu.id+'Id', Integer.typeRef)[
-							body = '''return «addMenu.modelPackage».«addMenu.createType.simpleName.toUpperCase»;'''
+							body = '''return «model.modelPackage».«addMenu.createType.simpleName.toUpperCase»;'''
 						]
 						
 						members += model.toMethod('create'+menu.id, addMenu.createType)[
