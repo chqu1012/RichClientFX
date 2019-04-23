@@ -9,12 +9,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 
-public class WebsiteTableViewApplication extends AbstractApplication{
+public class WebsiteListViewApplication extends AbstractApplication{
 
 	@Override
 	protected Parent getRoot() {
 		IEmfManager<Website> manager = new WebsiteModelManager();
-		WebsiteTableView tableView = new WebsiteTableView(manager );
 		
 		ObservableList<Page> pages = FXCollections.observableArrayList();
 		for (int i = 0; i < 20; i++) {
@@ -25,7 +24,7 @@ public class WebsiteTableViewApplication extends AbstractApplication{
 			pages.add(createPage);
 		}
 		manager.getRoot().getPages().addAll(pages);
-		return tableView;
+		return new WebsiteListView(manager);
 	}
 
 	public static void main(String[] args) {
