@@ -49,15 +49,19 @@ AddContextMenu:
 ;
 
 SupportedControl:
-	TableViewFX | TreeViewFX
+	TableViewFX | TreeViewFX | ListViewFX
 ;
 
 TreeViewFX:
-	'TreeView' '(' 'name:' name=EString ')'
+	'TreeView' '(' 'name:' name=EString  ','? 'model:' model=JvmTypeReference ')'
+;
+
+ListViewFX:
+	'ListView' '(' 'name:' name=EString  ','? 'model:' model=JvmTypeReference ')'
 ;
 
 TableViewFX:
-	'TableView' '(' 'name:' name=EString ')'
+	'TableView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')'
 ;
 
 TreeTable:

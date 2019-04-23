@@ -260,13 +260,50 @@ public interface EmfSupportDslPackage extends EPackage
   int CONTEXT_MENU = 3;
 
   /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_MENU__ID = 0;
+
+  /**
    * The number of structural features of the '<em>Context Menu</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTEXT_MENU_FEATURE_COUNT = 0;
+  int CONTEXT_MENU_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.CopyContextMenuImpl <em>Copy Context Menu</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.CopyContextMenuImpl
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getCopyContextMenu()
+   * @generated
+   */
+  int COPY_CONTEXT_MENU = 4;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COPY_CONTEXT_MENU__ID = CONTEXT_MENU__ID;
+
+  /**
+   * The number of structural features of the '<em>Copy Context Menu</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COPY_CONTEXT_MENU_FEATURE_COUNT = CONTEXT_MENU_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl <em>Add Context Menu</em>}' class.
@@ -276,7 +313,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getAddContextMenu()
    * @generated
    */
-  int ADD_CONTEXT_MENU = 4;
+  int ADD_CONTEXT_MENU = 5;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -285,7 +322,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_CONTEXT_MENU__ID = CONTEXT_MENU_FEATURE_COUNT + 0;
+  int ADD_CONTEXT_MENU__ID = CONTEXT_MENU__ID;
 
   /**
    * The feature id for the '<em><b>Parent Type</b></em>' containment reference.
@@ -294,7 +331,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_CONTEXT_MENU__PARENT_TYPE = CONTEXT_MENU_FEATURE_COUNT + 1;
+  int ADD_CONTEXT_MENU__PARENT_TYPE = CONTEXT_MENU_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Create Type</b></em>' containment reference.
@@ -303,7 +340,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_CONTEXT_MENU__CREATE_TYPE = CONTEXT_MENU_FEATURE_COUNT + 2;
+  int ADD_CONTEXT_MENU__CREATE_TYPE = CONTEXT_MENU_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Add Context Menu</em>' class.
@@ -312,7 +349,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_CONTEXT_MENU_FEATURE_COUNT = CONTEXT_MENU_FEATURE_COUNT + 3;
+  int ADD_CONTEXT_MENU_FEATURE_COUNT = CONTEXT_MENU_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl <em>Supported Control</em>}' class.
@@ -322,7 +359,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getSupportedControl()
    * @generated
    */
-  int SUPPORTED_CONTROL = 5;
+  int SUPPORTED_CONTROL = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -334,13 +371,22 @@ public interface EmfSupportDslPackage extends EPackage
   int SUPPORTED_CONTROL__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPPORTED_CONTROL__MODEL = 1;
+
+  /**
    * The number of structural features of the '<em>Supported Control</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUPPORTED_CONTROL_FEATURE_COUNT = 1;
+  int SUPPORTED_CONTROL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.TreeViewFXImpl <em>Tree View FX</em>}' class.
@@ -350,7 +396,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTreeViewFX()
    * @generated
    */
-  int TREE_VIEW_FX = 6;
+  int TREE_VIEW_FX = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -362,6 +408,15 @@ public interface EmfSupportDslPackage extends EPackage
   int TREE_VIEW_FX__NAME = SUPPORTED_CONTROL__NAME;
 
   /**
+   * The feature id for the '<em><b>Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TREE_VIEW_FX__MODEL = SUPPORTED_CONTROL__MODEL;
+
+  /**
    * The number of structural features of the '<em>Tree View FX</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -371,6 +426,43 @@ public interface EmfSupportDslPackage extends EPackage
   int TREE_VIEW_FX_FEATURE_COUNT = SUPPORTED_CONTROL_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ListViewFXImpl <em>List View FX</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ListViewFXImpl
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getListViewFX()
+   * @generated
+   */
+  int LIST_VIEW_FX = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_VIEW_FX__NAME = SUPPORTED_CONTROL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_VIEW_FX__MODEL = SUPPORTED_CONTROL__MODEL;
+
+  /**
+   * The number of structural features of the '<em>List View FX</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_VIEW_FX_FEATURE_COUNT = SUPPORTED_CONTROL_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.TableViewFXImpl <em>Table View FX</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -378,7 +470,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTableViewFX()
    * @generated
    */
-  int TABLE_VIEW_FX = 7;
+  int TABLE_VIEW_FX = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -388,6 +480,15 @@ public interface EmfSupportDslPackage extends EPackage
    * @ordered
    */
   int TABLE_VIEW_FX__NAME = SUPPORTED_CONTROL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE_VIEW_FX__MODEL = SUPPORTED_CONTROL__MODEL;
 
   /**
    * The number of structural features of the '<em>Table View FX</em>' class.
@@ -406,7 +507,7 @@ public interface EmfSupportDslPackage extends EPackage
    * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getTreeTable()
    * @generated
    */
-  int TREE_TABLE = 8;
+  int TREE_TABLE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -633,6 +734,27 @@ public interface EmfSupportDslPackage extends EPackage
   EClass getContextMenu();
 
   /**
+   * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.ContextMenu#getId()
+   * @see #getContextMenu()
+   * @generated
+   */
+  EAttribute getContextMenu_Id();
+
+  /**
+   * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.CopyContextMenu <em>Copy Context Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Copy Context Menu</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.CopyContextMenu
+   * @generated
+   */
+  EClass getCopyContextMenu();
+
+  /**
    * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu <em>Add Context Menu</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -641,17 +763,6 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    */
   EClass getAddContextMenu();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getId()
-   * @see #getAddContextMenu()
-   * @generated
-   */
-  EAttribute getAddContextMenu_Id();
 
   /**
    * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getParentType <em>Parent Type</em>}'.
@@ -697,6 +808,17 @@ public interface EmfSupportDslPackage extends EPackage
   EAttribute getSupportedControl_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl#getModel <em>Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Model</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl#getModel()
+   * @see #getSupportedControl()
+   * @generated
+   */
+  EReference getSupportedControl_Model();
+
+  /**
    * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.TreeViewFX <em>Tree View FX</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -705,6 +827,16 @@ public interface EmfSupportDslPackage extends EPackage
    * @generated
    */
   EClass getTreeViewFX();
+
+  /**
+   * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.ListViewFX <em>List View FX</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>List View FX</em>'.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.ListViewFX
+   * @generated
+   */
+  EClass getListViewFX();
 
   /**
    * Returns the meta object for class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.TableViewFX <em>Table View FX</em>}'.
@@ -921,6 +1053,24 @@ public interface EmfSupportDslPackage extends EPackage
     EClass CONTEXT_MENU = eINSTANCE.getContextMenu();
 
     /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXT_MENU__ID = eINSTANCE.getContextMenu_Id();
+
+    /**
+     * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.CopyContextMenuImpl <em>Copy Context Menu</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.CopyContextMenuImpl
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getCopyContextMenu()
+     * @generated
+     */
+    EClass COPY_CONTEXT_MENU = eINSTANCE.getCopyContextMenu();
+
+    /**
      * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.AddContextMenuImpl <em>Add Context Menu</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -929,14 +1079,6 @@ public interface EmfSupportDslPackage extends EPackage
      * @generated
      */
     EClass ADD_CONTEXT_MENU = eINSTANCE.getAddContextMenu();
-
-    /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ADD_CONTEXT_MENU__ID = eINSTANCE.getAddContextMenu_Id();
 
     /**
      * The meta object literal for the '<em><b>Parent Type</b></em>' containment reference feature.
@@ -973,6 +1115,14 @@ public interface EmfSupportDslPackage extends EPackage
     EAttribute SUPPORTED_CONTROL__NAME = eINSTANCE.getSupportedControl_Name();
 
     /**
+     * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUPPORTED_CONTROL__MODEL = eINSTANCE.getSupportedControl_Model();
+
+    /**
      * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.TreeViewFXImpl <em>Tree View FX</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -981,6 +1131,16 @@ public interface EmfSupportDslPackage extends EPackage
      * @generated
      */
     EClass TREE_VIEW_FX = eINSTANCE.getTreeViewFX();
+
+    /**
+     * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ListViewFXImpl <em>List View FX</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.ListViewFXImpl
+     * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.EmfSupportDslPackageImpl#getListViewFX()
+     * @generated
+     */
+    EClass LIST_VIEW_FX = eINSTANCE.getListViewFX();
 
     /**
      * The meta object literal for the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.TableViewFXImpl <em>Table View FX</em>}' class.

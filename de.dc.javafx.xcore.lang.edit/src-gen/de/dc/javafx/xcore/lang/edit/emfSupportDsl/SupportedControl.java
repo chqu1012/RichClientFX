@@ -5,6 +5,8 @@ package de.dc.javafx.xcore.lang.edit.emfSupportDsl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.xtext.common.types.JvmTypeReference;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Supported Control</b></em>'.
@@ -15,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl#getModel <em>Model</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getSupportedControl()
@@ -44,5 +47,27 @@ public interface SupportedControl extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Model</em>' containment reference.
+   * @see #setModel(JvmTypeReference)
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getSupportedControl_Model()
+   * @model containment="true"
+   * @generated
+   */
+  JvmTypeReference getModel();
+
+  /**
+   * Sets the value of the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl#getModel <em>Model</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Model</em>' containment reference.
+   * @see #getModel()
+   * @generated
+   */
+  void setModel(JvmTypeReference value);
 
 } // SupportedControl

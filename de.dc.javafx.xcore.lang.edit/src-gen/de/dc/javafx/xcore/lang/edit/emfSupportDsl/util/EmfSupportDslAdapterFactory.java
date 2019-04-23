@@ -96,6 +96,11 @@ public class EmfSupportDslAdapterFactory extends AdapterFactoryImpl
         return createContextMenuAdapter();
       }
       @Override
+      public Adapter caseCopyContextMenu(CopyContextMenu object)
+      {
+        return createCopyContextMenuAdapter();
+      }
+      @Override
       public Adapter caseAddContextMenu(AddContextMenu object)
       {
         return createAddContextMenuAdapter();
@@ -109,6 +114,11 @@ public class EmfSupportDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTreeViewFX(TreeViewFX object)
       {
         return createTreeViewFXAdapter();
+      }
+      @Override
+      public Adapter caseListViewFX(ListViewFX object)
+      {
+        return createListViewFXAdapter();
       }
       @Override
       public Adapter caseTableViewFX(TableViewFX object)
@@ -203,6 +213,21 @@ public class EmfSupportDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.CopyContextMenu <em>Copy Context Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.CopyContextMenu
+   * @generated
+   */
+  public Adapter createCopyContextMenuAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu <em>Add Context Menu</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -243,6 +268,21 @@ public class EmfSupportDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTreeViewFXAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.ListViewFX <em>List View FX</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.ListViewFX
+   * @generated
+   */
+  public Adapter createListViewFXAdapter()
   {
     return null;
   }

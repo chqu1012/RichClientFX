@@ -101,6 +101,14 @@ public class EmfSupportDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EmfSupportDslPackage.COPY_CONTEXT_MENU:
+      {
+        CopyContextMenu copyContextMenu = (CopyContextMenu)theEObject;
+        T result = caseCopyContextMenu(copyContextMenu);
+        if (result == null) result = caseContextMenu(copyContextMenu);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EmfSupportDslPackage.ADD_CONTEXT_MENU:
       {
         AddContextMenu addContextMenu = (AddContextMenu)theEObject;
@@ -121,6 +129,14 @@ public class EmfSupportDslSwitch<T> extends Switch<T>
         TreeViewFX treeViewFX = (TreeViewFX)theEObject;
         T result = caseTreeViewFX(treeViewFX);
         if (result == null) result = caseSupportedControl(treeViewFX);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EmfSupportDslPackage.LIST_VIEW_FX:
+      {
+        ListViewFX listViewFX = (ListViewFX)theEObject;
+        T result = caseListViewFX(listViewFX);
+        if (result == null) result = caseSupportedControl(listViewFX);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -208,6 +224,22 @@ public class EmfSupportDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Copy Context Menu</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Copy Context Menu</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCopyContextMenu(CopyContextMenu object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Add Context Menu</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -251,6 +283,22 @@ public class EmfSupportDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTreeViewFX(TreeViewFX object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>List View FX</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>List View FX</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseListViewFX(ListViewFX object)
   {
     return null;
   }

@@ -27,16 +27,20 @@
     <genClasses ecoreClass="EmfSupportDsl.ecore#//EditableEAttributes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//EditableEAttributes/name"/>
     </genClasses>
-    <genClasses ecoreClass="EmfSupportDsl.ecore#//ContextMenu"/>
+    <genClasses ecoreClass="EmfSupportDsl.ecore#//ContextMenu">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//ContextMenu/id"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfSupportDsl.ecore#//CopyContextMenu"/>
     <genClasses ecoreClass="EmfSupportDsl.ecore#//AddContextMenu">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//AddContextMenu/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//AddContextMenu/parentType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//AddContextMenu/createType"/>
     </genClasses>
     <genClasses ecoreClass="EmfSupportDsl.ecore#//SupportedControl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//SupportedControl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfSupportDsl.ecore#//SupportedControl/model"/>
     </genClasses>
     <genClasses ecoreClass="EmfSupportDsl.ecore#//TreeViewFX"/>
+    <genClasses ecoreClass="EmfSupportDsl.ecore#//ListViewFX"/>
     <genClasses ecoreClass="EmfSupportDsl.ecore#//TableViewFX"/>
     <genClasses ecoreClass="EmfSupportDsl.ecore#//TreeTable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfSupportDsl.ecore#//TreeTable/name"/>

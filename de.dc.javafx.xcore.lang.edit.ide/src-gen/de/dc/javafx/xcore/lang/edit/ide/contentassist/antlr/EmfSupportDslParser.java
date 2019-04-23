@@ -31,6 +31,7 @@ public class EmfSupportDslParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, EmfSupportDslGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getContextMenuAccess().getAlternatives(), "rule__ContextMenu__Alternatives");
 			builder.put(grammarAccess.getSupportedControlAccess().getAlternatives(), "rule__SupportedControl__Alternatives");
 			builder.put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
@@ -82,8 +83,10 @@ public class EmfSupportDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEcoreAccess().getGroup_32(), "rule__Ecore__Group_32__0");
 			builder.put(grammarAccess.getEcoreAccess().getGroup_33(), "rule__Ecore__Group_33__0");
 			builder.put(grammarAccess.getEditableEAttributesAccess().getGroup(), "rule__EditableEAttributes__Group__0");
+			builder.put(grammarAccess.getCopyContextMenuAccess().getGroup(), "rule__CopyContextMenu__Group__0");
 			builder.put(grammarAccess.getAddContextMenuAccess().getGroup(), "rule__AddContextMenu__Group__0");
 			builder.put(grammarAccess.getTreeViewFXAccess().getGroup(), "rule__TreeViewFX__Group__0");
+			builder.put(grammarAccess.getListViewFXAccess().getGroup(), "rule__ListViewFX__Group__0");
 			builder.put(grammarAccess.getTableViewFXAccess().getGroup(), "rule__TableViewFX__Group__0");
 			builder.put(grammarAccess.getTreeTableAccess().getGroup(), "rule__TreeTable__Group__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
@@ -301,11 +304,16 @@ public class EmfSupportDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEcoreAccess().getContextMenusAssignment_32_2(), "rule__Ecore__ContextMenusAssignment_32_2");
 			builder.put(grammarAccess.getEcoreAccess().getSupportedControlsAssignment_33_2(), "rule__Ecore__SupportedControlsAssignment_33_2");
 			builder.put(grammarAccess.getEditableEAttributesAccess().getNameAssignment_2(), "rule__EditableEAttributes__NameAssignment_2");
+			builder.put(grammarAccess.getCopyContextMenuAccess().getIdAssignment_3(), "rule__CopyContextMenu__IdAssignment_3");
 			builder.put(grammarAccess.getAddContextMenuAccess().getIdAssignment_3(), "rule__AddContextMenu__IdAssignment_3");
 			builder.put(grammarAccess.getAddContextMenuAccess().getParentTypeAssignment_6(), "rule__AddContextMenu__ParentTypeAssignment_6");
 			builder.put(grammarAccess.getAddContextMenuAccess().getCreateTypeAssignment_9(), "rule__AddContextMenu__CreateTypeAssignment_9");
 			builder.put(grammarAccess.getTreeViewFXAccess().getNameAssignment_3(), "rule__TreeViewFX__NameAssignment_3");
+			builder.put(grammarAccess.getTreeViewFXAccess().getModelAssignment_6(), "rule__TreeViewFX__ModelAssignment_6");
+			builder.put(grammarAccess.getListViewFXAccess().getNameAssignment_3(), "rule__ListViewFX__NameAssignment_3");
+			builder.put(grammarAccess.getListViewFXAccess().getModelAssignment_6(), "rule__ListViewFX__ModelAssignment_6");
 			builder.put(grammarAccess.getTableViewFXAccess().getNameAssignment_3(), "rule__TableViewFX__NameAssignment_3");
+			builder.put(grammarAccess.getTableViewFXAccess().getModelAssignment_6(), "rule__TableViewFX__ModelAssignment_6");
 			builder.put(grammarAccess.getTreeTableAccess().getNameAssignment_3(), "rule__TreeTable__NameAssignment_3");
 			builder.put(grammarAccess.getXAnnotationAccess().getAnnotationTypeAssignment_2(), "rule__XAnnotation__AnnotationTypeAssignment_2");
 			builder.put(grammarAccess.getXAnnotationAccess().getElementValuePairsAssignment_3_1_0_0(), "rule__XAnnotation__ElementValuePairsAssignment_3_1_0_0");

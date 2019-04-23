@@ -341,14 +341,63 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ContextMenuElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.ContextMenu");
-		private final RuleCall cAddContextMenuParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAddContextMenuParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCopyContextMenuParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//ContextMenu:
-		//	AddContextMenu;
+		//	AddContextMenu | CopyContextMenu;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//AddContextMenu | CopyContextMenu
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//AddContextMenu
-		public RuleCall getAddContextMenuParserRuleCall() { return cAddContextMenuParserRuleCall; }
+		public RuleCall getAddContextMenuParserRuleCall_0() { return cAddContextMenuParserRuleCall_0; }
+		
+		//CopyContextMenu
+		public RuleCall getCopyContextMenuParserRuleCall_1() { return cCopyContextMenuParserRuleCall_1; }
+	}
+	public class CopyContextMenuElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.CopyContextMenu");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCopyContextMenuKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cIdKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cIdEStringParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//CopyContextMenu:
+		//	'copyContextMenu' '('
+		//	'id:' id=EString ','?
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'copyContextMenu' '(' 'id:' id=EString ','? ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'copyContextMenu'
+		public Keyword getCopyContextMenuKeyword_0() { return cCopyContextMenuKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//'id:'
+		public Keyword getIdKeyword_2() { return cIdKeyword_2; }
+		
+		//id=EString
+		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
+		
+		//EString
+		public RuleCall getIdEStringParserRuleCall_3_0() { return cIdEStringParserRuleCall_3_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 	}
 	public class AddContextMenuElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.AddContextMenu");
@@ -431,12 +480,13 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cTableViewFXParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTreeViewFXParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cListViewFXParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//SupportedControl:
-		//	TableViewFX | TreeViewFX;
+		//	TableViewFX | TreeViewFX | ListViewFX;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TableViewFX | TreeViewFX
+		//TableViewFX | TreeViewFX | ListViewFX
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//TableViewFX
@@ -444,6 +494,9 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TreeViewFX
 		public RuleCall getTreeViewFXParserRuleCall_1() { return cTreeViewFXParserRuleCall_1; }
+		
+		//ListViewFX
+		public RuleCall getListViewFXParserRuleCall_2() { return cListViewFXParserRuleCall_2; }
 	}
 	public class TreeViewFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.TreeViewFX");
@@ -453,13 +506,17 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cModelKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cModelAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cModelJvmTypeReferenceParserRuleCall_6_0 = (RuleCall)cModelAssignment_6.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//TreeViewFX:
-		//	'TreeView' '(' 'name:' name=EString ')';
+		//	'TreeView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'TreeView' '(' 'name:' name=EString ')'
+		//'TreeView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'TreeView'
@@ -477,8 +534,71 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
 		
+		//','?
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//'model:'
+		public Keyword getModelKeyword_5() { return cModelKeyword_5; }
+		
+		//model=JvmTypeReference
+		public Assignment getModelAssignment_6() { return cModelAssignment_6; }
+		
+		//JvmTypeReference
+		public RuleCall getModelJvmTypeReferenceParserRuleCall_6_0() { return cModelJvmTypeReferenceParserRuleCall_6_0; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+	}
+	public class ListViewFXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.ListViewFX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cListViewKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cModelKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cModelAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cModelJvmTypeReferenceParserRuleCall_6_0 = (RuleCall)cModelAssignment_6.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//ListViewFX:
+		//	'ListView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ListView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'ListView'
+		public Keyword getListViewKeyword_0() { return cListViewKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//'name:'
+		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
+		
+		//name=EString
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//'model:'
+		public Keyword getModelKeyword_5() { return cModelKeyword_5; }
+		
+		//model=JvmTypeReference
+		public Assignment getModelAssignment_6() { return cModelAssignment_6; }
+		
+		//JvmTypeReference
+		public RuleCall getModelJvmTypeReferenceParserRuleCall_6_0() { return cModelJvmTypeReferenceParserRuleCall_6_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
 	}
 	public class TableViewFXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.TableViewFX");
@@ -488,13 +608,17 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cModelKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cModelAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cModelJvmTypeReferenceParserRuleCall_6_0 = (RuleCall)cModelAssignment_6.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//TableViewFX:
-		//	'TableView' '(' 'name:' name=EString ')';
+		//	'TableView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'TableView' '(' 'name:' name=EString ')'
+		//'TableView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'TableView'
@@ -512,8 +636,20 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
 		
+		//','?
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//'model:'
+		public Keyword getModelKeyword_5() { return cModelKeyword_5; }
+		
+		//model=JvmTypeReference
+		public Assignment getModelAssignment_6() { return cModelAssignment_6; }
+		
+		//JvmTypeReference
+		public RuleCall getModelJvmTypeReferenceParserRuleCall_6_0() { return cModelJvmTypeReferenceParserRuleCall_6_0; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
 	}
 	public class TreeTableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.lang.edit.EmfSupportDsl.TreeTable");
@@ -613,9 +749,11 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final EcoreElements pEcore;
 	private final EditableEAttributesElements pEditableEAttributes;
 	private final ContextMenuElements pContextMenu;
+	private final CopyContextMenuElements pCopyContextMenu;
 	private final AddContextMenuElements pAddContextMenu;
 	private final SupportedControlElements pSupportedControl;
 	private final TreeViewFXElements pTreeViewFX;
+	private final ListViewFXElements pListViewFX;
 	private final TableViewFXElements pTableViewFX;
 	private final TreeTableElements pTreeTable;
 	private final EBooleanElements pEBoolean;
@@ -643,9 +781,11 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEcore = new EcoreElements();
 		this.pEditableEAttributes = new EditableEAttributesElements();
 		this.pContextMenu = new ContextMenuElements();
+		this.pCopyContextMenu = new CopyContextMenuElements();
 		this.pAddContextMenu = new AddContextMenuElements();
 		this.pSupportedControl = new SupportedControlElements();
 		this.pTreeViewFX = new TreeViewFXElements();
+		this.pListViewFX = new ListViewFXElements();
 		this.pTableViewFX = new TableViewFXElements();
 		this.pTreeTable = new TreeTableElements();
 		this.pEBoolean = new EBooleanElements();
@@ -731,13 +871,25 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ContextMenu:
-	//	AddContextMenu;
+	//	AddContextMenu | CopyContextMenu;
 	public ContextMenuElements getContextMenuAccess() {
 		return pContextMenu;
 	}
 	
 	public ParserRule getContextMenuRule() {
 		return getContextMenuAccess().getRule();
+	}
+	
+	//CopyContextMenu:
+	//	'copyContextMenu' '('
+	//	'id:' id=EString ','?
+	//	')';
+	public CopyContextMenuElements getCopyContextMenuAccess() {
+		return pCopyContextMenu;
+	}
+	
+	public ParserRule getCopyContextMenuRule() {
+		return getCopyContextMenuAccess().getRule();
 	}
 	
 	//AddContextMenu:
@@ -755,7 +907,7 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SupportedControl:
-	//	TableViewFX | TreeViewFX;
+	//	TableViewFX | TreeViewFX | ListViewFX;
 	public SupportedControlElements getSupportedControlAccess() {
 		return pSupportedControl;
 	}
@@ -765,7 +917,7 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TreeViewFX:
-	//	'TreeView' '(' 'name:' name=EString ')';
+	//	'TreeView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')';
 	public TreeViewFXElements getTreeViewFXAccess() {
 		return pTreeViewFX;
 	}
@@ -774,8 +926,18 @@ public class EmfSupportDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTreeViewFXAccess().getRule();
 	}
 	
+	//ListViewFX:
+	//	'ListView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')';
+	public ListViewFXElements getListViewFXAccess() {
+		return pListViewFX;
+	}
+	
+	public ParserRule getListViewFXRule() {
+		return getListViewFXAccess().getRule();
+	}
+	
 	//TableViewFX:
-	//	'TableView' '(' 'name:' name=EString ')';
+	//	'TableView' '(' 'name:' name=EString ','? 'model:' model=JvmTypeReference ')';
 	public TableViewFXElements getTableViewFXAccess() {
 		return pTableViewFX;
 	}

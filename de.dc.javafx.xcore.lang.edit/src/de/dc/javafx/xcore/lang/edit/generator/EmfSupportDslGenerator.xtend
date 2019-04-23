@@ -13,14 +13,30 @@ class EmfSupportDslGenerator implements IGenerator {
 	@Inject JvmModelGenerator jvmModelGenerator;
 	@Inject ApplicationTemplate applicationTemplate
 	@Inject ModelViewTemplate modelViewTemplate
+	@Inject SupportedControlApplicationTemplate supportedCotnrolApplicationTemplate
+	@Inject SupportedControlViewTemplate supportedCotnrolViewTemplate
 	
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
 		jvmModelGenerator.doGenerate(input, fsa);
 		
+		val src = SourceOutputConfigurationProvider.DEFAULT_SRC
+		
 		input.contents.get(0).eAllContents.filter[it instanceof Ecore].forEach[content|
 			val ecore = content as Ecore
-			fsa.generateFile(applicationTemplate.path(ecore), SourceOutputConfigurationProvider.DEFAULT_SRC, applicationTemplate.code(ecore))
-			fsa.generateFile(modelViewTemplate.path(ecore), SourceOutputConfigurationProvider.DEFAULT_SRC, modelViewTemplate.code(ecore))
+			fsa.generateFile(applicationTemplate.path(ecore), src, applicationTemplate.code(ecore))
+			fsa.generateFile(modelViewTemplate.path(ecore), src, modelViewTemplate.code(ecore))
+			
+			ecore.supportedControls.forEach[i|
+				val path = supportedCotnrolApplicationTemplate.path(i)
+				val code = supportedCotnrolApplicationTemplate.code(i)
+				fsa.generateFile(path, src, code)
+			]
+
+			ecore.supportedControls.forEach[i|
+				val path = supportedCotnrolViewTemplate.path(i)
+				val code = supportedCotnrolViewTemplate.code(i)
+				fsa.generateFile(path, src, code)
+			]
 		]
 		
 	}

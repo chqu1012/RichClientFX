@@ -5,9 +5,11 @@ package de.dc.javafx.xcore.lang.edit.serializer;
 
 import com.google.inject.Inject;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.CopyContextMenu;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EditableEAttributes;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage;
+import de.dc.javafx.xcore.lang.edit.emfSupportDsl.ListViewFX;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.TableViewFX;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.TreeTable;
@@ -89,11 +91,17 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 			case EmfSupportDslPackage.ADD_CONTEXT_MENU:
 				sequence_AddContextMenu(context, (AddContextMenu) semanticObject); 
 				return; 
+			case EmfSupportDslPackage.COPY_CONTEXT_MENU:
+				sequence_CopyContextMenu(context, (CopyContextMenu) semanticObject); 
+				return; 
 			case EmfSupportDslPackage.ECORE:
 				sequence_Ecore(context, (Ecore) semanticObject); 
 				return; 
 			case EmfSupportDslPackage.EDITABLE_EATTRIBUTES:
 				sequence_EditableEAttributes(context, (EditableEAttributes) semanticObject); 
+				return; 
+			case EmfSupportDslPackage.LIST_VIEW_FX:
+				sequence_ListViewFX(context, (ListViewFX) semanticObject); 
 				return; 
 			case EmfSupportDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -422,8 +430,8 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	 */
 	protected void sequence_AddContextMenu(ISerializationContext context, AddContextMenu semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__ID));
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.CONTEXT_MENU__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.CONTEXT_MENU__ID));
 			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__PARENT_TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__PARENT_TYPE));
 			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.ADD_CONTEXT_MENU__CREATE_TYPE) == ValueTransient.YES)
@@ -433,6 +441,25 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 		feeder.accept(grammarAccess.getAddContextMenuAccess().getIdEStringParserRuleCall_3_0(), semanticObject.getId());
 		feeder.accept(grammarAccess.getAddContextMenuAccess().getParentTypeJvmTypeReferenceParserRuleCall_6_0(), semanticObject.getParentType());
 		feeder.accept(grammarAccess.getAddContextMenuAccess().getCreateTypeJvmTypeReferenceParserRuleCall_9_0(), semanticObject.getCreateType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ContextMenu returns CopyContextMenu
+	 *     CopyContextMenu returns CopyContextMenu
+	 *
+	 * Constraint:
+	 *     id=EString
+	 */
+	protected void sequence_CopyContextMenu(ISerializationContext context, CopyContextMenu semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.CONTEXT_MENU__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.CONTEXT_MENU__ID));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCopyContextMenuAccess().getIdEStringParserRuleCall_3_0(), semanticObject.getId());
 		feeder.finish();
 	}
 	
@@ -483,6 +510,28 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	
 	/**
 	 * Contexts:
+	 *     SupportedControl returns ListViewFX
+	 *     ListViewFX returns ListViewFX
+	 *
+	 * Constraint:
+	 *     (name=EString model=JvmTypeReference)
+	 */
+	protected void sequence_ListViewFX(ISerializationContext context, ListViewFX semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__NAME));
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__MODEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__MODEL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getListViewFXAccess().getNameEStringParserRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getListViewFXAccess().getModelJvmTypeReferenceParserRuleCall_6_0(), semanticObject.getModel());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
@@ -499,15 +548,18 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	 *     TableViewFX returns TableViewFX
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (name=EString model=JvmTypeReference)
 	 */
 	protected void sequence_TableViewFX(ISerializationContext context, TableViewFX semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__NAME));
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__MODEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__MODEL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTableViewFXAccess().getNameEStringParserRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTableViewFXAccess().getModelJvmTypeReferenceParserRuleCall_6_0(), semanticObject.getModel());
 		feeder.finish();
 	}
 	
@@ -536,15 +588,18 @@ public class EmfSupportDslSemanticSequencer extends XbaseWithAnnotationsSemantic
 	 *     TreeViewFX returns TreeViewFX
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (name=EString model=JvmTypeReference)
 	 */
 	protected void sequence_TreeViewFX(ISerializationContext context, TreeViewFX semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__NAME));
+			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__MODEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.SUPPORTED_CONTROL__MODEL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTreeViewFXAccess().getNameEStringParserRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTreeViewFXAccess().getModelJvmTypeReferenceParserRuleCall_6_0(), semanticObject.getModel());
 		feeder.finish();
 	}
 	

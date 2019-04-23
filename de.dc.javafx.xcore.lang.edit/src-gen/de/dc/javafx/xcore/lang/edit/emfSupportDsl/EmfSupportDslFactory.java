@@ -60,6 +60,15 @@ public interface EmfSupportDslFactory extends EFactory
   ContextMenu createContextMenu();
 
   /**
+   * Returns a new object of class '<em>Copy Context Menu</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Copy Context Menu</em>'.
+   * @generated
+   */
+  CopyContextMenu createCopyContextMenu();
+
+  /**
    * Returns a new object of class '<em>Add Context Menu</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,6 +94,15 @@ public interface EmfSupportDslFactory extends EFactory
    * @generated
    */
   TreeViewFX createTreeViewFX();
+
+  /**
+   * Returns a new object of class '<em>List View FX</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>List View FX</em>'.
+   * @generated
+   */
+  ListViewFX createListViewFX();
 
   /**
    * Returns a new object of class '<em>Table View FX</em>'.

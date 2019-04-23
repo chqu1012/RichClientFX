@@ -7,11 +7,15 @@ import de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.impl.SupportedControlImpl#getModel <em>Model</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +52,16 @@ public class SupportedControlImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getModel() <em>Model</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getModel()
+   * @generated
+   * @ordered
+   */
+  protected JvmTypeReference model;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +115,80 @@ public class SupportedControlImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
+  public JvmTypeReference getModel()
+  {
+    return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetModel(JvmTypeReference newModel, NotificationChain msgs)
+  {
+    JvmTypeReference oldModel = model;
+    model = newModel;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL, oldModel, newModel);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setModel(JvmTypeReference newModel)
+  {
+    if (newModel != model)
+    {
+      NotificationChain msgs = null;
+      if (model != null)
+        msgs = ((InternalEObject)model).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL, null, msgs);
+      if (newModel != null)
+        msgs = ((InternalEObject)newModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL, null, msgs);
+      msgs = basicSetModel(newModel, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL, newModel, newModel));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL:
+        return basicSetModel(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case EmfSupportDslPackage.SUPPORTED_CONTROL__NAME:
         return getName();
+      case EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL:
+        return getModel();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +205,9 @@ public class SupportedControlImpl extends MinimalEObjectImpl.Container implement
     {
       case EmfSupportDslPackage.SUPPORTED_CONTROL__NAME:
         setName((String)newValue);
+        return;
+      case EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL:
+        setModel((JvmTypeReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +226,9 @@ public class SupportedControlImpl extends MinimalEObjectImpl.Container implement
       case EmfSupportDslPackage.SUPPORTED_CONTROL__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL:
+        setModel((JvmTypeReference)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +245,8 @@ public class SupportedControlImpl extends MinimalEObjectImpl.Container implement
     {
       case EmfSupportDslPackage.SUPPORTED_CONTROL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EmfSupportDslPackage.SUPPORTED_CONTROL__MODEL:
+        return model != null;
     }
     return super.eIsSet(featureID);
   }

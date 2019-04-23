@@ -14,7 +14,6 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getId <em>Id</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getCreateType <em>Create Type</em>}</li>
  * </ul>
@@ -25,28 +24,6 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  */
 public interface AddContextMenu extends ContextMenu
 {
-  /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see de.dc.javafx.xcore.lang.edit.emfSupportDsl.EmfSupportDslPackage#getAddContextMenu_Id()
-   * @model
-   * @generated
-   */
-  String getId();
-
-  /**
-   * Sets the value of the '{@link de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu#getId <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
-   * @generated
-   */
-  void setId(String value);
-
   /**
    * Returns the value of the '<em><b>Parent Type</b></em>' containment reference.
    * <!-- begin-user-doc -->

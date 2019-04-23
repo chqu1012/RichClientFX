@@ -581,14 +581,85 @@ ruleContextMenu returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getContextMenuAccess().getAddContextMenuParserRuleCall());
-	}
-	this_AddContextMenu_0=ruleAddContextMenu
-	{
-		$current = $this_AddContextMenu_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		{
+			newCompositeNode(grammarAccess.getContextMenuAccess().getAddContextMenuParserRuleCall_0());
+		}
+		this_AddContextMenu_0=ruleAddContextMenu
+		{
+			$current = $this_AddContextMenu_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getContextMenuAccess().getCopyContextMenuParserRuleCall_1());
+		}
+		this_CopyContextMenu_1=ruleCopyContextMenu
+		{
+			$current = $this_CopyContextMenu_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleCopyContextMenu
+entryRuleCopyContextMenu returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCopyContextMenuRule()); }
+	iv_ruleCopyContextMenu=ruleCopyContextMenu
+	{ $current=$iv_ruleCopyContextMenu.current; }
+	EOF;
+
+// Rule CopyContextMenu
+ruleCopyContextMenu returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='copyContextMenu'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCopyContextMenuAccess().getCopyContextMenuKeyword_0());
+		}
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCopyContextMenuAccess().getLeftParenthesisKeyword_1());
+		}
+		otherlv_2='id:'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCopyContextMenuAccess().getIdKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCopyContextMenuAccess().getIdEStringParserRuleCall_3_0());
+				}
+				lv_id_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCopyContextMenuRule());
+					}
+					set(
+						$current,
+						"id",
+						lv_id_3_0,
+						"de.dc.javafx.xcore.lang.edit.EmfSupportDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getCopyContextMenuAccess().getCommaKeyword_4());
+			}
+		)?
+		otherlv_5=')'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getCopyContextMenuAccess().getRightParenthesisKeyword_5());
+		}
+	)
 ;
 
 // Entry rule entryRuleAddContextMenu
@@ -742,6 +813,15 @@ ruleSupportedControl returns [EObject current=null]
 			$current = $this_TreeViewFX_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getSupportedControlAccess().getListViewFXParserRuleCall_2());
+		}
+		this_ListViewFX_2=ruleListViewFX
+		{
+			$current = $this_ListViewFX_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -792,9 +872,121 @@ ruleTreeViewFX returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4=')'
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getTreeViewFXAccess().getCommaKeyword_4());
+			}
+		)?
+		otherlv_5='model:'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getTreeViewFXAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getTreeViewFXAccess().getModelKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTreeViewFXAccess().getModelJvmTypeReferenceParserRuleCall_6_0());
+				}
+				lv_model_6_0=ruleJvmTypeReference
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTreeViewFXRule());
+					}
+					set(
+						$current,
+						"model",
+						lv_model_6_0,
+						"org.eclipse.xtext.xbase.Xtype.JvmTypeReference");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_7=')'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getTreeViewFXAccess().getRightParenthesisKeyword_7());
+		}
+	)
+;
+
+// Entry rule entryRuleListViewFX
+entryRuleListViewFX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getListViewFXRule()); }
+	iv_ruleListViewFX=ruleListViewFX
+	{ $current=$iv_ruleListViewFX.current; }
+	EOF;
+
+// Rule ListViewFX
+ruleListViewFX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='ListView'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getListViewFXAccess().getListViewKeyword_0());
+		}
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getListViewFXAccess().getLeftParenthesisKeyword_1());
+		}
+		otherlv_2='name:'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getListViewFXAccess().getNameKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getListViewFXAccess().getNameEStringParserRuleCall_3_0());
+				}
+				lv_name_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getListViewFXRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_3_0,
+						"de.dc.javafx.xcore.lang.edit.EmfSupportDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getListViewFXAccess().getCommaKeyword_4());
+			}
+		)?
+		otherlv_5='model:'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getListViewFXAccess().getModelKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getListViewFXAccess().getModelJvmTypeReferenceParserRuleCall_6_0());
+				}
+				lv_model_6_0=ruleJvmTypeReference
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getListViewFXRule());
+					}
+					set(
+						$current,
+						"model",
+						lv_model_6_0,
+						"org.eclipse.xtext.xbase.Xtype.JvmTypeReference");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_7=')'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getListViewFXAccess().getRightParenthesisKeyword_7());
 		}
 	)
 ;
@@ -846,9 +1038,38 @@ ruleTableViewFX returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4=')'
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getTableViewFXAccess().getCommaKeyword_4());
+			}
+		)?
+		otherlv_5='model:'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getTableViewFXAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getTableViewFXAccess().getModelKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTableViewFXAccess().getModelJvmTypeReferenceParserRuleCall_6_0());
+				}
+				lv_model_6_0=ruleJvmTypeReference
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTableViewFXRule());
+					}
+					set(
+						$current,
+						"model",
+						lv_model_6_0,
+						"org.eclipse.xtext.xbase.Xtype.JvmTypeReference");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_7=')'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getTableViewFXAccess().getRightParenthesisKeyword_7());
 		}
 	)
 ;

@@ -69,9 +69,11 @@ public class EmfSupportDslFactoryImpl extends EFactoryImpl implements EmfSupport
       case EmfSupportDslPackage.ECORE: return createEcore();
       case EmfSupportDslPackage.EDITABLE_EATTRIBUTES: return createEditableEAttributes();
       case EmfSupportDslPackage.CONTEXT_MENU: return createContextMenu();
+      case EmfSupportDslPackage.COPY_CONTEXT_MENU: return createCopyContextMenu();
       case EmfSupportDslPackage.ADD_CONTEXT_MENU: return createAddContextMenu();
       case EmfSupportDslPackage.SUPPORTED_CONTROL: return createSupportedControl();
       case EmfSupportDslPackage.TREE_VIEW_FX: return createTreeViewFX();
+      case EmfSupportDslPackage.LIST_VIEW_FX: return createListViewFX();
       case EmfSupportDslPackage.TABLE_VIEW_FX: return createTableViewFX();
       case EmfSupportDslPackage.TREE_TABLE: return createTreeTable();
       default:
@@ -133,6 +135,18 @@ public class EmfSupportDslFactoryImpl extends EFactoryImpl implements EmfSupport
    * @generated
    */
   @Override
+  public CopyContextMenu createCopyContextMenu()
+  {
+    CopyContextMenuImpl copyContextMenu = new CopyContextMenuImpl();
+    return copyContextMenu;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public AddContextMenu createAddContextMenu()
   {
     AddContextMenuImpl addContextMenu = new AddContextMenuImpl();
@@ -161,6 +175,18 @@ public class EmfSupportDslFactoryImpl extends EFactoryImpl implements EmfSupport
   {
     TreeViewFXImpl treeViewFX = new TreeViewFXImpl();
     return treeViewFX;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ListViewFX createListViewFX()
+  {
+    ListViewFXImpl listViewFX = new ListViewFXImpl();
+    return listViewFX;
   }
 
   /**
