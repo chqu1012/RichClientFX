@@ -4,11 +4,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryObservableList;
-import org.eclipse.fx.emf.edit.ui.AdapterFactoryTableCellFactory;
-import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
 import org.eclipse.fx.emf.edit.ui.ProxyCellValueFactory;
-import org.eclipse.fx.emf.edit.ui.dnd.CellDragAdapter;
-import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import javafx.scene.control.TableColumn;
@@ -29,22 +25,22 @@ public class EmfTableView<T> extends TableView<Object>{
 		setItems(list);
 	}
 	
-	public AdapterFactoryTableCellFactory<Object, Object> createColumn(String name,int columnIndex) {
+	public TableColumn<Object, Object> createColumn(String name,int columnIndex) {
 		TableColumn<Object, Object> column = new TableColumn<>(name);
 		column.setCellValueFactory(new ProxyCellValueFactory<Object, Object>());
-		AdapterFactoryTableCellFactory<Object, Object> cellFactory = new AdapterFactoryTableCellFactory<>(adapterFactory, columnIndex);
-		cellFactory.addCellCreationListener(new CellDragAdapter());
-		cellFactory.addCellCreationListener(new EditingDomainCellDropAdapter(editingDomain));
-		column.setCellFactory(cellFactory);
+		// TODO: Not showing column values
+//		AdapterFactoryTableCellFactory<Object, Object> cellFactory = new AdapterFactoryTableCellFactory<>(adapterFactory, columnIndex);
+//		cellFactory.addCellCreationListener(new CellDragAdapter());
+//		cellFactory.addCellCreationListener(new EditingDomainCellDropAdapter(editingDomain));
+//		column.setCellFactory(cellFactory);
 		column.setSortable(false);
 		getColumns().add(column);
-		return cellFactory;
+		return column;
 	}
 	
-	public void createColumn(String name, int columnIndex, EAttribute modelPackageEAttribute) {
-		AdapterFactoryTableCellFactory<Object,Object> cellFactory = createColumn(name, columnIndex);
-		
+	public void setEditable(TableColumn<Object, Object> column, EAttribute modelPackageEAttribute) {
 		// add edit support
-		cellFactory.addCellEditHandler(new EAttributeCellEditHandler(modelPackageEAttribute,editingDomain));
+//		AdapterFactoryTableCellFactory<Object, Object> cellFactory = (AdapterFactoryTableCellFactory<Object, Object>) column.getCellFactory();
+//		cellFactory.addCellEditHandler(new EAttributeCellEditHandler(modelPackageEAttribute,editingDomain));
 	}
 }
