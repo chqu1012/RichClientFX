@@ -97,7 +97,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 					if(menu instanceof AddContextMenu){
 						val addMenu = menu as AddContextMenu
 						members += model.toMethod('get'+menu.id+'Id', Integer.typeRef)[
-							body = '''return «model.modelPackage».«addMenu.createType.simpleName.toUpperCase»;'''
+							body = '''«val simpleName = addMenu.createType.simpleName.split("(?<=[a-z])(?=[A-Z])").reduce[p1, p2|p1+'_'+p2]»return «model.modelPackage».«simpleName.toUpperCase»;'''
 						]
 						
 						members += model.toMethod('create'+menu.id, addMenu.createType)[

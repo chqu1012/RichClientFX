@@ -28,6 +28,6 @@ EMFSupport for WebsiteModel{
 		parentType: de.dc.javafx.emfsupport.website.model.Page
 		createType: de.dc.javafx.emfsupport.website.model.Author
 	)
-	
+	 
 	controls += TableView(name: Page, model: de.dc.javafx.emfsupport.website.model.Page)
 } 

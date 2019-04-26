@@ -31,7 +31,7 @@ public class BaseWebsiteModelView extends EMFModelView<Website> {
   }
   
   public Integer getAddPageId() {
-    return ModelPackage.PAGE;
+    							return ModelPackage.PAGE;
   }
   
   public Page createAddPage() {
@@ -39,7 +39,7 @@ public class BaseWebsiteModelView extends EMFModelView<Website> {
   }
   
   public Integer getAddAuthorId() {
-    return ModelPackage.AUTHOR;
+    							return ModelPackage.AUTHOR;
   }
   
   public Author createAddAuthor() {

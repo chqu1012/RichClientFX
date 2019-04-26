@@ -44,7 +44,10 @@ import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
@@ -220,11 +223,15 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
                 StringConcatenationClient _client = new StringConcatenationClient() {
                   @Override
                   protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                    final Function2<String, String, String> _function = (String p1, String p2) -> {
+                      return ((p1 + "_") + p2);
+                    };
+                    final String simpleName = IterableExtensions.<String>reduce(((Iterable<? extends String>)Conversions.doWrapArray(addMenu.getCreateType().getSimpleName().split("(?<=[a-z])(?=[A-Z])"))), _function);
                     _builder.append("return ");
                     JvmTypeReference _modelPackage = model.getModelPackage();
                     _builder.append(_modelPackage);
                     _builder.append(".");
-                    String _upperCase = addMenu.getCreateType().getSimpleName().toUpperCase();
+                    String _upperCase = simpleName.toUpperCase();
                     _builder.append(_upperCase);
                     _builder.append(";");
                   }

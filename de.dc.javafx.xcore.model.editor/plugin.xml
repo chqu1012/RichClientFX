@@ -101,5 +101,17 @@
             contributorClass="de.dc.emf.javafx.model.javafx.presentation.JavafxActionBarContributor">
       </editor>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="de.dc.javafx.xcore.model.editor.JavafxEditorAdvisorApplication"
+            name="JavaFXEditor">
+         <property
+               name="appName"
+               value="JavaFXEditor">
+         </property>
+      </product>
+   </extension>
 
 </plugin>
