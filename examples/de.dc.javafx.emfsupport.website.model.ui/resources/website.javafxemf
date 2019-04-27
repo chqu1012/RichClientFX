@@ -30,4 +30,6 @@ EMFSupport for WebsiteModel{
 	)
 	 
 	controls += TableView(name: Page, model: de.dc.javafx.emfsupport.website.model.Page)
+	controls += TreeView(name: Page, model: de.dc.javafx.emfsupport.website.model.Page)
+	controls += ListView(name: Page, model: de.dc.javafx.emfsupport.website.model.Page)
 } 

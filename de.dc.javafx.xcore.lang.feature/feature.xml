@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.dc.javafx.xcore.lang.feature"
-      label="JavaFXDsl Feature "
-      version="1.0.0.qualifier">
+      label="JavaFX Lang Feature"
+      version="0.9.0.qualifier">
 
    <requires>
       <import plugin="org.eclipse.xtext"/>
