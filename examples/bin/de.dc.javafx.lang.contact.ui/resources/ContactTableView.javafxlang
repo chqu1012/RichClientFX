@@ -1,0 +1,15 @@
+packagePath 'de.dc.emf.javafx.xtext.demo.contact'
+
+controls{ 
+	TableViewFX { 
+		name: ContactTableView
+		usedModel: Contact
+		column(name: Firstname usedAttribute:"Contact.firstname" useFilter)
+		column(name: Lastname usedAttribute:"Contact.firstname" useFilter)
+		column(name: Age usedAttribute:"Contact.age" useFilter)
+		column(name: Gender usedAttribute:"Contact.gender" useFilter)
+		showPropertyView: true
+		showToolbar: true
+		generateDemo: true
+	} 
+}

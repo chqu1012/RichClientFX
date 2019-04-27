@@ -290,7 +290,8 @@ Export-Package: de.dc.javafx.efxclipse.runtime,
  org.eclipse.fx.ui.workbench3,
  org.eclipse.jface.text.rules
 Require-Bundle: org.eclipse.emf.common,
- org.eclipse.emf.edit
+ org.eclipse.emf.edit,
+ de.dc.javafx.xcore.lang.lib;bundle-version="1.0.0"
 Import-Package: com.sun.javafx,
  com.sun.javafx.animation,
  com.sun.javafx.applet,

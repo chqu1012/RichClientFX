@@ -1,0 +1,10 @@
+packagePath 'de.dc.emf.javafx.xtext.demo.contact.model'
+
+models{ 
+	class Contact{
+		String firstname
+		String lastname
+		Integer age
+		Boolean gender
+	}
+}

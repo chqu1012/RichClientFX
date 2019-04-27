@@ -158,7 +158,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				«ObjectProperty»<«Predicate»<«model»>> «filter» = new «SimpleObjectProperty»<>();
 				«filter».bind(«Bindings».createObjectBinding(() -> current -> {
 					String searchContent = searchTextfield.getText().toLowerCase();
-					String data = «String».valueOf(current.getAge()).toLowerCase();
+					String data = «String».valueOf(current.get«c.name.toFirstUpper»()).toLowerCase();
 					return data.contains(searchContent);
 				}, searchTextProperty));
 				«ENDIF»

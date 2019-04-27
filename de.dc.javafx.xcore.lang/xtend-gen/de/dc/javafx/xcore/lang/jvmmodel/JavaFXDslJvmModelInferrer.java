@@ -400,7 +400,10 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
                     _builder.append("\t");
                     _builder.append("String data = ");
                     _builder.append(String.class, "\t");
-                    _builder.append(".valueOf(current.getAge()).toLowerCase();");
+                    _builder.append(".valueOf(current.get");
+                    String _firstUpper = StringExtensions.toFirstUpper(c.getName());
+                    _builder.append(_firstUpper, "\t");
+                    _builder.append("()).toLowerCase();");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t");
                     _builder.append("return data.contains(searchContent);");
