@@ -49,13 +49,13 @@ public class BaseContactTableView extends BaseTableView<Contact> {
     ObjectProperty<Predicate<Contact>> firstnameFilter = new SimpleObjectProperty<>();
     firstnameFilter.bind(Bindings.createObjectBinding(() -> current -> {
     	String searchContent = searchTextfield.getText().toLowerCase();
-    	String data = String.valueOf(current.getFirstname()).toLowerCase();
+    	String data = String.valueOf(current.getAge()).toLowerCase();
     	return data.contains(searchContent);
     }, searchTextProperty));
     ObjectProperty<Predicate<Contact>> lastnameFilter = new SimpleObjectProperty<>();
     lastnameFilter.bind(Bindings.createObjectBinding(() -> current -> {
     	String searchContent = searchTextfield.getText().toLowerCase();
-    	String data = String.valueOf(current.getLastname()).toLowerCase();
+    	String data = String.valueOf(current.getAge()).toLowerCase();
     	return data.contains(searchContent);
     }, searchTextProperty));
     ObjectProperty<Predicate<Contact>> ageFilter = new SimpleObjectProperty<>();
@@ -67,7 +67,7 @@ public class BaseContactTableView extends BaseTableView<Contact> {
     ObjectProperty<Predicate<Contact>> genderFilter = new SimpleObjectProperty<>();
     genderFilter.bind(Bindings.createObjectBinding(() -> current -> {
     	String searchContent = searchTextfield.getText().toLowerCase();
-    	String data = String.valueOf(current.getGender()).toLowerCase();
+    	String data = String.valueOf(current.getAge()).toLowerCase();
     	return data.contains(searchContent);
     }, searchTextProperty));
     return Bindings.createObjectBinding(()->firstnameFilter.get().or(lastnameFilter.get()).or(ageFilter.get()).or(genderFilter.get()), firstnameFilter, lastnameFilter, ageFilter, genderFilter);	

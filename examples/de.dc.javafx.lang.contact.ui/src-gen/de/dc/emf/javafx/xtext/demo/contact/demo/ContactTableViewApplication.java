@@ -11,24 +11,24 @@ import javafx.stage.Stage;
 
 @SuppressWarnings("all")
 public class ContactTableViewApplication extends Application {
-	@Override
-	public void start(final Stage primaryStage) {
-		primaryStage.setScene(new Scene(getRoot(), 600, 400));
-		primaryStage.show();
-	}
-
-	public Parent getRoot() {
-		BaseContactTableView view = new BaseContactTableView();
-		ObservableList<Contact> items = FXCollections.observableArrayList();
-		for (int i = 0; i < 30; i++) {
-			Contact item = new Contact();
-			items.add(item);
-		}
-		view.setInput(items);
-		return view;
-	}
-
-	public static void main(final String[] args) {
-		launch(args);
-	}
+  @Override
+  public void start(final Stage primaryStage) {
+    primaryStage.setScene(new Scene(getRoot(), 600, 400));
+    primaryStage.show();
+  }
+  
+  public Parent getRoot() {
+    BaseContactTableView view = new BaseContactTableView();
+    ObservableList<Contact> items = FXCollections.observableArrayList();
+    for (int i = 0; i < 30; i++) {
+    	Contact item = new Contact();
+    	items.add(item);
+    }
+    view.setInput(items);
+    return view;
+  }
+  
+  public static void main(final String[] args) {
+    launch(args);
+  }
 }
