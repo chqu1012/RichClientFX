@@ -152,7 +152,7 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 
 	class HoveredThresholdNode extends StackPane {
 		HoveredThresholdNode(String priorValue, String value) {
-			setPrefSize(15, 15);
+			setPrefSize(10, 10);
 			Label label = new Label(value + " | " + priorValue);
 			label.getStyleClass().addAll("default-color0", "chart-line-symbol", "chart-series-line");
 			label.setStyle("-fx-font-size: 20; -fx-font-weight: bold;");
