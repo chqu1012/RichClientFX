@@ -30,8 +30,12 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 
 	final double SCALE_DELTA = 1.1;
 	private Rectangle zoomRect;
+	protected Axis<X> xAxis;
+	protected Axis<Y> yAxis;
 
 	public BaseXYChart(Axis<X> xAxis, Axis<Y> yAxis) {
+		this.xAxis = xAxis;
+		this.yAxis = yAxis;
 		chart = getChart(xAxis, yAxis);
 		xAxis.setLabel(getXAxisTitle());
 		yAxis.setLabel(getYAxisTitle());
