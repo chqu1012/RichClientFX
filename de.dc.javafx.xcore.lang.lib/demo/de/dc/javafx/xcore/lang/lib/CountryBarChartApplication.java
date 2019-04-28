@@ -20,6 +20,8 @@ public class CountryBarChartApplication extends AbstractApplication {
 	@Override
 	protected Parent getRoot() {
 		CountryBarChart chart = new CountryBarChart();
+		chart.enabledThreshold(false);
+		
 		Series<String, Number> series2003 = chart.addSerie("2003");
 		Series<String, Number> series2004 = chart.addSerie("2004");
 		Series<String, Number> series2005 = chart.addSerie("2005");

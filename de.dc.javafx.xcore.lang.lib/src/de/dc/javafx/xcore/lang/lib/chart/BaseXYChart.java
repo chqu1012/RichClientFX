@@ -32,7 +32,8 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 	private Rectangle zoomRect;
 	protected Axis<X> xAxis;
 	protected Axis<Y> yAxis;
-
+	protected boolean enabledThreshold = true;
+	
 	public BaseXYChart(Axis<X> xAxis, Axis<Y> yAxis) {
 		this.xAxis = xAxis;
 		this.yAxis = yAxis;
@@ -73,6 +74,10 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 	protected abstract String getYAxisTitle();
 
 	protected abstract String getXAxisTitle();
+	
+	public void enabledThreshold(boolean enableThreshold) {
+		this.enabledThreshold = enableThreshold;
+	}
 
 	private void setUpZooming(final Rectangle rect) {
 		final ObjectProperty<Point2D> mouseAnchor = new SimpleObjectProperty<>();
@@ -133,13 +138,17 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 	}
 
 	public void addData(Series<X, Y> serie, Data<X, Y> data) {
-		data.setNode(new HoveredThresholdNode(data.getXValue().toString(), data.getYValue().toString()));
+		if (enabledThreshold) {
+			data.setNode(new HoveredThresholdNode(data.getXValue().toString(), data.getYValue().toString()));
+		}
 		serie.getData().add(data);
 	}
 
 	public void addAllData(Series<X, Y> serie, List<Data<X, Y>> dataList) {
-		dataList.stream()
-				.forEach(e -> e.setNode(new HoveredThresholdNode(e.getXValue().toString(), e.getYValue().toString())));
+		if (enabledThreshold) {
+			dataList.stream()
+			.forEach(e -> e.setNode(new HoveredThresholdNode(e.getXValue().toString(), e.getYValue().toString())));
+		}
 		serie.getData().addAll(dataList);
 	}
 
