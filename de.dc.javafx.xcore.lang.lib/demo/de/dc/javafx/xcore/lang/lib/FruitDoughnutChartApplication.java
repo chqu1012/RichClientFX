@@ -10,7 +10,7 @@ public class FruitDoughnutChartApplication extends AbstractApplication{
 	@Override
 	protected Parent getRoot() {
 		FruitDoughnutChart chart = new FruitDoughnutChart();
-		chart.getData().addAll(FXCollections.observableArrayList(
+		chart.addAll(FXCollections.observableArrayList(
                 new PieChart.Data("Grapefruit", 13),
                 new PieChart.Data("Oranges", 25),
                 new PieChart.Data("Plums", 10),

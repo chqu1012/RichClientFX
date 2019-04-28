@@ -1,6 +1,5 @@
 package de.dc.javafx.xcore.lang.lib.chart;
 
-import javafx.collections.FXCollections;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
@@ -13,21 +12,17 @@ import javafx.scene.shape.Circle;
  * @author Dim
  *
  */
-public abstract class BaseDoughnutChart extends PieChart {
+public abstract class BaseDoughnutChart extends BasePieChart {
 
 	private final Circle innerCircle;
+	
 	public BaseDoughnutChart() {
-		super(FXCollections.observableArrayList());
 		innerCircle = new Circle();
 		innerCircle.setFill(Color.WHITESMOKE);
 		innerCircle.setStroke(Color.WHITE);
 		innerCircle.setStrokeWidth(3);
-		
-		setTitle(getChartTitle());
 	}
 
-	protected abstract String getChartTitle();
-	
 	@Override
 	protected void layoutChartChildren(double top, double left, double contentWidth, double contentHeight) {
 		super.layoutChartChildren(top, left, contentWidth, contentHeight);
