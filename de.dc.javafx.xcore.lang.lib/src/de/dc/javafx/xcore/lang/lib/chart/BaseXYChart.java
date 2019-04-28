@@ -92,27 +92,30 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 	}
 
 	private void doZoom(Rectangle zoomRect) {
-		Point2D zoomTopLeft = new Point2D(zoomRect.getX(), zoomRect.getY());
-		Point2D zoomBottomRight = new Point2D(zoomRect.getX() + zoomRect.getWidth(),
-				zoomRect.getY() + zoomRect.getHeight());
-		final NumberAxis yAxis = (NumberAxis) chart.getYAxis();
-		Point2D yAxisInScene = yAxis.localToScene(0, 0);
-		final NumberAxis xAxis = (NumberAxis) chart.getXAxis();
-		Point2D xAxisInScene = xAxis.localToScene(0, 0);
-
-		xAxis.setAutoRanging(false);
-		yAxis.setAutoRanging(false);
-
-		double xOffset = zoomTopLeft.getX() - yAxisInScene.getX();
-		double yOffset = zoomBottomRight.getY() - xAxisInScene.getY();
-		double xAxisScale = xAxis.getScale();
-		double yAxisScale = yAxis.getScale();
-		xAxis.setLowerBound(xAxis.getLowerBound() + xOffset / xAxisScale);
-		xAxis.setUpperBound(xAxis.getLowerBound() + zoomRect.getWidth() / xAxisScale);
-		yAxis.setLowerBound(yAxis.getLowerBound() + yOffset / yAxisScale);
-		yAxis.setUpperBound(yAxis.getLowerBound() - zoomRect.getHeight() / yAxisScale);
-		zoomRect.setWidth(0);
-		zoomRect.setHeight(0);
+		if (chart.getXAxis() instanceof NumberAxis && chart.getYAxis() instanceof NumberAxis) {
+			final NumberAxis yAxis = (NumberAxis) chart.getYAxis();
+			final NumberAxis xAxis = (NumberAxis) chart.getXAxis();
+			
+			Point2D zoomTopLeft = new Point2D(zoomRect.getX(), zoomRect.getY());
+			Point2D zoomBottomRight = new Point2D(zoomRect.getX() + zoomRect.getWidth(),
+					zoomRect.getY() + zoomRect.getHeight());
+			Point2D yAxisInScene = yAxis.localToScene(0, 0);
+			Point2D xAxisInScene = xAxis.localToScene(0, 0);
+			
+			xAxis.setAutoRanging(false);
+			yAxis.setAutoRanging(false);
+			
+			double xOffset = zoomTopLeft.getX() - yAxisInScene.getX();
+			double yOffset = zoomBottomRight.getY() - xAxisInScene.getY();
+			double xAxisScale = xAxis.getScale();
+			double yAxisScale = yAxis.getScale();
+			xAxis.setLowerBound(xAxis.getLowerBound() + xOffset / xAxisScale);
+			xAxis.setUpperBound(xAxis.getLowerBound() + zoomRect.getWidth() / xAxisScale);
+			yAxis.setLowerBound(yAxis.getLowerBound() + yOffset / yAxisScale);
+			yAxis.setUpperBound(yAxis.getLowerBound() - zoomRect.getHeight() / yAxisScale);
+			zoomRect.setWidth(0);
+			zoomRect.setHeight(0);
+		}
 	}
 
 	public Series<X, Y> addSerie(String name) {
