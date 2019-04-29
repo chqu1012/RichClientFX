@@ -22,5 +22,4 @@ public class BudgetAreaChart extends BaseAreaChart<Number, Number> {
 	protected String getXAxisTitle() {
 		return "Values";
 	}
-
 }

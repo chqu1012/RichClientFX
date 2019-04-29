@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="de.dc.javafx.xcore.lang.ide"
+            name="New Chart Wizard">
+      </category>
+      <wizard
+            category="de.dc.javafx.xcore.lang.ide"
+            class="de.dc.javafx.xcore.lang.ide.wizards.ChartNewWizard"
+            icon="icons/sample.png"
+            id="de.dc.javafx.xcore.lang.ide.wizards.ChartNewWizard"
+            name="JavaFX lang Editor">
+      </wizard>
+   </extension>
+
+</plugin>

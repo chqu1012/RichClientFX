@@ -1,0 +1,9 @@
+packagePath "packagePath"
+
+charts{
+	LineChartFX Example{
+		title "Example"
+		xAxisLabel ""
+		yAxisLabel ""
+	}
+}
