@@ -157,6 +157,7 @@ LineChart{
 ## ChangeLog
 
 ## Download
+* ![v0.9.0](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/build/versions/de.dc.javafx.xcore.lang-v0.9.0.zip) : New API
 * ![v0.8.4](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.xtext.lang.update/build/v0.8.4.zip) : TableViewFX with filter and property view
 * ![v0.8.3](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.xtext.lang.update/build/v0.8.3.zip) : Working Example of JFX CU
 * ![v0.8.2](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.xtext.lang.update/build/v0.8.2.zip) : Separated base code files
