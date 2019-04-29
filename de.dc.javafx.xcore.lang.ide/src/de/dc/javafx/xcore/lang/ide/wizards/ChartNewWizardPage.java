@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+import org.eclipse.swt.widgets.Combo;
 
 /**
  * The "New" wizard page allows setting the container for the new file as well
@@ -30,14 +31,23 @@ public class ChartNewWizardPage extends WizardPage {
 	private Text fileText;
 
 	private ISelection selection;
+	private Text chartTitleText;
+	private Text xAxisText;
+	private Text yAxisText;
+
+	private Combo chartCombo;
+	private Text chartClassNameText;
+
+	private ChartModel model;
 
 	/**
 	 * Constructor for SampleNewWizardPage.
 	 * 
 	 * @param pageName
 	 */
-	public ChartNewWizardPage(ISelection selection) {
+	public ChartNewWizardPage(ISelection selection, ChartModel model) {
 		super("wizardPage");
+		this.model = model;
 		setTitle("Multi-page Editor File");
 		setDescription("This wizard creates a new file with *.javafxlang extension that can be opened by a multi-page editor.");
 		this.selection = selection;
@@ -67,16 +77,58 @@ public class ChartNewWizardPage extends WizardPage {
 		});
 		label = new Label(container, SWT.NULL);
 		label.setText("&File name:");
-
-		fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
-		gd = new GridData(GridData.FILL_HORIZONTAL);
-		fileText.setLayoutData(gd);
-		fileText.addModifyListener(e -> dialogChanged());
+		
+				fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
+				gd = new GridData(GridData.FILL_HORIZONTAL);
+				fileText.setLayoutData(gd);
+				fileText.addModifyListener(e -> dialogChanged());
 		initialize();
 		dialogChanged();
 		setControl(container);
+		new Label(container, SWT.NONE);
+		
+		Label lblChartType = new Label(container, SWT.NONE);
+		lblChartType.setText("Chart Type:");
+		
+		chartCombo = new Combo(container, SWT.READ_ONLY);
+		chartCombo.setItems(new String[] {"PieChart", "AreaChart", "BarChart", "BubbleChart", "LineChart", "ScatterChart", "StackedAreaChart", "DoughnutChart"});
+		chartCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		chartCombo.select(0);
+		
+		new Label(container, SWT.NONE);
+		
+		Label lblChartClassName = new Label(container, SWT.NONE);
+		lblChartClassName.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblChartClassName.setText("Chart Class name:");
+		
+		chartClassNameText = new Text(container, SWT.BORDER);
+		chartClassNameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		new Label(container, SWT.NONE);
+		
+		Label lblChartTitle = new Label(container, SWT.NONE);
+		lblChartTitle.setText("Chart Title:");
+		
+		chartTitleText = new Text(container, SWT.BORDER);
+		chartTitleText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		new Label(container, SWT.NONE);
+		
+		Label xAxisLabel = new Label(container, SWT.NONE);
+		xAxisLabel.setText("XAxis Label");
+		
+		xAxisText = new Text(container, SWT.BORDER);
+		xAxisText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		new Label(container, SWT.NONE);
+		
+		Label lblYaxisLabel = new Label(container, SWT.NONE);
+		lblYaxisLabel.setText("YAxis Label");
+		
+		yAxisText = new Text(container, SWT.BORDER);
+		yAxisText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		new Label(container, SWT.NONE);
 	}
 
+
+	
 	/**
 	 * Tests if the current workbench selection is a suitable container to use.
 	 */
@@ -155,6 +207,13 @@ public class ChartNewWizardPage extends WizardPage {
 				return;
 			}
 		}
+		
+		model.setChartName(getChartClassName());
+		model.setChartType(getChartIndex());
+		model.setTitle(getChartTitle());
+		model.setxAxis(getXAxis());
+		model.setyAxis(getYAxis());
+		
 		updateStatus(null);
 	}
 
@@ -162,7 +221,32 @@ public class ChartNewWizardPage extends WizardPage {
 		setErrorMessage(message);
 		setPageComplete(message == null);
 	}
+	
+	public int getChartIndex() {
+		int selectionIndex = chartCombo.getSelectionIndex();
+		return selectionIndex;
+	}
 
+	public String getChartTitle() {
+		String value = chartTitleText.getText();
+		return value==null? "" : value;
+	}
+
+	public String getChartClassName() {
+		String value = chartClassNameText.getText();
+		return value==null? "" : value;
+	}
+	
+	public String getXAxis() {
+		String value = xAxisText.getText();
+		return value==null? "" : value;
+	}
+
+	public String getYAxis() {
+		String value = yAxisText.getText();
+		return value==null? "" : value;
+	}
+	
 	public String getContainerName() {
 		return containerText.getText();
 	}
@@ -170,4 +254,6 @@ public class ChartNewWizardPage extends WizardPage {
 	public String getFileName() {
 		return fileText.getText();
 	}
+	
+	
 }

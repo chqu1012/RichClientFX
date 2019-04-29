@@ -31,7 +31,7 @@ import de.dc.javafx.xcore.lang.ide.templates.ChartTemplate;
 public class ChartNewWizard extends Wizard implements INewWizard {
 	private ChartNewWizardPage page;
 	private ISelection selection;
-
+	private ChartModel model = new ChartModel();
 	/**
 	 * Constructor for ChartNewWizard.
 	 */
@@ -45,7 +45,7 @@ public class ChartNewWizard extends Wizard implements INewWizard {
 	 */
 	@Override
 	public void addPages() {
-		page = new ChartNewWizardPage(selection);
+		page = new ChartNewWizardPage(selection, model);
 		addPage(page);
 	}
 
@@ -72,9 +72,10 @@ public class ChartNewWizard extends Wizard implements INewWizard {
 		} catch (InterruptedException e) {
 			return false;
 		} catch (InvocationTargetException e) {
-			Throwable realException = e.getTargetException();
-			MessageDialog.openError(getShell(), "Error", realException.getMessage());
-			return false;
+			e.printStackTrace();
+//			Throwable realException = e.getTargetException();
+//			MessageDialog.openError(getShell(), "Error", realException.getMessage());
+//			return false;
 		}
 		return true;
 	}
@@ -85,11 +86,7 @@ public class ChartNewWizard extends Wizard implements INewWizard {
 	 * the editor on the newly created file.
 	 */
 
-	private void doFinish(
-		String containerName,
-		String fileName,
-		IProgressMonitor monitor)
-		throws CoreException {
+	private void doFinish(String containerName,String fileName,IProgressMonitor monitor) throws CoreException {
 		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -127,7 +124,12 @@ public class ChartNewWizard extends Wizard implements INewWizard {
 	 */
 
 	private InputStream openContentStream() {
-		String contents = ChartTemplate.getLineChart("Example", "Example", "", "");
+		String title = model.getTitle();
+		String xAxis = model.getxAxis();
+		String yAxis = model.getyAxis();
+		String chartClassName = model.getChartName();
+		int chartIndex = model.getChartType();
+		String contents = ChartTemplate.getTemplate(chartIndex, chartClassName, title, xAxis, yAxis);
 		return new ByteArrayInputStream(contents.getBytes());
 	}
 
