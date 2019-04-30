@@ -4,6 +4,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jdt.internal.core.JavaElement;
 import org.eclipse.jdt.internal.core.PackageFragment;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -152,8 +153,8 @@ public class ChartNewWizardPage extends WizardPage {
 				else
 					container = ((IResource) obj).getParent();
 				containerText.setText(container.getFullPath().toString());
-			}else if (obj instanceof PackageFragment) {
-				PackageFragment fragment = (PackageFragment) obj;
+			}else if (obj instanceof JavaElement) {
+				JavaElement fragment = (JavaElement) obj;
 				containerText.setText(fragment.getPath().toFile().getPath());
 				
 			}
