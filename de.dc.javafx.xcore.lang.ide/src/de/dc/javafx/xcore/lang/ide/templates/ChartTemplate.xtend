@@ -22,6 +22,8 @@ class ChartTemplate {
 	}
 	
 	def static String getPieChart(String chartName, String title, String xAxis, String yAxis)''''''
+	
+	
 	def static String getAreaChart(String chartName, String title, String xAxis, String yAxis)''''''
 	def static String getBarChart(String chartName, String title, String xAxis, String yAxis)''''''
 	def static String getBubbleChart(String chartName, String title, String xAxis, String yAxis)''''''
