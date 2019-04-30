@@ -5,14 +5,14 @@
          point="org.eclipse.ui.newWizards">
       <category
             id="de.dc.javafx.xcore.lang.ide"
-            name="New Chart Wizard">
+            name="New JavaFX Lang File Wizard">
       </category>
       <wizard
             category="de.dc.javafx.xcore.lang.ide"
             class="de.dc.javafx.xcore.lang.ide.wizards.ChartNewWizard"
             icon="icons/sample.png"
             id="de.dc.javafx.xcore.lang.ide.wizards.ChartNewWizard"
-            name="JavaFX lang Editor">
+            name="JavaFX Lang Chart File">
       </wizard>
    </extension>
 

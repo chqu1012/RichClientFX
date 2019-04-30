@@ -4,6 +4,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jdt.internal.core.PackageFragment;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
@@ -78,13 +79,10 @@ public class ChartNewWizardPage extends WizardPage {
 		label = new Label(container, SWT.NULL);
 		label.setText("&File name:");
 		
-				fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
-				gd = new GridData(GridData.FILL_HORIZONTAL);
-				fileText.setLayoutData(gd);
-				fileText.addModifyListener(e -> dialogChanged());
-		initialize();
-		dialogChanged();
-		setControl(container);
+		fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		fileText.setLayoutData(gd);
+		fileText.addModifyListener(e -> dialogChanged());
 		new Label(container, SWT.NONE);
 		
 		Label lblChartType = new Label(container, SWT.NONE);
@@ -103,6 +101,7 @@ public class ChartNewWizardPage extends WizardPage {
 		
 		chartClassNameText = new Text(container, SWT.BORDER);
 		chartClassNameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		chartClassNameText.addModifyListener(e -> dialogChanged());
 		new Label(container, SWT.NONE);
 		
 		Label lblChartTitle = new Label(container, SWT.NONE);
@@ -110,6 +109,7 @@ public class ChartNewWizardPage extends WizardPage {
 		
 		chartTitleText = new Text(container, SWT.BORDER);
 		chartTitleText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		chartTitleText.addModifyListener(e -> dialogChanged());
 		new Label(container, SWT.NONE);
 		
 		Label xAxisLabel = new Label(container, SWT.NONE);
@@ -117,6 +117,7 @@ public class ChartNewWizardPage extends WizardPage {
 		
 		xAxisText = new Text(container, SWT.BORDER);
 		xAxisText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		xAxisText.addModifyListener(e -> dialogChanged());
 		new Label(container, SWT.NONE);
 		
 		Label lblYaxisLabel = new Label(container, SWT.NONE);
@@ -124,7 +125,11 @@ public class ChartNewWizardPage extends WizardPage {
 		
 		yAxisText = new Text(container, SWT.BORDER);
 		yAxisText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		yAxisText.addModifyListener(e -> dialogChanged());
 		new Label(container, SWT.NONE);
+		initialize();
+		dialogChanged();
+		setControl(container);
 	}
 
 
@@ -147,6 +152,10 @@ public class ChartNewWizardPage extends WizardPage {
 				else
 					container = ((IResource) obj).getParent();
 				containerText.setText(container.getFullPath().toString());
+			}else if (obj instanceof PackageFragment) {
+				PackageFragment fragment = (PackageFragment) obj;
+				containerText.setText(fragment.getPath().toFile().getPath());
+				
 			}
 		}
 		fileText.setText("chart.javafxlang");

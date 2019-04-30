@@ -1,0 +1,9 @@
+packagePath "packagePath"
+
+charts{
+	LineChartFX SchoolLineChart{
+		title "SchoolLineChart"
+		xAxisLabel ""
+		yAxisLabel ""
+	}
+}
