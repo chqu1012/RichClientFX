@@ -22,5 +22,35 @@
             name="JavaFX Lang Emf.edit File">
       </wizard>
    </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.dc.javafx.xcore.lang.ide.perspective.JavaFXLangPerspective"
+            id="de.dc.javafx.xcore.lang.ide.perspective"
+            name="JavaFX Lang Perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="de.dc.javafx.xcore.lang.ide.perspective">
+         <view
+               closeable="false"
+               id="org.eclipse.jdt.ui.PackageExplorer"
+               minimized="false"
+               ratio="0.2f"
+               relationship="left"
+               relative="org.eclipse.ui.editorss"
+               visible="true">
+         </view>
+         <view
+               id="org.eclipse.ui.views.PropertySheet"
+               minimized="false"
+               ratio="0.75f"
+               relationship="bottom"
+               relative="org.eclipse.ui.editorss">
+         </view>
+      </perspectiveExtension>
+   </extension>
 
 </plugin>
