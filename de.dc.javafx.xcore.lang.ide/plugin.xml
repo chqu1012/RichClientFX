@@ -26,6 +26,7 @@
          point="org.eclipse.ui.perspectives">
       <perspective
             class="de.dc.javafx.xcore.lang.ide.perspective.JavaFXLangPerspective"
+            icon="icons/app.png"
             id="de.dc.javafx.xcore.lang.ide.perspective"
             name="JavaFX Lang Perspective">
       </perspective>
@@ -50,7 +51,26 @@
                relationship="bottom"
                relative="org.eclipse.ui.editorss">
          </view>
+         <view
+               closeable="false"
+               id="de.dc.javafx.xcore.lang.ide.JavaFXPreview"
+               minimized="false"
+               ratio="0.25f"
+               relationship="right"
+               relative="org.eclipse.ui.editorss"
+               visible="true">
+         </view>
       </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="de.dc.javafx.xcore.lang.ide.ui.JavaFXPreview"
+            icon="icons/app.png"
+            id="de.dc.javafx.xcore.lang.ide.JavaFXPreview"
+            name="JavaFX Lang Preview"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>
