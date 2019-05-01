@@ -4,20 +4,29 @@
 package de.dc.javafx.xcore.lang.jvmmodel
 
 import com.google.inject.Inject
+import de.dc.emf.javafx.model.javafx.AreaChartFX
 import de.dc.emf.javafx.model.javafx.Bean
+import de.dc.emf.javafx.model.javafx.BubbleChartFX
 import de.dc.emf.javafx.model.javafx.ControlFX
 import de.dc.emf.javafx.model.javafx.LineChartFX
 import de.dc.emf.javafx.model.javafx.ListViewFX
+import de.dc.emf.javafx.model.javafx.PieChartFX
 import de.dc.emf.javafx.model.javafx.ProjectFX
+import de.dc.emf.javafx.model.javafx.ScatterChartFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
 import de.dc.emf.javafx.model.javafx.TileBarFX
 import de.dc.emf.javafx.model.javafx.TreeViewFX
+import de.dc.emf.javafx.model.javafx.XYChartFX
 import de.dc.javafx.xcore.lang.lib.BaseKeyValueTile
 import de.dc.javafx.xcore.lang.lib.BaseListView
 import de.dc.javafx.xcore.lang.lib.BaseTableView
 import de.dc.javafx.xcore.lang.lib.BaseTileBar
 import de.dc.javafx.xcore.lang.lib.BaseTreeView
+import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart
+import de.dc.javafx.xcore.lang.lib.chart.BaseBubbleChart
 import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart
+import de.dc.javafx.xcore.lang.lib.chart.BasePieChart
+import de.dc.javafx.xcore.lang.lib.chart.BaseScatterChart
 import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature
 import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature
 import de.dc.javafx.xcore.lang.lib.model.PropertyValue
@@ -42,12 +51,13 @@ import javafx.stage.Stage
 import javafx.util.Callback
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.common.types.JvmTypeReference
 import org.eclipse.xtext.common.types.JvmVisibility
 import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import de.dc.javafx.xcore.lang.lib.AbstractApplication
+import com.ibm.icu.impl.DontCareFieldPosition
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -82,7 +92,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			
 	   		members += element.toMethod("call", ObservableValue.typeRef)[
 	   			visibility=JvmVisibility.PUBLIC
-	   			annotations+=element.toAnnotation('java.lang.Override')
+	   			annotations+=Override.annotationRef
 				parameters+=element.toParameter('feature', CellDataFeatures.typeRef(model, model))
 				body = '''return new «SimpleStringProperty»(getText(feature.getValue()));'''
 	   		]
@@ -115,7 +125,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			superTypes += BaseTableView.typeRef(model)
 			
 			members += element.toMethod('onViewSelectionChanged', 'void'.typeRef)[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				parameters += element.toParameter('oldV', model)
 				parameters += element.toParameter('newV', model)
 				body = '''
@@ -127,7 +137,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			]
 
 			members += element.toMethod('initProperties', 'void'.typeRef)[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				parameters += element.toParameter('properties', ObservableList.typeRef(PropertyValue.typeRef))
 				body = '''
 				for («type.typeRef» type : «type.typeRef».values()) {
@@ -137,7 +147,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			]
 
 			members += element.toMethod('initColumns', 'void'.typeRef)[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				body = '''
 				«FOR c : element.columns»
 				createColumn(«type.typeRef».«c.name.toFirstUpper», Double.valueOf(«c.width»))«IF c.cellValueFactory !== null».setCellValueFactory(new «c.cellValueFactory»())«ENDIF»;
@@ -152,7 +162,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			]
 			
 			members += element.toMethod('initSearchfilterBinding', ObservableValue.typeRef)[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				body = '''
 				«StringProperty» searchTextProperty = searchTextfield.textProperty();
 				«FOR c : element.columns»
@@ -192,7 +202,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			acceptor.accept(element.toClass(packagePath+"demo."+element.name+'Application')) [
 				superTypes+=Application.typeRef
 				members += element.toMethod("start", 'void'.typeRef)[
-					annotations += element.toAnnotation(Override)
+					annotations += Override.annotationRef
 					parameters += element.toParameter('primaryStage', Stage.typeRef)
 					body = '''
 					primaryStage.setScene(new «Scene»(getRoot(), 600, 400));
@@ -239,12 +249,12 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			acceptor.accept(element.toEnumerationType(type) [])
 	    
 			members += element.toMethod('getCellFeature', TreeCellFeature.typeRef(model))[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				body = '''return new «feature.typeRef»();'''
 			]
 
 			members += element.toMethod('initProperties', 'void'.typeRef)[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				parameters += element.toParameter('properties', ObservableList.typeRef(PropertyValue.typeRef))
 				body = '''
 				// TODO: To customize the propertyview details, enhanced the «type.typeRef»
@@ -256,7 +266,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
 			members += element.toMethod('onTreeViewSelectionChanged', 'void'.typeRef)[
 				visibility = JvmVisibility.PROTECTED
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				parameters += element.toParameter('oldV', TreeItem.typeRef(model))
 				parameters += element.toParameter('newV', TreeItem.typeRef(model))
 				body = '''
@@ -270,7 +280,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			superTypes+=TreeCellFeature.typeRef(model)
 			
 			members += element.toMethod('getValue', String.typeRef)[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				parameters += element.toParameter('item', model)
 				body = '''return item.getName()==null?"":item.getName();'''
 			]
@@ -305,12 +315,12 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			acceptor.accept(element.toEnumerationType(type) [])
 	    
 			members += element.toMethod('getCellFeature', ListCellFeature.typeRef(model))[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				body = '''return new «IF element.cellFactory !== null»«element.cellFactory»«ELSE»«feature.typeRef»«ENDIF»();'''
 			]
 
 			members += element.toMethod('initProperties', 'void'.typeRef)[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				parameters += element.toParameter('properties', ObservableList.typeRef(PropertyValue.typeRef))
 				body = '''
 				// TODO: To customize the propertyview details, enhanced the «type.typeRef»
@@ -322,7 +332,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
 			members += element.toMethod('onViewSelectionChanged', 'void'.typeRef)[
 				visibility = JvmVisibility.PROTECTED
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				parameters += element.toParameter('oldV', model)
 				parameters += element.toParameter('newV', model)
 				body = '''
@@ -336,7 +346,7 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			superTypes+=ListCellFeature.typeRef(model)
 			
 			members += element.toMethod('getValue', String.typeRef)[
-				annotations += element.toAnnotation(Override)
+				annotations += Override.annotationRef
 				parameters += element.toParameter('item', model)
 				body = '''return item.toString();'''
 			]
@@ -382,9 +392,47 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 	}
 	
 	def dispatch void infer(LineChartFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+//		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+//		acceptor.accept(element.toClass(packagePath+element.name)) [
+//			superTypes+=BaseLineChart.typeRef(Number.typeRef, Number.typeRef)
+//			
+//			members += element.toConstructor[ body = '''super(new «NumberAxis»(), new «NumberAxis»());''' ]
+//			members += element.toMethod('getChartTitle', String.typeRef)[
+//				annotations += Override.annotationRef
+//				body = '''return "«element.title»";'''
+//			]
+//			members += element.toMethod('getYAxisTitle', String.typeRef)[
+//				annotations += Override.annotationRef
+//				body = '''return "«element.YAxisLabel»";'''
+//			]
+//			members += element.toMethod('getXAxisTitle', String.typeRef)[
+//				annotations += Override.annotationRef
+//				body = '''return "«element.XAxisLabel»";'''
+//			]
+//		]
+		BaseLineChart.typeRef(Number.typeRef, Number.typeRef).createBaseChart(acceptor, element)
+	}
+	
+	def dispatch void infer(AreaChartFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		BaseAreaChart.typeRef(Number.typeRef, Number.typeRef).createBaseChart(acceptor, element)
+	}
+	
+	def dispatch void infer(PieChartFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+//		BasePieChart.typeRef(Number.typeRef, Number.typeRef).createBaseChart(acceptor, element)
+	}
+	
+	def dispatch void infer(ScatterChartFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		BaseScatterChart.typeRef(Number.typeRef, Number.typeRef).createBaseChart(acceptor, element)
+	}
+	
+	def dispatch void infer(BubbleChartFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		BaseBubbleChart.typeRef(Number.typeRef, Number.typeRef).createBaseChart(acceptor, element)
+	}
+	
+	def void createBaseChart(JvmTypeReference superType, IJvmDeclaredTypeAcceptor acceptor, XYChartFX element){
 		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
 		acceptor.accept(element.toClass(packagePath+element.name)) [
-			superTypes+=BaseLineChart.typeRef(Number.typeRef, Number.typeRef)
+			superTypes+=superType
 			
 			members += element.toConstructor[ body = '''super(new «NumberAxis»(), new «NumberAxis»());''' ]
 			members += element.toMethod('getChartTitle', String.typeRef)[

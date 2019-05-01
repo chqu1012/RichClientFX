@@ -5,23 +5,31 @@ package de.dc.javafx.xcore.lang.jvmmodel;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import de.dc.emf.javafx.model.javafx.AreaChartFX;
 import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.BaseTileFX;
 import de.dc.emf.javafx.model.javafx.Bean;
+import de.dc.emf.javafx.model.javafx.BubbleChartFX;
 import de.dc.emf.javafx.model.javafx.ControlFX;
 import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ListViewFX;
+import de.dc.emf.javafx.model.javafx.PieChartFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
+import de.dc.emf.javafx.model.javafx.ScatterChartFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
 import de.dc.emf.javafx.model.javafx.TableViewFX;
 import de.dc.emf.javafx.model.javafx.TileBarFX;
 import de.dc.emf.javafx.model.javafx.TreeViewFX;
+import de.dc.emf.javafx.model.javafx.XYChartFX;
 import de.dc.javafx.xcore.lang.lib.BaseKeyValueTile;
 import de.dc.javafx.xcore.lang.lib.BaseListView;
 import de.dc.javafx.xcore.lang.lib.BaseTableView;
 import de.dc.javafx.xcore.lang.lib.BaseTileBar;
 import de.dc.javafx.xcore.lang.lib.BaseTreeView;
+import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
+import de.dc.javafx.xcore.lang.lib.chart.BaseBubbleChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
+import de.dc.javafx.xcore.lang.lib.chart.BaseScatterChart;
 import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature;
 import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature;
 import de.dc.javafx.xcore.lang.lib.model.PropertyValue;
@@ -134,8 +142,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
         it_1.setVisibility(JvmVisibility.PUBLIC);
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, "java.lang.Override");
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "feature", this._typeReferenceBuilder.typeRef(TableColumn.CellDataFeatures.class, model, model));
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -232,8 +240,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members = it.getMembers();
       final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "oldV", model);
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -270,8 +278,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members_1 = it.getMembers();
       final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "properties", this._typeReferenceBuilder.typeRef(ObservableList.class, this._typeReferenceBuilder.typeRef(PropertyValue.class)));
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -302,8 +310,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members_2 = it.getMembers();
       final Procedure1<JvmOperation> _function_5 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         StringConcatenationClient _client = new StringConcatenationClient() {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
@@ -364,8 +372,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members_4 = it.getMembers();
       final Procedure1<JvmOperation> _function_7 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         StringConcatenationClient _client = new StringConcatenationClient() {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
@@ -512,8 +520,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
         EList<JvmMember> _members = it.getMembers();
         final Procedure1<JvmOperation> _function_1 = (JvmOperation it_1) -> {
           EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-          JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-          this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+          JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+          this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
           EList<JvmFormalParameter> _parameters = it_1.getParameters();
           JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "primaryStage", this._typeReferenceBuilder.typeRef(Stage.class));
           this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -622,8 +630,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members = it.getMembers();
       final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         StringConcatenationClient _client = new StringConcatenationClient() {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
@@ -640,8 +648,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members_1 = it.getMembers();
       final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "properties", this._typeReferenceBuilder.typeRef(ObservableList.class, this._typeReferenceBuilder.typeRef(PropertyValue.class)));
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -677,8 +685,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
         it_1.setVisibility(JvmVisibility.PROTECTED);
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "oldV", this._typeReferenceBuilder.typeRef(TreeItem.class, model));
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -707,8 +715,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members = it.getMembers();
       final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "item", model);
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -798,8 +806,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members = it.getMembers();
       final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         StringConcatenationClient _client = new StringConcatenationClient() {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
@@ -825,8 +833,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members_1 = it.getMembers();
       final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "properties", this._typeReferenceBuilder.typeRef(ObservableList.class, this._typeReferenceBuilder.typeRef(PropertyValue.class)));
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -862,8 +870,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
         it_1.setVisibility(JvmVisibility.PROTECTED);
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "oldV", model);
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -892,8 +900,8 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       EList<JvmMember> _members = it.getMembers();
       final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
         EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-        JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(element, Override.class);
-        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
         EList<JvmFormalParameter> _parameters = it_1.getParameters();
         JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "item", model);
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -1025,6 +1033,25 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
   }
   
   protected void _infer(final LineChartFX element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    this.createBaseChart(this._typeReferenceBuilder.typeRef(BaseLineChart.class, this._typeReferenceBuilder.typeRef(Number.class), this._typeReferenceBuilder.typeRef(Number.class)), acceptor, element);
+  }
+  
+  protected void _infer(final AreaChartFX element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    this.createBaseChart(this._typeReferenceBuilder.typeRef(BaseAreaChart.class, this._typeReferenceBuilder.typeRef(Number.class), this._typeReferenceBuilder.typeRef(Number.class)), acceptor, element);
+  }
+  
+  protected void _infer(final PieChartFX element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+  }
+  
+  protected void _infer(final ScatterChartFX element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    this.createBaseChart(this._typeReferenceBuilder.typeRef(BaseScatterChart.class, this._typeReferenceBuilder.typeRef(Number.class), this._typeReferenceBuilder.typeRef(Number.class)), acceptor, element);
+  }
+  
+  protected void _infer(final BubbleChartFX element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    this.createBaseChart(this._typeReferenceBuilder.typeRef(BaseBubbleChart.class, this._typeReferenceBuilder.typeRef(Number.class), this._typeReferenceBuilder.typeRef(Number.class)), acceptor, element);
+  }
+  
+  public void createBaseChart(final JvmTypeReference superType, final IJvmDeclaredTypeAcceptor acceptor, final XYChartFX element) {
     EObject _rootContainer = EcoreUtil.getRootContainer(element);
     String _packagePath = ((ProjectFX) _rootContainer).getPackagePath();
     final String packagePath = (_packagePath + ".");
@@ -1032,8 +1059,7 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
     String _plus = (packagePath + _name);
     final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
       EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(BaseLineChart.class, this._typeReferenceBuilder.typeRef(Number.class), this._typeReferenceBuilder.typeRef(Number.class));
-      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, superType);
       EList<JvmMember> _members = it.getMembers();
       final Procedure1<JvmConstructor> _function_1 = (JvmConstructor it_1) -> {
         StringConcatenationClient _client = new StringConcatenationClient() {
@@ -1109,11 +1135,20 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
   }
   
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    if (element instanceof LineChartFX) {
+    if (element instanceof AreaChartFX) {
+      _infer((AreaChartFX)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof BubbleChartFX) {
+      _infer((BubbleChartFX)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof LineChartFX) {
       _infer((LineChartFX)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof ListViewFX) {
       _infer((ListViewFX)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof ScatterChartFX) {
+      _infer((ScatterChartFX)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof TableViewFX) {
       _infer((TableViewFX)element, acceptor, isPreIndexingPhase);
@@ -1123,6 +1158,9 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
       return;
     } else if (element instanceof Bean) {
       _infer((Bean)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof PieChartFX) {
+      _infer((PieChartFX)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof TileBarFX) {
       _infer((TileBarFX)element, acceptor, isPreIndexingPhase);
