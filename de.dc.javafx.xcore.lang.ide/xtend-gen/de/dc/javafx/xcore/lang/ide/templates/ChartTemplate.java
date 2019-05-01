@@ -39,26 +39,186 @@ public class ChartTemplate {
   
   public static String getPieChart(final String packagePath, final String chartName, final String title, final String xAxis, final String yAxis) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("packagePath \"");
+    _builder.append(packagePath);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("charts{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("PieChartFX ");
+    _builder.append(chartName, "\t");
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("title \"");
+    _builder.append(title, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("xAxisLabel \"");
+    _builder.append(xAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("yAxisLabel \"");
+    _builder.append(yAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder.toString();
   }
   
   public static String getAreaChart(final String packagePath, final String chartName, final String title, final String xAxis, final String yAxis) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("packagePath \"");
+    _builder.append(packagePath);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("charts{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("AreaChartFX ");
+    _builder.append(chartName, "\t");
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("title \"");
+    _builder.append(title, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("xAxisLabel \"");
+    _builder.append(xAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("yAxisLabel \"");
+    _builder.append(yAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder.toString();
   }
   
   public static String getBarChart(final String packagePath, final String chartName, final String title, final String xAxis, final String yAxis) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("packagePath \"");
+    _builder.append(packagePath);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("charts{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("BarChartFX ");
+    _builder.append(chartName, "\t");
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("title \"");
+    _builder.append(title, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("xAxisLabel \"");
+    _builder.append(xAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("yAxisLabel \"");
+    _builder.append(yAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder.toString();
   }
   
   public static String getBubbleChart(final String packagePath, final String chartName, final String title, final String xAxis, final String yAxis) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("packagePath \"");
+    _builder.append(packagePath);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("charts{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("BubbleChartFX ");
+    _builder.append(chartName, "\t");
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("title \"");
+    _builder.append(title, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("xAxisLabel \"");
+    _builder.append(xAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("yAxisLabel \"");
+    _builder.append(yAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder.toString();
   }
   
   public static String getScatterChart(final String packagePath, final String chartName, final String title, final String xAxis, final String yAxis) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("packagePath \"");
+    _builder.append(packagePath);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("charts{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("ScatterChartFX ");
+    _builder.append(chartName, "\t");
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("title \"");
+    _builder.append(title, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("xAxisLabel \"");
+    _builder.append(xAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("yAxisLabel \"");
+    _builder.append(yAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder.toString();
   }
   
@@ -69,6 +229,38 @@ public class ChartTemplate {
   
   public static String getDoughnutChart(final String packagePath, final String chartName, final String title, final String xAxis, final String yAxis) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("packagePath \"");
+    _builder.append(packagePath);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("charts{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("DoughnutChartFX ");
+    _builder.append(chartName, "\t");
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("title \"");
+    _builder.append(title, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("xAxisLabel \"");
+    _builder.append(xAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("yAxisLabel \"");
+    _builder.append(yAxis, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder.toString();
   }
   

@@ -28,15 +28,79 @@ class ChartTemplate {
 		}
 	}
 	
-	def static String getPieChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getPieChart(String packagePath, String chartName, String title, String xAxis, String yAxis)'''
+	packagePath "«packagePath»"
 	
+	charts{
+		PieChartFX «chartName»{
+			title "«title»"
+			xAxisLabel "«xAxis»"
+			yAxisLabel "«yAxis»"
+		}
+	}
+	'''
 	
-	def static String getAreaChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getBarChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getBubbleChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getScatterChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getAreaChart(String packagePath, String chartName, String title, String xAxis, String yAxis)'''
+	packagePath "«packagePath»"
+	
+	charts{
+		AreaChartFX «chartName»{
+			title "«title»"
+			xAxisLabel "«xAxis»"
+			yAxisLabel "«yAxis»"
+		}
+	}
+	'''
+	
+	def static String getBarChart(String packagePath, String chartName, String title, String xAxis, String yAxis)'''
+	packagePath "«packagePath»"
+	
+	charts{
+		BarChartFX «chartName»{
+			title "«title»"
+			xAxisLabel "«xAxis»"
+			yAxisLabel "«yAxis»"
+		}
+	}
+	'''
+	
+	def static String getBubbleChart(String packagePath, String chartName, String title, String xAxis, String yAxis)'''
+	packagePath "«packagePath»"
+	
+	charts{
+		BubbleChartFX «chartName»{
+			title "«title»"
+			xAxisLabel "«xAxis»"
+			yAxisLabel "«yAxis»"
+		}
+	}
+	'''
+	
+	def static String getScatterChart(String packagePath, String chartName, String title, String xAxis, String yAxis)'''
+	packagePath "«packagePath»"
+	
+	charts{
+		ScatterChartFX «chartName»{
+			title "«title»"
+			xAxisLabel "«xAxis»"
+			yAxisLabel "«yAxis»"
+		}
+	}
+	'''
+	
 	def static String getStackedAreaChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getDoughnutChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
+	
+	def static String getDoughnutChart(String packagePath, String chartName, String title, String xAxis, String yAxis)'''
+	packagePath "«packagePath»"
+	
+	charts{
+		DoughnutChartFX «chartName»{
+			title "«title»"
+			xAxisLabel "«xAxis»"
+			yAxisLabel "«yAxis»"
+		}
+	}
+	'''
 	
 	def static String getLineChart(String packagePath, String chartName, String title, String xAxis, String yAxis)'''
 	packagePath "«packagePath»"
