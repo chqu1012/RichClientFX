@@ -54,8 +54,8 @@ public class ChartNewWizardPage extends WizardPage {
 	public ChartNewWizardPage(ISelection selection, ChartModel model) {
 		super("wizardPage");
 		this.model = model;
-		setTitle("Multi-page Editor File");
-		setDescription("This wizard creates a new file with *.javafxlang extension that can be opened by a multi-page editor.");
+		setTitle("JavaFX Lang Chart File");
+		setDescription("This wizard creates a new file with *.javafxlang extension that can be opened by a JavaFX Lang Editor.");
 		this.selection = selection;
 	}
 
@@ -169,9 +169,11 @@ public class ChartNewWizardPage extends WizardPage {
 					container = (IContainer) obj;
 				else
 					container = ((IResource) obj).getParent();
+				packageText.setText(container.getProject().getName());
 				containerText.setText(container.getFullPath().toString());
 			}else if (obj instanceof JavaElement) {
 				JavaElement fragment = (JavaElement) obj;
+				packageText.setText(fragment.getJavaProject().getElementName());
 				containerText.setText(fragment.getPath().toFile().getPath());
 				
 			}
