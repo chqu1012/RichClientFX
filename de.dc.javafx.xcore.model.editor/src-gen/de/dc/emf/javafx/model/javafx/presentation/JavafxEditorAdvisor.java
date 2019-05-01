@@ -538,7 +538,7 @@ public final class JavafxEditorAdvisor extends WorkbenchAdvisor {
 	@Override
 	public String getInitialWindowPerspectiveId() {
 		return "de.dc.javafx.xcore.lang.ide.perspective";
-//		return Perspective.ID_PERSPECTIVE;
+		//		return Perspective.ID_PERSPECTIVE;
 	}
 
 	/**

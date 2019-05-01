@@ -1,38 +1,45 @@
 package de.dc.javafx.xcore.lang.ide.templates
 
+import de.dc.javafx.xcore.lang.ide.wizards.ChartModel
+
 class ChartTemplate {
 	
 	/**
 	 * {"PieChart", "AreaChart", "BarChart", "BubbleChart", "LineChart", "ScatterChart", "StackedAreaChart"}
 	 */
-	def static getTemplate(int chartType, String chartName, String title, String xAxis, String yAxis){
-		switch (chartType) {
-			case 0: return getPieChart(chartName, title, xAxis, yAxis)
-			case 1: return getAreaChart(chartName, title, xAxis, yAxis)
-			case 2: return getBarChart(chartName, title, xAxis, yAxis)
-			case 3: return getBubbleChart(chartName, title, xAxis, yAxis)
-			case 4: return getLineChart(chartName, title, xAxis, yAxis)
-			case 5: return getScatterChart(chartName, title, xAxis, yAxis)
-			case 6: return getStackedAreaChart(chartName, title, xAxis, yAxis)
-			case 7: return getDoughnutChart(chartName, title, xAxis, yAxis)
+	def static getTemplate(ChartModel model){
+		val chartName = model.chartName
+		val title = model.title
+		val xAxis = model.getxAxis
+		val yAxis = model.getyAxis
+		val packagePath = model.packagePath
+		switch (model.chartType) {
+			case 0: return getPieChart(packagePath, chartName, title, xAxis, yAxis)
+			case 1: return getAreaChart(packagePath, chartName, title, xAxis, yAxis)
+			case 2: return getBarChart(packagePath, chartName, title, xAxis, yAxis)
+			case 3: return getBubbleChart(packagePath, chartName, title, xAxis, yAxis)
+			case 4: return getLineChart(packagePath, chartName, title, xAxis, yAxis)
+			case 5: return getScatterChart(packagePath, chartName, title, xAxis, yAxis)
+			case 6: return getStackedAreaChart(packagePath, chartName, title, xAxis, yAxis)
+			case 7: return getDoughnutChart(packagePath, chartName, title, xAxis, yAxis)
 			default: {
 				return ''
 			}
 		}
 	}
 	
-	def static String getPieChart(String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getPieChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
 	
 	
-	def static String getAreaChart(String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getBarChart(String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getBubbleChart(String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getScatterChart(String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getStackedAreaChart(String chartName, String title, String xAxis, String yAxis)''''''
-	def static String getDoughnutChart(String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getAreaChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getBarChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getBubbleChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getScatterChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getStackedAreaChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
+	def static String getDoughnutChart(String packagePath, String chartName, String title, String xAxis, String yAxis)''''''
 	
-	def static String getLineChart(String chartName, String title, String xAxis, String yAxis)'''
-	packagePath "packagePath"
+	def static String getLineChart(String packagePath, String chartName, String title, String xAxis, String yAxis)'''
+	packagePath "«packagePath»"
 	
 	charts{
 		LineChartFX «chartName»{

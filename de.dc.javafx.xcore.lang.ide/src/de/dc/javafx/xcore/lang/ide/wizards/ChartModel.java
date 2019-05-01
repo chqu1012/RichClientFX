@@ -4,6 +4,7 @@ public class ChartModel {
 
 	private int chartType;
 	private String chartName;
+	private String packagePath;
 	private String title;
 	private String xAxis;
 	private String yAxis;
@@ -46,6 +47,14 @@ public class ChartModel {
 
 	public void setyAxis(String yAxis) {
 		this.yAxis = yAxis;
+	}
+
+	public String getPackagePath() {
+		return packagePath;
+	}
+
+	public void setPackagePath(String packagePath) {
+		this.packagePath = packagePath;
 	}
 
 }

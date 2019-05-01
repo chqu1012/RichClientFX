@@ -1,4 +1,4 @@
-packagePath "packagePath"
+packagePath "de.dc.javafx.lang.chart.ui"
 
 charts{
 	LineChartFX Example{

@@ -15,6 +15,15 @@
       </application>
    </extension>
 
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated javafx -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisor$Perspective"
+            id="de.dc.emf.javafx.model.javafx.presentation.JavafxEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
 
    <extension point="org.eclipse.ui.commands">
       <!-- @generated javafx -->

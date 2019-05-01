@@ -9,6 +9,7 @@ import de.dc.emf.javafx.model.javafx.AttributeFX;
 import de.dc.emf.javafx.model.javafx.BaseTileFX;
 import de.dc.emf.javafx.model.javafx.Bean;
 import de.dc.emf.javafx.model.javafx.ControlFX;
+import de.dc.emf.javafx.model.javafx.LineChartFX;
 import de.dc.emf.javafx.model.javafx.ListViewFX;
 import de.dc.emf.javafx.model.javafx.ProjectFX;
 import de.dc.emf.javafx.model.javafx.TableColumnFX;
@@ -20,6 +21,7 @@ import de.dc.javafx.xcore.lang.lib.BaseListView;
 import de.dc.javafx.xcore.lang.lib.BaseTableView;
 import de.dc.javafx.xcore.lang.lib.BaseTileBar;
 import de.dc.javafx.xcore.lang.lib.BaseTreeView;
+import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
 import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature;
 import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature;
 import de.dc.javafx.xcore.lang.lib.model.PropertyValue;
@@ -39,6 +41,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TreeItem;
 import javafx.stage.Stage;
@@ -1021,8 +1024,95 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
     acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, _plus), _function);
   }
   
+  protected void _infer(final LineChartFX element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    EObject _rootContainer = EcoreUtil.getRootContainer(element);
+    String _packagePath = ((ProjectFX) _rootContainer).getPackagePath();
+    final String packagePath = (_packagePath + ".");
+    String _name = element.getName();
+    String _plus = (packagePath + _name);
+    final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+      EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(BaseLineChart.class, this._typeReferenceBuilder.typeRef(Number.class), this._typeReferenceBuilder.typeRef(Number.class));
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      EList<JvmMember> _members = it.getMembers();
+      final Procedure1<JvmConstructor> _function_1 = (JvmConstructor it_1) -> {
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("super(new ");
+            _builder.append(NumberAxis.class);
+            _builder.append("(), new ");
+            _builder.append(NumberAxis.class);
+            _builder.append("());");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmConstructor _constructor = this._jvmTypesBuilder.toConstructor(element, _function_1);
+      this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
+      EList<JvmMember> _members_1 = it.getMembers();
+      final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return \"");
+            String _title = element.getTitle();
+            _builder.append(_title);
+            _builder.append("\";");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "getChartTitle", this._typeReferenceBuilder.typeRef(String.class), _function_2);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method);
+      EList<JvmMember> _members_2 = it.getMembers();
+      final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return \"");
+            String _yAxisLabel = element.getYAxisLabel();
+            _builder.append(_yAxisLabel);
+            _builder.append("\";");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(element, "getYAxisTitle", this._typeReferenceBuilder.typeRef(String.class), _function_3);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_1);
+      EList<JvmMember> _members_3 = it.getMembers();
+      final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return \"");
+            String _xAxisLabel = element.getXAxisLabel();
+            _builder.append(_xAxisLabel);
+            _builder.append("\";");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method_2 = this._jvmTypesBuilder.toMethod(element, "getXAxisTitle", this._typeReferenceBuilder.typeRef(String.class), _function_4);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_2);
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, _plus), _function);
+  }
+  
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    if (element instanceof ListViewFX) {
+    if (element instanceof LineChartFX) {
+      _infer((LineChartFX)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof ListViewFX) {
       _infer((ListViewFX)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element instanceof TableViewFX) {

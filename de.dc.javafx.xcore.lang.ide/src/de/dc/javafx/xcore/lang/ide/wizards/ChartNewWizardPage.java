@@ -5,7 +5,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.internal.core.JavaElement;
-import org.eclipse.jdt.internal.core.PackageFragment;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
@@ -15,11 +14,11 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
-import org.eclipse.swt.widgets.Combo;
 
 /**
  * The "New" wizard page allows setting the container for the new file as well
@@ -41,6 +40,8 @@ public class ChartNewWizardPage extends WizardPage {
 	private Text chartClassNameText;
 
 	private ChartModel model;
+	private Label lblPackage;
+	private Text packageText;
 
 	/**
 	 * Constructor for SampleNewWizardPage.
@@ -94,6 +95,14 @@ public class ChartNewWizardPage extends WizardPage {
 		chartCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		chartCombo.select(0);
 		
+		new Label(container, SWT.NONE);
+		
+		lblPackage = new Label(container, SWT.NONE);
+		lblPackage.setText("Package:");
+		
+		packageText = new Text(container, SWT.BORDER);
+		packageText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		packageText.addModifyListener(e -> dialogChanged());
 		new Label(container, SWT.NONE);
 		
 		Label lblChartClassName = new Label(container, SWT.NONE);
@@ -218,6 +227,7 @@ public class ChartNewWizardPage extends WizardPage {
 			}
 		}
 		
+		model.setPackagePath(getPackage());
 		model.setChartName(getChartClassName());
 		model.setChartType(getChartIndex());
 		model.setTitle(getChartTitle());
@@ -237,6 +247,11 @@ public class ChartNewWizardPage extends WizardPage {
 		return selectionIndex;
 	}
 
+	public String getPackage() {
+		String value = packageText.getText();
+		return value==null? "" : value;
+	}
+	
 	public String getChartTitle() {
 		String value = chartTitleText.getText();
 		return value==null? "" : value;

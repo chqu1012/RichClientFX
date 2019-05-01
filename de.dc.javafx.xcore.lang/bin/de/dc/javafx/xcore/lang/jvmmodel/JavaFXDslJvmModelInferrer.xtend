@@ -6,11 +6,19 @@ package de.dc.javafx.xcore.lang.jvmmodel
 import com.google.inject.Inject
 import de.dc.emf.javafx.model.javafx.Bean
 import de.dc.emf.javafx.model.javafx.ControlFX
+import de.dc.emf.javafx.model.javafx.LineChartFX
+import de.dc.emf.javafx.model.javafx.ListViewFX
 import de.dc.emf.javafx.model.javafx.ProjectFX
 import de.dc.emf.javafx.model.javafx.TableViewFX
+import de.dc.emf.javafx.model.javafx.TileBarFX
 import de.dc.emf.javafx.model.javafx.TreeViewFX
+import de.dc.javafx.xcore.lang.lib.BaseKeyValueTile
+import de.dc.javafx.xcore.lang.lib.BaseListView
 import de.dc.javafx.xcore.lang.lib.BaseTableView
+import de.dc.javafx.xcore.lang.lib.BaseTileBar
 import de.dc.javafx.xcore.lang.lib.BaseTreeView
+import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart
+import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature
 import de.dc.javafx.xcore.lang.lib.feature.TreeCellFeature
 import de.dc.javafx.xcore.lang.lib.model.PropertyValue
 import java.util.function.Predicate
@@ -23,8 +31,10 @@ import javafx.beans.property.StringProperty
 import javafx.beans.value.ObservableValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import javafx.geometry.Insets
 import javafx.scene.Parent
 import javafx.scene.Scene
+import javafx.scene.chart.NumberAxis
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableColumn.CellDataFeatures
 import javafx.scene.control.TreeItem
@@ -37,14 +47,7 @@ import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import de.dc.emf.javafx.model.javafx.ListViewFX
-import de.dc.javafx.xcore.lang.lib.BaseListView
-import de.dc.javafx.xcore.lang.lib.feature.ContactListCellFeature
-import de.dc.javafx.xcore.lang.lib.feature.ListCellFeature
-import de.dc.emf.javafx.model.javafx.TileBarFX
-import de.dc.javafx.xcore.lang.lib.BaseKeyValueTile
-import de.dc.javafx.xcore.lang.lib.BaseTileBar
-import javafx.geometry.Insets
+import de.dc.javafx.xcore.lang.lib.AbstractApplication
 
 class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -376,5 +379,26 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 			]
 		]
 
+	}
+	
+	def dispatch void infer(LineChartFX element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		val packagePath = (EcoreUtil.getRootContainer(element) as ProjectFX).packagePath+'.'
+		acceptor.accept(element.toClass(packagePath+element.name)) [
+			superTypes+=BaseLineChart.typeRef(Number.typeRef, Number.typeRef)
+			
+			members += element.toConstructor[ body = '''super(new «NumberAxis»(), new «NumberAxis»());''' ]
+			members += element.toMethod('getChartTitle', String.typeRef)[
+				annotations += Override.annotationRef
+				body = '''return "«element.title»";'''
+			]
+			members += element.toMethod('getYAxisTitle', String.typeRef)[
+				annotations += Override.annotationRef
+				body = '''return "«element.YAxisLabel»";'''
+			]
+			members += element.toMethod('getXAxisTitle', String.typeRef)[
+				annotations += Override.annotationRef
+				body = '''return "«element.XAxisLabel»";'''
+			]
+		]
 	}
 }
