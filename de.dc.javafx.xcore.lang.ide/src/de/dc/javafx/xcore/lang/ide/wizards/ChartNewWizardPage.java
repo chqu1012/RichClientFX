@@ -9,6 +9,9 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -85,6 +88,11 @@ public class ChartNewWizardPage extends WizardPage {
 		gd = new GridData(GridData.FILL_HORIZONTAL);
 		fileText.setLayoutData(gd);
 		fileText.addModifyListener(e -> dialogChanged());
+		fileText.addKeyListener(new KeyAdapter() {
+			public void keyReleased(KeyEvent e) {
+				chartClassNameText.setText(fileText.getText().replaceAll(".javafxlang", ""));
+			};
+		});
 		new Label(container, SWT.NONE);
 		
 		Label lblChartType = new Label(container, SWT.NONE);
