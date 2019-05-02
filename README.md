@@ -5,9 +5,9 @@ Overview of code generation
 
 ![Code Generation](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/01-App-Generation.png)
 
-Running application
+Running generated application with EMF support like Undo / Redo, PropertySheet (Optional) and Tree / Table/ List Editing.
 
-![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/02-Application.PNG)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/EmfSupportModelApplication.PNG)
 
 ## Features
 - [x] TableView with Cell Providers
