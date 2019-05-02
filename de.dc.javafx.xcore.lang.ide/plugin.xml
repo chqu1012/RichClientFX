@@ -10,7 +10,7 @@
       <wizard
             category="de.dc.javafx.xcore.lang.ide"
             class="de.dc.javafx.xcore.lang.ide.wizards.ChartNewWizard"
-            icon="icons/sample.png"
+            icon="icons/analytics.png"
             id="de.dc.javafx.xcore.lang.ide.wizards.ChartNewWizard"
             name="JavaFX Lang Chart File">
       </wizard>
@@ -71,6 +71,30 @@
             name="JavaFX Lang Preview"
             restorable="true">
       </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="de.dc.javafx.xcore.lang.ide.toolbar">
+            <command
+                  commandId="de.dc.javafx.xcore.lang.ide.command.CreateChartHandler"
+                  icon="icons/analytics.png"
+                  label="Create Chart"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="de.dc.javafx.xcore.lang.ide.handler.OpenChartWizardHandler"
+            id="de.dc.javafx.xcore.lang.ide.command.CreateChartHandler"
+            name="Create Chart">
+      </command>
    </extension>
 
 </plugin>

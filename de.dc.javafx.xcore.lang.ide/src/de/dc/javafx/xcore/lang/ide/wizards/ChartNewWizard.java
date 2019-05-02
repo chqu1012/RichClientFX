@@ -51,6 +51,12 @@ public class ChartNewWizard extends Wizard implements INewWizard {
 		super();
 		setNeedsProgressMonitor(true);
 	}
+
+	public ChartNewWizard(ISelection selection) {
+		super();
+		this.selection = selection;
+		setNeedsProgressMonitor(true);
+	}
 	
 	/**
 	 * Adding the page to the wizard.
