@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<javafx:ProjectFX xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javafx="http://www.frateranatis.org/javafx" name="Hello World" packagePath="de.dc.emf.javafx">
-  <controls xsi:type="javafx:TableViewFX">
-    <columns/>
-  </controls>
-  <models name="Person">
-    <attributes name="name" type="String"/>
-  </models>
-</javafx:ProjectFX>
