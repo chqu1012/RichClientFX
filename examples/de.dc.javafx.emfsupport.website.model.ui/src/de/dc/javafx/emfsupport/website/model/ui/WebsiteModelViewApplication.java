@@ -11,6 +11,11 @@ public class WebsiteModelViewApplication extends BaseWebsiteModelViewApplication
 		return new WebsiteModelView(manager);
 	}
 	
+	@Override
+	protected String getTitle() {
+		return "EmfSupport Model Editor with PropertySheet, Editing Support, Undo/Redo";
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}

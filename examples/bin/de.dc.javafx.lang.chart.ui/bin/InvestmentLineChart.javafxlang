@@ -1,0 +1,9 @@
+packagePath "de.dc.javafx.lang.chart.ui"
+
+charts{
+	LineChartFX Example{
+		title "Example"
+		xAxisLabel ""
+		yAxisLabel ""
+	}
+}

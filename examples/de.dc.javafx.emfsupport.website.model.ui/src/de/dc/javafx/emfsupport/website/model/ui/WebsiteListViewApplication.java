@@ -18,7 +18,7 @@ public class WebsiteListViewApplication extends AbstractApplication{
 		ObservableList<Page> pages = FXCollections.observableArrayList();
 		for (int i = 0; i < 20; i++) {
 			Page createPage = ModelFactory.eINSTANCE.createPage();
-			createPage.setName("John Doe");
+			createPage.setName("John Doe "+i);
 			createPage.setUrl("www.johndoe.com");
 			createPage.setBody("No Content");
 			pages.add(createPage);
@@ -26,7 +26,12 @@ public class WebsiteListViewApplication extends AbstractApplication{
 		manager.getRoot().getPages().addAll(pages);
 		return new WebsiteListView(manager);
 	}
-
+	
+	@Override
+	protected String getTitle() {
+		return "EmfSupport ListView Example";
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -1,7 +1,7 @@
 packagePath "de.dc.javafx.lang.chart.ui"
 
 charts{
-	LineChartFX BudgetLineChart{
+	LineChartFX BudgetLineChart{ 
 		title "Budget Overview"
 		xAxisLabel "Values"
 		yAxisLabel "Months"

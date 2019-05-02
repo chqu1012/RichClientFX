@@ -5,3 +5,4 @@ Bundle-SymbolicName: de.dc.javafx.lang.chart.ui
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: de.dc.javafx.lang.chart.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: de.dc.javafx.xcore.lang.lib;bundle-version="1.0.0"
