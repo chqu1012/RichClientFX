@@ -3,11 +3,11 @@ Eclipse Editor for generating JavaFX Controls by defining meta informations in E
 
 Overview of code generation
 
-![Code Generation](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.model.res/images/01-App-Generation.png)
+![Code Generation](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/tree/master/de.dc.javafx.xcore.resources/images/01-App-Generation.png)
 
 Running application
 
-![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.model.res/images/02-Application.PNG)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/tree/master/de.dc.javafx.xcore.resources/images/02-Application.PNG)
 
 ## Features
 - [x] TableView with Cell Providers
