@@ -1,6 +1,6 @@
 package de.dc.javafx.xcore.lang.ide.templates;
 
-import de.dc.javafx.xcore.lang.ide.wizards.ChartModel;
+import de.dc.javafx.xcore.lang.ide.wizards.model.ChartModel;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")

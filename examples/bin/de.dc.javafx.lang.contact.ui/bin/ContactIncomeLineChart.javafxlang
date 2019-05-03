@@ -1,0 +1,9 @@
+packagePath "de.dc.javafx.lang.contact.ui"
+
+charts{
+	LineChartFX ContactIncomeLineChart{
+		title "Contact Income"
+		xAxisLabel "Months"
+		yAxisLabel "Values"
+	}
+}

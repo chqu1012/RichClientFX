@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.lang.ide.wizards;
+package de.dc.javafx.xcore.lang.ide.wizards.model;
 
 public class ChartModel {
 

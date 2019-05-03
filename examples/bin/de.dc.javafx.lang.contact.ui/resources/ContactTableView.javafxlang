@@ -1,9 +1,9 @@
-packagePath 'de.dc.emf.javafx.xtext.demo.contact'
+packagePath 'de.dc.javafx.lang.contact.ui.contact'
 
 controls{ 
 	TableViewFX { 
 		name: ContactTableView
-		usedModel: Contact
+		usedModel: de.dc.javafx.lang.contact.ui.model.Contact 
 		column(name: Firstname usedAttribute:"Contact.firstname" useFilter)
 		column(name: Lastname usedAttribute:"Contact.firstname" useFilter)
 		column(name: Age usedAttribute:"Contact.age" useFilter)

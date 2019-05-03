@@ -7,7 +7,7 @@ EMFSupport for WebsiteModel{
 	useUndoRedo: true  
 	showCommandStack: true 
 	showPropertyView: true 
-
+ 
 	// Generate an example application
     generateDemo: true 
 

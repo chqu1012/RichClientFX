@@ -15,6 +15,12 @@
             name="JavaFX Lang Chart File">
       </wizard>
       <wizard
+            class="de.dc.javafx.xcore.lang.ide.wizards.TableNewWizard"
+            icon="icons/table.png"
+            id="de.dc.javafx.xcore.lang.ide.wizards.TableViewNewWizard"
+            name="JavaFX Lang TableView File">
+      </wizard>
+      <wizard
             category="de.dc.javafx.xcore.lang.ide"
             class="de.dc.javafx.xcore.lang.ide.wizards.EmfEditNewWizard"
             icon="icons/sample.png"
@@ -85,6 +91,12 @@
                   label="Create Chart"
                   style="push">
             </command>
+            <command
+                  commandId="de.dc.javafx.xcore.lang.ide.command.CreateTableVIewHandler"
+                  icon="icons/table.png"
+                  label="Create TableView"
+                  style="push">
+            </command>
          </toolbar>
       </menuContribution>
    </extension>
@@ -94,6 +106,11 @@
             defaultHandler="de.dc.javafx.xcore.lang.ide.handler.OpenChartWizardHandler"
             id="de.dc.javafx.xcore.lang.ide.command.CreateChartHandler"
             name="Create Chart">
+      </command>
+      <command
+            defaultHandler="de.dc.javafx.xcore.lang.ide.handler.OpenTableViewWizardHandler"
+            id="de.dc.javafx.xcore.lang.ide.command.CreateTableVIewHandler"
+            name="Create TableView">
       </command>
    </extension>
 

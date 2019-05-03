@@ -2,9 +2,8 @@ package de.dc.javafx.lang.contact.ui.contact;
 
 import java.util.Random;
 
-import de.dc.emf.javafx.xtext.demo.contact.BaseContactTableView;
-import de.dc.emf.javafx.xtext.demo.contact.demo.ContactTableViewApplication;
-import de.dc.emf.javafx.xtext.demo.contact.model.Contact;
+import de.dc.javafx.lang.contact.ui.contact.demo.ContactTableViewApplication;
+import de.dc.javafx.lang.contact.ui.model.Contact;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;

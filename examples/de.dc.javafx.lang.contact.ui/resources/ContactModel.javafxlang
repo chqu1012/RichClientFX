@@ -1,4 +1,4 @@
-packagePath 'de.dc.emf.javafx.xtext.demo.contact.model'
+packagePath 'de.dc.javafx.lang.contact.ui.model'
 
 models{ 
 	class Contact{
