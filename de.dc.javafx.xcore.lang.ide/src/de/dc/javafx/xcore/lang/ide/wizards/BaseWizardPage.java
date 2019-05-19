@@ -101,9 +101,9 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 	protected Button createLabelCheck(Composite parent, String labelContent) {
 		new Label(parent, SWT.NONE);
 		
-		Button button = new Button(parent, SWT.BORDER);
+		Button button = new Button(parent, SWT.CHECK);
 		button.setText(labelContent);
-		button.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		button.setLayoutData(new GridData(SWT.FILL, SWT.LEFT, true, false, 1, 1));
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {

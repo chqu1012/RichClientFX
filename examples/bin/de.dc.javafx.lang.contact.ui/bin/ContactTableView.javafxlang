@@ -1,4 +1,4 @@
-packagePath 'de.dc.javafx.lang.contact.ui.contact'
+packagePath 'de.dc.javafx.lang.contact.ui'
 
 controls{ 
 	TableViewFX { 

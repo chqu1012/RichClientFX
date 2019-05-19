@@ -20,3 +20,4 @@ Require-Bundle: de.dc.javafx.xcore.lang,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.dc.javafx.xcore.lang.ide.contentassist.antlr,
  de.dc.javafx.xcore.lang.ide.contentassist.antlr.internal
+Import-Package: org.eclipse.jface.text
