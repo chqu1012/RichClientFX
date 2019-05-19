@@ -181,12 +181,12 @@ public final class JavafxEditorAdvisor extends WorkbenchAdvisor {
 		 * @see org.eclipse.ui.application.WorkbenchWindowAdvisor#preWindowOpen()
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @generated
+		 * @generated not
 		 */
 		@Override
 		public void preWindowOpen() {
 			IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-			configurer.setInitialSize(new Point(1200, 700));
+			configurer.setInitialSize(new Point(1200, 800));
 			configurer.setShowCoolBar(true);
 			configurer.setShowStatusLine(true);
 			configurer.setTitle(getString("_UI_Application_title"));
