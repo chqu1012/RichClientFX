@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Lib
+Bundle-Name: JavaFX Lang Common Lib
 Bundle-SymbolicName: de.dc.javafx.xcore.lang.lib
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: de.dc.javafx.xcore.lang.lib
