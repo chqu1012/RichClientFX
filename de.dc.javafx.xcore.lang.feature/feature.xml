@@ -2,7 +2,7 @@
 <feature
       id="de.dc.javafx.xcore.lang.feature"
       label="JavaFX Lang Feature"
-      version="0.9.0.qualifier">
+      version="0.9.1.qualifier">
 
    <requires>
       <import plugin="org.eclipse.xtext"/>
