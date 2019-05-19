@@ -97,6 +97,12 @@
                   label="Create TableView"
                   style="push">
             </command>
+            <command
+                  commandId="de.dc.javafx.xcore.lang.ide.command.CreateEmfEditHandler"
+                  icon="icons/icons8-objekt-16.png"
+                  label="Create EMF.edit"
+                  style="push">
+            </command>
          </toolbar>
       </menuContribution>
    </extension>
@@ -111,6 +117,11 @@
             defaultHandler="de.dc.javafx.xcore.lang.ide.handler.OpenTableViewWizardHandler"
             id="de.dc.javafx.xcore.lang.ide.command.CreateTableVIewHandler"
             name="Create TableView">
+      </command>
+      <command
+            defaultHandler="de.dc.javafx.xcore.lang.ide.handler.OpenEmfEditWizardHandler"
+            id="de.dc.javafx.xcore.lang.ide.command.CreateEmfEditHandler"
+            name="Create EMF.edit">
       </command>
    </extension>
 

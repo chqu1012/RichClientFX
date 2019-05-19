@@ -158,8 +158,8 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
 			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase("javafxlang") == false) {
-				updateStatus("File extension must be \"javafxlang\"");
+			if (ext.equalsIgnoreCase(getFileExtension()) == false) {
+				updateStatus("File extension must be \""+getFileExtension()+"\"");
 				return;
 			}
 		}
@@ -167,6 +167,10 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 		fillModel();
 		
 		updateStatus(null);
+	}
+	
+	protected String getFileExtension() {
+		return "javafxlang";
 	}
 
 	protected abstract void fillModel();
@@ -176,7 +180,7 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 		setPageComplete(message == null);
 	}
 	
-	private void initialize() {
+	protected void initialize() {
 		if (selection != null && selection.isEmpty() == false
 				&& selection instanceof IStructuredSelection) {
 			IStructuredSelection ssel = (IStructuredSelection) selection;
