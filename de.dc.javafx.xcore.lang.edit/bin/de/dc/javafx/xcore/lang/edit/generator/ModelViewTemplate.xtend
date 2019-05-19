@@ -11,7 +11,7 @@ class ModelViewTemplate implements ICustomerGenerator<Ecore> {
 		import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 		import «ecore.rootType.qualifiedName»;
 		
-		public class «ecore.name»View extends Base«ecore.name»View {
+		public class «ecore.rootType.simpleName»View extends Base«ecore.name»View {
 		
 			public «ecore.name»View(IEmfManager<«ecore.rootType.simpleName»> manager) {
 				super(manager);
