@@ -1,9 +1,0 @@
-packagePath "de.dc.javafx.lang.chart.ui.chart"
-
-charts{
-	AreaChartFX SchoolAreaChart{
-		title "School Overview"
-		xAxisLabel "Pupils"
-		yAxisLabel "Values"
-	}
-}

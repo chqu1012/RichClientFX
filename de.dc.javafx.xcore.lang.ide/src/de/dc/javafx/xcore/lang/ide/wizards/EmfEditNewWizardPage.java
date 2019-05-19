@@ -19,6 +19,12 @@ public class EmfEditNewWizardPage extends BaseWizardPage<EmfEditModel> {
 	@Override
 	protected void createContent(Composite container) {
 	}
+
+	@Override
+	protected void fillModel() {
+		model.setPackagePath(packageText.getText());
+		model.setName(fileText.getText());
+	}
 	
 	@Override
 	protected void initialize() {
@@ -29,11 +35,5 @@ public class EmfEditNewWizardPage extends BaseWizardPage<EmfEditModel> {
 	@Override
 	protected String getFileExtension() {
 		return "javafxemf";
-	}
-	
-	@Override
-	protected void fillModel() {
-		model.setPackagePath(packageText.getText());
-		model.setName(fileText.getText());
 	}
 }

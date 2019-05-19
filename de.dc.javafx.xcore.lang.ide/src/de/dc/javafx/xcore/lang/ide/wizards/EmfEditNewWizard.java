@@ -1,6 +1,8 @@
 package de.dc.javafx.xcore.lang.ide.wizards;
 
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IWorkbench;
 
 import de.dc.javafx.xcore.lang.ide.templates.EMFEditTemplate;
 import de.dc.javafx.xcore.lang.ide.templates.EmfEditModel;
@@ -21,5 +23,8 @@ public class EmfEditNewWizard extends BaseWizard<EmfEditModel> {
 		return EMFEditTemplate.get(model);
 	}
 
-
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		this.selection=selection;
+	}
 }

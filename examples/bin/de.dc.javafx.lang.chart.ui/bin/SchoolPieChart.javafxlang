@@ -1,7 +1,0 @@
-packagePath "de.dc.javafx.lang.chart.ui"
-
-charts{
-	PieChartFX SchoolPieChart{
-		title "School Overview"
-	}
-}

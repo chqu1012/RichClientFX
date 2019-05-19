@@ -8,7 +8,7 @@
         contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
         default="true"
         extensions="javafxemf"
-        icon="icons/icon.png"
+        icon="icons/icon16.png"
         id="de.dc.javafx.xcore.lang.edit.EmfSupportDsl"
         matchingStrategy="de.dc.javafx.xcore.lang.edit.ui.EmfSupportDslExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.editor.JavaEditorInputMatcher"
         name="EmfSupportDsl Editor">
