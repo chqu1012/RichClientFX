@@ -1,15 +1,13 @@
 package de.dc.javafx.efxclipse.runtime.factory;
 
-import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.command.AbstractOverrideableCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.ChangeCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
-import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
@@ -83,7 +81,12 @@ public class CommandListCellFactory implements
 		} else if (command instanceof DeleteCommand) {
 			DeleteCommand aCommand = (DeleteCommand) command;
 			res = "Delete "+aCommand.getAffectedObjects().stream().map(e->e.toString()).reduce((e1,e2)->e1+", "+e2).get();
-			System.out.println(aCommand.getDescription());
+		} else if (command instanceof DragAndDropCommand) {
+			DragAndDropCommand dndCommand = (DragAndDropCommand) command;
+			String owner = ((IItemLabelProvider) adapterFactory.adapt(
+					dndCommand.getOwner(), IItemLabelProvider.class))
+					.getText(dndCommand.getOwner());
+			res = "DND for "+owner;
 		}
 		return res;
 	}
