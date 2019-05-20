@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.EventObject;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
@@ -50,6 +51,8 @@ import javafx.util.StringConverter;
 
 public class EMFModelView<T> extends BorderPane implements CommandStackListener, ChangeListener<Object> {
 
+	private Logger LOG = Logger.getLogger(EMFModelView.class.getSimpleName());
+	
 	@FXML
 	protected TreeView<Object> treeView;
 
@@ -271,6 +274,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		CommandStack commandStack = editingDomain.getCommandStack();
 		if (commandStack.canUndo()) {
 			commandStack.undo();
+			LOG.info("Undo successfully executed!");
 		}
 	}
 
@@ -279,6 +283,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		CommandStack commandStack = editingDomain.getCommandStack();
 		if (commandStack.canRedo()) {
 			commandStack.redo();
+			LOG.info("Redo successfully executed!");
 		}
 	}
 
