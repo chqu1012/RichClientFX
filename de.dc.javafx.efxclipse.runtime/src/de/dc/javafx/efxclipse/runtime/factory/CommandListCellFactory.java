@@ -20,8 +20,7 @@ import javafx.util.Callback;
  * factory to get {@link EObject}s labels.
  * 
  */
-public class CommandListCellFactory implements
-		Callback<ListView<Command>, ListCell<Command>> {
+public class CommandListCellFactory implements Callback<ListView<Command>, ListCell<Command>> {
 
 	private AdapterFactory adapterFactory;
 	private CommandStack commandStack;
@@ -34,7 +33,7 @@ public class CommandListCellFactory implements
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override 
+	@Override
 	public ListCell<Command> call(ListView<Command> param) {
 		final ListCell<Command> listCell = new ListCell<Command>() {
 			@Override
@@ -49,6 +48,9 @@ public class CommandListCellFactory implements
 						setStyle("");
 					}
 					setText(prettyPrint(command));
+				} else {
+					setText(null);
+					setGraphic(null);
 				}
 			}
 		};
@@ -61,32 +63,29 @@ public class CommandListCellFactory implements
 			SetCommand setCommand = (SetCommand) command;
 			Object value = setCommand.getValue();
 			String featureName = setCommand.getFeature().getName();
-			String owner = ((IItemLabelProvider) adapterFactory.adapt(
-					setCommand.getOwner(), IItemLabelProvider.class))
+			String owner = ((IItemLabelProvider) adapterFactory.adapt(setCommand.getOwner(), IItemLabelProvider.class))
 					.getText(setCommand.getOwner());
 			if (value == null || value.equals(setCommand.getFeature().getDefaultValue())) {
 				res = "Unset " + featureName + " in " + owner;
 			} else {
-				res = "Set " + featureName + " to \"" + String.valueOf(value)
-				+ "\" in " + owner;
+				res = "Set " + featureName + " to \"" + String.valueOf(value) + "\" in " + owner;
 			}
 		} else if (command instanceof ChangeCommand) {
 			res = command.getDescription();
-		} else if(command instanceof AddCommand) {
+		} else if (command instanceof AddCommand) {
 			AddCommand addCommand = (AddCommand) command;
-			String owner = ((IItemLabelProvider) adapterFactory.adapt(
-					addCommand.getOwner(), IItemLabelProvider.class))
+			String owner = ((IItemLabelProvider) adapterFactory.adapt(addCommand.getOwner(), IItemLabelProvider.class))
 					.getText(addCommand.getOwner());
 			res = "Add new " + owner;
 		} else if (command instanceof DeleteCommand) {
 			DeleteCommand aCommand = (DeleteCommand) command;
-			res = "Delete "+aCommand.getAffectedObjects().stream().map(e->e.toString()).reduce((e1,e2)->e1+", "+e2).get();
+			res = "Delete " + aCommand.getAffectedObjects().stream().map(e -> e.toString())
+					.reduce((e1, e2) -> e1 + ", " + e2).get();
 		} else if (command instanceof DragAndDropCommand) {
 			DragAndDropCommand dndCommand = (DragAndDropCommand) command;
-			String owner = ((IItemLabelProvider) adapterFactory.adapt(
-					dndCommand.getOwner(), IItemLabelProvider.class))
+			String owner = ((IItemLabelProvider) adapterFactory.adapt(dndCommand.getOwner(), IItemLabelProvider.class))
 					.getText(dndCommand.getOwner());
-			res = "DND for "+owner;
+			res = "DND for " + owner;
 		}
 		return res;
 	}
