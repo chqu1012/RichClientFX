@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EventObject;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
@@ -30,6 +31,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -83,6 +87,19 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		historyList.setCellFactory(
 				new CommandListCellFactory(manager.getAdapterFactory(), manager.getEditingDomain().getCommandStack()));
 		historyList.setEditable(false);
+		historyList.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Command>) (observable, oldValue, newValue) -> {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Confirmation Dialog");
+			alert.setHeaderText("Undo to "+newValue.getDescription());
+			alert.setContentText("Are you ok with this?");
+
+			Optional<ButtonType> result = alert.showAndWait();
+			if (result.get() == ButtonType.OK){
+				if (newValue.canUndo()) {
+					newValue.undo();
+				}
+			}
+		});
 
 		treeView.getSelectionModel().selectedItemProperty().addListener(this);
 
