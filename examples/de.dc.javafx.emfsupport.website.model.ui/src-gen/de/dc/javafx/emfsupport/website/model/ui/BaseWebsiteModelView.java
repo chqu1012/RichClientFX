@@ -7,6 +7,7 @@ import de.dc.javafx.emfsupport.website.model.ModelFactory;
 import de.dc.javafx.emfsupport.website.model.ModelPackage;
 import de.dc.javafx.emfsupport.website.model.Page;
 import de.dc.javafx.emfsupport.website.model.Website;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TreeItem;
 import org.eclipse.emf.common.command.Command;
@@ -62,6 +63,26 @@ public class BaseWebsiteModelView extends EMFModelView<Website> {
     		manager.getCommandStack().execute(command);
     	}
     	selection.setExpanded(true);
+    }
+  }
+  
+  @Override
+  public void changed(final ObservableValue arg0, final Object oldValue, final Object newValue) {
+    super.changed(arg0, oldValue, newValue);
+    if (newValue instanceof TreeItem<?>) {
+    	Object value = ((TreeItem) newValue).getValue();
+    	if(value instanceof Website){
+    		newMenuItem.setDisable(false);
+    		newMenuItem.setText("New Page");
+    	}
+    	else if(value instanceof Page){
+    		newMenuItem.setDisable(false);
+    		newMenuItem.setText("New Author");
+    	}
+    	else{
+    		newMenuItem.setDisable(true);
+    		newMenuItem.setText("None");
+    	}
     }
   }
   

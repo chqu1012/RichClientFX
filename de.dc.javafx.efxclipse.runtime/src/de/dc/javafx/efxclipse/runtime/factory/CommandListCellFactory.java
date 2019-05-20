@@ -41,9 +41,9 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 				super.updateItem(command, empty);
 				if (!empty) {
 					if (commandStack.canUndo() && commandStack.getUndoCommand() == command) {
-						setStyle("-fx-background-color: red");
+						setStyle("-fx-background-color: red; -fx-text-fill: white");
 					} else if (commandStack.canRedo() && commandStack.getRedoCommand() == command) {
-						setStyle("-fx-background-color: blue");
+						setStyle("-fx-background-color: blue; -fx-text-fill: white");
 					} else {
 						setStyle("");
 					}
