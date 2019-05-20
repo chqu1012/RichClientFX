@@ -1,10 +1,15 @@
 package de.dc.javafx.efxclipse.runtime.factory;
 
+import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AbstractOverrideableCommand;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.ChangeCommand;
+import org.eclipse.emf.edit.command.DeleteCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
@@ -65,10 +70,19 @@ public class CommandListCellFactory implements
 				res = "Unset " + featureName + " in " + owner;
 			} else {
 				res = "Set " + featureName + " to \"" + String.valueOf(value)
-						+ "\" in " + owner;
+				+ "\" in " + owner;
 			}
 		} else if (command instanceof ChangeCommand) {
 			res = command.getDescription();
+		} else if(command instanceof AddCommand) {
+			AddCommand addCommand = (AddCommand) command;
+			String owner = ((IItemLabelProvider) adapterFactory.adapt(
+					addCommand.getOwner(), IItemLabelProvider.class))
+					.getText(addCommand.getOwner());
+			res = "Add new " + owner;
+		} else if (command instanceof DeleteCommand) {
+			DeleteCommand aCommand = (DeleteCommand) command;
+			res = "Delete "+aCommand.getAffectedObjects().stream().map(e->e.toString()).reduce((e1,e2)->e1+", "+e2);
 		}
 		return res;
 	}
