@@ -82,7 +82,8 @@ public class CommandListCellFactory implements
 			res = "Add new " + owner;
 		} else if (command instanceof DeleteCommand) {
 			DeleteCommand aCommand = (DeleteCommand) command;
-			res = "Delete "+aCommand.getAffectedObjects().stream().map(e->e.toString()).reduce((e1,e2)->e1+", "+e2);
+			res = "Delete "+aCommand.getAffectedObjects().stream().map(e->e.toString()).reduce((e1,e2)->e1+", "+e2).get();
+			System.out.println(aCommand.getDescription());
 		}
 		return res;
 	}
