@@ -40,6 +40,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.util.StringConverter;
 
@@ -87,19 +88,6 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		historyList.setCellFactory(
 				new CommandListCellFactory(manager.getAdapterFactory(), manager.getEditingDomain().getCommandStack()));
 		historyList.setEditable(false);
-		historyList.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Command>) (observable, oldValue, newValue) -> {
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setTitle("Confirmation Dialog");
-			alert.setHeaderText("Undo to "+newValue.getDescription());
-			alert.setContentText("Are you ok with this?");
-
-			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
-				if (newValue.canUndo()) {
-					newValue.undo();
-				}
-			}
-		});
 
 		treeView.getSelectionModel().selectedItemProperty().addListener(this);
 
@@ -228,5 +216,40 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
     @FXML
     protected void onPasteMenuItemClicked(ActionEvent event) {
     	
+    }
+    
+    @FXML
+    protected void onHistoryMenuItemDeleteClicked(ActionEvent event) {
+    	
+    }
+
+    @FXML
+    protected void onHistoryMenuItemRedoClicked(ActionEvent event) {
+    	
+    }
+
+    @FXML
+    protected void onHistoryMenuItemUndoClicked(ActionEvent event) {
+    	
+    }
+    
+    @FXML
+    protected void onHistoryListViewClicked(MouseEvent event) {
+    	if (event.getClickCount()==2) {
+    		Command selection = historyList.getSelectionModel().getSelectedItem();
+    		if (selection!=null) {
+    			Alert alert = new Alert(AlertType.CONFIRMATION);
+    			alert.setTitle("Confirmation Dialog");
+    			alert.setHeaderText("Undo to "+selection.getDescription());
+    			alert.setContentText("Are you ok with this?");
+    			
+    			Optional<ButtonType> result = alert.showAndWait();
+    			if (result.get() == ButtonType.OK){
+    				if (selection.canUndo()) {
+    					selection.undo();
+    				}
+    			}
+    		}
+		}
     }
 }
