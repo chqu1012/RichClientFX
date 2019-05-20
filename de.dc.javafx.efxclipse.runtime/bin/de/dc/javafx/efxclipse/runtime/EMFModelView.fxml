@@ -130,6 +130,13 @@
                                  </children>
                               </VBox>
                            </content>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/icons8-edit-node-16.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Tab>
                      </tabs>
                   </TabPane>
@@ -153,6 +160,13 @@
                                  </content>
                               </TitledPane>
                            </content>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/icons8-time-machine-16.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Tab>
                         <Tab closable="false" text="Commands">
                            <content>
@@ -268,6 +282,13 @@
                      </children>
                   </AnchorPane>
                </content>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-new-property-16.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Tab>
          </tabs>
       </TabPane>
