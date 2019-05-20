@@ -27,7 +27,11 @@
                      <contextMenu>
                         <ContextMenu>
                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#onNewMenuItemClicked" text="New" />
+                              <Menu mnemonicParsing="false" text="New">
+                                 <items>
+                                    <MenuItem fx:id="newMenuItem" mnemonicParsing="false" onAction="#onNewMenuItemClicked" text="New" />
+                                 </items>
+                              </Menu>
                               <MenuItem mnemonicParsing="false" onAction="#onEditMenuItemClicked" text="Edit" />
                               <MenuItem mnemonicParsing="false" onAction="#onCopyMenuItemClicked" text="Copy" />
                               <MenuItem mnemonicParsing="false" onAction="#onPasteMenuItemClicked" text="Paste" />

@@ -10,24 +10,25 @@ import de.dc.javafx.efxclipse.runtime.model.IEmfManager
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.AddContextMenu
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model
 import de.dc.javafx.xcore.lang.lib.AbstractApplication
+import javafx.beans.value.ObservableValue
+import javafx.event.ActionEvent
 import javafx.scene.Parent
 import javafx.scene.control.TreeItem
 import org.eclipse.emf.common.command.Command
 import org.eclipse.emf.ecore.change.util.ChangeRecorder
 import org.eclipse.emf.edit.command.AddCommand
+import org.eclipse.emf.edit.command.CopyToClipboardCommand
+import org.eclipse.emf.edit.command.DeleteCommand
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain
 import org.eclipse.emf.edit.domain.EditingDomain
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
+import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler
 import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler
-import javafx.event.ActionEvent
-import org.eclipse.emf.edit.command.DeleteCommand
-import org.eclipse.emf.edit.command.CopyToClipboardCommand
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -107,7 +108,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 				]
 				
 				members += model.toMethod('onNewMenuItemClicked', typeRef(Void.TYPE))[
-					annotations += model.toAnnotation(Override)
+					annotations += Override.annotationRef
 					parameters += model.toParameter("action", ActionEvent.typeRef)
 					body = '''
 				 	«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
@@ -132,8 +133,35 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 					'''
 				]
 				
+				members += model.toMethod('changed', typeRef(Void.TYPE))[
+					annotations += Override.annotationRef
+					parameters += model.toParameter("arg0", ObservableValue.typeRef)
+					parameters += model.toParameter("oldValue", Object.typeRef)
+					parameters += model.toParameter("newValue", Object.typeRef)
+					body = '''
+				 	super.changed(arg0, oldValue, newValue);
+				 	if (newValue instanceof TreeItem<?>) {
+				 		Object value = ((TreeItem) newValue).getValue();
+				 		«FOR menu : model.contextMenus»
+				 		«IF menu instanceof AddContextMenu»
+				 		«val addMenu = menu as AddContextMenu»
+				 		«val condition = '''«IF model.contextMenus.indexOf(menu)==0»if«ELSE»else if«ENDIF»'''»
+				 		«condition»(value instanceof «menu.parentType»){
+				 			newMenuItem.setDisable(false);
+				 			newMenuItem.setText("New «addMenu.createType.simpleName»");
+				 		}
+				 		«ENDIF»
+				 		«ENDFOR»
+				 		else{
+				 			newMenuItem.setDisable(true);
+				 			newMenuItem.setText("None");
+				 		}
+				 	}
+					'''
+				]
+				
 				members += model.toMethod('onDeleteMenuItemClicked', typeRef(Void.TYPE))[
-					annotations += model.toAnnotation(Override)
+					annotations += Override.annotationRef
 					parameters += model.toParameter("action", ActionEvent.typeRef)
 					body = '''
 				 	«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
@@ -147,7 +175,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 				]
 
 				members += model.toMethod('onCopyMenuItemClicked', typeRef(Void.TYPE))[
-					annotations += model.toAnnotation(Override)
+					annotations += Override.annotationRef
 					parameters += model.toParameter("action", ActionEvent.typeRef)
 					body = '''
 					«TreeItem»<Object> selection = treeView.getSelectionModel().getSelectedItem();
@@ -166,7 +194,7 @@ class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 		 			superTypes += AbstractApplication.typeRef
 		 			
 		 			members += model.toMethod('getRoot', Parent.typeRef)[
-		 				annotations += model.toAnnotation(Override)
+		 				annotations += Override.annotationRef
 		 				body = '''return getView(getManager());'''
 	 				]
 	 				

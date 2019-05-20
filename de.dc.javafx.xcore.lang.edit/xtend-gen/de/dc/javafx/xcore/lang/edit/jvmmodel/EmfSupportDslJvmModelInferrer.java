@@ -15,6 +15,7 @@ import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
 import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import java.util.Arrays;
 import java.util.function.Consumer;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
@@ -31,6 +32,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtend2.lib.StringConcatenationClient;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmConstructor;
@@ -266,8 +268,8 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           EList<JvmMember> _members_1 = it.getMembers();
           final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
             EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-            JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(model, Override.class);
-            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+            JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
             EList<JvmFormalParameter> _parameters = it_1.getParameters();
             JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(model, "action", this._typeReferenceBuilder.typeRef(ActionEvent.class));
             this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -345,8 +347,98 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
           EList<JvmMember> _members_2 = it.getMembers();
           final Procedure1<JvmOperation> _function_5 = (JvmOperation it_1) -> {
             EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-            JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(model, Override.class);
-            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+            JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+            EList<JvmFormalParameter> _parameters = it_1.getParameters();
+            JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(model, "arg0", this._typeReferenceBuilder.typeRef(ObservableValue.class));
+            this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            EList<JvmFormalParameter> _parameters_1 = it_1.getParameters();
+            JvmFormalParameter _parameter_1 = this._jvmTypesBuilder.toParameter(model, "oldValue", this._typeReferenceBuilder.typeRef(Object.class));
+            this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_1, _parameter_1);
+            EList<JvmFormalParameter> _parameters_2 = it_1.getParameters();
+            JvmFormalParameter _parameter_2 = this._jvmTypesBuilder.toParameter(model, "newValue", this._typeReferenceBuilder.typeRef(Object.class));
+            this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_2, _parameter_2);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("super.changed(arg0, oldValue, newValue);");
+                _builder.newLine();
+                _builder.append("if (newValue instanceof TreeItem<?>) {");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("Object value = ((TreeItem) newValue).getValue();");
+                _builder.newLine();
+                {
+                  EList<ContextMenu> _contextMenus = model.getContextMenus();
+                  for(final ContextMenu menu : _contextMenus) {
+                    {
+                      if ((menu instanceof AddContextMenu)) {
+                        _builder.append("\t");
+                        final AddContextMenu addMenu = ((AddContextMenu) menu);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("\t");
+                        StringConcatenation _builder_1 = new StringConcatenation();
+                        {
+                          int _indexOf = model.getContextMenus().indexOf(menu);
+                          boolean _equals = (_indexOf == 0);
+                          if (_equals) {
+                            _builder_1.append("if");
+                          } else {
+                            _builder_1.append("else if");
+                          }
+                        }
+                        final String condition = _builder_1.toString();
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("\t");
+                        _builder.append(condition, "\t");
+                        _builder.append("(value instanceof ");
+                        JvmTypeReference _parentType = ((AddContextMenu)menu).getParentType();
+                        _builder.append(_parentType, "\t");
+                        _builder.append("){");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("\t");
+                        _builder.append("\t");
+                        _builder.append("newMenuItem.setDisable(false);");
+                        _builder.newLine();
+                        _builder.append("\t");
+                        _builder.append("\t");
+                        _builder.append("newMenuItem.setText(\"New ");
+                        String _simpleName = addMenu.getCreateType().getSimpleName();
+                        _builder.append(_simpleName, "\t\t");
+                        _builder.append("\");");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("\t");
+                        _builder.append("}");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+                _builder.append("\t");
+                _builder.append("else{");
+                _builder.newLine();
+                _builder.append("\t\t");
+                _builder.append("newMenuItem.setDisable(true);");
+                _builder.newLine();
+                _builder.append("\t\t");
+                _builder.append("newMenuItem.setText(\"None\");");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("}");
+                _builder.newLine();
+                _builder.append("}");
+                _builder.newLine();
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(model, "changed", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_5);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_1);
+          EList<JvmMember> _members_3 = it.getMembers();
+          final Procedure1<JvmOperation> _function_6 = (JvmOperation it_1) -> {
+            EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+            JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
             EList<JvmFormalParameter> _parameters = it_1.getParameters();
             JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(model, "action", this._typeReferenceBuilder.typeRef(ActionEvent.class));
             this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -379,13 +471,13 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
             };
             this._jvmTypesBuilder.setBody(it_1, _client);
           };
-          JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(model, "onDeleteMenuItemClicked", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_5);
-          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_1);
-          EList<JvmMember> _members_3 = it.getMembers();
-          final Procedure1<JvmOperation> _function_6 = (JvmOperation it_1) -> {
+          JvmOperation _method_2 = this._jvmTypesBuilder.toMethod(model, "onDeleteMenuItemClicked", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_6);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_2);
+          EList<JvmMember> _members_4 = it.getMembers();
+          final Procedure1<JvmOperation> _function_7 = (JvmOperation it_1) -> {
             EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-            JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(model, Override.class);
-            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+            JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
             EList<JvmFormalParameter> _parameters = it_1.getParameters();
             JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(model, "action", this._typeReferenceBuilder.typeRef(ActionEvent.class));
             this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -418,8 +510,8 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
             };
             this._jvmTypesBuilder.setBody(it_1, _client);
           };
-          JvmOperation _method_2 = this._jvmTypesBuilder.toMethod(model, "onCopyMenuItemClicked", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_6);
-          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_2);
+          JvmOperation _method_3 = this._jvmTypesBuilder.toMethod(model, "onCopyMenuItemClicked", this._typeReferenceBuilder.typeRef(Void.TYPE), _function_7);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _method_3);
         };
         acceptor.<JvmGenericType>accept(
           this._jvmTypesBuilder.toClass(element, (((path + ".Base") + name) + "View"), _function_1));
@@ -432,8 +524,8 @@ public class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
             EList<JvmMember> _members = it.getMembers();
             final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
               EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
-              JvmAnnotationReference _annotation = this._jvmTypesBuilder.toAnnotation(model, Override.class);
-              this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+              JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+              this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
               StringConcatenationClient _client = new StringConcatenationClient() {
                 @Override
                 protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
