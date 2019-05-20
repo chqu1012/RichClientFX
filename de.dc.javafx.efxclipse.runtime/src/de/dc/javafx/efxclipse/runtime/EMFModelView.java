@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
@@ -251,7 +252,8 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 	@FXML
 	protected void onHistoryMenuItemDeleteClicked(ActionEvent event) {
-
+		Command selection = historyList.getSelectionModel().getSelectedItem();
+    	historyList.getItems().remove(selection);
 	}
 
 	@FXML
@@ -262,6 +264,22 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	@FXML
 	protected void onHistoryMenuItemUndoClicked(ActionEvent event) {
 
+	}
+
+	@FXML
+	protected void onUndoMenuItemClicked(ActionEvent event) {
+		CommandStack commandStack = editingDomain.getCommandStack();
+		if (commandStack.canUndo()) {
+			commandStack.undo();
+		}
+	}
+
+	@FXML
+	protected void onRedoMenuItemClicked(ActionEvent event) {
+		CommandStack commandStack = editingDomain.getCommandStack();
+		if (commandStack.canRedo()) {
+			commandStack.redo();
+		}
 	}
 
 	@FXML
