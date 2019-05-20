@@ -52,7 +52,7 @@ import javafx.util.StringConverter;
 public class EMFModelView<T> extends BorderPane implements CommandStackListener, ChangeListener<Object> {
 
 	private Logger LOG = Logger.getLogger(EMFModelView.class.getSimpleName());
-	
+
 	@FXML
 	protected TreeView<Object> treeView;
 
@@ -73,7 +73,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 	@FXML
 	protected MenuItem newMenuItem;
-	
+
 	protected IEmfManager<T> manager;
 
 	protected EObject currentEObject;
@@ -177,6 +177,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 	/**
 	 * Search for property name of EAttribute with lowercase
+	 * 
 	 * @param searchContent
 	 * @param p
 	 * @return
@@ -256,23 +257,26 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	@FXML
 	protected void onHistoryMenuItemDeleteClicked(ActionEvent event) {
 		Command selection = historyList.getSelectionModel().getSelectedItem();
-    	historyList.getItems().remove(selection);
+		historyList.getItems().remove(selection);
+		LOG.info("Remove command from list!");
 	}
 
 	@FXML
 	protected void onHistoryMenuItemRedoClicked(ActionEvent event) {
 		Command selection = historyList.getSelectionModel().getSelectedItem();
-    	if (selection!=null) {
-    		selection.redo();
-    	}
+		if (selection != null) {
+			selection.redo();
+			LOG.info("Redo successfully executed!");
+		}
 	}
 
 	@FXML
 	protected void onHistoryMenuItemUndoClicked(ActionEvent event) {
 		Command selection = historyList.getSelectionModel().getSelectedItem();
-    	if (selection!=null) {
-    		selection.undo();
-    	}
+		if (selection != null) {
+			selection.undo();
+			LOG.info("Undo successfully executed!");
+		}
 	}
 
 	@FXML
@@ -296,19 +300,14 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	@FXML
 	protected void onHistoryListViewClicked(MouseEvent event) {
 		if (event.getClickCount() == 2) {
-			Command selection = historyList.getSelectionModel().getSelectedItem();
-			if (selection != null) {
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("Confirmation Dialog");
-				alert.setHeaderText("Undo to " + selection.getDescription());
-				alert.setContentText("Are you ok with this?");
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Confirmation Dialog");
+			alert.setHeaderText("Undo for current selection");
+			alert.setContentText("Are you ok with this?");
 
-				Optional<ButtonType> result = alert.showAndWait();
-				if (result.get() == ButtonType.OK) {
-					if (selection.canUndo()) {
-						selection.undo();
-					}
-				}
+			Optional<ButtonType> result = alert.showAndWait();
+			if (result.get() == ButtonType.OK) {
+				onHistoryMenuItemUndoClicked(null);
 			}
 		}
 	}

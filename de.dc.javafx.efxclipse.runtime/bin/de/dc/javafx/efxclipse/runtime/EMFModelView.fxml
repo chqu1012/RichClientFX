@@ -14,6 +14,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -30,7 +32,15 @@
                           <items>
                               <Menu mnemonicParsing="false" text="New">
                                  <items>
-                                    <MenuItem fx:id="newMenuItem" mnemonicParsing="false" onAction="#onNewMenuItemClicked" text="New" />
+                                    <MenuItem fx:id="newMenuItem" mnemonicParsing="false" onAction="#onNewMenuItemClicked" text="New">
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@icons/icons8-file-16.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </MenuItem>
                                  </items>
                               </Menu>
                               <SeparatorMenuItem mnemonicParsing="false" />
@@ -38,18 +48,60 @@
                                  <accelerator>
                                     <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                                  </accelerator>
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-undo-16.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </MenuItem>
                               <MenuItem mnemonicParsing="false" onAction="#onRedoMenuItemClicked" text="Redo">
                                  <accelerator>
                                     <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                                  </accelerator>
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-redo-16.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </MenuItem>
                               <SeparatorMenuItem mnemonicParsing="false" />
-                              <MenuItem mnemonicParsing="false" onAction="#onEditMenuItemClicked" text="Edit" />
-                              <MenuItem mnemonicParsing="false" onAction="#onCopyMenuItemClicked" text="Copy" />
-                              <MenuItem mnemonicParsing="false" onAction="#onPasteMenuItemClicked" text="Paste" />
+                              <MenuItem mnemonicParsing="false" onAction="#onEditMenuItemClicked" text="Edit">
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-edit-16.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#onCopyMenuItemClicked" text="Copy">
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-copy-to-clipboard-16.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#onPasteMenuItemClicked" text="Paste">
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-paste-16.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></MenuItem>
                               <SeparatorMenuItem mnemonicParsing="false" />
-                              <MenuItem mnemonicParsing="false" onAction="#onDeleteMenuItemClicked" text="Delete" />
+                              <MenuItem mnemonicParsing="false" onAction="#onDeleteMenuItemClicked" text="Delete">
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-waste-16.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></MenuItem>
                           </items>
                         </ContextMenu>
                      </contextMenu>
