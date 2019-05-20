@@ -1,13 +1,53 @@
 # JavaFX Control Generator
 Eclipse Editor for generating JavaFX Controls by defining meta informations in EMF or in Xtext DSL. For more details, please visit the [wiki site](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/wiki)
 
-Overview of code generation
+### Overview of code generation
 
 ![Code Generation](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/01-App-Generation.png)
 
-Running generated application with EMF support like Undo / Redo, PropertySheet (Optional) and Tree / Table/ List Editing.
+### Running generated application with EMF support like Undo / Redo, PropertySheet (Optional) and Tree / Table/ List Editing.
 
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/EmfSupportModelApplication.PNG)
+
+### EMF.edit for undo, redo, editing and drag&drop support.
+
+Basic functions will integrate into the TreeView, ListView and TableView. The following figure will shows a generated EMF.edit TreeView with binded PropertyView and HistoryView. Only this description is required to configure the generation
+
+```java
+EMFSupport for CRM{
+	packagePath: 'hello.world.crm' 
+	modelItemProviderAdapterFactory: de.dc.javafx.emfsupport.website.model.provider.ModelItemProviderAdapterFactory
+	modelPackage: de.dc.javafx.emfsupport.website.model.ModelPackage
+	modelFactory: de.dc.javafx.emfsupport.website.model.ModelFactory
+	rootType: de.dc.javafx.emfsupport.website.model.Website
+	useUndoRedo: true  
+	showCommandStack: true 
+	showPropertyView: true 
+	// Generate an example application
+    	generateDemo: true 
+ 
+	// Edit Suppport, EAttributes is taken from EMF generated ModelPackage
+	// This attribute should exist, otherwise you will get a compile error.
+	editables += EAttribute(Website_Name)
+	editables += EAttribute(Page_Name)	
+	editables += EAttribute(Author_Firstname)
+    
+	// Context Menu
+	contextMenus += addContextMenu(
+		id:AddPage 
+		parentType: de.dc.javafx.emfsupport.website.model.Website
+		createType: de.dc.javafx.emfsupport.website.model.Page 
+	)
+	contextMenus += addContextMenu(
+		id:AddAuthor 
+		parentType: de.dc.javafx.emfsupport.website.model.Page
+		createType: de.dc.javafx.emfsupport.website.model.Author
+	)
+}
+```
+
+![EMF.edit Support](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/08-EmfEdit-CommandHistory.png)
+
 
 ## Features
 - [x] TableView with Cell Providers
