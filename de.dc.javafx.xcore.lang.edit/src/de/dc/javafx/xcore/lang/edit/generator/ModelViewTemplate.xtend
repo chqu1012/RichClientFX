@@ -11,14 +11,14 @@ class ModelViewTemplate implements ICustomerGenerator<Ecore> {
 		import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 		import «ecore.rootType.qualifiedName»;
 		
-		public class «ecore.rootType.simpleName»ModelView extends Base«ecore.name»View {
+		public class «ecore.name»ModelView extends Base«ecore.name»View {
 		
-			public  «ecore.rootType.simpleName»ModelView(IEmfManager<«ecore.rootType.simpleName»> manager) {
+			public «ecore.name»ModelView(IEmfManager<«ecore.rootType.simpleName»> manager) {
 				super(manager);
 			}
 		}
 		'''
 		
-		override path(Ecore ecore)'''«ecore.packagePath.replace('.', '/').replace('\'', '')»/«ecore.rootType.simpleName»ModelView.java'''
+		override path(Ecore ecore)'''«ecore.packagePath.replace('.', '/').replace('\'', '')»/«ecore.name»ModelView.java'''
 	
 }

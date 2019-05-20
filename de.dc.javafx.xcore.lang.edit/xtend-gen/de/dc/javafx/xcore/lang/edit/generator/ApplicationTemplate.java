@@ -48,8 +48,8 @@ public class ApplicationTemplate implements ICustomerGenerator<Ecore> {
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("return new ");
-    String _simpleName_2 = ecore.getRootType().getSimpleName();
-    _builder.append(_simpleName_2, "\t\t");
+    String _name_2 = ecore.getName();
+    _builder.append(_name_2, "\t\t");
     _builder.append("ModelView(manager);");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");

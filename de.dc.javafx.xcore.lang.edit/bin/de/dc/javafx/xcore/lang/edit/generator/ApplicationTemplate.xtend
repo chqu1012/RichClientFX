@@ -15,7 +15,7 @@ class ApplicationTemplate implements ICustomerGenerator<Ecore>{
 		
 			@Override
 			public EMFModelView<«ecore.rootType.simpleName»> getView(IEmfManager<«ecore.rootType.simpleName»> manager) {
-				return new «ecore.rootType.simpleName»ModelView(manager);
+				return new «ecore.name»ModelView(manager);
 			}
 			
 			public static void main(String[] args) {
