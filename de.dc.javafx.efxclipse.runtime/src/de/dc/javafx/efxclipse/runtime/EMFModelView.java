@@ -28,6 +28,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +38,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -61,12 +63,16 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	@FXML
 	protected TableColumn<EAttribute, String> valueColumn;
 
+	@FXML
+	protected TextField propertySearchText;
+
 	protected IEmfManager<T> manager;
 
 	protected EObject currentEObject;
 	protected EditingDomain editingDomain;
 	protected ObservableList<EAttribute> eAttributeList = FXCollections.observableArrayList();
 	protected ObservableList<EAttribute> properties = FXCollections.observableArrayList();
+	protected FilteredList<EAttribute> filteredProperties = new FilteredList<>(properties, p -> true);
 
 	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
 
@@ -95,8 +101,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 		treeView.setRoot(rootItem);
 
-		treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(
-				manager.getAdapterFactory());
+		treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(manager.getAdapterFactory());
 
 		// adds drag support
 		treeCellFactory.addCellCreationListener(new CellDragAdapter());
@@ -129,7 +134,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 			}
 			return new SimpleStringProperty("");
 		});
-		tableView.setItems(properties);
+		tableView.setItems(filteredProperties);
 		treeView.getSelectionModel().selectedItemProperty()
 				.addListener((ChangeListener<Object>) (observable, oldValue, newValue) -> updateProperties());
 
@@ -148,6 +153,28 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		};
 
 		eAttributeList = FXCollections.observableArrayList();
+	}
+
+	@FXML
+	protected void onPropertyTextFieldKeyReleased() {
+		String searchContent = propertySearchText.getText().toLowerCase();
+		filteredProperties.setPredicate(p -> {
+			if (searchContent == null || searchContent.isEmpty()) {
+				return true;
+			}
+			boolean filterProperties = filterProperties(searchContent, p);
+			return filterProperties;
+		});
+	}
+
+	/**
+	 * Search for property name of EAttribute with lowercase
+	 * @param searchContent
+	 * @param p
+	 * @return
+	 */
+	protected boolean filterProperties(String searchContent, EAttribute p) {
+		return p.getName().toLowerCase().contains(searchContent);
 	}
 
 	@Override
@@ -192,64 +219,64 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 			}
 		}
 	}
-	
-    @FXML
-    protected void onDeleteMenuItemClicked(ActionEvent event) {
 
-    }
+	@FXML
+	protected void onDeleteMenuItemClicked(ActionEvent event) {
 
-    @FXML
-    protected void onEditMenuItemClicked(ActionEvent event) {
+	}
 
-    }
+	@FXML
+	protected void onEditMenuItemClicked(ActionEvent event) {
 
-    @FXML
-    protected void onNewMenuItemClicked(ActionEvent event) {
-    	
-    }
+	}
 
-    @FXML
-    protected void onCopyMenuItemClicked(ActionEvent event) {
-    	
-    }
+	@FXML
+	protected void onNewMenuItemClicked(ActionEvent event) {
 
-    @FXML
-    protected void onPasteMenuItemClicked(ActionEvent event) {
-    	
-    }
-    
-    @FXML
-    protected void onHistoryMenuItemDeleteClicked(ActionEvent event) {
-    	
-    }
+	}
 
-    @FXML
-    protected void onHistoryMenuItemRedoClicked(ActionEvent event) {
-    	
-    }
+	@FXML
+	protected void onCopyMenuItemClicked(ActionEvent event) {
 
-    @FXML
-    protected void onHistoryMenuItemUndoClicked(ActionEvent event) {
-    	
-    }
-    
-    @FXML
-    protected void onHistoryListViewClicked(MouseEvent event) {
-    	if (event.getClickCount()==2) {
-    		Command selection = historyList.getSelectionModel().getSelectedItem();
-    		if (selection!=null) {
-    			Alert alert = new Alert(AlertType.CONFIRMATION);
-    			alert.setTitle("Confirmation Dialog");
-    			alert.setHeaderText("Undo to "+selection.getDescription());
-    			alert.setContentText("Are you ok with this?");
-    			
-    			Optional<ButtonType> result = alert.showAndWait();
-    			if (result.get() == ButtonType.OK){
-    				if (selection.canUndo()) {
-    					selection.undo();
-    				}
-    			}
-    		}
+	}
+
+	@FXML
+	protected void onPasteMenuItemClicked(ActionEvent event) {
+
+	}
+
+	@FXML
+	protected void onHistoryMenuItemDeleteClicked(ActionEvent event) {
+
+	}
+
+	@FXML
+	protected void onHistoryMenuItemRedoClicked(ActionEvent event) {
+
+	}
+
+	@FXML
+	protected void onHistoryMenuItemUndoClicked(ActionEvent event) {
+
+	}
+
+	@FXML
+	protected void onHistoryListViewClicked(MouseEvent event) {
+		if (event.getClickCount() == 2) {
+			Command selection = historyList.getSelectionModel().getSelectedItem();
+			if (selection != null) {
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("Confirmation Dialog");
+				alert.setHeaderText("Undo to " + selection.getDescription());
+				alert.setContentText("Are you ok with this?");
+
+				Optional<ButtonType> result = alert.showAndWait();
+				if (result.get() == ButtonType.OK) {
+					if (selection.canUndo()) {
+						selection.undo();
+					}
+				}
+			}
 		}
-    }
+	}
 }
