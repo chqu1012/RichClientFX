@@ -261,12 +261,18 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 	@FXML
 	protected void onHistoryMenuItemRedoClicked(ActionEvent event) {
-
+		Command selection = historyList.getSelectionModel().getSelectedItem();
+    	if (selection!=null) {
+    		selection.redo();
+    	}
 	}
 
 	@FXML
 	protected void onHistoryMenuItemUndoClicked(ActionEvent event) {
-
+		Command selection = historyList.getSelectionModel().getSelectedItem();
+    	if (selection!=null) {
+    		selection.undo();
+    	}
 	}
 
 	@FXML
