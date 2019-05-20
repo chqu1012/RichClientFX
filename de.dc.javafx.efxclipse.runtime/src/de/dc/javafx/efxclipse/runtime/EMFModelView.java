@@ -37,6 +37,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
@@ -74,6 +75,9 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	@FXML
 	protected MenuItem newMenuItem;
 
+	@FXML
+	protected Label filePathLabel;
+	
 	protected IEmfManager<T> manager;
 
 	protected EObject currentEObject;
