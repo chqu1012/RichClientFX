@@ -129,10 +129,12 @@ class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
 				parameters += element.toParameter('oldV', model)
 				parameters += element.toParameter('newV', model)
 				body = '''
+				«IF element.columns.size>0»
 				«FOR i : 0..(element.columns.size-1)»
 				«val c = element.columns.get(i)»
 				properties.get(«i»).setValue(«String».valueOf(newV.get«c.name.toFirstUpper»()));
 				«ENDFOR»
+				«ENDIF»
 				'''
 			]
 

@@ -1,5 +1,3 @@
-/**
- */
 package de.dc.javafx.emfsupport.website.model;
 
 import org.eclipse.emf.ecore.EObject;

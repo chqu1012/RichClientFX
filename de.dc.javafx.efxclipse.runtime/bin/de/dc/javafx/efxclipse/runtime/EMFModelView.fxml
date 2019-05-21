@@ -41,6 +41,13 @@
                                     <TreeView layoutX="-36.0" layoutY="-34.0" prefHeight="379.0" prefWidth="198.0" showRoot="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children></AnchorPane>
                         </content>
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/icons8-cardboard-box-16.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                       </Tab>
                     </tabs>
                   </TabPane>

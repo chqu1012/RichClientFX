@@ -253,20 +253,26 @@ public class JavaFXDslJvmModelInferrer extends AbstractModelInferrer {
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
             {
               int _size = element.getColumns().size();
-              int _minus = (_size - 1);
-              IntegerRange _upTo = new IntegerRange(0, _minus);
-              for(final Integer i : _upTo) {
-                final TableColumnFX c = element.getColumns().get((i).intValue());
-                _builder.newLineIfNotEmpty();
-                _builder.append("properties.get(");
-                _builder.append(i);
-                _builder.append(").setValue(");
-                _builder.append(String.class);
-                _builder.append(".valueOf(newV.get");
-                String _firstUpper = StringExtensions.toFirstUpper(c.getName());
-                _builder.append(_firstUpper);
-                _builder.append("()));");
-                _builder.newLineIfNotEmpty();
+              boolean _greaterThan = (_size > 0);
+              if (_greaterThan) {
+                {
+                  int _size_1 = element.getColumns().size();
+                  int _minus = (_size_1 - 1);
+                  IntegerRange _upTo = new IntegerRange(0, _minus);
+                  for(final Integer i : _upTo) {
+                    final TableColumnFX c = element.getColumns().get((i).intValue());
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("properties.get(");
+                    _builder.append(i);
+                    _builder.append(").setValue(");
+                    _builder.append(String.class);
+                    _builder.append(".valueOf(newV.get");
+                    String _firstUpper = StringExtensions.toFirstUpper(c.getName());
+                    _builder.append(_firstUpper);
+                    _builder.append("()));");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
               }
             }
           }
