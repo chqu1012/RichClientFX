@@ -19,6 +19,8 @@ class ApplicationTemplate implements ICustomerGenerator<Ecore>{
 			}
 			
 			public static void main(String[] args) {
+				// TODO: Should be implement dynamically!
+				new File("./workspace").mkdirs();
 				launch(args);
 			}
 		}

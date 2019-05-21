@@ -61,6 +61,12 @@ public class ApplicationTemplate implements ICustomerGenerator<Ecore> {
     _builder.append("public static void main(String[] args) {");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("// TODO: Should be implement dynamically!");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("new File(\"./workspace\").mkdirs();");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.append("launch(args);");
     _builder.newLine();
     _builder.append("\t");
