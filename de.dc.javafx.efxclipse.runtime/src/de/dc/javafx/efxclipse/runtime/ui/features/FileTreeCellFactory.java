@@ -29,6 +29,12 @@ public class FileTreeCellFactory implements Callback<TreeView<File>, TreeCell<Fi
 				} else {
 					setText(item.getName());
 					Image fileIcon = getFileIcon(item.getName());
+					if (item.isDirectory()) {
+						fileIcon = mapOfFileExtToSmallIcon.get("folder");
+						if (fileIcon==null) {
+							fileIcon = new Image("/de/dc/javafx/efxclipse/runtime/icons/icons8-opened-folder-16.png");
+						}
+					}
 					setGraphic(new ImageView(fileIcon));
 				}
 			}
