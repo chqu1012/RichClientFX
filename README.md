@@ -7,7 +7,7 @@ Eclipse Editor for generating JavaFX Controls by defining meta informations in E
 
 ### Running generated application with EMF support like Undo / Redo, PropertySheet (Optional) and Tree / Table/ List Editing.
 
-![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/EmfSupportModelApplication.PNG)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/08-EmfEdit-View-with-Toolbar.png)
 
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
