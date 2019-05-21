@@ -1,9 +1,9 @@
 # JavaFX Control Generator
 Eclipse Editor for generating JavaFX Controls by defining meta informations in EMF or in Xtext DSL. For more details, please visit the [wiki site](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/wiki)
 
-### Overview of code generation
+### Overview of code generation with Eclipse IDE Support
 
-![Code Generation](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/01-App-Generation.png)
+![Code Generation](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/09-EmfEdit-Eclipse-Support.png)
 
 ### Running generated application with EMF support like Undo / Redo, PropertySheet (Optional) and Tree / Table/ List Editing.
 
