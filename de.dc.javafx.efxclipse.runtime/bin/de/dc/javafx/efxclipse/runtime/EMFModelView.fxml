@@ -28,10 +28,22 @@
 
 <fx:root fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="root" stylesheets="@css/EMFModelView.css" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <SplitPane orientation="VERTICAL" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.65" orientation="VERTICAL" BorderPane.alignment="CENTER">
          <items>
-            <SplitPane dividerPositions="0.7612687813021702" prefHeight="200.0" prefWidth="200.0">
+            <SplitPane dividerPositions="0.167779632721202, 0.7996661101836394" prefHeight="200.0" prefWidth="200.0">
                <items>
+                  <TabPane prefHeight="399.0" prefWidth="605.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="ProjectExplorer">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TreeView layoutX="-36.0" layoutY="-34.0" prefHeight="379.0" prefWidth="198.0" showRoot="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
                   <TabPane>
                      <tabs>
                         <Tab closable="false" text="TreeEditor">
@@ -177,6 +189,32 @@
                   </TabPane>
                </items>
             </SplitPane>
+            <TabPane prefHeight="248.0" prefWidth="1198.0">
+               <tabs>
+                  <Tab closable="false" text="PropertyView">
+                     <content>
+                      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <TableView fx:id="tableView" editable="true" layoutX="8.0" layoutY="-47.0" prefHeight="180.0" prefWidth="1196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                <columns>
+                                  <TableColumn fx:id="propertyColumn" prefWidth="216.99999392032623" text="Property" />
+                                  <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="543.0" text="Value" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="propertySearchText" layoutY="2.0" onKeyReleased="#onPropertyTextFieldKeyReleased" promptText="Search for  Property" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-new-property-16.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+               </tabs>
+            </TabPane>
          </items>
       </SplitPane>
    </center>
@@ -265,32 +303,4 @@
          </children>
       </VBox>
    </top>
-   <bottom>
-      <TabPane BorderPane.alignment="CENTER">
-         <tabs>
-            <Tab closable="false" text="PropertyView">
-               <content>
-                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
-                     <children>
-                        <TableView fx:id="tableView" editable="true" layoutX="8.0" layoutY="-47.0" prefHeight="180.0" prefWidth="1196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-                          <columns>
-                            <TableColumn fx:id="propertyColumn" prefWidth="216.99999392032623" text="Property" />
-                            <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="543.0" text="Value" />
-                          </columns>
-                        </TableView>
-                        <TextField fx:id="propertySearchText" layoutY="2.0" onKeyReleased="#onPropertyTextFieldKeyReleased" promptText="Search for  Property" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-               </content>
-               <graphic>
-                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/icons8-new-property-16.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Tab>
-         </tabs>
-      </TabPane>
-   </bottom>
 </fx:root>
