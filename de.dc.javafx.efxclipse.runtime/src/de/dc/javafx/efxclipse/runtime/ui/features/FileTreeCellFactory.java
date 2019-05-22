@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import javax.swing.Icon;
 import javax.swing.filechooser.FileSystemView;
 
 import javafx.embed.swing.SwingFXUtils;
@@ -41,7 +40,7 @@ public class FileTreeCellFactory implements Callback<TreeView<File>, TreeCell<Fi
 		};
 	}
 
-	static HashMap<String, Image> mapOfFileExtToSmallIcon = new HashMap<String, Image>();
+	static HashMap<String, Image> mapOfFileExtToSmallIcon = new HashMap<>();
 
 	private static String getFileExt(String fname) {
 		String ext = ".";
@@ -54,8 +53,7 @@ public class FileTreeCellFactory implements Callback<TreeView<File>, TreeCell<Fi
 
 	private static javax.swing.Icon getJSwingIconFromFileSystem(File file) {
 		FileSystemView view = FileSystemView.getFileSystemView();
-		javax.swing.Icon icon = view.getSystemIcon(file);
-		return icon;
+		return view.getSystemIcon(file);
 	}
 
 	private static Image getFileIcon(String fname) {

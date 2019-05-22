@@ -25,14 +25,14 @@ public class FileTreeItem extends TreeItem<File> {
 	public boolean isLeaf() {
 		if (isFirstTimeLeaf) {
 			isFirstTimeLeaf = false;
-			File f = (File) getValue();
+			File f = getValue();
 			isLeaf = f.isFile();
 		}
 		return isLeaf;
 	}
 
-	private ObservableList<TreeItem<File>> buildChildren(TreeItem<File> TreeItem) {
-		File f = TreeItem.getValue();
+	private ObservableList<TreeItem<File>> buildChildren(TreeItem<File> treeItem) {
+		File f = treeItem.getValue();
 		if (f != null && f.isDirectory()) {
 			File[] files = f.listFiles();
 			if (files != null) {

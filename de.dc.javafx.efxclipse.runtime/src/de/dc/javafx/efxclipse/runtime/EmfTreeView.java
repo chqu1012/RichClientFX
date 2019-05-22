@@ -24,7 +24,7 @@ public class EmfTreeView<T> extends TreeView<Object>{
 		this.editingDomain = manager.getEditingDomain();
 
 		setRoot(new AdapterFactoryTreeItem<Object>(manager.getRoot(), manager.getAdapterFactory()));
-		treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(manager.getAdapterFactory());
+		treeCellFactory = new AdapterFactoryTreeCellFactory<>(manager.getAdapterFactory());
 
 		// adds drag support
 		treeCellFactory.addCellCreationListener(new CellDragAdapter());

@@ -7,8 +7,8 @@ import java.util.Collections;
 import java.util.EventObject;
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
+import org.apache.log4j.Logger;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
@@ -55,11 +55,11 @@ import javafx.util.StringConverter;
 
 public class EMFModelView<T> extends BorderPane implements CommandStackListener, ChangeListener<Object> {
 
-	private Logger LOG = Logger.getLogger(EMFModelView.class.getSimpleName());
+	private Logger log = Logger.getLogger(EMFModelView.class);
 
 	@FXML
 	protected TreeView<File> projectExplorerTreeView;
-	
+
 	@FXML
 	protected TreeView<Object> treeView;
 
@@ -83,7 +83,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 	@FXML
 	protected Label filePathLabel;
-	
+
 	protected IEmfManager<T> manager;
 
 	protected EObject currentEObject;
@@ -105,7 +105,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		try {
 			fxmlLoader.load();
 		} catch (IOException exception) {
-			throw new RuntimeException(exception);
+			log.error("Error loading fxml", exception);
 		}
 
 		manager.getCommandStack().addCommandStackListener(this);
@@ -119,7 +119,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 		treeView.setRoot(rootItem);
 
-		treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(manager.getAdapterFactory());
+		treeCellFactory = new AdapterFactoryTreeCellFactory<>(manager.getAdapterFactory());
 
 		// adds drag support
 		treeCellFactory.addCellCreationListener(new CellDragAdapter());
@@ -171,7 +171,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		};
 
 		eAttributeList = FXCollections.observableArrayList();
-		
+
 		projectExplorerTreeView.setCellFactory(new FileTreeCellFactory());
 		projectExplorerTreeView.setRoot(new FileTreeItem(new File("./workspace")));
 	}
@@ -183,8 +183,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 			if (searchContent == null || searchContent.isEmpty()) {
 				return true;
 			}
-			boolean filterProperties = filterProperties(searchContent, p);
-			return filterProperties;
+			return filterProperties(searchContent, p);
 		});
 	}
 
@@ -222,11 +221,6 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		historyList.getItems().addAll(commandList);
 	}
 
-	private void refreshButtons() {
-//		undoButton.setDisable(!manager.getCommandStack().canUndo());
-//		redoButton.setDisable(!manager.getCommandStack().canRedo());
-	}
-
 	private void updateProperties() {
 		properties.clear();
 		TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
@@ -237,7 +231,6 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 				for (EAttribute attr : element.eClass().getEAllAttributes()) {
 					properties.add(attr);
 				}
-				return;
 			}
 		}
 	}
@@ -271,7 +264,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	protected void onHistoryMenuItemDeleteClicked(ActionEvent event) {
 		Command selection = historyList.getSelectionModel().getSelectedItem();
 		historyList.getItems().remove(selection);
-		LOG.info("Remove command from list!");
+		log.info("Remove command from list!");
 	}
 
 	@FXML
@@ -279,7 +272,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		Command selection = historyList.getSelectionModel().getSelectedItem();
 		if (selection != null) {
 			selection.redo();
-			LOG.info("Redo successfully executed!");
+			log.info("Redo successfully executed!");
 		}
 	}
 
@@ -288,7 +281,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		Command selection = historyList.getSelectionModel().getSelectedItem();
 		if (selection != null) {
 			selection.undo();
-			LOG.info("Undo successfully executed!");
+			log.info("Undo successfully executed!");
 		}
 	}
 
@@ -297,7 +290,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		CommandStack commandStack = editingDomain.getCommandStack();
 		if (commandStack.canUndo()) {
 			commandStack.undo();
-			LOG.info("Undo successfully executed!");
+			log.info("Undo successfully executed!");
 		}
 	}
 
@@ -306,7 +299,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		CommandStack commandStack = editingDomain.getCommandStack();
 		if (commandStack.canRedo()) {
 			commandStack.redo();
-			LOG.info("Redo successfully executed!");
+			log.info("Redo successfully executed!");
 		}
 	}
 
@@ -319,9 +312,11 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 			alert.setContentText("Are you ok with this?");
 
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK) {
-				onHistoryMenuItemUndoClicked(null);
-			}
+			result.ifPresent(res -> {
+				if (res == ButtonType.OK) {
+					onHistoryMenuItemUndoClicked(null);
+				}
+			});
 		}
 	}
 }

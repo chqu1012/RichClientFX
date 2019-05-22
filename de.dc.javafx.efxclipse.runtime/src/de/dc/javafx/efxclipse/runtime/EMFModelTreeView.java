@@ -3,6 +3,7 @@ package de.dc.javafx.efxclipse.runtime;
 import java.io.IOException;
 import java.util.EventObject;
 
+import org.apache.log4j.Logger;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -25,11 +26,17 @@ import javafx.scene.layout.VBox;
 
 public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, ChangeListener<Object> {
 
-	@FXML
-	protected MenuItem newMenuItem, undoMenuItem, redoMenuItem, editMenuItem, copyMenuItem, pasteMenuItem, deleteMenuItem;
-
-	@FXML
-	protected TreeView<Object> treeView;
+	private Logger log = Logger.getLogger(EMFModelTreeView.class);
+	
+	@FXML protected MenuItem newMenuItem;
+	@FXML protected MenuItem undoMenuItem;
+	@FXML protected MenuItem redoMenuItem;
+	@FXML protected MenuItem editMenuItem;
+	@FXML protected MenuItem copyMenuItem;
+	@FXML protected MenuItem pasteMenuItem;
+	@FXML protected MenuItem deleteMenuItem;
+	
+	@FXML protected TreeView<Object> treeView;
 
 	protected EObject currentEObject;
 	protected IEmfManager<T> manager;
@@ -45,7 +52,7 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 		try {
 			fxmlLoader.load();
 		} catch (IOException exception) {
-			throw new RuntimeException(exception);
+			log.error("Error loading fxml", exception);
 		}
 		
 		this.manager = manager;
@@ -60,7 +67,7 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 
 		treeView.setRoot(rootItem);
 
-		treeCellFactory = new AdapterFactoryTreeCellFactory<Object>(manager.getAdapterFactory());
+		treeCellFactory = new AdapterFactoryTreeCellFactory<>(manager.getAdapterFactory());
 
 		// adds drag support
 		treeCellFactory.addCellCreationListener(new CellDragAdapter());

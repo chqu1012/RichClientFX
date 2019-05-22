@@ -35,7 +35,7 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 	 */
 	@Override
 	public ListCell<Command> call(ListView<Command> param) {
-		final ListCell<Command> listCell = new ListCell<Command>() {
+		return new ListCell<Command>() {
 			@Override
 			protected void updateItem(Command command, boolean empty) {
 				super.updateItem(command, empty);
@@ -54,7 +54,6 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 				}
 			}
 		};
-		return listCell;
 	}
 
 	private String prettyPrint(Command command) {
@@ -68,7 +67,7 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 			if (value == null || value.equals(setCommand.getFeature().getDefaultValue())) {
 				res = "Unset " + featureName + " in " + owner;
 			} else {
-				res = "Set " + featureName + " to \"" + String.valueOf(value) + "\" in " + owner;
+				res = "Set " + featureName + " to \"" + value + "\" in " + owner;
 			}
 		} else if (command instanceof ChangeCommand) {
 			res = command.getDescription();

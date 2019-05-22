@@ -26,12 +26,9 @@ public class EmfListView<T> extends ListView<T>{
 		this.adapterFactory = manager.getAdapterFactory();
 		this.editingDomain = manager.getEditingDomain();
 		setEditable(true);
-//		AdapterFactoryObservableList<Object> list = new AdapterFactoryObservableList<Object>(adapterFactory, manager.getRoot());
-//		setItems(list);
-		
 		setItems(new AdapterFactoryObservableList<T>(adapterFactory, manager.getRoot()));
 		
-		listCellFactory = new AdapterFactoryListCellFactory<T>(adapterFactory);
+		listCellFactory = new AdapterFactoryListCellFactory<>(adapterFactory);
 		listCellFactory.addCellCreationListener(new CellDragAdapter());
 		EditingDomainCellDropAdapter dropAdapter = new EditingDomainCellDropAdapter(editingDomain);
 		dropAdapter.setFeedbackHandler(new CustomFeedbackHandler());

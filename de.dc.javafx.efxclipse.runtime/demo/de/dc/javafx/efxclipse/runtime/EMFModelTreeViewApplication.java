@@ -7,7 +7,7 @@ public class EMFModelTreeViewApplication extends AbstractApplication {
 
 	@Override
 	protected Parent getRoot() {
-		return new EMFModelTreeView(null);
+		return new EMFModelTreeView<>(null);
 	}
 	
 	public static void main(String[] args) {
