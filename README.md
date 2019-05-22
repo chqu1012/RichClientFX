@@ -6,8 +6,23 @@ Eclipse Editor for generating JavaFX Controls by defining meta informations in E
 ![Code Generation](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/09-EmfEdit-Eclipse-Support.png)
 
 ### Running generated application with EMF support like Undo / Redo, PropertySheet (Optional) and Tree / Table/ List Editing.
+This application contains on the generation:
+* Workbench
+* ProjectExplorer
+* Workspace
+* EMF Model TreeEditor
+* PropertyView
+* HistoryView for Undo / Redo
+* ContextMenu with commands: 
+** New item creation
+** Copy / Paste
+** Edit
+** Delete
+** Duplicate
+** Undo / Redo
+* Command Acceleration Binding for Undo / Redo
 
-![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/08-EmfEdit-View-with-Toolbar.png)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/10-EmfEdit-ProjectExplorer.png)
 
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
