@@ -5,7 +5,8 @@ import javafx.scene.control.Label;
 
 public class BaseKeyValueTile extends BaseTile {
 
-	@FXML Label valueLabel, keyLabel;
+	@FXML Label valueLabel;
+	@FXML Label keyLabel;
 
 	public BaseKeyValueTile(String key) {
 		super(key);

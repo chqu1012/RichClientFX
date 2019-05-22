@@ -13,13 +13,12 @@ public class ContactListView extends BaseListView<Contact> {
 
 	@Override
 	protected void onViewSelectionChanged(Contact oldV, Contact newV) {
-		// TODO Auto-generated method stub
-		
+		throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	@Override
 	protected void initProperties(ObservableList<PropertyValue> properties) {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	@Override

@@ -21,7 +21,7 @@ public abstract class BaseTableView<T> extends BaseView<T> {
 	@Override
 	protected Node getCenterPane() {
 		columns = new HashMap<>();
-		view = new TableView<T>();
+		view = new TableView<>();
 		return view;
 	}
 
@@ -57,14 +57,14 @@ public abstract class BaseTableView<T> extends BaseView<T> {
 		filteredMasterData.predicateProperty().bind(initSearchfilterBinding());
 	}
 
-	protected abstract ObservableValue<? extends Predicate<? super T>> initSearchfilterBinding();
+	protected abstract ObservableValue<Predicate<? super T>> initSearchfilterBinding();
 
 	protected abstract void initColumns();
 
 	protected abstract void onViewSelectionChanged(T oldV, T newV);
 
 	protected TableColumn<T,T> createColumn(String name, Double width, Callback<TableColumn.CellDataFeatures<T, T>, ObservableValue<T>> cellFeatures) {
-		TableColumn<T, T> column = new TableColumn<T,T>(name);
+		TableColumn<T, T> column = new TableColumn<>(name);
 		column.setPrefWidth(width);
 		column.setCellValueFactory(cellFeatures);
 		columns.put(name, column);

@@ -1,7 +1,5 @@
 package de.dc.javafx.xcore.lang.lib.codeeditor;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -45,20 +43,14 @@ public class CodeEditorExample extends Application {
     final Label labeledCode = new Label(editingCode);
     final CodeEditor editor = new CodeEditor(editingCode);
     final Button revertEdits = new Button("Revert edits");
-    revertEdits.setOnAction(new EventHandler<ActionEvent>() {
-      @Override public void handle(ActionEvent actionEvent) {
-        editor.revertEdits();
-      }
-    });
+    revertEdits.setOnAction(actionEvent -> editor.revertEdits());
     final Button copyCode = new Button(
       "Take a snapshot from the editor and set a revert point"
     );
-    copyCode.setOnAction(new EventHandler<ActionEvent>() {
-      @Override public void handle(ActionEvent actionEvent) {
+    copyCode.setOnAction(actionEvent -> {
         labeledCode.setText(editor.getCodeAndSnapshot());
         System.out.println(editor.getCodeAndSnapshot());
-      }
-    });
+      });
 
     // layout the scene.
     final VBox layout = VBoxBuilder.create().spacing(10).children(

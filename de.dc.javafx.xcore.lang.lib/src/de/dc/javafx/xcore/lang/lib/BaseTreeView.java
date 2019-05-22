@@ -63,8 +63,8 @@ public abstract class BaseTreeView<T extends TreeElement> extends BaseView<T> {
 	
 	@Override
 	protected Node getCenterPane() {
-		rootNode = new TreeItem<T>();
-		registry = new HashMap<String, TreeItem<T>>();
+		rootNode = new TreeItem<>();
+		registry = new HashMap<>();
 		treeView = new TreeView<>();
 		return treeView;
 	}

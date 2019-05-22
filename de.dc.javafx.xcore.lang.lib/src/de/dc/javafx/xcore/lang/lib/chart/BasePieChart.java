@@ -2,7 +2,6 @@ package de.dc.javafx.xcore.lang.lib.chart;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.chart.PieChart;
 import javafx.scene.effect.DropShadow;
@@ -39,12 +38,7 @@ public abstract class BasePieChart extends PieChart {
 				data.getNode().setEffect(null);
 				data.getNode().setCursor(Cursor.DEFAULT);
 			});
-			data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-				@Override
-				public void handle(MouseEvent e) {
-					System.out.println(String.valueOf(data.getPieValue()) + "%");
-				}
-			});
+			data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, e -> System.out.println(String.valueOf(data.getPieValue()) + "%"));
 		}
 	}
 }

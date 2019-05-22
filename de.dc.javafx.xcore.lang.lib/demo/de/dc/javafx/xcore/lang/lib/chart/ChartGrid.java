@@ -6,7 +6,6 @@ import javafx.event.*;
 import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.chart.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -60,11 +59,7 @@ public class ChartGrid extends Application {
       grow.setToX(2);   grow.setToY(2);
 
       final SequentialTransition explode = new SequentialTransition(chart, toCenter, grow);
-      explode.setOnFinished(new EventHandler<ActionEvent>() {
-          @Override public void handle(ActionEvent t) {
-              chart.getParent().setMouseTransparent(false);
-          }
-      });
+      explode.setOnFinished(t -> chart.getParent().setMouseTransparent(false));
 
       final TranslateTransition fromCenter = new TranslateTransition(Duration.millis(250));
       final ScaleTransition shrink = new ScaleTransition(Duration.millis(250), chart);
@@ -72,48 +67,44 @@ public class ChartGrid extends Application {
       shrink.setToX(1);   shrink.setToY(1);
 
       final SequentialTransition implode = new SequentialTransition(chart, shrink, fromCenter);
-      implode.setOnFinished(new EventHandler<ActionEvent>() {
-          @Override public void handle(ActionEvent t) {
-              chart.getParent().setMouseTransparent(false);
-          }
-      });
+      implode.setOnFinished(t -> chart.getParent().setMouseTransparent(false));
       
-      chart.setOnMouseClicked(new EventHandler<MouseEvent>() {
-          @Override public void handle(MouseEvent t) {
-              chart.getParent().setMouseTransparent(true);
-              chart.toFront();
-              
-              if (!enlarged.get()) {
-                  toCenter.setByX(
-                      chart.getWidth()  / 2 * 
-                      ((pos == Pos.TOP_RIGHT   || pos == Pos.BOTTOM_RIGHT) ? -1 : 1)
-                  );
-                  toCenter.setByY(
-                      chart.getHeight()  / 2 * 
-                      ((pos == Pos.BOTTOM_LEFT || pos == Pos.BOTTOM_RIGHT) ? -1 : 1)
-                  );
-                  explode.play();
-              } else {
-                  fromCenter.setByX(
-                      chart.getWidth()  / 2 * 
-                      ((pos == Pos.TOP_RIGHT   || pos == Pos.BOTTOM_RIGHT) ? 1 : -1)
-                  );
-                  fromCenter.setByY(
-                      chart.getHeight()  / 2 * 
-                      ((pos == Pos.BOTTOM_LEFT || pos == Pos.BOTTOM_RIGHT) ? 1 : -1)
-                  );
-                  implode.play();
-              }
-              
-              enlarged.set(!enlarged.get());
-          }
-      });
+      chart.setOnMouseClicked(t -> {
+	      chart.getParent().setMouseTransparent(true);
+	      chart.toFront();
+	      
+	      if (!enlarged.get()) {
+	          toCenter.setByX(
+	              chart.getWidth()  / 2 * 
+	              ((pos == Pos.TOP_RIGHT   || pos == Pos.BOTTOM_RIGHT) ? -1 : 1)
+	          );
+	          toCenter.setByY(
+	              chart.getHeight()  / 2 * 
+	              ((pos == Pos.BOTTOM_LEFT || pos == Pos.BOTTOM_RIGHT) ? -1 : 1)
+	          );
+	          explode.play();
+	      } else {
+	          fromCenter.setByX(
+	              chart.getWidth()  / 2 * 
+	              ((pos == Pos.TOP_RIGHT   || pos == Pos.BOTTOM_RIGHT) ? 1 : -1)
+	          );
+	          fromCenter.setByY(
+	              chart.getHeight()  / 2 * 
+	              ((pos == Pos.BOTTOM_LEFT || pos == Pos.BOTTOM_RIGHT) ? 1 : -1)
+	          );
+	          implode.play();
+	      }
+	      
+	      enlarged.set(!enlarged.get());
+	  });
       
       switch (pos) {
           case TOP_LEFT:     chart.setStyle("-fx-background-color: lemonchiffon"); break;
           case TOP_RIGHT:    chart.setStyle("-fx-background-color: aliceblue");    break;
           case BOTTOM_LEFT:  chart.setStyle("-fx-background-color: aliceblue");    break;
           case BOTTOM_RIGHT: chart.setStyle("-fx-background-color: lemonchiffon"); break;
+          default:
+        	  break;
       }
       
       return chart;

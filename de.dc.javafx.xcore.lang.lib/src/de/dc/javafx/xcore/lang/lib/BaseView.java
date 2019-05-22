@@ -1,8 +1,5 @@
 package de.dc.javafx.xcore.lang.lib;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import de.dc.javafx.xcore.lang.lib.model.PropertyValue;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;

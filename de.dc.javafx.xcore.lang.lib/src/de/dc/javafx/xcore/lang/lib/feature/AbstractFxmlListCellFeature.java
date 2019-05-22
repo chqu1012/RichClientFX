@@ -2,6 +2,8 @@ package de.dc.javafx.xcore.lang.lib.feature;
 
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ListCell;
@@ -15,6 +17,7 @@ import javafx.scene.control.ListCell;
  */
 public abstract class AbstractFxmlListCellFeature<T> extends ListCell<T> {
 
+	private Logger log = Logger.getLogger(AbstractFxmlListCellFeature.class);
     protected FXMLLoader mLLoader;
 
     @Override
@@ -33,7 +36,7 @@ public abstract class AbstractFxmlListCellFeature<T> extends ListCell<T> {
                 try {
                     mLLoader.load();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                	log.error("Error on loading fxml", e);
                 }
 
             }

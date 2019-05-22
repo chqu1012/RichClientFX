@@ -20,7 +20,7 @@ public class CodeEditor extends StackPane {
    * supported modes at http://codemirror.net to allow syntax highlighted editing of
    * a wide variety of languages.
    */
-  private final String editingTemplate =
+  private static final String editingTemplate =
     "<!doctype html>" +
     "<html>" +
     "<head>" +

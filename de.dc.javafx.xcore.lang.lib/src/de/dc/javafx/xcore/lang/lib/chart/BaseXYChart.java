@@ -28,7 +28,7 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 	protected Map<String, Series<X, Y>> series = new HashMap<>();
 	protected DropShadow ds = new DropShadow();
 
-	final double SCALE_DELTA = 1.1;
+	static final double SCALE_DELTA = 1.1;
 	private Rectangle zoomRect;
 	protected Axis<X> xAxis;
 	protected Axis<Y> yAxis;
@@ -124,7 +124,7 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 	}
 
 	public Series<X, Y> addSerie(String name) {
-		Series<X, Y> serie = new Series<X, Y>();
+		Series<X, Y> serie = new Series<>();
 		serie.setName(name);
 
 		chart.getData().add(serie);
@@ -154,7 +154,7 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 
 	private void darkenSeriesOnHover(Series<X, Y> series) {
 		Node seriesNode = series.getNode();
-		if (seriesNode != null && seriesNode instanceof Path) {
+		if (seriesNode instanceof Path) {
 			seriesNode.setOnMouseEntered(arg0 -> {
 				seriesNode.setEffect(ds);
 				seriesNode.setCursor(Cursor.HAND);
