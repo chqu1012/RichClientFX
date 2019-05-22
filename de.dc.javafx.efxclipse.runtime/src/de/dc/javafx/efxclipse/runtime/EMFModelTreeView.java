@@ -2,6 +2,7 @@ package de.dc.javafx.efxclipse.runtime;
 
 import java.io.IOException;
 import java.util.EventObject;
+import java.util.logging.Logger;
 
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EObject;
