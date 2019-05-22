@@ -22,6 +22,9 @@ import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
 public abstract class BaseWizardPage<T> extends WizardPage{
 
+	public static final String DEFAULT_DESCRIPTION = "This wizard creates a new file with *.javafxlang extension that can be opened by a JavaFX Lang Editor.";
+	public static final String DEFAULT_FILE_EXTENSTION = "javafxlang";
+	
 	protected T model;
 	protected ISelection selection;
 
@@ -38,7 +41,7 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 	}
 
 	private String description() {
-		return "This wizard creates a new file with *.javafxlang extension that can be opened by a JavaFX Lang Editor.";
+		return DEFAULT_DESCRIPTION;
 	}
 
 	protected abstract String title();
@@ -61,6 +64,7 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 		Button button = new Button(container, SWT.PUSH);
 		button.setText("Browse...");
 		button.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				handleBrowse();
 			}
@@ -158,7 +162,7 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
 			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase(getFileExtension()) == false) {
+			if (!ext.equalsIgnoreCase(getFileExtension())) {
 				updateStatus("File extension must be \""+getFileExtension()+"\"");
 				return;
 			}
@@ -170,7 +174,7 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 	}
 	
 	protected String getFileExtension() {
-		return "javafxlang";
+		return DEFAULT_FILE_EXTENSTION;
 	}
 
 	protected abstract void fillModel();
@@ -181,7 +185,7 @@ public abstract class BaseWizardPage<T> extends WizardPage{
 	}
 	
 	protected void initialize() {
-		if (selection != null && selection.isEmpty() == false
+		if (selection != null && !selection.isEmpty()
 				&& selection instanceof IStructuredSelection) {
 			IStructuredSelection ssel = (IStructuredSelection) selection;
 			if (ssel.size() > 1)

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -26,12 +27,13 @@ import org.eclipse.ui.ide.IDE;
 
 public abstract class BaseWizard<T> extends Wizard implements INewWizard {
 	
+	private Logger log = Logger.getLogger(BaseWizard.class);
+	
 	protected BaseWizardPage<T> page;
 	protected ISelection selection;
 	protected T model;
 
 	public BaseWizard(ISelection selection, T model) {
-		super();
 		this.selection = selection;
 		this.model = model;
 		setNeedsProgressMonitor(true);
@@ -63,7 +65,7 @@ public abstract class BaseWizard<T> extends Wizard implements INewWizard {
 		} catch (InterruptedException e) {
 			return false;
 		} catch (InvocationTargetException e) {
-			e.printStackTrace();
+			log.error("Error running progress", e);
 		}
 		return true;
 	}
@@ -87,15 +89,17 @@ public abstract class BaseWizard<T> extends Wizard implements INewWizard {
 			}
 			stream.close();
 		} catch (IOException e) {
+			log.error("Error creating file", e);
 		}
 		monitor.worked(1);
 		monitor.setTaskName("Opening file for editing...");
 		getShell().getDisplay().asyncExec(() -> {
-			IWorkbenchPage page =
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 			try {
+				IWorkbenchPage page =
+						PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 				IDE.openEditor(page, file, true);
 			} catch (PartInitException e) {
+				log.error("Error on open editor with file "+file.getName(), e);
 			}
 		});
 		monitor.worked(1);
@@ -113,9 +117,4 @@ public abstract class BaseWizard<T> extends Wizard implements INewWizard {
 			new Status(IStatus.ERROR, "de.dc.javafx.xcore.lang.ide", IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
-
-//	@Override
-//	public void init(IWorkbench workbench, IStructuredSelection selection) {
-//		this.selection = selection;
-//	}
 }

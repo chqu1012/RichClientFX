@@ -10,10 +10,6 @@ import org.eclipse.ui.part.ViewPart;
 
 public class JavaFXPreview extends ViewPart implements ISelectionListener{
 
-	public JavaFXPreview() {
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public void createPartControl(Composite parent) {
 		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService().addSelectionListener(this);
@@ -21,13 +17,10 @@ public class JavaFXPreview extends ViewPart implements ISelectionListener{
 
 	@Override
 	public void setFocus() {
-
 	}
 
 	@Override
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-		System.out.println("part: "+part);
-		System.out.println("selection: "+selection);
 		if (selection instanceof TextSelection) {
 			TextSelection new_name = (TextSelection) selection;
 			

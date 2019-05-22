@@ -7,8 +7,7 @@ public class JavaFXLangPerspective implements IPerspectiveFactory {
 
 	@Override
 	public void createInitialLayout(IPageLayout layout) {
-		// TODO Auto-generated method stub
-
+		layout.setEditorAreaVisible(true);
 	}
 
 }
