@@ -5,7 +5,7 @@
 	richClientPlatform="true", 
 	codeFormatting="true",
 	importerID="org.eclipse.emf.importer.ecore", 
-	runtimePlatform="RCP")
+	runtimePlatform="RCP", fileExtensions="website")
 package de.dc.javafx.emfsupport.website.model
 
 class Website{ 

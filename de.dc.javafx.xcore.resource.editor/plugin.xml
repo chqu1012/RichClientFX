@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="ResourceEditorAdvisorApplication">
+      <!-- @generated resource -->
+      <application>
+         <run class="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated resource -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisor$Perspective"
+            id="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated resource -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated resource -->
+      <key
+            commandId="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated resource -->
+      <actionSet
+            label="%_UI_ResourceEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="ResourceEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorOpenURICommand"
+               class="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorOpenCommand"
+               class="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.resource.presentation.ResourceEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated resource -->
+      <actionSet
+            label="%_UI_ResourceModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.javafx.xcore.resource.presentation.ResourceActionBarContributorActionSet">
+         <action
+               label="%_UI_ResourceModelWizard_label"
+               class="de.dc.javafx.xcore.resource.presentation.ResourceActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.javafx.xcore.resource.presentation.ResourceActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated resource -->
+      <editor
+            id="de.dc.javafx.xcore.resource.presentation.ResourceEditorID"
+            name="%_UI_ResourceEditor_label"
+            icon="icons/full/obj16/ResourceModelFile.gif"
+            extensions="resource"
+            class="de.dc.javafx.xcore.resource.presentation.ResourceEditor"
+            contributorClass="de.dc.javafx.xcore.resource.presentation.ResourceActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

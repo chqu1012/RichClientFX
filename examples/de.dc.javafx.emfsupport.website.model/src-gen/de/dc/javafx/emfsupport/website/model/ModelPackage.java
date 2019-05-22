@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.dc.javafx.emfsupport.website.model.ModelFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.emfsupport.website.model.edit/src-gen' editorDirectory='/de.dc.javafx.emfsupport.website.model.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' basePackage='de.dc.javafx.emfsupport.website'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.emfsupport.website.model.edit/src-gen' editorDirectory='/de.dc.javafx.emfsupport.website.model.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' fileExtensions='website' basePackage='de.dc.javafx.emfsupport.website'"
  * @generated
  */
 public interface ModelPackage extends EPackage {

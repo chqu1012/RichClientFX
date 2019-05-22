@@ -14,11 +14,13 @@ public class BaseWebsiteModelViewApplication extends AbstractApplication {
   }
   
   public IEmfManager<Website> getManager() {
-    return new BaseWebsiteModelManager();
+    BaseWebsiteModelManager manager = new BaseWebsiteModelManager();
+	return manager;
   }
   
   public EMFModelView<Website> getView(final IEmfManager<Website> manager) {
-    return new BaseWebsiteModelView(manager);
+    BaseWebsiteModelView view = new BaseWebsiteModelView(manager);
+	return view;
   }
   
   public static void main(final String[] args) {

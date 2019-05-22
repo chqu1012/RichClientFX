@@ -1,0 +1,369 @@
+/**
+ */
+package de.dc.javafx.xcore.resource;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Package</b> for the model.
+ * It contains accessors for the meta objects to represent
+ * <ul>
+ *   <li>each class,</li>
+ *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
+ *   <li>each enum,</li>
+ *   <li>and each data type</li>
+ * </ul>
+ * <!-- end-user-doc -->
+ * @see de.dc.javafx.xcore.resource.ResourceFactory
+ * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.xcore.resource.edit/src-gen' editorDirectory='/de.dc.javafx.xcore.resource.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' fileExtensions='resource' basePackage='de.dc.javafx.xcore'"
+ * @generated
+ */
+public interface ResourcePackage extends EPackage {
+	/**
+	 * The package name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNAME = "resource";
+
+	/**
+	 * The package namespace URI.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNS_URI = "http://www.frateranatis.org/project";
+
+	/**
+	 * The package namespace name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNS_PREFIX = "resource";
+
+	/**
+	 * The singleton instance of the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	ResourcePackage eINSTANCE = de.dc.javafx.xcore.resource.impl.ResourcePackageImpl.init();
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.WorkspaceImpl <em>Workspace</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.WorkspaceImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getWorkspace()
+	 * @generated
+	 */
+	int WORKSPACE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Projects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE__PROJECTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Workspace</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Workspace</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.ProjectImpl <em>Project</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.ProjectImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getProject()
+	 * @generated
+	 */
+	int PROJECT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__RESOURCES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Project</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Project</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.ResourceImpl <em>Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.ResourceImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getResource()
+	 * @generated
+	 */
+	int RESOURCE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Is Directory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__IS_DIRECTORY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_OPERATION_COUNT = 0;
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.Workspace <em>Workspace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Workspace</em>'.
+	 * @see de.dc.javafx.xcore.resource.Workspace
+	 * @generated
+	 */
+	EClass getWorkspace();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.resource.Workspace#getProjects <em>Projects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Projects</em>'.
+	 * @see de.dc.javafx.xcore.resource.Workspace#getProjects()
+	 * @see #getWorkspace()
+	 * @generated
+	 */
+	EReference getWorkspace_Projects();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.Project <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Project</em>'.
+	 * @see de.dc.javafx.xcore.resource.Project
+	 * @generated
+	 */
+	EClass getProject();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.Project#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.resource.Project#getName()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EAttribute getProject_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.resource.Project#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see de.dc.javafx.xcore.resource.Project#getResources()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EReference getProject_Resources();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.Resource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource</em>'.
+	 * @see de.dc.javafx.xcore.resource.Resource
+	 * @generated
+	 */
+	EClass getResource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.Resource#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.resource.Resource#getName()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.Resource#isIsDirectory <em>Is Directory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Directory</em>'.
+	 * @see de.dc.javafx.xcore.resource.Resource#isIsDirectory()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_IsDirectory();
+
+	/**
+	 * Returns the factory that creates the instances of the model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the factory that creates the instances of the model.
+	 * @generated
+	 */
+	ResourceFactory getResourceFactory();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Defines literals for the meta objects that represent
+	 * <ul>
+	 *   <li>each class,</li>
+	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
+	 *   <li>each enum,</li>
+	 *   <li>and each data type</li>
+	 * </ul>
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	interface Literals {
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.WorkspaceImpl <em>Workspace</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.WorkspaceImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getWorkspace()
+		 * @generated
+		 */
+		EClass WORKSPACE = eINSTANCE.getWorkspace();
+
+		/**
+		 * The meta object literal for the '<em><b>Projects</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WORKSPACE__PROJECTS = eINSTANCE.getWorkspace_Projects();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.ProjectImpl <em>Project</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.ProjectImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getProject()
+		 * @generated
+		 */
+		EClass PROJECT = eINSTANCE.getProject();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT__NAME = eINSTANCE.getProject_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT__RESOURCES = eINSTANCE.getProject_Resources();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.ResourceImpl <em>Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.ResourceImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getResource()
+		 * @generated
+		 */
+		EClass RESOURCE = eINSTANCE.getResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Directory</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__IS_DIRECTORY = eINSTANCE.getResource_IsDirectory();
+
+	}
+
+} //ResourcePackage

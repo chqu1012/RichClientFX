@@ -1,0 +1,24 @@
+@Ecore(nsURI="http://www.frateranatis.org/project")
+@GenModel(multipleEditorPages="false", creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.resource.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.resource.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="resource")
+package de.dc.javafx.xcore.resource
+
+class Workspace{
+	contains Project[0..*] projects
+}
+
+class Project{
+	String name
+	contains Resource[0..*] resources
+}
+
+class Resource{
+	String name
+	boolean isDirectory='false'
+}
