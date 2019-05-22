@@ -14,13 +14,15 @@ This application contains on the generation:
 * PropertyView
 * HistoryView for Undo / Redo
 * ContextMenu with commands: 
-** New item creation
-** Copy / Paste
-** Edit
-** Delete
-** Duplicate
-** Undo / Redo
+	* New item creation
+	* Copy / Paste
+	* Edit
+	* Delete
+	* Duplicate
+	* Undo / Redo
 * Command Acceleration Binding for Undo / Redo
+* Theme switching
+* Default dark theme
 
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/10-EmfEdit-ProjectExplorer.png)
 
