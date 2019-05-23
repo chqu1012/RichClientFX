@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see de.dc.javafx.xcore.resource.ResourcePackage#getResource()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Resource extends EObject {

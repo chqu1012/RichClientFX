@@ -87,6 +87,16 @@ public class ResourceAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSourceFolder(SourceFolder object) {
+			return createSourceFolderAdapter();
+		}
+
+		@Override
+		public Adapter caseResourceFolder(ResourceFolder object) {
+			return createResourceFolderAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -158,6 +168,34 @@ public class ResourceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.resource.SourceFolder <em>Source Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.resource.SourceFolder
+	 * @generated
+	 */
+	public Adapter createSourceFolderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.resource.ResourceFolder <em>Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.resource.ResourceFolder
+	 * @generated
+	 */
+	public Adapter createResourceFolderAdapter() {
 		return null;
 	}
 

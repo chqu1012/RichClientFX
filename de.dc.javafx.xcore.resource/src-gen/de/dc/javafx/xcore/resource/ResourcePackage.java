@@ -251,6 +251,116 @@ public interface ResourcePackage extends EPackage {
 	int RESOURCE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.SourceFolderImpl <em>Source Folder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.SourceFolderImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getSourceFolder()
+	 * @generated
+	 */
+	int SOURCE_FOLDER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__NAME = RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ext</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__EXT = RESOURCE__EXT;
+
+	/**
+	 * The feature id for the '<em><b>Is Directory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__IS_DIRECTORY = RESOURCE__IS_DIRECTORY;
+
+	/**
+	 * The number of structural features of the '<em>Source Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Source Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.ResourceFolderImpl <em>Folder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.ResourceFolderImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getResourceFolder()
+	 * @generated
+	 */
+	int RESOURCE_FOLDER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_FOLDER__NAME = RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ext</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_FOLDER__EXT = RESOURCE__EXT;
+
+	/**
+	 * The feature id for the '<em><b>Is Directory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_FOLDER__IS_DIRECTORY = RESOURCE__IS_DIRECTORY;
+
+	/**
+	 * The number of structural features of the '<em>Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_FOLDER_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_FOLDER_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.Workspace <em>Workspace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,6 +500,26 @@ public interface ResourcePackage extends EPackage {
 	EAttribute getResource_IsDirectory();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.SourceFolder <em>Source Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Source Folder</em>'.
+	 * @see de.dc.javafx.xcore.resource.SourceFolder
+	 * @generated
+	 */
+	EClass getSourceFolder();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.ResourceFolder <em>Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Folder</em>'.
+	 * @see de.dc.javafx.xcore.resource.ResourceFolder
+	 * @generated
+	 */
+	EClass getResourceFolder();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -523,6 +653,26 @@ public interface ResourcePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE__IS_DIRECTORY = eINSTANCE.getResource_IsDirectory();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.SourceFolderImpl <em>Source Folder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.SourceFolderImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getSourceFolder()
+		 * @generated
+		 */
+		EClass SOURCE_FOLDER = eINSTANCE.getSourceFolder();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.ResourceFolderImpl <em>Folder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.ResourceFolderImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getResourceFolder()
+		 * @generated
+		 */
+		EClass RESOURCE_FOLDER = eINSTANCE.getResourceFolder();
 
 	}
 

@@ -6,7 +6,9 @@ import de.dc.javafx.xcore.resource.Nature;
 import de.dc.javafx.xcore.resource.Project;
 import de.dc.javafx.xcore.resource.Resource;
 import de.dc.javafx.xcore.resource.ResourceFactory;
+import de.dc.javafx.xcore.resource.ResourceFolder;
 import de.dc.javafx.xcore.resource.ResourcePackage;
+import de.dc.javafx.xcore.resource.SourceFolder;
 import de.dc.javafx.xcore.resource.Workspace;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -51,6 +53,20 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	private EClass resourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sourceFolderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceFolderEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -255,6 +271,26 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
+	public EClass getSourceFolder() {
+		return sourceFolderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getResourceFolder() {
+		return resourceFolderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ResourceFactory getResourceFactory() {
 		return (ResourceFactory) getEFactoryInstance();
 	}
@@ -295,6 +331,10 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		createEAttribute(resourceEClass, RESOURCE__NAME);
 		createEAttribute(resourceEClass, RESOURCE__EXT);
 		createEAttribute(resourceEClass, RESOURCE__IS_DIRECTORY);
+
+		sourceFolderEClass = createEClass(SOURCE_FOLDER);
+
+		resourceFolderEClass = createEClass(RESOURCE_FOLDER);
 	}
 
 	/**
@@ -329,6 +369,8 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sourceFolderEClass.getESuperTypes().add(this.getResource());
+		resourceFolderEClass.getESuperTypes().add(this.getResource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workspaceEClass, Workspace.class, "Workspace", !IS_ABSTRACT, !IS_INTERFACE,
@@ -356,8 +398,7 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
-		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Resource.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
@@ -367,6 +408,12 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		initEAttribute(getResource_IsDirectory(), theEcorePackage.getEBoolean(), "isDirectory", "false", 0, 1,
 				Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(sourceFolderEClass, SourceFolder.class, "SourceFolder", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(resourceFolderEClass, ResourceFolder.class, "ResourceFolder", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

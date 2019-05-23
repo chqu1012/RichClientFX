@@ -142,26 +142,49 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.Resource} instances.
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.SourceFolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceItemProvider resourceItemProvider;
+	protected SourceFolderItemProvider sourceFolderItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.Resource}.
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.SourceFolder}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResourceAdapter() {
-		if (resourceItemProvider == null) {
-			resourceItemProvider = new ResourceItemProvider(this);
+	public Adapter createSourceFolderAdapter() {
+		if (sourceFolderItemProvider == null) {
+			sourceFolderItemProvider = new SourceFolderItemProvider(this);
 		}
 
-		return resourceItemProvider;
+		return sourceFolderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.ResourceFolder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceFolderItemProvider resourceFolderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.ResourceFolder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceFolderAdapter() {
+		if (resourceFolderItemProvider == null) {
+			resourceFolderItemProvider = new ResourceFolderItemProvider(this);
+		}
+
+		return resourceFolderItemProvider;
 	}
 
 	/**
@@ -275,8 +298,10 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 			projectItemProvider.dispose();
 		if (natureItemProvider != null)
 			natureItemProvider.dispose();
-		if (resourceItemProvider != null)
-			resourceItemProvider.dispose();
+		if (sourceFolderItemProvider != null)
+			sourceFolderItemProvider.dispose();
+		if (resourceFolderItemProvider != null)
+			resourceFolderItemProvider.dispose();
 	}
 
 }

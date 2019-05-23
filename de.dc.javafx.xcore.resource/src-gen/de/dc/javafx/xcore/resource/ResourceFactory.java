@@ -49,13 +49,22 @@ public interface ResourceFactory extends EFactory {
 	Nature createNature();
 
 	/**
-	 * Returns a new object of class '<em>Resource</em>'.
+	 * Returns a new object of class '<em>Source Folder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource</em>'.
+	 * @return a new object of class '<em>Source Folder</em>'.
 	 * @generated
 	 */
-	Resource createResource();
+	SourceFolder createSourceFolder();
+
+	/**
+	 * Returns a new object of class '<em>Folder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Folder</em>'.
+	 * @generated
+	 */
+	ResourceFolder createResourceFolder();
 
 	/**
 	 * Returns the package supported by this factory.

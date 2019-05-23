@@ -24,8 +24,12 @@ class Nature{
 	String projectType
 }
 
-class Resource{
+abstract class Resource{
 	String name
 	String ext
 	boolean isDirectory='false'
 }
+
+class SourceFolder extends Resource{}
+
+class ResourceFolder extends Resource{}

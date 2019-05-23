@@ -179,7 +179,10 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 				ResourceFactory.eINSTANCE.createNature()));
 
 		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.PROJECT__RESOURCES,
-				ResourceFactory.eINSTANCE.createResource()));
+				ResourceFactory.eINSTANCE.createSourceFolder()));
+
+		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.PROJECT__RESOURCES,
+				ResourceFactory.eINSTANCE.createResourceFolder()));
 	}
 
 	/**
