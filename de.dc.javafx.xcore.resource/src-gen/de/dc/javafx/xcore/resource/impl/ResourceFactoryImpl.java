@@ -62,10 +62,10 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 			return createProject();
 		case ResourcePackage.NATURE:
 			return createNature();
-		case ResourcePackage.SOURCE_FOLDER:
-			return createSourceFolder();
-		case ResourcePackage.RESOURCE_FOLDER:
-			return createResourceFolder();
+		case ResourcePackage.FOLDER:
+			return createFolder();
+		case ResourcePackage.FILE:
+			return createFile();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -110,9 +110,9 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 	 * @generated
 	 */
 	@Override
-	public SourceFolder createSourceFolder() {
-		SourceFolderImpl sourceFolder = new SourceFolderImpl();
-		return sourceFolder;
+	public Folder createFolder() {
+		FolderImpl folder = new FolderImpl();
+		return folder;
 	}
 
 	/**
@@ -121,9 +121,9 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 	 * @generated
 	 */
 	@Override
-	public ResourceFolder createResourceFolder() {
-		ResourceFolderImpl resourceFolder = new ResourceFolderImpl();
-		return resourceFolder;
+	public File createFile() {
+		FileImpl file = new FileImpl();
+		return file;
 	}
 
 	/**

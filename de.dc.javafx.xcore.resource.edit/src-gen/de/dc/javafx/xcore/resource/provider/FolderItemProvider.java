@@ -2,7 +2,7 @@
  */
 package de.dc.javafx.xcore.resource.provider;
 
-import de.dc.javafx.xcore.resource.Project;
+import de.dc.javafx.xcore.resource.Folder;
 import de.dc.javafx.xcore.resource.ResourceFactory;
 import de.dc.javafx.xcore.resource.ResourcePackage;
 
@@ -12,36 +12,27 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.resource.Project} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.resource.Folder} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class FolderItemProvider extends ResourceItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProjectItemProvider(AdapterFactory adapterFactory) {
+	public FolderItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,9 +61,9 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Project_name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Project_name_feature", "_UI_Project_type"),
-						ResourcePackage.Literals.PROJECT__NAME, true, false, false,
+						getResourceLocator(), getString("_UI_Folder_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Folder_name_feature", "_UI_Folder_type"),
+						ResourcePackage.Literals.FOLDER__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -88,8 +79,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ResourcePackage.Literals.PROJECT__NATURE);
-			childrenFeatures.add(ResourcePackage.Literals.PROJECT__RESOURCES);
+			childrenFeatures.add(ResourcePackage.Literals.FOLDER__RESOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -108,14 +98,14 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	}
 
 	/**
-	 * This returns Project.gif.
+	 * This returns Folder.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Project"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Folder"));
 	}
 
 	/**
@@ -136,9 +126,9 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Project) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Project_type")
-				: getString("_UI_Project_type") + " " + label;
+		String label = ((Folder) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Folder_type")
+				: getString("_UI_Folder_type") + " " + label;
 	}
 
 	/**
@@ -152,12 +142,11 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Project.class)) {
-		case ResourcePackage.PROJECT__NAME:
+		switch (notification.getFeatureID(Folder.class)) {
+		case ResourcePackage.FOLDER__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case ResourcePackage.PROJECT__NATURE:
-		case ResourcePackage.PROJECT__RESOURCES:
+		case ResourcePackage.FOLDER__RESOURCES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -175,25 +164,11 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.PROJECT__NATURE,
-				ResourceFactory.eINSTANCE.createNature()));
-
-		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.PROJECT__RESOURCES,
+		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.FOLDER__RESOURCES,
 				ResourceFactory.eINSTANCE.createFolder()));
 
-		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.PROJECT__RESOURCES,
+		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.FOLDER__RESOURCES,
 				ResourceFactory.eINSTANCE.createFile()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ResourceEditPlugin.INSTANCE;
 	}
 
 }

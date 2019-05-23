@@ -2,9 +2,6 @@
  */
 package de.dc.javafx.xcore.resource.provider;
 
-import de.dc.javafx.xcore.resource.Resource;
-import de.dc.javafx.xcore.resource.ResourcePackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -12,17 +9,13 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.dc.javafx.xcore.resource.Resource} object.
@@ -53,59 +46,8 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addExtPropertyDescriptor(object);
-			addIsDirectoryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Resource_name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Resource_name_feature",
-								"_UI_Resource_type"),
-						ResourcePackage.Literals.RESOURCE__NAME, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Ext feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExtPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Resource_ext_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Resource_ext_feature",
-								"_UI_Resource_type"),
-						ResourcePackage.Literals.RESOURCE__EXT, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Directory feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsDirectoryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Resource_isDirectory_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Resource_isDirectory_feature",
-								"_UI_Resource_type"),
-						ResourcePackage.Literals.RESOURCE__IS_DIRECTORY, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -126,9 +68,7 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Resource) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Resource_type")
-				: getString("_UI_Resource_type") + " " + label;
+		return getString("_UI_Resource_type");
 	}
 
 	/**
@@ -141,14 +81,6 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Resource.class)) {
-		case ResourcePackage.RESOURCE__NAME:
-		case ResourcePackage.RESOURCE__EXT:
-		case ResourcePackage.RESOURCE__IS_DIRECTORY:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		}
 		super.notifyChanged(notification);
 	}
 

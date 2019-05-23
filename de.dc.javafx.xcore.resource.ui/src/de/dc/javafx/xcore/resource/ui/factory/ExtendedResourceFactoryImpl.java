@@ -29,12 +29,12 @@ public class ExtendedResourceFactoryImpl extends ResourceFactoryImpl implements 
 			return createProject();
 		case ResourcePackage.NATURE:
 			return createNature();
-		case ResourcePackage.SOURCE_FOLDER:
-			return createSourceFolder();
-		case ResourcePackage.RESOURCE_FOLDER:
-			return createResourceFolder();
+		case ResourcePackage.FOLDER:
+			return createFolder();
+		case ResourcePackage.FILE:
+			return createFile();
 		default:
-			throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier");
+			throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier, please enhanced the class "+ExtendedResourceFactoryImpl.class.getSimpleName()+"#create(classifierId) in switch case!");
 		}
 	}
 	

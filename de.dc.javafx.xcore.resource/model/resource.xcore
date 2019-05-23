@@ -25,11 +25,14 @@ class Nature{
 }
 
 abstract class Resource{
-	String name
-	String ext
-	boolean isDirectory='false'
 }
 
-class SourceFolder extends Resource{}
+class Folder extends Resource{
+	String name
+	contains Resource[0..*] resources
+}
 
-class ResourceFolder extends Resource{}
+class File extends Resource{
+	String name
+	String ext
+}

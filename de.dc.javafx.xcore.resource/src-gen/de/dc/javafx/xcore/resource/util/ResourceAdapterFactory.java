@@ -87,13 +87,13 @@ public class ResourceAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSourceFolder(SourceFolder object) {
-			return createSourceFolderAdapter();
+		public Adapter caseFolder(Folder object) {
+			return createFolderAdapter();
 		}
 
 		@Override
-		public Adapter caseResourceFolder(ResourceFolder object) {
-			return createResourceFolderAdapter();
+		public Adapter caseFile(File object) {
+			return createFileAdapter();
 		}
 
 		@Override
@@ -172,30 +172,30 @@ public class ResourceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.resource.SourceFolder <em>Source Folder</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.resource.Folder <em>Folder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.dc.javafx.xcore.resource.SourceFolder
+	 * @see de.dc.javafx.xcore.resource.Folder
 	 * @generated
 	 */
-	public Adapter createSourceFolderAdapter() {
+	public Adapter createFolderAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.resource.ResourceFolder <em>Folder</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.resource.File <em>File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.dc.javafx.xcore.resource.ResourceFolder
+	 * @see de.dc.javafx.xcore.resource.File
 	 * @generated
 	 */
-	public Adapter createResourceFolderAdapter() {
+	public Adapter createFileAdapter() {
 		return null;
 	}
 

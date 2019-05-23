@@ -142,49 +142,49 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.SourceFolder} instances.
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.Folder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SourceFolderItemProvider sourceFolderItemProvider;
+	protected FolderItemProvider folderItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.SourceFolder}.
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.Folder}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSourceFolderAdapter() {
-		if (sourceFolderItemProvider == null) {
-			sourceFolderItemProvider = new SourceFolderItemProvider(this);
+	public Adapter createFolderAdapter() {
+		if (folderItemProvider == null) {
+			folderItemProvider = new FolderItemProvider(this);
 		}
 
-		return sourceFolderItemProvider;
+		return folderItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.ResourceFolder} instances.
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.File} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceFolderItemProvider resourceFolderItemProvider;
+	protected FileItemProvider fileItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.ResourceFolder}.
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.File}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResourceFolderAdapter() {
-		if (resourceFolderItemProvider == null) {
-			resourceFolderItemProvider = new ResourceFolderItemProvider(this);
+	public Adapter createFileAdapter() {
+		if (fileItemProvider == null) {
+			fileItemProvider = new FileItemProvider(this);
 		}
 
-		return resourceFolderItemProvider;
+		return fileItemProvider;
 	}
 
 	/**
@@ -298,10 +298,10 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 			projectItemProvider.dispose();
 		if (natureItemProvider != null)
 			natureItemProvider.dispose();
-		if (sourceFolderItemProvider != null)
-			sourceFolderItemProvider.dispose();
-		if (resourceFolderItemProvider != null)
-			resourceFolderItemProvider.dispose();
+		if (folderItemProvider != null)
+			folderItemProvider.dispose();
+		if (fileItemProvider != null)
+			fileItemProvider.dispose();
 	}
 
 }

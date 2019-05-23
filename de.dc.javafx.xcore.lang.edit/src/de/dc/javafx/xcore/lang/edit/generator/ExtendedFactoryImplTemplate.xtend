@@ -38,7 +38,7 @@ class ExtendedFactoryImplTemplate implements ICustomerGenerator<Ecore>{
 			// Case Content
 			
 			default:
-				throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier, please enhanced the class "+ExtendedResourceFactoryImpl.class.getSimpleName()+"#create(classifierId) in switch case!");
 			}
 		}
 		

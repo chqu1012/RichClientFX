@@ -27,7 +27,8 @@ public class BaseResourceView extends EMFModelView<Workspace> {
     // add edit support
     treeView.setEditable(true);
     treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ResourcePackage.eINSTANCE.getProject_Name(), editDomain));
-    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ResourcePackage.eINSTANCE.getResource_Name(), editDomain));
+    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ResourcePackage.eINSTANCE.getFolder_Name(), editDomain));
+    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ResourcePackage.eINSTANCE.getFile_Name(), editDomain));
   }
   
   public Integer getAddProjectId() {
@@ -43,7 +44,7 @@ public class BaseResourceView extends EMFModelView<Workspace> {
   }
   
   public Resource createAddAuthor() {
-    return ResourceFactory.eINSTANCE.createResourceFolder();
+    return ResourceFactory.eINSTANCE.createFolder();
   }
   
   @Override

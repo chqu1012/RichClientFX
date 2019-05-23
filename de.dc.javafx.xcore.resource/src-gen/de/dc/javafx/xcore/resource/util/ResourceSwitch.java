@@ -94,20 +94,20 @@ public class ResourceSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case ResourcePackage.SOURCE_FOLDER: {
-			SourceFolder sourceFolder = (SourceFolder) theEObject;
-			T result = caseSourceFolder(sourceFolder);
+		case ResourcePackage.FOLDER: {
+			Folder folder = (Folder) theEObject;
+			T result = caseFolder(folder);
 			if (result == null)
-				result = caseResource(sourceFolder);
+				result = caseResource(folder);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case ResourcePackage.RESOURCE_FOLDER: {
-			ResourceFolder resourceFolder = (ResourceFolder) theEObject;
-			T result = caseResourceFolder(resourceFolder);
+		case ResourcePackage.FILE: {
+			File file = (File) theEObject;
+			T result = caseFile(file);
 			if (result == null)
-				result = caseResource(resourceFolder);
+				result = caseResource(file);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -178,21 +178,6 @@ public class ResourceSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Source Folder</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Source Folder</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSourceFolder(SourceFolder object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Folder</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -203,7 +188,22 @@ public class ResourceSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResourceFolder(ResourceFolder object) {
+	public T caseFolder(Folder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFile(File object) {
 		return null;
 	}
 

@@ -2,13 +2,13 @@
  */
 package de.dc.javafx.xcore.resource.impl;
 
+import de.dc.javafx.xcore.resource.File;
+import de.dc.javafx.xcore.resource.Folder;
 import de.dc.javafx.xcore.resource.Nature;
 import de.dc.javafx.xcore.resource.Project;
 import de.dc.javafx.xcore.resource.Resource;
 import de.dc.javafx.xcore.resource.ResourceFactory;
-import de.dc.javafx.xcore.resource.ResourceFolder;
 import de.dc.javafx.xcore.resource.ResourcePackage;
-import de.dc.javafx.xcore.resource.SourceFolder;
 import de.dc.javafx.xcore.resource.Workspace;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -59,14 +59,14 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sourceFolderEClass = null;
+	private EClass folderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resourceFolderEClass = null;
+	private EClass fileEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -241,8 +241,8 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResource_Name() {
-		return (EAttribute) resourceEClass.getEStructuralFeatures().get(0);
+	public EClass getFolder() {
+		return folderEClass;
 	}
 
 	/**
@@ -251,8 +251,8 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResource_Ext() {
-		return (EAttribute) resourceEClass.getEStructuralFeatures().get(1);
+	public EAttribute getFolder_Name() {
+		return (EAttribute) folderEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -261,8 +261,8 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResource_IsDirectory() {
-		return (EAttribute) resourceEClass.getEStructuralFeatures().get(2);
+	public EReference getFolder_Resources() {
+		return (EReference) folderEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -271,8 +271,8 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSourceFolder() {
-		return sourceFolderEClass;
+	public EClass getFile() {
+		return fileEClass;
 	}
 
 	/**
@@ -281,8 +281,18 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getResourceFolder() {
-		return resourceFolderEClass;
+	public EAttribute getFile_Name() {
+		return (EAttribute) fileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFile_Ext() {
+		return (EAttribute) fileEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -328,13 +338,14 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		createEAttribute(natureEClass, NATURE__PROJECT_TYPE);
 
 		resourceEClass = createEClass(RESOURCE);
-		createEAttribute(resourceEClass, RESOURCE__NAME);
-		createEAttribute(resourceEClass, RESOURCE__EXT);
-		createEAttribute(resourceEClass, RESOURCE__IS_DIRECTORY);
 
-		sourceFolderEClass = createEClass(SOURCE_FOLDER);
+		folderEClass = createEClass(FOLDER);
+		createEAttribute(folderEClass, FOLDER__NAME);
+		createEReference(folderEClass, FOLDER__RESOURCES);
 
-		resourceFolderEClass = createEClass(RESOURCE_FOLDER);
+		fileEClass = createEClass(FILE);
+		createEAttribute(fileEClass, FILE__NAME);
+		createEAttribute(fileEClass, FILE__EXT);
 	}
 
 	/**
@@ -369,8 +380,8 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		sourceFolderEClass.getESuperTypes().add(this.getResource());
-		resourceFolderEClass.getESuperTypes().add(this.getResource());
+		folderEClass.getESuperTypes().add(this.getResource());
+		fileEClass.getESuperTypes().add(this.getResource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workspaceEClass, Workspace.class, "Workspace", !IS_ABSTRACT, !IS_INTERFACE,
@@ -399,21 +410,19 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 				IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResource_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Resource.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getResource_Ext(), theEcorePackage.getEString(), "ext", null, 0, 1, Resource.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getResource_IsDirectory(), theEcorePackage.getEBoolean(), "isDirectory", "false", 0, 1,
-				Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(sourceFolderEClass, SourceFolder.class, "SourceFolder", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(folderEClass, Folder.class, "Folder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFolder_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Folder.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFolder_Resources(), this.getResource(), null, "resources", null, 0, -1, Folder.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resourceFolderEClass, ResourceFolder.class, "ResourceFolder", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFile_Name(), theEcorePackage.getEString(), "name", null, 0, 1, File.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFile_Ext(), theEcorePackage.getEString(), "ext", null, 0, 1, File.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
