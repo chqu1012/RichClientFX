@@ -43,7 +43,7 @@ public class BaseResourceView extends EMFModelView<Workspace> {
   }
   
   public Resource createAddAuthor() {
-    return ResourceFactory.eINSTANCE.createResource();
+    return ResourceFactory.eINSTANCE.createResourceFolder();
   }
   
   @Override

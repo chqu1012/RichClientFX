@@ -3,6 +3,7 @@ package de.dc.javafx.xcore.resource.ui;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import de.dc.javafx.xcore.resource.Project;
+import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.Workspace;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -3,6 +3,7 @@ package de.dc.javafx.xcore.resource.ui;
 import de.dc.javafx.efxclipse.runtime.EMFModelView;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.lang.lib.AbstractApplication;
+import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.Workspace;
 import javafx.scene.Parent;
 

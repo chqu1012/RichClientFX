@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
@@ -20,12 +21,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.VBox;
 
-public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, ChangeListener<Object> {
+public class EMFModelTreeView<T, S extends EPackage> extends VBox  implements CommandStackListener, ChangeListener<Object> {
 
 	private Logger log = Logger.getLogger(EMFModelTreeView.class.getSimpleName());
 	
@@ -36,7 +38,7 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 	@FXML protected MenuItem copyMenuItem;
 	@FXML protected MenuItem pasteMenuItem;
 	@FXML protected MenuItem deleteMenuItem;
-	
+	@FXML protected Menu newMenu;
 	@FXML protected TreeView<Object> treeView;
 
 	protected EObject currentEObject;
@@ -104,11 +106,6 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 	}
 
 	@FXML
-	protected void onNewMenuItemClicked(ActionEvent event) {
-
-	}
-
-	@FXML
 	protected void onCopyMenuItemClicked(ActionEvent event) {
 
 	}
@@ -119,8 +116,7 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 	}
 
 	@Override
-	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object arg2) {
-		// TODO Auto-generated method stub
+	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {
 		
 	}
 

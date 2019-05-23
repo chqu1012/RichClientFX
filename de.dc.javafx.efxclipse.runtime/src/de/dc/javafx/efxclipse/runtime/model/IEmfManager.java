@@ -17,4 +17,5 @@ public interface IEmfManager<T> {
 	ChangeRecorder getChangeRecorder();
 	
 	CommandStackImpl getCommandStack();
+	
 }

@@ -16,7 +16,6 @@ public class ExtendedResourceFactoryImpl extends ResourceFactoryImpl implements 
 				return theResourceFactory;
 			}
 		} catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ExtendedResourceFactoryImpl();
 	}

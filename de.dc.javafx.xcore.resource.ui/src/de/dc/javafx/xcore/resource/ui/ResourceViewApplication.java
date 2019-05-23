@@ -4,6 +4,7 @@ import java.io.File;
 
 import de.dc.javafx.efxclipse.runtime.EMFModelView;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
+import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.Workspace;
 
 public class ResourceViewApplication extends BaseResourceViewApplication{
