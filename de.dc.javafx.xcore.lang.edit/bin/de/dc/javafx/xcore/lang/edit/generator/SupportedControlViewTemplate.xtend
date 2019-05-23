@@ -2,7 +2,6 @@ package de.dc.javafx.xcore.lang.edit.generator
 
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl
-import de.dc.javafx.xcore.lang.lib.AbstractApplication
 
 class SupportedControlViewTemplate implements ICustomerGenerator<SupportedControl>{
 	
@@ -41,6 +40,7 @@ class SupportedControlViewTemplate implements ICustomerGenerator<SupportedContro
 			@Override
 			public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {
 				if (newValue instanceof TreeItem<?>) {
+					TreeItem<?> treeItem = (TreeItem<?>) newValue;
 			    	Object value = ((TreeItem<?>) newValue).getValue();
 			    	newMenu.getItems().clear();
 					Collection<?> collection = editingDomain.getNewChildDescriptors(value, null);
@@ -53,7 +53,8 @@ class SupportedControlViewTemplate implements ICustomerGenerator<SupportedContro
 								int id = EmfUtil.getValueByName(«ecore.modelPackage.simpleName».eINSTANCE, name);
 								Command command = AddCommand.create(editingDomain, value, id, Extended«ecore.modelFactory.simpleName».eINSTANCE.create(id));
 								command.execute();
-							})	;
+								treeItem.setExpanded(true);
+							});
 							newMenu.getItems().add(item);
 						}
 					}

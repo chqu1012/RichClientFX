@@ -7,14 +7,12 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandParameter;
 
 import de.dc.javafx.efxclipse.runtime.EMFModelTreeView;
-import de.dc.javafx.efxclipse.runtime.EmfTreeView;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
 import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.Workspace;
 import de.dc.javafx.xcore.resource.ui.factory.ExtendedResourceFactory;
 import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 
@@ -29,7 +27,8 @@ public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
 	@Override
 	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {
 		if (newValue instanceof TreeItem<?>) {
-	    	Object value = ((TreeItem<?>) newValue).getValue();
+	    	TreeItem<?> treeItem = (TreeItem<?>) newValue;
+			Object value = treeItem.getValue();
 	    	newMenu.getItems().clear();
 			Collection<?> collection = editingDomain.getNewChildDescriptors(value, null);
 			for (Object object : collection) {
@@ -41,7 +40,8 @@ public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
 						int id = EmfUtil.getValueByName(ResourcePackage.eINSTANCE, name);
 						Command command = AddCommand.create(editingDomain, value, id, ExtendedResourceFactory.eINSTANCE.create(id));
 						command.execute();
-					})	;
+						treeItem.setExpanded(true);
+					});
 					newMenu.getItems().add(item);
 				}
 			}

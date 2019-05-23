@@ -127,7 +127,6 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 
 	@Override
 	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {
-		
 	}
 
 	@Override

@@ -103,6 +103,9 @@ public class SupportedControlViewTemplate implements ICustomerGenerator<Supporte
     _builder.append("\t\t");
     _builder.append("if (newValue instanceof TreeItem<?>) {");
     _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("TreeItem<?> treeItem = (TreeItem<?>) newValue;");
+    _builder.newLine();
     _builder.append("\t    \t");
     _builder.append("Object value = ((TreeItem<?>) newValue).getValue();");
     _builder.newLine();
@@ -145,8 +148,11 @@ public class SupportedControlViewTemplate implements ICustomerGenerator<Supporte
     _builder.append("\t\t\t\t\t\t");
     _builder.append("command.execute();");
     _builder.newLine();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("treeItem.setExpanded(true);");
+    _builder.newLine();
     _builder.append("\t\t\t\t\t");
-    _builder.append("})\t;");
+    _builder.append("});");
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
     _builder.append("newMenu.getItems().add(item);");
