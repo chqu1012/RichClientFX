@@ -6,11 +6,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
+import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
 import org.eclipse.fx.emf.edit.ui.dnd.CellDragAdapter;
 import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
@@ -27,7 +28,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.VBox;
 
-public class EMFModelTreeView<T, S extends EPackage> extends VBox  implements CommandStackListener, ChangeListener<Object> {
+public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, ChangeListener<Object> {
 
 	private Logger log = Logger.getLogger(EMFModelTreeView.class.getSimpleName());
 	
@@ -85,6 +86,15 @@ public class EMFModelTreeView<T, S extends EPackage> extends VBox  implements Co
 		treeView.setEditable(false);		
 	}
 
+	/**
+	 * EAttributes can get from EPackage#get[ItemName]_[AttributeName]()
+	 * @param attribute
+	 */
+	public void addEditableFor(EAttribute attribute){
+		// add edit support
+		treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(attribute, editingDomain));
+	}
+	
 	@FXML
 	protected void onUndoMenuItemClicked(ActionEvent event) {
 

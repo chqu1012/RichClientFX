@@ -19,6 +19,8 @@ public class ApplicationTemplate implements ICustomerGenerator<Ecore> {
     _builder.newLine();
     _builder.append("import de.dc.javafx.efxclipse.runtime.model.IEmfManager;");
     _builder.newLine();
+    _builder.append("import java.io.File;");
+    _builder.newLine();
     _builder.append("import ");
     String _qualifiedName = ecore.getRootType().getQualifiedName();
     _builder.append(_qualifiedName);

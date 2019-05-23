@@ -2,13 +2,10 @@ package de.dc.javafx.xcore.resource.ui;
 
 import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
-import de.dc.javafx.xcore.resource.ExtendedResourceFactory;
 import de.dc.javafx.xcore.resource.ResourceFactory;
-import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.Workspace;
 import de.dc.javafx.xcore.resource.provider.ResourceItemProviderAdapterFactory;
 
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.change.util.ChangeRecorder;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -60,9 +57,5 @@ public class BaseResourceManager implements IEmfManager<Workspace> {
 
 	public CommandStackImpl getCommandStack() {
 		return this.commandStack;
-	}
-	
-	public ExtendedResourceFactory factory() {
-		return ExtendedResourceFactory.eINSTANCE;
 	}
 }

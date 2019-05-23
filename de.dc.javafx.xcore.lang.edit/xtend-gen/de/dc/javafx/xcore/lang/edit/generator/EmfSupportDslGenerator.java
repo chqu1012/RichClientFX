@@ -5,6 +5,8 @@ import de.dc.javafx.xcore.lang.edit.configuration.SourceOutputConfigurationProvi
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.SupportedControl;
 import de.dc.javafx.xcore.lang.edit.generator.ApplicationTemplate;
+import de.dc.javafx.xcore.lang.edit.generator.ExtendedFactoryImplTemplate;
+import de.dc.javafx.xcore.lang.edit.generator.ExtendedFactoryTemplate;
 import de.dc.javafx.xcore.lang.edit.generator.ModelViewTemplate;
 import de.dc.javafx.xcore.lang.edit.generator.SupportedControlApplicationTemplate;
 import de.dc.javafx.xcore.lang.edit.generator.SupportedControlViewTemplate;
@@ -35,6 +37,12 @@ public class EmfSupportDslGenerator implements IGenerator {
   @Inject
   private SupportedControlViewTemplate supportedCotnrolViewTemplate;
   
+  @Inject
+  private ExtendedFactoryTemplate extFactoryTemplate;
+  
+  @Inject
+  private ExtendedFactoryImplTemplate extFactoryImplTemplate;
+  
   @Override
   public void doGenerate(final Resource input, final IFileSystemAccess fsa) {
     this.jvmModelGenerator.doGenerate(input, fsa);
@@ -46,6 +54,8 @@ public class EmfSupportDslGenerator implements IGenerator {
       final Ecore ecore = ((Ecore) content);
       fsa.generateFile(this.applicationTemplate.path(ecore), src, this.applicationTemplate.code(ecore));
       fsa.generateFile(this.modelViewTemplate.path(ecore), src, this.modelViewTemplate.code(ecore));
+      fsa.generateFile(this.extFactoryTemplate.path(ecore), src, this.extFactoryTemplate.code(ecore));
+      fsa.generateFile(this.extFactoryImplTemplate.path(ecore), src, this.extFactoryImplTemplate.code(ecore));
       final Consumer<SupportedControl> _function_2 = (SupportedControl i) -> {
         final String path = this.supportedCotnrolApplicationTemplate.path(i);
         final String code = this.supportedCotnrolApplicationTemplate.code(i);

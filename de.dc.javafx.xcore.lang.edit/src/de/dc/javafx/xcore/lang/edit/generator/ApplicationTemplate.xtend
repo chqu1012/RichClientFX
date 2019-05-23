@@ -9,6 +9,7 @@ class ApplicationTemplate implements ICustomerGenerator<Ecore>{
 		
 		import de.dc.javafx.efxclipse.runtime.EMFModelView;
 		import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
+		import java.io.File;
 		import «ecore.rootType.qualifiedName»;
 		
 		public class «ecore.name»ViewApplication extends Base«ecore.name»ViewApplication{

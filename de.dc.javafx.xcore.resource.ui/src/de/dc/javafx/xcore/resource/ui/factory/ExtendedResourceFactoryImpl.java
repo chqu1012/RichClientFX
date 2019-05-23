@@ -1,9 +1,9 @@
-package de.dc.javafx.xcore.resource;
+package de.dc.javafx.xcore.resource.ui.factory;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.impl.ResourceFactoryImpl;
 
 public class ExtendedResourceFactoryImpl extends ResourceFactoryImpl implements ExtendedResourceFactory {

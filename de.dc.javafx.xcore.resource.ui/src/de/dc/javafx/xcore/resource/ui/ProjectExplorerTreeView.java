@@ -10,18 +10,19 @@ import de.dc.javafx.efxclipse.runtime.EMFModelTreeView;
 import de.dc.javafx.efxclipse.runtime.EmfTreeView;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
-import de.dc.javafx.xcore.resource.ExtendedResourceFactory;
 import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.Workspace;
+import de.dc.javafx.xcore.resource.ui.factory.ExtendedResourceFactory;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 
-public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace, ResourcePackage> {
+public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
 
 	public ProjectExplorerTreeView(IEmfManager<Workspace> manager) {
 		super(manager);
+		
 //		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
 	}
 	

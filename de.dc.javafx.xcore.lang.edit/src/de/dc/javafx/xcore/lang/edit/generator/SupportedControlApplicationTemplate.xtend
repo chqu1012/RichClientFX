@@ -12,26 +12,23 @@ class SupportedControlApplicationTemplate implements ICustomerGenerator<Supporte
 		package «packagePath»;
 		
 		import de.dc.javafx.efxclipse.runtime.model.*;
-		import de.dc.javafx.efxclipse.runtime.*;
-		import javafx.collections.*;
 		import javafx.scene.Parent;
 		import «control.model.qualifiedName»;
-		import «ecore.rootType.qualifiedName»;
 		import «AbstractApplication.name»;
 
-		«val className = control.model.simpleName»
+		«val className = control.name»
 		«val model = ecore.rootType.simpleName»
 		public class «className»TreeViewApplication extends AbstractApplication{
 		
 			@Override
 			protected Parent getRoot() {
-				IEmfManager<«model»> manager = new «model»ModelManager();
-				ObservableList<«className»> «className»s = FXCollections.observableArrayList();
-				for (int i = 0; i < 20; i++) {
-					«className» item = «ecore.modelFactory.qualifiedName».eINSTANCE.create«className»();
-					«className»s.add(item);
-				}
-				manager.getRoot().get«className»s().addAll(«className»s);
+				IEmfManager<«model»> manager = new Base«ecore.name»Manager();
+				// ObservableList<«className»> «className»s = FXCollections.observableArrayList();
+				// for (int i = 0; i < 20; i++) {
+				// 	«className» item = «ecore.modelFactory.qualifiedName».eINSTANCE.create«className»();
+				// 	«className»s.add(item);
+				// }
+				// manager.getRoot().get«className»s().addAll(«className»s);
 				return new «className»TreeView(manager);
 			}
 		
