@@ -2,8 +2,9 @@ package de.dc.javafx.efxclipse.runtime;
 
 import java.io.IOException;
 import java.util.EventObject;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Logger;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -26,7 +27,7 @@ import javafx.scene.layout.VBox;
 
 public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, ChangeListener<Object> {
 
-	private Logger log = Logger.getLogger(EMFModelTreeView.class);
+	private Logger log = Logger.getLogger(EMFModelTreeView.class.getSimpleName());
 	
 	@FXML protected MenuItem newMenuItem;
 	@FXML protected MenuItem undoMenuItem;
@@ -52,7 +53,7 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 		try {
 			fxmlLoader.load();
 		} catch (IOException exception) {
-			log.error("Error loading fxml", exception);
+			log.log(Level.SEVERE, "Error loading fxml " + exception.getLocalizedMessage());
 		}
 		
 		this.manager = manager;
@@ -83,37 +84,37 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 	}
 
 	@FXML
-	protected void onCopyMenuItemAction(ActionEvent event) {
+	protected void onUndoMenuItemClicked(ActionEvent event) {
+
+	}
+	
+	@FXML
+	protected void onRedoMenuItemClicked(ActionEvent event) {
+		
+	}
+
+	@FXML
+	protected void onDeleteMenuItemClicked(ActionEvent event) {
+		
+	}
+
+	@FXML
+	protected void onEditMenuItemClicked(ActionEvent event) {
 
 	}
 
 	@FXML
-	protected void onDeleteMenuItemAction(ActionEvent event) {
+	protected void onNewMenuItemClicked(ActionEvent event) {
 
 	}
 
 	@FXML
-	protected void onEditMenuItemAction(ActionEvent event) {
+	protected void onCopyMenuItemClicked(ActionEvent event) {
 
 	}
 
 	@FXML
-	protected void onNewMenuItemAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	protected void onPasteMenuItemAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	protected void onRedoMenuItemAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	protected void onUndoMenuItemAction(ActionEvent event) {
+	protected void onPasteMenuItemClicked(ActionEvent event) {
 
 	}
 

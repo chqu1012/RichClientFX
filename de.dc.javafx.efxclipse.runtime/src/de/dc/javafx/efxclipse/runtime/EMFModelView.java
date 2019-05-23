@@ -7,8 +7,9 @@ import java.util.Collections;
 import java.util.EventObject;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Logger;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
@@ -55,7 +56,7 @@ import javafx.util.StringConverter;
 
 public class EMFModelView<T> extends BorderPane implements CommandStackListener, ChangeListener<Object> {
 
-	private Logger log = Logger.getLogger(EMFModelView.class);
+	private Logger log = Logger.getLogger(EMFModelView.class.getSimpleName());
 
 	@FXML
 	protected TreeView<File> projectExplorerTreeView;
@@ -105,7 +106,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		try {
 			fxmlLoader.load();
 		} catch (IOException exception) {
-			log.error("Error loading fxml", exception);
+			log.log(Level.SEVERE, "Error loading fxml "+exception.getLocalizedMessage());
 		}
 
 		manager.getCommandStack().addCommandStackListener(this);
