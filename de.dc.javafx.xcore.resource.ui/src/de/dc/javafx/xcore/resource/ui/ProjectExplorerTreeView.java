@@ -21,7 +21,9 @@ public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
 	public ProjectExplorerTreeView(IEmfManager<Workspace> manager) {
 		super(manager);
 		
-//		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
+		treeView.setEditable(true);
+		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
+		addEditableFor(ResourcePackage.eINSTANCE.getFolder_Name());
 	}
 	
 	@Override

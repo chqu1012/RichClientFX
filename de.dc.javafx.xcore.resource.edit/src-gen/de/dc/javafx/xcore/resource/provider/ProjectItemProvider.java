@@ -111,11 +111,12 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	 * This returns Project.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Project"));
+//		return overlayImage(object, getResourceLocator().getImage("full/obj16/Project"));
+		return overlayImage(object, getResourceLocator().getImage("new/jworkingSet_obj.png"));
 	}
 
 	/**
