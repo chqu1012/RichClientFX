@@ -1,0 +1,32 @@
+EMFSupport for Resource{
+	packagePath: 'de.dc.javafx.xcore.resource.ui' 
+	modelItemProviderAdapterFactory: de.dc.javafx.xcore.resource.provider.ResourceItemProviderAdapterFactory
+	modelPackage: de.dc.javafx.xcore.resource.ResourcePackage
+	modelFactory: de.dc.javafx.xcore.resource.ResourceFactory
+	rootType: de.dc.javafx.xcore.resource.Workspace
+	useUndoRedo: true  
+	showCommandStack: true 
+	showPropertyView: true 
+ 
+	// Generate an example application
+    generateDemo: true 
+
+	// Edit Suppport, EAttributes is taken from EMF generated ModelPackage
+	// This attribute should exist, otherwise you will get a compile error.
+	editables += EAttribute(Project_Name)
+	editables += EAttribute(Resource_Name)
+
+	// Context Menu
+	contextMenus += addContextMenu(
+		id:AddProject 
+		parentType: de.dc.javafx.xcore.resource.Workspace
+		createType: de.dc.javafx.xcore.resource.Project
+	)
+	contextMenus += addContextMenu(
+		id:AddAuthor 
+		parentType: de.dc.javafx.xcore.resource.Project
+		createType: de.dc.javafx.xcore.resource.Resource
+	)
+	
+	controls += TreeView(name:ProjectExplorer, model:de.dc.javafx.xcore.resource.Workspace)
+}

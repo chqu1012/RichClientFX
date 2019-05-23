@@ -60,6 +60,8 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 			return createWorkspace();
 		case ResourcePackage.PROJECT:
 			return createProject();
+		case ResourcePackage.NATURE:
+			return createNature();
 		case ResourcePackage.RESOURCE:
 			return createResource();
 		default:
@@ -87,6 +89,17 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 	public Project createProject() {
 		ProjectImpl project = new ProjectImpl();
 		return project;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Nature createNature() {
+		NatureImpl nature = new NatureImpl();
+		return nature;
 	}
 
 	/**

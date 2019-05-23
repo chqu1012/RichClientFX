@@ -2,6 +2,7 @@
  */
 package de.dc.javafx.xcore.resource.impl;
 
+import de.dc.javafx.xcore.resource.Nature;
 import de.dc.javafx.xcore.resource.Project;
 import de.dc.javafx.xcore.resource.Resource;
 import de.dc.javafx.xcore.resource.ResourceFactory;
@@ -36,6 +37,13 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	private EClass projectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass natureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,8 +165,48 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Resources() {
+	public EReference getProject_Nature() {
 		return (EReference) projectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProject_Resources() {
+		return (EReference) projectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNature() {
+		return natureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNature_Description() {
+		return (EAttribute) natureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNature_ProjectType() {
+		return (EAttribute) natureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -187,8 +235,18 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResource_IsDirectory() {
+	public EAttribute getResource_Ext() {
 		return (EAttribute) resourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getResource_IsDirectory() {
+		return (EAttribute) resourceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -226,10 +284,16 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 
 		projectEClass = createEClass(PROJECT);
 		createEAttribute(projectEClass, PROJECT__NAME);
+		createEReference(projectEClass, PROJECT__NATURE);
 		createEReference(projectEClass, PROJECT__RESOURCES);
+
+		natureEClass = createEClass(NATURE);
+		createEAttribute(natureEClass, NATURE__DESCRIPTION);
+		createEAttribute(natureEClass, NATURE__PROJECT_TYPE);
 
 		resourceEClass = createEClass(RESOURCE);
 		createEAttribute(resourceEClass, RESOURCE__NAME);
+		createEAttribute(resourceEClass, RESOURCE__EXT);
 		createEAttribute(resourceEClass, RESOURCE__IS_DIRECTORY);
 	}
 
@@ -277,13 +341,27 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		initEAttribute(getProject_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Project.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getProject_Nature(), this.getNature(), null, "nature", null, 0, 1, Project.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEReference(getProject_Resources(), this.getResource(), null, "resources", null, 0, -1, Project.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(natureEClass, Nature.class, "Nature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNature_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Nature.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getNature_ProjectType(), theEcorePackage.getEString(), "projectType", null, 0, 1, Nature.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Resource.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getResource_Ext(), theEcorePackage.getEString(), "ext", null, 0, 1, Resource.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEAttribute(getResource_IsDirectory(), theEcorePackage.getEBoolean(), "isDirectory", "false", 0, 1,

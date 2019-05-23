@@ -54,6 +54,7 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addExtPropertyDescriptor(object);
 			addIsDirectoryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -72,6 +73,22 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
 						getString("_UI_PropertyDescriptor_description", "_UI_Resource_name_feature",
 								"_UI_Resource_type"),
 						ResourcePackage.Literals.RESOURCE__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ext feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExtPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Resource_ext_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Resource_ext_feature",
+								"_UI_Resource_type"),
+						ResourcePackage.Literals.RESOURCE__EXT, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -138,6 +155,7 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
 
 		switch (notification.getFeatureID(Resource.class)) {
 		case ResourcePackage.RESOURCE__NAME:
+		case ResourcePackage.RESOURCE__EXT:
 		case ResourcePackage.RESOURCE__IS_DIRECTORY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

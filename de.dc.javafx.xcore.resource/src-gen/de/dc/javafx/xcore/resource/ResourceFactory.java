@@ -40,6 +40,15 @@ public interface ResourceFactory extends EFactory {
 	Project createProject();
 
 	/**
+	 * Returns a new object of class '<em>Nature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Nature</em>'.
+	 * @generated
+	 */
+	Nature createNature();
+
+	/**
 	 * Returns a new object of class '<em>Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

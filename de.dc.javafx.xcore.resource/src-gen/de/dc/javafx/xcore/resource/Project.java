@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.resource.Project#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.resource.Project#getNature <em>Nature</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.Project#getResources <em>Resources</em>}</li>
  * </ul>
  *
@@ -45,6 +46,28 @@ public interface Project extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Nature</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nature</em>' containment reference.
+	 * @see #setNature(Nature)
+	 * @see de.dc.javafx.xcore.resource.ResourcePackage#getProject_Nature()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Nature getNature();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.resource.Project#getNature <em>Nature</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nature</em>' containment reference.
+	 * @see #getNature()
+	 * @generated
+	 */
+	void setNature(Nature value);
 
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.

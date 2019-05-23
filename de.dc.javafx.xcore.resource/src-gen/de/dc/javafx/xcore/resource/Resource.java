@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.resource.Resource#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.resource.Resource#getExt <em>Ext</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.Resource#isIsDirectory <em>Is Directory</em>}</li>
  * </ul>
  *
@@ -43,6 +44,28 @@ public interface Resource extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Ext</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ext</em>' attribute.
+	 * @see #setExt(String)
+	 * @see de.dc.javafx.xcore.resource.ResourcePackage#getResource_Ext()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getExt();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.resource.Resource#getExt <em>Ext</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ext</em>' attribute.
+	 * @see #getExt()
+	 * @generated
+	 */
+	void setExt(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Directory</b></em>' attribute.

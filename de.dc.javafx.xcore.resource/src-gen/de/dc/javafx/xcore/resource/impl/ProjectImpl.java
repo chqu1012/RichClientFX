@@ -2,6 +2,7 @@
  */
 package de.dc.javafx.xcore.resource.impl;
 
+import de.dc.javafx.xcore.resource.Nature;
 import de.dc.javafx.xcore.resource.Project;
 import de.dc.javafx.xcore.resource.Resource;
 import de.dc.javafx.xcore.resource.ResourcePackage;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.resource.impl.ProjectImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.resource.impl.ProjectImpl#getNature <em>Nature</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.impl.ProjectImpl#getResources <em>Resources</em>}</li>
  * </ul>
  *
@@ -56,6 +58,16 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getNature() <em>Nature</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNature()
+	 * @generated
+	 * @ordered
+	 */
+	protected Nature nature;
 
 	/**
 	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
@@ -115,6 +127,58 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 */
 	@Override
+	public Nature getNature() {
+		return nature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNature(Nature newNature, NotificationChain msgs) {
+		Nature oldNature = nature;
+		nature = newNature;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ResourcePackage.PROJECT__NATURE, oldNature, newNature);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNature(Nature newNature) {
+		if (newNature != nature) {
+			NotificationChain msgs = null;
+			if (nature != null)
+				msgs = ((InternalEObject) nature).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ResourcePackage.PROJECT__NATURE, null, msgs);
+			if (newNature != null)
+				msgs = ((InternalEObject) newNature).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ResourcePackage.PROJECT__NATURE, null, msgs);
+			msgs = basicSetNature(newNature, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcePackage.PROJECT__NATURE, newNature,
+					newNature));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Resource> getResources() {
 		if (resources == null) {
 			resources = new EObjectContainmentEList<Resource>(Resource.class, this, ResourcePackage.PROJECT__RESOURCES);
@@ -130,6 +194,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case ResourcePackage.PROJECT__NATURE:
+			return basicSetNature(null, msgs);
 		case ResourcePackage.PROJECT__RESOURCES:
 			return ((InternalEList<?>) getResources()).basicRemove(otherEnd, msgs);
 		}
@@ -146,6 +212,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		switch (featureID) {
 		case ResourcePackage.PROJECT__NAME:
 			return getName();
+		case ResourcePackage.PROJECT__NATURE:
+			return getNature();
 		case ResourcePackage.PROJECT__RESOURCES:
 			return getResources();
 		}
@@ -163,6 +231,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		switch (featureID) {
 		case ResourcePackage.PROJECT__NAME:
 			setName((String) newValue);
+			return;
+		case ResourcePackage.PROJECT__NATURE:
+			setNature((Nature) newValue);
 			return;
 		case ResourcePackage.PROJECT__RESOURCES:
 			getResources().clear();
@@ -183,6 +254,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		case ResourcePackage.PROJECT__NAME:
 			setName(NAME_EDEFAULT);
 			return;
+		case ResourcePackage.PROJECT__NATURE:
+			setNature((Nature) null);
+			return;
 		case ResourcePackage.PROJECT__RESOURCES:
 			getResources().clear();
 			return;
@@ -200,6 +274,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		switch (featureID) {
 		case ResourcePackage.PROJECT__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ResourcePackage.PROJECT__NATURE:
+			return nature != null;
 		case ResourcePackage.PROJECT__RESOURCES:
 			return resources != null && !resources.isEmpty();
 		}

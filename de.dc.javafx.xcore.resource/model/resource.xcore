@@ -15,10 +15,17 @@ class Workspace{
 
 class Project{
 	String name
+	contains Nature nature
 	contains Resource[0..*] resources
+}
+
+class Nature{
+	String description
+	String projectType
 }
 
 class Resource{
 	String name
+	String ext
 	boolean isDirectory='false'
 }

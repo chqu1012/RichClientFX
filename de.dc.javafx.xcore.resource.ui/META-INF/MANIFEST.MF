@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: de.dc.javafx.xcore.resource.ui
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.dc.javafx.xcore.resource.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: de.dc.javafx.xcore.resource;bundle-version="0.1.0",
+ de.dc.javafx.xcore.resource.edit;bundle-version="1.0.0",
+ de.dc.javafx.efxclipse.runtime;bundle-version="3.6.0",
+ de.dc.javafx.xcore.lang.lib;bundle-version="1.0.0",
+ org.apache.log4j;bundle-version="1.2.15"

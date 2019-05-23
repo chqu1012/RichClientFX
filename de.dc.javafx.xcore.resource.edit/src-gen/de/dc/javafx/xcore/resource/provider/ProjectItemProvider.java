@@ -88,6 +88,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(ResourcePackage.Literals.PROJECT__NATURE);
 			childrenFeatures.add(ResourcePackage.Literals.PROJECT__RESOURCES);
 		}
 		return childrenFeatures;
@@ -155,6 +156,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 		case ResourcePackage.PROJECT__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
+		case ResourcePackage.PROJECT__NATURE:
 		case ResourcePackage.PROJECT__RESOURCES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
@@ -172,6 +174,9 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.PROJECT__NATURE,
+				ResourceFactory.eINSTANCE.createNature()));
 
 		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.PROJECT__RESOURCES,
 				ResourceFactory.eINSTANCE.createResource()));

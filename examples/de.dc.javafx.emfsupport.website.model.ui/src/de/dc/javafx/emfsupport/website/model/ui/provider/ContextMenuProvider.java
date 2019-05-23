@@ -1,6 +1,7 @@
 package de.dc.javafx.emfsupport.website.model.ui.provider;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
@@ -64,7 +65,7 @@ public class ContextMenuProvider implements ICellUpdateListener {
 		} else if (cell instanceof TableRow<?>) {
 			return ((TableRow<?>) cell).getTableView().getSelectionModel().getSelectedItems();
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

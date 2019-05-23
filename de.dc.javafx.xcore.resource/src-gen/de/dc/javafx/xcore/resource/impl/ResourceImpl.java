@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.resource.impl.ResourceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.resource.impl.ResourceImpl#getExt <em>Ext</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.impl.ResourceImpl#isIsDirectory <em>Is Directory</em>}</li>
  * </ul>
  *
@@ -46,6 +47,26 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExt() <em>Ext</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExt() <em>Ext</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExt()
+	 * @generated
+	 * @ordered
+	 */
+	protected String ext = EXT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isIsDirectory() <em>Is Directory</em>}' attribute.
@@ -115,6 +136,29 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * @generated
 	 */
 	@Override
+	public String getExt() {
+		return ext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setExt(String newExt) {
+		String oldExt = ext;
+		ext = newExt;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcePackage.RESOURCE__EXT, oldExt, ext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean isIsDirectory() {
 		return isDirectory;
 	}
@@ -143,6 +187,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		switch (featureID) {
 		case ResourcePackage.RESOURCE__NAME:
 			return getName();
+		case ResourcePackage.RESOURCE__EXT:
+			return getExt();
 		case ResourcePackage.RESOURCE__IS_DIRECTORY:
 			return isIsDirectory();
 		}
@@ -159,6 +205,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		switch (featureID) {
 		case ResourcePackage.RESOURCE__NAME:
 			setName((String) newValue);
+			return;
+		case ResourcePackage.RESOURCE__EXT:
+			setExt((String) newValue);
 			return;
 		case ResourcePackage.RESOURCE__IS_DIRECTORY:
 			setIsDirectory((Boolean) newValue);
@@ -178,6 +227,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		case ResourcePackage.RESOURCE__NAME:
 			setName(NAME_EDEFAULT);
 			return;
+		case ResourcePackage.RESOURCE__EXT:
+			setExt(EXT_EDEFAULT);
+			return;
 		case ResourcePackage.RESOURCE__IS_DIRECTORY:
 			setIsDirectory(IS_DIRECTORY_EDEFAULT);
 			return;
@@ -195,6 +247,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		switch (featureID) {
 		case ResourcePackage.RESOURCE__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ResourcePackage.RESOURCE__EXT:
+			return EXT_EDEFAULT == null ? ext != null : !EXT_EDEFAULT.equals(ext);
 		case ResourcePackage.RESOURCE__IS_DIRECTORY:
 			return isDirectory != IS_DIRECTORY_EDEFAULT;
 		}
@@ -214,6 +268,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", ext: ");
+		result.append(ext);
 		result.append(", isDirectory: ");
 		result.append(isDirectory);
 		result.append(')');

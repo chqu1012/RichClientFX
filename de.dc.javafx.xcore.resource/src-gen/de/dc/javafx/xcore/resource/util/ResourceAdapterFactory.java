@@ -77,6 +77,11 @@ public class ResourceAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseNature(Nature object) {
+			return createNatureAdapter();
+		}
+
+		@Override
 		public Adapter caseResource(Resource object) {
 			return createResourceAdapter();
 		}
@@ -125,6 +130,20 @@ public class ResourceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.resource.Nature <em>Nature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.resource.Nature
+	 * @generated
+	 */
+	public Adapter createNatureAdapter() {
 		return null;
 	}
 

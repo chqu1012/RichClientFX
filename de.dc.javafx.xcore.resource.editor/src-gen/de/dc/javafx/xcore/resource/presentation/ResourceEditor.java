@@ -122,7 +122,6 @@ import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-
 import org.eclipse.emf.common.ui.URIEditorInput;
 
 import org.eclipse.jface.operation.IRunnableWithProgress;

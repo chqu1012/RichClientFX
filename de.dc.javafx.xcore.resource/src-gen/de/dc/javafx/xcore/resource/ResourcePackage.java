@@ -114,13 +114,22 @@ public interface ResourcePackage extends EPackage {
 	int PROJECT__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Nature</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__NATURE = 1;
+
+	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__RESOURCES = 1;
+	int PROJECT__RESOURCES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Project</em>' class.
@@ -129,7 +138,7 @@ public interface ResourcePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = 2;
+	int PROJECT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Project</em>' class.
@@ -141,6 +150,52 @@ public interface ResourcePackage extends EPackage {
 	int PROJECT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.NatureImpl <em>Nature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.NatureImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getNature()
+	 * @generated
+	 */
+	int NATURE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE__DESCRIPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Project Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE__PROJECT_TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Nature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Nature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.ResourceImpl <em>Resource</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,7 +203,7 @@ public interface ResourcePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 2;
+	int RESOURCE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -160,13 +215,22 @@ public interface ResourcePackage extends EPackage {
 	int RESOURCE__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Ext</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__EXT = 1;
+
+	/**
 	 * The feature id for the '<em><b>Is Directory</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__IS_DIRECTORY = 1;
+	int RESOURCE__IS_DIRECTORY = 2;
 
 	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
@@ -175,7 +239,7 @@ public interface ResourcePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = 2;
+	int RESOURCE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Resource</em>' class.
@@ -229,6 +293,17 @@ public interface ResourcePackage extends EPackage {
 	EAttribute getProject_Name();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.resource.Project#getNature <em>Nature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Nature</em>'.
+	 * @see de.dc.javafx.xcore.resource.Project#getNature()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EReference getProject_Nature();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.resource.Project#getResources <em>Resources</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -238,6 +313,38 @@ public interface ResourcePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProject_Resources();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.Nature <em>Nature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Nature</em>'.
+	 * @see de.dc.javafx.xcore.resource.Nature
+	 * @generated
+	 */
+	EClass getNature();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.Nature#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see de.dc.javafx.xcore.resource.Nature#getDescription()
+	 * @see #getNature()
+	 * @generated
+	 */
+	EAttribute getNature_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.Nature#getProjectType <em>Project Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Project Type</em>'.
+	 * @see de.dc.javafx.xcore.resource.Nature#getProjectType()
+	 * @see #getNature()
+	 * @generated
+	 */
+	EAttribute getNature_ProjectType();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.Resource <em>Resource</em>}'.
@@ -259,6 +366,17 @@ public interface ResourcePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResource_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.Resource#getExt <em>Ext</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ext</em>'.
+	 * @see de.dc.javafx.xcore.resource.Resource#getExt()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_Ext();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.Resource#isIsDirectory <em>Is Directory</em>}'.
@@ -331,12 +449,46 @@ public interface ResourcePackage extends EPackage {
 		EAttribute PROJECT__NAME = eINSTANCE.getProject_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Nature</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT__NATURE = eINSTANCE.getProject_Nature();
+
+		/**
 		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PROJECT__RESOURCES = eINSTANCE.getProject_Resources();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.NatureImpl <em>Nature</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.NatureImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getNature()
+		 * @generated
+		 */
+		EClass NATURE = eINSTANCE.getNature();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NATURE__DESCRIPTION = eINSTANCE.getNature_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Project Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NATURE__PROJECT_TYPE = eINSTANCE.getNature_ProjectType();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.ResourceImpl <em>Resource</em>}' class.
@@ -355,6 +507,14 @@ public interface ResourcePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Ext</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__EXT = eINSTANCE.getResource_Ext();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Directory</b></em>' attribute feature.

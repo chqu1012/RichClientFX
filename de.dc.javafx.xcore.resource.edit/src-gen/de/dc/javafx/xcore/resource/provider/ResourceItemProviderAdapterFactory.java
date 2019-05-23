@@ -119,6 +119,29 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.Nature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NatureItemProvider natureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.Nature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNatureAdapter() {
+		if (natureItemProvider == null) {
+			natureItemProvider = new NatureItemProvider(this);
+		}
+
+		return natureItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.Resource} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,6 +273,8 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 			workspaceItemProvider.dispose();
 		if (projectItemProvider != null)
 			projectItemProvider.dispose();
+		if (natureItemProvider != null)
+			natureItemProvider.dispose();
 		if (resourceItemProvider != null)
 			resourceItemProvider.dispose();
 	}

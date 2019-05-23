@@ -10,9 +10,9 @@ public class WebsiteTableView extends EmfTableView<Website>{
 	public WebsiteTableView(IEmfManager<Website> manager) {
 		super(manager);
 		
-		createColumn("LastName", 1).setCellValueFactory(new NameTableCellFactory());
-		createColumn("Address", 2);
-		createColumn("Email", 3);
+		createColumn("LastName").setCellValueFactory(new NameTableCellFactory());
+		createColumn("Address");
+		createColumn("Email");
 	}
 
 }
