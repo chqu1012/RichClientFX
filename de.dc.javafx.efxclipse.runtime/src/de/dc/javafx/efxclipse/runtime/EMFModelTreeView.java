@@ -136,10 +136,12 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 
 	@FXML
 	protected void onPasteMenuItemClicked(ActionEvent event) {
-		Object selection = treeView.getSelectionModel().getSelectedItem().getValue();
+		TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
+		Object selection = selectedItem.getValue();
 		Command command = PasteFromClipboardCommand.create(editingDomain, selection, CommandParameter.NO_INDEX);
 		if (command.canExecute()) {
 			command.execute();
+			selectedItem.setExpanded(true);
 		}
 	}
 
