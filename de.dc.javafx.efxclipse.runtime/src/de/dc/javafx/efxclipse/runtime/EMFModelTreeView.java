@@ -10,7 +10,9 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.CopyToClipboardCommand;
+import org.eclipse.emf.edit.command.PasteFromClipboardCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
@@ -51,8 +53,7 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 
 	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
 	public EMFModelTreeView(IEmfManager<T> manager) {
-		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 
@@ -135,7 +136,11 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 
 	@FXML
 	protected void onPasteMenuItemClicked(ActionEvent event) {
-
+		Object selection = treeView.getSelectionModel().getSelectedItem().getValue();
+		Command command = PasteFromClipboardCommand.create(editingDomain, selection, CommandParameter.NO_INDEX);
+		if (command.canExecute()) {
+			command.execute();
+		}
 	}
 
 	@Override
