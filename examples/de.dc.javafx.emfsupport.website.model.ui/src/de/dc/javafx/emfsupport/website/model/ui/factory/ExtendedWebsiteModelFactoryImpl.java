@@ -1,17 +1,18 @@
 package de.dc.javafx.emfsupport.website.model.ui.factory;
 
-import org.eclipse.emf.ecore.*;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 
 import de.dc.javafx.emfsupport.website.model.ModelPackage;
-import de.dc.javafx.xcore.resource.impl.ResourceFactoryImpl;
+import de.dc.javafx.emfsupport.website.model.impl.ModelFactoryImpl;
 
-public class ExtendedWebsiteModelFactoryImpl extends WebsiteModelFactoryImpl implements ExtendedWebsiteModelFactory {
+public class ExtendedWebsiteModelFactoryImpl extends ModelFactoryImpl implements ExtendedWebsiteModelFactory {
 
 	public static ExtendedWebsiteModelFactory init() {
 		try {
 			ExtendedWebsiteModelFactory factory = (ExtendedWebsiteModelFactory) EPackage.Registry.INSTANCE
-					.getEFactory(WebsiteModelPackage.eNS_URI);
-			if (theResourceFactory != null) {
+					.getEFactory(ModelPackage.eNS_URI);
+			if (factory != null) {
 				return factory;
 			}
 		} catch (Exception exception) {

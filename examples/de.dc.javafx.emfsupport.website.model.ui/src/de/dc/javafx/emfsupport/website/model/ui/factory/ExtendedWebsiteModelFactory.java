@@ -4,9 +4,9 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.dc.javafx.emfsupport.website.model.ModelFactory;
 
-public interface ExtendedWebsiteModelFactory extends ResourceFactory {
+public interface ExtendedWebsiteModelFactory extends ModelFactory {
 
-	ExtendedResourceFactory eINSTANCE = ExtendedWebsiteModelFactoryImpl.init();
+	ExtendedWebsiteModelFactory eINSTANCE = ExtendedWebsiteModelFactoryImpl.init();
 	
 	EObject create(int classifierId);
 }

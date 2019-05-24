@@ -12,16 +12,10 @@ import java.util.logging.Logger;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 
 import de.dc.javafx.efxclipse.runtime.factory.CommandListCellFactory;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,19 +39,12 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 
 	@FXML
 	protected TabPane bottomTabPane;
-	
+
 	@FXML
 	protected ListView<Command> historyList;
 
 	protected IEmfManager<T> manager;
-
-	protected EObject currentEObject;
 	protected EditingDomain editingDomain;
-	protected ObservableList<EAttribute> eAttributeList = FXCollections.observableArrayList();
-	protected ObservableList<EAttribute> properties = FXCollections.observableArrayList();
-	protected FilteredList<EAttribute> filteredProperties = new FilteredList<>(properties, p -> true);
-
-	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
 
 	public EMFModelView(IEmfManager<T> manager) {
 		this.manager = manager;
@@ -70,7 +57,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 		try {
 			fxmlLoader.load();
 		} catch (IOException exception) {
-			log.log(Level.SEVERE, "Error loading fxml "+exception.getLocalizedMessage());
+			log.log(Level.SEVERE, "Error loading fxml " + exception.getLocalizedMessage());
 		}
 
 		manager.getCommandStack().addCommandStackListener(this);
@@ -88,27 +75,16 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 	}
 
 	@FXML
-	protected void onDeleteMenuItemClicked(ActionEvent event) {
-
-	}
+	protected void onPasteMenuItemClicked(ActionEvent event) {}
 
 	@FXML
-	protected void onEditMenuItemClicked(ActionEvent event) {
+	protected void onDeleteMenuItemClicked(ActionEvent event) {}
 
-	}
+	@FXML
+	protected void onCopyMenuItemClicked(ActionEvent event) {}
 
 	@FXML
 	protected void onNewMenuItemClicked(ActionEvent event) {
-
-	}
-
-	@FXML
-	protected void onCopyMenuItemClicked(ActionEvent event) {
-
-	}
-
-	@FXML
-	protected void onPasteMenuItemClicked(ActionEvent event) {
 
 	}
 

@@ -22,32 +22,4 @@ public class BaseResourceView extends EMFModelView<Workspace> {
   public BaseResourceView(final IEmfManager<Workspace> manager) {
     super(manager);
   }
-  
-  public Integer getAddProjectId() {
-    return ResourcePackage.PROJECT;
-  }
-  
-  public Project createAddProject() {
-    return ResourceFactory.eINSTANCE.createProject();
-  }
-  
-  public Integer getAddAuthorId() {
-    return ResourcePackage.RESOURCE;
-  }
-  
-  public Resource createAddAuthor() {
-    return ResourceFactory.eINSTANCE.createFolder();
-  }
-  
-  @Override
-  public void onNewMenuItemClicked(final ActionEvent action) {
-  }
-  
-  @Override
-  public void onDeleteMenuItemClicked(final ActionEvent action) {
-  }
-  
-  @Override
-  public void onCopyMenuItemClicked(final ActionEvent action) {
-  }
 }

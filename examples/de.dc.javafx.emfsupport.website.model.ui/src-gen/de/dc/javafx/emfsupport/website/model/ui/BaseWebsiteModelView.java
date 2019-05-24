@@ -21,14 +21,6 @@ import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
 public class BaseWebsiteModelView extends EMFModelView<Website> {
   public BaseWebsiteModelView(final IEmfManager<Website> manager) {
     super(manager);
-    
-    EditingDomain editDomain = manager.getEditingDomain();
-    
-    // add edit support
-    treeView.setEditable(true);
-    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ModelPackage.eINSTANCE.getWebsite_Name(), editDomain));
-    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ModelPackage.eINSTANCE.getPage_Name(), editDomain));
-    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ModelPackage.eINSTANCE.getAuthor_Firstname(), editDomain));
   }
   
   public Integer getAddPageId() {
@@ -45,66 +37,5 @@ public class BaseWebsiteModelView extends EMFModelView<Website> {
   
   public Author createAddAuthor() {
     return ModelFactory.eINSTANCE.createAuthor();
-  }
-  
-  @Override
-  public void onNewMenuItemClicked(final ActionEvent action) {
-    TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
-    if (selection!=null) {
-    	Object owner = selection.getValue();
-    	Command command = null;
-    	if (owner instanceof Website) {
-    		command = AddCommand.create(editingDomain, owner, getAddPageId(), createAddPage());
-    	}
-    	if (owner instanceof Page) {
-    		command = AddCommand.create(editingDomain, owner, getAddAuthorId(), createAddAuthor());
-    	}
-    	if(command.canExecute()){
-    		manager.getCommandStack().execute(command);
-    	}
-    	selection.setExpanded(true);
-    }
-  }
-  
-  @Override
-  public void changed(final ObservableValue arg0, final Object oldValue, final Object newValue) {
-    super.changed(arg0, oldValue, newValue);
-    if (newValue instanceof TreeItem<?>) {
-    	Object value = ((TreeItem) newValue).getValue();
-    	if(value instanceof Website){
-    		newMenuItem.setDisable(false);
-    		newMenuItem.setText("New Page");
-    	}
-    	else if(value instanceof Page){
-    		newMenuItem.setDisable(false);
-    		newMenuItem.setText("New Author");
-    	}
-    	else{
-    		newMenuItem.setDisable(true);
-    		newMenuItem.setText("None");
-    	}
-    }
-  }
-  
-  @Override
-  public void onDeleteMenuItemClicked(final ActionEvent action) {
-    TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
-    if (selection!=null) {
-    	Command command = DeleteCommand.create(editingDomain, selection.getValue());
-    	if(command.canExecute()){
-    		manager.getCommandStack().execute(command);
-    	}
-    }
-  }
-  
-  @Override
-  public void onCopyMenuItemClicked(final ActionEvent action) {
-    TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
-    if(selection!=null){
-     	Command command = CopyToClipboardCommand.create(editingDomain, selection.getValue());
-     	if(command.canExecute()){
-     		manager.getCommandStack().execute(command);
-     	}
-    }
   }
 }
