@@ -11,6 +11,7 @@ class ExtendedFactoryImplTemplate implements ICustomerGenerator<Ecore>{
 	«val name = input.modelFactory.simpleName»
 	import org.eclipse.emf.ecore.*;
 	
+	import «input.modelFactory.qualifiedName.replaceFirst(input.modelFactory.simpleName, 'impl.*;')»
 	import «input.modelPackage.qualifiedName»;
 	
 	public class Extended«name»Impl extends «name»Impl implements Extended«name» {
@@ -23,7 +24,7 @@ class ExtendedFactoryImplTemplate implements ICustomerGenerator<Ecore>{
 				}
 			} catch (Exception exception) {
 			}
-			return new Extended.name»Impl();
+			return new Extended«name»Impl();
 		}
 	
 		/**
