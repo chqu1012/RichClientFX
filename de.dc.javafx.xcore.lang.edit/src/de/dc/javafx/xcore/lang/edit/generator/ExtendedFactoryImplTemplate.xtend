@@ -8,28 +8,26 @@ class ExtendedFactoryImplTemplate implements ICustomerGenerator<Ecore>{
 	
 	override code(Ecore input)'''
 	package «input.packagePath.replace('\'', '')».factory;
-	
+	«val name = input.modelFactory.simpleName»
 	import org.eclipse.emf.ecore.*;
 	
 	import «input.modelPackage.qualifiedName»;
-	import de.dc.javafx.xcore.resource.impl.ResourceFactoryImpl;
 	
-	public class Extended«input.name»FactoryImpl extends «input.name»FactoryImpl implements Extended«input.name»Factory {
+	public class Extended«name»Impl extends «name»Impl implements Extended«name» {
 	
-		public static Extended«input.name»Factory init() {
+		public static Extended«name» init() {
 			try {
-				Extended«input.name»Factory factory = (Extended«input.name»Factory) EPackage.Registry.INSTANCE
-						.getEFactory(«input.name»Package.eNS_URI);
+				Extended«name» factory = (Extended«name») EPackage.Registry.INSTANCE.getEFactory(«input.name»Package.eNS_URI);
 				if (factory != null) {
 					return factory;
 				}
 			} catch (Exception exception) {
 			}
-			return new Extended«input.name»FactoryImpl();
+			return new Extended.name»Impl();
 		}
 	
 		/**
-		* Copy the case content from {@link «input.modelFactory.qualifiedName»Impl «input.modelFactory.simpleName»Impl}
+		* Copy the case content from {@link «input.modelFactory.qualifiedName»Impl «name»Impl}
 		**/
 		@Override
 		public EObject create(int classifierId) {
@@ -38,7 +36,7 @@ class ExtendedFactoryImplTemplate implements ICustomerGenerator<Ecore>{
 			// Case Content
 			
 			default:
-				throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier, please enhanced the class "+ExtendedResourceFactoryImpl.class.getSimpleName()+"#create(classifierId) in switch case!");
+				throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier, please enhanced the class "+Extended«name»Impl.class.getSimpleName()+"#create(classifierId) in switch case!");
 			}
 		}
 		

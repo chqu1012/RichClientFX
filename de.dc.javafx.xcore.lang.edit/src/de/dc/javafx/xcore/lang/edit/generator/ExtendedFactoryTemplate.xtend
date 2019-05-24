@@ -8,14 +8,14 @@ class ExtendedFactoryTemplate implements ICustomerGenerator<Ecore>{
 	
 	override code(Ecore input)'''
 	package «input.packagePath.replace('\'', '')».factory;
-	
+	«val name = input.modelFactory.simpleName»
 	import org.eclipse.emf.ecore.EObject;
 	
 	import «input.modelFactory.qualifiedName»;
 	
-	public interface Extended«input.name»Factory extends «input.name»Factory {
+	public interface Extended«name» extends «name»{
 	
-		Extended«input.name»Factory eINSTANCE = Extended«input.name»FactoryImpl.init();
+		Extended«name» eINSTANCE = Extended«name»Impl.init();
 		
 		EObject create(int classifierId);
 	}
