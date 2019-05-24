@@ -32,29 +32,41 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 
-public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, ChangeListener<Object> {
+public class EMFModelTreeView<T> extends VBox implements CommandStackListener, ChangeListener<Object> {
 
 	private Logger log = Logger.getLogger(EMFModelTreeView.class.getSimpleName());
-	
-	@FXML protected MenuItem newMenuItem;
-	@FXML protected MenuItem undoMenuItem;
-	@FXML protected MenuItem redoMenuItem;
-	@FXML protected MenuItem editMenuItem;
-	@FXML protected MenuItem copyMenuItem;
-	@FXML protected MenuItem pasteMenuItem;
-	@FXML protected MenuItem deleteMenuItem;
-	@FXML protected Menu newMenu;
-	@FXML protected TreeView<Object> treeView;
+
+	@FXML
+	protected MenuItem newMenuItem;
+	@FXML
+	protected MenuItem undoMenuItem;
+	@FXML
+	protected MenuItem redoMenuItem;
+	@FXML
+	protected MenuItem editMenuItem;
+	@FXML
+	protected MenuItem copyMenuItem;
+	@FXML
+	protected MenuItem pasteMenuItem;
+	@FXML
+	protected MenuItem deleteMenuItem;
+	@FXML
+	protected Menu newMenu;
+	@FXML
+	protected TreeView<Object> treeView;
 
 	protected EObject currentEObject;
 	protected IEmfManager<T> manager;
 	protected EditingDomain editingDomain;
 
 	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
+
 	public EMFModelTreeView(IEmfManager<T> manager) {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(
+				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 
@@ -63,7 +75,7 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 		} catch (IOException exception) {
 			log.log(Level.SEVERE, "Error loading fxml " + exception.getLocalizedMessage());
 		}
-		
+
 		this.manager = manager;
 		this.editingDomain = manager.getEditingDomain();
 		initTreeView();
@@ -88,18 +100,28 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 
 		treeView.setCellFactory(treeCellFactory);
 		rootItem.setExpanded(true);
-		treeView.setEditable(false);		
+		treeView.setEditable(false);
+
+		treeView.setOnKeyPressed(event -> {
+			if (event.getCode() == KeyCode.F2) {
+				TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
+				treeView.setEditable(true);
+				treeView.edit(selectedItem);
+			}
+		});
+
 	}
 
 	/**
 	 * EAttributes can get from EPackage#get[ItemName]_[AttributeName]()
+	 * 
 	 * @param attribute
 	 */
-	public void addEditableFor(EAttribute attribute){
+	public void addEditableFor(EAttribute attribute) {
 		// add edit support
 		treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(attribute, editingDomain));
 	}
-	
+
 	@FXML
 	protected void onUndoMenuItemClicked(ActionEvent event) {
 		if (editingDomain.getCommandStack().canUndo()) {
@@ -112,7 +134,7 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 		if (editingDomain.getCommandStack().canRedo()) {
 			editingDomain.getCommandStack().redo();
 		}
-		
+
 	}
 
 	@FXML
@@ -158,6 +180,6 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 	@Override
 	public void commandStackChanged(EventObject event) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
