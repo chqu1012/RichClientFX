@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
 
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
+import de.dc.javafx.xcore.di.ApplicationContext;
+import de.dc.javafx.xcore.di.SelectionService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,6 +24,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
 
@@ -54,11 +57,13 @@ public class PropertyView extends Tab implements ChangeListener<Object>{
 		initFxml();
 		initTableView();
 		setText("PropertyView");
+		
+		ApplicationContext.getInstance(SelectionService.class).addListener(this);
 	}
 
 	private void initTableView() {
-		
 		propertyColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));		
+		valueColumn.setCellValueFactory(param ->new SimpleStringProperty(currentEObject.eGet(param.getValue()) + ""));
 		valueColumn.setCellFactory(TextFieldTableCell.<EAttribute>forTableColumn());
 		valueColumn.setOnEditCommit(evt -> {
 			EAttribute selectedAttribute = tableView.getSelectionModel().getSelectedItem();
@@ -106,11 +111,14 @@ public class PropertyView extends Tab implements ChangeListener<Object>{
 
 	@Override
 	public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
-		properties.clear();
-		if (newValue instanceof EObject) {
-			EObject eobject = (EObject) newValue;
-			for (EAttribute attr : eobject.eClass().getEAllAttributes()) {
-				properties.add(attr);
+		if (newValue instanceof TreeItem) {
+			properties.clear();
+			TreeItem<Object> treeItem = (TreeItem) newValue;
+			if (treeItem.getValue() instanceof EObject) {
+				currentEObject = (EObject) treeItem.getValue();
+				for (EAttribute attr : currentEObject.eClass().getEAllAttributes()) {
+					properties.add(attr);
+				}
 			}
 		}
 	}

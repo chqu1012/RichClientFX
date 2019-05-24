@@ -21,14 +21,6 @@ import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
 public class BaseResourceView extends EMFModelView<Workspace> {
   public BaseResourceView(final IEmfManager<Workspace> manager) {
     super(manager);
-    
-    EditingDomain editDomain = manager.getEditingDomain();
-    
-    // add edit support
-    treeView.setEditable(true);
-    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ResourcePackage.eINSTANCE.getProject_Name(), editDomain));
-    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ResourcePackage.eINSTANCE.getFolder_Name(), editDomain));
-    treeCellFactory.addCellEditHandler(new EAttributeCellEditHandler(ResourcePackage.eINSTANCE.getFile_Name(), editDomain));
   }
   
   public Integer getAddProjectId() {
@@ -49,62 +41,13 @@ public class BaseResourceView extends EMFModelView<Workspace> {
   
   @Override
   public void onNewMenuItemClicked(final ActionEvent action) {
-    TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
-    if (selection!=null) {
-    	Object owner = selection.getValue();
-    	Command command = null;
-    	if (owner instanceof Workspace) {
-    		command = AddCommand.create(editingDomain, owner, getAddProjectId(), createAddProject());
-    	}
-    	if (owner instanceof Project) {
-    		command = AddCommand.create(editingDomain, owner, getAddAuthorId(), createAddAuthor());
-    	}
-    	if(command.canExecute()){
-    		manager.getCommandStack().execute(command);
-    	}
-    	selection.setExpanded(true);
-    }
-  }
-  
-  @Override
-  public void changed(final ObservableValue arg0, final Object oldValue, final Object newValue) {
-    super.changed(arg0, oldValue, newValue);
-    if (newValue instanceof TreeItem<?>) {
-    	Object value = ((TreeItem) newValue).getValue();
-    	if(value instanceof Workspace){
-    		newMenuItem.setDisable(false);
-    		newMenuItem.setText("New Project");
-    	}
-    	else if(value instanceof Project){
-    		newMenuItem.setDisable(false);
-    		newMenuItem.setText("New Resource");
-    	}
-    	else{
-    		newMenuItem.setDisable(true);
-    		newMenuItem.setText("None");
-    	}
-    }
   }
   
   @Override
   public void onDeleteMenuItemClicked(final ActionEvent action) {
-    TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
-    if (selection!=null) {
-    	Command command = DeleteCommand.create(editingDomain, selection.getValue());
-    	if(command.canExecute()){
-    		manager.getCommandStack().execute(command);
-    	}
-    }
   }
   
   @Override
   public void onCopyMenuItemClicked(final ActionEvent action) {
-    TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
-    if(selection!=null){
-     	Command command = CopyToClipboardCommand.create(editingDomain, selection.getValue());
-     	if(command.canExecute()){
-     		manager.getCommandStack().execute(command);
-     	}
-    }
   }
 }

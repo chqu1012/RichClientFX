@@ -9,4 +9,5 @@ Require-Bundle: de.dc.javafx.xcore.resource;bundle-version="0.1.0",
  de.dc.javafx.xcore.resource.edit;bundle-version="1.0.0",
  de.dc.javafx.efxclipse.runtime;bundle-version="3.6.0",
  de.dc.javafx.xcore.lang.lib;bundle-version="1.0.0",
- org.apache.log4j;bundle-version="1.2.15"
+ org.apache.log4j;bundle-version="1.2.15",
+ de.dc.javafx.xcore.di;bundle-version="1.0.0"

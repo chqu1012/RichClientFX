@@ -4,7 +4,7 @@ import java.io.File;
 
 import de.dc.javafx.efxclipse.runtime.EMFModelView;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
-import de.dc.javafx.xcore.resource.ResourcePackage;
+import de.dc.javafx.xcore.di.ApplicationContext;
 import de.dc.javafx.xcore.resource.Workspace;
 
 public class ResourceViewApplication extends BaseResourceViewApplication{
@@ -16,6 +16,7 @@ public class ResourceViewApplication extends BaseResourceViewApplication{
 	
 	public static void main(String[] args) {
 		// TODO: Should be implement dynamically!
+		ApplicationContext.init();
 		new File("./workspace").mkdirs();
 		launch(args);
 	}

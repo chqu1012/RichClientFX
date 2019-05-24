@@ -1,6 +1,7 @@
 package de.dc.javafx.xcore.resource.ui;
 
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
+import de.dc.javafx.xcore.di.ApplicationContext;
 import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import de.dc.javafx.xcore.resource.Project;
 import de.dc.javafx.xcore.resource.ResourcePackage;
@@ -24,6 +25,7 @@ public class ProjectExplorerTreeViewApplication extends AbstractApplication {
 	}
 
 	public static void main(String[] args) {
+		ApplicationContext.init();
 		launch(args);
 	}
 }

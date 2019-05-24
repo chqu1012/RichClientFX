@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -13,16 +11,10 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.input.KeyCodeCombination?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -33,114 +25,7 @@
             <SplitPane dividerPositions="0.167779632721202, 0.7996661101836394" prefHeight="200.0" prefWidth="200.0">
                <items>
                   <TabPane fx:id="leftTabPane" prefHeight="399.0" prefWidth="605.0" tabClosingPolicy="UNAVAILABLE" />
-                  <TabPane>
-                     <tabs>
-                        <Tab closable="false" text="TreeEditor">
-                           <content>
-                              <VBox>
-                                 <children>
-                                    <TreeView fx:id="treeView" prefHeight="698.0" prefWidth="648.0">
-                                       <contextMenu>
-                                          <ContextMenu>
-                                            <items>
-                                                <Menu mnemonicParsing="false" text="New">
-                                                   <items>
-                                                      <MenuItem fx:id="newMenuItem" mnemonicParsing="false" onAction="#onNewMenuItemClicked" text="New">
-                                                         <graphic>
-                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@icons/icons8-file-16.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </graphic>
-                                                      </MenuItem>
-                                                   </items>
-                                                </Menu>
-                                                <SeparatorMenuItem mnemonicParsing="false" />
-                                                <MenuItem mnemonicParsing="false" onAction="#onUndoMenuItemClicked" text="Undo">
-                                                   <accelerator>
-                                                      <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                                                   </accelerator>
-                                                   <graphic>
-                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@icons/icons8-undo-16.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                   </graphic>
-                                                </MenuItem>
-                                                <MenuItem mnemonicParsing="false" onAction="#onRedoMenuItemClicked" text="Redo">
-                                                   <accelerator>
-                                                      <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                                                   </accelerator>
-                                                   <graphic>
-                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@icons/icons8-redo-16.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                   </graphic>
-                                                </MenuItem>
-                                                <SeparatorMenuItem mnemonicParsing="false" />
-                                                <MenuItem mnemonicParsing="false" onAction="#onEditMenuItemClicked" text="Edit">
-                                                   <graphic>
-                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@icons/icons8-edit-16.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                   </graphic>
-                                                </MenuItem>
-                                                <MenuItem mnemonicParsing="false" onAction="#onCopyMenuItemClicked" text="Copy">
-                                                   <graphic>
-                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@icons/icons8-copy-to-clipboard-16.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                   </graphic>
-                                                </MenuItem>
-                                                <MenuItem mnemonicParsing="false" onAction="#onPasteMenuItemClicked" text="Paste">
-                                                   <graphic>
-                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@icons/icons8-paste-16.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                   </graphic>
-                                                </MenuItem>
-                                                <SeparatorMenuItem mnemonicParsing="false" />
-                                                <MenuItem mnemonicParsing="false" onAction="#onDeleteMenuItemClicked" text="Delete">
-                                                   <graphic>
-                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@icons/icons8-delete-16.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                   </graphic>
-                                                </MenuItem>
-                                            </items>
-                                          </ContextMenu>
-                                       </contextMenu>
-                                    </TreeView>
-                                    <Label fx:id="filePathLabel" text="Model in memory">
-                                       <padding>
-                                          <Insets left="5.0" />
-                                       </padding>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </content>
-                           <graphic>
-                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-edit-node-16.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Tab>
-                     </tabs>
-                  </TabPane>
+                  <TabPane />
                   <TabPane fx:id="rightTabPane">
                      <tabs>
                         <Tab closable="false" text="History">
@@ -178,32 +63,7 @@
                   </TabPane>
                </items>
             </SplitPane>
-            <TabPane fx:id="bottomTabPane" prefHeight="248.0" prefWidth="1198.0">
-               <tabs>
-                  <Tab closable="false" text="PropertyView">
-                     <content>
-                      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
-                           <children>
-                              <TableView fx:id="tableView" editable="true" layoutX="8.0" layoutY="-47.0" prefHeight="180.0" prefWidth="1196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-                                <columns>
-                                  <TableColumn fx:id="propertyColumn" prefWidth="216.99999392032623" text="Property" />
-                                  <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="543.0" text="Value" />
-                                </columns>
-                              </TableView>
-                              <TextField fx:id="propertySearchText" layoutY="2.0" onKeyReleased="#onPropertyTextFieldKeyReleased" promptText="Search for  Property" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                     </content>
-                     <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/icons8-new-property-16.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Tab>
-               </tabs>
-            </TabPane>
+            <TabPane fx:id="bottomTabPane" prefHeight="248.0" prefWidth="1198.0" />
          </items>
       </SplitPane>
    </center>
