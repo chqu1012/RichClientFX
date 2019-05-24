@@ -32,25 +32,7 @@
          <items>
             <SplitPane dividerPositions="0.167779632721202, 0.7996661101836394" prefHeight="200.0" prefWidth="200.0">
                <items>
-                  <TabPane prefHeight="399.0" prefWidth="605.0" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="ProjectExplorer">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <TreeView fx:id="projectExplorerTreeView" layoutX="-36.0" layoutY="-34.0" prefHeight="379.0" prefWidth="198.0" showRoot="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children></AnchorPane>
-                        </content>
-                           <graphic>
-                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-cardboard-box-16.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
+                  <TabPane fx:id="leftTabPane" prefHeight="399.0" prefWidth="605.0" tabClosingPolicy="UNAVAILABLE" />
                   <TabPane>
                      <tabs>
                         <Tab closable="false" text="TreeEditor">

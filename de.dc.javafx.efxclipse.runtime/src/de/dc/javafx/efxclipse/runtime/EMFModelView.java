@@ -16,7 +16,6 @@ import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -45,6 +44,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -60,8 +60,8 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 	private Logger log = Logger.getLogger(EMFModelView.class.getSimpleName());
 
 	@FXML
-	protected TreeView<File> projectExplorerTreeView;
-
+	protected TabPane leftTabPane;
+	
 	@FXML
 	protected TreeView<Object> treeView;
 
@@ -173,9 +173,6 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 		};
 
 		eAttributeList = FXCollections.observableArrayList();
-
-		projectExplorerTreeView.setCellFactory(new FileTreeCellFactory());
-		projectExplorerTreeView.setRoot(new FileTreeItem(new File("./workspace")));
 	}
 
 	@FXML
