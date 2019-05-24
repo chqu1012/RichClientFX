@@ -13,9 +13,9 @@ class ExtendedFactoryTemplate implements ICustomerGenerator<Ecore>{
 	
 	import «input.modelFactory.qualifiedName»;
 	
-	public interface Extended«input.name»Factory extends ResourceFactory {
+	public interface Extended«input.name»Factory extends «input.name»Factory {
 	
-		ExtendedResourceFactory eINSTANCE = Extended«input.name»FactoryImpl.init();
+		Extended«input.name»Factory eINSTANCE = Extended«input.name»FactoryImpl.init();
 		
 		EObject create(int classifierId);
 	}
