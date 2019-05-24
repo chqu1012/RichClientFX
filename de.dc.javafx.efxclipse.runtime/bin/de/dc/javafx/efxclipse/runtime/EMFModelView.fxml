@@ -141,7 +141,7 @@
                         </Tab>
                      </tabs>
                   </TabPane>
-                  <TabPane>
+                  <TabPane fx:id="rightTabPane">
                      <tabs>
                         <Tab closable="false" text="History">
                            <content>
@@ -178,7 +178,7 @@
                   </TabPane>
                </items>
             </SplitPane>
-            <TabPane prefHeight="248.0" prefWidth="1198.0">
+            <TabPane fx:id="bottomTabPane" prefHeight="248.0" prefWidth="1198.0">
                <tabs>
                   <Tab closable="false" text="PropertyView">
                      <content>

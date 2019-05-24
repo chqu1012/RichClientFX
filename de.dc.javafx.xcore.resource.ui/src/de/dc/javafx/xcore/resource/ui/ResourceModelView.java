@@ -9,5 +9,6 @@ public class ResourceModelView extends BaseResourceView {
 		super(manager);
 		
 		leftTabPane.getTabs().add(new ProjectExplorer(manager));
+		bottomTabPane.getTabs().add(new PropertyView(manager));
 	}
 }

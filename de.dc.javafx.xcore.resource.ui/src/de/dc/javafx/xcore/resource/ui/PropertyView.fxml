@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root closable="false" text="PropertyView" type="Tab" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+         <children>
+            <TableView fx:id="tableView" editable="true" layoutX="8.0" layoutY="-47.0" prefHeight="180.0" prefWidth="1196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+               <columns>
+                  <TableColumn fx:id="propertyColumn" prefWidth="216.99999392032623" text="Property" />
+                  <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="543.0" text="Value" />
+               </columns>
+            </TableView>
+            <TextField fx:id="propertySearchText" layoutY="2.0" onKeyReleased="#onPropertyTextFieldKeyReleased" promptText="Search for  Property" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </content>
+   <graphic>
+      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../resources/images/icons8-new-property-16.png" />
+         </image>
+      </ImageView>
+   </graphic>
+</fx:root>

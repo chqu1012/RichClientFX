@@ -1,6 +1,5 @@
 package de.dc.javafx.efxclipse.runtime;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,8 +26,6 @@ import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 import de.dc.javafx.efxclipse.runtime.factory.CommandListCellFactory;
 import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
-import de.dc.javafx.efxclipse.runtime.ui.FileTreeItem;
-import de.dc.javafx.efxclipse.runtime.ui.features.FileTreeCellFactory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -61,6 +58,12 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener,
 
 	@FXML
 	protected TabPane leftTabPane;
+
+	@FXML
+	protected TabPane rightTabPane;
+
+	@FXML
+	protected TabPane bottomTabPane;
 	
 	@FXML
 	protected TreeView<Object> treeView;
