@@ -97,11 +97,16 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 	
 	@FXML
 	protected void onUndoMenuItemClicked(ActionEvent event) {
-
+		if (editingDomain.getCommandStack().canUndo()) {
+			editingDomain.getCommandStack().undo();
+		}
 	}
-	
+
 	@FXML
 	protected void onRedoMenuItemClicked(ActionEvent event) {
+		if (editingDomain.getCommandStack().canRedo()) {
+			editingDomain.getCommandStack().redo();
+		}
 		
 	}
 
