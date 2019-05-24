@@ -1,13 +1,16 @@
 package de.dc.javafx.efxclipse.runtime;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.EventObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CopyToClipboardCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
@@ -122,7 +125,12 @@ public class EMFModelTreeView<T> extends VBox  implements CommandStackListener, 
 
 	@FXML
 	protected void onCopyMenuItemClicked(ActionEvent event) {
-
+		ArrayList<Object> collection = new ArrayList<>();
+		collection.add(treeView.getSelectionModel().getSelectedItem().getValue());
+		Command command = CopyToClipboardCommand.create(editingDomain, collection);
+		if (command.canExecute()) {
+			command.execute();
+		}
 	}
 
 	@FXML
