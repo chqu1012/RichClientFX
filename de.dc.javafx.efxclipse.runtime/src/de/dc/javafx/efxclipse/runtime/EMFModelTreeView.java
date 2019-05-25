@@ -24,6 +24,7 @@ import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.di.ApplicationContext;
+import de.dc.javafx.xcore.di.IEventBroker;
 import de.dc.javafx.xcore.di.SelectionService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -67,6 +68,10 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 
 	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
 
+	protected SelectionService selectionService;
+
+	protected IEventBroker eventBroker;
+
 	public EMFModelTreeView(IEmfManager<T> manager) {
 		FXMLLoader fxmlLoader = new FXMLLoader(
 				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
@@ -83,7 +88,10 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 		this.editingDomain = manager.getEditingDomain();
 		initTreeView();
 		
-		ApplicationContext.getInstance(SelectionService.class).registerProvider(treeView.getSelectionModel().selectedItemProperty());
+		selectionService = ApplicationContext.getInstance(SelectionService.class);
+		eventBroker = ApplicationContext.getInstance(IEventBroker.class);
+		
+		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty());
 	}
 
 	private void initTreeView() {

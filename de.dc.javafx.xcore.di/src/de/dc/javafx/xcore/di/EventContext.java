@@ -1,8 +1,23 @@
 package de.dc.javafx.xcore.di;
 
-public interface EventContext<T> {
+public class EventContext<T> implements IEventContext<T> {
 
-	EventTopic getEventTopic();
+	private EventTopic topic;
+	private T input;
 	
-	T getInput();
+	public EventContext(EventTopic topic, T input) {
+		this.topic = topic;
+		this.input = input;
+	}
+	
+	@Override
+	public EventTopic getEventTopic() {
+		return topic;
+	}
+
+	@Override
+	public T getInput() {
+		return input;
+	}
+
 }

@@ -171,8 +171,20 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 	@Subscribe
 	public void openEditor(EventContext<File> context) {
 		if (context.getEventTopic().equals(EventTopic.OPEN_EDITOR)) {
-			editorArea.getTabs().add(new Tab(context.getInput().getName()));
+			final String filename = context.getInput().getName();
+			if (!isFileOpen(filename)) {
+				editorArea.getTabs().add(new Tab(filename));
+			}
+			getTabByName(filename).ifPresent(e->editorArea.getSelectionModel().select(e));
 		}
 		
+	}
+	
+	public boolean isFileOpen(String name) {
+		 return editorArea.getTabs().stream().anyMatch(e->e.getText().equalsIgnoreCase(name));
+	}
+	
+	public Optional<Tab> getTabByName(String name) {
+		return editorArea.getTabs().stream().filter(e->e.getText().equalsIgnoreCase(name)).findAny();
 	}
 }
