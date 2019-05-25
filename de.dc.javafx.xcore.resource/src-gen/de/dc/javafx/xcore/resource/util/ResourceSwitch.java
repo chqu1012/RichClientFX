@@ -112,6 +112,15 @@ public class ResourceSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ResourcePackage.PACKAGE_FOLDER: {
+			PackageFolder packageFolder = (PackageFolder) theEObject;
+			T result = casePackageFolder(packageFolder);
+			if (result == null)
+				result = caseResource(packageFolder);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -204,6 +213,21 @@ public class ResourceSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFile(File object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Package Folder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Package Folder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePackageFolder(PackageFolder object) {
 		return null;
 	}
 

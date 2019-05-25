@@ -316,6 +316,52 @@ public interface ResourcePackage extends EPackage {
 	int FILE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.PackageFolderImpl <em>Package Folder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.PackageFolderImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getPackageFolder()
+	 * @generated
+	 */
+	int PACKAGE_FOLDER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FOLDER__NAME = RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FOLDER__RESOURCES = RESOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Package Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FOLDER_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Package Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FOLDER_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.Workspace <em>Workspace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,6 +532,38 @@ public interface ResourcePackage extends EPackage {
 	EAttribute getFile_Ext();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.PackageFolder <em>Package Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Package Folder</em>'.
+	 * @see de.dc.javafx.xcore.resource.PackageFolder
+	 * @generated
+	 */
+	EClass getPackageFolder();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.PackageFolder#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.resource.PackageFolder#getName()
+	 * @see #getPackageFolder()
+	 * @generated
+	 */
+	EAttribute getPackageFolder_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.resource.PackageFolder#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see de.dc.javafx.xcore.resource.PackageFolder#getResources()
+	 * @see #getPackageFolder()
+	 * @generated
+	 */
+	EReference getPackageFolder_Resources();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -647,6 +725,32 @@ public interface ResourcePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILE__EXT = eINSTANCE.getFile_Ext();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.PackageFolderImpl <em>Package Folder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.PackageFolderImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getPackageFolder()
+		 * @generated
+		 */
+		EClass PACKAGE_FOLDER = eINSTANCE.getPackageFolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE_FOLDER__NAME = eINSTANCE.getPackageFolder_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE_FOLDER__RESOURCES = eINSTANCE.getPackageFolder_Resources();
 
 	}
 

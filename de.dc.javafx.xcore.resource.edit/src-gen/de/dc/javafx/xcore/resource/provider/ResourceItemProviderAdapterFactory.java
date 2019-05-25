@@ -188,6 +188,29 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.PackageFolder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PackageFolderItemProvider packageFolderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.PackageFolder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPackageFolderAdapter() {
+		if (packageFolderItemProvider == null) {
+			packageFolderItemProvider = new PackageFolderItemProvider(this);
+		}
+
+		return packageFolderItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -302,6 +325,8 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 			folderItemProvider.dispose();
 		if (fileItemProvider != null)
 			fileItemProvider.dispose();
+		if (packageFolderItemProvider != null)
+			packageFolderItemProvider.dispose();
 	}
 
 }

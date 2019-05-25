@@ -36,3 +36,8 @@ class File extends Resource{
 	String name
 	String ext
 }
+
+class PackageFolder extends Resource{
+	String name
+	contains Resource[0..*] resources
+}

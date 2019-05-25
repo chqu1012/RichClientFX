@@ -33,6 +33,8 @@ public class ExtendedResourceFactoryImpl extends ResourceFactoryImpl implements 
 			return createFolder();
 		case ResourcePackage.FILE:
 			return createFile();
+		case ResourcePackage.PACKAGE_FOLDER:
+			return createPackageFolder();
 		default:
 			throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier, please enhanced the class "+ExtendedResourceFactoryImpl.class.getSimpleName()+"#create(classifierId) in switch case!");
 		}

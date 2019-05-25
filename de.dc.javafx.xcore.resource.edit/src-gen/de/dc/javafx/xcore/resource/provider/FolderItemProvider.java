@@ -105,7 +105,7 @@ public class FolderItemProvider extends ResourceItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/Folder"));
+		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/Folder"));
 		return overlayImage(object, getResourceLocator().getImage("new/packagefolder_obj.png"));
 	}
 
@@ -128,8 +128,8 @@ public class FolderItemProvider extends ResourceItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label = ((Folder) object).getName();
-//		return label == null || label.length() == 0 ? getString("_UI_Folder_type")
-//				: getString("_UI_Folder_type") + " " + label;
+		//		return label == null || label.length() == 0 ? getString("_UI_Folder_type")
+		//				: getString("_UI_Folder_type") + " " + label;
 		return label;
 	}
 
@@ -171,6 +171,9 @@ public class FolderItemProvider extends ResourceItemProvider {
 
 		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.FOLDER__RESOURCES,
 				ResourceFactory.eINSTANCE.createFile()));
+
+		newChildDescriptors.add(createChildParameter(ResourcePackage.Literals.FOLDER__RESOURCES,
+				ResourceFactory.eINSTANCE.createPackageFolder()));
 	}
 
 }

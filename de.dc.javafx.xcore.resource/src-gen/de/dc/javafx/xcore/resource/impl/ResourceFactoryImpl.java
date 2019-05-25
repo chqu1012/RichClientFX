@@ -66,6 +66,8 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 			return createFolder();
 		case ResourcePackage.FILE:
 			return createFile();
+		case ResourcePackage.PACKAGE_FOLDER:
+			return createPackageFolder();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -124,6 +126,17 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 	public File createFile() {
 		FileImpl file = new FileImpl();
 		return file;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PackageFolder createPackageFolder() {
+		PackageFolderImpl packageFolder = new PackageFolderImpl();
+		return packageFolder;
 	}
 
 	/**

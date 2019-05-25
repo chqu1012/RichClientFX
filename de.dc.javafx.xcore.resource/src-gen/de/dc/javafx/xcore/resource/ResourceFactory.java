@@ -67,6 +67,15 @@ public interface ResourceFactory extends EFactory {
 	File createFile();
 
 	/**
+	 * Returns a new object of class '<em>Package Folder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Package Folder</em>'.
+	 * @generated
+	 */
+	PackageFolder createPackageFolder();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

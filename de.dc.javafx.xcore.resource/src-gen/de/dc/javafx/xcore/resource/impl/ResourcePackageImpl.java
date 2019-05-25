@@ -5,6 +5,7 @@ package de.dc.javafx.xcore.resource.impl;
 import de.dc.javafx.xcore.resource.File;
 import de.dc.javafx.xcore.resource.Folder;
 import de.dc.javafx.xcore.resource.Nature;
+import de.dc.javafx.xcore.resource.PackageFolder;
 import de.dc.javafx.xcore.resource.Project;
 import de.dc.javafx.xcore.resource.Resource;
 import de.dc.javafx.xcore.resource.ResourceFactory;
@@ -67,6 +68,13 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	private EClass fileEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass packageFolderEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -301,6 +309,36 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
+	public EClass getPackageFolder() {
+		return packageFolderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPackageFolder_Name() {
+		return (EAttribute) packageFolderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPackageFolder_Resources() {
+		return (EReference) packageFolderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ResourceFactory getResourceFactory() {
 		return (ResourceFactory) getEFactoryInstance();
 	}
@@ -346,6 +384,10 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		fileEClass = createEClass(FILE);
 		createEAttribute(fileEClass, FILE__NAME);
 		createEAttribute(fileEClass, FILE__EXT);
+
+		packageFolderEClass = createEClass(PACKAGE_FOLDER);
+		createEAttribute(packageFolderEClass, PACKAGE_FOLDER__NAME);
+		createEReference(packageFolderEClass, PACKAGE_FOLDER__RESOURCES);
 	}
 
 	/**
@@ -382,6 +424,7 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		// Add supertypes to classes
 		folderEClass.getESuperTypes().add(this.getResource());
 		fileEClass.getESuperTypes().add(this.getResource());
+		packageFolderEClass.getESuperTypes().add(this.getResource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workspaceEClass, Workspace.class, "Workspace", !IS_ABSTRACT, !IS_INTERFACE,
@@ -423,6 +466,15 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFile_Ext(), theEcorePackage.getEString(), "ext", null, 0, 1, File.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(packageFolderEClass, PackageFolder.class, "PackageFolder", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPackageFolder_Name(), theEcorePackage.getEString(), "name", null, 0, 1, PackageFolder.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getPackageFolder_Resources(), this.getResource(), null, "resources", null, 0, -1,
+				PackageFolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
