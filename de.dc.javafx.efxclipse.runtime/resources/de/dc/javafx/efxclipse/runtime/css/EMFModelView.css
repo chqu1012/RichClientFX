@@ -27,3 +27,8 @@
         -fx-mid-text-color   60%
     );
 }
+
+.text-highlight{
+	-fx-background-color: red;
+	-fx-text-fill: white;
+}

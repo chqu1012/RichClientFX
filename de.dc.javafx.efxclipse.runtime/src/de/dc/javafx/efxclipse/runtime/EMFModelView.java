@@ -14,6 +14,7 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.fx.ui.controls.Util;
+import org.eclipse.fx.ui.controls.styledtext.StyleRange;
 import org.eclipse.fx.ui.controls.styledtext.StyledString;
 import org.eclipse.fx.ui.controls.styledtext.StyledTextArea;
 
@@ -204,6 +205,12 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 			String filename = context.getInput().getName() == null ? "" : context.getInput().getName();
 			if (!filename.isEmpty() && !isFileOpen(filename)) {
 				StyledTextArea styledTextArea = new StyledTextArea();
+				styledTextArea.getContent().setText("This is a styled text!\nThis is the 2nd line with data\nBlaBla");
+				styledTextArea.setStyleRanges(
+				    new StyleRange("text-highlight",0,30,null,null)
+				  , new StyleRange("text-highlight",34,5,null,null)
+				);
+				
 				Tab editorTab = new Tab(filename);
 				editorTab.setContent(styledTextArea);
 				editorArea.getTabs().add(editorTab);
