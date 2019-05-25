@@ -107,7 +107,7 @@ public class PackageFolderItemProvider extends ResourceItemProvider {
 	public Object getImage(Object object) {
 		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/PackageFolder"));
 		PackageFolder folder = (PackageFolder) object;
-		if (folder.getResources().size()==0) {
+		if (folder.getResources().size() == 0) {
 			return overlayImage(object, getResourceLocator().getImage("new/empty_pack_obj.png"));
 		}
 		return overlayImage(object, getResourceLocator().getImage("new/package_obj.png"));

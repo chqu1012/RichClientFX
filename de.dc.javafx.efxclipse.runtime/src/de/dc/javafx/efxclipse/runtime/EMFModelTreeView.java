@@ -3,6 +3,7 @@ package de.dc.javafx.efxclipse.runtime;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EventObject;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,6 +34,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.KeyCode;
@@ -120,9 +123,25 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 				TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
 				treeView.setEditable(true);
 				treeView.edit(selectedItem);
+				
+				List<javafx.scene.Node> cells = new ArrayList<>(treeView.lookupAll(".tree-cell"));
+
+		        int row = treeView.getRow(selectedItem);
+		        TreeCell cell = ((TreeCell) cells.get(row));
+
+		        TextField textfield = (TextField) cell.getGraphic();
+		        textfield.setOnKeyPressed(e->{
+		        	if (e.getCode() == KeyCode.ENTER) {
+		        		try {
+		        			cell.commitEdit(selectedItem.getValue());
+						} catch (Exception e2) {
+						}
+					}
+		        });
+		        textfield.requestFocus();
+		        textfield.selectAll();
 			}
 		});
-
 	}
 
 	/**

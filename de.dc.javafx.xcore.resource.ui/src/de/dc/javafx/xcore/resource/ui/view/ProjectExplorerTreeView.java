@@ -1,6 +1,8 @@
 package de.dc.javafx.xcore.resource.ui.view;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -17,7 +19,10 @@ import de.dc.javafx.xcore.resource.Workspace;
 import de.dc.javafx.xcore.resource.ui.factory.ExtendedResourceFactory;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 
 public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
@@ -25,7 +30,6 @@ public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
 	public ProjectExplorerTreeView(IEmfManager<Workspace> manager) {
 		super(manager);
 
-		treeView.setEditable(true);
 		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getFolder_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getFile_Name());
