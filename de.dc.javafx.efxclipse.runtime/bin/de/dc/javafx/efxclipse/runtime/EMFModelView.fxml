@@ -25,7 +25,7 @@
             <SplitPane dividerPositions="0.167779632721202, 0.7996661101836394" prefHeight="200.0" prefWidth="200.0">
                <items>
                   <TabPane fx:id="leftTabPane" prefHeight="399.0" prefWidth="605.0" tabClosingPolicy="UNAVAILABLE" />
-                  <TabPane />
+                  <TabPane fx:id="editorArea" />
                   <TabPane fx:id="rightTabPane">
                      <tabs>
                         <Tab closable="false" text="History">

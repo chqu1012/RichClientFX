@@ -9,6 +9,10 @@ import org.eclipse.emf.edit.command.CommandParameter;
 import de.dc.javafx.efxclipse.runtime.EMFModelTreeView;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
+import de.dc.javafx.xcore.di.ApplicationContext;
+import de.dc.javafx.xcore.di.EventContext;
+import de.dc.javafx.xcore.di.EventTopic;
+import de.dc.javafx.xcore.di.IEventBroker;
 import de.dc.javafx.xcore.resource.File;
 import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.Workspace;
@@ -55,11 +59,22 @@ public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace>{
 	
 	@Override
 	protected void onTreeViewMouseClicked(MouseEvent event) {
-		TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
-		if (selection.getValue()!=null) {
-			if (selection.getValue() instanceof File) {
-				File file = (File) selection.getValue();
-				System.out.println(file.getName());
+		if (event.getClickCount()==2) {
+			TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
+			if (selection.getValue()!=null) {
+				if (selection.getValue() instanceof File) {
+					File file = (File) selection.getValue();
+					ApplicationContext.getInstance(IEventBroker.class).post(new EventContext<File>() {
+						@Override
+						public EventTopic getEventTopic() {
+							return EventTopic.OPEN_EDITOR;
+						}
+						@Override
+						public File getInput() {
+							return file;
+						}
+					});
+				}
 			}
 		}
 	}

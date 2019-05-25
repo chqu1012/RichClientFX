@@ -14,9 +14,16 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.google.common.eventbus.Subscribe;
+
 import de.dc.javafx.efxclipse.runtime.dnd.DraggingTabPaneSupport;
 import de.dc.javafx.efxclipse.runtime.factory.CommandListCellFactory;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
+import de.dc.javafx.xcore.di.ApplicationContext;
+import de.dc.javafx.xcore.di.EventContext;
+import de.dc.javafx.xcore.di.EventTopic;
+import de.dc.javafx.xcore.di.IEventBroker;
+import de.dc.javafx.xcore.resource.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +31,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -40,6 +48,9 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 
 	@FXML
 	protected TabPane bottomTabPane;
+
+	@FXML
+	protected TabPane editorArea;
 
 	@FXML
 	protected ListView<Command> historyList;
@@ -71,6 +82,8 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 		support.addSupport(bottomTabPane);
 		support.addSupport(rightTabPane);
 		support.addSupport(leftTabPane);
+		
+		ApplicationContext.getInstance(IEventBroker.class).register(this);
 	}
 
 	@Override
@@ -153,5 +166,13 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 				}
 			});
 		}
+	}
+	
+	@Subscribe
+	public void openEditor(EventContext<File> context) {
+		if (context.getEventTopic().equals(EventTopic.OPEN_EDITOR)) {
+			editorArea.getTabs().add(new Tab(context.getInput().getName()));
+		}
+		
 	}
 }
