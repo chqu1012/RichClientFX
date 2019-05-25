@@ -19,7 +19,7 @@ public class SupportedControlApplicationTemplate implements ICustomerGenerator<S
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
     _builder.append(packagePath);
-    _builder.append(";");
+    _builder.append(".demo;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import de.dc.javafx.efxclipse.runtime.model.*;");
@@ -124,7 +124,7 @@ public class SupportedControlApplicationTemplate implements ICustomerGenerator<S
     EObject _eContainer = control.eContainer();
     String _replace = ((Ecore) _eContainer).getPackagePath().replace("\'", "").replace(".", "/");
     _builder.append(_replace);
-    _builder.append("/");
+    _builder.append("/demo/");
     String _name = control.getName();
     _builder.append(_name);
     _builder.append("TreeViewApplication.java");

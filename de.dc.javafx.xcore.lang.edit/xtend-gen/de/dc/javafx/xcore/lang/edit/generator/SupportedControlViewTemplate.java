@@ -18,7 +18,7 @@ public class SupportedControlViewTemplate implements ICustomerGenerator<Supporte
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
     _builder.append(packagePath);
-    _builder.append(";");
+    _builder.append(".view;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import java.util.Collection;");
@@ -180,7 +180,7 @@ public class SupportedControlViewTemplate implements ICustomerGenerator<Supporte
     EObject _eContainer = control.eContainer();
     String _replace = ((Ecore) _eContainer).getPackagePath().replace("\'", "").replace(".", "/");
     _builder.append(_replace);
-    _builder.append("/");
+    _builder.append("/view/");
     String _name = control.getName();
     _builder.append(_name);
     _builder.append("TreeView.java");

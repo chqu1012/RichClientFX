@@ -9,7 +9,7 @@ class SupportedControlApplicationTemplate implements ICustomerGenerator<Supporte
 	override code(SupportedControl control)'''
 		«val ecore = control.eContainer as Ecore»
 		«val packagePath = ecore.packagePath.replace('\'', '')»
-		package «packagePath»;
+		package «packagePath».demo;
 		
 		import de.dc.javafx.efxclipse.runtime.model.*;
 		import javafx.scene.Parent;
@@ -38,5 +38,5 @@ class SupportedControlApplicationTemplate implements ICustomerGenerator<Supporte
 		}
 		'''
 		
-		override path(SupportedControl control)'''«(control.eContainer as Ecore).packagePath.replace('\'', '').replace('.', '/')»/«control.name»TreeViewApplication.java'''
+		override path(SupportedControl control)'''«(control.eContainer as Ecore).packagePath.replace('\'', '').replace('.', '/')»/demo/«control.name»TreeViewApplication.java'''
 }

@@ -14,6 +14,7 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import de.dc.javafx.efxclipse.runtime.dnd.DraggingTabPaneSupport;
 import de.dc.javafx.efxclipse.runtime.factory.CommandListCellFactory;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import javafx.event.ActionEvent;
@@ -64,6 +65,12 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 		historyList.setCellFactory(
 				new CommandListCellFactory(manager.getAdapterFactory(), manager.getEditingDomain().getCommandStack()));
 		historyList.setEditable(false);
+		
+		// TabPane dnd support
+		DraggingTabPaneSupport support = new DraggingTabPaneSupport();
+		support.addSupport(bottomTabPane);
+		support.addSupport(rightTabPane);
+		support.addSupport(leftTabPane);
 	}
 
 	@Override

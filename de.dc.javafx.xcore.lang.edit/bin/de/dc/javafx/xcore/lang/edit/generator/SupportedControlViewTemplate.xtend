@@ -8,7 +8,7 @@ class SupportedControlViewTemplate implements ICustomerGenerator<SupportedContro
 	override code(SupportedControl control)'''
 		«val ecore = control.eContainer as Ecore»
 		«val packagePath = ecore.packagePath.replace('\'', '')»
-		package «packagePath»;
+		package «packagePath».view;
 		
 		import java.util.Collection;
 		
@@ -63,5 +63,5 @@ class SupportedControlViewTemplate implements ICustomerGenerator<SupportedContro
 		}
 		'''
 		
-		override path(SupportedControl control)'''«(control.eContainer as Ecore).packagePath.replace('\'', '').replace('.', '/')»/«control.name»TreeView.java'''
+		override path(SupportedControl control)'''«(control.eContainer as Ecore).packagePath.replace('\'', '').replace('.', '/')»/view/«control.name»TreeView.java'''
 }

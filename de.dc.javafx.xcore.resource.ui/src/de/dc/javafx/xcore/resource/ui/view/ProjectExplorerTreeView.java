@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.resource.ui;
+package de.dc.javafx.xcore.resource.ui.view;
 
 import java.util.Collection;
 
@@ -9,28 +9,28 @@ import org.eclipse.emf.edit.command.CommandParameter;
 import de.dc.javafx.efxclipse.runtime.EMFModelTreeView;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
-
 import de.dc.javafx.xcore.resource.ResourcePackage;
-import de.dc.javafx.xcore.resource.ui.factory.*;
 import de.dc.javafx.xcore.resource.Workspace;
+import de.dc.javafx.xcore.resource.ui.factory.ExtendedResourceFactory;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.*;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TreeItem;
 
-public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
+public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace>{
 
 	public ProjectExplorerTreeView(IEmfManager<Workspace> manager) {
 		super(manager);
 		
-		// add edit support
 		treeView.setEditable(true);
-		// addEditableFor(ModelPackage.eINSTANCE.getPage_Name());
+		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
+		addEditableFor(ResourcePackage.eINSTANCE.getFolder_Name());
 	}
 	
 	@Override
 	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {
 		if (newValue instanceof TreeItem<?>) {
-			TreeItem<?> treeItem = (TreeItem<?>) newValue;
-	    	Object value = ((TreeItem<?>) newValue).getValue();
+	    	TreeItem<?> treeItem = (TreeItem<?>) newValue;
+			Object value = treeItem.getValue();
 	    	newMenu.getItems().clear();
 			Collection<?> collection = editingDomain.getNewChildDescriptors(value, null);
 			for (Object object : collection) {
