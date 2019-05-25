@@ -35,6 +35,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 public class EMFModelTreeView<T> extends VBox implements CommandStackListener, ChangeListener<Object> {
@@ -176,6 +177,11 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 			selectedItem.setExpanded(true);
 		}
 	}
+	
+    @FXML
+    protected void onTreeViewMouseClicked(MouseEvent event) {
+    	
+    }
 
 	@Override
 	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {

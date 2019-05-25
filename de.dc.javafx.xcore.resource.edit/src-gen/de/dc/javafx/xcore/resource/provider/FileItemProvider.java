@@ -84,11 +84,16 @@ public class FileItemProvider extends ResourceItemProvider {
 	 * This returns File.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/File"));
+//		return overlayImage(object, getResourceLocator().getImage("full/obj16/File"));
+		String name = "new/file_obj.png";
+		if (getText(object).endsWith(".java")) {
+			name = "new/jcu_obj.png";
+		}
+		return overlayImage(object, getResourceLocator().getImage(name));
 	}
 
 	/**
@@ -105,13 +110,14 @@ public class FileItemProvider extends ResourceItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((File) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_File_type")
-				: getString("_UI_File_type") + " " + label;
+//		return label == null || label.length() == 0 ? getString("_UI_File_type")
+//				: getString("_UI_File_type") + " " + label;
+		return label==null?"":label;
 	}
 
 	/**
