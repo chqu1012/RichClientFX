@@ -39,7 +39,10 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 			@Override
 			protected void updateItem(Command command, boolean empty) {
 				super.updateItem(command, empty);
-				if (!empty) {
+				if (command ==null || empty) {
+					setText(null);
+					setGraphic(null);
+				}else{
 					if (commandStack.canUndo() && commandStack.getUndoCommand() == command) {
 						setStyle("-fx-background-color: red; -fx-text-fill: white");
 					} else if (commandStack.canRedo() && commandStack.getRedoCommand() == command) {
@@ -48,9 +51,6 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 						setStyle("");
 					}
 					setText(prettyPrint(command));
-				} else {
-					setText(null);
-					setGraphic(null);
 				}
 			}
 		};
