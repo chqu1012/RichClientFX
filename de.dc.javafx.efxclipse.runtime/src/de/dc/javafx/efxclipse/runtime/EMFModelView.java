@@ -76,13 +76,13 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 		historyList.setCellFactory(
 				new CommandListCellFactory(manager.getAdapterFactory(), manager.getEditingDomain().getCommandStack()));
 		historyList.setEditable(false);
-		
+
 		// TabPane dnd support
 		DraggingTabPaneSupport support = new DraggingTabPaneSupport();
 		support.addSupport(bottomTabPane);
 		support.addSupport(rightTabPane);
 		support.addSupport(leftTabPane);
-		
+
 		ApplicationContext.getInstance(IEventBroker.class).register(this);
 	}
 
@@ -95,13 +95,39 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 	}
 
 	@FXML
-	protected void onPasteMenuItemClicked(ActionEvent event) {}
+	protected void onEditorAreaCloseMenuItem(ActionEvent event) {
+		Tab selection = editorArea.getSelectionModel().getSelectedItem();
+		editorArea.getTabs().remove(selection);
+	}
 
 	@FXML
-	protected void onDeleteMenuItemClicked(ActionEvent event) {}
+	protected void onEditorAreaCloseOthersMenuItem(ActionEvent event) {
+		Tab selection = editorArea.getSelectionModel().getSelectedItem();
+		List<Tab> toRemoveTabs = new ArrayList<>();
+		for (Tab tab : editorArea.getTabs()) {
+			if (tab!=selection) {
+				toRemoveTabs.add(tab);
+			}
+		}
+		editorArea.getTabs().removeAll(toRemoveTabs);
+	}
 
 	@FXML
-	protected void onCopyMenuItemClicked(ActionEvent event) {}
+	protected void onEditorAreaCloseAllMenuItem(ActionEvent event) {
+		editorArea.getTabs().clear();
+	}
+
+	@FXML
+	protected void onPasteMenuItemClicked(ActionEvent event) {
+	}
+
+	@FXML
+	protected void onDeleteMenuItemClicked(ActionEvent event) {
+	}
+
+	@FXML
+	protected void onCopyMenuItemClicked(ActionEvent event) {
+	}
 
 	@FXML
 	protected void onNewMenuItemClicked(ActionEvent event) {
@@ -167,7 +193,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 			});
 		}
 	}
-	
+
 	@Subscribe
 	public void openEditor(EventContext<File> context) {
 		if (context.getEventTopic().equals(EventTopic.OPEN_EDITOR)) {
@@ -175,16 +201,16 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 			if (!filename.isEmpty() && !isFileOpen(filename)) {
 				editorArea.getTabs().add(new Tab(filename));
 			}
-			getTabByName(filename).ifPresent(e->editorArea.getSelectionModel().select(e));
+			getTabByName(filename).ifPresent(e -> editorArea.getSelectionModel().select(e));
 		}
-		
+
 	}
-	
+
 	public boolean isFileOpen(String name) {
-		 return editorArea.getTabs().stream().anyMatch(e->e.getText().equalsIgnoreCase(name));
+		return editorArea.getTabs().stream().anyMatch(e -> e.getText().equalsIgnoreCase(name));
 	}
-	
+
 	public Optional<Tab> getTabByName(String name) {
-		return editorArea.getTabs().stream().filter(e->e.getText().equalsIgnoreCase(name)).findAny();
+		return editorArea.getTabs().stream().filter(e -> e.getText().equalsIgnoreCase(name)).findAny();
 	}
 }

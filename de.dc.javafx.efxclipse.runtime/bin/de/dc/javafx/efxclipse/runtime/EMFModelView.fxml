@@ -25,7 +25,17 @@
             <SplitPane dividerPositions="0.167779632721202, 0.7996661101836394" prefHeight="200.0" prefWidth="200.0">
                <items>
                   <TabPane fx:id="leftTabPane" prefHeight="399.0" prefWidth="605.0" tabClosingPolicy="UNAVAILABLE" />
-                  <TabPane fx:id="editorArea" />
+                  <TabPane fx:id="editorArea">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#onEditorAreaCloseMenuItem" text="Close" />
+                              <MenuItem mnemonicParsing="false" onAction="#onEditorAreaCloseOthersMenuItem" text="Close Others" />
+                              <MenuItem mnemonicParsing="false" onAction="#onEditorAreaCloseAllMenuItem" text="Close All" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TabPane>
                   <TabPane fx:id="rightTabPane">
                      <tabs>
                         <Tab closable="false" text="History">
