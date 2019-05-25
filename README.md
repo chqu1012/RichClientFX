@@ -1,4 +1,6 @@
-# JavaFX Control Generator
+# JavaFX based EMF Rich Client Platform
+A lightweight JavaFX based EMF Rich Client Platform. This framework is defined by the emf model itself. The workbench is created by the definition. The framework contains a selection service for registration and recognition of selections. Defined views like PropertyView, HistoryView, ProjectExplorer can be included in it.
+
 Eclipse Editor for generating JavaFX Controls by defining meta informations in EMF or in Xtext DSL. For more details, please visit the [wiki site](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/wiki)
 
 ### Overview of code generation with Eclipse IDE Support
