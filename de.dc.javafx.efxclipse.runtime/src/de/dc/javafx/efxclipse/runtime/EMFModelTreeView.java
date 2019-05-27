@@ -127,7 +127,7 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 				List<javafx.scene.Node> cells = new ArrayList<>(treeView.lookupAll(".tree-cell"));
 
 		        int row = treeView.getRow(selectedItem);
-		        TreeCell cell = ((TreeCell) cells.get(row));
+		        TreeCell<Object> cell = ((TreeCell<Object>) cells.get(row));
 
 		        TextField textfield = (TextField) cell.getGraphic();
 		        textfield.setOnKeyPressed(e->{

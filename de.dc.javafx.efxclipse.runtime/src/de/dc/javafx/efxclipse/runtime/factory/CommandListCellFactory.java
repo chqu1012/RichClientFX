@@ -42,6 +42,7 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 				if (command ==null || empty) {
 					setText(null);
 					setGraphic(null);
+					setStyle(null);
 				}else{
 					if (commandStack.canUndo() && commandStack.getUndoCommand() == command) {
 						setStyle("-fx-background-color: red; -fx-text-fill: white");
