@@ -13,9 +13,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.fx.ui.controls.Util;
 import org.eclipse.fx.ui.controls.styledtext.StyleRange;
-import org.eclipse.fx.ui.controls.styledtext.StyledString;
 import org.eclipse.fx.ui.controls.styledtext.StyledTextArea;
 
 import com.google.common.eventbus.Subscribe;
@@ -31,7 +29,6 @@ import de.dc.javafx.xcore.resource.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -93,10 +90,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 
 	@Override
 	public void commandStackChanged(EventObject event) {
-		historyList.getItems().clear();
-		List<Command> commandList = new ArrayList<>(manager.getCommandStack().getCommandList());
-		Collections.reverse(commandList);
-		historyList.getItems().addAll(commandList);
+		updateHistoryListView(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, null));
 	}
 
 	@FXML
@@ -218,6 +212,19 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 			getTabByName(filename).ifPresent(e -> editorArea.getSelectionModel().select(e));
 		}
 
+	}
+	
+	@Subscribe
+	public void updateHistoryListView(EventContext<Command> context) {
+		if (context.getEventTopic()==EventTopic.COMMAND_STACK_REFRESH) {
+			historyList.getItems().clear();
+			List<Command> commandList = manager.getCommandStack().getCommandList();
+			if (context.getInput()!=null) {
+				commandList.add(context.getInput());
+			}
+			Collections.reverse(commandList);
+			historyList.getItems().addAll(commandList);
+		}
 	}
 
 	public boolean isFileOpen(String name) {

@@ -86,6 +86,8 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 			String owner = ((IItemLabelProvider) adapterFactory.adapt(dndCommand.getOwner(), IItemLabelProvider.class))
 					.getText(dndCommand.getOwner());
 			res = "DND for " + owner;
+		}else {
+			res = command.getDescription();
 		}
 		return res;
 	}

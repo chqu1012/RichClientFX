@@ -25,6 +25,11 @@ public class ApplicationContext {
 	private ApplicationContext() {
 	}
 
+	/**
+	 * This step should be done first, before the {@link #init()} method is called.
+	 * @param module
+	 */
+	
 	public static void add(Module module) {
 		modules.add(module);
 	}
