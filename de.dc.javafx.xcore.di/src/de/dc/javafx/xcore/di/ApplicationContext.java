@@ -1,5 +1,7 @@
 package de.dc.javafx.xcore.di;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,18 +13,22 @@ public class ApplicationContext {
 
 	private static final Logger LOG = Logger.getLogger(ApplicationContext.class.getSimpleName());
 	
-	private static Module[] modules;
+	private static List<Module> modules = new ArrayList<>();
 	private static Injector injector;
 
 	static {
 		synchronized (ApplicationContext.class) {
-			modules = new Module[] { new SelectionServiceModule() };
+			modules.add(new SelectionServiceModule());
 		}
 	}
 
 	private ApplicationContext() {
 	}
 
+	public static void add(Module module) {
+		modules.add(module);
+	}
+	
 	public static void init() {
 		injector = Guice.createInjector(modules);
 		LOG.log(Level.ALL, "Initialize Guice for ApplicationContext with SelectionServiceModul!");
@@ -33,7 +39,7 @@ public class ApplicationContext {
 		try {
 			instance = injector.getInstance(type);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOG.log(Level.SEVERE, "Failed to get the instance via guice "+e.getLocalizedMessage());
 		}
 		return instance;
 	}
