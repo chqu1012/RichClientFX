@@ -32,6 +32,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -129,17 +130,20 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 		        int row = treeView.getRow(selectedItem);
 		        TreeCell<Object> cell = ((TreeCell<Object>) cells.get(row));
 
-		        TextField textfield = (TextField) cell.getGraphic();
-		        textfield.setOnKeyPressed(e->{
-		        	if (e.getCode() == KeyCode.ENTER) {
-		        		try {
-		        			cell.commitEdit(selectedItem.getValue());
-						} catch (Exception e2) {
+		        Node graphic = cell.getGraphic();
+		        if (graphic instanceof TextField) {
+					TextField textfield = (TextField) graphic;
+					textfield.setOnKeyPressed(e->{
+						if (e.getCode() == KeyCode.ENTER) {
+							try {
+								cell.commitEdit(selectedItem.getValue());
+							} catch (Exception e2) {
+							}
 						}
-					}
-		        });
-		        textfield.requestFocus();
-		        textfield.selectAll();
+					});
+					textfield.requestFocus();
+					textfield.selectAll();
+				}
 			}
 		});
 	}
