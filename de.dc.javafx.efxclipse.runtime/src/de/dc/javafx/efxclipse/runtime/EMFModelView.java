@@ -35,6 +35,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.ToolBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -43,8 +44,11 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 	private Logger log = Logger.getLogger(EMFModelView.class.getSimpleName());
 
 	@FXML
-	protected TabPane leftTabPane;
+	protected ToolBar toolbar;
 
+	@FXML
+	protected TabPane leftTabPane;
+	
 	@FXML
 	protected TabPane rightTabPane;
 
