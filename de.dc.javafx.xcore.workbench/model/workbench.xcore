@@ -1,0 +1,64 @@
+@Ecore(nsURI="http://www.frateranatis.org/workbench")
+@GenModel(multipleEditorPages="false", creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.workbench.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.workbench.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="workbench")
+package de.dc.javafx.xcore.workbench
+
+import org.eclipse.xtext.common.types.JvmTypeReference
+
+class NamedElement{
+	String wID
+	String name
+}
+
+class Workbench{
+	contains Toolbar toolbar
+	contains Statusline statusline
+	
+	contains Perspective[0..*] perspectives
+	contains Command[0..*] commands
+}
+
+class Perspective extends NamedElement{
+	contains LeftPane leftPane
+	contains RightPane rightPane 
+	contains BottomPane bottomPane
+	contains EditorArea editorArea
+}
+
+class Command extends NamedElement{
+	
+}
+
+abstract class ViewContainer{
+	contains View[0..*] views
+}
+
+class View extends NamedElement{
+	contains JvmTypeReference viewClass
+	String icon
+}
+
+class EditorArea extends ViewContainer{}
+
+class LeftPane extends ViewContainer{}
+
+class RightPane extends ViewContainer{}
+
+class BottomPane extends ViewContainer{}
+
+class Toolbar extends NamedElement{
+	contains ToolbarItem[0..*] items
+}
+
+class ToolbarItem extends NamedElement{
+	String icon
+	refers Command command
+}
+
+class Statusline extends NamedElement{}
