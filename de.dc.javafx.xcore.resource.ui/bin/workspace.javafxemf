@@ -29,4 +29,5 @@ EMFSupport for Resource{
 	)
 	
 	controls += TreeView(name:ProjectExplorer, model:de.dc.javafx.xcore.resource.Workspace)
+	controls += TreeView(name:JavaExplorer, model:de.dc.javafx.xcore.resource.Workspace)
 }
