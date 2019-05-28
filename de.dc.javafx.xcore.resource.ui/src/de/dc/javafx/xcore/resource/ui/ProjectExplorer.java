@@ -18,5 +18,11 @@ public class ProjectExplorer extends Tab {
 		AnchorPane.setLeftAnchor(explorer, 0d);
 		AnchorPane.setRightAnchor(explorer, 0d);
 		setContent(new AnchorPane(explorer));
+		
+		setOnSelectionChanged(e-> {
+			if (isSelected()) {
+				System.out.println("Java Explorer on focus");
+			}
+		});
 	}
 }
