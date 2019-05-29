@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="root" stylesheets="@css/EmfWorkbench.css" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <SplitPane dividerPositions="0.65" orientation="VERTICAL" BorderPane.alignment="CENTER">
+         <items>
+            <SplitPane dividerPositions="0.167779632721202, 0.7996661101836394" prefHeight="200.0" prefWidth="200.0">
+               <items>
+                  <TabPane fx:id="leftTabPane" prefHeight="399.0" prefWidth="605.0" tabClosingPolicy="UNAVAILABLE" />
+                  <TabPane fx:id="editorArea">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#onEditorAreaCloseMenuItem" text="Close" />
+                              <MenuItem mnemonicParsing="false" onAction="#onEditorAreaCloseOthersMenuItem" text="Close Others" />
+                              <MenuItem mnemonicParsing="false" onAction="#onEditorAreaCloseAllMenuItem" text="Close All" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TabPane>
+                  <TabPane fx:id="rightTabPane" />
+               </items>
+            </SplitPane>
+            <TabPane fx:id="bottomTabPane" prefHeight="248.0" prefWidth="1198.0" />
+         </items>
+      </SplitPane>
+   </center>
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar fx:id="toolbar" prefHeight="40.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </top>
+</fx:root>
