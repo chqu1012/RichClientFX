@@ -1,12 +1,12 @@
 package de.dc.javafx.xcore.workbench.ui.demo;
 
-import de.dc.javafx.xcore.workbench.ui.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
+import de.dc.javafx.xcore.workbench.ui.demo.ui.ExampleEmfWorkbench;
 import javafx.scene.Parent;
 
 public class EmfWorkbenchDemo extends AbstractDemoApplication {
 
-	private static EmfWorkbench workbench;
+	private static ExampleEmfWorkbench workbench;
 
 	@Override
 	protected Parent getRoot() {
@@ -16,7 +16,8 @@ public class EmfWorkbenchDemo extends AbstractDemoApplication {
 	
 	public static void main(String[] args) {
 		EmfWorkbenchContext.init();
-		workbench = EmfWorkbenchContext.getInstance(EmfWorkbench.class);
+		workbench = EmfWorkbenchContext.getInstance(ExampleEmfWorkbench.class);
+		workbench.render();
 		launch(args);
 	}
 }

@@ -3,8 +3,6 @@ package de.dc.javafx.xcore.workbench.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.inject.Inject;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
@@ -53,5 +51,10 @@ public class EmfWorkbench extends AbstractFxmlControl {
 	@FXML
 	protected void onEditorAreaCloseAllMenuItem(ActionEvent event) {
 		editorArea.getTabs().clear();
+	}
+	
+	@Override
+	protected String fxmlName() {
+		return EmfWorkbench.class.getSimpleName();
 	}
 }

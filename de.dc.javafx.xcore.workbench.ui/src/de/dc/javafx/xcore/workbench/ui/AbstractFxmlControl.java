@@ -14,7 +14,8 @@ public abstract class AbstractFxmlControl extends BorderPane {
 	public static final String BASE_PATH = "/de/dc/javafx/xcore/workbench/ui/";
 	
 	public AbstractFxmlControl() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(BASE_PATH+getClass().getSimpleName()+".fxml"));
+		String fxmlName = fxmlName().replace(".fxml", "");
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(BASE_PATH+fxmlName+".fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 
@@ -23,5 +24,9 @@ public abstract class AbstractFxmlControl extends BorderPane {
 		} catch (IOException exception) {
 			log.log(Level.SEVERE, "Error loading fxml " + exception.getLocalizedMessage());
 		}
+	}
+	
+	protected String fxmlName() {
+		return getClass().getSimpleName();
 	}
 }
