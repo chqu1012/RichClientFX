@@ -1,5 +1,6 @@
 @Ecore(nsURI="http://www.frateranatis.org/workbench")
-@GenModel(multipleEditorPages="false", creationIcons="false", 
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
 	editDirectory="/de.dc.javafx.xcore.workbench.edit/src-gen",
 	editorDirectory="/de.dc.javafx.xcore.workbench.editor/src-gen", 
 	richClientPlatform="true", 

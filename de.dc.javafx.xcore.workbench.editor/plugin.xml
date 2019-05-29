@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="WorkbenchEditorAdvisorApplication">
+      <!-- @generated workbench -->
+      <application>
+         <run class="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated workbench -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisor$Perspective"
+            id="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated workbench -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated workbench -->
+      <key
+            commandId="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated workbench -->
+      <actionSet
+            label="%_UI_WorkbenchEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="WorkbenchEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorOpenURICommand"
+               class="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorOpenCommand"
+               class="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated workbench -->
+      <actionSet
+            label="%_UI_WorkbenchModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.javafx.xcore.workbench.presentation.WorkbenchActionBarContributorActionSet">
+         <action
+               label="%_UI_WorkbenchModelWizard_label"
+               class="de.dc.javafx.xcore.workbench.presentation.WorkbenchActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.javafx.xcore.workbench.presentation.WorkbenchActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated workbench -->
+      <editor
+            id="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditorID"
+            name="%_UI_WorkbenchEditor_label"
+            icon="icons/full/obj16/WorkbenchModelFile.gif"
+            extensions="workbench"
+            class="de.dc.javafx.xcore.workbench.presentation.WorkbenchEditor"
+            contributorClass="de.dc.javafx.xcore.workbench.presentation.WorkbenchActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
