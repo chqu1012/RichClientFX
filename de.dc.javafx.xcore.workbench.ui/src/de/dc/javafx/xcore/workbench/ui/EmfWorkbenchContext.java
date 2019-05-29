@@ -15,10 +15,10 @@ public class EmfWorkbenchContext {
 	
 	private static List<Module> modules = new ArrayList<>();
 	private static Injector injector;
-	private static EmfControlManager manager = new EmfControlManager();
 	
 	static {
 		synchronized (EmfWorkbenchContext.class) {
+			modules.add(new BaseEmfModule());
 		}
 	}
 
