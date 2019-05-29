@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui;
+package de.dc.javafx.xcore.workbench.ui.event;
 
 import com.google.common.eventbus.EventBus;
 

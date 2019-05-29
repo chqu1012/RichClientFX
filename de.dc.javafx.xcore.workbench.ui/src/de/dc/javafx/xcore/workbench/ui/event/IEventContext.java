@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui;
+package de.dc.javafx.xcore.workbench.ui.event;
 
 public interface IEventContext<T> {
 

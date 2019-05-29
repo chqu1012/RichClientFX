@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench:Workbench xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:workbench="http://www.frateranatis.org/workbench">
+  <toolbar/>
+  <statusline/>
+  <perspectives>
+    <leftPane>
+      <views/>
+    </leftPane>
+    <rightPane/>
+    <bottomPane/>
+    <editorArea/>
+  </perspectives>
+</workbench:Workbench>

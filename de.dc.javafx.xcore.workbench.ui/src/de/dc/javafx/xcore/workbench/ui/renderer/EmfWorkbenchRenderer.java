@@ -1,5 +1,6 @@
 package de.dc.javafx.xcore.workbench.ui.renderer;
 
+import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.util.WorkbenchSwitch;
 import javafx.scene.Node;
@@ -17,5 +18,10 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 		}
 		control.setTooltip(new Tooltip(text));
 		return control;
+	}
+	
+	@Override
+	public Node caseLeftPane(LeftPane object) {
+		return super.caseLeftPane(object);
 	}
 }

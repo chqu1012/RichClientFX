@@ -7,7 +7,8 @@ Bundle-Activator: de.dc.javafx.xcore.workbench.ui.Activator
 Require-Bundle: org.eclipse.core.runtime,
  com.google.inject;bundle-version="3.0.0",
  com.google.guava;bundle-version="21.0.0",
- de.dc.javafx.xcore.workbench;bundle-version="0.1.0"
+ de.dc.javafx.xcore.workbench;bundle-version="0.1.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.15.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.workbench.ui
 Bundle-ActivationPolicy: lazy

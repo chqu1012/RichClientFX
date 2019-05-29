@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui;
+package de.dc.javafx.xcore.workbench.ui.event;
 
 import java.util.ArrayList;
 import java.util.List;

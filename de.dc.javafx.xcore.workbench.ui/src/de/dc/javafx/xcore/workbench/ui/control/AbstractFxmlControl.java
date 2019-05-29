@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui;
+package de.dc.javafx.xcore.workbench.ui.control;
 
 import java.io.IOException;
 import java.util.logging.Level;
