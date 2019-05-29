@@ -6,8 +6,6 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.xtext.common.types.provider.TypesEditPlugin;
-
 /**
  * This is the central singleton for the Workbench edit plugin.
  * <!-- begin-user-doc -->
@@ -38,7 +36,7 @@ public final class WorkbenchEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public WorkbenchEditPlugin() {
-		super(new ResourceLocator[] { TypesEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] {});
 	}
 
 	/**

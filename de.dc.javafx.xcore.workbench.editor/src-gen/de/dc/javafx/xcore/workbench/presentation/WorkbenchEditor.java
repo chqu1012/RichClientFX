@@ -129,8 +129,6 @@ import org.eclipse.emf.common.ui.URIEditorInput;
 
 import org.eclipse.jface.operation.IRunnableWithProgress;
 
-import org.eclipse.xtext.common.types.provider.TypesItemProviderAdapterFactory;
-
 /**
  * This is an example of a Workbench model editor.
  * <!-- begin-user-doc -->
@@ -537,7 +535,6 @@ public class WorkbenchEditor extends MultiPageEditorPart
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new WorkbenchItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new TypesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

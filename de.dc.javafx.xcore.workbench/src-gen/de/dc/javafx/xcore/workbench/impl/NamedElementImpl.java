@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.workbench.impl.NamedElementImpl#getWID <em>WID</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.impl.NamedElementImpl#get_Id <em>Id</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -28,24 +28,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class NamedElementImpl extends MinimalEObjectImpl.Container implements NamedElement {
 	/**
-	 * The default value of the '{@link #getWID() <em>WID</em>}' attribute.
+	 * The default value of the '{@link #get_Id() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWID()
+	 * @see #get_Id()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String WID_EDEFAULT = null;
+	protected static final String _ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getWID() <em>WID</em>}' attribute.
+	 * The cached value of the '{@link #get_Id() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWID()
+	 * @see #get_Id()
 	 * @generated
 	 * @ordered
 	 */
-	protected String wID = WID_EDEFAULT;
+	protected String _Id = _ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -92,8 +92,8 @@ public class NamedElementImpl extends MinimalEObjectImpl.Container implements Na
 	 * @generated
 	 */
 	@Override
-	public String getWID() {
-		return wID;
+	public String get_Id() {
+		return _Id;
 	}
 
 	/**
@@ -102,11 +102,11 @@ public class NamedElementImpl extends MinimalEObjectImpl.Container implements Na
 	 * @generated
 	 */
 	@Override
-	public void setWID(String newWID) {
-		String oldWID = wID;
-		wID = newWID;
+	public void set_Id(String new_Id) {
+		String old_Id = _Id;
+		_Id = new_Id;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.NAMED_ELEMENT__WID, oldWID, wID));
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.NAMED_ELEMENT__ID, old_Id, _Id));
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class NamedElementImpl extends MinimalEObjectImpl.Container implements Na
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case WorkbenchPackage.NAMED_ELEMENT__WID:
-			return getWID();
+		case WorkbenchPackage.NAMED_ELEMENT__ID:
+			return get_Id();
 		case WorkbenchPackage.NAMED_ELEMENT__NAME:
 			return getName();
 		}
@@ -156,8 +156,8 @@ public class NamedElementImpl extends MinimalEObjectImpl.Container implements Na
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case WorkbenchPackage.NAMED_ELEMENT__WID:
-			setWID((String) newValue);
+		case WorkbenchPackage.NAMED_ELEMENT__ID:
+			set_Id((String) newValue);
 			return;
 		case WorkbenchPackage.NAMED_ELEMENT__NAME:
 			setName((String) newValue);
@@ -174,8 +174,8 @@ public class NamedElementImpl extends MinimalEObjectImpl.Container implements Na
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case WorkbenchPackage.NAMED_ELEMENT__WID:
-			setWID(WID_EDEFAULT);
+		case WorkbenchPackage.NAMED_ELEMENT__ID:
+			set_Id(_ID_EDEFAULT);
 			return;
 		case WorkbenchPackage.NAMED_ELEMENT__NAME:
 			setName(NAME_EDEFAULT);
@@ -192,8 +192,8 @@ public class NamedElementImpl extends MinimalEObjectImpl.Container implements Na
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case WorkbenchPackage.NAMED_ELEMENT__WID:
-			return WID_EDEFAULT == null ? wID != null : !WID_EDEFAULT.equals(wID);
+		case WorkbenchPackage.NAMED_ELEMENT__ID:
+			return _ID_EDEFAULT == null ? _Id != null : !_ID_EDEFAULT.equals(_Id);
 		case WorkbenchPackage.NAMED_ELEMENT__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
@@ -211,8 +211,8 @@ public class NamedElementImpl extends MinimalEObjectImpl.Container implements Na
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (wID: ");
-		result.append(wID);
+		result.append(" (_Id: ");
+		result.append(_Id);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

@@ -10,15 +10,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.eclipse.xtext.common.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.View} object.
@@ -48,9 +43,25 @@ public class ViewItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addViewClassPropertyDescriptor(object);
 			addIconPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the View Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addViewClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_View_viewClass_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_View_viewClass_feature", "_UI_View_type"),
+						WorkbenchPackage.Literals.VIEW__VIEW_CLASS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -66,36 +77,6 @@ public class ViewItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_View_icon_feature", "_UI_View_type"),
 						WorkbenchPackage.Literals.VIEW__ICON, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(WorkbenchPackage.Literals.VIEW__VIEW_CLASS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -144,11 +125,9 @@ public class ViewItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(View.class)) {
+		case WorkbenchPackage.VIEW__VIEW_CLASS:
 		case WorkbenchPackage.VIEW__ICON:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		case WorkbenchPackage.VIEW__VIEW_CLASS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -164,33 +143,6 @@ public class ViewItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmParameterizedTypeReference()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmGenericArrayTypeReference()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmWildcardTypeReference()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmAnyTypeReference()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmMultiTypeReference()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmDelegateTypeReference()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmSynonymTypeReference()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmUnknownTypeReference()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.VIEW__VIEW_CLASS,
-				TypesFactory.eINSTANCE.createJvmInnerTypeReference()));
 	}
 
 }

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.workbench.NamedElement#getWID <em>WID</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.NamedElement#get_Id <em>Id</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.NamedElement#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -23,26 +23,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface NamedElement extends EObject {
 	/**
-	 * Returns the value of the '<em><b>WID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>WID</em>' attribute.
-	 * @see #setWID(String)
-	 * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getNamedElement_WID()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #set_Id(String)
+	 * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getNamedElement__Id()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getWID();
+	String get_Id();
 
 	/**
-	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.NamedElement#getWID <em>WID</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.NamedElement#get_Id <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>WID</em>' attribute.
-	 * @see #getWID()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #get_Id()
 	 * @generated
 	 */
-	void setWID(String value);
+	void set_Id(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

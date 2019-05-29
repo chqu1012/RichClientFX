@@ -9,7 +9,7 @@ public abstract class AbstractDemoApplication extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		primaryStage.setScene(new Scene(getRoot(), 800, 600));
+		primaryStage.setScene(new Scene(getRoot(), 1200, 700));
 		primaryStage.show();
 	}
 

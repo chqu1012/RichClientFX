@@ -6,14 +6,10 @@ import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.WorkbenchPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +27,24 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  */
 public class ViewImpl extends NamedElementImpl implements View {
 	/**
-	 * The cached value of the '{@link #getViewClass() <em>View Class</em>}' containment reference.
+	 * The default value of the '{@link #getViewClass() <em>View Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getViewClass()
 	 * @generated
 	 * @ordered
 	 */
-	protected JvmTypeReference viewClass;
+	protected static final String VIEW_CLASS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getViewClass() <em>View Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getViewClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected String viewClass = VIEW_CLASS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
@@ -85,7 +91,7 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * @generated
 	 */
 	@Override
-	public JvmTypeReference getViewClass() {
+	public String getViewClass() {
 		return viewClass;
 	}
 
@@ -94,41 +100,13 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetViewClass(JvmTypeReference newViewClass, NotificationChain msgs) {
-		JvmTypeReference oldViewClass = viewClass;
-		viewClass = newViewClass;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					WorkbenchPackage.VIEW__VIEW_CLASS, oldViewClass, newViewClass);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public void setViewClass(JvmTypeReference newViewClass) {
-		if (newViewClass != viewClass) {
-			NotificationChain msgs = null;
-			if (viewClass != null)
-				msgs = ((InternalEObject) viewClass).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - WorkbenchPackage.VIEW__VIEW_CLASS, null, msgs);
-			if (newViewClass != null)
-				msgs = ((InternalEObject) newViewClass).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - WorkbenchPackage.VIEW__VIEW_CLASS, null, msgs);
-			msgs = basicSetViewClass(newViewClass, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.VIEW__VIEW_CLASS, newViewClass,
-					newViewClass));
+	public void setViewClass(String newViewClass) {
+		String oldViewClass = viewClass;
+		viewClass = newViewClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.VIEW__VIEW_CLASS, oldViewClass,
+					viewClass));
 	}
 
 	/**
@@ -160,20 +138,6 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case WorkbenchPackage.VIEW__VIEW_CLASS:
-			return basicSetViewClass(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case WorkbenchPackage.VIEW__VIEW_CLASS:
@@ -193,7 +157,7 @@ public class ViewImpl extends NamedElementImpl implements View {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case WorkbenchPackage.VIEW__VIEW_CLASS:
-			setViewClass((JvmTypeReference) newValue);
+			setViewClass((String) newValue);
 			return;
 		case WorkbenchPackage.VIEW__ICON:
 			setIcon((String) newValue);
@@ -211,7 +175,7 @@ public class ViewImpl extends NamedElementImpl implements View {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case WorkbenchPackage.VIEW__VIEW_CLASS:
-			setViewClass((JvmTypeReference) null);
+			setViewClass(VIEW_CLASS_EDEFAULT);
 			return;
 		case WorkbenchPackage.VIEW__ICON:
 			setIcon(ICON_EDEFAULT);
@@ -229,7 +193,7 @@ public class ViewImpl extends NamedElementImpl implements View {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case WorkbenchPackage.VIEW__VIEW_CLASS:
-			return viewClass != null;
+			return VIEW_CLASS_EDEFAULT == null ? viewClass != null : !VIEW_CLASS_EDEFAULT.equals(viewClass);
 		case WorkbenchPackage.VIEW__ICON:
 			return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
 		}
@@ -247,7 +211,9 @@ public class ViewImpl extends NamedElementImpl implements View {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (icon: ");
+		result.append(" (viewClass: ");
+		result.append(viewClass);
+		result.append(", icon: ");
 		result.append(icon);
 		result.append(')');
 		return result.toString();

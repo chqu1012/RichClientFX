@@ -53,25 +53,25 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addWIDPropertyDescriptor(object);
+			add_IdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the WID feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addWIDPropertyDescriptor(Object object) {
+	protected void add_IdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_NamedElement_wID_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_wID_feature",
+						getResourceLocator(), getString("_UI_NamedElement__Id_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_NamedElement__Id_feature",
 								"_UI_NamedElement_type"),
-						WorkbenchPackage.Literals.NAMED_ELEMENT__WID, true, false, false,
+						WorkbenchPackage.Literals.NAMED_ELEMENT__ID, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -137,7 +137,7 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NamedElement.class)) {
-		case WorkbenchPackage.NAMED_ELEMENT__WID:
+		case WorkbenchPackage.NAMED_ELEMENT__ID:
 		case WorkbenchPackage.NAMED_ELEMENT__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

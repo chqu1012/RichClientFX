@@ -10,10 +10,8 @@
 	fileExtensions="workbench")
 package de.dc.javafx.xcore.workbench
 
-import org.eclipse.xtext.common.types.JvmTypeReference
-
 class NamedElement{
-	String wID
+	String _Id
 	String name
 }
 
@@ -41,7 +39,7 @@ abstract class ViewContainer{
 }
 
 class View extends NamedElement{
-	contains JvmTypeReference viewClass
+	String viewClass
 	String icon
 }
 

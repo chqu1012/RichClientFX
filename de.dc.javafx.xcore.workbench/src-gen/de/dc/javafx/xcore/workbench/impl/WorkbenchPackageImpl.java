@@ -26,8 +26,6 @@ import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipse.xtext.common.types.TypesPackage;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
@@ -178,7 +176,6 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 
 		// Initialize simple dependencies
 		EcorePackage.eINSTANCE.eClass();
-		TypesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theWorkbenchPackage.createPackageContents();
@@ -210,7 +207,7 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNamedElement_WID() {
+	public EAttribute getNamedElement__Id() {
 		return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -370,8 +367,8 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getView_ViewClass() {
-		return (EReference) viewEClass.getEStructuralFeatures().get(0);
+	public EAttribute getView_ViewClass() {
+		return (EAttribute) viewEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -515,7 +512,7 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 
 		// Create classes and their features
 		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__WID);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__ID);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		workbenchEClass = createEClass(WORKBENCH);
@@ -536,7 +533,7 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		createEReference(viewContainerEClass, VIEW_CONTAINER__VIEWS);
 
 		viewEClass = createEClass(VIEW);
-		createEReference(viewEClass, VIEW__VIEW_CLASS);
+		createEAttribute(viewEClass, VIEW__VIEW_CLASS);
 		createEAttribute(viewEClass, VIEW__ICON);
 
 		editorAreaEClass = createEClass(EDITOR_AREA);
@@ -583,7 +580,6 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 
 		// Obtain other dependent packages
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
-		TypesPackage theTypesPackage = (TypesPackage) EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -604,7 +600,7 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_WID(), theEcorePackage.getEString(), "wID", null, 0, 1, NamedElement.class,
+		initEAttribute(getNamedElement__Id(), theEcorePackage.getEString(), "_Id", null, 0, 1, NamedElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEAttribute(getNamedElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
@@ -650,9 +646,9 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getView_ViewClass(), theTypesPackage.getJvmTypeReference(), null, "viewClass", null, 0, 1,
-				View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getView_ViewClass(), theEcorePackage.getEString(), "viewClass", null, 0, 1, View.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEAttribute(getView_Icon(), theEcorePackage.getEString(), "icon", null, 0, 1, View.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -2,8 +2,6 @@
  */
 package de.dc.javafx.xcore.workbench;
 
-import org.eclipse.xtext.common.types.JvmTypeReference;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>View</b></em>'.
@@ -23,26 +21,26 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  */
 public interface View extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>View Class</b></em>' containment reference.
+	 * Returns the value of the '<em><b>View Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>View Class</em>' containment reference.
-	 * @see #setViewClass(JvmTypeReference)
+	 * @return the value of the '<em>View Class</em>' attribute.
+	 * @see #setViewClass(String)
 	 * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getView_ViewClass()
-	 * @model containment="true"
+	 * @model unique="false"
 	 * @generated
 	 */
-	JvmTypeReference getViewClass();
+	String getViewClass();
 
 	/**
-	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.View#getViewClass <em>View Class</em>}' containment reference.
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.View#getViewClass <em>View Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>View Class</em>' containment reference.
+	 * @param value the new value of the '<em>View Class</em>' attribute.
 	 * @see #getViewClass()
 	 * @generated
 	 */
-	void setViewClass(JvmTypeReference value);
+	void setViewClass(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Icon</b></em>' attribute.

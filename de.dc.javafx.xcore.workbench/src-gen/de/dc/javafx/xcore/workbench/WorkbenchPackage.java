@@ -68,13 +68,13 @@ public interface WorkbenchPackage extends EPackage {
 	int NAMED_ELEMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>WID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT__WID = 0;
+	int NAMED_ELEMENT__ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -178,13 +178,13 @@ public interface WorkbenchPackage extends EPackage {
 	int PERSPECTIVE = 2;
 
 	/**
-	 * The feature id for the '<em><b>WID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSPECTIVE__WID = NAMED_ELEMENT__WID;
+	int PERSPECTIVE__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -260,13 +260,13 @@ public interface WorkbenchPackage extends EPackage {
 	int COMMAND = 3;
 
 	/**
-	 * The feature id for the '<em><b>WID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__WID = NAMED_ELEMENT__WID;
+	int COMMAND__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -343,13 +343,13 @@ public interface WorkbenchPackage extends EPackage {
 	int VIEW = 5;
 
 	/**
-	 * The feature id for the '<em><b>WID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__WID = NAMED_ELEMENT__WID;
+	int VIEW__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -361,7 +361,7 @@ public interface WorkbenchPackage extends EPackage {
 	int VIEW__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>View Class</b></em>' containment reference.
+	 * The feature id for the '<em><b>View Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -555,13 +555,13 @@ public interface WorkbenchPackage extends EPackage {
 	int TOOLBAR = 10;
 
 	/**
-	 * The feature id for the '<em><b>WID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLBAR__WID = NAMED_ELEMENT__WID;
+	int TOOLBAR__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -610,13 +610,13 @@ public interface WorkbenchPackage extends EPackage {
 	int TOOLBAR_ITEM = 11;
 
 	/**
-	 * The feature id for the '<em><b>WID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLBAR_ITEM__WID = NAMED_ELEMENT__WID;
+	int TOOLBAR_ITEM__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -674,13 +674,13 @@ public interface WorkbenchPackage extends EPackage {
 	int STATUSLINE = 12;
 
 	/**
-	 * The feature id for the '<em><b>WID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATUSLINE__WID = NAMED_ELEMENT__WID;
+	int STATUSLINE__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -720,15 +720,15 @@ public interface WorkbenchPackage extends EPackage {
 	EClass getNamedElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.NamedElement#getWID <em>WID</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.NamedElement#get_Id <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>WID</em>'.
-	 * @see de.dc.javafx.xcore.workbench.NamedElement#getWID()
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see de.dc.javafx.xcore.workbench.NamedElement#get_Id()
 	 * @see #getNamedElement()
 	 * @generated
 	 */
-	EAttribute getNamedElement_WID();
+	EAttribute getNamedElement__Id();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.NamedElement#getName <em>Name</em>}'.
@@ -891,15 +891,15 @@ public interface WorkbenchPackage extends EPackage {
 	EClass getView();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.View#getViewClass <em>View Class</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.View#getViewClass <em>View Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>View Class</em>'.
+	 * @return the meta object for the attribute '<em>View Class</em>'.
 	 * @see de.dc.javafx.xcore.workbench.View#getViewClass()
 	 * @see #getView()
 	 * @generated
 	 */
-	EReference getView_ViewClass();
+	EAttribute getView_ViewClass();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.View#getIcon <em>Icon</em>}'.
@@ -1049,12 +1049,12 @@ public interface WorkbenchPackage extends EPackage {
 		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
 
 		/**
-		 * The meta object literal for the '<em><b>WID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAMED_ELEMENT__WID = eINSTANCE.getNamedElement_WID();
+		EAttribute NAMED_ELEMENT__ID = eINSTANCE.getNamedElement__Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1187,12 +1187,12 @@ public interface WorkbenchPackage extends EPackage {
 		EClass VIEW = eINSTANCE.getView();
 
 		/**
-		 * The meta object literal for the '<em><b>View Class</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>View Class</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VIEW__VIEW_CLASS = eINSTANCE.getView_ViewClass();
+		EAttribute VIEW__VIEW_CLASS = eINSTANCE.getView_ViewClass();
 
 		/**
 		 * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
