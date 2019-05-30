@@ -34,6 +34,10 @@ public class EmfWorkbenchContext {
 		modules.add(module);
 	}
 	
+	public static void inject(Object obj) {
+		injector.injectMembers(obj);
+	}
+	
 	public static void init() {
 		injector = Guice.createInjector(modules);
 		LOG.log(Level.ALL, "Initialize Guice for ApplicationContext with SelectionServiceModul!");

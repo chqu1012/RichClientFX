@@ -17,9 +17,11 @@ import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
+import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.control.EmfView;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.event.IEmfCommand;
+import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.util.WorkbenchSwitch;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -35,6 +37,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	private EmfWorkbench workbench;
 	
 	@Inject EmfCommandManager commands;
+	@Inject ISelectionService selectionService;
 	
 	public void setWorkbench(EmfWorkbench workbench) {
 		this.workbench=workbench;
@@ -45,7 +48,8 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 		for (Command c : object.getCommands()) {
 			try {
 				Class<IEmfCommand> commandClass = (Class<IEmfCommand>) Class.forName(c.get_Id());
-				commands.register(c.get_Id(), commandClass);
+				IEmfCommand command = EmfWorkbenchContext.getInstance(commandClass);
+				commands.register(c.get_Id(), command);
 			} catch (ClassNotFoundException e) {
 				log.log(Level.SEVERE, "Error on register command id "+c.get_Id());
 			}
@@ -69,8 +73,12 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 			control.setText(text);
 		}
 		control.setOnAction(event->{ 
-			invokeOnActionMethod(object.getOnAction(), event);
-			if (object.getCommand()!=null) {
+			String onAction = object.getOnAction();
+			Command command = object.getCommand();
+			if (onAction!=null) {
+				invokeOnActionMethod(onAction, event);
+			}
+			if (command!=null) {
 				commands.execute(object.getCommand().get_Id());
 			}
 		});
@@ -135,11 +143,10 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	@Override
 	public Node caseView(View object) {
 		try {
-			Class<?> clazz = Class.forName(object.getViewClass());
-			EmfView viewPart = (EmfView)clazz.newInstance();
-			return viewPart;
-		} catch (NullPointerException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-			log.log(Level.SEVERE, "Viewpart cannot created ("+e.getMessage()+")");
+			Class clazz = Class.forName(object.getViewClass());
+			return (Node) EmfWorkbenchContext.getInstance(clazz);
+		} catch (NullPointerException | ClassNotFoundException e) {
+			log.log(Level.SEVERE, "Viewpart cannot created (id: "+object.get_Id()+"instance: "+object.getViewClass()+", message: "+e.getMessage()+") ");
 		}
 		return new Label("ViewPart cannot be created!");
 	}

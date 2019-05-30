@@ -1,4 +1,5 @@
 package de.dc.javafx.xcore.workbench.ui;
+
 import com.google.inject.AbstractModule;
 
 import de.dc.javafx.xcore.workbench.ui.event.EventBroker;
@@ -8,7 +9,7 @@ import de.dc.javafx.xcore.workbench.ui.event.SelectionService;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
 
-public class BaseEmfModule extends AbstractModule{
+public class BaseEmfModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
@@ -19,5 +20,4 @@ public class BaseEmfModule extends AbstractModule{
 		bind(EmfWorkbenchFile.class).asEagerSingleton();
 		bind(EmfCommandManager.class).asEagerSingleton();
 	}
-
 }
