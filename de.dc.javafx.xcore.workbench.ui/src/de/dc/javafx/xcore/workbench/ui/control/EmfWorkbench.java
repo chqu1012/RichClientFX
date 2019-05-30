@@ -1,6 +1,5 @@
 package de.dc.javafx.xcore.workbench.ui.control;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,15 +38,35 @@ public class EmfWorkbench extends AbstractFxmlControl {
 	protected EmfWorkbenchFile workbenchFile;
 
 	protected Workbench workbench;
-	
+
 	public Workbench getWorkbench() {
-		if (workbench==null) {
-			String name = getClass().getResource(getClass().getSimpleName()+".workbench").getPath();
+		if (workbench == null) {
+			String name = getClass().getResource(getClass().getSimpleName() + ".workbench").getPath();
 			workbench = workbenchFile.load(name);
 		}
 		return workbench;
 	}
+
+	public TabPane getLeftTabPane() {
+		return leftTabPane;
+	}
+
+	public TabPane getRightTabPane() {
+		return rightTabPane;
+	}
+
+	public TabPane getBottomTabPane() {
+		return bottomTabPane;
+	}
+
+	public TabPane getEditorArea() {
+		return editorArea;
+	}
 	
+	public ToolBar getToolBar() {
+		return toolbar;
+	}
+
 	@FXML
 	protected void onEditorAreaCloseMenuItem(ActionEvent event) {
 		Tab selection = editorArea.getSelectionModel().getSelectedItem();

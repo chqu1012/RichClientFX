@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench:Workbench xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:workbench="http://www.frateranatis.org/workbench">
-  <toolbar/>
+  <toolbar>
+    <items name="Run"/>
+    <items name="Debug"/>
+  </toolbar>
   <statusline/>
   <perspectives>
     <leftPane>
-      <views/>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 1" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 2" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 3" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
     </leftPane>
-    <rightPane/>
+    <rightPane>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 4" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 5" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
+    </rightPane>
     <bottomPane/>
     <editorArea/>
   </perspectives>

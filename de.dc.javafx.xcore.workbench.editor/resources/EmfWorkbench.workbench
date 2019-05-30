@@ -4,7 +4,7 @@
   <statusline/>
   <perspectives>
     <leftPane>
-      <views/>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 1" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
     </leftPane>
     <rightPane/>
     <bottomPane/>
