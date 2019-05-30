@@ -12,11 +12,13 @@ import de.dc.javafx.xcore.workbench.RightPane;
 import de.dc.javafx.xcore.workbench.Toolbar;
 import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.View;
+import de.dc.javafx.xcore.workbench.ui.control.EmfView;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.util.WorkbenchSwitch;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.Tooltip;
 
@@ -106,9 +108,13 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	
 	@Override
 	public Node caseView(View object) {
-//		Class<?> clazz = Class.forName(object.getViewClass());
-//		Tab viewPart = (Tab) clazz.newInstance();
-//		viewPart.setText(object.getName());
-		return new Button(object.getName());
+		try {
+			Class<?> clazz = Class.forName(object.getViewClass());
+			EmfView viewPart = (EmfView)clazz.newInstance();
+			return viewPart;
+		} catch (NullPointerException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			log.log(Level.SEVERE, "Viewpart cannot created ("+e.getMessage()+")");
+		}
+		return new Label("ViewPart cannot be created!");
 	}
 }

@@ -7,7 +7,7 @@
   <statusline/>
   <perspectives>
     <leftPane>
-      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 1" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
+      <views _Id="" name="Example View 1" viewClass=""/>
       <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 2" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
       <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 3" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
     </leftPane>
@@ -15,7 +15,9 @@
       <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 4" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
       <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 5" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
     </rightPane>
-    <bottomPane/>
+    <bottomPane>
+      <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfPropertyView"/>
+    </bottomPane>
     <editorArea/>
   </perspectives>
 </workbench:Workbench>

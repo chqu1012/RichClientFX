@@ -1,18 +1,12 @@
 package de.dc.javafx.xcore.workbench.ui.control;
 
-import javafx.scene.control.Tab;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
-public abstract class EmfView extends Tab {
+public abstract class EmfView extends BorderPane {
 
 	public EmfView() {
-		setText(title());
-		AnchorPane parent = new AnchorPane();
-		setContent(parent);
-		createPartControl(parent);
+		createPartControl(this);
 	}
 
-	protected abstract void createPartControl(AnchorPane parent);
-
-	protected abstract String title();
+	protected abstract void createPartControl(BorderPane parent);
 }
