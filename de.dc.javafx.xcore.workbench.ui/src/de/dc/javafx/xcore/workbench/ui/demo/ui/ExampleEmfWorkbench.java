@@ -2,17 +2,13 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui;
 
 import com.google.inject.Inject;
 
-import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.Perspective;
-import de.dc.javafx.xcore.workbench.ToolbarItem;
-import de.dc.javafx.xcore.workbench.WorkbenchFactory;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
 import javafx.event.ActionEvent;
-import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 
 public class ExampleEmfWorkbench extends EmfWorkbench{
@@ -25,17 +21,19 @@ public class ExampleEmfWorkbench extends EmfWorkbench{
 	public void render() {
 		renderer.setWorkbench(this);
 		
-		ToolbarItem runItem = WorkbenchFactory.eINSTANCE.createToolbarItem();
-		runItem.setName("Run");
-		Node runControl = renderer.doSwitch(runItem);
-		runControl.setOnMouseClicked(e -> onRunControlMouseClicked(e));
-		toolbar.getItems().add(runControl);
-
-		ToolbarItem debugItem = WorkbenchFactory.eINSTANCE.createToolbarItem();
-		debugItem.setName("Debug");
-		Node debugControl = renderer.doSwitch(debugItem);
-		debugControl.setOnMouseClicked(e -> onDebugControlMouseClicked(e));
-		toolbar.getItems().add(debugControl);
+//		ToolbarItem runItem = WorkbenchFactory.eINSTANCE.createToolbarItem();
+//		runItem.setName("Run");
+//		Node runControl = renderer.doSwitch(runItem);
+//		runControl.setOnMouseClicked(e -> onRunControlMouseClicked(e));
+//		toolbar.getItems().add(runControl);
+//
+//		ToolbarItem debugItem = WorkbenchFactory.eINSTANCE.createToolbarItem();
+//		debugItem.setName("Debug");
+//		Node debugControl = renderer.doSwitch(debugItem);
+//		debugControl.setOnMouseClicked(e -> onDebugControlMouseClicked(e));
+//		toolbar.getItems().add(debugControl);
+		
+		renderer.doSwitch(getWorkbench().getToolbar());
 		
 		Perspective firstPerspective = getWorkbench().getPerspectives().get(0);
 		renderer.doSwitch(firstPerspective);

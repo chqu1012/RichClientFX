@@ -4,6 +4,7 @@ import de.dc.javafx.xcore.workbench.BottomPane;
 import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.Perspective;
 import de.dc.javafx.xcore.workbench.RightPane;
+import de.dc.javafx.xcore.workbench.Toolbar;
 import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
@@ -19,6 +20,14 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	
 	public void setWorkbench(EmfWorkbench workbench) {
 		this.workbench=workbench;
+	}
+	
+	@Override
+	public Node caseToolbar(Toolbar object) {
+		if (workbench!=null) {
+			object.getItems().forEach(e->workbench.getToolBar().getItems().add(doSwitch(e)));
+		}
+		return super.caseToolbar(object);
 	}
 	
 	@Override
@@ -50,11 +59,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	@Override
 	public Node caseLeftPane(LeftPane object) {
 		if (workbench!=null) {
-			object.getViews().stream().forEach(e->{ 
-				Tab tab = new Tab(e.getName());
-				tab.setContent(caseView(e));
-				workbench.getLeftTabPane().getTabs().add(tab);
-			});
+			object.getViews().stream().forEach(e->workbench.getLeftTabPane().getTabs().add(createTab(e)));
 		}
 		return super.caseLeftPane(object);
 	}
@@ -62,11 +67,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	@Override
 	public Node caseRightPane(RightPane object) {
 		if (workbench!=null) {
-			object.getViews().stream().forEach(e->{ 
-				Tab tab = new Tab(e.getName());
-				tab.setContent(caseView(e));
-				workbench.getRightTabPane().getTabs().add(tab);
-			});
+			object.getViews().stream().forEach(e-> workbench.getRightTabPane().getTabs().add(createTab(e)));
 		}
 		return super.caseRightPane(object);
 	}
@@ -74,13 +75,15 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	@Override
 	public Node caseBottomPane(BottomPane object) {
 		if (workbench!=null) {
-			object.getViews().stream().forEach(e->{ 
-				Tab tab = new Tab(e.getName());
-				tab.setContent(caseView(e));
-				workbench.getBottomTabPane().getTabs().add(tab);
-			});
+			object.getViews().stream().forEach(e->workbench.getBottomTabPane().getTabs().add(createTab(e)));
 		}
 		return super.caseBottomPane(object);
+	}
+
+	private Tab createTab(View e) {
+		Tab tab = new Tab(e.getName());
+		tab.setContent(caseView(e));
+		return tab;
 	}
 	
 	@Override
