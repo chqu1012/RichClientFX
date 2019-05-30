@@ -9,7 +9,6 @@ import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.scene.input.MouseEvent;
 
 public class ExampleEmfWorkbench extends EmfWorkbench{
@@ -21,19 +20,7 @@ public class ExampleEmfWorkbench extends EmfWorkbench{
 	
 	public void render() {
 		renderer.setWorkbench(this);
-		
-//		ToolbarItem runItem = WorkbenchFactory.eINSTANCE.createToolbarItem();
-//		runItem.setName("Run");
-//		Node runControl = renderer.doSwitch(runItem);
-//		runControl.setOnMouseClicked(e -> onRunControlMouseClicked(e));
-//		toolbar.getItems().add(runControl);
-//
-//		ToolbarItem debugItem = WorkbenchFactory.eINSTANCE.createToolbarItem();
-//		debugItem.setName("Debug");
-//		Node debugControl = renderer.doSwitch(debugItem);
-//		debugControl.setOnMouseClicked(e -> onDebugControlMouseClicked(e));
-//		toolbar.getItems().add(debugControl);
-		
+		renderer.doSwitch(getWorkbench());
 		renderer.doSwitch(getWorkbench().getToolbar());
 		
 		Perspective firstPerspective = getWorkbench().getPerspectives().get(0);

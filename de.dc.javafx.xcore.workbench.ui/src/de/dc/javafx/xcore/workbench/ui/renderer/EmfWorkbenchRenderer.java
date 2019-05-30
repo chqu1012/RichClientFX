@@ -5,15 +5,21 @@ import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.google.inject.Inject;
+
 import de.dc.javafx.xcore.workbench.BottomPane;
+import de.dc.javafx.xcore.workbench.Command;
 import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.Perspective;
 import de.dc.javafx.xcore.workbench.RightPane;
 import de.dc.javafx.xcore.workbench.Toolbar;
 import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.View;
+import de.dc.javafx.xcore.workbench.Workbench;
+import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfView;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
+import de.dc.javafx.xcore.workbench.ui.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.util.WorkbenchSwitch;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -28,8 +34,23 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	
 	private EmfWorkbench workbench;
 	
+	@Inject EmfCommandManager commands;
+	
 	public void setWorkbench(EmfWorkbench workbench) {
 		this.workbench=workbench;
+	}
+	
+	@Override
+	public Node caseWorkbench(Workbench object) {
+		for (Command c : object.getCommands()) {
+			try {
+				Class<IEmfCommand> commandClass = (Class<IEmfCommand>) Class.forName(c.get_Id());
+				commands.register(c.get_Id(), commandClass);
+			} catch (ClassNotFoundException e) {
+				log.log(Level.SEVERE, "Error on register command id "+c.get_Id());
+			}
+		}
+		return super.caseWorkbench(object);
 	}
 	
 	@Override
@@ -47,7 +68,12 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 		if (object.getIcon()==null) {
 			control.setText(text);
 		}
-		control.setOnAction(event-> invokeOnActionMethod(object.getOnAction(), event));
+		control.setOnAction(event->{ 
+			invokeOnActionMethod(object.getOnAction(), event);
+			if (object.getCommand()!=null) {
+				commands.execute(object.getCommand().get_Id());
+			}
+		});
 		control.setTooltip(new Tooltip(text));
 		return control;
 	}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench:Workbench xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:workbench="http://www.frateranatis.org/workbench">
   <toolbar>
-    <items name="Run" onAction="onRunControlMouseClicked"/>
+    <items name="Run" onAction="onRunControlMouseClicked" command="//@commands.0"/>
     <items name="Debug"/>
   </toolbar>
   <statusline/>
@@ -20,4 +20,5 @@
     </bottomPane>
     <editorArea/>
   </perspectives>
+  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.RunCommand" name="Run"/>
 </workbench:Workbench>

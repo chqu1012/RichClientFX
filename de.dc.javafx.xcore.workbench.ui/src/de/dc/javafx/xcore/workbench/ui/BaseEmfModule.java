@@ -17,6 +17,7 @@ public class BaseEmfModule extends AbstractModule{
 		bind(ISelectionService.class).to(SelectionService.class).asEagerSingleton();
 		bind(EmfWorkbenchRenderer.class).asEagerSingleton();
 		bind(EmfWorkbenchFile.class).asEagerSingleton();
+		bind(EmfCommandManager.class).asEagerSingleton();
 	}
 
 }
