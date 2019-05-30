@@ -22,6 +22,15 @@ public interface WorkbenchFactory extends EFactory {
 	WorkbenchFactory eINSTANCE = de.dc.javafx.xcore.workbench.impl.WorkbenchFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>IAction Listener</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>IAction Listener</em>'.
+	 * @generated
+	 */
+	IActionListener createIActionListener();
+
+	/**
 	 * Returns a new object of class '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

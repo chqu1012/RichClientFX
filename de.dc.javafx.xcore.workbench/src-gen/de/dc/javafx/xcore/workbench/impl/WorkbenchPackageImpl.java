@@ -5,6 +5,7 @@ package de.dc.javafx.xcore.workbench.impl;
 import de.dc.javafx.xcore.workbench.BottomPane;
 import de.dc.javafx.xcore.workbench.Command;
 import de.dc.javafx.xcore.workbench.EditorArea;
+import de.dc.javafx.xcore.workbench.IActionListener;
 import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.NamedElement;
 import de.dc.javafx.xcore.workbench.Perspective;
@@ -33,6 +34,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iActionListenerEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,6 +197,26 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(WorkbenchPackage.eNS_URI, theWorkbenchPackage);
 		return theWorkbenchPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIActionListener() {
+		return iActionListenerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIActionListener_OnAction() {
+		return (EAttribute) iActionListenerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -511,6 +539,9 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		isCreated = true;
 
 		// Create classes and their features
+		iActionListenerEClass = createEClass(IACTION_LISTENER);
+		createEAttribute(iActionListenerEClass, IACTION_LISTENER__ON_ACTION);
+
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__ID);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -595,9 +626,16 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		bottomPaneEClass.getESuperTypes().add(this.getViewContainer());
 		toolbarEClass.getESuperTypes().add(this.getNamedElement());
 		toolbarItemEClass.getESuperTypes().add(this.getNamedElement());
+		toolbarItemEClass.getESuperTypes().add(this.getIActionListener());
 		statuslineEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(iActionListenerEClass, IActionListener.class, "IActionListener", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIActionListener_OnAction(), theEcorePackage.getEString(), "onAction", null, 0, 1,
+				IActionListener.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement__Id(), theEcorePackage.getEString(), "_Id", null, 0, 1, NamedElement.class,

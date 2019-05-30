@@ -1,5 +1,10 @@
 package de.dc.javafx.xcore.workbench.ui.renderer;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import de.dc.javafx.xcore.workbench.BottomPane;
 import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.Perspective;
@@ -9,6 +14,7 @@ import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.util.WorkbenchSwitch;
+import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
@@ -16,6 +22,8 @@ import javafx.scene.control.Tooltip;
 
 public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 
+	private Logger log = Logger.getLogger(EmfWorkbenchRenderer.class.getSimpleName());
+	
 	private EmfWorkbench workbench;
 	
 	public void setWorkbench(EmfWorkbench workbench) {
@@ -37,8 +45,18 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 		if (object.getIcon()==null) {
 			control.setText(text);
 		}
+		control.setOnAction(event-> invokeOnActionMethod(object.getOnAction(), event));
 		control.setTooltip(new Tooltip(text));
 		return control;
+	}
+
+	private void invokeOnActionMethod(String actionName, ActionEvent event) {
+		try {
+			Method method = workbench.getClass().getMethod(actionName, ActionEvent.class);
+			method.invoke(workbench, event);
+		} catch (NullPointerException | NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			log.log(Level.SEVERE, "Method "+actionName+" not found ("+e.getLocalizedMessage()+")");
+		}
 	}
 	
 	@Override

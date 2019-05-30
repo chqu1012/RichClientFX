@@ -3,6 +3,7 @@
 package de.dc.javafx.xcore.workbench.impl;
 
 import de.dc.javafx.xcore.workbench.Command;
+import de.dc.javafx.xcore.workbench.IActionListener;
 import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.WorkbenchPackage;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.dc.javafx.xcore.workbench.impl.ToolbarItemImpl#getOnAction <em>On Action</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.ToolbarItemImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.ToolbarItemImpl#getCommand <em>Command</em>}</li>
  * </ul>
@@ -28,6 +30,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ToolbarItemImpl extends NamedElementImpl implements ToolbarItem {
+	/**
+	 * The default value of the '{@link #getOnAction() <em>On Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ON_ACTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOnAction() <em>On Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected String onAction = ON_ACTION_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -75,6 +97,30 @@ public class ToolbarItemImpl extends NamedElementImpl implements ToolbarItem {
 	@Override
 	protected EClass eStaticClass() {
 		return WorkbenchPackage.Literals.TOOLBAR_ITEM;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getOnAction() {
+		return onAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOnAction(String newOnAction) {
+		String oldOnAction = onAction;
+		onAction = newOnAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.TOOLBAR_ITEM__ON_ACTION, oldOnAction,
+					onAction));
 	}
 
 	/**
@@ -150,6 +196,8 @@ public class ToolbarItemImpl extends NamedElementImpl implements ToolbarItem {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case WorkbenchPackage.TOOLBAR_ITEM__ON_ACTION:
+			return getOnAction();
 		case WorkbenchPackage.TOOLBAR_ITEM__ICON:
 			return getIcon();
 		case WorkbenchPackage.TOOLBAR_ITEM__COMMAND:
@@ -168,6 +216,9 @@ public class ToolbarItemImpl extends NamedElementImpl implements ToolbarItem {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case WorkbenchPackage.TOOLBAR_ITEM__ON_ACTION:
+			setOnAction((String) newValue);
+			return;
 		case WorkbenchPackage.TOOLBAR_ITEM__ICON:
 			setIcon((String) newValue);
 			return;
@@ -186,6 +237,9 @@ public class ToolbarItemImpl extends NamedElementImpl implements ToolbarItem {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case WorkbenchPackage.TOOLBAR_ITEM__ON_ACTION:
+			setOnAction(ON_ACTION_EDEFAULT);
+			return;
 		case WorkbenchPackage.TOOLBAR_ITEM__ICON:
 			setIcon(ICON_EDEFAULT);
 			return;
@@ -204,6 +258,8 @@ public class ToolbarItemImpl extends NamedElementImpl implements ToolbarItem {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case WorkbenchPackage.TOOLBAR_ITEM__ON_ACTION:
+			return ON_ACTION_EDEFAULT == null ? onAction != null : !ON_ACTION_EDEFAULT.equals(onAction);
 		case WorkbenchPackage.TOOLBAR_ITEM__ICON:
 			return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
 		case WorkbenchPackage.TOOLBAR_ITEM__COMMAND:
@@ -218,12 +274,50 @@ public class ToolbarItemImpl extends NamedElementImpl implements ToolbarItem {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == IActionListener.class) {
+			switch (derivedFeatureID) {
+			case WorkbenchPackage.TOOLBAR_ITEM__ON_ACTION:
+				return WorkbenchPackage.IACTION_LISTENER__ON_ACTION;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == IActionListener.class) {
+			switch (baseFeatureID) {
+			case WorkbenchPackage.IACTION_LISTENER__ON_ACTION:
+				return WorkbenchPackage.TOOLBAR_ITEM__ON_ACTION;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy())
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (icon: ");
+		result.append(" (onAction: ");
+		result.append(onAction);
+		result.append(", icon: ");
 		result.append(icon);
 		result.append(')');
 		return result.toString();

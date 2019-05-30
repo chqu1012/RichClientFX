@@ -19,7 +19,7 @@ package de.dc.javafx.xcore.workbench;
  * @model
  * @generated
  */
-public interface ToolbarItem extends NamedElement {
+public interface ToolbarItem extends NamedElement, IActionListener {
 	/**
 	 * Returns the value of the '<em><b>Icon</b></em>' attribute.
 	 * <!-- begin-user-doc -->

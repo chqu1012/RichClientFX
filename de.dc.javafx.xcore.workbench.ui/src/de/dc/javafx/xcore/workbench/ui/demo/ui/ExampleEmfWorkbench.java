@@ -9,6 +9,7 @@ import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.scene.input.MouseEvent;
 
 public class ExampleEmfWorkbench extends EmfWorkbench{
@@ -39,7 +40,7 @@ public class ExampleEmfWorkbench extends EmfWorkbench{
 		renderer.doSwitch(firstPerspective);
 	}
 	
-	private void onRunControlMouseClicked(MouseEvent e) {
+	public void onRunControlMouseClicked(ActionEvent e) {
 		System.out.println(e);
 	}
 

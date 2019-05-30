@@ -56,6 +56,8 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+		case WorkbenchPackage.IACTION_LISTENER:
+			return createIActionListener();
 		case WorkbenchPackage.NAMED_ELEMENT:
 			return createNamedElement();
 		case WorkbenchPackage.WORKBENCH:
@@ -83,6 +85,17 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IActionListener createIActionListener() {
+		IActionListenerImpl iActionListener = new IActionListenerImpl();
+		return iActionListener;
 	}
 
 	/**

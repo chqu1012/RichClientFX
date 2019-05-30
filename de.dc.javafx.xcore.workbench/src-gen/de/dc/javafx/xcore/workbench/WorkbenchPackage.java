@@ -58,6 +58,43 @@ public interface WorkbenchPackage extends EPackage {
 	WorkbenchPackage eINSTANCE = de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.impl.IActionListenerImpl <em>IAction Listener</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.impl.IActionListenerImpl
+	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getIActionListener()
+	 * @generated
+	 */
+	int IACTION_LISTENER = 0;
+
+	/**
+	 * The feature id for the '<em><b>On Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IACTION_LISTENER__ON_ACTION = 0;
+
+	/**
+	 * The number of structural features of the '<em>IAction Listener</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IACTION_LISTENER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>IAction Listener</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IACTION_LISTENER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.impl.NamedElementImpl <em>Named Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,7 +102,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 0;
+	int NAMED_ELEMENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -111,7 +148,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getWorkbench()
 	 * @generated
 	 */
-	int WORKBENCH = 1;
+	int WORKBENCH = 2;
 
 	/**
 	 * The feature id for the '<em><b>Toolbar</b></em>' containment reference.
@@ -175,7 +212,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getPerspective()
 	 * @generated
 	 */
-	int PERSPECTIVE = 2;
+	int PERSPECTIVE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -257,7 +294,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getCommand()
 	 * @generated
 	 */
-	int COMMAND = 3;
+	int COMMAND = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -303,7 +340,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getViewContainer()
 	 * @generated
 	 */
-	int VIEW_CONTAINER = 4;
+	int VIEW_CONTAINER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -340,7 +377,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getView()
 	 * @generated
 	 */
-	int VIEW = 5;
+	int VIEW = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -404,7 +441,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditorArea()
 	 * @generated
 	 */
-	int EDITOR_AREA = 6;
+	int EDITOR_AREA = 7;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -441,7 +478,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getLeftPane()
 	 * @generated
 	 */
-	int LEFT_PANE = 7;
+	int LEFT_PANE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -478,7 +515,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getRightPane()
 	 * @generated
 	 */
-	int RIGHT_PANE = 8;
+	int RIGHT_PANE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -515,7 +552,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getBottomPane()
 	 * @generated
 	 */
-	int BOTTOM_PANE = 9;
+	int BOTTOM_PANE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -552,7 +589,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getToolbar()
 	 * @generated
 	 */
-	int TOOLBAR = 10;
+	int TOOLBAR = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -607,7 +644,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getToolbarItem()
 	 * @generated
 	 */
-	int TOOLBAR_ITEM = 11;
+	int TOOLBAR_ITEM = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -628,13 +665,22 @@ public interface WorkbenchPackage extends EPackage {
 	int TOOLBAR_ITEM__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>On Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLBAR_ITEM__ON_ACTION = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Icon</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLBAR_ITEM__ICON = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int TOOLBAR_ITEM__ICON = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Command</b></em>' reference.
@@ -643,7 +689,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLBAR_ITEM__COMMAND = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int TOOLBAR_ITEM__COMMAND = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Toolbar Item</em>' class.
@@ -652,7 +698,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLBAR_ITEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TOOLBAR_ITEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Toolbar Item</em>' class.
@@ -671,7 +717,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getStatusline()
 	 * @generated
 	 */
-	int STATUSLINE = 12;
+	int STATUSLINE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -708,6 +754,27 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATUSLINE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.IActionListener <em>IAction Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IAction Listener</em>'.
+	 * @see de.dc.javafx.xcore.workbench.IActionListener
+	 * @generated
+	 */
+	EClass getIActionListener();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.IActionListener#getOnAction <em>On Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>On Action</em>'.
+	 * @see de.dc.javafx.xcore.workbench.IActionListener#getOnAction()
+	 * @see #getIActionListener()
+	 * @generated
+	 */
+	EAttribute getIActionListener_OnAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.NamedElement <em>Named Element</em>}'.
@@ -1038,6 +1105,24 @@ public interface WorkbenchPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.IActionListenerImpl <em>IAction Listener</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.impl.IActionListenerImpl
+		 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getIActionListener()
+		 * @generated
+		 */
+		EClass IACTION_LISTENER = eINSTANCE.getIActionListener();
+
+		/**
+		 * The meta object literal for the '<em><b>On Action</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IACTION_LISTENER__ON_ACTION = eINSTANCE.getIActionListener_OnAction();
+
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->

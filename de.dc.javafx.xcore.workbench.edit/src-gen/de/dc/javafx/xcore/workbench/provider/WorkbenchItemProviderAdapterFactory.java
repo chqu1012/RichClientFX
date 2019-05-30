@@ -73,6 +73,29 @@ public class WorkbenchItemProviderAdapterFactory extends WorkbenchAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.IActionListener} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IActionListenerItemProvider iActionListenerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.IActionListener}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIActionListenerAdapter() {
+		if (iActionListenerItemProvider == null) {
+			iActionListenerItemProvider = new IActionListenerItemProvider(this);
+		}
+
+		return iActionListenerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.NamedElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -453,6 +476,8 @@ public class WorkbenchItemProviderAdapterFactory extends WorkbenchAdapterFactory
 	 */
 	@Override
 	public void dispose() {
+		if (iActionListenerItemProvider != null)
+			iActionListenerItemProvider.dispose();
 		if (namedElementItemProvider != null)
 			namedElementItemProvider.dispose();
 		if (workbenchItemProvider != null)

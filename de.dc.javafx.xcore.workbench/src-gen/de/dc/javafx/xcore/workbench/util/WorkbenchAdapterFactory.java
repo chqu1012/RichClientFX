@@ -67,6 +67,11 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected WorkbenchSwitch<Adapter> modelSwitch = new WorkbenchSwitch<Adapter>() {
 		@Override
+		public Adapter caseIActionListener(IActionListener object) {
+			return createIActionListenerAdapter();
+		}
+
+		@Override
 		public Adapter caseNamedElement(NamedElement object) {
 			return createNamedElementAdapter();
 		}
@@ -148,6 +153,20 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 	@Override
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject) target);
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.IActionListener <em>IAction Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.IActionListener
+	 * @generated
+	 */
+	public Adapter createIActionListenerAdapter() {
+		return null;
 	}
 
 	/**

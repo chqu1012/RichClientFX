@@ -10,6 +10,10 @@
 	fileExtensions="workbench")
 package de.dc.javafx.xcore.workbench
 
+class IActionListener{ 
+	String onAction
+}
+
 class NamedElement{
 	String _Id
 	String name
@@ -55,7 +59,7 @@ class Toolbar extends NamedElement{
 	contains ToolbarItem[0..*] items
 }
 
-class ToolbarItem extends NamedElement{
+class ToolbarItem extends NamedElement, IActionListener{
 	String icon
 	refers Command command
 }
