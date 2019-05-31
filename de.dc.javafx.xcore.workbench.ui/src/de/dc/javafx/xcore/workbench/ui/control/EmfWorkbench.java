@@ -76,6 +76,10 @@ public class EmfWorkbench extends AbstractFxmlControl {
 	public ToolBar getToolBar() {
 		return toolbar;
 	}
+	
+	public ToolBar getPerspectiveToolBar() {
+		return perspectiveToolbar;
+	}
 
 	@FXML
 	protected void onEditorAreaCloseMenuItem(ActionEvent event) {

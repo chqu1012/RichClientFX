@@ -2,7 +2,6 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui;
 
 import com.google.inject.Inject;
 
-import de.dc.javafx.xcore.workbench.Perspective;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
@@ -22,9 +21,6 @@ public class ExampleEmfWorkbench extends EmfWorkbench{
 		renderer.setWorkbench(this);
 		renderer.doSwitch(getWorkbench());
 		renderer.doSwitch(getWorkbench().getToolbar());
-		
-		Perspective firstPerspective = getWorkbench().getPerspectives().get(0);
-		renderer.doSwitch(firstPerspective);
 	}
 	
 	public void onRunControlMouseClicked(ActionEvent e) {

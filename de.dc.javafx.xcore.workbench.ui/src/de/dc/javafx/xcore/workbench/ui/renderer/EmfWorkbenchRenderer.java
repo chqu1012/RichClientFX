@@ -45,6 +45,20 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	
 	@Override
 	public Node caseWorkbench(Workbench object) {
+		populateCommands(object);
+		populatePerspectives(object);
+		return super.caseWorkbench(object);
+	}
+
+	private void populatePerspectives(Workbench object) {
+		for (Perspective perspective : object.getPerspectives()) {
+			Button perspectiveButton = new Button(perspective.getName());
+			workbench.getPerspectiveToolBar().getItems().add(perspectiveButton);
+			doSwitch(perspective);
+		}
+	}
+
+	private void populateCommands(Workbench object) {
 		for (Command c : object.getCommands()) {
 			try {
 				Class<IEmfCommand> commandClass = (Class<IEmfCommand>) Class.forName(c.get_Id());
@@ -54,7 +68,6 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 				log.log(Level.SEVERE, "Error on register command id "+c.get_Id());
 			}
 		}
-		return super.caseWorkbench(object);
 	}
 	
 	@Override

@@ -5,7 +5,7 @@
     <items name="Debug" command="//@commands.1"/>
   </toolbar>
   <statusline/>
-  <perspectives>
+  <perspectives name="JDT Perspective">
     <leftPane>
       <views _Id="" name="Example View 1" viewClass=""/>
       <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 2" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
@@ -17,6 +17,16 @@
     </rightPane>
     <bottomPane>
       <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfPropertyView"/>
+      <views _Id="" name="Person Table View" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleTableView"/>
+    </bottomPane>
+    <editorArea/>
+  </perspectives>
+  <perspectives name="PDT Perspective">
+    <leftPane>
+      <views _Id="" name="Example View 1" viewClass=""/>
+    </leftPane>
+    <rightPane/>
+    <bottomPane>
       <views _Id="" name="Person Table View" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleTableView"/>
     </bottomPane>
     <editorArea/>
