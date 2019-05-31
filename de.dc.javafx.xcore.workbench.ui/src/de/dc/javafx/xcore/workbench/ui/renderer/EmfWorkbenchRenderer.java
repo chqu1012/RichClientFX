@@ -2,6 +2,8 @@ package de.dc.javafx.xcore.workbench.ui.renderer;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,7 +20,6 @@ import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
-import de.dc.javafx.xcore.workbench.ui.control.EmfView;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
@@ -35,6 +36,8 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	private Logger log = Logger.getLogger(EmfWorkbenchRenderer.class.getSimpleName());
 	
 	private EmfWorkbench workbench;
+	
+	private Map<String, Perspective> perspectives = new HashMap<>();
 	
 	@Inject EmfCommandManager commands;
 	@Inject ISelectionService selectionService;
@@ -53,9 +56,22 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	private void populatePerspectives(Workbench object) {
 		for (Perspective perspective : object.getPerspectives()) {
 			Button perspectiveButton = new Button(perspective.getName());
+			perspectiveButton.setId(perspective.get_Id());
+			perspectiveButton.setOnAction(e->switchPerspective(perspectiveButton.getId()));
 			workbench.getPerspectiveToolBar().getItems().add(perspectiveButton);
 			doSwitch(perspective);
+			
+			perspectives.put(perspective.get_Id(), perspective);
 		}
+	}
+
+	private void switchPerspective(String id) {
+		workbench.getLeftTabPane().getTabs().clear();
+		workbench.getRightTabPane().getTabs().clear();
+		workbench.getBottomTabPane().getTabs().clear();
+		workbench.getEditorArea().getTabs().clear();
+		
+		doSwitch(perspectives.get(id));
 	}
 
 	private void populateCommands(Workbench object) {
