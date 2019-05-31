@@ -59,9 +59,10 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 			perspectiveButton.setId(perspective.get_Id());
 			perspectiveButton.setOnAction(e->switchPerspective(perspectiveButton.getId()));
 			workbench.getPerspectiveToolBar().getItems().add(perspectiveButton);
-			doSwitch(perspective);
 			
 			perspectives.put(perspective.get_Id(), perspective);
+			switchPerspective(perspective.get_Id());
+			
 		}
 	}
 
