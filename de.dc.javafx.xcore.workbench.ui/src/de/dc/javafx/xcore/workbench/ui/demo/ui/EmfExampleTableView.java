@@ -16,6 +16,8 @@ import javafx.scene.layout.BorderPane;
 
 public class EmfExampleTableView extends EmfView {
 
+	@Inject ISelectionService service;
+	
 	public static class Person {
 
 		private final SimpleStringProperty vorname;
