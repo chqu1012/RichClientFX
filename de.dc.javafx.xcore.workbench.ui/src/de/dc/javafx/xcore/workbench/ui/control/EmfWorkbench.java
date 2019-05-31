@@ -6,16 +6,21 @@ import java.util.List;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.workbench.Workbench;
+import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
+import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 
-public class EmfWorkbench extends AbstractFxmlControl {
+public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 
 	@FXML
 	protected BorderPane root;
@@ -44,11 +49,18 @@ public class EmfWorkbench extends AbstractFxmlControl {
 	@FXML
 	protected TextField searchText;
 	
+	@FXML
+	protected Label statusLineLabel;
+	
 	@Inject
 	protected EmfWorkbenchFile workbenchFile;
 
 	protected Workbench workbench;
 
+	public EmfWorkbench() {
+		EmfWorkbenchContext.getInstance(ISelectionService.class).addListener(this);
+	}
+	
 	public Workbench getWorkbench() {
 		if (workbench == null) {
 			String name = getClass().getResource(getClass().getSimpleName() + ".workbench").getPath();
@@ -107,5 +119,10 @@ public class EmfWorkbench extends AbstractFxmlControl {
 	@Override
 	protected String fxmlName() {
 		return EmfWorkbench.class.getSimpleName();
+	}
+
+	@Override
+	public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+		statusLineLabel.setText("Selection: "+newValue.toString());		
 	}
 }

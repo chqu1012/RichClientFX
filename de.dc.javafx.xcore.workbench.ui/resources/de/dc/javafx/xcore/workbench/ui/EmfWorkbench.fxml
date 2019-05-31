@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -74,6 +75,10 @@
       </VBox>
    </top>
    <bottom>
-      <ToolBar fx:id="statusLine" prefHeight="27.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
+      <ToolBar fx:id="statusLine" prefHeight="27.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <items>
+            <Label fx:id="statusLineLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+         </items>
+      </ToolBar>
    </bottom>
 </fx:root>
