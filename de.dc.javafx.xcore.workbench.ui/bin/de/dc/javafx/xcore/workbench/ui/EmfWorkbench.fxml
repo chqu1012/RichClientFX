@@ -62,10 +62,10 @@
             <SplitPane dividerPositions="0.7303839732888147">
                <items>
                   <ToolBar fx:id="toolbar" prefHeight="40.0" prefWidth="885.0" />
-                  <ToolBar prefHeight="40.0" prefWidth="200.0">
+                  <ToolBar fx:id="perspectiveToolbar" prefHeight="40.0" prefWidth="200.0">
                      <items>
-                        <TextField promptText="Search..." />
-                        <Button mnemonicParsing="false" text="Perspectives" />
+                        <TextField fx:id="searchText" promptText="Search..." />
+                        <Button fx:id="perspectiveButton" mnemonicParsing="false" text="Perspectives" />
                      </items>
                   </ToolBar>
                </items>
@@ -73,4 +73,7 @@
          </children>
       </VBox>
    </top>
+   <bottom>
+      <ToolBar fx:id="statusLine" prefHeight="27.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </fx:root>

@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 
@@ -34,6 +35,15 @@ public class EmfWorkbench extends AbstractFxmlControl {
 	@FXML
 	protected ToolBar toolbar;
 
+	@FXML
+	protected ToolBar statusLine;
+
+	@FXML
+	protected ToolBar perspectiveToolbar;
+
+	@FXML
+	protected TextField searchText;
+	
 	@Inject
 	protected EmfWorkbenchFile workbenchFile;
 
