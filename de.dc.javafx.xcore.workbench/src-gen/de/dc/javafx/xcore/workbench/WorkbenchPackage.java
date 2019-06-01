@@ -315,13 +315,22 @@ public interface WorkbenchPackage extends EPackage {
 	int COMMAND__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Command Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__COMMAND_CLASS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Command</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int COMMAND_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Command</em>' class.
@@ -927,6 +936,17 @@ public interface WorkbenchPackage extends EPackage {
 	EClass getCommand();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.Command#getCommandClass <em>Command Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Command Class</em>'.
+	 * @see de.dc.javafx.xcore.workbench.Command#getCommandClass()
+	 * @see #getCommand()
+	 * @generated
+	 */
+	EAttribute getCommand_CommandClass();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.ViewContainer <em>View Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1242,6 +1262,14 @@ public interface WorkbenchPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMMAND = eINSTANCE.getCommand();
+
+		/**
+		 * The meta object literal for the '<em><b>Command Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMAND__COMMAND_CLASS = eINSTANCE.getCommand_CommandClass();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.ViewContainerImpl <em>View Container</em>}' class.

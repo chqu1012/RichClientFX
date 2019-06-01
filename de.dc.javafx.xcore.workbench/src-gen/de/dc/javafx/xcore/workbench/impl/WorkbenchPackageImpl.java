@@ -365,6 +365,16 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getCommand_CommandClass() {
+		return (EAttribute) commandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getViewContainer() {
 		return viewContainerEClass;
 	}
@@ -559,6 +569,7 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		createEReference(perspectiveEClass, PERSPECTIVE__EDITOR_AREA);
 
 		commandEClass = createEClass(COMMAND);
+		createEAttribute(commandEClass, COMMAND__COMMAND_CLASS);
 
 		viewContainerEClass = createEClass(VIEW_CONTAINER);
 		createEReference(viewContainerEClass, VIEW_CONTAINER__VIEWS);
@@ -676,6 +687,9 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommand_CommandClass(), theEcorePackage.getEString(), "commandClass", null, 0, 1,
+				Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewContainerEClass, ViewContainer.class, "ViewContainer", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

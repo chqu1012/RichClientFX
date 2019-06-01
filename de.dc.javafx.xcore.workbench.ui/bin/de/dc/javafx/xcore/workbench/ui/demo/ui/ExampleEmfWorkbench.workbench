@@ -3,7 +3,8 @@
   <toolbar>
     <items name="Run" onAction="onRunControlMouseClicked" command="//@commands.0"/>
     <items name="Debug" command="//@commands.1"/>
-    <items name="Open Example View" command="//@commands.2"/>
+    <items name="Open View RightPane" command="//@commands.2"/>
+    <items name="Open View LeftPane" command="//@commands.3"/>
   </toolbar>
   <statusline/>
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
@@ -34,5 +35,6 @@
   </perspectives>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.RunCommand" name="Run"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.DebugCommand" name="Debug"/>
-  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenExampleViewCommand" name="Open Example View" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenExampleViewCommand"/>
+  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInRightPaneCommand" name="Open View RightPane" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInRightPaneCommand"/>
+  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInLeftPaneCommand" name="Open View LeftPane" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInLeftPaneCommand"/>
 </workbench:Workbench>

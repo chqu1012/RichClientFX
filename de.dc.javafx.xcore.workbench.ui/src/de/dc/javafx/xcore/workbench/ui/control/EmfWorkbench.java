@@ -8,6 +8,7 @@ import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
+import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.event.EventContext;
 import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
@@ -25,6 +26,15 @@ import javafx.scene.layout.BorderPane;
 
 public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 
+	public static final String ID = "de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench";
+	public static final String TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Toolbar";
+	public static final String PERSPECTIVE_TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Perspective";
+	public static final String LEFT_PANE_ID = "de.dc.javafx.xcore.workbench.ui.control.LeftPane";
+	public static final String RIGHT_PANE_ID = "de.dc.javafx.xcore.workbench.ui.control.RightPane";
+	public static final String BOTTOM_PANE_ID = "de.dc.javafx.xcore.workbench.ui.control.BottomPane";
+	public static final String EDITOR_AREA_ID = "de.dc.javafx.xcore.workbench.ui.control.EditorArea";
+	public static final String STATUSLINE_ID = "de.dc.javafx.xcore.workbench.ui.control.Statusline";
+	
 	@FXML
 	protected BorderPane root;
 
@@ -66,6 +76,14 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 	public EmfWorkbench() {
 		EmfWorkbenchContext.getInstance(ISelectionService.class).addListener(this);
 		EmfWorkbenchContext.getInstance(IEventBroker.class).register(this);
+		
+		IEmfControlManager controlManager = EmfWorkbenchContext.getInstance(IEmfControlManager.class);
+		controlManager.registrate(BOTTOM_PANE_ID, getBottomTabPane());
+		controlManager.registrate(LEFT_PANE_ID, getLeftTabPane());
+		controlManager.registrate(RIGHT_PANE_ID, getRightTabPane());
+		controlManager.registrate(EDITOR_AREA_ID, getEditorArea());
+		controlManager.registrate(TOOLBAR_ID, getToolBar());
+		controlManager.registrate(PERSPECTIVE_TOOLBAR_ID, getPerspectiveToolBar());
 	}
 	
 	public Workbench getWorkbench() {
