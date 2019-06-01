@@ -4,5 +4,7 @@ public interface IEventContext<T> {
 
 	EventTopic getEventTopic();
 	
+	String getEventId();
+	
 	T getInput();
 }

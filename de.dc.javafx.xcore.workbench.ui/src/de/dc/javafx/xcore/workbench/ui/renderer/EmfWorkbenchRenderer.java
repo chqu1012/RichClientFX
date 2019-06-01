@@ -21,7 +21,10 @@ import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
+import de.dc.javafx.xcore.workbench.ui.event.EventContext;
+import de.dc.javafx.xcore.workbench.ui.event.EventTopic;
 import de.dc.javafx.xcore.workbench.ui.event.IEmfCommand;
+import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.util.WorkbenchSwitch;
 import javafx.event.ActionEvent;
@@ -41,6 +44,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	
 	@Inject EmfCommandManager commands;
 	@Inject ISelectionService selectionService;
+	@Inject IEventBroker eventBroker;
 	
 	public void setWorkbench(EmfWorkbench workbench) {
 		this.workbench=workbench;
@@ -62,7 +66,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 			
 			perspectives.put(perspective.get_Id(), perspective);
 			switchPerspective(perspective.get_Id());
-			
+			eventBroker.post(new EventContext<>("switch.perspective", perspective.getName()));
 		}
 	}
 
@@ -72,7 +76,10 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 		workbench.getBottomTabPane().getTabs().clear();
 		workbench.getEditorArea().getTabs().clear();
 		
-		doSwitch(perspectives.get(id));
+		Perspective perspective = perspectives.get(id);
+		doSwitch(perspective);
+		eventBroker.post(new EventContext<>("switch.perspective", perspective.getName()));
+		
 	}
 
 	private void populateCommands(Workbench object) {

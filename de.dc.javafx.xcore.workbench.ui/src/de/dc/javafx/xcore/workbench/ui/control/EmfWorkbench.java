@@ -3,10 +3,13 @@ package de.dc.javafx.xcore.workbench.ui.control;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
+import de.dc.javafx.xcore.workbench.ui.event.EventContext;
+import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
 import javafx.beans.value.ChangeListener;
@@ -52,6 +55,9 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 	@FXML
 	protected Label statusLineLabel;
 	
+	@FXML
+	protected Label statusLinePerspectiveLabel;
+	
 	@Inject
 	protected EmfWorkbenchFile workbenchFile;
 
@@ -59,6 +65,7 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 
 	public EmfWorkbench() {
 		EmfWorkbenchContext.getInstance(ISelectionService.class).addListener(this);
+		EmfWorkbenchContext.getInstance(IEventBroker.class).register(this);
 	}
 	
 	public Workbench getWorkbench() {
@@ -124,5 +131,12 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 	@Override
 	public void changed(ObservableValue observable, Object oldValue, Object newValue) {
 		statusLineLabel.setText("Selection: "+newValue.toString());		
+	}
+	
+	@Subscribe
+	public void updateStatusLinePerspectiveLabel(EventContext<String> context) {
+		if (context.getEventId().equals("switch.perspective")) {
+			statusLinePerspectiveLabel.setText(context.getInput());
+		}
 	}
 }
