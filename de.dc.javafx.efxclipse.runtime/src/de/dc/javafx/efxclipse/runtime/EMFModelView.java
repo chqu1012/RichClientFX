@@ -230,7 +230,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 			historyList.getItems().addAll(commandList);
 		}
 	}
-
+	
 	public boolean isFileOpen(String name) {
 		return editorArea.getTabs().stream().anyMatch(e -> e.getText().equalsIgnoreCase(name));
 	}

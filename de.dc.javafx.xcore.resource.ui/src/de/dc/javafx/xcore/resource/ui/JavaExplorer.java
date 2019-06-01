@@ -9,6 +9,9 @@ import javafx.scene.layout.AnchorPane;
 
 public class JavaExplorer extends Tab {
 
+	public JavaExplorer() {
+	}
+	
 	public JavaExplorer(IEmfManager<Workspace> manager) {
 		setText("JavaExplorer");
 		setGraphic(new ImageView("images/jworkingSet_obj.png"));

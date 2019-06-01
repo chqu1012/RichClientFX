@@ -76,6 +76,24 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 
 	protected IEventBroker eventBroker;
 
+	public EMFModelTreeView() {
+		FXMLLoader fxmlLoader = new FXMLLoader(
+				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
+		fxmlLoader.setRoot(this);
+		fxmlLoader.setController(this);
+
+		try {
+			fxmlLoader.load();
+		} catch (IOException exception) {
+			log.log(Level.SEVERE, "Error loading fxml " + exception.getLocalizedMessage());
+		}
+
+//		selectionService = ApplicationContext.getInstance(SelectionService.class);
+//		eventBroker = ApplicationContext.getInstance(IEventBroker.class);
+//		
+//		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty());
+	}
+	
 	public EMFModelTreeView(IEmfManager<T> manager) {
 		FXMLLoader fxmlLoader = new FXMLLoader(
 				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
@@ -98,6 +116,12 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty());
 	}
 
+	public void initializeEmf(IEmfManager<T> manager) {
+		this.manager = manager;
+		this.editingDomain = manager.getEditingDomain();
+		initTreeView();
+	}
+	
 	private void initTreeView() {
 		treeView.getSelectionModel().selectedItemProperty().addListener(this);
 

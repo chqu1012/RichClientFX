@@ -1,13 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: JavaFX Runtime
-Bundle-SymbolicName: de.dc.javafx.xcore.runtime
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.dc.javafx.xcore.runtime;singleton:=true
 Bundle-Version: 1.8.211.qualifier
 Automatic-Module-Name: de.dc.javafx.xcore.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: .,
  libs/jfxrt.jar,
  libs/jfxswt.jar
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  com.sun.deploy.uitoolkit.impl.fx.ui,
  com.sun.deploy.uitoolkit.impl.fx.ui.resources,
@@ -191,4 +193,9 @@ Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  javafx.util,
  javafx.util.converter,
  netscape.javascript
-Require-Bundle: org.eclipse.ui;bundle-version="3.112.0"
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.emf.ecore.xcore.lib
+Bundle-ActivationPolicy: lazy

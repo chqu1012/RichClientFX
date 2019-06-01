@@ -99,7 +99,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <ToolBar fx:id="toolbar" prefHeight="40.0" prefWidth="200.0">
                <items>
                   <Button mnemonicParsing="false" onAction="#onNewMenuItemClicked">
                      <graphic>
