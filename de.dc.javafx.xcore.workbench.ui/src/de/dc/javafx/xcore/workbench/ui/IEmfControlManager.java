@@ -1,7 +1,6 @@
 package de.dc.javafx.xcore.workbench.ui;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import javafx.scene.Node;
 
@@ -11,10 +10,10 @@ public interface IEmfControlManager {
 	
 	void registrate(String id, Node control);
 	
-	Optional<Node> findBy(String id);
+	<T> T findBy(String id);
 
-	Optional<Node> findToolbarItemBy(String id);
+	<T> T findToolbarItemBy(String id);
 
-	Collection<Optional<Node>> findAllToolbar();
+	Collection<Node> findAllToolbar();
 	
 }

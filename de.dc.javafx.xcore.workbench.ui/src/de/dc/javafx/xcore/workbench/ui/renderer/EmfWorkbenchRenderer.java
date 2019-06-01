@@ -20,9 +20,9 @@ import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
+import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.event.EventContext;
-import de.dc.javafx.xcore.workbench.ui.event.EventTopic;
 import de.dc.javafx.xcore.workbench.ui.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
@@ -45,9 +45,11 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	@Inject EmfCommandManager commands;
 	@Inject ISelectionService selectionService;
 	@Inject IEventBroker eventBroker;
+	@Inject IEmfControlManager controlManager;
 	
 	public void setWorkbench(EmfWorkbench workbench) {
 		this.workbench=workbench;
+		controlManager.registrate("root.emf.workbench", workbench);
 	}
 	
 	@Override
@@ -89,6 +91,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 				IEmfCommand command = EmfWorkbenchContext.getInstance(commandClass);
 				commands.register(c.get_Id(), command);
 			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
 				log.log(Level.SEVERE, "Error on register command id "+c.get_Id());
 			}
 		}

@@ -9,31 +9,31 @@ import javafx.scene.Node;
 
 public class EmfControlManager implements IEmfControlManager{
 
-	private Map<String, Optional<Node>> controlRegistry = new HashMap<>();
-	private Map<String, Optional<Node>> toolbarRegistry = new HashMap<>();
+	private Map<String, Node> controlRegistry = new HashMap<>();
+	private Map<String, Node> toolbarRegistry = new HashMap<>();
 
 	@Override
 	public void registrate(String id, Node control) {
-		controlRegistry.put(id, Optional.of(control));
+		controlRegistry.put(id, control);
 	}
 
 	@Override
-	public Optional<Node> findBy(String id) {
-		return controlRegistry.get(id);
+	public <T> T findBy(String id) {
+		return (T) controlRegistry.get(id);
 	}
 
 	@Override
 	public void registrateToolbarItem(String id, Node control) {
-		toolbarRegistry.put(id, Optional.of(control));		
+		toolbarRegistry.put(id, control);		
 	}
 
 	@Override
-	public Optional<Node> findToolbarItemBy(String id) {
+	public Node findToolbarItemBy(String id) {
 		return toolbarRegistry.get(id);
 	}
 
 	@Override
-	public Collection<Optional<Node>> findAllToolbar() {
+	public Collection<Node> findAllToolbar() {
 		return toolbarRegistry.values();
 	}
 	

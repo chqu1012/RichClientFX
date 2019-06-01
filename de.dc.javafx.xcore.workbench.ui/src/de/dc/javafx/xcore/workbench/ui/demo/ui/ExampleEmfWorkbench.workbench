@@ -3,6 +3,7 @@
   <toolbar>
     <items name="Run" onAction="onRunControlMouseClicked" command="//@commands.0"/>
     <items name="Debug" command="//@commands.1"/>
+    <items name="Open Example View" command="//@commands.2"/>
   </toolbar>
   <statusline/>
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
@@ -33,4 +34,5 @@
   </perspectives>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.RunCommand" name="Run"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.DebugCommand" name="Debug"/>
+  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenExampleViewCommand" name="Open Example View" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenExampleViewCommand"/>
 </workbench:Workbench>
