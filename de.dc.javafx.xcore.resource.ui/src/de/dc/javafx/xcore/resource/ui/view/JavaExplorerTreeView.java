@@ -23,7 +23,6 @@ public class JavaExplorerTreeView extends EMFModelTreeView<Workspace> {
 		super.initializeEmf(new BaseResourceManager());
 
 		// add edit support
-		treeView.setEditable(true);
 		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getFolder_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getFile_Name());

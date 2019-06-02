@@ -1,3 +1,8 @@
+.split-pane-divider {
+	-fx-padding: 1;
+	-fx-background-color: #2D3338;
+}
+
 .titled-pane > .content > * {
     -fx-padding: 0px;
 }
