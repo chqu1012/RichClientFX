@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.ViewImpl#getViewClass <em>View Class</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.ViewImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.impl.ViewImpl#isIsClosable <em>Is Closable</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +66,26 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * @ordered
 	 */
 	protected String icon = ICON_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsClosable() <em>Is Closable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsClosable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_CLOSABLE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isIsClosable() <em>Is Closable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsClosable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isClosable = IS_CLOSABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,12 +159,38 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * @generated
 	 */
 	@Override
+	public boolean isIsClosable() {
+		return isClosable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIsClosable(boolean newIsClosable) {
+		boolean oldIsClosable = isClosable;
+		isClosable = newIsClosable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.VIEW__IS_CLOSABLE, oldIsClosable,
+					isClosable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case WorkbenchPackage.VIEW__VIEW_CLASS:
 			return getViewClass();
 		case WorkbenchPackage.VIEW__ICON:
 			return getIcon();
+		case WorkbenchPackage.VIEW__IS_CLOSABLE:
+			return isIsClosable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +208,9 @@ public class ViewImpl extends NamedElementImpl implements View {
 			return;
 		case WorkbenchPackage.VIEW__ICON:
 			setIcon((String) newValue);
+			return;
+		case WorkbenchPackage.VIEW__IS_CLOSABLE:
+			setIsClosable((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +230,9 @@ public class ViewImpl extends NamedElementImpl implements View {
 		case WorkbenchPackage.VIEW__ICON:
 			setIcon(ICON_EDEFAULT);
 			return;
+		case WorkbenchPackage.VIEW__IS_CLOSABLE:
+			setIsClosable(IS_CLOSABLE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +249,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 			return VIEW_CLASS_EDEFAULT == null ? viewClass != null : !VIEW_CLASS_EDEFAULT.equals(viewClass);
 		case WorkbenchPackage.VIEW__ICON:
 			return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
+		case WorkbenchPackage.VIEW__IS_CLOSABLE:
+			return isClosable != IS_CLOSABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,6 +270,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 		result.append(viewClass);
 		result.append(", icon: ");
 		result.append(icon);
+		result.append(", isClosable: ");
+		result.append(isClosable);
 		result.append(')');
 		return result.toString();
 	}

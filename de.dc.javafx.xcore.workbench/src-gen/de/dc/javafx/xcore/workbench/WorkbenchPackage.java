@@ -425,13 +425,22 @@ public interface WorkbenchPackage extends EPackage {
 	int VIEW__ICON = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Is Closable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__IS_CLOSABLE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int VIEW_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>View</em>' class.
@@ -1000,6 +1009,17 @@ public interface WorkbenchPackage extends EPackage {
 	EAttribute getView_Icon();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.View#isIsClosable <em>Is Closable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Closable</em>'.
+	 * @see de.dc.javafx.xcore.workbench.View#isIsClosable()
+	 * @see #getView()
+	 * @generated
+	 */
+	EAttribute getView_IsClosable();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.EditorArea <em>Editor Area</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1314,6 +1334,14 @@ public interface WorkbenchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIEW__ICON = eINSTANCE.getView_Icon();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Closable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW__IS_CLOSABLE = eINSTANCE.getView_IsClosable();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.EditorAreaImpl <em>Editor Area</em>}' class.

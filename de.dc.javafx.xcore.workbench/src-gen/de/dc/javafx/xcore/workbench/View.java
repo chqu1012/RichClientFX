@@ -13,6 +13,7 @@ package de.dc.javafx.xcore.workbench;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.View#getViewClass <em>View Class</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.View#getIcon <em>Icon</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.View#isIsClosable <em>Is Closable</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getView()
@@ -63,5 +64,28 @@ public interface View extends NamedElement {
 	 * @generated
 	 */
 	void setIcon(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Closable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Closable</em>' attribute.
+	 * @see #setIsClosable(boolean)
+	 * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getView_IsClosable()
+	 * @model default="true" unique="false"
+	 * @generated
+	 */
+	boolean isIsClosable();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.View#isIsClosable <em>Is Closable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Closable</em>' attribute.
+	 * @see #isIsClosable()
+	 * @generated
+	 */
+	void setIsClosable(boolean value);
 
 } // View

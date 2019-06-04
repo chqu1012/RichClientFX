@@ -425,6 +425,16 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getView_IsClosable() {
+		return (EAttribute) viewEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEditorArea() {
 		return editorAreaEClass;
 	}
@@ -577,6 +587,7 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		viewEClass = createEClass(VIEW);
 		createEAttribute(viewEClass, VIEW__VIEW_CLASS);
 		createEAttribute(viewEClass, VIEW__ICON);
+		createEAttribute(viewEClass, VIEW__IS_CLOSABLE);
 
 		editorAreaEClass = createEClass(EDITOR_AREA);
 
@@ -703,6 +714,9 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 				IS_ORDERED);
 		initEAttribute(getView_Icon(), theEcorePackage.getEString(), "icon", null, 0, 1, View.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getView_IsClosable(), theEcorePackage.getEBoolean(), "isClosable", "true", 0, 1, View.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(editorAreaEClass, EditorArea.class, "EditorArea", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

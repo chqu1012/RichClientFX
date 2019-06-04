@@ -45,6 +45,7 @@ abstract class ViewContainer{
 class View extends NamedElement{
 	String viewClass
 	String icon
+	boolean isClosable = 'true'
 }
 
 class EditorArea extends ViewContainer{}
