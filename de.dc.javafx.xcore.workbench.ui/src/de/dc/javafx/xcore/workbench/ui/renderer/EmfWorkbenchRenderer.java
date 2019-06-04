@@ -27,6 +27,7 @@ import de.dc.javafx.xcore.workbench.ui.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.util.WorkbenchSwitch;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -189,6 +190,12 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 		try {
 			Class clazz = Class.forName(object.getViewClass());
 			Node view = (Node) EmfWorkbenchContext.getInstance(clazz);
+			
+			boolean isChangeListener = ChangeListener.class.isAssignableFrom(view.getClass());
+			if (isChangeListener) {
+				selectionService.addListener((ChangeListener) view);
+			}
+			
 			controlManager.registrate(object.get_Id(), view);
 			return view;
 		} catch (NullPointerException | ClassNotFoundException e) {
