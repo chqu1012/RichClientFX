@@ -39,7 +39,7 @@
       <views _Id="de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView" name="JavaExplorer" viewClass="de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView"/>
     </leftPane>
     <rightPane>
-      <views/>
+      <views _Id="de.dc.javafx.xcore.code.preview.ui.FXPreview" name="FXPreview" viewClass="de.dc.javafx.xcore.code.preview.ui.FXPreview"/>
     </rightPane>
     <bottomPane/>
     <editorArea/>
