@@ -434,13 +434,22 @@ public interface WorkbenchPackage extends EPackage {
 	int VIEW__IS_CLOSABLE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Registrate Change Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__REGISTRATE_CHANGE_LISTENER = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int VIEW_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>View</em>' class.
@@ -1020,6 +1029,17 @@ public interface WorkbenchPackage extends EPackage {
 	EAttribute getView_IsClosable();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.View#isRegistrateChangeListener <em>Registrate Change Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Registrate Change Listener</em>'.
+	 * @see de.dc.javafx.xcore.workbench.View#isRegistrateChangeListener()
+	 * @see #getView()
+	 * @generated
+	 */
+	EAttribute getView_RegistrateChangeListener();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.EditorArea <em>Editor Area</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1342,6 +1362,14 @@ public interface WorkbenchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIEW__IS_CLOSABLE = eINSTANCE.getView_IsClosable();
+
+		/**
+		 * The meta object literal for the '<em><b>Registrate Change Listener</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW__REGISTRATE_CHANGE_LISTENER = eINSTANCE.getView_RegistrateChangeListener();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.EditorAreaImpl <em>Editor Area</em>}' class.

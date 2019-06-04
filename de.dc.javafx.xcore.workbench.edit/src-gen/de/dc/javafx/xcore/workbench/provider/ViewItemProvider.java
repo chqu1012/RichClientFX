@@ -45,6 +45,8 @@ public class ViewItemProvider extends NamedElementItemProvider {
 
 			addViewClassPropertyDescriptor(object);
 			addIconPropertyDescriptor(object);
+			addIsClosablePropertyDescriptor(object);
+			addRegistrateChangeListenerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,6 +79,37 @@ public class ViewItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_View_icon_feature", "_UI_View_type"),
 						WorkbenchPackage.Literals.VIEW__ICON, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Closable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsClosablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_View_isClosable_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_View_isClosable_feature", "_UI_View_type"),
+						WorkbenchPackage.Literals.VIEW__IS_CLOSABLE, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Registrate Change Listener feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRegistrateChangeListenerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_View_registrateChangeListener_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_View_registrateChangeListener_feature",
+								"_UI_View_type"),
+						WorkbenchPackage.Literals.VIEW__REGISTRATE_CHANGE_LISTENER, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -127,6 +160,8 @@ public class ViewItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(View.class)) {
 		case WorkbenchPackage.VIEW__VIEW_CLASS:
 		case WorkbenchPackage.VIEW__ICON:
+		case WorkbenchPackage.VIEW__IS_CLOSABLE:
+		case WorkbenchPackage.VIEW__REGISTRATE_CHANGE_LISTENER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

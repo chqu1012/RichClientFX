@@ -46,6 +46,7 @@ class View extends NamedElement{
 	String viewClass
 	String icon
 	boolean isClosable = 'true'
+	boolean registrateChangeListener = 'false'
 }
 
 class EditorArea extends ViewContainer{}

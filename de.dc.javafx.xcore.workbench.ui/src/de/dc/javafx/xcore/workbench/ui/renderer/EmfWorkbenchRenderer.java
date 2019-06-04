@@ -193,7 +193,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 			Node view = (Node) EmfWorkbenchContext.getInstance(clazz);
 			
 			boolean isChangeListener = ChangeListener.class.isAssignableFrom(view.getClass());
-			if (isChangeListener) {
+			if (isChangeListener && object.isRegistrateChangeListener()) {
 				selectionService.addListener((ChangeListener) view);
 			}
 			

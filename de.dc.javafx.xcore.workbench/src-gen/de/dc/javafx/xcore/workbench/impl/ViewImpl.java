@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.ViewImpl#getViewClass <em>View Class</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.ViewImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.ViewImpl#isIsClosable <em>Is Closable</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.impl.ViewImpl#isRegistrateChangeListener <em>Registrate Change Listener</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +87,26 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * @ordered
 	 */
 	protected boolean isClosable = IS_CLOSABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRegistrateChangeListener() <em>Registrate Change Listener</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRegistrateChangeListener()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REGISTRATE_CHANGE_LISTENER_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRegistrateChangeListener() <em>Registrate Change Listener</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRegistrateChangeListener()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean registrateChangeListener = REGISTRATE_CHANGE_LISTENER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,6 +204,30 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * @generated
 	 */
 	@Override
+	public boolean isRegistrateChangeListener() {
+		return registrateChangeListener;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRegistrateChangeListener(boolean newRegistrateChangeListener) {
+		boolean oldRegistrateChangeListener = registrateChangeListener;
+		registrateChangeListener = newRegistrateChangeListener;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.VIEW__REGISTRATE_CHANGE_LISTENER,
+					oldRegistrateChangeListener, registrateChangeListener));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case WorkbenchPackage.VIEW__VIEW_CLASS:
@@ -191,6 +236,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 			return getIcon();
 		case WorkbenchPackage.VIEW__IS_CLOSABLE:
 			return isIsClosable();
+		case WorkbenchPackage.VIEW__REGISTRATE_CHANGE_LISTENER:
+			return isRegistrateChangeListener();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,6 +258,9 @@ public class ViewImpl extends NamedElementImpl implements View {
 			return;
 		case WorkbenchPackage.VIEW__IS_CLOSABLE:
 			setIsClosable((Boolean) newValue);
+			return;
+		case WorkbenchPackage.VIEW__REGISTRATE_CHANGE_LISTENER:
+			setRegistrateChangeListener((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,6 +283,9 @@ public class ViewImpl extends NamedElementImpl implements View {
 		case WorkbenchPackage.VIEW__IS_CLOSABLE:
 			setIsClosable(IS_CLOSABLE_EDEFAULT);
 			return;
+		case WorkbenchPackage.VIEW__REGISTRATE_CHANGE_LISTENER:
+			setRegistrateChangeListener(REGISTRATE_CHANGE_LISTENER_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,6 +304,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 			return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
 		case WorkbenchPackage.VIEW__IS_CLOSABLE:
 			return isClosable != IS_CLOSABLE_EDEFAULT;
+		case WorkbenchPackage.VIEW__REGISTRATE_CHANGE_LISTENER:
+			return registrateChangeListener != REGISTRATE_CHANGE_LISTENER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -272,6 +327,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 		result.append(icon);
 		result.append(", isClosable: ");
 		result.append(isClosable);
+		result.append(", registrateChangeListener: ");
+		result.append(registrateChangeListener);
 		result.append(')');
 		return result.toString();
 	}

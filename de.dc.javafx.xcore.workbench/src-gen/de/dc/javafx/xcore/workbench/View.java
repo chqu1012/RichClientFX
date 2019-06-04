@@ -14,6 +14,7 @@ package de.dc.javafx.xcore.workbench;
  *   <li>{@link de.dc.javafx.xcore.workbench.View#getViewClass <em>View Class</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.View#getIcon <em>Icon</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.View#isIsClosable <em>Is Closable</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.View#isRegistrateChangeListener <em>Registrate Change Listener</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getView()
@@ -87,5 +88,28 @@ public interface View extends NamedElement {
 	 * @generated
 	 */
 	void setIsClosable(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Registrate Change Listener</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Registrate Change Listener</em>' attribute.
+	 * @see #setRegistrateChangeListener(boolean)
+	 * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getView_RegistrateChangeListener()
+	 * @model default="false" unique="false"
+	 * @generated
+	 */
+	boolean isRegistrateChangeListener();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.View#isRegistrateChangeListener <em>Registrate Change Listener</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Registrate Change Listener</em>' attribute.
+	 * @see #isRegistrateChangeListener()
+	 * @generated
+	 */
+	void setRegistrateChangeListener(boolean value);
 
 } // View

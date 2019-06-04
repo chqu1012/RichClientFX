@@ -21,12 +21,12 @@ public class FXPreview extends BorderPane implements ChangeListener<Object> {
 		engine.setJavaScriptEnabled(true);
 		setCenter(webView);
 
-		StringBuilder sb = getCodeContent();
+		String code = "public class Person{\n\n public static final String name = \"Hello World\";\n\n}";
+		StringBuilder sb = getCodeContent(code);
 		engine.loadContent(sb.toString(), "text/html");
 	}
 
-	private StringBuilder getCodeContent() {
-		String code = "public class Person{\n\n public static final String name = \"Hello World\";\n\n}";
+	private StringBuilder getCodeContent(String code) {
 
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>");
@@ -44,7 +44,8 @@ public class FXPreview extends BorderPane implements ChangeListener<Object> {
 
 	@Override
 	public void changed(ObservableValue<? extends Object> obs, Object oldValue, Object newValue) {
-		StringBuilder sb = getCodeContent();
+		String code = "public class Address{\n\n public static final String name = \"Hello World\";\n\n}";
+		StringBuilder sb = getCodeContent(code);
 		engine.loadContent(sb.toString(), "text/html");
 	}
 }
