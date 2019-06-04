@@ -10,7 +10,7 @@
   <statusline/>
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
     <leftPane>
-      <views _Id="" name="Example View 1" viewClass=""/>
+      <views _Id="" name="Example View 1" viewClass="" isClosable="true"/>
       <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 2" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
       <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView" name="Example View 3" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleView"/>
     </leftPane>

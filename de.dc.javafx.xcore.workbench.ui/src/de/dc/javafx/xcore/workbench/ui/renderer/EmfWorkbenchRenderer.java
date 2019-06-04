@@ -181,6 +181,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 
 	private Tab createTab(View e) {
 		Tab tab = new Tab(e.getName());
+		tab.setClosable(e.isIsClosable());
 		tab.setContent(caseView(e));
 		return tab;
 	}
