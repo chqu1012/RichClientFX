@@ -7,7 +7,7 @@
     <items name="Open View LeftPane" command="//@commands.3"/>
     <items name="Open Default Editor" command="//@commands.4"/>
   </toolbar>
-  <statusline/> 
+  <statusline/>
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
     <leftPane>
       <views _Id="" name="Example View 1" viewClass=""/>
@@ -38,7 +38,9 @@
     <leftPane>
       <views _Id="de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView" name="JavaExplorer" viewClass="de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView"/>
     </leftPane>
-    <rightPane/>
+    <rightPane>
+      <views/>
+    </rightPane>
     <bottomPane/>
     <editorArea/>
   </perspectives>

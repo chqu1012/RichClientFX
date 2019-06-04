@@ -37,3 +37,7 @@
 	-fx-background-color: red;
 	-fx-text-fill: white;
 }
+
+.perspective-toolbar{
+	-fx-background-color: linear-gradient(to bottom, #2D3338, #49525A);
+}

@@ -65,7 +65,7 @@
             <SplitPane dividerPositions="0.7303839732888147">
                <items>
                   <ToolBar fx:id="toolbar" prefHeight="40.0" prefWidth="885.0" />
-                  <ToolBar fx:id="perspectiveToolbar" prefHeight="40.0" prefWidth="200.0">
+                  <ToolBar fx:id="perspectiveToolbar" styleClass="perspective-toolbar" prefHeight="40.0" prefWidth="200.0">
                      <items>
                         <TextField fx:id="searchText" promptText="Search..." />
                         <Button fx:id="perspectiveButton" mnemonicParsing="false" text="Perspectives" />
