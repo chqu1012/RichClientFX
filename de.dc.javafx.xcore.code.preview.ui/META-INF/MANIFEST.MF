@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: de.dc.javafx.xcore.code.preview.ui
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.dc.javafx.xcore.code.preview.ui.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: de.dc.javafx.xcore.code.preview.ui
+Bundle-ActivationPolicy: lazy
