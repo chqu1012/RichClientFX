@@ -37,8 +37,8 @@ public class FXPreview extends BorderPane implements ChangeListener<Object> {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>");
 		sb.append("<head>");
-		sb.append("<link rel=\"stylesheet\" href=\"" + getClass().getResource("styles/default.css") + "\">");
-		sb.append("<script src=\"" + getClass().getResource("highlight.pack.js") + "\"></script>");
+		sb.append("<link rel=\"stylesheet\" href=\"" + FXPreview.class.getResource("styles/default.css") + "\">");
+		sb.append("<script src=\"" + FXPreview.class.getResource("highlight.pack.js") + "\"></script>");
 		sb.append("<script>hljs.initHighlightingOnLoad();</script>");
 		sb.append("</head>");
 		sb.append("<body>");
