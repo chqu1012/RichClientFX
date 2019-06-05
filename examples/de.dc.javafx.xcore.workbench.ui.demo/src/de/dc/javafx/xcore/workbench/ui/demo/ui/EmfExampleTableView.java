@@ -2,9 +2,9 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui;
 
 import com.google.inject.Inject;
 
+import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.control.EmfView;
-import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;

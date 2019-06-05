@@ -1,6 +1,6 @@
 package de.dc.javafx.xcore.workbench.ui.demo.command;
 
-import de.dc.javafx.xcore.workbench.ui.event.EmfCommand;
+import de.dc.javafx.xcore.workbench.event.EmfCommand;
 
 public class DebugCommand extends EmfCommand {
 

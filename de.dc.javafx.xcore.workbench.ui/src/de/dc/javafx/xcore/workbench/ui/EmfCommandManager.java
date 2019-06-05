@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import de.dc.javafx.xcore.workbench.ui.event.IEmfCommand;
+import de.dc.javafx.xcore.workbench.event.IEmfCommand;
 
 public class EmfCommandManager {
 
-	private Map<String, IEmfCommand> commandRegistry = new HashMap<String, IEmfCommand>();
+	private Map<String, IEmfCommand> commandRegistry = new HashMap<>();
 
 	public void register(String id, IEmfCommand command) {
 		commandRegistry.put(id, command);

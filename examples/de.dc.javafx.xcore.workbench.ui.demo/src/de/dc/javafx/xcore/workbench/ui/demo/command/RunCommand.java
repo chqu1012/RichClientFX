@@ -1,8 +1,8 @@
 package de.dc.javafx.xcore.workbench.ui.demo.command;
 
+import de.dc.javafx.xcore.workbench.event.EmfCommand;
+import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
-import de.dc.javafx.xcore.workbench.ui.event.EmfCommand;
-import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 
 public class RunCommand extends EmfCommand {
 

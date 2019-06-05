@@ -2,10 +2,10 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui;
 
 import com.google.inject.Inject;
 
+import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
-import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;

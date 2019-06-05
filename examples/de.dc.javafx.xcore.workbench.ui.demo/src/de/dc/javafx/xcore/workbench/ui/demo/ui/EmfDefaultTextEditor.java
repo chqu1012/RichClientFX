@@ -1,8 +1,8 @@
 package de.dc.javafx.xcore.workbench.ui.demo.ui;
 
+import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleTableView.Person;
-import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Tab;

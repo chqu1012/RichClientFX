@@ -7,7 +7,10 @@ Bundle-Activator: de.dc.javafx.xcore.workbench.ui.demo.Activator
 Require-Bundle: org.eclipse.core.runtime,
  de.dc.javafx.xcore.workbench;bundle-version="0.1.0",
  de.dc.javafx.xcore.workbench.ui,
- com.google.inject;bundle-version="3.0.0"
+ com.google.inject;bundle-version="3.0.0",
+ de.dc.javafx.xcore.workbench.di;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.edit;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.event;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.workbench.ui.demo
 Bundle-ActivationPolicy: lazy

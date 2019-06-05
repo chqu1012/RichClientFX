@@ -7,11 +7,11 @@ import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.workbench.Workbench;
+import de.dc.javafx.xcore.workbench.event.EventContext;
+import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
-import de.dc.javafx.xcore.workbench.ui.event.EventContext;
-import de.dc.javafx.xcore.workbench.ui.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.ui.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
