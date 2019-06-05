@@ -200,7 +200,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 			controlManager.registrate(object.get_Id(), view);
 			return view;
 		} catch (NullPointerException | ClassNotFoundException e) {
-			log.log(Level.SEVERE, "Viewpart cannot created (id: "+object.get_Id()+"instance: "+object.getViewClass()+", message: "+e.getMessage()+") ");
+			log.log(Level.SEVERE, "Viewpart cannot created (id: "+object.get_Id()+"instance: "+object.getViewClass()+", name: "+object.getName()+") ");
 		}
 		return new Label("ViewPart cannot be created!");
 	}
