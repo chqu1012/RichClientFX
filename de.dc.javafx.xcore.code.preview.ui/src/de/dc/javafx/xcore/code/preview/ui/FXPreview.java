@@ -29,8 +29,7 @@ public class FXPreview extends BorderPane implements ChangeListener<Object> {
 		engine.loadContent(sb.toString(), "text/html");
 	}
 
-	private StringBuilder getCodeContent(String code) {
-
+	public StringBuilder getCodeContent(String code) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>");
 		sb.append("<head>");
