@@ -43,7 +43,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-public class EMFModelTreeView<T> extends VBox implements CommandStackListener, ChangeListener<Object> {
+public abstract class EMFModelTreeView<T> extends VBox implements CommandStackListener, ChangeListener<Object> {
 
 	private Logger log = Logger.getLogger(EMFModelTreeView.class.getSimpleName());
 
@@ -87,6 +87,8 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 		} catch (IOException exception) {
 			log.log(Level.SEVERE, "Error loading fxml " + exception.getLocalizedMessage());
 		}
+		
+		initializeEmf(getEmfManager());
 
 //		selectionService = ApplicationContext.getInstance(SelectionService.class);
 //		eventBroker = ApplicationContext.getInstance(IEventBroker.class);
@@ -247,4 +249,6 @@ public class EMFModelTreeView<T> extends VBox implements CommandStackListener, C
 		// TODO Auto-generated method stub
 
 	}
+	
+	protected abstract IEmfManager<T> getEmfManager();
 }
