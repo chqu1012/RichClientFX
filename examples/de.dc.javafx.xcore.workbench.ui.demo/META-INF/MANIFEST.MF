@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.dc.javafx.xcore.resource.ui;bundle-version="1.0.0",
  de.dc.javafx.efxclipse.runtime;bundle-version="3.6.0",
  de.dc.javafx.xcore.resource;bundle-version="0.1.0",
- de.dc.javafx.xcore.di;bundle-version="1.0.0"
+ de.dc.javafx.xcore.di;bundle-version="1.0.0",
+ com.google.guava;bundle-version="21.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.workbench.ui.demo
 Bundle-ActivationPolicy: lazy
