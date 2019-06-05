@@ -343,26 +343,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// null
-		createNullAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>null</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createNullAnnotations() {
-		String source = null;
-		addAnnotation(this, source,
-				new String[] { "multipleEditorPages", "false", "creationIcons", "false", "editDirectory",
-						"/de.dc.javafx.emfsupport.website.model.edit/src-gen", "editorDirectory",
-						"/de.dc.javafx.emfsupport.website.model.editor/src-gen", "richClientPlatform", "true",
-						"codeFormatting", "true", "importerID", "org.eclipse.emf.importer.ecore", "runtimePlatform",
-						"RCP", "fileExtensions", "website", "basePackage", "de.dc.javafx.emfsupport.website" });
 	}
 
 } //ModelPackageImpl

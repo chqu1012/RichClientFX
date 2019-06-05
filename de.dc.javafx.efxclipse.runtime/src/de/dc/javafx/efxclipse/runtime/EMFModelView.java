@@ -21,11 +21,11 @@ import com.google.common.eventbus.Subscribe;
 import de.dc.javafx.efxclipse.runtime.dnd.DraggingTabPaneSupport;
 import de.dc.javafx.efxclipse.runtime.factory.CommandListCellFactory;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
-import de.dc.javafx.xcore.di.ApplicationContext;
-import de.dc.javafx.xcore.di.EventContext;
-import de.dc.javafx.xcore.di.EventTopic;
-import de.dc.javafx.xcore.di.IEventBroker;
 import de.dc.javafx.xcore.resource.File;
+import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.event.EventContext;
+import de.dc.javafx.xcore.workbench.event.EventTopic;
+import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -89,7 +89,7 @@ public class EMFModelView<T> extends BorderPane implements CommandStackListener 
 		support.addSupport(rightTabPane);
 		support.addSupport(leftTabPane);
 
-		ApplicationContext.getInstance(IEventBroker.class).register(this);
+		DIPlatform.getInstance(IEventBroker.class).register(this);
 	}
 
 	@Override

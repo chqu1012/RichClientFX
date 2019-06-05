@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
 
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
-import de.dc.javafx.xcore.di.ApplicationContext;
-import de.dc.javafx.xcore.di.SelectionService;
+import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -58,7 +58,7 @@ public class PropertyView extends Tab implements ChangeListener<Object>{
 		initTableView();
 		setText("PropertyView");
 		
-		ApplicationContext.getInstance(SelectionService.class).addListener(this);
+		DIPlatform.getInstance(ISelectionService.class).addListener(this);
 	}
 
 	private void initTableView() {

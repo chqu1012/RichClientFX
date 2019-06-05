@@ -2,13 +2,13 @@ package de.dc.javafx.xcore.resource.ui.demo;
 
 import java.io.File;
 
+import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import de.dc.javafx.xcore.resource.PackageFolder;
 import de.dc.javafx.xcore.resource.Project;
 import de.dc.javafx.xcore.resource.ResourceFactory;
-import de.dc.javafx.xcore.resource.ui.*;
-import de.dc.javafx.xcore.resource.ui.view.*;
-import de.dc.javafx.xcore.di.ApplicationContext;
-import de.dc.javafx.xcore.lang.lib.AbstractApplication;
+import de.dc.javafx.xcore.resource.ui.BaseResourceManager;
+import de.dc.javafx.xcore.resource.ui.view.ResourceModelView;
+import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import javafx.scene.Parent;
 
 public class ResourceViewApplication extends AbstractApplication{
@@ -52,7 +52,7 @@ public class ResourceViewApplication extends AbstractApplication{
 	}
 	
 	public static void main(String[] args) {
-		ApplicationContext.init();
+		DIPlatform.init();
 		// TODO: Should be implement dynamically!
 		new File("./workspace").mkdirs();
 		launch(args);

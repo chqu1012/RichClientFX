@@ -295,10 +295,11 @@ Export-Package: de.dc.javafx.efxclipse.runtime,
 Require-Bundle: org.eclipse.emf.common,
  org.eclipse.emf.edit,
  de.dc.javafx.xcore.lang.lib;bundle-version="1.0.0",
- de.dc.javafx.xcore.di;bundle-version="1.0.0",
  com.google.guava;bundle-version="21.0.0",
  de.dc.javafx.xcore.resource;bundle-version="0.1.0",
- org.apache.commons.lang;bundle-version="2.6.0"
+ org.apache.commons.lang;bundle-version="2.6.0",
+ de.dc.javafx.xcore.workbench.di;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.event
 Import-Package: com.sun.javafx,
  com.sun.javafx.animation,
  com.sun.javafx.applet,
