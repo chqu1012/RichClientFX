@@ -22,15 +22,23 @@ import javafx.scene.input.MouseEvent;
 
 public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
 
+	public ProjectExplorerTreeView() {
+		addEditingSupport();
+	}
+
 	public ProjectExplorerTreeView(IEmfManager<Workspace> manager) {
 		super(manager);
 
+		addEditingSupport();
+	}
+
+	private void addEditingSupport() {
 		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getFolder_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getFile_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getPackageFolder_Name());
 	}
-
+	
 	@Override
 	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {
 		if (newValue instanceof TreeItem<?>) {
@@ -69,5 +77,10 @@ public class ProjectExplorerTreeView extends EMFModelTreeView<Workspace> {
 				eventBroker.post(new EventContext<File>(EventTopic.OPEN_EDITOR, file));
 			}
 		}
+	}
+
+	@Override
+	protected IEmfManager<Workspace> getEmfManager() {
+		return null;
 	}
 }

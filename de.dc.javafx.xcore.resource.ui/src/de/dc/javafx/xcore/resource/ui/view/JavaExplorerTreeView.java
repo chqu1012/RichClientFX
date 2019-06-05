@@ -20,13 +20,7 @@ import javafx.scene.control.TreeItem;
 public class JavaExplorerTreeView extends EMFModelTreeView<Workspace> {
 
 	public JavaExplorerTreeView() {
-		super.initializeEmf(new BaseResourceManager());
-
-		// add edit support
-		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
-		addEditableFor(ResourcePackage.eINSTANCE.getFolder_Name());
-		addEditableFor(ResourcePackage.eINSTANCE.getFile_Name());
-		addEditableFor(ResourcePackage.eINSTANCE.getPackageFolder_Name());
+		addEditingSupport();
 	}
 
 	/**
@@ -39,7 +33,11 @@ public class JavaExplorerTreeView extends EMFModelTreeView<Workspace> {
 		super(manager);
 
 		// add edit support
-		treeView.setEditable(true);
+		addEditingSupport();
+	}
+	
+	private void addEditingSupport() {
+		// add edit support
 		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getFolder_Name());
 		addEditableFor(ResourcePackage.eINSTANCE.getFile_Name());
@@ -69,5 +67,10 @@ public class JavaExplorerTreeView extends EMFModelTreeView<Workspace> {
 				}
 			}
 		}
+	}
+
+	@Override
+	protected IEmfManager<Workspace> getEmfManager() {
+		return new BaseResourceManager();
 	}
 }
