@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Event
+Bundle-SymbolicName: de.dc.javafx.xcore.workbench.event
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.dc.javafx.xcore.workbench.event.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ com.google.inject;bundle-version="3.0.0",
+ com.google.guava;bundle-version="21.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: de.dc.javafx.xcore.workbench.event
+Bundle-ActivationPolicy: lazy
+Export-Package: de.dc.javafx.xcore.workbench.event
