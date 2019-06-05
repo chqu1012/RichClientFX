@@ -38,6 +38,7 @@
   </perspectives>
   <perspectives _Id="de.dc.javafx.xcore.JavaPerspective" name="Java Perspective">
     <leftPane>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedJavaExplorer" name="ExtendedJavaExplorer" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedJavaExplorer"/>
       <views _Id="de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView" name="JavaExplorer" viewClass="de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView"/>
     </leftPane>
     <rightPane>
