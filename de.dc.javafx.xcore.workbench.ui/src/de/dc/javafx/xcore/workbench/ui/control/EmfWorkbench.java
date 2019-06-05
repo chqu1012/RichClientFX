@@ -153,6 +153,9 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 	
 	@Subscribe
 	public void updateStatusLinePerspectiveLabel(EventContext<String> context) {
+		if (context.getEventId()==null) {
+			return;
+		}
 		if (context.getEventId().equals("switch.perspective")) {
 			statusLinePerspectiveLabel.setText(context.getInput());
 		}
