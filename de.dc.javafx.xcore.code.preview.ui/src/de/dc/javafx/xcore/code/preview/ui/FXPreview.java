@@ -19,6 +19,9 @@ public class FXPreview extends BorderPane implements ChangeListener<Object> {
 		WebView webView = new WebView();
 		engine = webView.getEngine();
 		engine.setJavaScriptEnabled(true);
+		
+		webView.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		
 		setCenter(webView);
 
 		String code = "public class Person{\n\n public static final String name = \"Hello World\";\n\n}";
