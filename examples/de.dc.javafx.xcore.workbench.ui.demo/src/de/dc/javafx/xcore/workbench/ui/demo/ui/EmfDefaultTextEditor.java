@@ -1,7 +1,7 @@
 package de.dc.javafx.xcore.workbench.ui.demo.ui;
 
+import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.ISelectionService;
-import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleTableView.Person;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -25,7 +25,7 @@ public class EmfDefaultTextEditor extends Tab implements ChangeListener{
 		
 		setContent(textArea);
 		
-		EmfWorkbenchContext.getInstance(ISelectionService.class).addListener(this);
+		DIPlatform.getInstance(ISelectionService.class).addListener(this);
 	}
 
 	@Override

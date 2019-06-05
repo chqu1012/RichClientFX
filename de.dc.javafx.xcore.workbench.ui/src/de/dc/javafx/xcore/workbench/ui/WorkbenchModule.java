@@ -5,7 +5,7 @@ import com.google.inject.AbstractModule;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
 
-public class BaseEmfModule extends AbstractModule {
+public class WorkbenchModule extends AbstractModule {
 
 	@Override
 	protected void configure() {

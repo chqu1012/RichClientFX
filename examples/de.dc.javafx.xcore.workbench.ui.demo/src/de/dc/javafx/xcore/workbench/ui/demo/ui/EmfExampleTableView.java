@@ -2,8 +2,8 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui;
 
 import com.google.inject.Inject;
 
+import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.ISelectionService;
-import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.control.EmfView;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -80,7 +80,7 @@ public class EmfExampleTableView extends EmfView {
 
 		table.setItems(data);
 		
-		EmfWorkbenchContext.getInstance(ISelectionService.class).registerProvider(table.getSelectionModel().selectedItemProperty());
+		DIPlatform.getInstance(ISelectionService.class).registerProvider(table.getSelectionModel().selectedItemProperty());
 
 		parent.setCenter(table);
 	}

@@ -7,10 +7,10 @@ import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.workbench.Workbench;
+import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.event.ISelectionService;
-import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
 import javafx.beans.value.ChangeListener;
@@ -74,10 +74,10 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 	protected Workbench workbench;
 
 	public EmfWorkbench() {
-		EmfWorkbenchContext.getInstance(ISelectionService.class).addListener(this);
-		EmfWorkbenchContext.getInstance(IEventBroker.class).register(this);
+		DIPlatform.getInstance(ISelectionService.class).addListener(this);
+		DIPlatform.getInstance(IEventBroker.class).register(this);
 		
-		IEmfControlManager controlManager = EmfWorkbenchContext.getInstance(IEmfControlManager.class);
+		IEmfControlManager controlManager = DIPlatform.getInstance(IEmfControlManager.class);
 		controlManager.registrate(BOTTOM_PANE_ID, getBottomTabPane());
 		controlManager.registrate(LEFT_PANE_ID, getLeftTabPane());
 		controlManager.registrate(RIGHT_PANE_ID, getRightTabPane());

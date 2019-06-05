@@ -18,12 +18,12 @@ import de.dc.javafx.xcore.workbench.Toolbar;
 import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.Workbench;
+import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
-import de.dc.javafx.xcore.workbench.ui.EmfWorkbenchContext;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.util.WorkbenchSwitch;
@@ -91,7 +91,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 		for (Command c : object.getCommands()) {
 			try {
 				Class<IEmfCommand> commandClass = (Class<IEmfCommand>) Class.forName(c.get_Id());
-				IEmfCommand command = EmfWorkbenchContext.getInstance(commandClass);
+				IEmfCommand command = DIPlatform.getInstance(commandClass);
 				commands.register(c.get_Id(), command);
 			} catch (ClassNotFoundException e) {
 				log.log(Level.SEVERE, "Error on register command id "+c.get_Id()+", message: "+e.getMessage());
@@ -189,7 +189,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	public Node caseView(View object) {
 		try {
 			Class clazz = Class.forName(object.getViewClass());
-			Node view = (Node) EmfWorkbenchContext.getInstance(clazz);
+			Node view = (Node) DIPlatform.getInstance(clazz);
 			
 			boolean isChangeListener = ChangeListener.class.isAssignableFrom(view.getClass());
 			if (isChangeListener && object.isRegistrateChangeListener()) {
