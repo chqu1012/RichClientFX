@@ -8,6 +8,7 @@ import java.util.EventObject;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
@@ -36,6 +37,7 @@ import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
 import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -234,11 +236,12 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	@FXML
 	protected void onDeleteMenuItemClicked(ActionEvent event) {
-		TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
-		Object selection = selectedItem.getValue();
-		Command command = DeleteCommand.create(editingDomain, selection);
+		ObservableList<TreeItem<Object>> selections = treeView.getSelectionModel().getSelectedItems();
+		List<Object> toDeleteList = selections.stream().map(e->e.getValue()).collect(Collectors.toList());
+		Command command = DeleteCommand.create(editingDomain, toDeleteList);
 		if (command.canExecute()) {
 			command.execute();
+			log.log(Level.INFO, "Delete {0} selection(s).", toDeleteList.size());
 		}
 	}
 
