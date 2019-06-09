@@ -22,7 +22,7 @@
       <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfPropertyView"/>
       <views _Id="" name="Person Table View" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleTableView"/>
     </bottomPane>
-    <editorArea/> 
+    <editorArea/>
   </perspectives>
   <perspectives _Id="de.dc.javafx.xcore.PDTPerspective" name="PDT Perspective">
     <leftPane>
@@ -49,6 +49,17 @@
       <views _Id="" name="Person Table View" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.EmfExampleTableView"/>
     </bottomPane>
     <editorArea/>
+  </perspectives>
+  <perspectives _Id="de.dc.spring.bootstrap.blog.model.ui.BlogPerspective" name="Blog Perspective">
+    <leftPane>
+      <views _Id="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView" name="Blog Explorer" viewClass="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView"/>
+    </leftPane>
+    <rightPane>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.control.EmfHistoryView" name="Blog HistoryView" viewClass="de.dc.javafx.xcore.workbench.ui.control.EmfHistoryView" registrateChangeListener="true"/>
+    </rightPane>
+    <bottomPane>
+      <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.control.EmfPropertyView"/>
+    </bottomPane>
   </perspectives>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.RunCommand" name="Run"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.DebugCommand" name="Debug"/>

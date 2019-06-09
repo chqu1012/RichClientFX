@@ -9,8 +9,9 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import com.google.common.eventbus.Subscribe;
 
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
-import de.dc.javafx.xcore.workbench.event.IEmfSelectionService;
+import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import javafx.beans.property.SimpleStringProperty;
@@ -46,6 +47,8 @@ public class EmfPropertyView extends EmfView {
 				Object value = EcoreUtil.createFromString(selectedAttribute.getEAttributeType(), evt.getNewValue());
 				SetCommand command = new SetCommand(currentEditingDomain, cuurentSelection, selectedAttribute, value);
 				currentEditingDomain.getCommandStack().execute(command);
+				
+				DIPlatform.getInstance(IEventBroker.class).post(new EventContext(EventTopic.COMMAND_STACK_REFRESH, command));
 			}
 		});
 		valueColumn.setCellValueFactory(param ->{ 
@@ -69,7 +72,7 @@ public class EmfPropertyView extends EmfView {
 	private void updateProperties(EventContext<?> context) {
 		properties.clear();
 		if (context.getInput() != null) {
-			currentEditingDomain= DIPlatform.getInstance(IEmfSelectionService.class).getEditingDomain().get();
+			currentEditingDomain= DIPlatform.getInstance(IEmfSelectionService.class).getEmfManager().get().getEditingDomain();
 			Object object = context.getInput();
 			if (object instanceof EObject) {
 				cuurentSelection = (EObject) object;

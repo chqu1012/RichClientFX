@@ -2,6 +2,7 @@ package de.dc.javafx.xcore.workbench.ui.control;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
@@ -159,5 +160,13 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 		if (context.getEventId().equals("switch.perspective")) {
 			statusLinePerspectiveLabel.setText(context.getInput());
 		}
+	}
+	
+	public boolean isFileOpen(String name) {
+		return editorArea.getTabs().stream().anyMatch(e -> e.getText().equalsIgnoreCase(name));
+	}
+
+	public Optional<Tab> getTabByName(String name) {
+		return editorArea.getTabs().stream().filter(e -> e.getText().equalsIgnoreCase(name)).findAny();
 	}
 }

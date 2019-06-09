@@ -18,18 +18,17 @@ import org.eclipse.emf.edit.command.PasteFromClipboardCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
-import org.eclipse.fx.emf.edit.ui.EAttributeCellEditHandler;
 import org.eclipse.fx.emf.edit.ui.dnd.CellDragAdapter;
 import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
 import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
-import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
-import de.dc.javafx.xcore.workbench.event.EventTopic;
-import de.dc.javafx.xcore.workbench.event.IEmfSelectionService;
+import de.dc.javafx.xcore.workbench.emf.IEmfManager;
+import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
+import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.event.ISelectionService;
+import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -169,7 +168,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
 		
-		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty(), getEmfManager().getEditingDomain());
+		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty(), getEmfManager());
 	}
 
 	/**
@@ -253,8 +252,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	@Override
 	public void commandStackChanged(EventObject event) {
-		// TODO Auto-generated method stub
-
 	}
 	
 	protected abstract IEmfManager<T> getEmfManager();

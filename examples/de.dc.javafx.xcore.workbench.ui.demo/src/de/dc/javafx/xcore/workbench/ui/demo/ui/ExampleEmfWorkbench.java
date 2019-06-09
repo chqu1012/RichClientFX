@@ -11,6 +11,7 @@ import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
+import de.dc.spring.bootstrap.blog.model.Tile;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
@@ -38,6 +39,7 @@ public class ExampleEmfWorkbench extends EmfWorkbench{
 	
 	@Override
 	protected void onEditorAreaCloseMenuItem(ActionEvent event) {
+		super.onEditorAreaCloseMenuItem(event);
 		System.out.println("IEmfControlManager Instance: "+manager);
 		System.out.println("ISelectionService Instance: "+selectionService);
 		System.out.println("ISelectionService Instance: "+eventBroker);
@@ -45,12 +47,16 @@ public class ExampleEmfWorkbench extends EmfWorkbench{
 	}
 	
 	@Subscribe
-	public void openFile(EventContext context) {
+	public void openFile(EventContext<?> context) {
 		Object input = context.getInput();
-		if (context.getEventTopic() == EventTopic.OPEN_EDITOR && input instanceof File) {
-			File file = (File) input;
-//			System.out.println(file.getName());
-			editorArea.getTabs().add(new Tab(file.getName()));
+		if (context.getEventTopic() == EventTopic.OPEN_EDITOR ) {
+			if (input instanceof File) {
+				File file = (File) input;
+				editorArea.getTabs().add(new Tab(file.getName()));
+			}else if(input instanceof Tile) {
+				Tile tile = (Tile) input;
+				editorArea.getTabs().add(new Tab(tile.getTitle()));
+			}
 		}
 	}
 }
