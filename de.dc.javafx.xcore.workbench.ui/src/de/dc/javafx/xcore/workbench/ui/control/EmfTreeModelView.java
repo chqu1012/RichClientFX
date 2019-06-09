@@ -26,6 +26,7 @@ import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
+import de.dc.javafx.xcore.workbench.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.event.ISelectionService;
@@ -74,7 +75,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
 
-	protected ISelectionService selectionService;
+	protected IEmfSelectionService selectionService;
 
 	protected IEventBroker eventBroker;
 
@@ -165,10 +166,10 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 			}
 		});
 		
-		selectionService = DIPlatform.getInstance(ISelectionService.class);
+		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
 		
-		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty());
+		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty(), getEmfManager().getEditingDomain());
 	}
 
 	/**

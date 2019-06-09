@@ -9,9 +9,9 @@ import javafx.beans.value.ChangeListener;
 
 public class SelectionService implements ISelectionService {
 
-	private List<ReadOnlyObjectProperty<?>> providers = new ArrayList<>();
-	private List<ChangeListener<?>> listeners = new ArrayList<>();
-	private ReadOnlyObjectProperty<?> focusedProvider;
+	protected List<ReadOnlyObjectProperty<?>> providers = new ArrayList<>();
+	protected List<ChangeListener<?>> listeners = new ArrayList<>();
+	protected ReadOnlyObjectProperty<?> focusedProvider;
 	
 	@Override
 	public void addListener(ChangeListener listener) {
