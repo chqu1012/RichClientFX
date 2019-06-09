@@ -1,5 +1,6 @@
 package de.dc.javafx.xcore.workbench.ui.control;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,6 +32,7 @@ import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
 import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -82,6 +84,8 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	protected IEventBroker eventBroker;
 
+	protected EmfFile<T> file;
+	
 	public EmfTreeModelView() {
 		FXMLLoader fxmlLoader = new FXMLLoader(
 				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
@@ -95,6 +99,8 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		}
 
 		initializeEmf(getEmfManager());
+		
+		file = initEmfFile();
 	}
 
 	public EmfTreeModelView(IEmfManager<T> manager) {
@@ -124,6 +130,14 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		manager.setRoot(input);
 		TreeItem<Object> rootItem = new AdapterFactoryTreeItem<>(manager.getRoot(), manager.getAdapterFactory());
 		treeView.setRoot(rootItem);
+	}
+	
+	public void load(File f) {
+		load(f.getAbsolutePath());
+	}
+	
+	public void load(String filepath) {
+		load(file.load(filepath));
 	}
 	
 	private void initTreeView() {
@@ -293,4 +307,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	}
 
 	protected abstract IEmfManager<T> getEmfManager();
+	
+	protected abstract EmfFile<T> initEmfFile();
 }
