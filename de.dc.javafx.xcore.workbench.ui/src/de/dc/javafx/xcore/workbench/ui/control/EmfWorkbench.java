@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.eclipse.fx.ui.controls.styledtext.StyleRange;
+import org.eclipse.fx.ui.controls.styledtext.StyledTextArea;
+
 import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
+import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
@@ -25,7 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 
-public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
+public abstract class EmfWorkbench extends AbstractFxmlControl implements ChangeListener<Object>{
 
 	public static final String ID = "de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench";
 	public static final String TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Toolbar";
@@ -72,11 +76,18 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 	@Inject
 	protected EmfWorkbenchFile workbenchFile;
 
+	protected IEventBroker eventBroker;
+
+	protected ISelectionService selectionService;
+	
 	protected Workbench workbench;
 
 	public EmfWorkbench() {
-		DIPlatform.getInstance(ISelectionService.class).addListener(this);
-		DIPlatform.getInstance(IEventBroker.class).register(this);
+		selectionService = DIPlatform.getInstance(ISelectionService.class);
+		eventBroker = DIPlatform.getInstance(IEventBroker.class);
+		
+		selectionService.addListener(this);
+		eventBroker.register(this);
 		
 		IEmfControlManager controlManager = DIPlatform.getInstance(IEmfControlManager.class);
 		controlManager.registrate(BOTTOM_PANE_ID, getBottomTabPane());
@@ -148,7 +159,7 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 	}
 
 	@Override
-	public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+	public void changed(ObservableValue<?> observable, Object oldValue, Object newValue) {
 		statusLineLabel.setText("Selection: "+newValue.toString());		
 	}
 	
@@ -162,6 +173,29 @@ public class EmfWorkbench extends AbstractFxmlControl implements ChangeListener{
 		}
 	}
 	
+	@Subscribe
+	public void openFile(EventContext<?> context) {
+		Object input = context.getInput();
+		if (context.getEventTopic() == EventTopic.OPEN_EDITOR ) {
+			String filename = showTabTextByObject(input)== null ? "" : showTabTextByObject(input);
+			if (!filename.isEmpty() && !isFileOpen(filename)) {
+				StyledTextArea styledTextArea = new StyledTextArea();
+				styledTextArea.getContent().setText("This is a styled text!\nThis is the 2nd line with data\nBlaBla");
+				styledTextArea.setStyleRanges(
+				    new StyleRange("text-highlight",0,30,null,null)
+				  , new StyleRange("text-highlight",34,5,null,null)
+				);
+				
+				Tab editorTab = new Tab(filename);
+				editorTab.setContent(styledTextArea);
+				editorArea.getTabs().add(editorTab);
+			}
+			getTabByName(filename).ifPresent(e -> editorArea.getSelectionModel().select(e));
+		}
+	}
+	
+	protected abstract String showTabTextByObject(Object input);
+
 	public boolean isFileOpen(String name) {
 		return editorArea.getTabs().stream().anyMatch(e -> e.getText().equalsIgnoreCase(name));
 	}
