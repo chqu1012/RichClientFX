@@ -1,7 +1,9 @@
 package de.dc.javafx.xcore.workbench.ui.renderer;
 
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -34,6 +36,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 
@@ -111,8 +115,12 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	public Node caseToolbarItem(ToolbarItem object) {
 		String text = object.getName()==null?"":object.getName();
 		Button control = new Button();
+		control.setTooltip(new Tooltip(text));
 		if (object.getIcon()==null) {
 			control.setText(text);
+		}else {
+			InputStream resource = getClass().getResourceAsStream(object.getIcon());
+			control.setGraphic(new ImageView(new Image(resource)));
 		}
 		control.setOnAction(event->{ 
 			String onAction = object.getOnAction();

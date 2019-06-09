@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench:Workbench xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:workbench="http://www.frateranatis.org/workbench">
   <toolbar>
-    <items name="Run" onAction="onRunControlMouseClicked" command="//@commands.0"/>
-    <items name="Debug" command="//@commands.1"/>
+    <items name="Run" onAction="onRunControlMouseClicked" icon="/de/dc/javafx/xcore/workbench/ui/images/jdt/lrun_obj.png" command="//@commands.0"/>
+    <items name="Debug" icon="/de/dc/javafx/xcore/workbench/ui/images/jdt/ldebug_obj.png" command="//@commands.1"/>
     <items name="Open View RightPane" command="//@commands.2"/>
     <items name="Open View LeftPane" command="//@commands.3"/>
     <items name="Open Default Editor" command="//@commands.4"/>
     <items name="Open File" command="//@commands.5"/>
-    <items name="Open Blog" command="//@commands.6"/>
+    <items name="Open Blog" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-opened-folder-16.png" command="//@commands.6"/>
   </toolbar>
   <statusline/>
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
