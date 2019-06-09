@@ -6,6 +6,8 @@
     <items name="Open View RightPane" command="//@commands.2"/>
     <items name="Open View LeftPane" command="//@commands.3"/>
     <items name="Open Default Editor" command="//@commands.4"/>
+    <items name="Open File" command="//@commands.5"/>
+    <items name="Open Blog" command="//@commands.6"/>
   </toolbar>
   <statusline/>
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
@@ -66,4 +68,6 @@
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInRightPaneCommand" name="Open View RightPane" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInRightPaneCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInLeftPaneCommand" name="Open View LeftPane" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInLeftPaneCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenDefaultTextEditorCommand" name="Open Default Editor" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenDefaultTextEditorCommand"/>
+  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenFileCommand" name="Open File" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenFileCommand"/>
+  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenBlogCommand" name="Open Blog" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenBlogCommand"/>
 </workbench:Workbench>
