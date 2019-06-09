@@ -42,6 +42,7 @@ import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -89,10 +90,10 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		} catch (IOException exception) {
 			log.log(Level.SEVERE, "Error loading fxml " + exception.getLocalizedMessage());
 		}
-		
+
 		initializeEmf(getEmfManager());
 	}
-	
+
 	public EmfTreeModelView(IEmfManager<T> manager) {
 		FXMLLoader fxmlLoader = new FXMLLoader(
 				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
@@ -115,7 +116,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		this.editingDomain = manager.getEditingDomain();
 		initTreeView();
 	}
-	
+
 	private void initTreeView() {
 		treeView.getSelectionModel().selectedItemProperty().addListener(this);
 
@@ -137,38 +138,44 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		rootItem.setExpanded(true);
 		treeView.setEditable(false);
 
-		treeView.setOnKeyPressed(event -> {
-			if (event.getCode() == KeyCode.F2) {
-				TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
-				treeView.setEditable(true);
-				treeView.edit(selectedItem);
-				
-				List<javafx.scene.Node> cells = new ArrayList<>(treeView.lookupAll(".tree-cell"));
+		treeView.setOnKeyPressed(event -> onTreeViewKeyPressed(event));
 
-		        int row = treeView.getRow(selectedItem);
-		        TreeCell<Object> cell = ((TreeCell<Object>) cells.get(row));
-
-		        Node graphic = cell.getGraphic();
-		        if (graphic instanceof TextField) {
-					TextField textfield = (TextField) graphic;
-					textfield.setOnKeyPressed(e->{
-						if (e.getCode() == KeyCode.ENTER) {
-							try {
-								cell.commitEdit(selectedItem.getValue());
-							} catch (Exception e2) {
-							}
-						}
-					});
-					textfield.requestFocus();
-					textfield.selectAll();
-				}
-			}
-		});
-		
 		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
-		
+
 		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty(), getEmfManager());
+	}
+
+	private void onTreeViewKeyPressed(KeyEvent event) {
+		if (event.getCode() == KeyCode.F2) {
+			activateEditModeForSelection();
+		}
+	}
+
+	private void activateEditModeForSelection() {
+		TreeItem<Object> selectedItem = treeView.getSelectionModel().getSelectedItem();
+		treeView.setEditable(true);
+		treeView.edit(selectedItem);
+
+		List<javafx.scene.Node> cells = new ArrayList<>(treeView.lookupAll(".tree-cell"));
+
+		int row = treeView.getRow(selectedItem);
+		TreeCell<Object> cell = ((TreeCell<Object>) cells.get(row));
+
+		Node graphic = cell.getGraphic();
+		if (graphic instanceof TextField) {
+			TextField textfield = (TextField) graphic;
+			textfield.setOnKeyPressed(e -> {
+				if (e.getCode() == KeyCode.ENTER) {
+					try {
+						cell.commitEdit(selectedItem.getValue());
+					} catch (Exception e2) {
+					}
+				}
+			});
+			textfield.requestFocus();
+			textfield.selectAll();
+		}
 	}
 
 	/**
@@ -208,7 +215,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	@FXML
 	protected void onEditMenuItemClicked(ActionEvent event) {
-
+		activateEditModeForSelection();
 	}
 
 	@FXML
@@ -231,20 +238,21 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 			selectedItem.setExpanded(true);
 		}
 	}
-	
-    @FXML
-    protected void onTreeViewMouseClicked(MouseEvent event) {
-    	TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
-    	if (treeView.isEditable()) {
+
+	@FXML
+	protected void onTreeViewMouseClicked(MouseEvent event) {
+		TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
+		if (treeView.isEditable()) {
 			treeView.setEditable(false);
 		}
-    	if (selection!=null) {
-    		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.SELECTION, selection.getValue()));
-    		if (event.getClickCount() == 2) {
-    			eventBroker.post(new EventContext<>(EventTopic.OPEN_EDITOR, selection.getValue()));
-    		}
+		if (selection != null) {
+			DIPlatform.getInstance(IEventBroker.class)
+					.post(new EventContext<>(EventTopic.SELECTION, selection.getValue()));
+			if (event.getClickCount() == 2) {
+				eventBroker.post(new EventContext<>(EventTopic.OPEN_EDITOR, selection.getValue()));
+			}
 		}
-    }
+	}
 
 	@Override
 	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {
@@ -253,6 +261,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	@Override
 	public void commandStackChanged(EventObject event) {
 	}
-	
+
 	protected abstract IEmfManager<T> getEmfManager();
 }
