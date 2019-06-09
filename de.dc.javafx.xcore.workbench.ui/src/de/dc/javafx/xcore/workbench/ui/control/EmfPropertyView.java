@@ -39,6 +39,9 @@ public class EmfPropertyView extends EmfView {
 		TableColumn<EAttribute, String> propertyColumn = new TableColumn<>("Property");
 		TableColumn<EAttribute, String> valueColumn = new TableColumn<>("Value");
 
+		propertyColumn.setPrefWidth(200);
+		valueColumn.setPrefWidth(400);
+		
 		propertyColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
 		valueColumn.setCellFactory(TextFieldTableCell.<EAttribute>forTableColumn());
 		valueColumn.setOnEditCommit(evt -> {
@@ -70,11 +73,11 @@ public class EmfPropertyView extends EmfView {
 
 	@Subscribe
 	private void updateProperties(EventContext<?> context) {
-		properties.clear();
 		if (context.getInput() != null) {
 			currentEditingDomain= DIPlatform.getInstance(IEmfSelectionService.class).getEmfManager().get().getEditingDomain();
 			Object object = context.getInput();
 			if (object instanceof EObject) {
+				properties.clear();
 				cuurentSelection = (EObject) object;
 				for (EAttribute attr : cuurentSelection.eClass().getEAllAttributes()) {
 					properties.add(attr);

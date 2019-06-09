@@ -45,7 +45,6 @@ public class EmfHistoryView extends EmfView implements CommandStackListener{
 
 	private void initHistoryListView() {
 		if (emfManager==null) {
-			System.out.println("init");
 			emfManager = DIPlatform.getInstance(IEmfSelectionService.class).getEmfManager().get();
 			adapterFactory = emfManager.getAdapterFactory();
 			commandStack = (CommandStackImpl) emfManager.getEditingDomain().getCommandStack();

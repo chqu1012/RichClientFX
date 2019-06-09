@@ -67,7 +67,6 @@ public class EAttributeCellEditHandler implements ICellEditHandler {
 		cell.setText(null);
 		cell.setGraphic(this.textField);
 		this.textField.setText(string);
-		textField.requestFocus();
 		this.textField.selectPositionCaret(0);// selectAll();
 	}
 

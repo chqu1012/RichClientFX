@@ -158,7 +158,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		treeView.edit(selectedItem);
 
 		List<javafx.scene.Node> cells = new ArrayList<>(treeView.lookupAll(".tree-cell"));
-
 		int row = treeView.getRow(selectedItem);
 		TreeCell<Object> cell = ((TreeCell<Object>) cells.get(row));
 
