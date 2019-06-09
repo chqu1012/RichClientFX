@@ -2,6 +2,7 @@ package de.dc.javafx.xcore.workbench.ui.control;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EventObject;
 import java.util.List;
 import java.util.logging.Level;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.CopyToClipboardCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
@@ -22,6 +24,7 @@ import org.eclipse.fx.emf.edit.ui.dnd.CellDragAdapter;
 import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
 import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
+import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
@@ -255,6 +258,28 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	@Override
 	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object newValue) {
+		if (newValue instanceof TreeItem<?>) {
+			TreeItem<?> treeItem = (TreeItem<?>) newValue;
+			Object value = treeItem.getValue();
+			newMenu.getItems().clear();
+			Collection<?> collection = editingDomain.getNewChildDescriptors(value, null);
+			for (Object object : collection) {
+				if (object instanceof CommandParameter) {
+					CommandParameter commandParameter = (CommandParameter) object;
+					String name = commandParameter.getValue().getClass().getSimpleName().replace("Impl", "");
+					MenuItem item = new MenuItem(name);
+					item.setOnAction(event -> {
+						int id = EmfUtil.getValueByName(getEmfManager().getModelPackage(), name);
+						Command command = AddCommand.create(editingDomain, value, id,
+								getEmfManager().getExtendedModelFactory().create(id));
+						command.execute();
+						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, command));
+						treeItem.setExpanded(true);
+					});
+					newMenu.getItems().add(item);
+				}
+			}
+		}
 	}
 
 	@Override
