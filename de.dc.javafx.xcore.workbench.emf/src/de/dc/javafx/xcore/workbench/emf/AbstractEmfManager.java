@@ -49,7 +49,11 @@ public abstract class AbstractEmfManager<T> implements IEmfManager<T> {
 		}
 		return root;
 	}
-
+	
+	@Override
+	public void setRoot(T root) {
+		this.root = root;
+	}
 
 	@Override
 	public EditingDomain getEditingDomain() {

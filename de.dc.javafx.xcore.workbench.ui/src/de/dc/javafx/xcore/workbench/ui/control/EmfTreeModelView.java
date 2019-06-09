@@ -120,6 +120,12 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		initTreeView();
 	}
 
+	public void load(T input) {
+		manager.setRoot(input);
+		TreeItem<Object> rootItem = new AdapterFactoryTreeItem<>(manager.getRoot(), manager.getAdapterFactory());
+		treeView.setRoot(rootItem);
+	}
+	
 	private void initTreeView() {
 		treeView.getSelectionModel().selectedItemProperty().addListener(this);
 

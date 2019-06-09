@@ -18,12 +18,15 @@ Require-Bundle: org.eclipse.core.runtime,
  de.dc.javafx.efxclipse.runtime;bundle-version="3.6.0",
  de.dc.javafx.xcore.runtime,
  de.dc.javafx.xcore.workbench.emf,
- org.eclipse.fx.ui.controls
+ org.eclipse.fx.ui.controls,
+ org.eclipse.emf.ecore
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.workbench.ui
 Bundle-ActivationPolicy: lazy
 Export-Package: de.dc.javafx.xcore.workbench.ui,
  de.dc.javafx.xcore.workbench.ui.control,
  de.dc.javafx.xcore.workbench.ui.css,
+ de.dc.javafx.xcore.workbench.ui.factory,
  de.dc.javafx.xcore.workbench.ui.file,
+ de.dc.javafx.xcore.workbench.ui.handler,
  de.dc.javafx.xcore.workbench.ui.renderer

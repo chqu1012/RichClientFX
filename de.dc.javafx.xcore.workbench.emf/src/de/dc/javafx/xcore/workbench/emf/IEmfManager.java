@@ -12,6 +12,8 @@ public interface IEmfManager<T> {
 
 	T getRoot();
 
+	void setRoot(T root);
+	
 	EditingDomain getEditingDomain();
 
 	ComposedAdapterFactory getAdapterFactory();

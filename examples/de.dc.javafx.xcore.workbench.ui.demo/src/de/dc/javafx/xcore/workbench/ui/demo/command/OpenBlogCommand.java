@@ -7,7 +7,9 @@ import com.google.inject.Inject;
 import de.dc.javafx.xcore.workbench.event.EmfCommand;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
+import de.dc.spring.bootstrap.blog.model.Blog;
 import de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView;
+import de.dc.spring.bootstrap.blog.model.ui.file.BlogFile;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.FileChooser;
@@ -17,6 +19,8 @@ import javafx.stage.Stage;
 public class OpenBlogCommand extends EmfCommand {
 
 	@Inject IEmfControlManager controlManager;
+	
+	private BlogFile blogFile = new BlogFile();
 	
 	@Override
 	public void execute() {
@@ -28,6 +32,8 @@ public class OpenBlogCommand extends EmfCommand {
 			TabPane editorArea = controlManager.findBy(EmfWorkbench.EDITOR_AREA_ID);
 			Tab editorTab = new Tab(file.getName());
 			BlogEmfTreeView tree = new BlogEmfTreeView();
+			Blog blog = blogFile.load(file.getAbsolutePath());
+			tree.load(blog);
 			editorTab.setContent(tree);
 			editorArea.getTabs().add(editorTab);
 		}
