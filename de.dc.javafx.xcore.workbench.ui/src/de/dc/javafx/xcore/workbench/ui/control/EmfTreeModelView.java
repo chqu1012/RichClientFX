@@ -236,8 +236,14 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
     @FXML
     protected void onTreeViewMouseClicked(MouseEvent event) {
     	TreeItem<Object> selection = treeView.getSelectionModel().getSelectedItem();
+    	if (treeView.isEditable()) {
+			treeView.setEditable(false);
+		}
     	if (selection!=null) {
     		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.SELECTION, selection.getValue()));
+    		if (event.getClickCount() == 2) {
+    			eventBroker.post(new EventContext<>(EventTopic.OPEN_EDITOR, selection.getValue()));
+    		}
 		}
     }
 
