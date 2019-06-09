@@ -17,6 +17,7 @@ import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
+import de.dc.javafx.xcore.workbench.ui.dnd.DraggingTabPaneSupport;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -96,6 +97,12 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		controlManager.registrate(EDITOR_AREA_ID, getEditorArea());
 		controlManager.registrate(TOOLBAR_ID, getToolBar());
 		controlManager.registrate(PERSPECTIVE_TOOLBAR_ID, getPerspectiveToolBar());
+		
+		// TabPane dnd support
+		DraggingTabPaneSupport support = new DraggingTabPaneSupport();
+		support.addSupport(bottomTabPane);
+		support.addSupport(rightTabPane);
+		support.addSupport(leftTabPane);
 	}
 	
 	public Workbench getWorkbench() {
