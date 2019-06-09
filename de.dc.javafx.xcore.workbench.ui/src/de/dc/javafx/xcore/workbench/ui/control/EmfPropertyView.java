@@ -50,7 +50,7 @@ public class EmfPropertyView extends EmfView {
 				SetCommand command = new SetCommand(currentEditingDomain, cuurentSelection, selectedAttribute, value);
 				currentEditingDomain.getCommandStack().execute(command);
 				
-				DIPlatform.getInstance(IEventBroker.class).post(new EventContext(EventTopic.COMMAND_STACK_REFRESH, command));
+				DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, command));
 			}
 		});
 		valueColumn.setCellValueFactory(param ->{ 

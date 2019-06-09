@@ -126,6 +126,11 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		initTreeView();
 	}
 
+	public void save(File f) {
+		file.write(manager.getRoot(), f.getAbsolutePath());
+		log.log(Level.INFO, "Write emf model to path "+f.getAbsolutePath());
+	}
+	
 	public void load(T input) {
 		manager.setRoot(input);
 		TreeItem<Object> rootItem = new AdapterFactoryTreeItem<>(manager.getRoot(), manager.getAdapterFactory());

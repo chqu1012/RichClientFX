@@ -8,7 +8,7 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 
 public interface IEmfSelectionService extends ISelectionService{
 	
-	Optional<? extends IEmfManager> getEmfManager();
+	Optional<? extends IEmfManager<?>> getEmfManager();
 	
-	void registerProvider(ReadOnlyObjectProperty provider, IEmfManager manager);
+	void registerProvider(ReadOnlyObjectProperty<?> provider, IEmfManager<?> manager);
 }

@@ -8,16 +8,16 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 
 public class EmfSelectionService extends SelectionService implements IEmfSelectionService {
 
-	protected IEmfManager manager;
+	protected IEmfManager<?> manager;
 
 	@Override
-	public void registerProvider(ReadOnlyObjectProperty provider, IEmfManager manager) {
+	public void registerProvider(ReadOnlyObjectProperty<?> provider, IEmfManager<?> manager) {
 		this.manager=manager;
 		registerProvider(provider);
 	}
 
 	@Override
-	public Optional<? extends IEmfManager> getEmfManager() {
+	public Optional<? extends IEmfManager<?>> getEmfManager() {
 		return Optional.of(manager);
 	}
 }
