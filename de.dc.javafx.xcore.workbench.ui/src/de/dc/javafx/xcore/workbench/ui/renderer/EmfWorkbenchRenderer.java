@@ -143,13 +143,19 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	public Node casePerspective(Perspective object) {
 		if (workbench!=null) {
 			LeftPane leftPane = object.getLeftPane();
-			doSwitch(leftPane);
+			if (leftPane!=null) {
+				doSwitch(leftPane);
+			}
 			
 			RightPane rightPane = object.getRightPane();
-			doSwitch(rightPane);
+			if (rightPane!=null) {
+				doSwitch(rightPane);
+			}
 			
 			BottomPane bottomPane = object.getBottomPane();
-			doSwitch(bottomPane);
+			if (bottomPane!=null) {
+				doSwitch(bottomPane);
+			}
 		}
 		return super.casePerspective(object);
 	}
