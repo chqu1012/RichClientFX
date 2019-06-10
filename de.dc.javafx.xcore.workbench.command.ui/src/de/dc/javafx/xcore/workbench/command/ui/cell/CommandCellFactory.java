@@ -50,6 +50,8 @@ public class CommandCellFactory extends TreeCell<Object> {
 	protected BooleanProperty undoProperty = new SimpleBooleanProperty(true);
 
 	private AdapterFactory adapterFactory;
+
+	private EmfCommand command;
 	
 	public CommandCellFactory(AdapterFactory adapterFactory) {
 		this.adapterFactory = adapterFactory;
@@ -76,10 +78,9 @@ public class CommandCellFactory extends TreeCell<Object> {
 			undoButton.disableProperty().bind(undoProperty);
 			
 			if (item instanceof EmfCommand) {
-				EmfCommand command = (EmfCommand) item;
-				
+				command = (EmfCommand) item;
 				if (command.getCommand() !=null) {
-					undoProperty.bind(new SimpleBooleanProperty(command.getCommand().canUndo()));
+					undoProperty.bind(new SimpleBooleanProperty(command.getCommand().canUndo()).not());
 				}
 				
 				timestampLabel.setText(command.getTimestamp()==null? "No tracked timestamp" : command.getTimestamp().toString());
@@ -138,11 +139,15 @@ public class CommandCellFactory extends TreeCell<Object> {
 
 	@FXML
 	protected void onRedoButtonAction(ActionEvent event) {
-		
+		command.redo();		
+		log.log(Level.INFO, "Redo command "+command.getCommand().getLabel());
 	}
 
 	@FXML
 	protected void onUndoButtonAction(ActionEvent event) {
-		
+		if (command.canUndo()) {
+			command.undo();
+			log.log(Level.INFO, "Undo command "+command.getCommand().getLabel());
+		}
 	}
 }
