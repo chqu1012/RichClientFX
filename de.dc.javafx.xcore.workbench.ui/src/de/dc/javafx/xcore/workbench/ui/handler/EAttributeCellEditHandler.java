@@ -1,6 +1,5 @@
 package de.dc.javafx.xcore.workbench.ui.handler;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Cell;
 import javafx.scene.control.TextField;
 import org.eclipse.emf.common.command.Command;
@@ -15,6 +14,7 @@ import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.ui.model.EmfHistoryCommand;
 
 /**
  * Cell editor handler for {@link EAttribute}
@@ -55,19 +55,14 @@ public class EAttributeCellEditHandler implements ICellEditHandler {
 		}
 
 		this.textField = new TextField();
-		this.textField.focusedProperty().addListener(new ChangeListener<Boolean>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				if (!newValue.booleanValue())
-					commitEdit(cell, EAttributeCellEditHandler.this.textField.getText());
-			}
-
+		this.textField.focusedProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+			if (!newValue.booleanValue())
+				commitEdit(cell, EAttributeCellEditHandler.this.textField.getText());
 		});
 		cell.setText(null);
 		cell.setGraphic(this.textField);
 		this.textField.setText(string);
-		this.textField.selectPositionCaret(0);// selectAll();
+		this.textField.selectPositionCaret(0);
 	}
 
 	@Override
@@ -82,7 +77,7 @@ public class EAttributeCellEditHandler implements ICellEditHandler {
 		Command command = SetCommand.create(this.editingDomain, item, this.attribute, value);
 		if (command.canExecute()) {
 			this.editingDomain.getCommandStack().execute(command);
-			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, command));
+			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, "Set selection type "+this.attribute.getEAttributeType()+" to "+newValue)));
 		}
 	}
 

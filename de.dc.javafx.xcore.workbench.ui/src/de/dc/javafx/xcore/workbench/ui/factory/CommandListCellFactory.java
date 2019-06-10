@@ -11,6 +11,7 @@ import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
+import de.dc.javafx.xcore.workbench.ui.model.EmfHistoryCommand;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
@@ -20,7 +21,7 @@ import javafx.util.Callback;
  * factory to get {@link EObject}s labels.
  * 
  */
-public class CommandListCellFactory implements Callback<ListView<Command>, ListCell<Command>> {
+public class CommandListCellFactory implements Callback<ListView<EmfHistoryCommand>, ListCell<EmfHistoryCommand>> {
 
 	private AdapterFactory adapterFactory;
 	private CommandStack commandStack;
@@ -34,10 +35,10 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ListCell<Command> call(ListView<Command> param) {
-		return new ListCell<Command>() {
+	public ListCell<EmfHistoryCommand> call(ListView<EmfHistoryCommand> param) {
+		return new ListCell<EmfHistoryCommand>() {
 			@Override
-			protected void updateItem(Command command, boolean empty) {
+			protected void updateItem(EmfHistoryCommand command, boolean empty) {
 				super.updateItem(command, empty);
 				if (command ==null || empty) {
 					setText(null);
@@ -57,8 +58,9 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 		};
 	}
 
-	private String prettyPrint(Command command) {
+	private String prettyPrint(EmfHistoryCommand ehc) {
 		String res = null;
+		Command command = ehc.getCommand();
 		if (command instanceof SetCommand) {
 			SetCommand setCommand = (SetCommand) command;
 			Object value = setCommand.getValue();
@@ -79,7 +81,7 @@ public class CommandListCellFactory implements Callback<ListView<Command>, ListC
 			res = "Add new " + owner;
 		} else if (command instanceof DeleteCommand) {
 			DeleteCommand aCommand = (DeleteCommand) command;
-			res = "Delete " + aCommand.getAffectedObjects().stream().map(e -> e.toString()).reduce((e1, e2) -> e1 + ", " + e2).get();
+			res = "Delete " + aCommand.getResult().stream().map(e -> e.toString()).reduce((e1, e2) -> e1 + ", " + e2).get();
 		} else if (command instanceof DragAndDropCommand) {
 			DragAndDropCommand dndCommand = (DragAndDropCommand) command;
 			String owner = ((IItemLabelProvider) adapterFactory.adapt(dndCommand.getOwner(), IItemLabelProvider.class))

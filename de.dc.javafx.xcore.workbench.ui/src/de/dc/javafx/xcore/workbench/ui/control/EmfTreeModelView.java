@@ -35,6 +35,7 @@ import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
 import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
+import de.dc.javafx.xcore.workbench.ui.model.EmfHistoryCommand;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -234,16 +235,22 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	}
 
+	private void execute(Command command, Collection<Object> collection) {
+		if (command.canExecute()) {
+			command.execute();
+			String action = command.getLabel();
+			String size = String.valueOf(collection.size());
+			log.log(Level.INFO, "{0} {1} selection(s).",  new String[]{action, size});
+			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, action+" "+size+" selection(s)")));
+		}
+	}
+	
 	@FXML
 	protected void onDeleteMenuItemClicked(ActionEvent event) {
 		ObservableList<TreeItem<Object>> selections = treeView.getSelectionModel().getSelectedItems();
 		List<Object> toDeleteList = selections.stream().map(e->e.getValue()).collect(Collectors.toList());
 		Command command = DeleteCommand.create(editingDomain, toDeleteList);
-		if (command.canExecute()) {
-			command.execute();
-			log.log(Level.INFO, "Delete {0} selection(s).", toDeleteList.size());
-			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, command));
-		}
+		execute(command, toDeleteList);
 	}
 
 	@FXML
@@ -256,9 +263,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		ArrayList<Object> collection = new ArrayList<>();
 		collection.add(treeView.getSelectionModel().getSelectedItem().getValue());
 		Command command = CopyToClipboardCommand.create(editingDomain, collection);
-		if (command.canExecute()) {
-			command.execute();
-		}
+		execute(command, collection);
 	}
 
 	@FXML
@@ -268,6 +273,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		Command command = PasteFromClipboardCommand.create(editingDomain, selection, CommandParameter.NO_INDEX);
 		if (command.canExecute()) {
 			command.execute();
+			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, "Paste selection to clipboard")));
 			selectedItem.setExpanded(true);
 		}
 	}
@@ -304,7 +310,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 						Command command = AddCommand.create(editingDomain, value, id,
 								getEmfManager().getExtendedModelFactory().create(id));
 						command.execute();
-						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, command));
+						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, "Added new "+name)));
 						treeItem.setExpanded(true);
 					});
 					newMenu.getItems().add(item);
