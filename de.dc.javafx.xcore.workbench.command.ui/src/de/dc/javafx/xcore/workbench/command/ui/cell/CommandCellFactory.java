@@ -5,6 +5,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import de.dc.javafx.xcore.workbench.command.EmfCommand;
+import de.dc.javafx.xcore.workbench.command.EmfCommandHistory;
+import de.dc.javafx.xcore.workbench.command.EmfResult;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
@@ -68,8 +70,11 @@ public class CommandCellFactory extends TreeCell<Object> {
 				timestampLabel.setText(command.getTimestamp()==null? "No tracked timestamp" : command.getTimestamp().toString());
 				commandLabel.setText(command.getCommand()==null? "No command name defined" : command.getCommand().getLabel());
 				setGraphic(root);
-			}else {
-				setGraphic(new Label(item.toString()));
+			}else if( item instanceof EmfCommandHistory){
+				setGraphic(new Label("History"));
+			}else if( item instanceof EmfResult) {
+				EmfResult result = (EmfResult) item;
+				setGraphic(new Label(result.getObject()==null? "No result available" : result.getObject().toString()));
 			}
 		}
 	}

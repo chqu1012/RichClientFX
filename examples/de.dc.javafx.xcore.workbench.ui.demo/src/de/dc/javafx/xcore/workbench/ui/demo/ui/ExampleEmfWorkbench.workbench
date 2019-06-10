@@ -59,6 +59,7 @@
     </leftPane>
     <rightPane>
       <views _Id="de.dc.javafx.xcore.workbench.ui.control.EmfHistoryView" name="Blog HistoryView" viewClass="de.dc.javafx.xcore.workbench.ui.control.EmfHistoryView" registrateChangeListener="true"/>
+      <views _Id="de.dc.javafx.xcore.workbench.command.ui.CommandEmfTreeView" name="ExtendedHistoryView" viewClass="de.dc.javafx.xcore.workbench.command.ui.CommandEmfTreeView" registrateChangeListener="true"/>
     </rightPane>
     <bottomPane>
       <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.control.EmfPropertyView"/>

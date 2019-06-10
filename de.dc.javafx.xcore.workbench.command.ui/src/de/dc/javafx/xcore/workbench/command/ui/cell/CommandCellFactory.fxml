@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="commandLabel" layoutX="14.0" layoutY="9.0" maxWidth="1.7976931348623157E308" text="Command" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="2.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="timestampLabel" layoutX="14.0" layoutY="13.0" text="01.01.2019" textFill="#797979" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="6.0">
+      <Label fx:id="timestampLabel" layoutX="14.0" layoutY="13.0" maxWidth="1.7976931348623157E308" text="01.01.2019" textFill="#797979" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="6.0">
          <font>
             <Font name="System Italic" size="10.0" />
          </font>

@@ -2,6 +2,7 @@ package de.dc.javafx.xcore.workbench.ui.control;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EventObject;
@@ -27,6 +28,7 @@ import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
 import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
 import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
+import de.dc.javafx.xcore.workbench.command.CommandFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
@@ -38,11 +40,13 @@ import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
 import de.dc.javafx.xcore.workbench.ui.model.EmfHistoryCommand;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
@@ -60,21 +64,32 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	private Logger log = Logger.getLogger(EmfTreeModelView.class.getSimpleName());
 
 	@FXML
+	protected ContextMenu contextMenu;
+	
+	@FXML
 	protected MenuItem newMenuItem;
+	
 	@FXML
 	protected MenuItem undoMenuItem;
+	
 	@FXML
 	protected MenuItem redoMenuItem;
+	
 	@FXML
 	protected MenuItem editMenuItem;
+	
 	@FXML
 	protected MenuItem copyMenuItem;
+	
 	@FXML
 	protected MenuItem pasteMenuItem;
+	
 	@FXML
 	protected MenuItem deleteMenuItem;
+	
 	@FXML
 	protected Menu newMenu;
+
 	@FXML
 	protected TreeView<Object> treeView;
 
@@ -82,6 +97,8 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	protected IEmfManager<T> manager;
 	protected EditingDomain editingDomain;
 
+	protected ObservableList<MenuItem> defaultMenuItems = FXCollections.observableArrayList();
+	
 	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
 
 	protected IEmfSelectionService selectionService;
@@ -89,10 +106,10 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	protected IEventBroker eventBroker;
 
 	protected EmfFile<T> file;
-	
+
 	public EmfTreeModelView() {
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("/de/dc/javafx/efxclipse/runtime/EMFModelTreeView.fxml"));
+				getClass().getResource("/de/dc/javafx/xcore/workbench/ui/EmfModelTreeView.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 
@@ -103,7 +120,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		}
 
 		initializeEmf(getEmfManager());
-		
+
 		file = initEmfFile();
 	}
 
@@ -132,23 +149,23 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	public void save(File f) {
 		file.write(manager.getRoot(), f.getAbsolutePath());
-		log.log(Level.INFO, "Write emf model to path "+f.getAbsolutePath());
+		log.log(Level.INFO, "Write emf model to path " + f.getAbsolutePath());
 	}
-	
+
 	public void load(T input) {
 		manager.setRoot(input);
 		TreeItem<Object> rootItem = new AdapterFactoryTreeItem<>(manager.getRoot(), manager.getAdapterFactory());
 		treeView.setRoot(rootItem);
 	}
-	
+
 	public void load(File f) {
 		load(f.getAbsolutePath());
 	}
-	
+
 	public void load(String filepath) {
 		load(file.load(filepath));
 	}
-	
+
 	private void initTreeView() {
 		treeView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		treeView.getSelectionModel().selectedItemProperty().addListener(this);
@@ -240,15 +257,16 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 			command.execute();
 			String action = command.getLabel();
 			String size = String.valueOf(collection.size());
-			log.log(Level.INFO, "{0} {1} selection(s).",  new String[]{action, size});
-			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, action+" "+size+" selection(s)")));
+			log.log(Level.INFO, "{0} {1} selection(s).", new String[] { action, size });
+			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH,
+					new EmfHistoryCommand(command, action + " " + size + " selection(s)")));
 		}
 	}
-	
+
 	@FXML
 	protected void onDeleteMenuItemClicked(ActionEvent event) {
 		ObservableList<TreeItem<Object>> selections = treeView.getSelectionModel().getSelectedItems();
-		List<Object> toDeleteList = selections.stream().map(e->e.getValue()).collect(Collectors.toList());
+		List<Object> toDeleteList = selections.stream().map(e -> e.getValue()).collect(Collectors.toList());
 		Command command = DeleteCommand.create(editingDomain, toDeleteList);
 		execute(command, toDeleteList);
 	}
@@ -273,7 +291,8 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		Command command = PasteFromClipboardCommand.create(editingDomain, selection, CommandParameter.NO_INDEX);
 		if (command.canExecute()) {
 			command.execute();
-			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, "Paste selection to clipboard")));
+			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH,
+					new EmfHistoryCommand(command, "Paste selection to clipboard")));
 			selectedItem.setExpanded(true);
 		}
 	}
@@ -310,7 +329,18 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 						Command command = AddCommand.create(editingDomain, value, id,
 								getEmfManager().getExtendedModelFactory().create(id));
 						command.execute();
-						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, "Added new "+value+" to "+name)));
+
+						// TODO: Removed this old Emf Command
+						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH,
+								new EmfHistoryCommand(command, "Added new " + value + " to " + name)));
+
+						de.dc.javafx.xcore.workbench.command.EmfCommand addCommand = CommandFactory.eINSTANCE
+								.createEmfCommand();
+						addCommand.setCommand(command);
+						addCommand.setName("Add");
+						addCommand.setDescription("Added new " + value + " to " + name);
+						addCommand.setTimestamp(LocalDateTime.now());
+						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, addCommand));
 						treeItem.setExpanded(true);
 					});
 					newMenu.getItems().add(item);
@@ -323,7 +353,16 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	public void commandStackChanged(EventObject event) {
 	}
 
-	protected abstract IEmfManager<T> getEmfManager();
+	public void clearDefaultContextMenu() {
+		defaultMenuItems.addAll(contextMenu.getItems());
+		contextMenu.getItems().clear();
+	}
 	
+	public void restoreDefaultContextMenu() {
+		contextMenu.getItems().addAll(defaultMenuItems);
+	}
+	
+	protected abstract IEmfManager<T> getEmfManager();
+
 	protected abstract EmfFile<T> initEmfFile();
 }

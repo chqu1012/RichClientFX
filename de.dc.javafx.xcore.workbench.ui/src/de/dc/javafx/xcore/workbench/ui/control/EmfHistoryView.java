@@ -4,7 +4,6 @@ import java.util.EventObject;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
@@ -26,10 +25,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
-public class EmfHistoryView extends EmfView implements CommandStackListener{
+public class EmfHistoryView extends EmfView implements CommandStackListener {
 
 	private Logger log = Logger.getLogger(EmfHistoryView.class.getSimpleName());
-	
+
 	protected ListView<EmfHistoryCommand> historyList;
 	protected IEmfManager<?> emfManager;
 
@@ -45,15 +44,15 @@ public class EmfHistoryView extends EmfView implements CommandStackListener{
 	}
 
 	private void initHistoryListView() {
-		if (emfManager==null) {
+		if (emfManager == null) {
 			emfManager = DIPlatform.getInstance(IEmfSelectionService.class).getEmfManager().get();
 			adapterFactory = emfManager.getAdapterFactory();
 			commandStack = (CommandStackImpl) emfManager.getEditingDomain().getCommandStack();
 			commandStack.addCommandStackListener(this);
 			historyList.setCellFactory(new CommandListCellFactory(adapterFactory, commandStack));
 			historyList.setEditable(false);
-			
-			historyList.setOnMouseClicked(e->onHistoryListViewClicked(e));
+
+			historyList.setOnMouseClicked(e -> onHistoryListViewClicked(e));
 		}
 	}
 
@@ -76,18 +75,19 @@ public class EmfHistoryView extends EmfView implements CommandStackListener{
 			});
 		}
 	}
-	
+
 	@Override
 	public void commandStackChanged(EventObject event) {
-		updateHistoryListView(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, null));		
+		updateHistoryListView(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, null));
 	}
-	
+
 	@Subscribe
 	public void updateHistoryListView(EventContext<EmfHistoryCommand> context) {
-		if (context.getEventTopic()==EventTopic.COMMAND_STACK_REFRESH) {
+		if (context.getEventTopic() == EventTopic.COMMAND_STACK_REFRESH) {
 			initHistoryListView();
-			if (context.getInput()!=null) {
-				historyList.getItems().add(0, context.getInput());
+			Object input = context.getInput();
+			if (input != null && input instanceof EmfHistoryCommand) {
+				historyList.getItems().add(0, (EmfHistoryCommand) input);
 			}
 		}
 	}
