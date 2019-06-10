@@ -310,7 +310,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 						Command command = AddCommand.create(editingDomain, value, id,
 								getEmfManager().getExtendedModelFactory().create(id));
 						command.execute();
-						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, "Added new "+name)));
+						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, "Added new "+value+" to "+name)));
 						treeItem.setExpanded(true);
 					});
 					newMenu.getItems().add(item);

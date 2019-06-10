@@ -1,0 +1,46 @@
+@Ecore(nsURI="http://www.frateranatis.org/")
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.workbench.command.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.workbench.command.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="command")
+package de.dc.javafx.xcore.workbench.command
+
+import org.eclipse.emf.common.command.Command
+import java.time.LocalDateTime
+
+class EmfCommandHistory{
+	contains EmfCommand[0..*] commands
+}
+
+class EmfCommand{
+	String name
+	String description
+	Timestamp timestamp	
+	Command command
+	
+	op boolean canUndo(){
+		command.canUndo
+	}
+
+	op void undo(){
+		if(canUndo){
+			command.undo
+		}
+	}	
+	
+	op void redo(){
+		command.redo
+	}
+	
+	op String getMessage(){
+		return command.label + ' '+command.result.size+' selection(s)'    
+	}
+}
+
+type Timestamp wraps LocalDateTime
+type Command wraps Command
