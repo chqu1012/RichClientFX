@@ -17,6 +17,7 @@ import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.ui.factory.CommandFlatCellFactory;
 import de.dc.javafx.xcore.workbench.ui.factory.CommandListCellFactory;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -49,7 +50,9 @@ public class EmfHistoryView extends EmfView implements CommandStackListener {
 			adapterFactory = emfManager.getAdapterFactory();
 			commandStack = (CommandStackImpl) emfManager.getEditingDomain().getCommandStack();
 			commandStack.addCommandStackListener(this);
-			historyList.setCellFactory(new CommandListCellFactory(adapterFactory, commandStack));
+			// TODO: use a newer stylish factory
+//			historyList.setCellFactory(new CommandListCellFactory(adapterFactory, commandStack));
+			historyList.setCellFactory(param -> new CommandFlatCellFactory(adapterFactory));
 			historyList.setEditable(false);
 
 			historyList.setOnMouseClicked(e -> onHistoryListViewClicked(e));

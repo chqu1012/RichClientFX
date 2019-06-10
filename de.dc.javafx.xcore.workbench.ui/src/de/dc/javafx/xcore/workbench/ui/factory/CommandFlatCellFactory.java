@@ -1,16 +1,16 @@
-package de.dc.javafx.xcore.workbench.command.ui.cell;
+package de.dc.javafx.xcore.workbench.ui.factory;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.ChangeCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import de.dc.javafx.xcore.workbench.command.EmfCommand;
@@ -23,12 +23,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TreeCell;
+import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
 
-public class CommandCellFactory extends TreeCell<Object> {
+public class CommandFlatCellFactory extends ListCell<EmfCommand> {
 
-	private Logger log = Logger.getLogger(CommandCellFactory.class.getSimpleName());
+	private Logger log = Logger.getLogger(CommandFlatCellFactory.class.getSimpleName());
 	
 	@FXML
 	protected Button undoButton;
@@ -49,14 +49,14 @@ public class CommandCellFactory extends TreeCell<Object> {
 	
 	protected BooleanProperty undoProperty = new SimpleBooleanProperty(true);
 
-	private AdapterFactory adapterFactory;
+	private ComposedAdapterFactory adapterFactory;
 	
-	public CommandCellFactory(AdapterFactory adapterFactory) {
+	public CommandFlatCellFactory(ComposedAdapterFactory adapterFactory) {
 		this.adapterFactory = adapterFactory;
 	}
-	
+
 	@Override
-	protected void updateItem(Object item, boolean empty) {
+	protected void updateItem(EmfCommand item, boolean empty) {
 		super.updateItem(item, empty);
 		if (empty || item == null) {
 			setText(null);
@@ -68,7 +68,7 @@ public class CommandCellFactory extends TreeCell<Object> {
 				try {
 					mLLoader.load();
 				} catch (IOException e) {
-					log.log(Level.SEVERE, "Failed to load "+CommandCellFactory.class.getSimpleName()+"! "+e.getMessage());
+					log.log(Level.SEVERE, "Failed to load "+getClass().getSimpleName()+"! "+e.getMessage());
 				}
 			}
 
@@ -83,15 +83,14 @@ public class CommandCellFactory extends TreeCell<Object> {
 				}
 				
 				timestampLabel.setText(command.getTimestamp()==null? "No tracked timestamp" : command.getTimestamp().toString());
-				String name = getCommandName(command);
-				commandLabel.setText(name);
+				String commandName = getCommandName(command);
+				commandLabel.setText(commandName);
 				setGraphic(root);
 			}else if( item instanceof EmfCommandHistory){
 				setGraphic(new Label("History"));
 			}else if( item instanceof EmfResult) {
 				EmfResult result = (EmfResult) item;
-				String owner = ((IItemLabelProvider) adapterFactory.adapt(result, IItemLabelProvider.class)).getText(result);
-				setGraphic(new Label(result.getObject()==null? "No result available" : owner));
+				setGraphic(new Label(result.getObject()==null? "No result available" : result.getObject().toString()));
 			}
 		}
 	}
@@ -130,7 +129,7 @@ public class CommandCellFactory extends TreeCell<Object> {
 		}
 		return name;
 	}
-	
+
 	@FXML
 	protected void onDeleteButtonAction(ActionEvent event) {
 		

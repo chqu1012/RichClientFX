@@ -29,7 +29,7 @@ public class CommandEmfTreeView extends EmfTreeModelView<EmfCommandHistory> {
 		treeView.setCellFactory(new Callback<TreeView<Object>, TreeCell<Object>>() {
 			@Override
 			public TreeCell call(TreeView<Object> param) {
-				return new CommandCellFactory();
+				return new CommandCellFactory(manager.getAdapterFactory());
 			}
 		});
 		

@@ -23,12 +23,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TreeCell;
+import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
 
-public class CommandCellFactory extends TreeCell<Object> {
+public class CommandFlatCellFactory extends ListCell<Object> {
 
-	private Logger log = Logger.getLogger(CommandCellFactory.class.getSimpleName());
+	private Logger log = Logger.getLogger(CommandFlatCellFactory.class.getSimpleName());
 	
 	@FXML
 	protected Button undoButton;
@@ -51,7 +51,7 @@ public class CommandCellFactory extends TreeCell<Object> {
 
 	private AdapterFactory adapterFactory;
 	
-	public CommandCellFactory(AdapterFactory adapterFactory) {
+	public CommandFlatCellFactory(AdapterFactory adapterFactory) {
 		this.adapterFactory = adapterFactory;
 	}
 	
@@ -68,7 +68,7 @@ public class CommandCellFactory extends TreeCell<Object> {
 				try {
 					mLLoader.load();
 				} catch (IOException e) {
-					log.log(Level.SEVERE, "Failed to load "+CommandCellFactory.class.getSimpleName()+"! "+e.getMessage());
+					log.log(Level.SEVERE, "Failed to load "+getClass().getSimpleName()+"! "+e.getMessage());
 				}
 			}
 
@@ -90,8 +90,7 @@ public class CommandCellFactory extends TreeCell<Object> {
 				setGraphic(new Label("History"));
 			}else if( item instanceof EmfResult) {
 				EmfResult result = (EmfResult) item;
-				String owner = ((IItemLabelProvider) adapterFactory.adapt(result, IItemLabelProvider.class)).getText(result);
-				setGraphic(new Label(result.getObject()==null? "No result available" : owner));
+				setGraphic(new Label(result.getObject()==null? "No result available" : result.getObject().toString()));
 			}
 		}
 	}
