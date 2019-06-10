@@ -119,6 +119,29 @@ public class CommandItemProviderAdapterFactory extends CommandAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.command.EmfResult} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EmfResultItemProvider emfResultItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.command.EmfResult}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEmfResultAdapter() {
+		if (emfResultItemProvider == null) {
+			emfResultItemProvider = new EmfResultItemProvider(this);
+		}
+
+		return emfResultItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +250,8 @@ public class CommandItemProviderAdapterFactory extends CommandAdapterFactory
 			emfCommandHistoryItemProvider.dispose();
 		if (emfCommandItemProvider != null)
 			emfCommandItemProvider.dispose();
+		if (emfResultItemProvider != null)
+			emfResultItemProvider.dispose();
 	}
 
 }

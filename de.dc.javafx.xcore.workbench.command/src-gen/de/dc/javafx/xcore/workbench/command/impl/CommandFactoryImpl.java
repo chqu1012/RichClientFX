@@ -65,6 +65,8 @@ public class CommandFactoryImpl extends EFactoryImpl implements CommandFactory {
 			return createEmfCommandHistory();
 		case CommandPackage.EMF_COMMAND:
 			return createEmfCommand();
+		case CommandPackage.EMF_RESULT:
+			return createEmfResult();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -124,6 +126,17 @@ public class CommandFactoryImpl extends EFactoryImpl implements CommandFactory {
 	public EmfCommand createEmfCommand() {
 		EmfCommandImpl emfCommand = new EmfCommandImpl();
 		return emfCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EmfResult createEmfResult() {
+		EmfResultImpl emfResult = new EmfResultImpl();
+		return emfResult;
 	}
 
 	/**

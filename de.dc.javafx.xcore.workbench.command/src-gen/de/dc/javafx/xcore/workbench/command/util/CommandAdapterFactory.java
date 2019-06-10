@@ -77,6 +77,11 @@ public class CommandAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseEmfResult(EmfResult object) {
+			return createEmfResultAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -120,6 +125,20 @@ public class CommandAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEmfCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.command.EmfResult <em>Emf Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.command.EmfResult
+	 * @generated
+	 */
+	public Adapter createEmfResultAdapter() {
 		return null;
 	}
 

@@ -40,6 +40,15 @@ public interface CommandFactory extends EFactory {
 	EmfCommand createEmfCommand();
 
 	/**
+	 * Returns a new object of class '<em>Emf Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Emf Result</em>'.
+	 * @generated
+	 */
+	EmfResult createEmfResult();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

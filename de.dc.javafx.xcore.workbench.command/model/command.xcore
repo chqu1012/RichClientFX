@@ -40,6 +40,13 @@ class EmfCommand{
 	op String getMessage(){
 		return command.label + ' '+command.result.size+' selection(s)'    
 	}
+	
+	contains EmfResult[0..*] results
+}
+
+class EmfResult{
+	String name
+	Object object
 }
 
 type Timestamp wraps LocalDateTime

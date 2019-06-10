@@ -4,21 +4,29 @@ package de.dc.javafx.xcore.workbench.command.impl;
 
 import de.dc.javafx.xcore.workbench.command.CommandPackage;
 import de.dc.javafx.xcore.workbench.command.EmfCommand;
+import de.dc.javafx.xcore.workbench.command.EmfResult;
 
 import java.lang.reflect.InvocationTargetException;
 
 import java.time.LocalDateTime;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.command.Command;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +40,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.dc.javafx.xcore.workbench.command.impl.EmfCommandImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.command.impl.EmfCommandImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.command.impl.EmfCommandImpl#getCommand <em>Command</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.command.impl.EmfCommandImpl#getResults <em>Results</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,6 +125,16 @@ public class EmfCommandImpl extends MinimalEObjectImpl.Container implements EmfC
 	 * @ordered
 	 */
 	protected Command command = COMMAND_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResults()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EmfResult> results;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -237,6 +256,20 @@ public class EmfCommandImpl extends MinimalEObjectImpl.Container implements EmfC
 	 * @generated
 	 */
 	@Override
+	public EList<EmfResult> getResults() {
+		if (results == null) {
+			results = new EObjectContainmentEList<EmfResult>(EmfResult.class, this,
+					CommandPackage.EMF_COMMAND__RESULTS);
+		}
+		return results;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean canUndo() {
 		return this.getCommand().canUndo();
 	}
@@ -284,6 +317,20 @@ public class EmfCommandImpl extends MinimalEObjectImpl.Container implements EmfC
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CommandPackage.EMF_COMMAND__RESULTS:
+			return ((InternalEList<?>) getResults()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case CommandPackage.EMF_COMMAND__NAME:
@@ -294,6 +341,8 @@ public class EmfCommandImpl extends MinimalEObjectImpl.Container implements EmfC
 			return getTimestamp();
 		case CommandPackage.EMF_COMMAND__COMMAND:
 			return getCommand();
+		case CommandPackage.EMF_COMMAND__RESULTS:
+			return getResults();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -303,6 +352,7 @@ public class EmfCommandImpl extends MinimalEObjectImpl.Container implements EmfC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -317,6 +367,10 @@ public class EmfCommandImpl extends MinimalEObjectImpl.Container implements EmfC
 			return;
 		case CommandPackage.EMF_COMMAND__COMMAND:
 			setCommand((Command) newValue);
+			return;
+		case CommandPackage.EMF_COMMAND__RESULTS:
+			getResults().clear();
+			getResults().addAll((Collection<? extends EmfResult>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -342,6 +396,9 @@ public class EmfCommandImpl extends MinimalEObjectImpl.Container implements EmfC
 		case CommandPackage.EMF_COMMAND__COMMAND:
 			setCommand(COMMAND_EDEFAULT);
 			return;
+		case CommandPackage.EMF_COMMAND__RESULTS:
+			getResults().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -362,6 +419,8 @@ public class EmfCommandImpl extends MinimalEObjectImpl.Container implements EmfC
 			return TIMESTAMP_EDEFAULT == null ? timestamp != null : !TIMESTAMP_EDEFAULT.equals(timestamp);
 		case CommandPackage.EMF_COMMAND__COMMAND:
 			return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
+		case CommandPackage.EMF_COMMAND__RESULTS:
+			return results != null && !results.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

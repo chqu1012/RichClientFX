@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 
 import org.eclipse.emf.common.command.Command;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -21,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.dc.javafx.xcore.workbench.command.EmfCommand#getDescription <em>Description</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.command.EmfCommand#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.command.EmfCommand#getCommand <em>Command</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.command.EmfCommand#getResults <em>Results</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.command.CommandPackage#getEmfCommand()
@@ -115,6 +118,18 @@ public interface EmfCommand extends EObject {
 	 * @generated
 	 */
 	void setCommand(Command value);
+
+	/**
+	 * Returns the value of the '<em><b>Results</b></em>' containment reference list.
+	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.command.EmfResult}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Results</em>' containment reference list.
+	 * @see de.dc.javafx.xcore.workbench.command.CommandPackage#getEmfCommand_Results()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<EmfResult> getResults();
 
 	/**
 	 * <!-- begin-user-doc -->

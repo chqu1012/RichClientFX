@@ -6,6 +6,7 @@ import de.dc.javafx.xcore.workbench.command.CommandFactory;
 import de.dc.javafx.xcore.workbench.command.CommandPackage;
 import de.dc.javafx.xcore.workbench.command.EmfCommand;
 import de.dc.javafx.xcore.workbench.command.EmfCommandHistory;
+import de.dc.javafx.xcore.workbench.command.EmfResult;
 
 import java.time.LocalDateTime;
 
@@ -41,6 +42,13 @@ public class CommandPackageImpl extends EPackageImpl implements CommandPackage {
 	 * @generated
 	 */
 	private EClass emfCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass emfResultEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,6 +207,16 @@ public class CommandPackageImpl extends EPackageImpl implements CommandPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getEmfCommand_Results() {
+		return (EReference) emfCommandEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getEmfCommand__CanUndo() {
 		return emfCommandEClass.getEOperations().get(0);
 	}
@@ -231,6 +249,36 @@ public class CommandPackageImpl extends EPackageImpl implements CommandPackage {
 	@Override
 	public EOperation getEmfCommand__GetMessage() {
 		return emfCommandEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEmfResult() {
+		return emfResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEmfResult_Name() {
+		return (EAttribute) emfResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEmfResult_Object() {
+		return (EAttribute) emfResultEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -291,10 +339,15 @@ public class CommandPackageImpl extends EPackageImpl implements CommandPackage {
 		createEAttribute(emfCommandEClass, EMF_COMMAND__DESCRIPTION);
 		createEAttribute(emfCommandEClass, EMF_COMMAND__TIMESTAMP);
 		createEAttribute(emfCommandEClass, EMF_COMMAND__COMMAND);
+		createEReference(emfCommandEClass, EMF_COMMAND__RESULTS);
 		createEOperation(emfCommandEClass, EMF_COMMAND___CAN_UNDO);
 		createEOperation(emfCommandEClass, EMF_COMMAND___UNDO);
 		createEOperation(emfCommandEClass, EMF_COMMAND___REDO);
 		createEOperation(emfCommandEClass, EMF_COMMAND___GET_MESSAGE);
+
+		emfResultEClass = createEClass(EMF_RESULT);
+		createEAttribute(emfResultEClass, EMF_RESULT__NAME);
+		createEAttribute(emfResultEClass, EMF_RESULT__OBJECT);
 
 		// Create data types
 		timestampEDataType = createEDataType(TIMESTAMP);
@@ -355,6 +408,9 @@ public class CommandPackageImpl extends EPackageImpl implements CommandPackage {
 		initEAttribute(getEmfCommand_Command(), this.getCommand(), "command", null, 0, 1, EmfCommand.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getEmfCommand_Results(), this.getEmfResult(), null, "results", null, 0, -1, EmfCommand.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getEmfCommand__CanUndo(), theEcorePackage.getEBoolean(), "canUndo", 0, 1, !IS_UNIQUE,
 				IS_ORDERED);
@@ -364,6 +420,15 @@ public class CommandPackageImpl extends EPackageImpl implements CommandPackage {
 		initEOperation(getEmfCommand__Redo(), null, "redo", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getEmfCommand__GetMessage(), theEcorePackage.getEString(), "getMessage", 0, 1, !IS_UNIQUE,
+				IS_ORDERED);
+
+		initEClass(emfResultEClass, EmfResult.class, "EmfResult", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEmfResult_Name(), theEcorePackage.getEString(), "name", null, 0, 1, EmfResult.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getEmfResult_Object(), theEcorePackage.getEJavaObject(), "object", null, 0, 1, EmfResult.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		// Initialize data types

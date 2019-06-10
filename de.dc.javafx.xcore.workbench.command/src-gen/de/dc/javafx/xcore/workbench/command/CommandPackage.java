@@ -143,13 +143,22 @@ public interface CommandPackage extends EPackage {
 	int EMF_COMMAND__COMMAND = 3;
 
 	/**
+	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMF_COMMAND__RESULTS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Emf Command</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EMF_COMMAND_FEATURE_COUNT = 4;
+	int EMF_COMMAND_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Can Undo</em>' operation.
@@ -197,6 +206,52 @@ public interface CommandPackage extends EPackage {
 	int EMF_COMMAND_OPERATION_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.command.impl.EmfResultImpl <em>Emf Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.command.impl.EmfResultImpl
+	 * @see de.dc.javafx.xcore.workbench.command.impl.CommandPackageImpl#getEmfResult()
+	 * @generated
+	 */
+	int EMF_RESULT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMF_RESULT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMF_RESULT__OBJECT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Emf Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMF_RESULT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Emf Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMF_RESULT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>Timestamp</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,7 +259,7 @@ public interface CommandPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.command.impl.CommandPackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 2;
+	int TIMESTAMP = 3;
 
 	/**
 	 * The meta object id for the '<em>Command</em>' data type.
@@ -214,7 +269,7 @@ public interface CommandPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.command.impl.CommandPackageImpl#getCommand()
 	 * @generated
 	 */
-	int COMMAND = 3;
+	int COMMAND = 4;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.command.EmfCommandHistory <em>Emf Command History</em>}'.
@@ -292,6 +347,17 @@ public interface CommandPackage extends EPackage {
 	EAttribute getEmfCommand_Command();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.command.EmfCommand#getResults <em>Results</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Results</em>'.
+	 * @see de.dc.javafx.xcore.workbench.command.EmfCommand#getResults()
+	 * @see #getEmfCommand()
+	 * @generated
+	 */
+	EReference getEmfCommand_Results();
+
+	/**
 	 * Returns the meta object for the '{@link de.dc.javafx.xcore.workbench.command.EmfCommand#canUndo() <em>Can Undo</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -330,6 +396,38 @@ public interface CommandPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getEmfCommand__GetMessage();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.command.EmfResult <em>Emf Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Emf Result</em>'.
+	 * @see de.dc.javafx.xcore.workbench.command.EmfResult
+	 * @generated
+	 */
+	EClass getEmfResult();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.command.EmfResult#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.workbench.command.EmfResult#getName()
+	 * @see #getEmfResult()
+	 * @generated
+	 */
+	EAttribute getEmfResult_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.command.EmfResult#getObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Object</em>'.
+	 * @see de.dc.javafx.xcore.workbench.command.EmfResult#getObject()
+	 * @see #getEmfResult()
+	 * @generated
+	 */
+	EAttribute getEmfResult_Object();
 
 	/**
 	 * Returns the meta object for data type '{@link java.time.LocalDateTime <em>Timestamp</em>}'.
@@ -437,6 +535,14 @@ public interface CommandPackage extends EPackage {
 		EAttribute EMF_COMMAND__COMMAND = eINSTANCE.getEmfCommand_Command();
 
 		/**
+		 * The meta object literal for the '<em><b>Results</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EMF_COMMAND__RESULTS = eINSTANCE.getEmfCommand_Results();
+
+		/**
 		 * The meta object literal for the '<em><b>Can Undo</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -467,6 +573,32 @@ public interface CommandPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation EMF_COMMAND___GET_MESSAGE = eINSTANCE.getEmfCommand__GetMessage();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.command.impl.EmfResultImpl <em>Emf Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.command.impl.EmfResultImpl
+		 * @see de.dc.javafx.xcore.workbench.command.impl.CommandPackageImpl#getEmfResult()
+		 * @generated
+		 */
+		EClass EMF_RESULT = eINSTANCE.getEmfResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EMF_RESULT__NAME = eINSTANCE.getEmfResult_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Object</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EMF_RESULT__OBJECT = eINSTANCE.getEmfResult_Object();
 
 		/**
 		 * The meta object literal for the '<em>Timestamp</em>' data type.
