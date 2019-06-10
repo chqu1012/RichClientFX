@@ -1,7 +1,4 @@
 package de.dc.javafx.xcore.workbench.ui.handler;
-import javafx.beans.value.ChangeListener;
-import javafx.scene.control.Cell;
-import javafx.scene.control.TextField;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
@@ -14,7 +11,10 @@ import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.ui.model.EmfHistoryCommand;
+import de.dc.javafx.xcore.workbench.ui.factory.CommandFactory;
+import javafx.beans.value.ChangeListener;
+import javafx.scene.control.Cell;
+import javafx.scene.control.TextField;
 
 /**
  * Cell editor handler for {@link EAttribute}
@@ -77,7 +77,8 @@ public class EAttributeCellEditHandler implements ICellEditHandler {
 		Command command = SetCommand.create(this.editingDomain, item, this.attribute, value);
 		if (command.canExecute()) {
 			this.editingDomain.getCommandStack().execute(command);
-			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, new EmfHistoryCommand(command, "Set selection type "+this.attribute.getEAttributeType()+" to "+newValue)));
+			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, 
+					CommandFactory.create(command, "Set Attribute", "Set selection type "+this.attribute.getEAttributeType()+" to "+newValue)));
 		}
 	}
 

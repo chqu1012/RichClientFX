@@ -13,6 +13,7 @@ import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.ui.factory.CommandFactory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,7 +51,7 @@ public class EmfPropertyView extends EmfView {
 				SetCommand command = new SetCommand(currentEditingDomain, cuurentSelection, selectedAttribute, value);
 				currentEditingDomain.getCommandStack().execute(command);
 				
-				DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, command));
+				DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 			}
 		});
 		valueColumn.setCellValueFactory(param ->{ 

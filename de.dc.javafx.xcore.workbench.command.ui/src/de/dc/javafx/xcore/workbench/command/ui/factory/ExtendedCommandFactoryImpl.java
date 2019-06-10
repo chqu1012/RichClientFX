@@ -1,8 +1,13 @@
 package de.dc.javafx.xcore.workbench.command.ui.factory;
+import java.time.LocalDateTime;
+
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import de.dc.javafx.xcore.workbench.command.CommandPackage;
+import de.dc.javafx.xcore.workbench.command.EmfCommand;
+import de.dc.javafx.xcore.workbench.command.EmfResult;
 import de.dc.javafx.xcore.workbench.command.impl.CommandFactoryImpl;
 
 public class ExtendedCommandFactoryImpl extends CommandFactoryImpl implements ExtendedCommandFactory {
@@ -32,6 +37,24 @@ public class ExtendedCommandFactoryImpl extends CommandFactoryImpl implements Ex
 		default:
 			throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier, please enhanced the class "+getClass().getSimpleName()+"#create(classifierId) in switch case!");
 		}
+	}
+
+	@Override
+	public EmfCommand create(Command command, String name, String description) {
+		EmfCommand emfCommand = createEmfCommand();
+		emfCommand.setCommand(command);
+		emfCommand.setName(command.getLabel());
+		emfCommand.setDescription(description);
+		emfCommand.setTimestamp(LocalDateTime.now());
+		
+		command.getResult().forEach(e->{
+			EmfResult result = createEmfResult();
+			result.setName("");
+			result.setObject(e);
+			emfCommand.getResults().add(result);
+		});
+		
+		return emfCommand;
 	}
 	
 }

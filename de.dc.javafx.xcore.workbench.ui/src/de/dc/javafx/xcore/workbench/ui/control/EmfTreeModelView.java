@@ -2,7 +2,6 @@ package de.dc.javafx.xcore.workbench.ui.control;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EventObject;
@@ -28,16 +27,15 @@ import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
 import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
 import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
-import de.dc.javafx.xcore.workbench.command.CommandFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.ui.factory.CommandFactory;
 import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
 import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
-import de.dc.javafx.xcore.workbench.ui.model.EmfHistoryCommand;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -259,7 +257,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 			String size = String.valueOf(collection.size());
 			log.log(Level.INFO, "{0} {1} selection(s).", new String[] { action, size });
 			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH,
-					new EmfHistoryCommand(command, action + " " + size + " selection(s)")));
+					CommandFactory.create(command, action, action + " " + size + " selection(s)")));
 		}
 	}
 
@@ -291,8 +289,9 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		Command command = PasteFromClipboardCommand.create(editingDomain, selection, CommandParameter.NO_INDEX);
 		if (command.canExecute()) {
 			command.execute();
+			
 			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH,
-					new EmfHistoryCommand(command, "Paste selection to clipboard")));
+					CommandFactory.create(command, "Paste", "Paste selection to clipboard")));
 			selectedItem.setExpanded(true);
 		}
 	}
@@ -330,17 +329,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 								getEmfManager().getExtendedModelFactory().create(id));
 						command.execute();
 
-						// TODO: Removed this old Emf Command
-						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH,
-								new EmfHistoryCommand(command, "Added new " + value + " to " + name)));
-
-						de.dc.javafx.xcore.workbench.command.EmfCommand addCommand = CommandFactory.eINSTANCE
-								.createEmfCommand();
-						addCommand.setCommand(command);
-						addCommand.setName("Add");
-						addCommand.setDescription("Added new " + value + " to " + name);
-						addCommand.setTimestamp(LocalDateTime.now());
-						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, addCommand));
+						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 						treeItem.setExpanded(true);
 					});
 					newMenu.getItems().add(item);

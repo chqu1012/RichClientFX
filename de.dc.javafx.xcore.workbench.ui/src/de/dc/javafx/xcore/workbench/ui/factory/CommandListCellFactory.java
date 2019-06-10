@@ -11,7 +11,7 @@ import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
-import de.dc.javafx.xcore.workbench.ui.model.EmfHistoryCommand;
+import de.dc.javafx.xcore.workbench.command.EmfCommand;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
@@ -21,7 +21,7 @@ import javafx.util.Callback;
  * factory to get {@link EObject}s labels.
  * 
  */
-public class CommandListCellFactory implements Callback<ListView<EmfHistoryCommand>, ListCell<EmfHistoryCommand>> {
+public class CommandListCellFactory implements Callback<ListView<EmfCommand>, ListCell<EmfCommand>> {
 
 	private AdapterFactory adapterFactory;
 	private CommandStack commandStack;
@@ -35,10 +35,10 @@ public class CommandListCellFactory implements Callback<ListView<EmfHistoryComma
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ListCell<EmfHistoryCommand> call(ListView<EmfHistoryCommand> param) {
-		return new ListCell<EmfHistoryCommand>() {
+	public ListCell<EmfCommand> call(ListView<EmfCommand> param) {
+		return new ListCell<EmfCommand>() {
 			@Override
-			protected void updateItem(EmfHistoryCommand command, boolean empty) {
+			protected void updateItem(EmfCommand command, boolean empty) {
 				super.updateItem(command, empty);
 				if (command ==null || empty) {
 					setText(null);
@@ -58,7 +58,7 @@ public class CommandListCellFactory implements Callback<ListView<EmfHistoryComma
 		};
 	}
 
-	private String prettyPrint(EmfHistoryCommand ehc) {
+	private String prettyPrint(EmfCommand ehc) {
 		String res = null;
 		Command command = ehc.getCommand();
 		if (command instanceof SetCommand) {

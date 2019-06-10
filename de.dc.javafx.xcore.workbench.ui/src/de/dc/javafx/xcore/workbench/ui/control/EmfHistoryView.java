@@ -9,6 +9,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 import com.google.common.eventbus.Subscribe;
 
+import de.dc.javafx.xcore.workbench.command.EmfCommand;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl;
@@ -17,7 +18,6 @@ import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.factory.CommandListCellFactory;
-import de.dc.javafx.xcore.workbench.ui.model.EmfHistoryCommand;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -29,7 +29,7 @@ public class EmfHistoryView extends EmfView implements CommandStackListener {
 
 	private Logger log = Logger.getLogger(EmfHistoryView.class.getSimpleName());
 
-	protected ListView<EmfHistoryCommand> historyList;
+	protected ListView<EmfCommand> historyList;
 	protected IEmfManager<?> emfManager;
 
 	private ComposedAdapterFactory adapterFactory;
@@ -66,7 +66,7 @@ public class EmfHistoryView extends EmfView implements CommandStackListener {
 			Optional<ButtonType> result = alert.showAndWait();
 			result.ifPresent(res -> {
 				if (res == ButtonType.OK) {
-					EmfHistoryCommand selection = historyList.getSelectionModel().getSelectedItem();
+					EmfCommand selection = historyList.getSelectionModel().getSelectedItem();
 					if (selection != null) {
 						selection.undo();
 						log.info("Undo successfully executed!");
@@ -82,12 +82,12 @@ public class EmfHistoryView extends EmfView implements CommandStackListener {
 	}
 
 	@Subscribe
-	public void updateHistoryListView(EventContext<EmfHistoryCommand> context) {
+	public void updateHistoryListView(EventContext<EmfCommand> context) {
 		if (context.getEventTopic() == EventTopic.COMMAND_STACK_REFRESH) {
 			initHistoryListView();
 			Object input = context.getInput();
-			if (input != null && input instanceof EmfHistoryCommand) {
-				historyList.getItems().add(0, (EmfHistoryCommand) input);
+			if (input instanceof EmfCommand) {
+				historyList.getItems().add(0, (EmfCommand) input);
 			}
 		}
 	}
