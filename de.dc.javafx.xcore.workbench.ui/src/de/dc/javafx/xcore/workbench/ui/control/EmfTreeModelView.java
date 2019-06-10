@@ -242,6 +242,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		if (command.canExecute()) {
 			command.execute();
 			log.log(Level.INFO, "Delete {0} selection(s).", toDeleteList.size());
+			eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, command));
 		}
 	}
 
