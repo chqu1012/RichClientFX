@@ -19,7 +19,10 @@ public class CommandEmfTreeViewDemo extends Application {
 		// for handle selection service and events
 		DIPlatform.add(new WorkbenchModule());
 		DIPlatform.init();
-		primaryStage.setScene(new Scene(new CommandEmfTreeView(), 1200, 800));
+		
+		CommandEmfTreeView treeView = new CommandEmfTreeView();
+		
+		primaryStage.setScene(new Scene(treeView, 1200, 800));
 		primaryStage.show();
 	}
 
