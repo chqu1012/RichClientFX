@@ -14,7 +14,8 @@ This application contains on the generation:
 * Workspace
 * EMF Model TreeEditor
 * PropertyView
-* HistoryView for Undo / Redo
+* Flat HistoryView for Undo / Redo
+* Hierachical History View for Undo / Redo
 * ContextMenu with commands: 
 	* New item creation
 	* Copy / Paste
@@ -26,7 +27,13 @@ This application contains on the generation:
 * Theme switching
 * Default dark theme
 
+### Flat History View
+This view shows all command calls. Via the context menu, the user can undo or redo this action.
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/10-EmfEdit-ProjectExplorer.png)
+
+### Hierachical History View
+This view is an extended history view. A lot of information is displayed in cell feature directly. The user is allowed to undo / redo and delete this command direct via the buttons. The results are also displayed in the tree as child nodes.
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/12-EmfEdit-Hierachical-CommandView.png)
 
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
