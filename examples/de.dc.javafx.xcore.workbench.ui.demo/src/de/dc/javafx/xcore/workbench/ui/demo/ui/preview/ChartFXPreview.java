@@ -2,10 +2,13 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui.preview;
 
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.XYValue;
+import de.dc.javafx.xcore.workbench.ui.demo.ui.control.CustomLineChart;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.TreeItem;
 
 public class ChartFXPreview extends FXPreview {
@@ -21,11 +24,18 @@ public class ChartFXPreview extends FXPreview {
 				final NumberAxis yAxis = new NumberAxis();
 				xAxis.setLabel(chartFX.getName());
 				// creating the chart
-				final LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+//				final LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+				CustomLineChart lineChart = new CustomLineChart();
 
-				lineChart.setTitle(chartFX.getName());
-				// defining a series
-				XYChart.Series<Number, Number> series = new XYChart.Series<>();
+				Series series2 = lineChart.addSerie("Test");
+				series2.setName("New*");
+				for (XYValue item : chartFX.getValues()) {
+					Double x = Double.parseDouble(item.getX());
+					Double y = Double.parseDouble(item.getY());
+					series2.getData().add(new XYChart.Data<Number, Number>(x, y));
+				}
+				
+				Series series = lineChart.addSerie("Test");
 				series.setName("My portfolio");
 				// populating the series with Data<>
 				series.getData().add(new XYChart.Data<>(1, 23));
@@ -39,9 +49,7 @@ public class ChartFXPreview extends FXPreview {
 				series.getData().add(new XYChart.Data<>(9, 43));
 				series.getData().add(new XYChart.Data<>(10, 17));
 				series.getData().add(new XYChart.Data<>(11, 29));
-				series.getData().add(new XYChart.Data<>(12, 25));
-
-				lineChart.getData().add(series);
+				series.getData().add(new XYChart.Data<>(12, 25));				
 
 				setCenter(lineChart);
 			}

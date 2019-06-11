@@ -14,3 +14,8 @@ Require-Bundle: de.dc.javafx.xcore.workbench.chart;bundle-version="0.1.0",
  de.dc.javafx.xcore.workbench.emf;bundle-version="1.0.0",
  com.google.guava;bundle-version="21.0.0",
  de.dc.javafx.xcore.workbench.ui;bundle-version="1.0.0"
+Export-Package: de.dc.javafx.xcore.workbench.chart.ui,
+ de.dc.javafx.xcore.workbench.chart.ui.demo,
+ de.dc.javafx.xcore.workbench.chart.ui.factory,
+ de.dc.javafx.xcore.workbench.chart.ui.file,
+ de.dc.javafx.xcore.workbench.chart.ui.manager
