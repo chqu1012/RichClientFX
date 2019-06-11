@@ -24,11 +24,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class CommandCellFactory extends TreeCell<Object> {
 
 	private Logger log = Logger.getLogger(CommandCellFactory.class.getSimpleName());
+	
+	@FXML
+	protected ImageView imageView;
 	
 	@FXML
 	protected Button undoButton;
@@ -111,23 +116,29 @@ public class CommandCellFactory extends TreeCell<Object> {
 			} else {
 				name = "Set " + featureName + " to \"" + value + "\" in " + owner;
 			}
+			imageView.setImage(new Image(getClass().getResourceAsStream("/de/dc/javafx/xcore/workbench/command/ui/cell/icons8-file-32-edit.png")));
 		} else if (command instanceof ChangeCommand) {
 			name = command.getDescription();
+			imageView.setImage(new Image(getClass().getResourceAsStream("/de/dc/javafx/xcore/workbench/command/ui/cell/icons8-file-32-change.png")));
 		} else if (command instanceof AddCommand) {
 			AddCommand addCommand = (AddCommand) command;
 			String owner = ((IItemLabelProvider) adapterFactory.adapt(addCommand.getOwner(), IItemLabelProvider.class))
 					.getText(addCommand.getOwner());
 			name = "Add new " + owner;
+			imageView.setImage(new Image(getClass().getResourceAsStream("/de/dc/javafx/xcore/workbench/command/ui/cell/icons8-file-32-add.png")));
 		} else if (command instanceof DeleteCommand) {
 			DeleteCommand aCommand = (DeleteCommand) command;
 			name = "Delete " + aCommand.getResult().stream().map(e -> e.toString()).reduce((e1, e2) -> e1 + ", " + e2).get();
+			imageView.setImage(new Image(getClass().getResourceAsStream("/de/dc/javafx/xcore/workbench/command/ui/cell/icons8-file-32-delete.png")));
 		} else if (command instanceof DragAndDropCommand) {
 			DragAndDropCommand dndCommand = (DragAndDropCommand) command;
 			String owner = ((IItemLabelProvider) adapterFactory.adapt(dndCommand.getOwner(), IItemLabelProvider.class))
 					.getText(dndCommand.getOwner());
 			name = "DND for " + owner;
+			imageView.setImage(new Image(getClass().getResourceAsStream("/de/dc/javafx/xcore/workbench/command/ui/cell/icons8-file-32-dnd.png")));
 		}else {
 			name = command.getDescription();
+			imageView.setImage(new Image(getClass().getResourceAsStream("/de/dc/javafx/xcore/workbench/command/ui/cell/icons8-file-16.png")));
 		}
 		return name;
 	}

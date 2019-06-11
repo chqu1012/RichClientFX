@@ -55,6 +55,7 @@
   </perspectives>
   <perspectives _Id="de.dc.spring.bootstrap.blog.model.ui.BlogPerspective" name="Blog Perspective">
     <leftPane>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedJavaExplorer" name="ExtendedJavaExplorer" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedJavaExplorer"/>
       <views _Id="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView" name="Blog Explorer" viewClass="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView"/>
     </leftPane>
     <rightPane>
