@@ -27,13 +27,17 @@ public class ExtendedJavaExplorer extends JavaExplorerTreeView {
 		pckFolder.setName("de.dc.my.newproject");
 		src.getResources().add(pckFolder);
 		
-		File javaFile = ResourceFactory.eINSTANCE.createFile();
-		javaFile.setName("HelloWorld.java");
-		pckFolder.getResources().add(javaFile);
-		
-		pckFolder.getResources().add(javaFile);
+		pckFolder.getResources().add(create("HelloWorld.java"));
+		pckFolder.getResources().add(create("HelloWorld.blog"));
+		pckFolder.getResources().add(create("HelloWorld.chart"));
 		
 		manager.getRoot().getProjects().add(project);
+	}
+
+	private File create(String name) {
+		File file = ResourceFactory.eINSTANCE.createFile();
+		file.setName(name);
+		return file;
 	}
 	
 	@Override
