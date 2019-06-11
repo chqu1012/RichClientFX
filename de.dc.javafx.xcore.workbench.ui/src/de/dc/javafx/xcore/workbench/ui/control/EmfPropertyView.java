@@ -73,16 +73,18 @@ public class EmfPropertyView extends EmfView {
 
 	@Subscribe
 	private void updateProperties(EventContext<?> context) {
-		if (context.getInput() != null) {
-			currentEditingDomain= DIPlatform.getInstance(IEmfSelectionService.class).getEmfManager().get().getEditingDomain();
-			Object object = context.getInput();
-			if (object instanceof EObject) {
-				properties.clear();
-				cuurentSelection = (EObject) object;
-				for (EAttribute attr : cuurentSelection.eClass().getEAllAttributes()) {
-					properties.add(attr);
+		if (context.getEventTopic()!=null && context.getEventTopic().equals(EventTopic.SELECTION)) {
+			if (context.getInput() != null) {
+				currentEditingDomain= DIPlatform.getInstance(IEmfSelectionService.class).getEmfManager().get().getEditingDomain();
+				Object object = context.getInput();
+				if (object instanceof EObject) {
+					properties.clear();
+					cuurentSelection = (EObject) object;
+					for (EAttribute attr : cuurentSelection.eClass().getEAllAttributes()) {
+						properties.add(attr);
+					}
+					tableView.setItems(properties);
 				}
-				tableView.setItems(properties);
 			}
 		}
 	}
