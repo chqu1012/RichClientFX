@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="ChartEditorAdvisorApplication">
+      <!-- @generated chart -->
+      <application>
+         <run class="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated chart -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisor$Perspective"
+            id="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated chart -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated chart -->
+      <key
+            commandId="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated chart -->
+      <actionSet
+            label="%_UI_ChartEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="ChartEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorOpenURICommand"
+               class="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorOpenCommand"
+               class="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated chart -->
+      <actionSet
+            label="%_UI_ChartModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.javafx.xcore.workbench.chart.presentation.ChartActionBarContributorActionSet">
+         <action
+               label="%_UI_ChartModelWizard_label"
+               class="de.dc.javafx.xcore.workbench.chart.presentation.ChartActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.javafx.xcore.workbench.chart.presentation.ChartActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated chart -->
+      <editor
+            id="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditorID"
+            name="%_UI_ChartEditor_label"
+            icon="icons/full/obj16/ChartModelFile.gif"
+            extensions="chart"
+            class="de.dc.javafx.xcore.workbench.chart.presentation.ChartEditor"
+            contributorClass="de.dc.javafx.xcore.workbench.chart.presentation.ChartActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,30 @@
+@Ecore(nsURI="http://www.frateranatis.org/workbench/chart")
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.workbench.chart.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.workbench.chart.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="chart")
+package de.dc.javafx.xcore.workbench.chart
+
+abstract class ChartFX{
+	String name
+	boolean showLegend = 'true'
+}
+
+abstract class XYChartFX extends ChartFX{
+	String xAxisLabel
+	String yAxisLabel
+	
+	contains XYValue[0..*] values
+}
+
+class XYValue{
+	String x
+	String y
+}
+
+class LineChartFX extends XYChartFX{}
