@@ -1,0 +1,42 @@
+@Ecore(nsURI="http://www.frateranatis.org/bootstrap/blog")
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.spring.bootstrap.blog.model.edit/src-gen",
+	editorDirectory="/de.dc.spring.bootstrap.blog.model.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="blog")
+package de.dc.spring.bootstrap.blog.model
+
+class Blog{ 
+	String title
+	contains Section[0..*] sections
+}
+
+abstract class Section{
+	String uuid
+}
+
+class TileSmallSection extends Section{
+	contains Tile[0..*] tiles
+}
+
+class StorySection extends Section{}
+class OverivewSection extends Section{}
+class TitleBigSection extends Section{}
+class AboutSection extends Section{}
+class WorkflowSection extends Section{}
+class GallerySection extends Section{}
+class GalleryMaterialSection extends Section{}
+
+class Tile{
+	String title
+	String description
+	String link 
+	String day
+	String month
+	String year
+	String image
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Blog xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://www.frateranatis.org/bootstrap/blog" title="My little small website">
+  <sections xsi:type="model:TileSmallSection" uuid="EmilyMonths">
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+    <tiles title="1st Month" description="A small river named Duden flows by their place and supplies it with the necessary regelialia" day="04" month="August" year="2018" image="m01.jpg"/>
+  </sections>
+</model:Blog>

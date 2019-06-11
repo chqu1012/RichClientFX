@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Gen
+Bundle-SymbolicName: de.dc.spring.bootstrap.blog.model.gen
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.dc.spring.bootstrap.blog.model.gen
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ de.dc.spring.bootstrap.blog.model;bundle-version="0.1.0",
+ org.apache.commons.io;bundle-version="2.6.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.15.0"

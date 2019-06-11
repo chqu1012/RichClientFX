@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench:Perspective xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:workbench="http://www.frateranatis.org/workbench" _Id="de.dc.spring.bootstrap.blog.model.ui.BlogPerspective" name="Blog Perspective">
+  <leftPane>
+    <views _Id="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView" name="Blog Explorer" viewClass="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView"/>
+  </leftPane>
+</workbench:Perspective>
