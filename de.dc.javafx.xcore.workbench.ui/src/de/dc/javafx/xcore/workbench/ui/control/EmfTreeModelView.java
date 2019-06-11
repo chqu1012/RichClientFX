@@ -2,6 +2,7 @@ package de.dc.javafx.xcore.workbench.ui.control;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EventObject;
@@ -20,6 +21,7 @@ import org.eclipse.emf.edit.command.CopyToClipboardCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.PasteFromClipboardCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
 import org.eclipse.fx.emf.edit.ui.dnd.CellDragAdapter;
@@ -52,6 +54,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -321,8 +325,12 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 			for (Object object : collection) {
 				if (object instanceof CommandParameter) {
 					CommandParameter commandParameter = (CommandParameter) object;
-					String name = commandParameter.getValue().getClass().getSimpleName().replace("Impl", "");
+					String name = ((IItemLabelProvider) manager.getAdapterFactory().adapt(commandParameter.getValue(), IItemLabelProvider.class))
+							.getText(commandParameter.getValue());
+					Object icon = ((IItemLabelProvider) manager.getAdapterFactory().adapt(commandParameter.getValue(), IItemLabelProvider.class))
+							.getImage(commandParameter.getValue());
 					MenuItem item = new MenuItem(name);
+					item.setGraphic(new ImageView(new Image(((URL)icon).toExternalForm())));
 					item.setOnAction(event -> {
 						int id = EmfUtil.getValueByName(getEmfManager().getModelPackage(), name);
 						Command command = AddCommand.create(editingDomain, value, id,
