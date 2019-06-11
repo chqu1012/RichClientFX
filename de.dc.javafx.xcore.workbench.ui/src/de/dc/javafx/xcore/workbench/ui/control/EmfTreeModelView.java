@@ -325,11 +325,12 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 			for (Object object : collection) {
 				if (object instanceof CommandParameter) {
 					CommandParameter commandParameter = (CommandParameter) object;
-					String name = ((IItemLabelProvider) manager.getAdapterFactory().adapt(commandParameter.getValue(), IItemLabelProvider.class))
+					String name = commandParameter.getValue().getClass().getSimpleName().replace("Impl", "");
+					String menuText = ((IItemLabelProvider) manager.getAdapterFactory().adapt(commandParameter.getValue(), IItemLabelProvider.class))
 							.getText(commandParameter.getValue());
 					Object icon = ((IItemLabelProvider) manager.getAdapterFactory().adapt(commandParameter.getValue(), IItemLabelProvider.class))
 							.getImage(commandParameter.getValue());
-					MenuItem item = new MenuItem(name);
+					MenuItem item = new MenuItem(menuText);
 					item.setGraphic(new ImageView(new Image(((URL)icon).toExternalForm())));
 					item.setOnAction(event -> {
 						int id = EmfUtil.getValueByName(getEmfManager().getModelPackage(), name);
