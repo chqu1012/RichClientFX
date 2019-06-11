@@ -3,8 +3,8 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.resource.File;
+import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 public class ExampleEmfWorkbench extends EmfWorkbench{
 
 	@Inject IEmfControlManager manager;
-	@Inject ISelectionService selectionService;
+	@Inject IEmfSelectionService selectionService;
 	@Inject IEventBroker eventBroker;
 	@Inject EmfWorkbenchRenderer renderer;
 	

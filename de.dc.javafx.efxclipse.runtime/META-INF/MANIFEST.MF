@@ -299,7 +299,8 @@ Require-Bundle: org.eclipse.emf.common,
  de.dc.javafx.xcore.resource;bundle-version="0.1.0",
  org.apache.commons.lang;bundle-version="2.6.0",
  de.dc.javafx.xcore.workbench.di;bundle-version="1.0.0",
- de.dc.javafx.xcore.workbench.event
+ de.dc.javafx.xcore.workbench.event,
+ de.dc.javafx.xcore.workbench.emf
 Import-Package: com.sun.javafx,
  com.sun.javafx.animation,
  com.sun.javafx.applet,

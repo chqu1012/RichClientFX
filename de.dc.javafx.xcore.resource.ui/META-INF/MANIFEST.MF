@@ -12,7 +12,8 @@ Require-Bundle: de.dc.javafx.xcore.resource;bundle-version="0.1.0",
  org.apache.log4j;bundle-version="1.2.15",
  com.google.inject;bundle-version="3.0.0",
  de.dc.javafx.xcore.workbench.di;bundle-version="1.0.0",
- de.dc.javafx.xcore.workbench.event;bundle-version="1.0.0"
+ de.dc.javafx.xcore.workbench.event;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.emf
 Export-Package: de.dc.javafx.xcore.resource.ui,
  de.dc.javafx.xcore.resource.ui.factory,
  de.dc.javafx.xcore.resource.ui.view

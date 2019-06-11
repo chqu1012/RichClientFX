@@ -3,7 +3,7 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
-import de.dc.javafx.xcore.workbench.event.ISelectionService;
+import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.ui.control.EmfView;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,7 +16,7 @@ import javafx.scene.layout.BorderPane;
 
 public class EmfExampleTableView extends EmfView {
 
-	@Inject ISelectionService service;
+	@Inject IEmfSelectionService service;
 	
 	public static class Person {
 
@@ -80,7 +80,7 @@ public class EmfExampleTableView extends EmfView {
 
 		table.setItems(data);
 		
-		DIPlatform.getInstance(ISelectionService.class).registerProvider(table.getSelectionModel().selectedItemProperty());
+		DIPlatform.getInstance(IEmfSelectionService.class).registerProvider(table.getSelectionModel().selectedItemProperty());
 
 		parent.setCenter(table);
 	}

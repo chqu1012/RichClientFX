@@ -24,7 +24,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.fx.ui.controls,
  de.dc.javafx.xcore.workbench.command;bundle-version="0.1.0",
  de.dc.javafx.xcore.workbench.command.edit;bundle-version="1.0.0",
- de.dc.javafx.xcore.workbench.command.ui;bundle-version="1.0.0"
+ de.dc.javafx.xcore.workbench.command.ui;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.emf
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.workbench.ui.demo
 Bundle-ActivationPolicy: lazy

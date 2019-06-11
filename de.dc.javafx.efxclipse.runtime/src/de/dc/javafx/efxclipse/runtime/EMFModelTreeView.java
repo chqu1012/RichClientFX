@@ -25,8 +25,8 @@ import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
 import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -72,7 +72,7 @@ public abstract class EMFModelTreeView<T> extends VBox implements CommandStackLi
 
 	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
 
-	protected ISelectionService selectionService;
+	protected IEmfSelectionService selectionService;
 
 	protected IEventBroker eventBroker;
 
@@ -112,7 +112,7 @@ public abstract class EMFModelTreeView<T> extends VBox implements CommandStackLi
 		this.editingDomain = manager.getEditingDomain();
 		initTreeView();
 		
-		selectionService = DIPlatform.getInstance(ISelectionService.class);
+		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
 		
 		selectionService.registerProvider(treeView.getSelectionModel().selectedItemProperty());

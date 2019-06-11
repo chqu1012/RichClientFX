@@ -3,7 +3,6 @@ package de.dc.javafx.xcore.workbench.ui.renderer;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -21,10 +20,10 @@ import de.dc.javafx.xcore.workbench.ToolbarItem;
 import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
@@ -48,7 +47,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	private Map<String, Perspective> perspectives = new HashMap<>();
 	
 	@Inject EmfCommandManager commands;
-	@Inject ISelectionService selectionService;
+	@Inject IEmfSelectionService selectionService;
 	@Inject IEventBroker eventBroker;
 	@Inject IEmfControlManager controlManager;
 	

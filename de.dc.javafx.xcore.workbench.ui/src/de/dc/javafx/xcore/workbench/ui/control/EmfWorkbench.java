@@ -12,10 +12,10 @@ import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.event.ISelectionService;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.dnd.DraggingTabPaneSupport;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
@@ -79,12 +79,12 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 	protected IEventBroker eventBroker;
 
-	protected ISelectionService selectionService;
+	protected IEmfSelectionService selectionService;
 	
 	protected Workbench workbench;
 
 	public EmfWorkbench() {
-		selectionService = DIPlatform.getInstance(ISelectionService.class);
+		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
 		
 		selectionService.addListener(this);
