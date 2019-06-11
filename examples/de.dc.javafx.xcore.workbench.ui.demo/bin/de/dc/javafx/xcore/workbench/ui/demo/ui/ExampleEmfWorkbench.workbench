@@ -66,6 +66,18 @@
       <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.control.EmfPropertyView"/>
     </bottomPane>
   </perspectives>
+  <perspectives _Id="de.dc.javafx.xcore.workbench.chart.ChartFXPerspective" name="ChartFX Perspective">
+    <leftPane>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedJavaExplorer" name="Java Explroer" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedJavaExplorer"/>
+    </leftPane>
+    <rightPane>
+      <views _Id="de.dc.javafx.xcore.workbench.command.ui.CommandEmfTreeView" name="ExtendedHistoryView" viewClass="de.dc.javafx.xcore.workbench.command.ui.CommandEmfTreeView" registrateChangeListener="true"/>
+      <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.control.EmfPropertyView"/>
+    </rightPane>
+    <bottomPane>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.preview.ChartFXPreview" name="ChartFX Preview" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.preview.ChartFXPreview" registrateChangeListener="true"/>
+    </bottomPane>
+  </perspectives>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.RunCommand" name="Run"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.DebugCommand" name="Debug"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInRightPaneCommand" name="Open View RightPane" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInRightPaneCommand"/>
