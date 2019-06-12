@@ -1,5 +1,7 @@
 package de.dc.javafx.xcore.workbench.ui.demo.ui.preview;
 
+import java.util.Random;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -15,6 +17,8 @@ import javafx.scene.control.TreeItem;
 
 public class ChartFXPreview extends FXPreview {
 
+	private Random random = new Random();
+	
 	@Override
 	public void changed(ObservableValue<? extends Object> obs, Object oldValue, Object newValue) {
 		if (newValue instanceof TreeItem) {
@@ -37,25 +41,30 @@ public class ChartFXPreview extends FXPreview {
 						}
 					}
 					
-					Series series = lineChart.addSerie("Test");
-					series.setName("My portfolio");
-					// populating the series with Data<>
-					series.getData().add(new XYChart.Data<>(1, 23));
-					series.getData().add(new XYChart.Data<>(2, 14));
-					series.getData().add(new XYChart.Data<>(3, 15));
-					series.getData().add(new XYChart.Data<>(4, 24));
-					series.getData().add(new XYChart.Data<>(5, 34));
-					series.getData().add(new XYChart.Data<>(6, 36));
-					series.getData().add(new XYChart.Data<>(7, 22));
-					series.getData().add(new XYChart.Data<>(8, 45));
-					series.getData().add(new XYChart.Data<>(9, 43));
-					series.getData().add(new XYChart.Data<>(10, 17));
-					series.getData().add(new XYChart.Data<>(11, 29));
-					series.getData().add(new XYChart.Data<>(12, 25));				
+					createDummyValues(lineChart.addSerie("Test1"));				
+					createDummyValues(lineChart.addSerie("Test2"));				
+					createDummyValues(lineChart.addSerie("Test3"));				
+					createDummyValues(lineChart.addSerie("Test3"));				
 					
 					setCenter(lineChart);
 				}
 			}
 		}
+	}
+
+	private void createDummyValues(Series series) {
+		// populating the series with Data<>
+		series.getData().add(new XYChart.Data<>(1, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(2, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(3, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(4, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(5, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(6, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(7, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(8, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(9, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(10, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(11, random.nextInt()));
+		series.getData().add(new XYChart.Data<>(12, random.nextInt()));
 	}
 }
