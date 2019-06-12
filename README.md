@@ -41,7 +41,7 @@ This view is an extended history view. A lot of information is displayed in cell
 
 ### RealTime LineChart Rendering
 This addon supports rendering of chart files. The chart file is defined in EMF Xcore, so to create a chart the EMFTreeModelView can be used.
-![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-LineChart.png)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-LineChart2.png)
 
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
