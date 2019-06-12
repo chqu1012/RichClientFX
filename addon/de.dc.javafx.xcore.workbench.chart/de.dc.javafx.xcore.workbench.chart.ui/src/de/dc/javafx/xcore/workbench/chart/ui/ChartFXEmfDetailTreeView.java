@@ -1,5 +1,8 @@
 package de.dc.javafx.xcore.workbench.chart.ui;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
@@ -34,7 +37,10 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 	ChartFXEmfTreeView treeView = new ChartFXEmfTreeView();
 	VBox vbox = new VBox(10.0);
 	ObservableList<Boolean> values = FXCollections.observableArrayList();
+	
 	private EditingDomain editingDomain;
+	private Map<EAttribute, TextField> eattributeUIMap = new HashMap<>();
+	
 	
 	public ChartFXEmfDetailTreeView() {
 		setDividerPositions(0.25);
@@ -53,6 +59,8 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 	public void changed(ObservableValue<? extends TreeItem<Object>> observable, TreeItem<Object> oldValue,
 			TreeItem<Object> newValue) {
 		vbox.getChildren().clear();
+		eattributeUIMap.clear();
+		
 		Object value = newValue.getValue();
 		if (value instanceof EObject) {
 			EObject eObject = (EObject) value;
@@ -83,13 +91,23 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 					String stringValue = eObject.eGet(eAttribute)==null? "" : eObject.eGet(eAttribute).toString();
 					TextField textField = new TextField(stringValue);
 					textField.setOnKeyPressed(event -> {
-						textField.setStyle("-fx-background-color: red; -fx-text-fill: white;");
-						if (event.getCode().equals(KeyCode.ENTER)) {
+						KeyCode code = event.getCode();
+						switch (code) {
+						case TAB:
+							break;
+						case CONTROL:
+							break;
+						case SHIFT:
+							break;
+						case ENTER:
 							Command command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
 							editingDomain.getCommandStack().execute(command);
 							
 							DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 							textField.setStyle(null);
+							break;
+						default:
+							textField.setStyle("-fx-background-color: red; -fx-text-fill: white;");
 						}
 					});
 					acceptButton.setOnAction(event -> {
@@ -99,6 +117,8 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 						textField.setStyle(null);
 					});
+					
+					eattributeUIMap.put(eAttribute, textField);
 					hbox.getChildren().add(textField);
 					hbox.getChildren().add(acceptButton);
 				}
@@ -106,6 +126,18 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 				vbox.getChildren().add(hbox);
 				System.out.println(eAttribute.getName()+": "+eObject.eGet(eAttribute)+", type: "+eAttribute.getEType().getName());
 			}
+			Button acceptAllButton = new Button("Accept All");
+			acceptAllButton.setOnAction(event -> {
+				eattributeUIMap.entrySet().stream().forEach(e->{
+					Command command = new SetCommand(editingDomain, eObject, e.getKey(), e.getValue().getText());
+					editingDomain.getCommandStack().execute(command);
+					
+					DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+					e.getValue().setStyle(null);
+					e.getValue().setStyle(null);
+				});
+			});
+			vbox.getChildren().add(acceptAllButton);
 		}
 	}
 }
