@@ -26,6 +26,10 @@ This application contains on the generation:
 * Command Acceleration Binding for Undo / Redo
 * Theme switching
 * Default dark theme
+* Addons:
+	* Realtime Chart Rendering
+		* LineChart
+	* Thymeleaf Blog Template Generator
 
 ### Flat History View
 This view shows all command calls. Via the context menu, the user can undo or redo this action.
@@ -34,6 +38,10 @@ This view shows all command calls. Via the context menu, the user can undo or re
 ### Hierachical History View
 This view is an extended history view. A lot of information is displayed in cell feature directly. The user is allowed to undo / redo and delete this command direct via the buttons. The results are also displayed in the tree as child nodes.
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/12-EmfEdit-Hierachical-CommandView.png)
+
+### RealTime LineChart Rendering
+This addon supports rendering of chart files. The chart file is defined in EMF Xcore, so to create a chart the EMFTreeModelView can be used.
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-LineChart.png)
 
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
