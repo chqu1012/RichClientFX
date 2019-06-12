@@ -22,13 +22,22 @@ public interface ChartFactory extends EFactory {
 	ChartFactory eINSTANCE = de.dc.javafx.xcore.workbench.chart.impl.ChartFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>XY Value</em>'.
+	 * Returns a new object of class '<em>Series FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XY Value</em>'.
+	 * @return a new object of class '<em>Series FX</em>'.
 	 * @generated
 	 */
-	XYValue createXYValue();
+	SeriesFX createSeriesFX();
+
+	/**
+	 * Returns a new object of class '<em>XY Value FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XY Value FX</em>'.
+	 * @generated
+	 */
+	XYValueFX createXYValueFX();
 
 	/**
 	 * Returns a new object of class '<em>Line Chart FX</em>'.

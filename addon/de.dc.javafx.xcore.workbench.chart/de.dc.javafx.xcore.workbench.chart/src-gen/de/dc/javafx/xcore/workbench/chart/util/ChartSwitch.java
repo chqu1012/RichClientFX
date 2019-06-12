@@ -82,9 +82,16 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case ChartPackage.XY_VALUE: {
-			XYValue xyValue = (XYValue) theEObject;
-			T result = caseXYValue(xyValue);
+		case ChartPackage.SERIES_FX: {
+			SeriesFX seriesFX = (SeriesFX) theEObject;
+			T result = caseSeriesFX(seriesFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ChartPackage.XY_VALUE_FX: {
+			XYValueFX xyValueFX = (XYValueFX) theEObject;
+			T result = caseXYValueFX(xyValueFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -136,17 +143,32 @@ public class ChartSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>XY Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Series FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>XY Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Series FX</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXYValue(XYValue object) {
+	public T caseSeriesFX(SeriesFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XY Value FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XY Value FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXYValueFX(XYValueFX object) {
 		return null;
 	}
 

@@ -73,26 +73,49 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.XYValue} instances.
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.SeriesFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XYValueItemProvider xyValueItemProvider;
+	protected SeriesFXItemProvider seriesFXItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.XYValue}.
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.SeriesFX}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXYValueAdapter() {
-		if (xyValueItemProvider == null) {
-			xyValueItemProvider = new XYValueItemProvider(this);
+	public Adapter createSeriesFXAdapter() {
+		if (seriesFXItemProvider == null) {
+			seriesFXItemProvider = new SeriesFXItemProvider(this);
 		}
 
-		return xyValueItemProvider;
+		return seriesFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.XYValueFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XYValueFXItemProvider xyValueFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.XYValueFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXYValueFXAdapter() {
+		if (xyValueFXItemProvider == null) {
+			xyValueFXItemProvider = new XYValueFXItemProvider(this);
+		}
+
+		return xyValueFXItemProvider;
 	}
 
 	/**
@@ -223,8 +246,10 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (xyValueItemProvider != null)
-			xyValueItemProvider.dispose();
+		if (seriesFXItemProvider != null)
+			seriesFXItemProvider.dispose();
+		if (xyValueFXItemProvider != null)
+			xyValueFXItemProvider.dispose();
 		if (lineChartFXItemProvider != null)
 			lineChartFXItemProvider.dispose();
 	}

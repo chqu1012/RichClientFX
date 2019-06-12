@@ -2,8 +2,9 @@
  */
 package de.dc.javafx.xcore.workbench.chart.provider;
 
+import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
-import de.dc.javafx.xcore.workbench.chart.XYValue;
+import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,6 +13,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -25,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.XYValue} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.SeriesFX} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XYValueItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class SeriesFXItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -38,7 +41,7 @@ public class XYValueItemProvider extends ItemProviderAdapter implements IEditing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XYValueItemProvider(AdapterFactory adapterFactory) {
+	public SeriesFXItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -53,51 +56,66 @@ public class XYValueItemProvider extends ItemProviderAdapter implements IEditing
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXPropertyDescriptor(object);
-			addYPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the X feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_XYValue_x_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_XYValue_x_feature", "_UI_XYValue_type"),
-						ChartPackage.Literals.XY_VALUE__X, true, false, false,
+						getResourceLocator(), getString("_UI_SeriesFX_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_SeriesFX_name_feature",
+								"_UI_SeriesFX_type"),
+						ChartPackage.Literals.SERIES_FX__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Y feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addYPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_XYValue_y_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_XYValue_y_feature", "_UI_XYValue_type"),
-						ChartPackage.Literals.XY_VALUE__Y, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ChartPackage.Literals.SERIES_FX__VALUES);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This returns XYValue.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns SeriesFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XYValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SeriesFX"));
 	}
 
 	/**
@@ -118,9 +136,9 @@ public class XYValueItemProvider extends ItemProviderAdapter implements IEditing
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XYValue) object).getX();
-		return label == null || label.length() == 0 ? getString("_UI_XYValue_type")
-				: getString("_UI_XYValue_type") + " " + label;
+		String label = ((SeriesFX) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_SeriesFX_type")
+				: getString("_UI_SeriesFX_type") + " " + label;
 	}
 
 	/**
@@ -134,10 +152,12 @@ public class XYValueItemProvider extends ItemProviderAdapter implements IEditing
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(XYValue.class)) {
-		case ChartPackage.XY_VALUE__X:
-		case ChartPackage.XY_VALUE__Y:
+		switch (notification.getFeatureID(SeriesFX.class)) {
+		case ChartPackage.SERIES_FX__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case ChartPackage.SERIES_FX__VALUES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -153,6 +173,9 @@ public class XYValueItemProvider extends ItemProviderAdapter implements IEditing
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.SERIES_FX__VALUES,
+				ChartFactory.eINSTANCE.createXYValueFX()));
 	}
 
 	/**

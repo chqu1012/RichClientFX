@@ -18,11 +18,15 @@ abstract class ChartFX{
 abstract class XYChartFX extends ChartFX{
 	String xAxisLabel
 	String yAxisLabel
-	
-	contains XYValue[0..*] values
+	contains SeriesFX[0..*] series	
 }
 
-class XYValue{
+class SeriesFX{
+	String name
+	contains XYValueFX[0..*] values
+}
+
+class XYValueFX{
 	String x
 	String y
 }

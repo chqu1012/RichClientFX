@@ -13,7 +13,6 @@ import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.control.EmfTreeModelView;
 import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
-import javafx.beans.value.ObservableValue;
 
 public class ChartFXEmfTreeView extends EmfTreeModelView<LineChartFX> {
 
@@ -21,8 +20,9 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<LineChartFX> {
 		// Set edit mode for several attributes
 		addEditableFor(ChartPackage.eINSTANCE.getXYChartFX_XAxisLabel());
 		addEditableFor(ChartPackage.eINSTANCE.getXYChartFX_YAxisLabel());
-		addEditableFor(ChartPackage.eINSTANCE.getXYValue_X());
-		addEditableFor(ChartPackage.eINSTANCE.getXYValue_Y());
+		addEditableFor(ChartPackage.eINSTANCE.getXYValueFX_X());
+		addEditableFor(ChartPackage.eINSTANCE.getXYValueFX_Y());
+		addEditableFor(ChartPackage.eINSTANCE.getSeriesFX_Name());
 		
 //		treeView.setCellFactory(new Callback<TreeView<Object>, TreeCell<Object>>() {
 //			@Override

@@ -3,8 +3,8 @@
 package de.dc.javafx.xcore.workbench.chart.impl;
 
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
+import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
-import de.dc.javafx.xcore.workbench.chart.XYValue;
 
 import java.util.Collection;
 
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYChartFXImpl#getXAxisLabel <em>XAxis Label</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYChartFXImpl#getYAxisLabel <em>YAxis Label</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYChartFXImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYChartFXImpl#getSeries <em>Series</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,14 +78,14 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 	protected String yAxisLabel = YAXIS_LABEL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
+	 * The cached value of the '{@link #getSeries() <em>Series</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValues()
+	 * @see #getSeries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XYValue> values;
+	protected EList<SeriesFX> series;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,11 +160,11 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 	 * @generated
 	 */
 	@Override
-	public EList<XYValue> getValues() {
-		if (values == null) {
-			values = new EObjectContainmentEList<XYValue>(XYValue.class, this, ChartPackage.XY_CHART_FX__VALUES);
+	public EList<SeriesFX> getSeries() {
+		if (series == null) {
+			series = new EObjectContainmentEList<SeriesFX>(SeriesFX.class, this, ChartPackage.XY_CHART_FX__SERIES);
 		}
-		return values;
+		return series;
 	}
 
 	/**
@@ -175,8 +175,8 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ChartPackage.XY_CHART_FX__VALUES:
-			return ((InternalEList<?>) getValues()).basicRemove(otherEnd, msgs);
+		case ChartPackage.XY_CHART_FX__SERIES:
+			return ((InternalEList<?>) getSeries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -193,8 +193,8 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 			return getXAxisLabel();
 		case ChartPackage.XY_CHART_FX__YAXIS_LABEL:
 			return getYAxisLabel();
-		case ChartPackage.XY_CHART_FX__VALUES:
-			return getValues();
+		case ChartPackage.XY_CHART_FX__SERIES:
+			return getSeries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,9 +214,9 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 		case ChartPackage.XY_CHART_FX__YAXIS_LABEL:
 			setYAxisLabel((String) newValue);
 			return;
-		case ChartPackage.XY_CHART_FX__VALUES:
-			getValues().clear();
-			getValues().addAll((Collection<? extends XYValue>) newValue);
+		case ChartPackage.XY_CHART_FX__SERIES:
+			getSeries().clear();
+			getSeries().addAll((Collection<? extends SeriesFX>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -236,8 +236,8 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 		case ChartPackage.XY_CHART_FX__YAXIS_LABEL:
 			setYAxisLabel(YAXIS_LABEL_EDEFAULT);
 			return;
-		case ChartPackage.XY_CHART_FX__VALUES:
-			getValues().clear();
+		case ChartPackage.XY_CHART_FX__SERIES:
+			getSeries().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -255,8 +255,8 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 			return XAXIS_LABEL_EDEFAULT == null ? xAxisLabel != null : !XAXIS_LABEL_EDEFAULT.equals(xAxisLabel);
 		case ChartPackage.XY_CHART_FX__YAXIS_LABEL:
 			return YAXIS_LABEL_EDEFAULT == null ? yAxisLabel != null : !YAXIS_LABEL_EDEFAULT.equals(yAxisLabel);
-		case ChartPackage.XY_CHART_FX__VALUES:
-			return values != null && !values.isEmpty();
+		case ChartPackage.XY_CHART_FX__SERIES:
+			return series != null && !series.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
