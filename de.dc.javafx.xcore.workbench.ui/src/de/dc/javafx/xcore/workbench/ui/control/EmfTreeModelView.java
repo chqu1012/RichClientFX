@@ -360,6 +360,10 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		contextMenu.getItems().addAll(defaultMenuItems);
 	}
 	
+	public TreeView<Object> getTreeView(){
+		return treeView;
+	}
+	
 	protected abstract IEmfManager<T> getEmfManager();
 
 	protected abstract EmfFile<T> initEmfFile();
