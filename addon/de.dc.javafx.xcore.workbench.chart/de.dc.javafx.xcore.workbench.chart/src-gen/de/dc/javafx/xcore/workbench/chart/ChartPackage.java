@@ -150,13 +150,13 @@ public interface ChartPackage extends EPackage {
 	int XY_CHART_FX__YAXIS_LABEL = CHART_FX_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XY_CHART_FX__VALUES = CHART_FX_FEATURE_COUNT + 2;
+	int XY_CHART_FX__SERIES = CHART_FX_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>XY Chart FX</em>' class.
@@ -177,14 +177,60 @@ public interface ChartPackage extends EPackage {
 	int XY_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueImpl <em>XY Value</em>}' class.
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.SeriesFXImpl <em>Series FX</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.dc.javafx.xcore.workbench.chart.impl.XYValueImpl
-	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYValue()
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.SeriesFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getSeriesFX()
 	 * @generated
 	 */
-	int XY_VALUE = 2;
+	int SERIES_FX = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIES_FX__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIES_FX__VALUES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Series FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIES_FX_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Series FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIES_FX_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueFXImpl <em>XY Value FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.XYValueFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYValueFX()
+	 * @generated
+	 */
+	int XY_VALUE_FX = 3;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -193,7 +239,7 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XY_VALUE__X = 0;
+	int XY_VALUE_FX__X = 0;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -202,25 +248,25 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XY_VALUE__Y = 1;
+	int XY_VALUE_FX__Y = 1;
 
 	/**
-	 * The number of structural features of the '<em>XY Value</em>' class.
+	 * The number of structural features of the '<em>XY Value FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XY_VALUE_FEATURE_COUNT = 2;
+	int XY_VALUE_FX_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>XY Value</em>' class.
+	 * The number of operations of the '<em>XY Value FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XY_VALUE_OPERATION_COUNT = 0;
+	int XY_VALUE_FX_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.LineChartFXImpl <em>Line Chart FX</em>}' class.
@@ -230,7 +276,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getLineChartFX()
 	 * @generated
 	 */
-	int LINE_CHART_FX = 3;
+	int LINE_CHART_FX = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -269,13 +315,13 @@ public interface ChartPackage extends EPackage {
 	int LINE_CHART_FX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINE_CHART_FX__VALUES = XY_CHART_FX__VALUES;
+	int LINE_CHART_FX__SERIES = XY_CHART_FX__SERIES;
 
 	/**
 	 * The number of structural features of the '<em>Line Chart FX</em>' class.
@@ -360,47 +406,79 @@ public interface ChartPackage extends EPackage {
 	EAttribute getXYChartFX_YAxisLabel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.chart.XYChartFX#getValues <em>Values</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.chart.XYChartFX#getSeries <em>Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Values</em>'.
-	 * @see de.dc.javafx.xcore.workbench.chart.XYChartFX#getValues()
+	 * @return the meta object for the containment reference list '<em>Series</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYChartFX#getSeries()
 	 * @see #getXYChartFX()
 	 * @generated
 	 */
-	EReference getXYChartFX_Values();
+	EReference getXYChartFX_Series();
 
 	/**
-	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.XYValue <em>XY Value</em>}'.
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.SeriesFX <em>Series FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>XY Value</em>'.
-	 * @see de.dc.javafx.xcore.workbench.chart.XYValue
+	 * @return the meta object for class '<em>Series FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.SeriesFX
 	 * @generated
 	 */
-	EClass getXYValue();
+	EClass getSeriesFX();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.XYValue#getX <em>X</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.SeriesFX#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.SeriesFX#getName()
+	 * @see #getSeriesFX()
+	 * @generated
+	 */
+	EAttribute getSeriesFX_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.chart.SeriesFX#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.SeriesFX#getValues()
+	 * @see #getSeriesFX()
+	 * @generated
+	 */
+	EReference getSeriesFX_Values();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.XYValueFX <em>XY Value FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XY Value FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYValueFX
+	 * @generated
+	 */
+	EClass getXYValueFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.XYValueFX#getX <em>X</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>X</em>'.
-	 * @see de.dc.javafx.xcore.workbench.chart.XYValue#getX()
-	 * @see #getXYValue()
+	 * @see de.dc.javafx.xcore.workbench.chart.XYValueFX#getX()
+	 * @see #getXYValueFX()
 	 * @generated
 	 */
-	EAttribute getXYValue_X();
+	EAttribute getXYValueFX_X();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.XYValue#getY <em>Y</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.XYValueFX#getY <em>Y</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Y</em>'.
-	 * @see de.dc.javafx.xcore.workbench.chart.XYValue#getY()
-	 * @see #getXYValue()
+	 * @see de.dc.javafx.xcore.workbench.chart.XYValueFX#getY()
+	 * @see #getXYValueFX()
 	 * @generated
 	 */
-	EAttribute getXYValue_Y();
+	EAttribute getXYValueFX_Y();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.LineChartFX <em>Line Chart FX</em>}'.
@@ -488,22 +566,48 @@ public interface ChartPackage extends EPackage {
 		EAttribute XY_CHART_FX__YAXIS_LABEL = eINSTANCE.getXYChartFX_YAxisLabel();
 
 		/**
+		 * The meta object literal for the '<em><b>Series</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XY_CHART_FX__SERIES = eINSTANCE.getXYChartFX_Series();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.SeriesFXImpl <em>Series FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.SeriesFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getSeriesFX()
+		 * @generated
+		 */
+		EClass SERIES_FX = eINSTANCE.getSeriesFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERIES_FX__NAME = eINSTANCE.getSeriesFX_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XY_CHART_FX__VALUES = eINSTANCE.getXYChartFX_Values();
+		EReference SERIES_FX__VALUES = eINSTANCE.getSeriesFX_Values();
 
 		/**
-		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueImpl <em>XY Value</em>}' class.
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueFXImpl <em>XY Value FX</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.dc.javafx.xcore.workbench.chart.impl.XYValueImpl
-		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYValue()
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.XYValueFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYValueFX()
 		 * @generated
 		 */
-		EClass XY_VALUE = eINSTANCE.getXYValue();
+		EClass XY_VALUE_FX = eINSTANCE.getXYValueFX();
 
 		/**
 		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
@@ -511,7 +615,7 @@ public interface ChartPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute XY_VALUE__X = eINSTANCE.getXYValue_X();
+		EAttribute XY_VALUE_FX__X = eINSTANCE.getXYValueFX_X();
 
 		/**
 		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
@@ -519,7 +623,7 @@ public interface ChartPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute XY_VALUE__Y = eINSTANCE.getXYValue_Y();
+		EAttribute XY_VALUE_FX__Y = eINSTANCE.getXYValueFX_Y();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.LineChartFXImpl <em>Line Chart FX</em>}' class.

@@ -3,7 +3,7 @@
 package de.dc.javafx.xcore.workbench.chart.impl;
 
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
-import de.dc.javafx.xcore.workbench.chart.XYValue;
+import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,19 +14,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>XY Value</b></em>'.
+ * An implementation of the model object '<em><b>XY Value FX</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueImpl#getX <em>X</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueImpl#getY <em>Y</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueFXImpl#getX <em>X</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueFXImpl#getY <em>Y</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue {
+public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYValueFX {
 	/**
 	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,7 +72,7 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XYValueImpl() {
+	protected XYValueFXImpl() {
 		super();
 	}
 
@@ -83,7 +83,7 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ChartPackage.Literals.XY_VALUE;
+		return ChartPackage.Literals.XY_VALUE_FX;
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 		String oldX = x;
 		x = newX;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.XY_VALUE__X, oldX, x));
+			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.XY_VALUE_FX__X, oldX, x));
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 		String oldY = y;
 		y = newY;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.XY_VALUE__Y, oldY, y));
+			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.XY_VALUE_FX__Y, oldY, y));
 	}
 
 	/**
@@ -140,9 +140,9 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ChartPackage.XY_VALUE__X:
+		case ChartPackage.XY_VALUE_FX__X:
 			return getX();
-		case ChartPackage.XY_VALUE__Y:
+		case ChartPackage.XY_VALUE_FX__Y:
 			return getY();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -156,10 +156,10 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ChartPackage.XY_VALUE__X:
+		case ChartPackage.XY_VALUE_FX__X:
 			setX((String) newValue);
 			return;
-		case ChartPackage.XY_VALUE__Y:
+		case ChartPackage.XY_VALUE_FX__Y:
 			setY((String) newValue);
 			return;
 		}
@@ -174,10 +174,10 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ChartPackage.XY_VALUE__X:
+		case ChartPackage.XY_VALUE_FX__X:
 			setX(X_EDEFAULT);
 			return;
-		case ChartPackage.XY_VALUE__Y:
+		case ChartPackage.XY_VALUE_FX__Y:
 			setY(Y_EDEFAULT);
 			return;
 		}
@@ -192,9 +192,9 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ChartPackage.XY_VALUE__X:
+		case ChartPackage.XY_VALUE_FX__X:
 			return X_EDEFAULT == null ? x != null : !X_EDEFAULT.equals(x);
-		case ChartPackage.XY_VALUE__Y:
+		case ChartPackage.XY_VALUE_FX__Y:
 			return Y_EDEFAULT == null ? y != null : !Y_EDEFAULT.equals(y);
 		}
 		return super.eIsSet(featureID);
@@ -219,4 +219,4 @@ public class XYValueImpl extends MinimalEObjectImpl.Container implements XYValue
 		return result.toString();
 	}
 
-} //XYValueImpl
+} //XYValueFXImpl

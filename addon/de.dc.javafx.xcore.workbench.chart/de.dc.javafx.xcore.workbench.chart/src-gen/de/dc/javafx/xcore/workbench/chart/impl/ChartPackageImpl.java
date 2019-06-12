@@ -6,8 +6,9 @@ import de.dc.javafx.xcore.workbench.chart.ChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
-import de.dc.javafx.xcore.workbench.chart.XYValue;
+import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -43,7 +44,14 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass xyValueEClass = null;
+	private EClass seriesFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xyValueFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,7 +193,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getXYChartFX_Values() {
+	public EReference getXYChartFX_Series() {
 		return (EReference) xyChartFXEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -195,8 +203,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getXYValue() {
-		return xyValueEClass;
+	public EClass getSeriesFX() {
+		return seriesFXEClass;
 	}
 
 	/**
@@ -205,8 +213,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXYValue_X() {
-		return (EAttribute) xyValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSeriesFX_Name() {
+		return (EAttribute) seriesFXEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -215,8 +223,38 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXYValue_Y() {
-		return (EAttribute) xyValueEClass.getEStructuralFeatures().get(1);
+	public EReference getSeriesFX_Values() {
+		return (EReference) seriesFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getXYValueFX() {
+		return xyValueFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getXYValueFX_X() {
+		return (EAttribute) xyValueFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getXYValueFX_Y() {
+		return (EAttribute) xyValueFXEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -266,11 +304,15 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		xyChartFXEClass = createEClass(XY_CHART_FX);
 		createEAttribute(xyChartFXEClass, XY_CHART_FX__XAXIS_LABEL);
 		createEAttribute(xyChartFXEClass, XY_CHART_FX__YAXIS_LABEL);
-		createEReference(xyChartFXEClass, XY_CHART_FX__VALUES);
+		createEReference(xyChartFXEClass, XY_CHART_FX__SERIES);
 
-		xyValueEClass = createEClass(XY_VALUE);
-		createEAttribute(xyValueEClass, XY_VALUE__X);
-		createEAttribute(xyValueEClass, XY_VALUE__Y);
+		seriesFXEClass = createEClass(SERIES_FX);
+		createEAttribute(seriesFXEClass, SERIES_FX__NAME);
+		createEReference(seriesFXEClass, SERIES_FX__VALUES);
+
+		xyValueFXEClass = createEClass(XY_VALUE_FX);
+		createEAttribute(xyValueFXEClass, XY_VALUE_FX__X);
+		createEAttribute(xyValueFXEClass, XY_VALUE_FX__Y);
 
 		lineChartFXEClass = createEClass(LINE_CHART_FX);
 	}
@@ -327,14 +369,24 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		initEAttribute(getXYChartFX_YAxisLabel(), theEcorePackage.getEString(), "yAxisLabel", null, 0, 1,
 				XYChartFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getXYChartFX_Values(), this.getXYValue(), null, "values", null, 0, -1, XYChartFX.class,
+		initEReference(getXYChartFX_Series(), this.getSeriesFX(), null, "series", null, 0, -1, XYChartFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(xyValueEClass, XYValue.class, "XYValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getXYValue_X(), theEcorePackage.getEString(), "x", null, 0, 1, XYValue.class, !IS_TRANSIENT,
+		initEClass(seriesFXEClass, SeriesFX.class, "SeriesFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSeriesFX_Name(), theEcorePackage.getEString(), "name", null, 0, 1, SeriesFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getSeriesFX_Values(), this.getXYValueFX(), null, "values", null, 0, -1, SeriesFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(xyValueFXEClass, XYValueFX.class, "XYValueFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXYValueFX_X(), theEcorePackage.getEString(), "x", null, 0, 1, XYValueFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXYValue_Y(), theEcorePackage.getEString(), "y", null, 0, 1, XYValue.class, !IS_TRANSIENT,
+		initEAttribute(getXYValueFX_Y(), theEcorePackage.getEString(), "y", null, 0, 1, XYValueFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineChartFXEClass, LineChartFX.class, "LineChartFX", !IS_ABSTRACT, !IS_INTERFACE,

@@ -55,8 +55,10 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case ChartPackage.XY_VALUE:
-			return createXYValue();
+		case ChartPackage.SERIES_FX:
+			return createSeriesFX();
+		case ChartPackage.XY_VALUE_FX:
+			return createXYValueFX();
 		case ChartPackage.LINE_CHART_FX:
 			return createLineChartFX();
 		default:
@@ -70,9 +72,20 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * @generated
 	 */
 	@Override
-	public XYValue createXYValue() {
-		XYValueImpl xyValue = new XYValueImpl();
-		return xyValue;
+	public SeriesFX createSeriesFX() {
+		SeriesFXImpl seriesFX = new SeriesFXImpl();
+		return seriesFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XYValueFX createXYValueFX() {
+		XYValueFXImpl xyValueFX = new XYValueFXImpl();
+		return xyValueFX;
 	}
 
 	/**

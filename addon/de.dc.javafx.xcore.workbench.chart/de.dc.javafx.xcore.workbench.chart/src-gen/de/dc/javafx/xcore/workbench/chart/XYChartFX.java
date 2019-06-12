@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.XYChartFX#getXAxisLabel <em>XAxis Label</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.XYChartFX#getYAxisLabel <em>YAxis Label</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.chart.XYChartFX#getValues <em>Values</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.XYChartFX#getSeries <em>Series</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYChartFX()
@@ -68,15 +68,15 @@ public interface XYChartFX extends ChartFX {
 	void setYAxisLabel(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.chart.XYValue}.
+	 * Returns the value of the '<em><b>Series</b></em>' containment reference list.
+	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.chart.SeriesFX}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Values</em>' containment reference list.
-	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYChartFX_Values()
+	 * @return the value of the '<em>Series</em>' containment reference list.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYChartFX_Series()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<XYValue> getValues();
+	EList<SeriesFX> getSeries();
 
 } // XYChartFX
