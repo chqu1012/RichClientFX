@@ -7,7 +7,8 @@
 	codeFormatting="true",
 	importerID="org.eclipse.emf.importer.ecore", 
 	runtimePlatform="RCP", 
-	fileExtensions="chart")
+	fileExtensions="chart", 
+	tableProviders="true")
 package de.dc.javafx.xcore.workbench.chart
 
 abstract class ChartFX{

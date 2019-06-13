@@ -1,6 +1,10 @@
 package de.dc.javafx.xcore.workbench.chart.ui.demo;
 
+import org.eclipse.emf.ecore.change.ChangePackage;
+
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
+import de.dc.javafx.xcore.workbench.chart.ChartPackage;
+import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfTableView;
 import de.dc.javafx.xcore.workbench.chart.ui.manager.LineChartFXEmfManager;
@@ -8,6 +12,7 @@ import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.ui.WorkbenchModule;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 public class ChartEmfTableViewDemo extends Application {
@@ -29,9 +34,12 @@ public class ChartEmfTableViewDemo extends Application {
 			manager.getRoot().getValues().add(value);
 		}
 		ChartFXEmfTableView table = new ChartFXEmfTableView(manager);
-		table.createColumn("Name");
-		table.createColumn("Value");
-
+		TableColumn<SeriesFX, Object> nameColumn = table.createColumn("Name",0);
+		table.setEditable(nameColumn, ChartPackage.Literals.XY_VALUE_FX__X);
+		
+		TableColumn<SeriesFX, Object> valueColumn = table.createColumn("Value",1);
+		table.setEditable(valueColumn, ChartPackage.Literals.XY_VALUE_FX__Y);
+		
 		primaryStage.setScene(new Scene(table, 1200, 800));
 		primaryStage.show();
 	}

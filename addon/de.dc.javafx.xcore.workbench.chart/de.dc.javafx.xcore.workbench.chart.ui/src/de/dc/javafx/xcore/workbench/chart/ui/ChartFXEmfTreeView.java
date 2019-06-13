@@ -31,7 +31,7 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<LineChartFX> {
 //				return new CommandCellFactory(manager.getAdapterFactory());
 //			}
 //		});
-		
+
 		DIPlatform.getInstance(IEventBroker.class).register(this);
 	}
 
