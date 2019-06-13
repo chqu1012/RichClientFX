@@ -40,6 +40,7 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 	
 	private EditingDomain editingDomain;
 	private Map<EAttribute, TextField> eattributeUIMap = new HashMap<>();
+	private static final String EDITED_STYLE = "-fx-background-color: red; -fx-text-fill: white;";
 	
 	
 	public ChartFXEmfDetailTreeView() {
@@ -107,7 +108,7 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 							textField.setStyle(null);
 							break;
 						default:
-							textField.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+							textField.setStyle(EDITED_STYLE);
 						}
 					});
 					acceptButton.setOnAction(event -> {
@@ -129,11 +130,13 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 			Button acceptAllButton = new Button("Accept All");
 			acceptAllButton.setOnAction(event -> {
 				eattributeUIMap.entrySet().stream().forEach(e->{
-					Command command = new SetCommand(editingDomain, eObject, e.getKey(), e.getValue().getText());
-					editingDomain.getCommandStack().execute(command);
-					
-					DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
-					e.getValue().setStyle(null);
+					if (e.getValue().getStyle().equals(EDITED_STYLE)) {
+						Command command = new SetCommand(editingDomain, eObject, e.getKey(), e.getValue().getText());
+						editingDomain.getCommandStack().execute(command);
+						
+						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+						e.getValue().setStyle(null);
+					}
 				});
 			});
 			vbox.getChildren().add(acceptAllButton);
