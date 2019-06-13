@@ -27,8 +27,8 @@ class SeriesFX{
 }
 
 class XYValueFX{
-	String x
-	String y
+	String x ='0'
+	String y = '0'
 }
 
 class LineChartFX extends XYChartFX{}

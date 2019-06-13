@@ -24,12 +24,13 @@ import org.eclipse.emf.ecore.EObject;
 public interface XYValueFX extends EObject {
 	/**
 	 * Returns the value of the '<em><b>X</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>X</em>' attribute.
 	 * @see #setX(String)
 	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYValueFX_X()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	String getX();
@@ -46,12 +47,13 @@ public interface XYValueFX extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Y</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Y</em>' attribute.
 	 * @see #setY(String)
 	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYValueFX_Y()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	String getY();

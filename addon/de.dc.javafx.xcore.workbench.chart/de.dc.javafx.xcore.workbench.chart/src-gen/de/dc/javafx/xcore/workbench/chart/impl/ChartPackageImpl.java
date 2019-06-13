@@ -384,9 +384,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		initEClass(xyValueFXEClass, XYValueFX.class, "XYValueFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getXYValueFX_X(), theEcorePackage.getEString(), "x", null, 0, 1, XYValueFX.class, !IS_TRANSIENT,
+		initEAttribute(getXYValueFX_X(), theEcorePackage.getEString(), "x", "0", 0, 1, XYValueFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXYValueFX_Y(), theEcorePackage.getEString(), "y", null, 0, 1, XYValueFX.class, !IS_TRANSIENT,
+		initEAttribute(getXYValueFX_Y(), theEcorePackage.getEString(), "y", "0", 0, 1, XYValueFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineChartFXEClass, LineChartFX.class, "LineChartFX", !IS_ABSTRACT, !IS_INTERFACE,

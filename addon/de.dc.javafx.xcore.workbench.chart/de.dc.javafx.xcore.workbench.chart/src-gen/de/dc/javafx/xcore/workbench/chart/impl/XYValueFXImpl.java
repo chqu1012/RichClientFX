@@ -35,7 +35,7 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String X_EDEFAULT = null;
+	protected static final String X_EDEFAULT = "0";
 
 	/**
 	 * The cached value of the '{@link #getX() <em>X</em>}' attribute.
@@ -55,7 +55,7 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String Y_EDEFAULT = null;
+	protected static final String Y_EDEFAULT = "0";
 
 	/**
 	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
