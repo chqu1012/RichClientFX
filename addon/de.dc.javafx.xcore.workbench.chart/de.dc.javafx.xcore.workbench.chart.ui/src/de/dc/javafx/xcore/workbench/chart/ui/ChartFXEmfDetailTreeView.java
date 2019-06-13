@@ -134,7 +134,6 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 					
 					DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 					e.getValue().setStyle(null);
-					e.getValue().setStyle(null);
 				});
 			});
 			vbox.getChildren().add(acceptAllButton);
