@@ -93,8 +93,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 	@Override
 	public void changed(ObservableValue<? extends TreeItem<Object>> observable, TreeItem<Object> oldValue,
 			TreeItem<Object> newValue) {
-		attributeContainer.getChildren().clear();
-		eattributeUIMap.clear();
+		clearAllFields();
 		
 		Object value = newValue.getValue();
 		if (value instanceof EObject) {
@@ -115,10 +114,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 					comboBox.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Boolean>) (observable1, oldValue1, newValue1) -> {
 						Boolean selection = comboBox.getSelectionModel().getSelectedItem();
 						Command command = new SetCommand(editingDomain, eObject, eAttribute, selection);
-						editingDomain.getCommandStack().execute(command);
-						
-						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
-						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
+						executeCommand(command);
 					});
 					hbox.getChildren().add(comboBox);
 				}else {
@@ -136,10 +132,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 							break;
 						case ENTER:
 							Command command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
-							editingDomain.getCommandStack().execute(command);
-							
-							DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
-							DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
+							executeCommand(command);
 							textField.setStyle(null);
 							break;
 						default:
@@ -148,10 +141,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 					});
 					acceptButton.setOnAction(event -> {
 						Command command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
-						editingDomain.getCommandStack().execute(command);
-						
-						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
-						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
+						executeCommand(command);
 						textField.setStyle(null);
 					});
 					
@@ -167,10 +157,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 				eattributeUIMap.entrySet().stream().forEach(e->{
 					if (e.getValue().getStyle().equals(EDITED_STYLE)) {
 						Command command = new SetCommand(editingDomain, eObject, e.getKey(), e.getValue().getText());
-						editingDomain.getCommandStack().execute(command);
-						
-						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
-						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
+						executeCommand(command);
 						e.getValue().setStyle(null);
 					}
 				});
@@ -181,8 +168,6 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 			Collection<?> collection = editingDomain.getNewChildDescriptors(eObject, null);
 			boolean showTableContainer = collection.size()==1;
 			tableContainer.setVisible(showTableContainer);
-			childAttributeContainer.getChildren().clear();
-			childEattributesMap.clear();
 			
 			if (showTableContainer) {
 				Object object = collection.iterator().next();
@@ -207,15 +192,27 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 							textfield.setText("");
 						});
 						Command command = AddCommand.create(editingDomain, value, id, createdObject);
-						editingDomain.getCommandStack().execute(command);
+						executeCommand(command);
 						
-						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
-						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
+						newValue.setExpanded(true);
 					});
 					childAttributeContainer.getChildren().add(addChildButton);
 				}
 			}
 		}
+	}
+
+	private void clearAllFields() {
+		attributeContainer.getChildren().clear();
+		eattributeUIMap.clear();
+		childAttributeContainer.getChildren().clear();
+		childEattributesMap.clear();
+	}
+
+	private void executeCommand(Command command) {
+		editingDomain.getCommandStack().execute(command);
+		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
 	}
 }
 
