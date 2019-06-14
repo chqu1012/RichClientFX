@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.dc.javafx.xcore.workbench.chart.ChartFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.xcore.workbench.chart.edit/src-gen' editorDirectory='/de.dc.javafx.xcore.workbench.chart.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' fileExtensions='chart' tableProviders='true' basePackage='de.dc.javafx.xcore.workbench'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.xcore.workbench.chart.edit/src-gen' editorDirectory='/de.dc.javafx.xcore.workbench.chart.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' fileExtensions='chart' tableProviders='true' dataTypeConverters='true' basePackage='de.dc.javafx.xcore.workbench'"
  * @generated
  */
 public interface ChartPackage extends EPackage {

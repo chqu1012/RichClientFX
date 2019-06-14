@@ -10,6 +10,7 @@ import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.ui.demo.ui.control.CustomLineChart;
+import de.dc.javafx.xcore.workbench.ui.demo.ui.control.ZoomableScrollPane;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
@@ -31,6 +32,11 @@ public class ChartFXPreview extends FXPreview {
 					
 					// creating the chart
 					CustomLineChart lineChart = new CustomLineChart();
+					ZoomableScrollPane pane = new ZoomableScrollPane(lineChart);
+					
+					lineChart.getChart().setTitle(chartFX.getName());
+					lineChart.getXAxis().setLabel(chartFX.getXAxisLabel());
+					lineChart.getYAxis().setLabel(chartFX.getYAxisLabel());
 					
 					for (SeriesFX seriesFX : chartFX.getSeries()) {
 						Series<Number, Number> series = lineChart.addSerie(seriesFX.getName());
@@ -46,7 +52,7 @@ public class ChartFXPreview extends FXPreview {
 					createDummyValues(lineChart.addSerie("Test3"));				
 					createDummyValues(lineChart.addSerie("Test3"));				
 					
-					setCenter(lineChart);
+					setCenter(pane);
 				}
 			}
 		}

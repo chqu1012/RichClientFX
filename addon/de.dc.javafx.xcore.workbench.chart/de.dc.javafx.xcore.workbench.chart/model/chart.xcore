@@ -8,7 +8,7 @@
 	importerID="org.eclipse.emf.importer.ecore", 
 	runtimePlatform="RCP", 
 	fileExtensions="chart", 
-	tableProviders="true")
+	tableProviders="true", dataTypeConverters="true")
 package de.dc.javafx.xcore.workbench.chart
 
 abstract class ChartFX{
@@ -17,8 +17,8 @@ abstract class ChartFX{
 }
 
 abstract class XYChartFX extends ChartFX{
-	String xAxisLabel
-	String yAxisLabel
+	String xAxisLabel = ""
+	String yAxisLabel = ""
 	contains SeriesFX[0..*] series	
 }
 

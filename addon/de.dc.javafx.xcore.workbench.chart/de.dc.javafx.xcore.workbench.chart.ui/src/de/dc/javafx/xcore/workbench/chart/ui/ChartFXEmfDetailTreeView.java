@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
@@ -19,18 +20,27 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListener<TreeItem<Object>>{
 
@@ -125,7 +135,6 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 				}
 
 				vbox.getChildren().add(hbox);
-				System.out.println(eAttribute.getName()+": "+eObject.eGet(eAttribute)+", type: "+eAttribute.getEType().getName());
 			}
 			Button acceptAllButton = new Button("Accept All");
 			acceptAllButton.setOnAction(event -> {
@@ -140,6 +149,63 @@ public class ChartFXEmfDetailTreeView extends SplitPane implements ChangeListene
 				});
 			});
 			vbox.getChildren().add(acceptAllButton);
+			
+			HBox tableHbox = new HBox(5.0);
+			ObservableList<XYValueFX> items = FXCollections.observableArrayList();
+			tableHbox.getChildren().add(new TableView<XYValueFX>(items));
+			vbox.getChildren().add(tableHbox);
+			
+			VBox buttonPane = new VBox(5.0);
+			Button addButton = new Button("Add");
+			addButton.setOnAction(event -> {
+				final Stage dialog = new Stage();
+		        dialog.setTitle("Confirmation");
+		        Button yes = new Button("Yes");
+		        Button no = new Button("No");
+
+		        Label displayLabel = new Label("What do you want to do ?");
+		        displayLabel.setFont(Font.font(null, FontWeight.BOLD, 14));
+
+		        dialog.initModality(Modality.NONE);
+		        dialog.initOwner(new Stage());
+
+		        HBox dialogHbox = new HBox(20);
+		        dialogHbox.setAlignment(Pos.CENTER);
+
+		        VBox dialogVbox1 = new VBox(20);
+		        dialogVbox1.setAlignment(Pos.CENTER_LEFT);
+
+		        VBox dialogVbox2 = new VBox(20);
+		        dialogVbox2.setAlignment(Pos.CENTER_RIGHT);
+
+		        dialogHbox.getChildren().add(displayLabel);
+		        dialogVbox1.getChildren().add(yes);
+		        dialogVbox2.getChildren().add(no);
+
+		        yes.addEventHandler(MouseEvent.MOUSE_CLICKED,
+		                new EventHandler<MouseEvent>() {
+		                    @Override
+		                    public void handle(MouseEvent e) {
+		                        // inside here you can use the minimize or close the previous stage//
+		                        dialog.close();
+		                    }
+		                });
+		        no.addEventHandler(MouseEvent.MOUSE_CLICKED,
+		                new EventHandler<MouseEvent>() {
+		                    @Override
+		                    public void handle(MouseEvent e) {
+		                        dialog.close();
+		                    }
+		                });
+
+		        dialogHbox.getChildren().addAll(dialogVbox1, dialogVbox2);
+		        Scene dialogScene = new Scene(dialogHbox, 500, 40);
+		        dialogScene.getStylesheets().add("//style sheet of your choice");
+		        dialog.setScene(dialogScene);
+		        dialog.show();
+			});
+			buttonPane.getChildren().add(addButton);
+			tableHbox.getChildren().add(buttonPane);
 		}
 	}
 }

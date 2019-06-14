@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.resource.File;
 import de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailTreeView;
+import de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView;
 import de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfTreeView;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
@@ -69,7 +70,8 @@ public class ExampleEmfWorkbench extends EmfWorkbench{
 					content = new BlogEmfTreeView();
 				}else if (filename.endsWith(".chart")) {
 //					content = new ChartFXEmfTreeView();
-					content = new ChartFXEmfDetailTreeView();
+//					content = new ChartFXEmfDetailTreeView();
+					content = new ChartFXEmfDetailedTreeView();
 				}else {
 					StyledTextArea styledTextArea = new StyledTextArea();
 					styledTextArea.getContent().setText("This is a styled text!\nThis is the 2nd line with data\nBlaBla");

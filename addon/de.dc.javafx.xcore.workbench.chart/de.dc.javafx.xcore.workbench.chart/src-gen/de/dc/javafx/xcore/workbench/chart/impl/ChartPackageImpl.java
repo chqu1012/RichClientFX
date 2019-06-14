@@ -363,12 +363,12 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		initEClass(xyChartFXEClass, XYChartFX.class, "XYChartFX", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getXYChartFX_XAxisLabel(), theEcorePackage.getEString(), "xAxisLabel", null, 0, 1,
-				XYChartFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXYChartFX_YAxisLabel(), theEcorePackage.getEString(), "yAxisLabel", null, 0, 1,
-				XYChartFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXYChartFX_XAxisLabel(), theEcorePackage.getEString(), "xAxisLabel", "", 0, 1, XYChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getXYChartFX_YAxisLabel(), theEcorePackage.getEString(), "yAxisLabel", "", 0, 1, XYChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEReference(getXYChartFX_Series(), this.getSeriesFX(), null, "series", null, 0, -1, XYChartFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

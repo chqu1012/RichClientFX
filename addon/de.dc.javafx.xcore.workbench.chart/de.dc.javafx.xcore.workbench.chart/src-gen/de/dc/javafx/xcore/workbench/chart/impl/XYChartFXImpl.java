@@ -45,7 +45,7 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String XAXIS_LABEL_EDEFAULT = null;
+	protected static final String XAXIS_LABEL_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getXAxisLabel() <em>XAxis Label</em>}' attribute.
@@ -65,7 +65,7 @@ public abstract class XYChartFXImpl extends ChartFXImpl implements XYChartFX {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String YAXIS_LABEL_EDEFAULT = null;
+	protected static final String YAXIS_LABEL_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getYAxisLabel() <em>YAxis Label</em>}' attribute.

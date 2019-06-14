@@ -25,12 +25,13 @@ import org.eclipse.emf.common.util.EList;
 public interface XYChartFX extends ChartFX {
 	/**
 	 * Returns the value of the '<em><b>XAxis Label</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XAxis Label</em>' attribute.
 	 * @see #setXAxisLabel(String)
 	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYChartFX_XAxisLabel()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getXAxisLabel();
@@ -47,12 +48,13 @@ public interface XYChartFX extends ChartFX {
 
 	/**
 	 * Returns the value of the '<em><b>YAxis Label</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>YAxis Label</em>' attribute.
 	 * @see #setYAxisLabel(String)
 	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYChartFX_YAxisLabel()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getYAxisLabel();

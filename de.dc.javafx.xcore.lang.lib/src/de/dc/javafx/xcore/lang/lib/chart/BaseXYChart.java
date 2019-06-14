@@ -43,26 +43,28 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 
 		chart.setTitle(getChartTitle());
 
-		zoomRect = new Rectangle();
-		zoomRect.setManaged(false);
-		zoomRect.setFill(Color.LIGHTSEAGREEN.deriveColor(0, 1, 1, 0.5));
+//		zoomRect = new Rectangle();
+//		zoomRect.setManaged(false);
+//		zoomRect.setFill(Color.LIGHTSEAGREEN.deriveColor(0, 1, 1, 0.5));
+//
+//		xAxis.setAutoRanging(true);
+//		yAxis.setAutoRanging(true);
+//
+//		setUpZooming(zoomRect);
+//
+//		chart.setOnMouseClicked(e -> {
+//			if (e.getButton().equals(MouseButton.SECONDARY)) {
+//				xAxis.setAutoRanging(true);
+//				yAxis.setAutoRanging(true);
+//			}else {
+//				doZoom(zoomRect);
+//			}
+//		});
+//		
+//		getChildren().addAll(chart, zoomRect);
 
-		xAxis.setAutoRanging(true);
-		yAxis.setAutoRanging(true);
-
-		setUpZooming(zoomRect);
-
-		chart.setOnMouseClicked(e -> {
-			if (e.getButton().equals(MouseButton.SECONDARY)) {
-				xAxis.setAutoRanging(true);
-				yAxis.setAutoRanging(true);
-			}else {
-				doZoom(zoomRect);
-			}
-		});
+		getChildren().add(chart);
 		
-		getChildren().addAll(chart, zoomRect);
-
 		ds.setColor(Color.LIGHTGRAY);
 		ds.setSpread(0.5);
 	}
@@ -184,5 +186,17 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 				setCursor(Cursor.CROSSHAIR);
 			});
 		}
+	}
+	
+	public XYChart<X, Y> getChart() {
+		return chart;
+	}
+	
+	public Axis<X> getXAxis() {
+		return xAxis;
+	}
+
+	public Axis<Y> getYAxis() {
+		return yAxis;
 	}
 }

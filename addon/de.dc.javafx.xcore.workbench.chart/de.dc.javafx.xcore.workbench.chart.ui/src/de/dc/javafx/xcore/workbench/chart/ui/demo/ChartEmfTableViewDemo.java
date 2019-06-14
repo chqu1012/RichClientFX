@@ -1,7 +1,5 @@
 package de.dc.javafx.xcore.workbench.chart.ui.demo;
 
-import org.eclipse.emf.ecore.change.ChangePackage;
-
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
@@ -13,6 +11,7 @@ import de.dc.javafx.xcore.workbench.ui.WorkbenchModule;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 public class ChartEmfTableViewDemo extends Application {
@@ -34,10 +33,10 @@ public class ChartEmfTableViewDemo extends Application {
 			manager.getRoot().getValues().add(value);
 		}
 		ChartFXEmfTableView table = new ChartFXEmfTableView(manager);
-		TableColumn<SeriesFX, Object> nameColumn = table.createColumn("Name",0);
+		TableColumn<SeriesFX, Object> nameColumn = table.createColumn("X-Value",0);
 		table.setEditable(nameColumn, ChartPackage.Literals.XY_VALUE_FX__X);
 		
-		TableColumn<SeriesFX, Object> valueColumn = table.createColumn("Value",1);
+		TableColumn<SeriesFX, Object> valueColumn = table.createColumn("Y-Value",1);
 		table.setEditable(valueColumn, ChartPackage.Literals.XY_VALUE_FX__Y);
 		
 		primaryStage.setScene(new Scene(table, 1200, 800));
