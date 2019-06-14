@@ -2,6 +2,8 @@ package de.dc.javafx.xcore.workbench.ui.demo.ui.preview;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.gillius.jfxutils.chart.ChartPanManager;
+import org.gillius.jfxutils.chart.JFXChartUtil;
 
 import com.google.common.eventbus.Subscribe;
 
@@ -13,16 +15,14 @@ import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.demo.ui.control.CustomLineChart;
-import de.dc.javafx.xcore.workbench.ui.demo.ui.control.ZoomableScrollPane;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.TreeItem;
+import javafx.scene.input.MouseButton;
 
 public class ChartFXPreview extends FXPreview {
 
-	private boolean useZoomablePane = false;
-	
 	public ChartFXPreview() {
 		DIPlatform.getInstance(IEventBroker.class).register(this);
 	}
@@ -65,12 +65,30 @@ public class ChartFXPreview extends FXPreview {
 					series.getData().add(new XYChart.Data<Number, Number>(x, y));
 				}
 			}
-			if (useZoomablePane) {
-				ZoomableScrollPane pane = new ZoomableScrollPane(lineChart);
-				setCenter(pane);
-			}else {
-				setCenter(lineChart);
-			}
+			XYChart chart = lineChart.getChart();
+
+			//Panning works via either secondary (right) mouse or primary with ctrl held down
+			ChartPanManager panner = new ChartPanManager( chart );
+			panner.setMouseFilter( mouseEvent -> {
+				if ( mouseEvent.getButton() == MouseButton.SECONDARY ||
+						 ( mouseEvent.getButton() == MouseButton.PRIMARY &&
+						   mouseEvent.isShortcutDown() ) ) {
+					//let it through
+				} else {
+					mouseEvent.consume();
+				}
+			} );
+			panner.start();
+
+			//Zooming works only via primary mouse button without ctrl held down
+			JFXChartUtil.setupZooming( chart, mouseEvent -> {
+				if ( mouseEvent.getButton() != MouseButton.PRIMARY ||
+				     mouseEvent.isShortcutDown() )
+					mouseEvent.consume();
+			} );
+
+			JFXChartUtil.addDoublePrimaryClickAutoRangeHandler( chart );
+			setCenter(lineChart);
 		}
 	}
 }

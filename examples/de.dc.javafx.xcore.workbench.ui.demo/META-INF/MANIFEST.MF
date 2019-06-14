@@ -29,7 +29,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.dc.javafx.xcore.workbench.chart;bundle-version="0.1.0",
  de.dc.javafx.xcore.workbench.chart.edit;bundle-version="1.0.0",
  de.dc.javafx.xcore.workbench.chart.ui;bundle-version="1.0.0",
- de.dc.javafx.xcore.lang.lib
+ de.dc.javafx.xcore.lang.lib,
+ de.dc.javafx.xcore.workbench.common.libs;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.workbench.ui.demo
 Bundle-ActivationPolicy: lazy

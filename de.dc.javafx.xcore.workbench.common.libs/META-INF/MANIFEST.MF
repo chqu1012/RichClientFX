@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Libs
+Bundle-SymbolicName: de.dc.javafx.xcore.workbench.common.libs
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.dc.javafx.xcore.workbench.common.libs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: libs/AnimateFX-1.2.1.jar,
+ libs/jfxutils-1.0.jar,
+ .
+Export-Package: animatefx.animation,
+ animatefx.util,
+ org.gillius.jfxutils,
+ org.gillius.jfxutils.chart,
+ org.gillius.jfxutils.tab
