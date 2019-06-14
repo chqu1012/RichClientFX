@@ -1,7 +1,6 @@
 package de.dc.javafx.xcore.workbench.ui.demo.ui.control;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
-import javafx.scene.chart.Axis;
 import javafx.scene.chart.NumberAxis;
 
 public class CustomLineChart extends BaseLineChart{

@@ -1,7 +1,5 @@
 package de.dc.javafx.xcore.workbench.ui.demo.ui.preview;
 
-import java.util.Random;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -23,6 +21,8 @@ import javafx.scene.control.TreeItem;
 
 public class ChartFXPreview extends FXPreview {
 
+	private boolean useZoomablePane = false;
+	
 	public ChartFXPreview() {
 		DIPlatform.getInstance(IEventBroker.class).register(this);
 	}
@@ -51,7 +51,6 @@ public class ChartFXPreview extends FXPreview {
 		if (object instanceof LineChartFX) {
 			LineChartFX chartFX = (LineChartFX) object;
 			CustomLineChart lineChart = new CustomLineChart();
-			ZoomableScrollPane pane = new ZoomableScrollPane(lineChart);
 			
 			lineChart.getChart().setTitle(chartFX.getName());
 			lineChart.getXAxis().setLabel(chartFX.getXAxisLabel());
@@ -66,8 +65,12 @@ public class ChartFXPreview extends FXPreview {
 					series.getData().add(new XYChart.Data<Number, Number>(x, y));
 				}
 			}
-			
-			setCenter(pane);
+			if (useZoomablePane) {
+				ZoomableScrollPane pane = new ZoomableScrollPane(lineChart);
+				setCenter(pane);
+			}else {
+				setCenter(lineChart);
+			}
 		}
 	}
 }
