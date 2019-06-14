@@ -164,7 +164,6 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 			});
 			attributeContainer.getChildren().add(acceptAllButton);
 			
-			
 			Collection<?> collection = editingDomain.getNewChildDescriptors(eObject, null);
 			boolean showTableContainer = collection.size()==1;
 			tableContainer.setVisible(showTableContainer);
@@ -177,6 +176,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 					child.eClass().getEAllAttributes().forEach(e->{
 						TextField textField = new TextField();
 						textField.setPromptText(e.getName());
+						textField.setOnKeyPressed(event -> textField.setStyle(EDITED_STYLE));
 						childAttributeContainer.getChildren().add(textField);
 						childEattributesMap.put(e, textField);
 					});
@@ -188,8 +188,11 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 						EObject createdObject = emfManager.getExtendedModelFactory().create(id);
 						childEattributesMap.entrySet().forEach(ks->{
 							TextField textfield = ks.getValue();
-							createdObject.eSet(ks.getKey(), textfield.getText());
-							textfield.setText("");
+							if (textfield.getStyle().equals(EDITED_STYLE)) {
+								createdObject.eSet(ks.getKey(), textfield.getText());
+								textfield.setText("");
+								textfield.setStyle(null);
+							}
 						});
 						Command command = AddCommand.create(editingDomain, value, id, createdObject);
 						executeCommand(command);
