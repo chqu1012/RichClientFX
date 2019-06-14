@@ -23,8 +23,6 @@ import javafx.scene.control.TreeItem;
 
 public class ChartFXPreview extends FXPreview {
 
-	private Random random = new Random();
-
 	public ChartFXPreview() {
 		DIPlatform.getInstance(IEventBroker.class).register(this);
 	}
@@ -33,81 +31,43 @@ public class ChartFXPreview extends FXPreview {
 	public void updateChart(EventContext<Object> context) {
 		if (context.getEventId()!=null && context.getEventId().equals("chartfx.update")) {
 			Object input = context.getInput();
-			if (input instanceof LineChartFX) {
-				LineChartFX chartFX = (LineChartFX) input;
-				
-				CustomLineChart lineChart = new CustomLineChart();
-				ZoomableScrollPane pane = new ZoomableScrollPane(lineChart);
-				
-				lineChart.getChart().setTitle(chartFX.getName());
-				lineChart.getXAxis().setLabel(chartFX.getXAxisLabel());
-				lineChart.getYAxis().setLabel(chartFX.getYAxisLabel());
-				
-				for (SeriesFX seriesFX : chartFX.getSeries()) {
-					Series<Number, Number> series = lineChart.addSerie(seriesFX.getName());
-					for (XYValueFX item : seriesFX.getValues()) {
-						Double x = Double.parseDouble(item.getX());
-						Double y = Double.parseDouble(item.getY());
-						series.getData().add(new XYChart.Data<Number, Number>(x, y));
-					}
-				}
-				
-				setCenter(pane);
-			}
+			renderLineChart(input);
 		}
 	}
 	
 	@Override
 	public void changed(ObservableValue<? extends Object> obs, Object oldValue, Object newValue) {
 		if (newValue instanceof TreeItem) {
-			TreeItem treeItem = (TreeItem) newValue;
+			TreeItem<Object> treeItem = (TreeItem) newValue;
 			Object value = treeItem.getValue();
 			if (value instanceof EObject) {
 				EObject eObject = EcoreUtil.getRootContainer((EObject) value);
-				if (eObject instanceof LineChartFX) {
-					LineChartFX chartFX = (LineChartFX) eObject;
-					
-					// creating the chart
-					CustomLineChart lineChart = new CustomLineChart();
-					ZoomableScrollPane pane = new ZoomableScrollPane(lineChart);
-					
-					lineChart.getChart().setTitle(chartFX.getName());
-					lineChart.getXAxis().setLabel(chartFX.getXAxisLabel());
-					lineChart.getYAxis().setLabel(chartFX.getYAxisLabel());
-					
-					for (SeriesFX seriesFX : chartFX.getSeries()) {
-						Series<Number, Number> series = lineChart.addSerie(seriesFX.getName());
-						for (XYValueFX item : seriesFX.getValues()) {
-							Double x = Double.parseDouble(item.getX());
-							Double y = Double.parseDouble(item.getY());
-							series.getData().add(new XYChart.Data<Number, Number>(x, y));
-						}
-					}
-					
-//					createDummyValues(lineChart.addSerie("Test1"));				
-//					createDummyValues(lineChart.addSerie("Test2"));				
-//					createDummyValues(lineChart.addSerie("Test3"));				
-//					createDummyValues(lineChart.addSerie("Test3"));				
-					
-					setCenter(pane);
-				}
+				renderLineChart(eObject);
 			}
 		}
 	}
 
-	private void createDummyValues(Series series) {
-		// populating the series with Data<>
-		series.getData().add(new XYChart.Data<>(1, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(2, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(3, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(4, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(5, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(6, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(7, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(8, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(9, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(10, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(11, random.nextInt()));
-		series.getData().add(new XYChart.Data<>(12, random.nextInt()));
+	private void renderLineChart(Object object) {
+		if (object instanceof LineChartFX) {
+			LineChartFX chartFX = (LineChartFX) object;
+			CustomLineChart lineChart = new CustomLineChart();
+			ZoomableScrollPane pane = new ZoomableScrollPane(lineChart);
+			
+			lineChart.getChart().setTitle(chartFX.getName());
+			lineChart.getXAxis().setLabel(chartFX.getXAxisLabel());
+			lineChart.getYAxis().setLabel(chartFX.getYAxisLabel());
+			lineChart.getChart().setLegendVisible(chartFX.isShowLegend());
+			
+			for (SeriesFX seriesFX : chartFX.getSeries()) {
+				Series<Number, Number> series = lineChart.addSerie(seriesFX.getName());
+				for (XYValueFX item : seriesFX.getValues()) {
+					Double x = Double.parseDouble(item.getX());
+					Double y = Double.parseDouble(item.getY());
+					series.getData().add(new XYChart.Data<Number, Number>(x, y));
+				}
+			}
+			
+			setCenter(pane);
+		}
 	}
 }

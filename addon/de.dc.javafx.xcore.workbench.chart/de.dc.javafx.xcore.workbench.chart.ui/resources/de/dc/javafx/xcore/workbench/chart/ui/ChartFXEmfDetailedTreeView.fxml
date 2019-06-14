@@ -48,26 +48,31 @@
                                        </font>
                                     </Label>
                                     <Separator prefWidth="200.0" />
-                                    <HBox fx:id="tableContainer" prefHeight="149.0" prefWidth="539.0" spacing="5.0">
+                                    <VBox fx:id="tableContainer" spacing="5.0">
                                        <children>
-                                          <TableView fx:id="tableView" prefHeight="123.0" prefWidth="322.0">
-                                            <columns>
-                                              <TableColumn prefWidth="177.99999380111694" text="Attribute" />
-                                              <TableColumn prefWidth="142.0" text="Value" />
-                                            </columns>
-                                             <columnResizePolicy>
-                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                             </columnResizePolicy>
-                                          </TableView>
-                                          <VBox prefHeight="100.0" prefWidth="72.0" spacing="5.0">
+                                          <HBox fx:id="childAttributeContainer" />
+                                          <HBox prefHeight="149.0" prefWidth="539.0" spacing="5.0">
                                              <children>
-                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAddNewValueAction" text="Add" />
-                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditValueAction" text="Edit" />
-                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDeleteSelectionValueAction" text="Remove" />
+                                                <TableView fx:id="tableView" prefHeight="123.0" prefWidth="322.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="177.99999380111694" text="Attribute" />
+                                                    <TableColumn prefWidth="142.0" text="Value" />
+                                                  </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                                <VBox prefHeight="100.0" prefWidth="72.0" spacing="5.0">
+                                                   <children>
+                                                      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAddNewValueAction" text="Add" />
+                                                      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditValueAction" text="Edit" />
+                                                      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDeleteSelectionValueAction" text="Remove" />
+                                                   </children>
+                                                </VBox>
                                              </children>
-                                          </VBox>
+                                          </HBox>
                                        </children>
-                                    </HBox>
+                                    </VBox>
                                  </children>
                               </VBox>
                            </children>

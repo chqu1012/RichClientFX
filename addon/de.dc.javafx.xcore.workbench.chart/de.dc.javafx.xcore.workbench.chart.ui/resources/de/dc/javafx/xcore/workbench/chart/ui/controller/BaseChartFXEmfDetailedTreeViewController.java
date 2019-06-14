@@ -19,7 +19,10 @@ public abstract class BaseChartFXEmfDetailedTreeViewController extends SplitPane
     protected VBox attributeContainer;
 
     @FXML
-    protected HBox tableContainer;
+    protected VBox tableContainer;
+
+    @FXML
+    protected HBox childAttributeContainer;
 
     @FXML
     protected TableView<?> tableView;

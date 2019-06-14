@@ -1,6 +1,7 @@
 package de.dc.javafx.xcore.workbench.chart.ui;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,11 +9,18 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
+import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
+import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.ui.controller.BaseChartFXEmfDetailedTreeViewController;
+import de.dc.javafx.xcore.workbench.chart.ui.factory.ExtendedChartFXFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
@@ -36,7 +44,10 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 	
 	private ObservableList<Boolean> values = FXCollections.observableArrayList();
 	private EditingDomain editingDomain;
+	
 	private Map<EAttribute, TextField> eattributeUIMap = new HashMap<>();
+	private Map<EAttribute, TextField> childEattributesMap = new HashMap<>();
+	
 	private static final String EDITED_STYLE = "-fx-background-color: red; -fx-text-fill: white;";
 	private ChartFXEmfTreeView treeView = new ChartFXEmfTreeView();
 
@@ -88,6 +99,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 		Object value = newValue.getValue();
 		if (value instanceof EObject) {
 			EObject eObject = (EObject) value;
+			
 			EList<EAttribute> attributes = eObject.eClass().getEAllAttributes();
 			for (EAttribute eAttribute : attributes) {
 				HBox hbox = new HBox(5.0);
@@ -164,6 +176,45 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 				});
 			});
 			attributeContainer.getChildren().add(acceptAllButton);
+			
+			
+			Collection<?> collection = editingDomain.getNewChildDescriptors(eObject, null);
+			boolean showTableContainer = collection.size()==1;
+			tableContainer.setVisible(showTableContainer);
+			childAttributeContainer.getChildren().clear();
+			childEattributesMap.clear();
+			
+			if (showTableContainer) {
+				Object object = collection.iterator().next();
+				if (object instanceof CommandParameter) {
+					CommandParameter param = (CommandParameter) object;
+					EObject child = (EObject) param.getValue();
+					child.eClass().getEAllAttributes().forEach(e->{
+						TextField textField = new TextField();
+						textField.setPromptText(e.getName());
+						childAttributeContainer.getChildren().add(textField);
+						childEattributesMap.put(e, textField);
+					});
+					Button addChildButton = new Button("Add");
+					addChildButton.setOnAction(e->{
+						IEmfManager<LineChartFX> emfManager = treeView.getEmfManager();
+						String name = param.getValue().getClass().getSimpleName().replace("Impl", "");
+						int id = EmfUtil.getValueByName(emfManager.getModelPackage(), name);
+						EObject createdObject = emfManager.getExtendedModelFactory().create(id);
+						childEattributesMap.entrySet().forEach(ks->{
+							TextField textfield = ks.getValue();
+							createdObject.eSet(ks.getKey(), textfield.getText());
+							textfield.setText("");
+						});
+						Command command = AddCommand.create(editingDomain, value, id, createdObject);
+						editingDomain.getCommandStack().execute(command);
+						
+						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
+					});
+					childAttributeContainer.getChildren().add(addChildButton);
+				}
+			}
 		}
 	}
 }
