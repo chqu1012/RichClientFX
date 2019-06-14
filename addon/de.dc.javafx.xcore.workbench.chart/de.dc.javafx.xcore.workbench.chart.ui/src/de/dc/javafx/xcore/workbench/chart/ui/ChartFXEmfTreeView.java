@@ -13,7 +13,6 @@ import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.control.EmfTreeModelView;
 import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
-import javafx.scene.control.TreeView;
 
 public class ChartFXEmfTreeView extends EmfTreeModelView<LineChartFX> {
 
@@ -37,7 +36,10 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<LineChartFX> {
 
 	@Override
 	protected IEmfManager<LineChartFX> getEmfManager() {
-		return new ChartFXEmfManager();
+		if (emfManager==null) {
+			emfManager = new ChartFXEmfManager();
+		}
+		return emfManager;
 	}
 
 	@Override

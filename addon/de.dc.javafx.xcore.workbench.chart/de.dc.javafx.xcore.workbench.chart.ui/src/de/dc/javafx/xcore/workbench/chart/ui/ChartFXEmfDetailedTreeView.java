@@ -38,6 +38,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 	private EditingDomain editingDomain;
 	private Map<EAttribute, TextField> eattributeUIMap = new HashMap<>();
 	private static final String EDITED_STYLE = "-fx-background-color: red; -fx-text-fill: white;";
+	private ChartFXEmfTreeView treeView = new ChartFXEmfTreeView();
 
 	public ChartFXEmfDetailedTreeView() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/dc/javafx/xcore/workbench/chart/ui/ChartFXEmfDetailedTreeView.fxml"));
@@ -50,7 +51,6 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 			throw new RuntimeException(exception);
 		}
 		
-		ChartFXEmfTreeView treeView = new ChartFXEmfTreeView();
 		AnchorPane.setBottomAnchor(treeView, 0d);
 		AnchorPane.setTopAnchor(treeView, 0d);
 		AnchorPane.setLeftAnchor(treeView, 0d);
@@ -106,6 +106,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 						editingDomain.getCommandStack().execute(command);
 						
 						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
 					});
 					hbox.getChildren().add(comboBox);
 				}else {
@@ -126,6 +127,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 							editingDomain.getCommandStack().execute(command);
 							
 							DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+							DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
 							textField.setStyle(null);
 							break;
 						default:
@@ -137,6 +139,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 						editingDomain.getCommandStack().execute(command);
 						
 						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
 						textField.setStyle(null);
 					});
 					
@@ -147,6 +150,20 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 
 				attributeContainer.getChildren().add(hbox);
 			}
+			Button acceptAllButton = new Button("Accept All");
+			acceptAllButton.setOnAction(event -> {
+				eattributeUIMap.entrySet().stream().forEach(e->{
+					if (e.getValue().getStyle().equals(EDITED_STYLE)) {
+						Command command = new SetCommand(editingDomain, eObject, e.getKey(), e.getValue().getText());
+						editingDomain.getCommandStack().execute(command);
+						
+						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+						DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
+						e.getValue().setStyle(null);
+					}
+				});
+			});
+			attributeContainer.getChildren().add(acceptAllButton);
 		}
 	}
 }
