@@ -133,7 +133,12 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 						case SHIFT:
 							break;
 						case ENTER:
-							Command command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
+							Command command = null;
+							if (eAttribute.getEType().getName().contains("Double")) {
+								command = new SetCommand(editingDomain, eObject, eAttribute, Double.parseDouble(textField.getText()));
+							}else {
+								command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
+							}
 							executeCommand(command);
 							textField.setStyle(null);
 							break;
@@ -142,7 +147,12 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 						}
 					});
 					acceptButton.setOnAction(event -> {
-						Command command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
+						Command command = null;
+						if (eAttribute.getEType().getName().contains("Double")) {
+							command = new SetCommand(editingDomain, eObject, eAttribute, Double.parseDouble(textField.getText()));
+						}else {
+							command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
+						}
 						executeCommand(command);
 						textField.setStyle(null);
 					});
@@ -158,7 +168,12 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 			acceptAllButton.setOnAction(event -> {
 				eattributeUIMap.entrySet().stream().forEach(e->{
 					if (e.getValue().getStyle().equals(EDITED_STYLE)) {
-						Command command = new SetCommand(editingDomain, eObject, e.getKey(), e.getValue().getText());
+						Command command = null;
+						if (e.getKey().getEType().getName().contains("Double")) {
+							command = new SetCommand(editingDomain, eObject, e.getKey(), Double.parseDouble(e.getValue().getText()));
+						}else {
+							command = new SetCommand(editingDomain, eObject, e.getKey(), e.getValue().getText());
+						}
 						executeCommand(command);
 						e.getValue().setStyle(null);
 					}
@@ -191,7 +206,11 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 						childEattributesMap.entrySet().forEach(ks->{
 							TextField textfield = ks.getValue();
 							if (textfield.getStyle().equals(EDITED_STYLE)) {
-								createdObject.eSet(ks.getKey(), textfield.getText());
+								if (ks.getKey().getEType().getName().contains("Double")) {
+									createdObject.eSet(ks.getKey(), Double.parseDouble(textfield.getText()));
+								}else {
+									createdObject.eSet(ks.getKey(), textfield.getText());
+								}
 								textfield.setText("");
 								textfield.setStyle(null);
 							}

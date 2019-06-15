@@ -144,6 +144,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.CategoryValueFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CategoryValueFXItemProvider categoryValueFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.CategoryValueFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCategoryValueFXAdapter() {
+		if (categoryValueFXItemProvider == null) {
+			categoryValueFXItemProvider = new CategoryValueFXItemProvider(this);
+		}
+
+		return categoryValueFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.LineChartFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,6 +256,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 		}
 
 		return bubbleChartFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.PieChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PieChartFXItemProvider pieChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.PieChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPieChartFXAdapter() {
+		if (pieChartFXItemProvider == null) {
+			pieChartFXItemProvider = new PieChartFXItemProvider(this);
+		}
+
+		return pieChartFXItemProvider;
 	}
 
 	/**
@@ -369,6 +415,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			seriesFXItemProvider.dispose();
 		if (xyValueFXItemProvider != null)
 			xyValueFXItemProvider.dispose();
+		if (categoryValueFXItemProvider != null)
+			categoryValueFXItemProvider.dispose();
 		if (lineChartFXItemProvider != null)
 			lineChartFXItemProvider.dispose();
 		if (areaChartFXItemProvider != null)
@@ -377,6 +425,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			scatterChartFXItemProvider.dispose();
 		if (bubbleChartFXItemProvider != null)
 			bubbleChartFXItemProvider.dispose();
+		if (pieChartFXItemProvider != null)
+			pieChartFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}

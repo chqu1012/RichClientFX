@@ -6,12 +6,15 @@ import org.gillius.jfxutils.chart.JFXChartUtil;
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseBubbleChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
+import de.dc.javafx.xcore.lang.lib.chart.BasePieChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseScatterChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseXYChart;
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
 import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
+import de.dc.javafx.xcore.workbench.chart.CategoryValueFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.PieChartFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
@@ -23,14 +26,26 @@ import javafx.scene.chart.Chart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
-import javafx.scene.paint.Color;
 
 public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
 
+	@Override
+	public Node casePieChartFX(PieChartFX object) {
+		BasePieChart chart = new BasePieChart();
+		currentChart = chart;
+		caseChartFXConfig(object.getConfig());
+		for (CategoryValueFX value : object.getValues()) {
+			System.out.println(value.getValue());
+			chart.add(value.getName(), value.getValue());
+		}
+//		enablePanning(true);
+//		enableZooming(true);
+		return chart;
+	}
+	
 	@Override
 	public Node caseBubbleChartFX(BubbleChartFX object) {
 		BaseBubbleChart<Number, Number> chart = new BaseBubbleChart<>(new NumberAxis(), new NumberAxis());
@@ -63,16 +78,10 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	}
 
 	private void initSeries(XYChartFX object, BaseXYChart<Number, Number> chart) {
-		final Label caption = new Label("");
-		caption.setTextFill(Color.DARKORANGE);
-		caption.setStyle("-fx-font: 24 arial;");
-		
 		for (SeriesFX seriesFX : object.getSeries()) {
 			Series<Number, Number> series = chart.addSerie(seriesFX.getName());
 			for (XYValueFX item : seriesFX.getValues()) {
-				Double x = Double.parseDouble(item.getX());
-				Double y = Double.parseDouble(item.getY());
-				series.getData().add( new XYChart.Data<Number, Number>(x, y));
+				series.getData().add( new XYChart.Data<Number, Number>(item.getX(), item.getY()));
 			}
 		}
 	}

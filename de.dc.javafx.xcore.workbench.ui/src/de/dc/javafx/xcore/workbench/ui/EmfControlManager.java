@@ -3,7 +3,6 @@ package de.dc.javafx.xcore.workbench.ui;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import javafx.scene.Node;
 

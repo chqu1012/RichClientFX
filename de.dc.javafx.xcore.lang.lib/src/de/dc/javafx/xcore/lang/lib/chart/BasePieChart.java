@@ -8,20 +8,16 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public abstract class BasePieChart extends PieChart {
+public class BasePieChart extends PieChart {
 
 	protected DropShadow ds = new DropShadow();
 
 	public BasePieChart() {
 		super(FXCollections.observableArrayList());
 
-		setTitle(getChartTitle());
-
 		ds.setColor(Color.LIGHTGRAY);
 		ds.setSpread(0.75);
 	}
-
-	protected abstract String getChartTitle();
 
 	public void add(String name, double value) {
 		getData().add(new Data(name, value));

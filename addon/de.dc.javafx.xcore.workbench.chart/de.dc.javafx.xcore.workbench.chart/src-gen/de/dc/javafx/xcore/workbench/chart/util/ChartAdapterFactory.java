@@ -92,6 +92,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCategoryValueFX(CategoryValueFX object) {
+			return createCategoryValueFXAdapter();
+		}
+
+		@Override
 		public Adapter caseLineChartFX(LineChartFX object) {
 			return createLineChartFXAdapter();
 		}
@@ -109,6 +114,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBubbleChartFX(BubbleChartFX object) {
 			return createBubbleChartFXAdapter();
+		}
+
+		@Override
+		public Adapter casePieChartFX(PieChartFX object) {
+			return createPieChartFXAdapter();
 		}
 
 		@Override
@@ -206,6 +216,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.CategoryValueFX <em>Category Value FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.CategoryValueFX
+	 * @generated
+	 */
+	public Adapter createCategoryValueFXAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.LineChartFX <em>Line Chart FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -258,6 +282,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBubbleChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.PieChartFX <em>Pie Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.PieChartFX
+	 * @generated
+	 */
+	public Adapter createPieChartFXAdapter() {
 		return null;
 	}
 

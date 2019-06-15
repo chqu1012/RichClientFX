@@ -11,7 +11,6 @@ import de.dc.javafx.xcore.workbench.ui.WorkbenchModule;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 public class ChartEmfTableViewDemo extends Application {
@@ -28,8 +27,8 @@ public class ChartEmfTableViewDemo extends Application {
 		LineChartFXEmfManager manager = new LineChartFXEmfManager();
 		for (int i = 0; i < 20; i++) {
 			XYValueFX value = ChartFactory.eINSTANCE.createXYValueFX();
-			value.setX(i + "");
-			value.setY(i * 10 + "");
+			value.setX(Double.parseDouble(i+""));
+			value.setY(Double.parseDouble(i * 10 + ""));
 			manager.getRoot().getValues().add(value);
 		}
 		ChartFXEmfTableView table = new ChartFXEmfTableView(manager);

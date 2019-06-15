@@ -103,6 +103,13 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.CATEGORY_VALUE_FX: {
+			CategoryValueFX categoryValueFX = (CategoryValueFX) theEObject;
+			T result = caseCategoryValueFX(categoryValueFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.LINE_CHART_FX: {
 			LineChartFX lineChartFX = (LineChartFX) theEObject;
 			T result = caseLineChartFX(lineChartFX);
@@ -143,6 +150,15 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = caseXYChartFX(bubbleChartFX);
 			if (result == null)
 				result = caseChartFX(bubbleChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ChartPackage.PIE_CHART_FX: {
+			PieChartFX pieChartFX = (PieChartFX) theEObject;
+			T result = casePieChartFX(pieChartFX);
+			if (result == null)
+				result = caseChartFX(pieChartFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -235,6 +251,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Value FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Value FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryValueFX(CategoryValueFX object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Line Chart FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -291,6 +322,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBubbleChartFX(BubbleChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pie Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pie Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePieChartFX(PieChartFX object) {
 		return null;
 	}
 

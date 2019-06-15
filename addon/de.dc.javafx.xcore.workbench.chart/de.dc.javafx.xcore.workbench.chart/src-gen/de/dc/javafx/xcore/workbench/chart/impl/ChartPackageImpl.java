@@ -4,6 +4,7 @@ package de.dc.javafx.xcore.workbench.chart.impl;
 
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
 import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
+import de.dc.javafx.xcore.workbench.chart.CategoryValueFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
@@ -11,6 +12,7 @@ import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.ChartSide;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.PieChartFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
@@ -72,6 +74,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass categoryValueFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass lineChartFXEClass = null;
 
 	/**
@@ -94,6 +103,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass bubbleChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pieChartFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -342,6 +358,36 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getCategoryValueFX() {
+		return categoryValueFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCategoryValueFX_Name() {
+		return (EAttribute) categoryValueFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCategoryValueFX_Value() {
+		return (EAttribute) categoryValueFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLineChartFX() {
 		return lineChartFXEClass;
 	}
@@ -374,6 +420,26 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	@Override
 	public EClass getBubbleChartFX() {
 		return bubbleChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPieChartFX() {
+		return pieChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPieChartFX_Values() {
+		return (EReference) pieChartFXEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -547,6 +613,10 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		createEAttribute(xyValueFXEClass, XY_VALUE_FX__X);
 		createEAttribute(xyValueFXEClass, XY_VALUE_FX__Y);
 
+		categoryValueFXEClass = createEClass(CATEGORY_VALUE_FX);
+		createEAttribute(categoryValueFXEClass, CATEGORY_VALUE_FX__NAME);
+		createEAttribute(categoryValueFXEClass, CATEGORY_VALUE_FX__VALUE);
+
 		lineChartFXEClass = createEClass(LINE_CHART_FX);
 
 		areaChartFXEClass = createEClass(AREA_CHART_FX);
@@ -554,6 +624,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		scatterChartFXEClass = createEClass(SCATTER_CHART_FX);
 
 		bubbleChartFXEClass = createEClass(BUBBLE_CHART_FX);
+
+		pieChartFXEClass = createEClass(PIE_CHART_FX);
+		createEReference(pieChartFXEClass, PIE_CHART_FX__VALUES);
 
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
@@ -608,6 +681,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		areaChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		scatterChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		bubbleChartFXEClass.getESuperTypes().add(this.getXYChartFX());
+		pieChartFXEClass.getESuperTypes().add(this.getChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -650,10 +724,19 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		initEClass(xyValueFXEClass, XYValueFX.class, "XYValueFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getXYValueFX_X(), theEcorePackage.getEString(), "x", "0", 0, 1, XYValueFX.class, !IS_TRANSIENT,
+		initEAttribute(getXYValueFX_X(), theEcorePackage.getEDouble(), "x", "0", 0, 1, XYValueFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXYValueFX_Y(), theEcorePackage.getEString(), "y", "0", 0, 1, XYValueFX.class, !IS_TRANSIENT,
+		initEAttribute(getXYValueFX_Y(), theEcorePackage.getEDouble(), "y", "0", 0, 1, XYValueFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(categoryValueFXEClass, CategoryValueFX.class, "CategoryValueFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCategoryValueFX_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CategoryValueFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getCategoryValueFX_Value(), theEcorePackage.getEDouble(), "value", "0", 0, 1,
+				CategoryValueFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineChartFXEClass, LineChartFX.class, "LineChartFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -666,6 +749,12 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		initEClass(bubbleChartFXEClass, BubbleChartFX.class, "BubbleChartFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pieChartFXEClass, PieChartFX.class, "PieChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPieChartFX_Values(), this.getCategoryValueFX(), null, "values", null, 0, -1, PieChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

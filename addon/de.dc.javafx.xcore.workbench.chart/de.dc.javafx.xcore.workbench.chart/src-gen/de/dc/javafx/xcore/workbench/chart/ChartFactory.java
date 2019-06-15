@@ -49,6 +49,15 @@ public interface ChartFactory extends EFactory {
 	XYValueFX createXYValueFX();
 
 	/**
+	 * Returns a new object of class '<em>Category Value FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Category Value FX</em>'.
+	 * @generated
+	 */
+	CategoryValueFX createCategoryValueFX();
+
+	/**
 	 * Returns a new object of class '<em>Line Chart FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +92,15 @@ public interface ChartFactory extends EFactory {
 	 * @generated
 	 */
 	BubbleChartFX createBubbleChartFX();
+
+	/**
+	 * Returns a new object of class '<em>Pie Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pie Chart FX</em>'.
+	 * @generated
+	 */
+	PieChartFX createPieChartFX();
 
 	/**
 	 * Returns a new object of class '<em>FX Config</em>'.

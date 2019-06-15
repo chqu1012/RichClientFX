@@ -2,8 +2,8 @@
  */
 package de.dc.javafx.xcore.workbench.chart.impl;
 
+import de.dc.javafx.xcore.workbench.chart.CategoryValueFX;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
-import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,65 +14,65 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>XY Value FX</b></em>'.
+ * An implementation of the model object '<em><b>Category Value FX</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueFXImpl#getX <em>X</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.XYValueFXImpl#getY <em>Y</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.CategoryValueFXImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.CategoryValueFXImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYValueFX {
+public class CategoryValueFXImpl extends MinimalEObjectImpl.Container implements CategoryValueFX {
 	/**
-	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getX()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double X_EDEFAULT = 0.0;
+	protected static final String NAME_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getX() <em>X</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getX()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected double x = X_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getY()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double Y_EDEFAULT = 0.0;
+	protected static final double VALUE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getY()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected double y = Y_EDEFAULT;
+	protected double value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XYValueFXImpl() {
+	protected CategoryValueFXImpl() {
 		super();
 	}
 
@@ -83,7 +83,7 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ChartPackage.Literals.XY_VALUE_FX;
+		return ChartPackage.Literals.CATEGORY_VALUE_FX;
 	}
 
 	/**
@@ -92,8 +92,8 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	 * @generated
 	 */
 	@Override
-	public double getX() {
-		return x;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -102,11 +102,11 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	 * @generated
 	 */
 	@Override
-	public void setX(double newX) {
-		double oldX = x;
-		x = newX;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.XY_VALUE_FX__X, oldX, x));
+			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.CATEGORY_VALUE_FX__NAME, oldName, name));
 	}
 
 	/**
@@ -115,8 +115,8 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	 * @generated
 	 */
 	@Override
-	public double getY() {
-		return y;
+	public double getValue() {
+		return value;
 	}
 
 	/**
@@ -125,11 +125,12 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	 * @generated
 	 */
 	@Override
-	public void setY(double newY) {
-		double oldY = y;
-		y = newY;
+	public void setValue(double newValue) {
+		double oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.XY_VALUE_FX__Y, oldY, y));
+			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.CATEGORY_VALUE_FX__VALUE, oldValue,
+					value));
 	}
 
 	/**
@@ -140,10 +141,10 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ChartPackage.XY_VALUE_FX__X:
-			return getX();
-		case ChartPackage.XY_VALUE_FX__Y:
-			return getY();
+		case ChartPackage.CATEGORY_VALUE_FX__NAME:
+			return getName();
+		case ChartPackage.CATEGORY_VALUE_FX__VALUE:
+			return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,11 +157,11 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ChartPackage.XY_VALUE_FX__X:
-			setX((Double) newValue);
+		case ChartPackage.CATEGORY_VALUE_FX__NAME:
+			setName((String) newValue);
 			return;
-		case ChartPackage.XY_VALUE_FX__Y:
-			setY((Double) newValue);
+		case ChartPackage.CATEGORY_VALUE_FX__VALUE:
+			setValue((Double) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,11 +175,11 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ChartPackage.XY_VALUE_FX__X:
-			setX(X_EDEFAULT);
+		case ChartPackage.CATEGORY_VALUE_FX__NAME:
+			setName(NAME_EDEFAULT);
 			return;
-		case ChartPackage.XY_VALUE_FX__Y:
-			setY(Y_EDEFAULT);
+		case ChartPackage.CATEGORY_VALUE_FX__VALUE:
+			setValue(VALUE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +193,10 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ChartPackage.XY_VALUE_FX__X:
-			return x != X_EDEFAULT;
-		case ChartPackage.XY_VALUE_FX__Y:
-			return y != Y_EDEFAULT;
+		case ChartPackage.CATEGORY_VALUE_FX__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ChartPackage.CATEGORY_VALUE_FX__VALUE:
+			return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -211,12 +212,12 @@ public class XYValueFXImpl extends MinimalEObjectImpl.Container implements XYVal
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (x: ");
-		result.append(x);
-		result.append(", y: ");
-		result.append(y);
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}
 
-} //XYValueFXImpl
+} //CategoryValueFXImpl

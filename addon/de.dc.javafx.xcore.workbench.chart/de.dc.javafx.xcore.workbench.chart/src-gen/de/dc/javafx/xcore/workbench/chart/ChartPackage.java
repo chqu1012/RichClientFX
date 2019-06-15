@@ -316,6 +316,52 @@ public interface ChartPackage extends EPackage {
 	int XY_VALUE_FX_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.CategoryValueFXImpl <em>Category Value FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.CategoryValueFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getCategoryValueFX()
+	 * @generated
+	 */
+	int CATEGORY_VALUE_FX = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_VALUE_FX__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_VALUE_FX__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Category Value FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_VALUE_FX_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Category Value FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_VALUE_FX_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.LineChartFXImpl <em>Line Chart FX</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,7 +369,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getLineChartFX()
 	 * @generated
 	 */
-	int LINE_CHART_FX = 5;
+	int LINE_CHART_FX = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -396,7 +442,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getAreaChartFX()
 	 * @generated
 	 */
-	int AREA_CHART_FX = 6;
+	int AREA_CHART_FX = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -469,7 +515,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getScatterChartFX()
 	 * @generated
 	 */
-	int SCATTER_CHART_FX = 7;
+	int SCATTER_CHART_FX = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -542,7 +588,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getBubbleChartFX()
 	 * @generated
 	 */
-	int BUBBLE_CHART_FX = 8;
+	int BUBBLE_CHART_FX = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -608,6 +654,61 @@ public interface ChartPackage extends EPackage {
 	int BUBBLE_CHART_FX_OPERATION_COUNT = XY_CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.PieChartFXImpl <em>Pie Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.PieChartFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getPieChartFX()
+	 * @generated
+	 */
+	int PIE_CHART_FX = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__NAME = CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__CONFIG = CHART_FX__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__VALUES = CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Pie Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX_FEATURE_COUNT = CHART_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Pie Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -615,7 +716,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
 	 * @generated
 	 */
-	int CHART_FX_CONFIG = 9;
+	int CHART_FX_CONFIG = 11;
 
 	/**
 	 * The feature id for the '<em><b>Side Legend</b></em>' attribute.
@@ -733,7 +834,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
 	 * @generated
 	 */
-	int CHART_SIDE = 10;
+	int CHART_SIDE = 12;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartProject <em>Project</em>}'.
@@ -907,6 +1008,38 @@ public interface ChartPackage extends EPackage {
 	EAttribute getXYValueFX_Y();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.CategoryValueFX <em>Category Value FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Category Value FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.CategoryValueFX
+	 * @generated
+	 */
+	EClass getCategoryValueFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.CategoryValueFX#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.CategoryValueFX#getName()
+	 * @see #getCategoryValueFX()
+	 * @generated
+	 */
+	EAttribute getCategoryValueFX_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.CategoryValueFX#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.CategoryValueFX#getValue()
+	 * @see #getCategoryValueFX()
+	 * @generated
+	 */
+	EAttribute getCategoryValueFX_Value();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.LineChartFX <em>Line Chart FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -945,6 +1078,27 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBubbleChartFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.PieChartFX <em>Pie Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pie Chart FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.PieChartFX
+	 * @generated
+	 */
+	EClass getPieChartFX();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.chart.PieChartFX#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.PieChartFX#getValues()
+	 * @see #getPieChartFX()
+	 * @generated
+	 */
+	EReference getPieChartFX_Values();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig <em>FX Config</em>}'.
@@ -1238,6 +1392,32 @@ public interface ChartPackage extends EPackage {
 		EAttribute XY_VALUE_FX__Y = eINSTANCE.getXYValueFX_Y();
 
 		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.CategoryValueFXImpl <em>Category Value FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.CategoryValueFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getCategoryValueFX()
+		 * @generated
+		 */
+		EClass CATEGORY_VALUE_FX = eINSTANCE.getCategoryValueFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATEGORY_VALUE_FX__NAME = eINSTANCE.getCategoryValueFX_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATEGORY_VALUE_FX__VALUE = eINSTANCE.getCategoryValueFX_Value();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.LineChartFXImpl <em>Line Chart FX</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1276,6 +1456,24 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BUBBLE_CHART_FX = eINSTANCE.getBubbleChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.PieChartFXImpl <em>Pie Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.PieChartFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getPieChartFX()
+		 * @generated
+		 */
+		EClass PIE_CHART_FX = eINSTANCE.getPieChartFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIE_CHART_FX__VALUES = eINSTANCE.getPieChartFX_Values();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.

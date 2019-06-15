@@ -28,12 +28,12 @@ public interface XYValueFX extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>X</em>' attribute.
-	 * @see #setX(String)
+	 * @see #setX(double)
 	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYValueFX_X()
 	 * @model default="0" unique="false"
 	 * @generated
 	 */
-	String getX();
+	double getX();
 
 	/**
 	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.chart.XYValueFX#getX <em>X</em>}' attribute.
@@ -43,7 +43,7 @@ public interface XYValueFX extends EObject {
 	 * @see #getX()
 	 * @generated
 	 */
-	void setX(String value);
+	void setX(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Y</b></em>' attribute.
@@ -51,12 +51,12 @@ public interface XYValueFX extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Y</em>' attribute.
-	 * @see #setY(String)
+	 * @see #setY(double)
 	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getXYValueFX_Y()
 	 * @model default="0" unique="false"
 	 * @generated
 	 */
-	String getY();
+	double getY();
 
 	/**
 	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.chart.XYValueFX#getY <em>Y</em>}' attribute.
@@ -66,6 +66,6 @@ public interface XYValueFX extends EObject {
 	 * @see #getY()
 	 * @generated
 	 */
-	void setY(String value);
+	void setY(double value);
 
 } // XYValueFX

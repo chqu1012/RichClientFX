@@ -2,8 +2,8 @@
  */
 package de.dc.javafx.xcore.workbench.chart.provider;
 
+import de.dc.javafx.xcore.workbench.chart.CategoryValueFX;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
-import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.XYValueFX} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.CategoryValueFX} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XYValueFXItemProvider extends ItemProviderAdapter
+public class CategoryValueFXItemProvider extends ItemProviderAdapter
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
 		IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider {
 	/**
@@ -40,7 +40,7 @@ public class XYValueFXItemProvider extends ItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XYValueFXItemProvider(AdapterFactory adapterFactory) {
+	public CategoryValueFXItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -55,53 +55,53 @@ public class XYValueFXItemProvider extends ItemProviderAdapter
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXPropertyDescriptor(object);
-			addYPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the X feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_XYValueFX_x_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_XYValueFX_x_feature",
-								"_UI_XYValueFX_type"),
-						ChartPackage.Literals.XY_VALUE_FX__X, true, false, false,
-						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_CategoryValueFX_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CategoryValueFX_name_feature",
+								"_UI_CategoryValueFX_type"),
+						ChartPackage.Literals.CATEGORY_VALUE_FX__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Y feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addYPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_XYValueFX_y_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_XYValueFX_y_feature",
-								"_UI_XYValueFX_type"),
-						ChartPackage.Literals.XY_VALUE_FX__Y, true, false, false,
+						getResourceLocator(), getString("_UI_CategoryValueFX_value_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CategoryValueFX_value_feature",
+								"_UI_CategoryValueFX_type"),
+						ChartPackage.Literals.CATEGORY_VALUE_FX__VALUE, true, false, false,
 						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns XYValueFX.gif.
+	 * This returns CategoryValueFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XYValueFX"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CategoryValueFX"));
 	}
 
 	/**
@@ -137,8 +137,9 @@ public class XYValueFXItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		XYValueFX xyValueFX = (XYValueFX) object;
-		return getString("_UI_XYValueFX_type") + " " + xyValueFX.getX();
+		String label = ((CategoryValueFX) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_CategoryValueFX_type")
+				: getString("_UI_CategoryValueFX_type") + " " + label;
 	}
 
 	/**
@@ -147,23 +148,13 @@ public class XYValueFXItemProvider extends ItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @see #getImage(Object)
 	 * @see #getColumnImage(Object, int)
-	 * @generated not
+	 * @generated
 	 */
 	@Override
 	public String getColumnText(Object object, int columnIndex) {
 		// TODO: implement this method to return appropriate information for each column.
 		// Ensure that you remove @generated or mark it @generated NOT
-		//		return columnIndex == 0 ? getText(object) : super.getText(object);
-
-		XYValueFX item = (XYValueFX) object;
-		switch (columnIndex) {
-		case 0:
-			return String.valueOf(item.getX());
-		case 1:
-			return String.valueOf(item.getY());
-		default:
-			return "";
-		}
+		return columnIndex == 0 ? getText(object) : super.getText(object);
 	}
 
 	/**
@@ -177,9 +168,9 @@ public class XYValueFXItemProvider extends ItemProviderAdapter
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(XYValueFX.class)) {
-		case ChartPackage.XY_VALUE_FX__X:
-		case ChartPackage.XY_VALUE_FX__Y:
+		switch (notification.getFeatureID(CategoryValueFX.class)) {
+		case ChartPackage.CATEGORY_VALUE_FX__NAME:
+		case ChartPackage.CATEGORY_VALUE_FX__VALUE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

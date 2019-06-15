@@ -62,6 +62,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createSeriesFX();
 		case ChartPackage.XY_VALUE_FX:
 			return createXYValueFX();
+		case ChartPackage.CATEGORY_VALUE_FX:
+			return createCategoryValueFX();
 		case ChartPackage.LINE_CHART_FX:
 			return createLineChartFX();
 		case ChartPackage.AREA_CHART_FX:
@@ -70,6 +72,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createScatterChartFX();
 		case ChartPackage.BUBBLE_CHART_FX:
 			return createBubbleChartFX();
+		case ChartPackage.PIE_CHART_FX:
+			return createPieChartFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:
@@ -146,6 +150,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * @generated
 	 */
 	@Override
+	public CategoryValueFX createCategoryValueFX() {
+		CategoryValueFXImpl categoryValueFX = new CategoryValueFXImpl();
+		return categoryValueFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public LineChartFX createLineChartFX() {
 		LineChartFXImpl lineChartFX = new LineChartFXImpl();
 		return lineChartFX;
@@ -182,6 +197,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public BubbleChartFX createBubbleChartFX() {
 		BubbleChartFXImpl bubbleChartFX = new BubbleChartFXImpl();
 		return bubbleChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PieChartFX createPieChartFX() {
+		PieChartFXImpl pieChartFX = new PieChartFXImpl();
+		return pieChartFX;
 	}
 
 	/**

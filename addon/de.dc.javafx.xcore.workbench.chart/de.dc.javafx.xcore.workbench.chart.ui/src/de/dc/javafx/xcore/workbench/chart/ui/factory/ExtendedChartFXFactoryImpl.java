@@ -29,6 +29,8 @@ public class ExtendedChartFXFactoryImpl extends ChartFactoryImpl implements Exte
 			return createSeriesFX();
 		case ChartPackage.XY_VALUE_FX:
 			return createXYValueFX();
+		case ChartPackage.CATEGORY_VALUE_FX:
+			return createCategoryValueFX();
 		case ChartPackage.LINE_CHART_FX:
 			return createLineChartFX();
 		case ChartPackage.AREA_CHART_FX:
@@ -37,6 +39,8 @@ public class ExtendedChartFXFactoryImpl extends ChartFactoryImpl implements Exte
 			return createScatterChartFX();
 		case ChartPackage.BUBBLE_CHART_FX:
 			return createBubbleChartFX();
+		case ChartPackage.PIE_CHART_FX:
+			return createPieChartFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:

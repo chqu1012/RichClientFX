@@ -33,14 +33,23 @@ class SeriesFX{
 }
 
 class XYValueFX{
-	String x ='0'
-	String y = '0'
+	double x ='0'
+	double y = '0'
+}
+
+class CategoryValueFX{
+	String name = ''
+	double value ='0'
 }
 
 class LineChartFX extends XYChartFX{}
 class AreaChartFX extends XYChartFX{}
 class ScatterChartFX extends XYChartFX{}
 class BubbleChartFX extends XYChartFX{}
+
+class PieChartFX extends ChartFX{
+	contains CategoryValueFX[0..*] values
+}
 
 class ChartFXConfig{
 	ChartSide sideLegend
