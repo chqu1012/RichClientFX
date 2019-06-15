@@ -21,7 +21,7 @@ public class BlogFile extends EmfFile<Blog> {
 	}
 
 	@Override
-	protected String getExtension() {
+	public String getExtension() {
 		return "blog";
 	}
 

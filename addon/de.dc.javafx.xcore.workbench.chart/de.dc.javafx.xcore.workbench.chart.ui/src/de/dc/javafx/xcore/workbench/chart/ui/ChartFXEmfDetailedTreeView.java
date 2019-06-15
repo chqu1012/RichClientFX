@@ -1,5 +1,6 @@
 package de.dc.javafx.xcore.workbench.chart.ui;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.factory.CommandFactory;
+import de.dc.javafx.xcore.workbench.ui.file.IEmfFileService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -42,7 +44,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewController implements ChangeListener<TreeItem<Object>>{
+public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewController implements ChangeListener<TreeItem<Object>>, IEmfFileService{
 	
 	private ObservableList<Boolean> values = FXCollections.observableArrayList();
 	private EditingDomain editingDomain;
@@ -206,7 +208,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 			}
 		}
 	}
-
+	
 	private void clearAllFields() {
 		attributeContainer.getChildren().clear();
 		eattributeUIMap.clear();
@@ -223,6 +225,16 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 			value = valueFX.eContainer().eContainer();
 		}
 		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", value));
+	}
+
+	@Override
+	public String getExtension() {
+		return "chart";
+	}
+	
+	@Override
+	public void save(File file) {
+		treeView.save(file);
 	}
 }
 

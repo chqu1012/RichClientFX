@@ -9,6 +9,7 @@
     <items name="Open File" command="//@commands.5"/>
     <items name="Open Blog" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-opened-folder-16.png" command="//@commands.6"/>
     <items name="Save As Blog" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-save-16.png" command="//@commands.7"/>
+    <items name="General Save As" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-save-16.png" command="//@commands.8"/>
   </toolbar>
   <statusline/>
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
@@ -86,4 +87,5 @@
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenFileCommand" name="Open File" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenFileCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenBlogCommand" name="Open Blog" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenBlogCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand" name="Save As Blog" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand"/>
+  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand" name="General Save As" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand"/>
 </workbench:Workbench>

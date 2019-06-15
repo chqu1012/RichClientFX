@@ -23,7 +23,9 @@ import javafx.scene.chart.Chart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
+import javafx.scene.paint.Color;
 
 public class ChartFXRenderer extends ChartSwitch<Node> {
 
@@ -61,12 +63,16 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	}
 
 	private void initSeries(XYChartFX object, BaseXYChart<Number, Number> chart) {
+		final Label caption = new Label("");
+		caption.setTextFill(Color.DARKORANGE);
+		caption.setStyle("-fx-font: 24 arial;");
+		
 		for (SeriesFX seriesFX : object.getSeries()) {
 			Series<Number, Number> series = chart.addSerie(seriesFX.getName());
 			for (XYValueFX item : seriesFX.getValues()) {
 				Double x = Double.parseDouble(item.getX());
 				Double y = Double.parseDouble(item.getY());
-				series.getData().add(new XYChart.Data<Number, Number>(x, y));
+				series.getData().add( new XYChart.Data<Number, Number>(x, y));
 			}
 		}
 	}

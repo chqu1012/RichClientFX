@@ -62,5 +62,5 @@ public abstract class EmfFile<T> {
 
 	protected abstract EFactory getEFactoryEInstance();
 	
-	protected abstract String getExtension();
+	public abstract String getExtension();
 }

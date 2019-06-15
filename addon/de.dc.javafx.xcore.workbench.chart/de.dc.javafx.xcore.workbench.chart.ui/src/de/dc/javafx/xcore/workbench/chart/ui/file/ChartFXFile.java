@@ -21,7 +21,7 @@ public class ChartFXFile extends EmfFile<ChartProject>{
 	}
 
 	@Override
-	protected String getExtension() {
+	public String getExtension() {
 		return "chart";
 	}
 

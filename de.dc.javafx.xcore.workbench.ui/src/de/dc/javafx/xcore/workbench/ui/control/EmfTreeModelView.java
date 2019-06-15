@@ -37,6 +37,7 @@ import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.factory.CommandFactory;
 import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
+import de.dc.javafx.xcore.workbench.ui.file.IEmfFileService;
 import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -61,7 +62,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object> {
+public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object>, IEmfFileService {
 
 	private Logger log = Logger.getLogger(EmfTreeModelView.class.getSimpleName());
 
@@ -149,11 +150,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		this.manager = manager;
 		this.editingDomain = manager.getEditingDomain();
 		initTreeView();
-	}
-
-	public void save(File f) {
-		file.write(manager.getRoot(), f.getAbsolutePath());
-		log.log(Level.INFO, "Write emf model to path " + f.getAbsolutePath());
 	}
 
 	public void load(T input) {
@@ -349,6 +345,17 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		}
 	}
 
+	@Override
+	public void save(File f) {
+		file.write(manager.getRoot(), f.getAbsolutePath());
+		log.log(Level.INFO, "Write emf model to path " + f.getAbsolutePath());
+	}
+	
+	@Override
+	public String getExtension() {
+		return file.getExtension();
+	}
+	
 	@Override
 	public void commandStackChanged(EventObject event) {
 	}

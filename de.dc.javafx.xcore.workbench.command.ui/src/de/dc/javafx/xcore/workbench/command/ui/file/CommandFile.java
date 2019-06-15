@@ -21,7 +21,7 @@ public class CommandFile extends EmfFile<EmfCommandHistory>{
 	}
 
 	@Override
-	protected String getExtension() {
+	public String getExtension() {
 		return "command";
 	}
 
