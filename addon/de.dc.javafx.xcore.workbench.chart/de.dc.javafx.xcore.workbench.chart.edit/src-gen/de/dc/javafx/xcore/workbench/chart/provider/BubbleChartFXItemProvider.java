@@ -48,11 +48,12 @@ public class BubbleChartFXItemProvider extends XYChartFXItemProvider {
 	 * This returns BubbleChartFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BubbleChartFX"));
+//		return overlayImage(object, getResourceLocator().getImage("full/obj16/BubbleChartFX"));
+		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-streudiagramm-16.png"));
 	}
 
 	/**

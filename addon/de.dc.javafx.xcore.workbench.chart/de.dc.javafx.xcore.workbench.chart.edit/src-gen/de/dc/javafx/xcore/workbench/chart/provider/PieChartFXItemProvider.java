@@ -82,11 +82,12 @@ public class PieChartFXItemProvider extends ChartFXItemProvider {
 	 * This returns PieChartFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PieChartFX"));
+//		return overlayImage(object, getResourceLocator().getImage("full/obj16/PieChartFX"));
+		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-ring-diagramm-16.png"));
 	}
 
 	/**
