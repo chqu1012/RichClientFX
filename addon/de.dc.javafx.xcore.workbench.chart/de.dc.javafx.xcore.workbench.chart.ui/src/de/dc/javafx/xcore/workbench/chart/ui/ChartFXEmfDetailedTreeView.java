@@ -16,7 +16,9 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
+import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.ui.controller.BaseChartFXEmfDetailedTreeViewController;
 import de.dc.javafx.xcore.workbench.chart.ui.factory.ExtendedChartFXFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
@@ -182,7 +184,7 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 					});
 					Button addChildButton = new Button("Add");
 					addChildButton.setOnAction(e->{
-						IEmfManager<LineChartFX> emfManager = treeView.getEmfManager();
+						IEmfManager<ChartProject> emfManager = treeView.getEmfManager();
 						String name = param.getValue().getClass().getSimpleName().replace("Impl", "");
 						int id = EmfUtil.getValueByName(emfManager.getModelPackage(), name);
 						EObject createdObject = emfManager.getExtendedModelFactory().create(id);
@@ -215,7 +217,12 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 	private void executeCommand(Command command) {
 		editingDomain.getCommandStack().execute(command);
 		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
-		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", treeView.getEmfManager().getRoot()));
+		Object value = treeView.getTreeView().getSelectionModel().getSelectedItem().getValue();
+		if (value instanceof XYValueFX) {
+			XYValueFX valueFX = (XYValueFX) value;
+			value = valueFX.eContainer().eContainer();
+		}
+		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>("chartfx.update", value));
 	}
 }
 

@@ -23,12 +23,16 @@ public class ExtendedChartFXFactoryImpl extends ChartFactoryImpl implements Exte
 	@Override
 	public EObject create(int classifierId) {
 		switch (classifierId) {
+		case ChartPackage.CHART_PROJECT:
+			return createChartProject();
 		case ChartPackage.SERIES_FX:
 			return createSeriesFX();
 		case ChartPackage.XY_VALUE_FX:
 			return createXYValueFX();
 		case ChartPackage.LINE_CHART_FX:
 			return createLineChartFX();
+		case ChartPackage.AREA_CHART_FX:
+			return createAreaChartFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:

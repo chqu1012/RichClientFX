@@ -5,10 +5,10 @@ import org.eclipse.emf.ecore.EPackage;
 
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
-import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
 
-public class ChartFXFile extends EmfFile<LineChartFX>{
+public class ChartFXFile extends EmfFile<ChartProject>{
 
 	@Override
 	protected EPackage getEPackageEInstance() {

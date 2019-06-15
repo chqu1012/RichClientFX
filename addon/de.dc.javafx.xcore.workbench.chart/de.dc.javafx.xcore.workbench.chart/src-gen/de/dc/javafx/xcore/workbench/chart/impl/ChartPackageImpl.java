@@ -2,10 +2,12 @@
  */
 package de.dc.javafx.xcore.workbench.chart.impl;
 
+import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
+import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.ChartSide;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
@@ -28,6 +30,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chartProjectEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,6 +71,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass lineChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass areaChartFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,6 +158,36 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ChartPackage.eNS_URI, theChartPackage);
 		return theChartPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getChartProject() {
+		return chartProjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartProject_Name() {
+		return (EAttribute) chartProjectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getChartProject_Charts() {
+		return (EReference) chartProjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -282,6 +328,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	@Override
 	public EClass getLineChartFX() {
 		return lineChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAreaChartFX() {
+		return areaChartFXEClass;
 	}
 
 	/**
@@ -434,6 +490,10 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		chartProjectEClass = createEClass(CHART_PROJECT);
+		createEAttribute(chartProjectEClass, CHART_PROJECT__NAME);
+		createEReference(chartProjectEClass, CHART_PROJECT__CHARTS);
+
 		chartFXEClass = createEClass(CHART_FX);
 		createEAttribute(chartFXEClass, CHART_FX__NAME);
 		createEReference(chartFXEClass, CHART_FX__CONFIG);
@@ -452,6 +512,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		createEAttribute(xyValueFXEClass, XY_VALUE_FX__Y);
 
 		lineChartFXEClass = createEClass(LINE_CHART_FX);
+
+		areaChartFXEClass = createEClass(AREA_CHART_FX);
 
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
@@ -503,8 +565,18 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		// Add supertypes to classes
 		xyChartFXEClass.getESuperTypes().add(this.getChartFX());
 		lineChartFXEClass.getESuperTypes().add(this.getXYChartFX());
+		areaChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChartProject_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ChartProject.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getChartProject_Charts(), this.getChartFX(), null, "charts", null, 0, -1, ChartProject.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(chartFXEClass, ChartFX.class, "ChartFX", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChartFX_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ChartFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
@@ -542,6 +614,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineChartFXEClass, LineChartFX.class, "LineChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(areaChartFXEClass, AreaChartFX.class, "AreaChartFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,

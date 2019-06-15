@@ -35,10 +35,10 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 		this.xAxis = xAxis;
 		this.yAxis = yAxis;
 		chart = getChart(xAxis, yAxis);
-		xAxis.setLabel(getXAxisTitle());
-		yAxis.setLabel(getYAxisTitle());
+		xAxis.setLabel(getxAxisLabel());
+		yAxis.setLabel(getyAxisLabel());
 
-		chart.setTitle(getChartTitle());
+		chart.setTitle(getTitle());
 
 		getChildren().add(chart);
 		
@@ -48,12 +48,6 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 
 	protected abstract XYChart<X, Y> getChart(Axis<X> xAxis, Axis<Y> yAxis);
 
-	protected abstract String getChartTitle();
-
-	protected abstract String getYAxisTitle();
-
-	protected abstract String getXAxisTitle();
-	
 	public void enabledThreshold(boolean enableThreshold) {
 		this.enabledThreshold = enableThreshold;
 	}
@@ -125,11 +119,42 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 		return chart;
 	}
 	
-	public Axis<X> getXAxis() {
-		return xAxis;
+	public void setxAxis(Axis<X> xAxis) {
+		this.xAxis = xAxis;
 	}
 
-	public Axis<Y> getYAxis() {
+	public Axis<Y> getyAxis() {
 		return yAxis;
+	}
+
+	public void setyAxis(Axis<Y> yAxis) {
+		this.yAxis = yAxis;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+		chart.setTitle(title);
+	}
+
+	public String getxAxisLabel() {
+		return xAxisLabel;
+	}
+
+	public void setxAxisLabel(String xAxisLabel) {
+		this.xAxisLabel = xAxisLabel;
+		xAxis.setLabel(xAxisLabel);
+	}
+
+	public String getyAxisLabel() {
+		return yAxisLabel;
+	}
+
+	public void setyAxisLabel(String yAxisLabel) {
+		this.yAxisLabel = yAxisLabel;
+		yAxis.setLabel(yAxisLabel);
 	}
 }

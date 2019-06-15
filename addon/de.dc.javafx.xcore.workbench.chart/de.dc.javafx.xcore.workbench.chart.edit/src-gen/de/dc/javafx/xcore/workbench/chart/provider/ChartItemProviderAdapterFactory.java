@@ -75,6 +75,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.ChartProject} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChartProjectItemProvider chartProjectItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.ChartProject}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChartProjectAdapter() {
+		if (chartProjectItemProvider == null) {
+			chartProjectItemProvider = new ChartProjectItemProvider(this);
+		}
+
+		return chartProjectItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.SeriesFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,6 +164,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 		}
 
 		return lineChartFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.AreaChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AreaChartFXItemProvider areaChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.AreaChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAreaChartFXAdapter() {
+		if (areaChartFXItemProvider == null) {
+			areaChartFXItemProvider = new AreaChartFXItemProvider(this);
+		}
+
+		return areaChartFXItemProvider;
 	}
 
 	/**
@@ -271,12 +317,16 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	 */
 	@Override
 	public void dispose() {
+		if (chartProjectItemProvider != null)
+			chartProjectItemProvider.dispose();
 		if (seriesFXItemProvider != null)
 			seriesFXItemProvider.dispose();
 		if (xyValueFXItemProvider != null)
 			xyValueFXItemProvider.dispose();
 		if (lineChartFXItemProvider != null)
 			lineChartFXItemProvider.dispose();
+		if (areaChartFXItemProvider != null)
+			areaChartFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}

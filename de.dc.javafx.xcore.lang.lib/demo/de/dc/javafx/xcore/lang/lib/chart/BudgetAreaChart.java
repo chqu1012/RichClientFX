@@ -9,17 +9,18 @@ public class BudgetAreaChart extends BaseAreaChart<Number, Number> {
 	}
 
 	@Override
-	protected String getChartTitle() {
+	public String getTitle() {
 		return "Budget Overview AreaChart";
 	}
 
 	@Override
-	protected String getYAxisTitle() {
+	public String getxAxisLabel() {
 		return "Months";
 	}
+	
 
 	@Override
-	protected String getXAxisTitle() {
+	public String getyAxisLabel() {
 		return "Values";
 	}
 }

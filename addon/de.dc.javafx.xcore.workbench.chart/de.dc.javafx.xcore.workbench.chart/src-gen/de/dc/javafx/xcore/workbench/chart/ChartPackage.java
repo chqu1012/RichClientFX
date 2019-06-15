@@ -59,6 +59,52 @@ public interface ChartPackage extends EPackage {
 	ChartPackage eINSTANCE = de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartProjectImpl <em>Project</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartProjectImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartProject()
+	 * @generated
+	 */
+	int CHART_PROJECT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_PROJECT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Charts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_PROJECT__CHARTS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Project</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_PROJECT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Project</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_PROJECT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl <em>FX</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +112,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFX()
 	 * @generated
 	 */
-	int CHART_FX = 0;
+	int CHART_FX = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -112,7 +158,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYChartFX()
 	 * @generated
 	 */
-	int XY_CHART_FX = 1;
+	int XY_CHART_FX = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -185,7 +231,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getSeriesFX()
 	 * @generated
 	 */
-	int SERIES_FX = 2;
+	int SERIES_FX = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -231,7 +277,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYValueFX()
 	 * @generated
 	 */
-	int XY_VALUE_FX = 3;
+	int XY_VALUE_FX = 4;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -277,7 +323,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getLineChartFX()
 	 * @generated
 	 */
-	int LINE_CHART_FX = 4;
+	int LINE_CHART_FX = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -343,6 +389,79 @@ public interface ChartPackage extends EPackage {
 	int LINE_CHART_FX_OPERATION_COUNT = XY_CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.AreaChartFXImpl <em>Area Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.AreaChartFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getAreaChartFX()
+	 * @generated
+	 */
+	int AREA_CHART_FX = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__NAME = XY_CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__CONFIG = XY_CHART_FX__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__XAXIS_LABEL = XY_CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__SERIES = XY_CHART_FX__SERIES;
+
+	/**
+	 * The number of structural features of the '<em>Area Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX_FEATURE_COUNT = XY_CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Area Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX_OPERATION_COUNT = XY_CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,7 +469,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
 	 * @generated
 	 */
-	int CHART_FX_CONFIG = 5;
+	int CHART_FX_CONFIG = 7;
 
 	/**
 	 * The feature id for the '<em><b>Side Legend</b></em>' attribute.
@@ -468,7 +587,39 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
 	 * @generated
 	 */
-	int CHART_SIDE = 6;
+	int CHART_SIDE = 8;
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartProject <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Project</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartProject
+	 * @generated
+	 */
+	EClass getChartProject();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartProject#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartProject#getName()
+	 * @see #getChartProject()
+	 * @generated
+	 */
+	EAttribute getChartProject_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.chart.ChartProject#getCharts <em>Charts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Charts</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartProject#getCharts()
+	 * @see #getChartProject()
+	 * @generated
+	 */
+	EReference getChartProject_Charts();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFX <em>FX</em>}'.
@@ -618,6 +769,16 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLineChartFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.AreaChartFX <em>Area Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Area Chart FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.AreaChartFX
+	 * @generated
+	 */
+	EClass getAreaChartFX();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig <em>FX Config</em>}'.
@@ -773,6 +934,32 @@ public interface ChartPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartProjectImpl <em>Project</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartProjectImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartProject()
+		 * @generated
+		 */
+		EClass CHART_PROJECT = eINSTANCE.getChartProject();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_PROJECT__NAME = eINSTANCE.getChartProject_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Charts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHART_PROJECT__CHARTS = eINSTANCE.getChartProject_Charts();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl <em>FX</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -893,6 +1080,16 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LINE_CHART_FX = eINSTANCE.getLineChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.AreaChartFXImpl <em>Area Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.AreaChartFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getAreaChartFX()
+		 * @generated
+		 */
+		EClass AREA_CHART_FX = eINSTANCE.getAreaChartFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.

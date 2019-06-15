@@ -11,7 +11,6 @@ import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 
 public class ChartFXPreview extends FXPreview{
@@ -36,8 +35,7 @@ public class ChartFXPreview extends FXPreview{
 			TreeItem<Object> treeItem = (TreeItem) newValue;
 			Object value = treeItem.getValue();
 			if (value instanceof EObject) {
-				EObject eObject = EcoreUtil.getRootContainer((EObject) value);
-				setCenter(renderer.doSwitch(eObject));
+				setCenter(renderer.doSwitch((EObject) value));
 			}
 		}
 	}

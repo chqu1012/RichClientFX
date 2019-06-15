@@ -11,6 +11,11 @@
 	tableProviders="true", dataTypeConverters="true")
 package de.dc.javafx.xcore.workbench.chart
 
+class ChartProject{
+	String name
+	contains ChartFX[0..*] charts
+}
+
 abstract class ChartFX{
 	String name
 	contains ChartFXConfig config
@@ -33,6 +38,7 @@ class XYValueFX{
 }
 
 class LineChartFX extends XYChartFX{}
+class AreaChartFX extends XYChartFX{}
 
 class ChartFXConfig{
 	ChartSide sideLegend

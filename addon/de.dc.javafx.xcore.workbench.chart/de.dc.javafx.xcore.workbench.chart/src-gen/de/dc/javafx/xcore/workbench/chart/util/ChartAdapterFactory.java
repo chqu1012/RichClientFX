@@ -67,6 +67,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected ChartSwitch<Adapter> modelSwitch = new ChartSwitch<Adapter>() {
 		@Override
+		public Adapter caseChartProject(ChartProject object) {
+			return createChartProjectAdapter();
+		}
+
+		@Override
 		public Adapter caseChartFX(ChartFX object) {
 			return createChartFXAdapter();
 		}
@@ -92,6 +97,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAreaChartFX(AreaChartFX object) {
+			return createAreaChartFXAdapter();
+		}
+
+		@Override
 		public Adapter caseChartFXConfig(ChartFXConfig object) {
 			return createChartFXConfigAdapter();
 		}
@@ -113,6 +123,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	@Override
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject) target);
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.ChartProject <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartProject
+	 * @generated
+	 */
+	public Adapter createChartProjectAdapter() {
+		return null;
 	}
 
 	/**
@@ -182,6 +206,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLineChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.AreaChartFX <em>Area Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.AreaChartFX
+	 * @generated
+	 */
+	public Adapter createAreaChartFXAdapter() {
 		return null;
 	}
 

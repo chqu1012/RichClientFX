@@ -10,17 +10,17 @@ public class BudgetLineChart extends BaseLineChart<String, Number>{
 	}
 
 	@Override
-	protected String getChartTitle() {
+	public String getTitle() {
 		return "Budget Overview";
 	}
 
 	@Override
-	protected String getYAxisTitle() {
+	public String getyAxisLabel() {
 		return "Values";
 	}
 
 	@Override
-	protected String getXAxisTitle() {
+	public String getxAxisLabel() {
 		return "Month";
 	}
 

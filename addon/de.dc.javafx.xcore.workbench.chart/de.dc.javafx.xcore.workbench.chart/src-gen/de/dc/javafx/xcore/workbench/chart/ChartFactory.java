@@ -22,6 +22,15 @@ public interface ChartFactory extends EFactory {
 	ChartFactory eINSTANCE = de.dc.javafx.xcore.workbench.chart.impl.ChartFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Project</em>'.
+	 * @generated
+	 */
+	ChartProject createChartProject();
+
+	/**
 	 * Returns a new object of class '<em>Series FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,6 +56,15 @@ public interface ChartFactory extends EFactory {
 	 * @generated
 	 */
 	LineChartFX createLineChartFX();
+
+	/**
+	 * Returns a new object of class '<em>Area Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Area Chart FX</em>'.
+	 * @generated
+	 */
+	AreaChartFX createAreaChartFX();
 
 	/**
 	 * Returns a new object of class '<em>FX Config</em>'.

@@ -3,11 +3,15 @@ package de.dc.javafx.xcore.workbench.chart.ui.renderer;
 import org.gillius.jfxutils.chart.ChartPanManager;
 import org.gillius.jfxutils.chart.JFXChartUtil;
 
+import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
+import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
+import de.dc.javafx.xcore.lang.lib.chart.BaseXYChart;
+import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
+import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
-import de.dc.javafx.xcore.workbench.chart.ui.control.LineChartControl;
 import de.dc.javafx.xcore.workbench.chart.util.ChartSwitch;
 import javafx.geometry.Side;
 import javafx.scene.Node;
@@ -19,34 +23,45 @@ import javafx.scene.input.MouseButton;
 
 public class ChartFXRenderer extends ChartSwitch<Node> {
 
-	private Chart chart;
+	private Chart currentChart;
 
 	@Override
-	public Node caseLineChartFX(LineChartFX object) {
-		LineChartControl control = new LineChartControl(new NumberAxis(), new NumberAxis());
-		chart = control.getChart();
-		control.setTitle(object.getName());
-		control.setXAxisLabel(object.getXAxisLabel());
-		control.setYAxisLabel(object.getYAxisLabel());
+	public Node caseAreaChartFX(AreaChartFX object) {
+		BaseAreaChart<Number, Number> chart = new BaseAreaChart<>(new NumberAxis(), new NumberAxis());
+		currentChart = chart.getChart();
+		initChart(object, chart);
+		return chart;
+	}
 
+	private void initChart(XYChartFX object, BaseXYChart<Number, Number> chart) {
+		caseChartFXConfig(object.getConfig());
+		initSeries(object, chart);
+		enablePanning(true);
+		enableZooming(true);
+	}
+
+	private void initSeries(XYChartFX object, BaseXYChart<Number, Number> chart) {
 		for (SeriesFX seriesFX : object.getSeries()) {
-			Series<Number, Number> series = control.addSerie(seriesFX.getName());
+			Series<Number, Number> series = chart.addSerie(seriesFX.getName());
 			for (XYValueFX item : seriesFX.getValues()) {
 				Double x = Double.parseDouble(item.getX());
 				Double y = Double.parseDouble(item.getY());
 				series.getData().add(new XYChart.Data<Number, Number>(x, y));
 			}
 		}
-
-		enablePanning(true);
-		enableZooming(true);
-		caseChartFXConfig(object.getConfig());
+	}
+	
+	@Override
+	public Node caseLineChartFX(LineChartFX object) {
+		BaseLineChart<Number, Number> chart = new BaseLineChart<>(new NumberAxis(), new NumberAxis());
+		currentChart = chart.getChart();
+		initChart(object, chart);
 		return chart;
 	}
 
 	private void enablePanning(boolean enabled) {
-		if (chart instanceof XYChart && enabled) {
-			XYChart<Object, Object> xyChart = (XYChart) chart;
+		if (currentChart instanceof XYChart && enabled) {
+			XYChart<Object, Object> xyChart = (XYChart) currentChart;
 			ChartPanManager panner = new ChartPanManager(xyChart);
 			panner.setMouseFilter(mouseEvent -> {
 				if (mouseEvent.getButton() == MouseButton.SECONDARY
@@ -60,8 +75,8 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	}
 
 	private void enableZooming(boolean enabled) {
-		if (chart instanceof XYChart && enabled) {
-			XYChart<Object, Object> xyChart = (XYChart) chart;
+		if (currentChart instanceof XYChart && enabled) {
+			XYChart<Object, Object> xyChart = (XYChart) currentChart;
 			JFXChartUtil.setupZooming(xyChart, mouseEvent -> {
 				if (mouseEvent.getButton() != MouseButton.PRIMARY || mouseEvent.isShortcutDown())
 					mouseEvent.consume();
@@ -73,11 +88,11 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	@Override
 	public Node caseChartFXConfig(ChartFXConfig config) {
 		if (config!=null) {
-			chart.setLegendVisible(config.isShowLegend());
-			chart.setLegendSide(Side.valueOf(config.getSideLegend().getName()));
-			chart.setTitleSide(Side.valueOf(config.getTitleSide().getName()));
-			if (chart instanceof XYChart) {
-				XYChart<Object, Object> xyChart = (XYChart) chart;
+			currentChart.setLegendVisible(config.isShowLegend());
+			currentChart.setLegendSide(Side.valueOf(config.getSideLegend().getName()));
+			currentChart.setTitleSide(Side.valueOf(config.getTitleSide().getName()));
+			if (currentChart instanceof XYChart) {
+				XYChart<Object, Object> xyChart = (XYChart) currentChart;
 				xyChart.setAlternativeColumnFillVisible(config.isAlternativeColumnFillVisible());
 				xyChart.setAlternativeRowFillVisible(config.isAlternativeRowFillVisible());
 				xyChart.setHorizontalGridLinesVisible(config.isHorizontalGridLinesVisible());
@@ -86,6 +101,6 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 				xyChart.setVerticalZeroLineVisible(config.isVerticalZeroLinesVisible());
 			}
 		}
-		return chart;
+		return currentChart;
 	}
 }

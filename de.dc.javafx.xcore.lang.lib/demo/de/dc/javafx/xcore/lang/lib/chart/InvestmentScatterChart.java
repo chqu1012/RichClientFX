@@ -9,17 +9,17 @@ public class InvestmentScatterChart extends BaseScatterChart<Number, Number> {
 	}
 
 	@Override
-	protected String getChartTitle() {
+	public String getTitle() {
 		return "Investment Overview";
 	}
 
 	@Override
-	protected String getYAxisTitle() {
+	public String getyAxisLabel() {
 		return "Returns to date";
 	}
 
 	@Override
-	protected String getXAxisTitle() {
+	public String getxAxisLabel() {
 		return "Age (years)";
 	}
 

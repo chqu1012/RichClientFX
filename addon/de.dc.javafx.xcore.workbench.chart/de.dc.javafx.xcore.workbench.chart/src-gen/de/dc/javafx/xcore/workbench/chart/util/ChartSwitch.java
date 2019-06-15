@@ -66,6 +66,13 @@ public class ChartSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+		case ChartPackage.CHART_PROJECT: {
+			ChartProject chartProject = (ChartProject) theEObject;
+			T result = caseChartProject(chartProject);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.CHART_FX: {
 			ChartFX chartFX = (ChartFX) theEObject;
 			T result = caseChartFX(chartFX);
@@ -107,6 +114,17 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.AREA_CHART_FX: {
+			AreaChartFX areaChartFX = (AreaChartFX) theEObject;
+			T result = caseAreaChartFX(areaChartFX);
+			if (result == null)
+				result = caseXYChartFX(areaChartFX);
+			if (result == null)
+				result = caseChartFX(areaChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.CHART_FX_CONFIG: {
 			ChartFXConfig chartFXConfig = (ChartFXConfig) theEObject;
 			T result = caseChartFXConfig(chartFXConfig);
@@ -117,6 +135,21 @@ public class ChartSwitch<T> extends Switch<T> {
 		default:
 			return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChartProject(ChartProject object) {
+		return null;
 	}
 
 	/**
@@ -191,6 +224,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLineChartFX(LineChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Area Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Area Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAreaChartFX(AreaChartFX object) {
 		return null;
 	}
 

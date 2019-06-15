@@ -4,7 +4,7 @@ import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.XYChart;
 
-public abstract class BaseAreaChart<X, Y> extends BaseXYChart<X, Y> {
+public class BaseAreaChart<X, Y> extends BaseXYChart<X, Y> {
 
 	public BaseAreaChart(Axis<X> xAxis, Axis<Y> yAxis) {
 		super(xAxis, yAxis);

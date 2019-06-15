@@ -2,6 +2,7 @@ package de.dc.javafx.xcore.workbench.chart.ui;
 import com.google.common.eventbus.Subscribe;
 
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
+import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.ui.file.ChartFXFile;
 import de.dc.javafx.xcore.workbench.chart.ui.manager.ChartFXEmfManager;
@@ -14,7 +15,7 @@ import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.control.EmfTreeModelView;
 import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
 
-public class ChartFXEmfTreeView extends EmfTreeModelView<LineChartFX> {
+public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 
 	public ChartFXEmfTreeView() {
 		// Set edit mode for several attributes
@@ -35,7 +36,7 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<LineChartFX> {
 	}
 
 	@Override
-	protected IEmfManager<LineChartFX> getEmfManager() {
+	protected IEmfManager<ChartProject> getEmfManager() {
 		if (emfManager==null) {
 			emfManager = new ChartFXEmfManager();
 		}
@@ -43,7 +44,7 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<LineChartFX> {
 	}
 
 	@Override
-	protected EmfFile<LineChartFX> initEmfFile() {
+	protected EmfFile<ChartProject> initEmfFile() {
 		return new ChartFXFile();
 	}
 	

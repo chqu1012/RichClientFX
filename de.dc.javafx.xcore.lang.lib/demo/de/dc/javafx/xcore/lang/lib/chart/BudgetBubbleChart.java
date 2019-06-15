@@ -17,17 +17,17 @@ public class BudgetBubbleChart extends BaseBubbleChart<Number, Number> {
 	}
 
 	@Override
-	protected String getChartTitle() {
+	public String getTitle() {
 		return "Budget Overview BubbleChart";
 	}
 
 	@Override
-	protected String getYAxisTitle() {
+	public String getyAxisLabel() {
 		return "Product Budget";
 	}
 
 	@Override
-	protected String getXAxisTitle() {
+	public String getxAxisLabel() {
 		return "Weeks";
 	}
 

@@ -56,12 +56,16 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+		case ChartPackage.CHART_PROJECT:
+			return createChartProject();
 		case ChartPackage.SERIES_FX:
 			return createSeriesFX();
 		case ChartPackage.XY_VALUE_FX:
 			return createXYValueFX();
 		case ChartPackage.LINE_CHART_FX:
 			return createLineChartFX();
+		case ChartPackage.AREA_CHART_FX:
+			return createAreaChartFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:
@@ -105,6 +109,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * @generated
 	 */
 	@Override
+	public ChartProject createChartProject() {
+		ChartProjectImpl chartProject = new ChartProjectImpl();
+		return chartProject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SeriesFX createSeriesFX() {
 		SeriesFXImpl seriesFX = new SeriesFXImpl();
 		return seriesFX;
@@ -130,6 +145,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public LineChartFX createLineChartFX() {
 		LineChartFXImpl lineChartFX = new LineChartFXImpl();
 		return lineChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AreaChartFX createAreaChartFX() {
+		AreaChartFXImpl areaChartFX = new AreaChartFXImpl();
+		return areaChartFX;
 	}
 
 	/**

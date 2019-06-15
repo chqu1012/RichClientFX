@@ -10,17 +10,17 @@ public class CountryBarChart extends BaseBarChart<String, Number> {
 	}
 
 	@Override
-	protected String getChartTitle() {
+	public String getTitle() {
 		return "Country Summary";
 	}
 
 	@Override
-	protected String getYAxisTitle() {
+	public String getyAxisLabel() {
 		return "Value";
 	}
 
 	@Override
-	protected String getXAxisTitle() {
+	public String getxAxisLabel() {
 		return "Country";
 	}
 
