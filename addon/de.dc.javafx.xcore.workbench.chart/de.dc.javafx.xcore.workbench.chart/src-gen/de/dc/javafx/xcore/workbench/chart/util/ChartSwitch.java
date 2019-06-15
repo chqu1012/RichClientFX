@@ -136,6 +136,17 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.BUBBLE_CHART_FX: {
+			BubbleChartFX bubbleChartFX = (BubbleChartFX) theEObject;
+			T result = caseBubbleChartFX(bubbleChartFX);
+			if (result == null)
+				result = caseXYChartFX(bubbleChartFX);
+			if (result == null)
+				result = caseChartFX(bubbleChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.CHART_FX_CONFIG: {
 			ChartFXConfig chartFXConfig = (ChartFXConfig) theEObject;
 			T result = caseChartFXConfig(chartFXConfig);
@@ -265,6 +276,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseScatterChartFX(ScatterChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bubble Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bubble Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBubbleChartFX(BubbleChartFX object) {
 		return null;
 	}
 

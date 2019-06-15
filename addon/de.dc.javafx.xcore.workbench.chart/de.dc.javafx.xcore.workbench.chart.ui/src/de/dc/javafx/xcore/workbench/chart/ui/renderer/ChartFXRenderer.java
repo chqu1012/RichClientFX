@@ -4,10 +4,12 @@ import org.gillius.jfxutils.chart.ChartPanManager;
 import org.gillius.jfxutils.chart.JFXChartUtil;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
+import de.dc.javafx.xcore.lang.lib.chart.BaseBubbleChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseScatterChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseXYChart;
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
+import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
@@ -27,6 +29,14 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
 
+	@Override
+	public Node caseBubbleChartFX(BubbleChartFX object) {
+		BaseBubbleChart<Number, Number> chart = new BaseBubbleChart<>(new NumberAxis(), new NumberAxis());
+		currentChart = chart.getChart();
+		initChart(object, chart);
+		return chart;
+	}
+	
 	@Override
 	public Node caseScatterChartFX(ScatterChartFX object) {
 		BaseScatterChart<Number, Number> chart = new BaseScatterChart<>(new NumberAxis(), new NumberAxis());

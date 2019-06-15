@@ -68,6 +68,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createAreaChartFX();
 		case ChartPackage.SCATTER_CHART_FX:
 			return createScatterChartFX();
+		case ChartPackage.BUBBLE_CHART_FX:
+			return createBubbleChartFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:
@@ -169,6 +171,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public ScatterChartFX createScatterChartFX() {
 		ScatterChartFXImpl scatterChartFX = new ScatterChartFXImpl();
 		return scatterChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BubbleChartFX createBubbleChartFX() {
+		BubbleChartFXImpl bubbleChartFX = new BubbleChartFXImpl();
+		return bubbleChartFX;
 	}
 
 	/**

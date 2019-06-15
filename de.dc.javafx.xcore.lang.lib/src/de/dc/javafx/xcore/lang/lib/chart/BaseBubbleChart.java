@@ -4,7 +4,7 @@ import javafx.scene.chart.Axis;
 import javafx.scene.chart.BubbleChart;
 import javafx.scene.chart.XYChart;
 
-public abstract class BaseBubbleChart<X,Y> extends BaseXYChart<X, Y> {
+public class BaseBubbleChart<X,Y> extends BaseXYChart<X, Y> {
 
 	public BaseBubbleChart(Axis<X> xAxis, Axis<Y> yAxis) {
 		super(xAxis, yAxis);

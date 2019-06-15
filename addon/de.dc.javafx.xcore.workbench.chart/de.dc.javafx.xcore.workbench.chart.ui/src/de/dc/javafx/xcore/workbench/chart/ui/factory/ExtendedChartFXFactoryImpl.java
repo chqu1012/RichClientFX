@@ -35,6 +35,8 @@ public class ExtendedChartFXFactoryImpl extends ChartFactoryImpl implements Exte
 			return createAreaChartFX();
 		case ChartPackage.SCATTER_CHART_FX:
 			return createScatterChartFX();
+		case ChartPackage.BUBBLE_CHART_FX:
+			return createBubbleChartFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:

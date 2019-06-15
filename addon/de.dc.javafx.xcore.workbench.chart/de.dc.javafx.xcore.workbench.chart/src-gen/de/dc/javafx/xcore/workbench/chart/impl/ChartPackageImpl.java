@@ -3,6 +3,7 @@
 package de.dc.javafx.xcore.workbench.chart.impl;
 
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
+import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
@@ -86,6 +87,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass scatterChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bubbleChartFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -364,6 +372,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getBubbleChartFX() {
+		return bubbleChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getChartFXConfig() {
 		return chartFXConfigEClass;
 	}
@@ -535,6 +553,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		scatterChartFXEClass = createEClass(SCATTER_CHART_FX);
 
+		bubbleChartFXEClass = createEClass(BUBBLE_CHART_FX);
+
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__TITLE_SIDE);
@@ -587,6 +607,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		lineChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		areaChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		scatterChartFXEClass.getESuperTypes().add(this.getXYChartFX());
+		bubbleChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -641,6 +662,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(scatterChartFXEClass, ScatterChartFX.class, "ScatterChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bubbleChartFXEClass, BubbleChartFX.class, "BubbleChartFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,

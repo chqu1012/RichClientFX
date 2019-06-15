@@ -535,6 +535,79 @@ public interface ChartPackage extends EPackage {
 	int SCATTER_CHART_FX_OPERATION_COUNT = XY_CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.BubbleChartFXImpl <em>Bubble Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.BubbleChartFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getBubbleChartFX()
+	 * @generated
+	 */
+	int BUBBLE_CHART_FX = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__NAME = XY_CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__CONFIG = XY_CHART_FX__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__XAXIS_LABEL = XY_CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__SERIES = XY_CHART_FX__SERIES;
+
+	/**
+	 * The number of structural features of the '<em>Bubble Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX_FEATURE_COUNT = XY_CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Bubble Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX_OPERATION_COUNT = XY_CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -542,7 +615,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
 	 * @generated
 	 */
-	int CHART_FX_CONFIG = 8;
+	int CHART_FX_CONFIG = 9;
 
 	/**
 	 * The feature id for the '<em><b>Side Legend</b></em>' attribute.
@@ -660,7 +733,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
 	 * @generated
 	 */
-	int CHART_SIDE = 9;
+	int CHART_SIDE = 10;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartProject <em>Project</em>}'.
@@ -862,6 +935,16 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getScatterChartFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.BubbleChartFX <em>Bubble Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bubble Chart FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.BubbleChartFX
+	 * @generated
+	 */
+	EClass getBubbleChartFX();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig <em>FX Config</em>}'.
@@ -1183,6 +1266,16 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SCATTER_CHART_FX = eINSTANCE.getScatterChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.BubbleChartFXImpl <em>Bubble Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.BubbleChartFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getBubbleChartFX()
+		 * @generated
+		 */
+		EClass BUBBLE_CHART_FX = eINSTANCE.getBubbleChartFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.

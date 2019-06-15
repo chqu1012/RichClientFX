@@ -213,6 +213,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.BubbleChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BubbleChartFXItemProvider bubbleChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.BubbleChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBubbleChartFXAdapter() {
+		if (bubbleChartFXItemProvider == null) {
+			bubbleChartFXItemProvider = new BubbleChartFXItemProvider(this);
+		}
+
+		return bubbleChartFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,6 +375,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			areaChartFXItemProvider.dispose();
 		if (scatterChartFXItemProvider != null)
 			scatterChartFXItemProvider.dispose();
+		if (bubbleChartFXItemProvider != null)
+			bubbleChartFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}
