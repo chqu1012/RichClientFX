@@ -49,6 +49,35 @@ public interface ChartFactory extends EFactory {
 	LineChartFX createLineChartFX();
 
 	/**
+	 * Returns a new object of class '<em>FX Config</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>FX Config</em>'.
+	 * @generated
+	 */
+	ChartFXConfig createChartFXConfig();
+
+	/**
+	 * Returns an instance of data type '<em>Side</em>' corresponding the given literal.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param literal a literal of the data type.
+	 * @return a new instance value of the data type.
+	 * @generated
+	 */
+	ChartSide createChartSide(String literal);
+
+	/**
+	 * Returns a literal representation of an instance of data type '<em>Side</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param instanceValue an instance value of the data type.
+	 * @return a literal representation of the instance value.
+	 * @generated
+	 */
+	String convertChartSide(ChartSide instanceValue);
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

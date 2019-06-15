@@ -3,8 +3,10 @@
 package de.dc.javafx.xcore.workbench.chart.impl;
 
 import de.dc.javafx.xcore.workbench.chart.ChartFX;
+import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
+import de.dc.javafx.xcore.workbench.chart.ChartSide;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
@@ -12,6 +14,7 @@ import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -59,6 +62,20 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass lineChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chartFXConfigEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum chartSideEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -153,8 +170,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getChartFX_ShowLegend() {
-		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(1);
+	public EReference getChartFX_Config() {
+		return (EReference) chartFXEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -273,6 +290,126 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getChartFXConfig() {
+		return chartFXConfigEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_SideLegend() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_TitleSide() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_ShowLegend() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_IsAnimated() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_AlternativeColumnFillVisible() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_AlternativeRowFillVisible() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_HorizontalGridLinesVisible() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_HorizontalZeroLinesVisible() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_VerticalGridLinesVisible() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getChartFXConfig_VerticalZeroLinesVisible() {
+		return (EAttribute) chartFXConfigEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getChartSide() {
+		return chartSideEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ChartFactory getChartFactory() {
 		return (ChartFactory) getEFactoryInstance();
 	}
@@ -299,7 +436,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		// Create classes and their features
 		chartFXEClass = createEClass(CHART_FX);
 		createEAttribute(chartFXEClass, CHART_FX__NAME);
-		createEAttribute(chartFXEClass, CHART_FX__SHOW_LEGEND);
+		createEReference(chartFXEClass, CHART_FX__CONFIG);
 
 		xyChartFXEClass = createEClass(XY_CHART_FX);
 		createEAttribute(xyChartFXEClass, XY_CHART_FX__XAXIS_LABEL);
@@ -315,6 +452,21 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		createEAttribute(xyValueFXEClass, XY_VALUE_FX__Y);
 
 		lineChartFXEClass = createEClass(LINE_CHART_FX);
+
+		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__TITLE_SIDE);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SHOW_LEGEND);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__IS_ANIMATED);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__ALTERNATIVE_COLUMN_FILL_VISIBLE);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__ALTERNATIVE_ROW_FILL_VISIBLE);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__HORIZONTAL_GRID_LINES_VISIBLE);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__HORIZONTAL_ZERO_LINES_VISIBLE);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__VERTICAL_GRID_LINES_VISIBLE);
+		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__VERTICAL_ZERO_LINES_VISIBLE);
+
+		// Create enums
+		chartSideEEnum = createEEnum(CHART_SIDE);
 	}
 
 	/**
@@ -357,9 +509,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		initEAttribute(getChartFX_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ChartFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getChartFX_ShowLegend(), theEcorePackage.getEBoolean(), "showLegend", "true", 0, 1,
-				ChartFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEReference(getChartFX_Config(), this.getChartFXConfig(), null, "config", null, 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(xyChartFXEClass, XYChartFX.class, "XYChartFX", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -391,6 +543,46 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		initEClass(lineChartFXEClass, LineChartFX.class, "LineChartFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChartFXConfig_SideLegend(), this.getChartSide(), "sideLegend", null, 0, 1,
+				ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXConfig_TitleSide(), this.getChartSide(), "titleSide", null, 0, 1, ChartFXConfig.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getChartFXConfig_ShowLegend(), theEcorePackage.getEBoolean(), "showLegend", "true", 0, 1,
+				ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXConfig_IsAnimated(), theEcorePackage.getEBoolean(), "isAnimated", "true", 0, 1,
+				ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXConfig_AlternativeColumnFillVisible(), theEcorePackage.getEBoolean(),
+				"alternativeColumnFillVisible", "true", 0, 1, ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXConfig_AlternativeRowFillVisible(), theEcorePackage.getEBoolean(),
+				"alternativeRowFillVisible", "true", 0, 1, ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXConfig_HorizontalGridLinesVisible(), theEcorePackage.getEBoolean(),
+				"horizontalGridLinesVisible", "true", 0, 1, ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXConfig_HorizontalZeroLinesVisible(), theEcorePackage.getEBoolean(),
+				"horizontalZeroLinesVisible", "true", 0, 1, ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXConfig_VerticalGridLinesVisible(), theEcorePackage.getEBoolean(),
+				"verticalGridLinesVisible", "true", 0, 1, ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChartFXConfig_VerticalZeroLinesVisible(), theEcorePackage.getEBoolean(),
+				"verticalZeroLinesVisible", "true", 0, 1, ChartFXConfig.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(chartSideEEnum, ChartSide.class, "ChartSide");
+		addEEnumLiteral(chartSideEEnum, ChartSide.TOP);
+		addEEnumLiteral(chartSideEEnum, ChartSide.BOTTOM);
+		addEEnumLiteral(chartSideEEnum, ChartSide.LEFT);
+		addEEnumLiteral(chartSideEEnum, ChartSide.RIGHT);
 
 		// Create resource
 		createResource(eNS_URI);

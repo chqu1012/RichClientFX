@@ -4,6 +4,7 @@ package de.dc.javafx.xcore.workbench.chart;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -77,13 +78,13 @@ public interface ChartPackage extends EPackage {
 	int CHART_FX__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHART_FX__SHOW_LEGEND = 1;
+	int CHART_FX__CONFIG = 1;
 
 	/**
 	 * The number of structural features of the '<em>FX</em>' class.
@@ -123,13 +124,13 @@ public interface ChartPackage extends EPackage {
 	int XY_CHART_FX__NAME = CHART_FX__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XY_CHART_FX__SHOW_LEGEND = CHART_FX__SHOW_LEGEND;
+	int XY_CHART_FX__CONFIG = CHART_FX__CONFIG;
 
 	/**
 	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
@@ -288,13 +289,13 @@ public interface ChartPackage extends EPackage {
 	int LINE_CHART_FX__NAME = XY_CHART_FX__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINE_CHART_FX__SHOW_LEGEND = XY_CHART_FX__SHOW_LEGEND;
+	int LINE_CHART_FX__CONFIG = XY_CHART_FX__CONFIG;
 
 	/**
 	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
@@ -342,6 +343,134 @@ public interface ChartPackage extends EPackage {
 	int LINE_CHART_FX_OPERATION_COUNT = XY_CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
+	 * @generated
+	 */
+	int CHART_FX_CONFIG = 5;
+
+	/**
+	 * The feature id for the '<em><b>Side Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__SIDE_LEGEND = 0;
+
+	/**
+	 * The feature id for the '<em><b>Title Side</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__TITLE_SIDE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Show Legend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__SHOW_LEGEND = 2;
+
+	/**
+	 * The feature id for the '<em><b>Is Animated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__IS_ANIMATED = 3;
+
+	/**
+	 * The feature id for the '<em><b>Alternative Column Fill Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__ALTERNATIVE_COLUMN_FILL_VISIBLE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Alternative Row Fill Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__ALTERNATIVE_ROW_FILL_VISIBLE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Horizontal Grid Lines Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__HORIZONTAL_GRID_LINES_VISIBLE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Horizontal Zero Lines Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__HORIZONTAL_ZERO_LINES_VISIBLE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Vertical Grid Lines Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__VERTICAL_GRID_LINES_VISIBLE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Vertical Zero Lines Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG__VERTICAL_ZERO_LINES_VISIBLE = 9;
+
+	/**
+	 * The number of structural features of the '<em>FX Config</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG_FEATURE_COUNT = 10;
+
+	/**
+	 * The number of operations of the '<em>FX Config</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX_CONFIG_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.ChartSide <em>Side</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartSide
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
+	 * @generated
+	 */
+	int CHART_SIDE = 6;
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFX <em>FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -363,15 +492,15 @@ public interface ChartPackage extends EPackage {
 	EAttribute getChartFX_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#isShowLegend <em>Show Legend</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getConfig <em>Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Show Legend</em>'.
-	 * @see de.dc.javafx.xcore.workbench.chart.ChartFX#isShowLegend()
+	 * @return the meta object for the containment reference '<em>Config</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFX#getConfig()
 	 * @see #getChartFX()
 	 * @generated
 	 */
-	EAttribute getChartFX_ShowLegend();
+	EReference getChartFX_Config();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.XYChartFX <em>XY Chart FX</em>}'.
@@ -491,6 +620,136 @@ public interface ChartPackage extends EPackage {
 	EClass getLineChartFX();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig <em>FX Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>FX Config</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig
+	 * @generated
+	 */
+	EClass getChartFXConfig();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#getSideLegend <em>Side Legend</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Side Legend</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#getSideLegend()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_SideLegend();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#getTitleSide <em>Title Side</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title Side</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#getTitleSide()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_TitleSide();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isShowLegend <em>Show Legend</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Legend</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isShowLegend()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_ShowLegend();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isIsAnimated <em>Is Animated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Animated</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isIsAnimated()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_IsAnimated();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isAlternativeColumnFillVisible <em>Alternative Column Fill Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alternative Column Fill Visible</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isAlternativeColumnFillVisible()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_AlternativeColumnFillVisible();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isAlternativeRowFillVisible <em>Alternative Row Fill Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alternative Row Fill Visible</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isAlternativeRowFillVisible()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_AlternativeRowFillVisible();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isHorizontalGridLinesVisible <em>Horizontal Grid Lines Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Horizontal Grid Lines Visible</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isHorizontalGridLinesVisible()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_HorizontalGridLinesVisible();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isHorizontalZeroLinesVisible <em>Horizontal Zero Lines Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Horizontal Zero Lines Visible</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isHorizontalZeroLinesVisible()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_HorizontalZeroLinesVisible();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isVerticalGridLinesVisible <em>Vertical Grid Lines Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vertical Grid Lines Visible</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isVerticalGridLinesVisible()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_VerticalGridLinesVisible();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isVerticalZeroLinesVisible <em>Vertical Zero Lines Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vertical Zero Lines Visible</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFXConfig#isVerticalZeroLinesVisible()
+	 * @see #getChartFXConfig()
+	 * @generated
+	 */
+	EAttribute getChartFXConfig_VerticalZeroLinesVisible();
+
+	/**
+	 * Returns the meta object for enum '{@link de.dc.javafx.xcore.workbench.chart.ChartSide <em>Side</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Side</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartSide
+	 * @generated
+	 */
+	EEnum getChartSide();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,12 +791,12 @@ public interface ChartPackage extends EPackage {
 		EAttribute CHART_FX__NAME = eINSTANCE.getChartFX_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Show Legend</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Config</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CHART_FX__SHOW_LEGEND = eINSTANCE.getChartFX_ShowLegend();
+		EReference CHART_FX__CONFIG = eINSTANCE.getChartFX_Config();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYChartFXImpl <em>XY Chart FX</em>}' class.
@@ -634,6 +893,110 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LINE_CHART_FX = eINSTANCE.getLineChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
+		 * @generated
+		 */
+		EClass CHART_FX_CONFIG = eINSTANCE.getChartFXConfig();
+
+		/**
+		 * The meta object literal for the '<em><b>Side Legend</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__SIDE_LEGEND = eINSTANCE.getChartFXConfig_SideLegend();
+
+		/**
+		 * The meta object literal for the '<em><b>Title Side</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__TITLE_SIDE = eINSTANCE.getChartFXConfig_TitleSide();
+
+		/**
+		 * The meta object literal for the '<em><b>Show Legend</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__SHOW_LEGEND = eINSTANCE.getChartFXConfig_ShowLegend();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Animated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__IS_ANIMATED = eINSTANCE.getChartFXConfig_IsAnimated();
+
+		/**
+		 * The meta object literal for the '<em><b>Alternative Column Fill Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__ALTERNATIVE_COLUMN_FILL_VISIBLE = eINSTANCE
+				.getChartFXConfig_AlternativeColumnFillVisible();
+
+		/**
+		 * The meta object literal for the '<em><b>Alternative Row Fill Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__ALTERNATIVE_ROW_FILL_VISIBLE = eINSTANCE
+				.getChartFXConfig_AlternativeRowFillVisible();
+
+		/**
+		 * The meta object literal for the '<em><b>Horizontal Grid Lines Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__HORIZONTAL_GRID_LINES_VISIBLE = eINSTANCE
+				.getChartFXConfig_HorizontalGridLinesVisible();
+
+		/**
+		 * The meta object literal for the '<em><b>Horizontal Zero Lines Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__HORIZONTAL_ZERO_LINES_VISIBLE = eINSTANCE
+				.getChartFXConfig_HorizontalZeroLinesVisible();
+
+		/**
+		 * The meta object literal for the '<em><b>Vertical Grid Lines Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__VERTICAL_GRID_LINES_VISIBLE = eINSTANCE.getChartFXConfig_VerticalGridLinesVisible();
+
+		/**
+		 * The meta object literal for the '<em><b>Vertical Zero Lines Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX_CONFIG__VERTICAL_ZERO_LINES_VISIBLE = eINSTANCE.getChartFXConfig_VerticalZeroLinesVisible();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.ChartSide <em>Side</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.ChartSide
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
+		 * @generated
+		 */
+		EEnum CHART_SIDE = eINSTANCE.getChartSide();
 
 	}
 

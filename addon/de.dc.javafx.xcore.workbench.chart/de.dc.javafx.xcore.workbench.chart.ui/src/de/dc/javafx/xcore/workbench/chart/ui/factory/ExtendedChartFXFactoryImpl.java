@@ -29,6 +29,8 @@ public class ExtendedChartFXFactoryImpl extends ChartFactoryImpl implements Exte
 			return createXYValueFX();
 		case ChartPackage.LINE_CHART_FX:
 			return createLineChartFX();
+		case ChartPackage.CHART_FX_CONFIG:
+			return createChartFXConfig();
 		default:
 			throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier, please enhanced the class "+getClass().getSimpleName()+"#create(classifierId) in switch case!");
 		}

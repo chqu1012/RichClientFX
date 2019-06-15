@@ -3,11 +3,14 @@
 package de.dc.javafx.xcore.workbench.chart.impl;
 
 import de.dc.javafx.xcore.workbench.chart.ChartFX;
+import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -21,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#isShowLegend <em>Show Legend</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getConfig <em>Config</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,24 +51,14 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isShowLegend() <em>Show Legend</em>}' attribute.
+	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isShowLegend()
+	 * @see #getConfig()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SHOW_LEGEND_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isShowLegend() <em>Show Legend</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isShowLegend()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean showLegend = SHOW_LEGEND_EDEFAULT;
+	protected ChartFXConfig config;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,8 +108,27 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public boolean isShowLegend() {
-		return showLegend;
+	public ChartFXConfig getConfig() {
+		return config;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConfig(ChartFXConfig newConfig, NotificationChain msgs) {
+		ChartFXConfig oldConfig = config;
+		config = newConfig;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ChartPackage.CHART_FX__CONFIG, oldConfig, newConfig);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -125,12 +137,34 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public void setShowLegend(boolean newShowLegend) {
-		boolean oldShowLegend = showLegend;
-		showLegend = newShowLegend;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.CHART_FX__SHOW_LEGEND, oldShowLegend,
-					showLegend));
+	public void setConfig(ChartFXConfig newConfig) {
+		if (newConfig != config) {
+			NotificationChain msgs = null;
+			if (config != null)
+				msgs = ((InternalEObject) config).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ChartPackage.CHART_FX__CONFIG, null, msgs);
+			if (newConfig != null)
+				msgs = ((InternalEObject) newConfig).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ChartPackage.CHART_FX__CONFIG, null, msgs);
+			msgs = basicSetConfig(newConfig, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.CHART_FX__CONFIG, newConfig, newConfig));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case ChartPackage.CHART_FX__CONFIG:
+			return basicSetConfig(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -143,8 +177,8 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 		case ChartPackage.CHART_FX__NAME:
 			return getName();
-		case ChartPackage.CHART_FX__SHOW_LEGEND:
-			return isShowLegend();
+		case ChartPackage.CHART_FX__CONFIG:
+			return getConfig();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,8 +194,8 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		case ChartPackage.CHART_FX__NAME:
 			setName((String) newValue);
 			return;
-		case ChartPackage.CHART_FX__SHOW_LEGEND:
-			setShowLegend((Boolean) newValue);
+		case ChartPackage.CHART_FX__CONFIG:
+			setConfig((ChartFXConfig) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,8 +212,8 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		case ChartPackage.CHART_FX__NAME:
 			setName(NAME_EDEFAULT);
 			return;
-		case ChartPackage.CHART_FX__SHOW_LEGEND:
-			setShowLegend(SHOW_LEGEND_EDEFAULT);
+		case ChartPackage.CHART_FX__CONFIG:
+			setConfig((ChartFXConfig) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -195,8 +229,8 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 		case ChartPackage.CHART_FX__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case ChartPackage.CHART_FX__SHOW_LEGEND:
-			return showLegend != SHOW_LEGEND_EDEFAULT;
+		case ChartPackage.CHART_FX__CONFIG:
+			return config != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,8 +248,6 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", showLegend: ");
-		result.append(showLegend);
 		result.append(')');
 		return result.toString();
 	}

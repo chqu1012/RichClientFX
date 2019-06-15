@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getName <em>Name</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#isShowLegend <em>Show Legend</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getConfig <em>Config</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getChartFX()
@@ -45,26 +45,25 @@ public interface ChartFX extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Show Legend</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * Returns the value of the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Show Legend</em>' attribute.
-	 * @see #setShowLegend(boolean)
-	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getChartFX_ShowLegend()
-	 * @model default="true" unique="false"
+	 * @return the value of the '<em>Config</em>' containment reference.
+	 * @see #setConfig(ChartFXConfig)
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getChartFX_Config()
+	 * @model containment="true"
 	 * @generated
 	 */
-	boolean isShowLegend();
+	ChartFXConfig getConfig();
 
 	/**
-	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#isShowLegend <em>Show Legend</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getConfig <em>Config</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Show Legend</em>' attribute.
-	 * @see #isShowLegend()
+	 * @param value the new value of the '<em>Config</em>' containment reference.
+	 * @see #getConfig()
 	 * @generated
 	 */
-	void setShowLegend(boolean value);
+	void setConfig(ChartFXConfig value);
 
 } // ChartFX

@@ -5,6 +5,7 @@ package de.dc.javafx.xcore.workbench.chart.impl;
 import de.dc.javafx.xcore.workbench.chart.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -61,8 +62,40 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createXYValueFX();
 		case ChartPackage.LINE_CHART_FX:
 			return createLineChartFX();
+		case ChartPackage.CHART_FX_CONFIG:
+			return createChartFXConfig();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+		case ChartPackage.CHART_SIDE:
+			return createChartSideFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+		case ChartPackage.CHART_SIDE:
+			return convertChartSideToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -97,6 +130,59 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public LineChartFX createLineChartFX() {
 		LineChartFXImpl lineChartFX = new LineChartFXImpl();
 		return lineChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ChartFXConfig createChartFXConfig() {
+		ChartFXConfigImpl chartFXConfig = new ChartFXConfigImpl();
+		return chartFXConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ChartSide createChartSide(String literal) {
+		ChartSide result = ChartSide.get(literal);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '"
+					+ ChartPackage.Literals.CHART_SIDE.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChartSide createChartSideFromString(EDataType eDataType, String initialValue) {
+		return createChartSide(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertChartSide(ChartSide instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertChartSideToString(EDataType eDataType, Object instanceValue) {
+		return convertChartSide((ChartSide) instanceValue);
 	}
 
 	/**

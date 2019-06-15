@@ -144,6 +144,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChartFXConfigItemProvider chartFXConfigItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChartFXConfigAdapter() {
+		if (chartFXConfigItemProvider == null) {
+			chartFXConfigItemProvider = new ChartFXConfigItemProvider(this);
+		}
+
+		return chartFXConfigItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -254,6 +277,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			xyValueFXItemProvider.dispose();
 		if (lineChartFXItemProvider != null)
 			lineChartFXItemProvider.dispose();
+		if (chartFXConfigItemProvider != null)
+			chartFXConfigItemProvider.dispose();
 	}
 
 }

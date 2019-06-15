@@ -13,7 +13,7 @@ package de.dc.javafx.xcore.workbench.chart
 
 abstract class ChartFX{
 	String name
-	boolean showLegend = 'true'
+	contains ChartFXConfig config
 }
 
 abstract class XYChartFX extends ChartFX{
@@ -33,3 +33,20 @@ class XYValueFX{
 }
 
 class LineChartFX extends XYChartFX{}
+
+class ChartFXConfig{
+	ChartSide sideLegend
+	ChartSide titleSide
+	boolean showLegend = 'true'
+	boolean isAnimated = 'true'
+	boolean alternativeColumnFillVisible = 'true'
+	boolean alternativeRowFillVisible = 'true'
+	boolean horizontalGridLinesVisible = 'true'
+	boolean horizontalZeroLinesVisible = 'true'
+	boolean verticalGridLinesVisible = 'true'
+	boolean verticalZeroLinesVisible = 'true'
+}
+
+enum ChartSide{
+	TOP BOTTOM LEFT RIGHT
+}

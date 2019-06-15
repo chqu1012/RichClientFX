@@ -8,6 +8,8 @@ import org.gillius.jfxutils.chart.JFXChartUtil;
 import com.google.common.eventbus.Subscribe;
 
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
+import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
+import de.dc.javafx.xcore.workbench.chart.ChartSide;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
@@ -16,6 +18,7 @@ import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.demo.ui.control.CustomLineChart;
 import javafx.beans.value.ObservableValue;
+import javafx.geometry.Side;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.TreeItem;
@@ -52,10 +55,23 @@ public class ChartFXPreview extends FXPreview {
 			LineChartFX chartFX = (LineChartFX) object;
 			CustomLineChart lineChart = new CustomLineChart();
 			
-			lineChart.getChart().setTitle(chartFX.getName());
+			XYChart<Number, Number> chart = lineChart.getChart();
+			chart.setTitle(chartFX.getName());
 			lineChart.getXAxis().setLabel(chartFX.getXAxisLabel());
 			lineChart.getYAxis().setLabel(chartFX.getYAxisLabel());
-			lineChart.getChart().setLegendVisible(chartFX.isShowLegend());
+
+			ChartFXConfig config = chartFX.getConfig();
+			if (config!=null) {
+				chart.setLegendVisible(config.isShowLegend());
+				chart.setLegendSide(Side.valueOf(config.getSideLegend().getName()));
+				chart.setTitleSide(Side.valueOf(config.getTitleSide().getName()));
+				chart.setAlternativeColumnFillVisible(config.isAlternativeColumnFillVisible());
+				chart.setAlternativeRowFillVisible(config.isAlternativeRowFillVisible());
+				chart.setHorizontalGridLinesVisible(config.isHorizontalGridLinesVisible());
+				chart.setHorizontalZeroLineVisible(config.isHorizontalZeroLinesVisible());
+				chart.setVerticalGridLinesVisible(config.isVerticalGridLinesVisible());
+				chart.setVerticalZeroLineVisible(config.isVerticalZeroLinesVisible());
+			}
 			
 			for (SeriesFX seriesFX : chartFX.getSeries()) {
 				Series<Number, Number> series = lineChart.addSerie(seriesFX.getName());
@@ -65,7 +81,6 @@ public class ChartFXPreview extends FXPreview {
 					series.getData().add(new XYChart.Data<Number, Number>(x, y));
 				}
 			}
-			XYChart chart = lineChart.getChart();
 
 			//Panning works via either secondary (right) mouse or primary with ctrl held down
 			ChartPanManager panner = new ChartPanManager( chart );
