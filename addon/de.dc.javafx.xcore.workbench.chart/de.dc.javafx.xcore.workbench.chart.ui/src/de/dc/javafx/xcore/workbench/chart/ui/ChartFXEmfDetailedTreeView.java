@@ -14,21 +14,19 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
-import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.ui.controller.BaseChartFXEmfDetailedTreeViewController;
-import de.dc.javafx.xcore.workbench.chart.ui.factory.ExtendedChartFXFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFileService;
+import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.factory.CommandFactory;
-import de.dc.javafx.xcore.workbench.ui.file.IEmfFileService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -44,7 +42,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewController implements ChangeListener<TreeItem<Object>>, IEmfFileService{
+public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewController implements ChangeListener<TreeItem<Object>>, IEmfFileService, IEmfEditorPart{
 	
 	private ObservableList<Boolean> values = FXCollections.observableArrayList();
 	private EditingDomain editingDomain;

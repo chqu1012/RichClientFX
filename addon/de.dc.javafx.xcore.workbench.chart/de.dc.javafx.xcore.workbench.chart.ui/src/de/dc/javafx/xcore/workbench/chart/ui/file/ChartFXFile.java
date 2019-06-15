@@ -6,17 +6,17 @@ import org.eclipse.emf.ecore.EPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
-import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
+import de.dc.javafx.xcore.workbench.emf.file.EmfFile;
 
 public class ChartFXFile extends EmfFile<ChartProject>{
 
 	@Override
-	protected EPackage getEPackageEInstance() {
+	public EPackage getEPackageEInstance() {
 		return ChartPackage.eINSTANCE;
 	}
 
 	@Override
-	protected EFactory getEFactoryEInstance() {
+	public EFactory getEFactoryEInstance() {
 		return ChartFactory.eINSTANCE;
 	}
 

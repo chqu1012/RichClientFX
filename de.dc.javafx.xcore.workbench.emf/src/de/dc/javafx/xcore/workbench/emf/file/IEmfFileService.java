@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui.file;
+package de.dc.javafx.xcore.workbench.emf.file;
 
 import java.io.File;
 

@@ -6,17 +6,17 @@ import org.eclipse.emf.ecore.EPackage;
 import de.dc.javafx.xcore.workbench.command.CommandFactory;
 import de.dc.javafx.xcore.workbench.command.CommandPackage;
 import de.dc.javafx.xcore.workbench.command.EmfCommandHistory;
-import de.dc.javafx.xcore.workbench.ui.file.EmfFile;
+import de.dc.javafx.xcore.workbench.emf.file.EmfFile;
 
 public class CommandFile extends EmfFile<EmfCommandHistory>{
 
 	@Override
-	protected EPackage getEPackageEInstance() {
+	public EPackage getEPackageEInstance() {
 		return CommandPackage.eINSTANCE;
 	}
 
 	@Override
-	protected EFactory getEFactoryEInstance() {
+	public EFactory getEFactoryEInstance() {
 		return CommandFactory.eINSTANCE;
 	}
 

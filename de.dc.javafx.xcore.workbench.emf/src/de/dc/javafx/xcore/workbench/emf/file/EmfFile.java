@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui.file;
+package de.dc.javafx.xcore.workbench.emf.file;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -7,15 +7,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-public abstract class EmfFile<T> {
+public abstract class EmfFile<T> implements IEmfFile<T>{
 
 	private Logger log = Logger.getLogger(EmfFile.class.getSimpleName());
 	
@@ -26,8 +24,8 @@ public abstract class EmfFile<T> {
 		// Retrieve the default factory singleton
 		getEFactoryEInstance();
 	}
-
-	@SuppressWarnings("unchecked")
+	
+	@Override
 	public T load(String filePath) {
 		URI uri = URI.createFileURI(filePath);
 
@@ -40,6 +38,7 @@ public abstract class EmfFile<T> {
 		return model;
 	}
 
+	@Override
 	public void write(T model, String path) {
 		URI uri = URI.createFileURI(path);
 
@@ -57,10 +56,4 @@ public abstract class EmfFile<T> {
 			log.log(Level.SEVERE, "Failed to write emf file with path "+path);
 		}
 	}
-	
-	protected abstract EPackage getEPackageEInstance();
-
-	protected abstract EFactory getEFactoryEInstance();
-	
-	public abstract String getExtension();
 }

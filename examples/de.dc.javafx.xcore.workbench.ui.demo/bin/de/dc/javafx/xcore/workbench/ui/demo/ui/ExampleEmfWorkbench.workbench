@@ -88,4 +88,5 @@
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenBlogCommand" name="Open Blog" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenBlogCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand" name="Save As Blog" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand" name="General Save As" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand"/>
+  <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralOpenCommand" name="General Open" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralOpenCommand"/>
 </workbench:Workbench>
