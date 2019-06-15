@@ -5,10 +5,12 @@ import org.gillius.jfxutils.chart.JFXChartUtil;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
+import de.dc.javafx.xcore.lang.lib.chart.BaseScatterChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseXYChart;
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
@@ -25,6 +27,14 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
 
+	@Override
+	public Node caseScatterChartFX(ScatterChartFX object) {
+		BaseScatterChart<Number, Number> chart = new BaseScatterChart<>(new NumberAxis(), new NumberAxis());
+		currentChart = chart.getChart();
+		initChart(object, chart);
+		return chart;
+	}
+	
 	@Override
 	public Node caseAreaChartFX(AreaChartFX object) {
 		BaseAreaChart<Number, Number> chart = new BaseAreaChart<>(new NumberAxis(), new NumberAxis());

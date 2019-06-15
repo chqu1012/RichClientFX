@@ -211,6 +211,9 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 
 		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
 				ChartFactory.eINSTANCE.createAreaChartFX()));
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
+				ChartFactory.eINSTANCE.createScatterChartFX()));
 	}
 
 	/**

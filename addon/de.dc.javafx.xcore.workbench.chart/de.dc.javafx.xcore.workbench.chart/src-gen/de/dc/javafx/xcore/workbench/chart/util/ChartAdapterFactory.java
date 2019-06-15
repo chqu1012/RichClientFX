@@ -102,6 +102,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseScatterChartFX(ScatterChartFX object) {
+			return createScatterChartFXAdapter();
+		}
+
+		@Override
 		public Adapter caseChartFXConfig(ChartFXConfig object) {
 			return createChartFXConfigAdapter();
 		}
@@ -220,6 +225,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAreaChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.ScatterChartFX <em>Scatter Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.ScatterChartFX
+	 * @generated
+	 */
+	public Adapter createScatterChartFXAdapter() {
 		return null;
 	}
 

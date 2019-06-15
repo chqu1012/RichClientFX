@@ -67,6 +67,15 @@ public interface ChartFactory extends EFactory {
 	AreaChartFX createAreaChartFX();
 
 	/**
+	 * Returns a new object of class '<em>Scatter Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scatter Chart FX</em>'.
+	 * @generated
+	 */
+	ScatterChartFX createScatterChartFX();
+
+	/**
 	 * Returns a new object of class '<em>FX Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

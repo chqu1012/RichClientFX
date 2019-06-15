@@ -190,6 +190,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.ScatterChartFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScatterChartFXItemProvider scatterChartFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.ScatterChartFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScatterChartFXAdapter() {
+		if (scatterChartFXItemProvider == null) {
+			scatterChartFXItemProvider = new ScatterChartFXItemProvider(this);
+		}
+
+		return scatterChartFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -327,6 +350,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			lineChartFXItemProvider.dispose();
 		if (areaChartFXItemProvider != null)
 			areaChartFXItemProvider.dispose();
+		if (scatterChartFXItemProvider != null)
+			scatterChartFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}

@@ -10,6 +10,7 @@ import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.ChartSide;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
@@ -78,6 +79,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass areaChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scatterChartFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -346,6 +354,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getScatterChartFX() {
+		return scatterChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getChartFXConfig() {
 		return chartFXConfigEClass;
 	}
@@ -515,6 +533,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		areaChartFXEClass = createEClass(AREA_CHART_FX);
 
+		scatterChartFXEClass = createEClass(SCATTER_CHART_FX);
+
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__TITLE_SIDE);
@@ -566,6 +586,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		xyChartFXEClass.getESuperTypes().add(this.getChartFX());
 		lineChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		areaChartFXEClass.getESuperTypes().add(this.getXYChartFX());
+		scatterChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -617,6 +638,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(areaChartFXEClass, AreaChartFX.class, "AreaChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(scatterChartFXEClass, ScatterChartFX.class, "ScatterChartFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,

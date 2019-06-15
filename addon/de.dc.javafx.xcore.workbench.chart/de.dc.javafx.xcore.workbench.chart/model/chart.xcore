@@ -39,6 +39,7 @@ class XYValueFX{
 
 class LineChartFX extends XYChartFX{}
 class AreaChartFX extends XYChartFX{}
+class ScatterChartFX extends XYChartFX{}
 
 class ChartFXConfig{
 	ChartSide sideLegend
