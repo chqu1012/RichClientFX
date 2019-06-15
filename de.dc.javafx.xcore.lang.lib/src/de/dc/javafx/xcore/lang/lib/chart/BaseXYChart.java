@@ -4,23 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.geometry.Point2D;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.chart.Axis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Path;
-import javafx.scene.shape.Rectangle;
 
 public abstract class BaseXYChart<X, Y> extends StackPane {
 
@@ -29,10 +23,13 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 	protected DropShadow ds = new DropShadow();
 
 	static final double SCALE_DELTA = 1.1;
-	private Rectangle zoomRect;
 	protected Axis<X> xAxis;
 	protected Axis<Y> yAxis;
 	protected boolean enabledThreshold = true;
+	
+	protected String title;
+	protected String xAxisLabel;
+	protected String yAxisLabel;
 	
 	public BaseXYChart(Axis<X> xAxis, Axis<Y> yAxis) {
 		this.xAxis = xAxis;
@@ -42,26 +39,6 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 		yAxis.setLabel(getYAxisTitle());
 
 		chart.setTitle(getChartTitle());
-
-//		zoomRect = new Rectangle();
-//		zoomRect.setManaged(false);
-//		zoomRect.setFill(Color.LIGHTSEAGREEN.deriveColor(0, 1, 1, 0.5));
-//
-//		xAxis.setAutoRanging(true);
-//		yAxis.setAutoRanging(true);
-//
-//		setUpZooming(zoomRect);
-//
-//		chart.setOnMouseClicked(e -> {
-//			if (e.getButton().equals(MouseButton.SECONDARY)) {
-//				xAxis.setAutoRanging(true);
-//				yAxis.setAutoRanging(true);
-//			}else {
-//				doZoom(zoomRect);
-//			}
-//		});
-//		
-//		getChildren().addAll(chart, zoomRect);
 
 		getChildren().add(chart);
 		
@@ -79,50 +56,6 @@ public abstract class BaseXYChart<X, Y> extends StackPane {
 	
 	public void enabledThreshold(boolean enableThreshold) {
 		this.enabledThreshold = enableThreshold;
-	}
-
-	private void setUpZooming(final Rectangle rect) {
-		final ObjectProperty<Point2D> mouseAnchor = new SimpleObjectProperty<>();
-		chart.setOnMousePressed(event -> {
-			mouseAnchor.set(new Point2D(event.getX(), event.getY()));
-			rect.setWidth(0);
-			rect.setHeight(0);
-		});
-		chart.setOnMouseDragged(event -> {
-			double x = event.getX();
-			double y = event.getY();
-			rect.setX(Math.min(x, mouseAnchor.get().getX()));
-			rect.setY(Math.min(y, mouseAnchor.get().getY()));
-			rect.setWidth(Math.abs(x - mouseAnchor.get().getX()));
-			rect.setHeight(Math.abs(y - mouseAnchor.get().getY()));
-		});
-	}
-
-	private void doZoom(Rectangle zoomRect) {
-		if (chart.getXAxis() instanceof NumberAxis && chart.getYAxis() instanceof NumberAxis) {
-			final NumberAxis yAxis = (NumberAxis) chart.getYAxis();
-			final NumberAxis xAxis = (NumberAxis) chart.getXAxis();
-			
-			Point2D zoomTopLeft = new Point2D(zoomRect.getX(), zoomRect.getY());
-			Point2D zoomBottomRight = new Point2D(zoomRect.getX() + zoomRect.getWidth(),
-					zoomRect.getY() + zoomRect.getHeight());
-			Point2D yAxisInScene = yAxis.localToScene(0, 0);
-			Point2D xAxisInScene = xAxis.localToScene(0, 0);
-			
-			xAxis.setAutoRanging(false);
-			yAxis.setAutoRanging(false);
-			
-			double xOffset = zoomTopLeft.getX() - yAxisInScene.getX();
-			double yOffset = zoomBottomRight.getY() - xAxisInScene.getY();
-			double xAxisScale = xAxis.getScale();
-			double yAxisScale = yAxis.getScale();
-			xAxis.setLowerBound(xAxis.getLowerBound() + xOffset / xAxisScale);
-			xAxis.setUpperBound(xAxis.getLowerBound() + zoomRect.getWidth() / xAxisScale);
-			yAxis.setLowerBound(yAxis.getLowerBound() + yOffset / yAxisScale);
-			yAxis.setUpperBound(yAxis.getLowerBound() - zoomRect.getHeight() / yAxisScale);
-			zoomRect.setWidth(0);
-			zoomRect.setHeight(0);
-		}
 	}
 
 	public Series<X, Y> addSerie(String name) {

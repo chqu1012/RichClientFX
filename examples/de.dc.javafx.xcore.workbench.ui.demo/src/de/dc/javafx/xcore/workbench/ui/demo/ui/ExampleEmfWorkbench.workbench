@@ -45,7 +45,7 @@
       <views _Id="de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView" name="JavaExplorer" viewClass="de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView"/>
     </leftPane>
     <rightPane>
-      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedFXPreview" name="Extended FXPreview" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedFXPreview" registrateChangeListener="true"/>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedFX" name="Extended FXPreview" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedFXPreview" registrateChangeListener="true"/>
       <views _Id="de.dc.javafx.xcore.code.preview.ui.FXPreview" name="FXPreview" viewClass="de.dc.javafx.xcore.code.preview.ui.FXPreview" registrateChangeListener="true"/>
     </rightPane>
     <bottomPane>
@@ -75,7 +75,7 @@
       <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.control.EmfPropertyView"/>
     </rightPane>
     <bottomPane>
-      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.preview.ChartFXPreview" name="ChartFX Preview" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.preview.ChartFXPreview" registrateChangeListener="true"/>
+      <views _Id="de.dc.javafx.xcore.workbench.chart.ui.view.ChartFXPreview" name="ChartFX Preview" viewClass="de.dc.javafx.xcore.workbench.chart.ui.view.ChartFXPreview" registrateChangeListener="true"/>
     </bottomPane>
   </perspectives>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.RunCommand" name="Run"/>
