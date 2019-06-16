@@ -2,6 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.chart.impl;
 
+import de.dc.javafx.xcore.workbench.chart.AreaChart3DFX;
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
 import de.dc.javafx.xcore.workbench.chart.BarChartFX;
 import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
@@ -134,6 +135,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass pieChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass areaChart3DFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -522,6 +530,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAreaChart3DFX() {
+		return areaChart3DFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getChartFXConfig() {
 		return chartFXConfigEClass;
 	}
@@ -710,6 +728,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		pieChartFXEClass = createEClass(PIE_CHART_FX);
 
+		areaChart3DFXEClass = createEClass(AREA_CHART3_DFX);
+
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__TITLE_SIDE);
@@ -766,6 +786,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		bubbleChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		barChartFXEClass.getESuperTypes().add(this.getCategoryChartFX());
 		pieChartFXEClass.getESuperTypes().add(this.getCategoryChartFX());
+		areaChart3DFXEClass.getESuperTypes().add(this.getXYChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -853,6 +874,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pieChartFXEClass, PieChartFX.class, "PieChartFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(areaChart3DFXEClass, AreaChart3DFX.class, "AreaChart3DFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,

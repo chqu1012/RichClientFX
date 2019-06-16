@@ -305,6 +305,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.AreaChart3DFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AreaChart3DFXItemProvider areaChart3DFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.AreaChart3DFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAreaChart3DFXAdapter() {
+		if (areaChart3DFXItemProvider == null) {
+			areaChart3DFXItemProvider = new AreaChart3DFXItemProvider(this);
+		}
+
+		return areaChart3DFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.BarChartFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -477,6 +500,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			barChartFXItemProvider.dispose();
 		if (pieChartFXItemProvider != null)
 			pieChartFXItemProvider.dispose();
+		if (areaChart3DFXItemProvider != null)
+			areaChart3DFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}

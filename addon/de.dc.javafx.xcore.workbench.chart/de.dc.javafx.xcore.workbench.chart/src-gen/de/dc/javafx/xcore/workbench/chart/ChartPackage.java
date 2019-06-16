@@ -937,6 +937,79 @@ public interface ChartPackage extends EPackage {
 	int PIE_CHART_FX_OPERATION_COUNT = CATEGORY_CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.AreaChart3DFXImpl <em>Area Chart3 DFX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.AreaChart3DFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getAreaChart3DFX()
+	 * @generated
+	 */
+	int AREA_CHART3_DFX = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART3_DFX__NAME = XY_CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART3_DFX__XAXIS_LABEL = XY_CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART3_DFX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART3_DFX__CONFIG = XY_CHART_FX__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART3_DFX__SERIES = XY_CHART_FX__SERIES;
+
+	/**
+	 * The number of structural features of the '<em>Area Chart3 DFX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART3_DFX_FEATURE_COUNT = XY_CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Area Chart3 DFX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART3_DFX_OPERATION_COUNT = XY_CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -944,7 +1017,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
 	 * @generated
 	 */
-	int CHART_FX_CONFIG = 14;
+	int CHART_FX_CONFIG = 15;
 
 	/**
 	 * The feature id for the '<em><b>Side Legend</b></em>' attribute.
@@ -1062,7 +1135,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
 	 * @generated
 	 */
-	int CHART_SIDE = 15;
+	int CHART_SIDE = 16;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartProject <em>Project</em>}'.
@@ -1379,6 +1452,16 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPieChartFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.AreaChart3DFX <em>Area Chart3 DFX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Area Chart3 DFX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.AreaChart3DFX
+	 * @generated
+	 */
+	EClass getAreaChart3DFX();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig <em>FX Config</em>}'.
@@ -1800,6 +1883,16 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PIE_CHART_FX = eINSTANCE.getPieChartFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.AreaChart3DFXImpl <em>Area Chart3 DFX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.AreaChart3DFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getAreaChart3DFX()
+		 * @generated
+		 */
+		EClass AREA_CHART3_DFX = eINSTANCE.getAreaChart3DFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.

@@ -59,6 +59,8 @@ class BubbleChartFX extends XYChartFX{}
 class BarChartFX extends CategoryChartFX{}
 class PieChartFX extends CategoryChartFX{}
 
+class AreaChart3DFX extends XYChartFX{}
+
 class ChartFXConfig{
 	ChartSide sideLegend
 	ChartSide titleSide

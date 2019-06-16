@@ -1,7 +1,18 @@
 package de.dc.javafx.xcore.workbench.chart.ui.renderer;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
+
 import org.gillius.jfxutils.chart.ChartPanManager;
 import org.gillius.jfxutils.chart.JFXChartUtil;
+
+import com.orsoncharts.Chart3D;
+import com.orsoncharts.Chart3DFactory;
+import com.orsoncharts.data.DefaultKeyedValues;
+import com.orsoncharts.data.category.StandardCategoryDataset3D;
+import com.orsoncharts.fx.Chart3DViewer;
+import com.orsoncharts.plot.CategoryPlot3D;
+import com.orsoncharts.renderer.category.AreaRenderer3D;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseBarChart;
@@ -10,6 +21,7 @@ import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
 import de.dc.javafx.xcore.lang.lib.chart.BasePieChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseScatterChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseXYChart;
+import de.dc.javafx.xcore.workbench.chart.AreaChart3DFX;
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
 import de.dc.javafx.xcore.workbench.chart.BarChartFX;
 import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
@@ -23,8 +35,6 @@ import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.util.ChartSwitch;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.chart.CategoryAxis;
@@ -33,11 +43,72 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 
 public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
+	
+	@Override
+	public Node caseAreaChart3DFX(AreaChart3DFX object) {
+		StandardCategoryDataset3D<String, String, String> dataset 
+        = new StandardCategoryDataset3D<>();
+		DefaultKeyedValues<String, Double> s1 = new DefaultKeyedValues<>();
+        s1.put("Q2/11", 10.775);  // May11
+        s1.put("Q3/11", 8.181);   // Aug11
+        s1.put("Q4/11", 8.792);   // Nov11
+        s1.put("Q1/12", 9.039);   // Feb12
+        s1.put("Q2/12", 10.916);  // May12
+        s1.put("Q3/12", 8.181);   // Aug12
+        s1.put("Q4/12", 9.094);   // Nov12
+        s1.put("Q1/13", 8.958);   // Feb13
+        s1.put("Q2/13", 10.947);  // May13
+        s1.put("Q3/13", 8.372);   // Aug13
+        s1.put("Q4/13", 9.275);   // Nov13
+        s1.put("Q1/14", 9.307);   // Feb14
+        s1.put("Q2/14", 11.320);  // May14
+        s1.put("Q3/14", 8.596);   // Aug14
+        s1.put("Q4/14", 9.598);   // Nov14
+        s1.put("Q1/15", 9.327);   // Feb15
+        s1.put("Q2/15", 10.706);  // May15
+        s1.put("Q3/15", 8.448);   // Aug15
+        dataset.addSeriesAsRow("Oracle", s1);
+
+        DefaultKeyedValues<String, Double> s2 = new DefaultKeyedValues<>();
+        s2.put("Q2/11", 9.026);  // Jun11
+        s2.put("Q3/11", 9.720);  // Sep11
+        s2.put("Q4/11", 10.584);  // Dec11 
+        s2.put("Q1/12", 10.645);  // Mar12
+        s2.put("Q2/12", 10.964);  // Jun12
+        s2.put("Q3/12", 11.526);  // Sep12
+        s2.put("Q4/12", 12.905);  // Dec12
+        s2.put("Q1/13", 12.951);  // Mar13
+        s2.put("Q2/13", 13.107);  // Jun13
+        s2.put("Q3/13", 13.754);  // Sep13
+        s2.put("Q4/13", 15.707);  // Dec13
+        s2.put("Q1/14", 15.420);  // Mar14
+        s2.put("Q2/14", 15.955);  // Jun14
+        s2.put("Q3/14", 16.523);  // Sep14
+        s2.put("Q4/14", 18.103);  // Dec14
+        s2.put("Q1/15", 17.258);  // Mar15
+        s2.put("Q2/15", 17.727);  // Jun15
+        s2.put("Q3/15", 18.675);  // Sep15
+        dataset.addSeriesAsRow("Google", s2);
+		
+		 Chart3D chart = Chart3DFactory.createAreaChart(
+	                "Reported Revenues By Quarter", 
+	                "Large companies in the IT industry", dataset, "Company", 
+	                "Quarter", "Value");
+	        chart.setChartBoxColor(new Color(255, 255, 255, 128));
+	        CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
+	        plot.getRowAxis().setVisible(false);
+	        plot.setGridlineStrokeForValues(new BasicStroke(0.5f, 
+	                BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 4.0f, 
+	                new float[] { 2f, 2f }, 0f));
+	        AreaRenderer3D renderer = (AreaRenderer3D) plot.getRenderer();
+	        renderer.setBaseColor(Color.GRAY);
+	        
+	        return new Chart3DViewer(chart);
+	}
 	
 	@Override
 	public Node caseBarChartFX(BarChartFX object) {

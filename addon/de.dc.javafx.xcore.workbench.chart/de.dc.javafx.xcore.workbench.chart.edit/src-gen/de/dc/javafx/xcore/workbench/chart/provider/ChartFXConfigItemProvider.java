@@ -238,7 +238,7 @@ public class ChartFXConfigItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public Object getImage(Object object) {
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/ChartFXConfig"));
+		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/ChartFXConfig"));
 		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-einstellungen-3-16.png"));
 	}
 

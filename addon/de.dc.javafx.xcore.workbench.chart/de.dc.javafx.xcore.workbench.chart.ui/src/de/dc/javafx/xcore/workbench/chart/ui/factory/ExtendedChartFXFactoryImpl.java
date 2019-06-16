@@ -45,6 +45,8 @@ public class ExtendedChartFXFactoryImpl extends ChartFactoryImpl implements Exte
 			return createBarChartFX();
 		case ChartPackage.PIE_CHART_FX:
 			return createPieChartFX();
+		case ChartPackage.AREA_CHART3_DFX:
+			return createAreaChart3DFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:

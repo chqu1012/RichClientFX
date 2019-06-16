@@ -101,7 +101,7 @@ public class XYValueFXItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public Object getImage(Object object) {
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/XYValueFX"));
+		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/XYValueFX"));
 		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-tabelle-16.png"));
 	}
 

@@ -16,6 +16,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Box;
@@ -96,8 +97,8 @@ public class MeshRenderer extends MeshSwitch<Node> {
 			if (node.isUseRotation()) {
 				mousePosX = me.getSceneX();
 				mousePosY = me.getSceneY();
-				rotateX.setAngle(rotateX.getAngle() - (mousePosY - mouseOldY));
-				rotateY.setAngle(rotateY.getAngle() + (mousePosX - mouseOldX));
+				rotateX.setAngle(rotateX.getAngle() + (mousePosY - mouseOldY));
+				rotateY.setAngle(rotateY.getAngle() - (mousePosX - mouseOldX));
 				mouseOldX = mousePosX;
 				mouseOldY = mousePosY;
 			}
