@@ -13,6 +13,10 @@ import com.orsoncharts.data.category.StandardCategoryDataset3D;
 import com.orsoncharts.fx.Chart3DViewer;
 import com.orsoncharts.plot.CategoryPlot3D;
 import com.orsoncharts.renderer.category.AreaRenderer3D;
+import com.orsoncharts.style.ChartStyle;
+import com.orsoncharts.style.StandardChartStyle;
+import com.orsoncharts.table.RectanglePainter;
+import com.orsoncharts.table.StandardRectanglePainter;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseBarChart;
@@ -47,76 +51,42 @@ import javafx.scene.input.MouseButton;
 public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
-	
+
 	@Override
 	public Node caseAreaChart3DFX(AreaChart3DFX object) {
-		StandardCategoryDataset3D<String, String, String> dataset 
-        = new StandardCategoryDataset3D<>();
-		DefaultKeyedValues<String, Double> s1 = new DefaultKeyedValues<>();
-        s1.put("Q2/11", 10.775);  // May11
-        s1.put("Q3/11", 8.181);   // Aug11
-        s1.put("Q4/11", 8.792);   // Nov11
-        s1.put("Q1/12", 9.039);   // Feb12
-        s1.put("Q2/12", 10.916);  // May12
-        s1.put("Q3/12", 8.181);   // Aug12
-        s1.put("Q4/12", 9.094);   // Nov12
-        s1.put("Q1/13", 8.958);   // Feb13
-        s1.put("Q2/13", 10.947);  // May13
-        s1.put("Q3/13", 8.372);   // Aug13
-        s1.put("Q4/13", 9.275);   // Nov13
-        s1.put("Q1/14", 9.307);   // Feb14
-        s1.put("Q2/14", 11.320);  // May14
-        s1.put("Q3/14", 8.596);   // Aug14
-        s1.put("Q4/14", 9.598);   // Nov14
-        s1.put("Q1/15", 9.327);   // Feb15
-        s1.put("Q2/15", 10.706);  // May15
-        s1.put("Q3/15", 8.448);   // Aug15
-        dataset.addSeriesAsRow("Oracle", s1);
+		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
+		for (SeriesFX serieFX : object.getSeries()) {
+			DefaultKeyedValues<String, Double> serie = new DefaultKeyedValues<>();
+			for (XYValueFX valueFX : serieFX.getValues()) {
+				serie.put(String.valueOf(valueFX.getX()), valueFX.getY());
+			}
+			dataset.addSeriesAsRow(serieFX.getName(), serie);
+		}
 
-        DefaultKeyedValues<String, Double> s2 = new DefaultKeyedValues<>();
-        s2.put("Q2/11", 9.026);  // Jun11
-        s2.put("Q3/11", 9.720);  // Sep11
-        s2.put("Q4/11", 10.584);  // Dec11 
-        s2.put("Q1/12", 10.645);  // Mar12
-        s2.put("Q2/12", 10.964);  // Jun12
-        s2.put("Q3/12", 11.526);  // Sep12
-        s2.put("Q4/12", 12.905);  // Dec12
-        s2.put("Q1/13", 12.951);  // Mar13
-        s2.put("Q2/13", 13.107);  // Jun13
-        s2.put("Q3/13", 13.754);  // Sep13
-        s2.put("Q4/13", 15.707);  // Dec13
-        s2.put("Q1/14", 15.420);  // Mar14
-        s2.put("Q2/14", 15.955);  // Jun14
-        s2.put("Q3/14", 16.523);  // Sep14
-        s2.put("Q4/14", 18.103);  // Dec14
-        s2.put("Q1/15", 17.258);  // Mar15
-        s2.put("Q2/15", 17.727);  // Jun15
-        s2.put("Q3/15", 18.675);  // Sep15
-        dataset.addSeriesAsRow("Google", s2);
-		
-		 Chart3D chart = Chart3DFactory.createAreaChart(
-	                "Reported Revenues By Quarter", 
-	                "Large companies in the IT industry", dataset, "Company", 
-	                "Quarter", "Value");
-	        chart.setChartBoxColor(new Color(255, 255, 255, 128));
-	        CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
-	        plot.getRowAxis().setVisible(false);
-	        plot.setGridlineStrokeForValues(new BasicStroke(0.5f, 
-	                BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 4.0f, 
-	                new float[] { 2f, 2f }, 0f));
-	        AreaRenderer3D renderer = (AreaRenderer3D) plot.getRenderer();
-	        renderer.setBaseColor(Color.GRAY);
-	        
-	        return new Chart3DViewer(chart);
+		String xAxisLabel = "";
+		String yAxisLabel = "";
+		String zAxisLabel = "";
+		String subtitle = "";
+		Chart3D chart = Chart3DFactory.createAreaChart(object.getName(), subtitle, dataset, xAxisLabel, yAxisLabel,
+				zAxisLabel);
+		chart.setChartBoxColor(new Color(255, 255, 255, 128));
+		CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
+		plot.getRowAxis().setVisible(false);
+		plot.setGridlineStrokeForValues(
+				new BasicStroke(0.5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 4.0f, new float[] { 2f, 2f }, 0f));
+		AreaRenderer3D renderer = (AreaRenderer3D) plot.getRenderer();
+		renderer.setBaseColor(Color.darkGray);
+
+		return new Chart3DViewer(chart);
 	}
-	
+
 	@Override
 	public Node caseBarChartFX(BarChartFX object) {
 		BaseBarChart<String, Number> chart = new BaseBarChart<>(new CategoryAxis(), new NumberAxis());
 		currentChart = chart.getChart();
 		caseChartFXConfig(object.getConfig());
 		for (CategorySeriesFX s : object.getSeries()) {
-			Series<String,Number> series = chart.addSerie(s.getName());
+			Series<String, Number> series = chart.addSerie(s.getName());
 			for (CategoryValueFX item : s.getValues()) {
 				series.getData().add(new XYChart.Data<String, Number>(String.valueOf(item.getName()), item.getValue()));
 			}
@@ -136,7 +106,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 		}
 		return chart;
 	}
-	
+
 	@Override
 	public Node caseBubbleChartFX(BubbleChartFX object) {
 		BaseBubbleChart<Number, Number> chart = new BaseBubbleChart<>(new NumberAxis(), new NumberAxis());
@@ -144,7 +114,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 		initChart(object, chart);
 		return chart;
 	}
-	
+
 	@Override
 	public Node caseScatterChartFX(ScatterChartFX object) {
 		BaseScatterChart<Number, Number> chart = new BaseScatterChart<>(new NumberAxis(), new NumberAxis());
@@ -152,7 +122,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 		initChart(object, chart);
 		return chart;
 	}
-	
+
 	@Override
 	public Node caseAreaChartFX(AreaChartFX object) {
 		BaseAreaChart<Number, Number> chart = new BaseAreaChart<>(new NumberAxis(), new NumberAxis());
@@ -172,11 +142,11 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 		for (SeriesFX seriesFX : object.getSeries()) {
 			Series<Number, Number> series = chart.addSerie(seriesFX.getName());
 			for (XYValueFX item : seriesFX.getValues()) {
-				series.getData().add( new XYChart.Data<Number, Number>(item.getX(), item.getY()));
+				series.getData().add(new XYChart.Data<Number, Number>(item.getX(), item.getY()));
 			}
 		}
 	}
-	
+
 	@Override
 	public Node caseLineChartFX(LineChartFX object) {
 		BaseLineChart<Number, Number> chart = new BaseLineChart<>(new NumberAxis(), new NumberAxis());
@@ -213,7 +183,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	@Override
 	public Node caseChartFXConfig(ChartFXConfig config) {
-		if (config!=null) {
+		if (config != null) {
 			currentChart.setLegendVisible(config.isShowLegend());
 			currentChart.setLegendSide(Side.valueOf(config.getSideLegend().getName()));
 			currentChart.setTitleSide(Side.valueOf(config.getTitleSide().getName()));
