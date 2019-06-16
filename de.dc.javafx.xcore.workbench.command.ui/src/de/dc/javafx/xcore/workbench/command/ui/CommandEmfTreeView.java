@@ -5,11 +5,9 @@ import de.dc.javafx.xcore.workbench.command.CommandPackage;
 import de.dc.javafx.xcore.workbench.command.EmfCommand;
 import de.dc.javafx.xcore.workbench.command.EmfCommandHistory;
 import de.dc.javafx.xcore.workbench.command.ui.cell.CommandCellFactory;
-import de.dc.javafx.xcore.workbench.command.ui.file.CommandFile;
 import de.dc.javafx.xcore.workbench.command.ui.manager.CommandEmfManager;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
-import de.dc.javafx.xcore.workbench.emf.file.EmfFile;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
@@ -40,11 +38,6 @@ public class CommandEmfTreeView extends EmfTreeModelView<EmfCommandHistory> {
 		return new CommandEmfManager();
 	}
 
-	@Override
-	protected EmfFile<EmfCommandHistory> initEmfFile() {
-		return new CommandFile();
-	}
-	
 	@Subscribe
 	public void updateViewByEventBroker(EventContext<EmfCommand> context) {
 		if (context.getEventTopic()==EventTopic.COMMAND_STACK_REFRESH) {

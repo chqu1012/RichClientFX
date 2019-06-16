@@ -5,11 +5,13 @@ import org.eclipse.emf.ecore.EPackage;
 
 import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager;
 import de.dc.javafx.xcore.workbench.emf.factory.ExtendedFactory;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
 import de.dc.spring.bootstrap.blog.model.Blog;
 import de.dc.spring.bootstrap.blog.model.ModelFactory;
 import de.dc.spring.bootstrap.blog.model.ModelPackage;
 import de.dc.spring.bootstrap.blog.model.provider.ModelItemProviderAdapterFactory;
 import de.dc.spring.bootstrap.blog.model.ui.factory.ExtendedBlogFactory;
+import de.dc.spring.bootstrap.blog.model.ui.file.BlogFile;
 
 public class BlogModelManager extends AbstractEmfManager<Blog>{
 
@@ -31,5 +33,10 @@ public class BlogModelManager extends AbstractEmfManager<Blog>{
 	@Override
 	public ExtendedFactory getExtendedModelFactory() {
 		return ExtendedBlogFactory.eINSTANCE;
+	}
+
+	@Override
+	public IEmfFile<Blog> initFile() {
+		return new BlogFile();
 	}
 }

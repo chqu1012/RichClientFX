@@ -8,8 +8,10 @@ import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.provider.ChartItemProviderAdapterFactory;
 import de.dc.javafx.xcore.workbench.chart.ui.factory.ExtendedChartFXFactory;
+import de.dc.javafx.xcore.workbench.chart.ui.file.ChartFXFile;
 import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager;
 import de.dc.javafx.xcore.workbench.emf.factory.ExtendedFactory;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
 
 public class ChartFXEmfManager extends AbstractEmfManager<ChartProject> {
 	@Override
@@ -35,5 +37,10 @@ public class ChartFXEmfManager extends AbstractEmfManager<ChartProject> {
 	@Override
 	public ExtendedFactory getExtendedModelFactory() {
 		return ExtendedChartFXFactory.eINSTANCE;
+	}
+
+	@Override
+	public IEmfFile<ChartProject> initFile() {
+		return new ChartFXFile();
 	}
 }

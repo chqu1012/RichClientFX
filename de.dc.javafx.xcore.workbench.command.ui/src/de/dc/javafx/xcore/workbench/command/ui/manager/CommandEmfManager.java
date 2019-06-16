@@ -8,8 +8,10 @@ import de.dc.javafx.xcore.workbench.command.CommandPackage;
 import de.dc.javafx.xcore.workbench.command.EmfCommandHistory;
 import de.dc.javafx.xcore.workbench.command.provider.CommandItemProviderAdapterFactory;
 import de.dc.javafx.xcore.workbench.command.ui.factory.ExtendedCommandFactory;
+import de.dc.javafx.xcore.workbench.command.ui.file.CommandFile;
 import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager;
 import de.dc.javafx.xcore.workbench.emf.factory.ExtendedFactory;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
 
 public class CommandEmfManager extends AbstractEmfManager<EmfCommandHistory> {
 	@Override
@@ -35,5 +37,10 @@ public class CommandEmfManager extends AbstractEmfManager<EmfCommandHistory> {
 	@Override
 	public ExtendedFactory getExtendedModelFactory() {
 		return ExtendedCommandFactory.eINSTANCE;
+	}
+
+	@Override
+	public IEmfFile<EmfCommandHistory> initFile() {
+		return new CommandFile();
 	}
 }

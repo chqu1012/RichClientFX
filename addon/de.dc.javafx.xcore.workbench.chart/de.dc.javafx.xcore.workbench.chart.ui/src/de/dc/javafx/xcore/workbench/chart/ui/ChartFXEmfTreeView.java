@@ -44,11 +44,6 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 		return emfManager;
 	}
 
-	@Override
-	protected EmfFile<ChartProject> initEmfFile() {
-		return new ChartFXFile();
-	}
-	
 	@Subscribe
 	public void updateViewByEventBroker(EventContext<EmfCommand> context) {
 		if (context.getEventTopic()==EventTopic.COMMAND_STACK_REFRESH) {

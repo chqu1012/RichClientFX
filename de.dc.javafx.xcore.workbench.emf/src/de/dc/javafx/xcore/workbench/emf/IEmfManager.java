@@ -7,6 +7,8 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 import de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl;
 import de.dc.javafx.xcore.workbench.emf.factory.ExtendedFactory;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFileManager;
 
 public interface IEmfManager<T> {
 
@@ -40,4 +42,8 @@ public interface IEmfManager<T> {
 	 * @return
 	 */
 	ExtendedFactory getExtendedModelFactory();
+	
+	IEmfFile<T> getFile();
+
+	IEmfFile<T> initFile();
 }

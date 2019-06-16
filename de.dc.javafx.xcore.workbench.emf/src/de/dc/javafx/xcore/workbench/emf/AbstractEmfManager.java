@@ -9,6 +9,7 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 
 import de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
 
 public abstract class AbstractEmfManager<T> implements IEmfManager<T> {
 
@@ -19,25 +20,27 @@ public abstract class AbstractEmfManager<T> implements IEmfManager<T> {
 	private ComposedAdapterFactory adapterFactory;
 
 	private ChangeRecorder changeRecorder;
-	
+
 	private CommandStackImpl commandStack;
-	
+
+	protected IEmfFile<T> emfFile;
+
 	public AbstractEmfManager() {
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 		adapterFactory.addAdapterFactory(getModelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		
+
 		commandStack = new CommandStackImpl();
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack);
 		changeRecorder = new ChangeRecorder();
-		root = initModel();	
+		root = initModel();
 	}
-	
+
 	protected abstract AdapterFactory getModelItemProviderAdapterFactory();
 
 	protected abstract T initModel();
-	
+
 	protected T createNewModelOnNullCheck() {
 		return initModel();
 	}
@@ -49,7 +52,7 @@ public abstract class AbstractEmfManager<T> implements IEmfManager<T> {
 		}
 		return root;
 	}
-	
+
 	@Override
 	public void setRoot(T root) {
 		this.root = root;
@@ -74,6 +77,12 @@ public abstract class AbstractEmfManager<T> implements IEmfManager<T> {
 	public CommandStackImpl getCommandStack() {
 		return commandStack;
 	}
-	
-	
+
+	@Override
+	public IEmfFile<T> getFile() {
+		if (emfFile == null) {
+			emfFile = initFile();
+		}
+		return emfFile;
+	}
 }

@@ -32,8 +32,8 @@ import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
-import de.dc.javafx.xcore.workbench.emf.file.EmfFile;
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFileService;
+import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
@@ -62,7 +62,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object>, IEmfFileService<T> {
+public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object>, IEmfFileService<T>, IEmfEditorPart {
 
 	private Logger log = Logger.getLogger(EmfTreeModelView.class.getSimpleName());
 
@@ -108,8 +108,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	protected IEventBroker eventBroker;
 
-	protected EmfFile<T> file;
-
 	protected IEmfManager<T> emfManager;
 	
 	public EmfTreeModelView() {
@@ -125,8 +123,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		}
 
 		initializeEmf(getEmfManager());
-
-		file = initEmfFile();
 	}
 
 	public EmfTreeModelView(IEmfManager<T> manager) {
@@ -164,7 +160,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	}
 
 	public T load(String filepath) {
-		T model = file.load(filepath);
+		T model = manager.getFile().load(filepath);
 		load(model);
 		return model;
 	}
@@ -350,13 +346,13 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	@Override
 	public void save(File f) {
-		file.write(manager.getRoot(), f.getAbsolutePath());
+		manager.getFile().write(manager.getRoot(), f.getAbsolutePath());
 		log.log(Level.INFO, "Write emf model to path " + f.getAbsolutePath());
 	}
 	
 	@Override
 	public String getExtension() {
-		return file.getExtension();
+		return manager.getFile().getExtension();
 	}
 	
 	@Override
@@ -377,6 +373,4 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	}
 	
 	protected abstract IEmfManager<T> getEmfManager();
-
-	protected abstract EmfFile<T> initEmfFile();
 }
