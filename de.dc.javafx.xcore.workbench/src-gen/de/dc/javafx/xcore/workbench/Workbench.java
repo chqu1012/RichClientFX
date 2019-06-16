@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.dc.javafx.xcore.workbench.Workbench#getStatusline <em>Statusline</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.Workbench#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.Workbench#getCommands <em>Commands</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.Workbench#getEditorRegistry <em>Editor Registry</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getWorkbench()
@@ -93,5 +94,27 @@ public interface Workbench extends EObject {
 	 * @generated
 	 */
 	EList<Command> getCommands();
+
+	/**
+	 * Returns the value of the '<em><b>Editor Registry</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Editor Registry</em>' containment reference.
+	 * @see #setEditorRegistry(EditorRegistry)
+	 * @see de.dc.javafx.xcore.workbench.WorkbenchPackage#getWorkbench_EditorRegistry()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EditorRegistry getEditorRegistry();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.Workbench#getEditorRegistry <em>Editor Registry</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Editor Registry</em>' containment reference.
+	 * @see #getEditorRegistry()
+	 * @generated
+	 */
+	void setEditorRegistry(EditorRegistry value);
 
 } // Workbench

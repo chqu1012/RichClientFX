@@ -10,8 +10,9 @@
     <items name="Open Blog" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-opened-folder-16.png" command="//@commands.6"/>
     <items name="Save As Blog" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-save-16.png" command="//@commands.7"/>
     <items name="General Save As" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-save-16.png" command="//@commands.8"/>
+    <items name="General Open" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-opened-folder-16.png" command="//@commands.9"/>
   </toolbar>
-  <statusline/>
+  <statusline/> 
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
     <leftPane>
       <views _Id="" name="Example View 1" viewClass=""/>
@@ -89,4 +90,8 @@
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand" name="Save As Blog" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand" name="General Save As" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralOpenCommand" name="General Open" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralOpenCommand"/>
+  <editorRegistry>
+    <editor name="ChartFX Editor" fileExtension="chart" editorUri="de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView"/>
+    <editor name="Blog Editor" fileExtension="blog" editorUri="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView"/>
+  </editorRegistry>
 </workbench:Workbench>

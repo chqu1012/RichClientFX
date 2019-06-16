@@ -187,13 +187,22 @@ public interface WorkbenchPackage extends EPackage {
 	int WORKBENCH__COMMANDS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Editor Registry</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH__EDITOR_REGISTRY = 4;
+
+	/**
 	 * The number of structural features of the '<em>Workbench</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORKBENCH_FEATURE_COUNT = 4;
+	int WORKBENCH_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Workbench</em>' class.
@@ -205,6 +214,98 @@ public interface WorkbenchPackage extends EPackage {
 	int WORKBENCH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.impl.EditorRegistryImpl <em>Editor Registry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.impl.EditorRegistryImpl
+	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditorRegistry()
+	 * @generated
+	 */
+	int EDITOR_REGISTRY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Editor</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR_REGISTRY__EDITOR = 0;
+
+	/**
+	 * The number of structural features of the '<em>Editor Registry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR_REGISTRY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Editor Registry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR_REGISTRY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.impl.EditorImpl <em>Editor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.impl.EditorImpl
+	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditor()
+	 * @generated
+	 */
+	int EDITOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>File Extension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR__FILE_EXTENSION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Editor Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR__EDITOR_URI = 2;
+
+	/**
+	 * The number of structural features of the '<em>Editor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Editor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.impl.PerspectiveImpl <em>Perspective</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -212,7 +313,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getPerspective()
 	 * @generated
 	 */
-	int PERSPECTIVE = 3;
+	int PERSPECTIVE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -294,7 +395,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getCommand()
 	 * @generated
 	 */
-	int COMMAND = 4;
+	int COMMAND = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -349,7 +450,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getViewContainer()
 	 * @generated
 	 */
-	int VIEW_CONTAINER = 5;
+	int VIEW_CONTAINER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -386,7 +487,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getView()
 	 * @generated
 	 */
-	int VIEW = 6;
+	int VIEW = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -468,7 +569,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditorArea()
 	 * @generated
 	 */
-	int EDITOR_AREA = 7;
+	int EDITOR_AREA = 9;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -505,7 +606,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getLeftPane()
 	 * @generated
 	 */
-	int LEFT_PANE = 8;
+	int LEFT_PANE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -542,7 +643,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getRightPane()
 	 * @generated
 	 */
-	int RIGHT_PANE = 9;
+	int RIGHT_PANE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -579,7 +680,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getBottomPane()
 	 * @generated
 	 */
-	int BOTTOM_PANE = 10;
+	int BOTTOM_PANE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -616,7 +717,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getToolbar()
 	 * @generated
 	 */
-	int TOOLBAR = 11;
+	int TOOLBAR = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -671,7 +772,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getToolbarItem()
 	 * @generated
 	 */
-	int TOOLBAR_ITEM = 12;
+	int TOOLBAR_ITEM = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -744,7 +845,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getStatusline()
 	 * @generated
 	 */
-	int STATUSLINE = 13;
+	int STATUSLINE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -888,6 +989,81 @@ public interface WorkbenchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getWorkbench_Commands();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.Workbench#getEditorRegistry <em>Editor Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Editor Registry</em>'.
+	 * @see de.dc.javafx.xcore.workbench.Workbench#getEditorRegistry()
+	 * @see #getWorkbench()
+	 * @generated
+	 */
+	EReference getWorkbench_EditorRegistry();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.EditorRegistry <em>Editor Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Editor Registry</em>'.
+	 * @see de.dc.javafx.xcore.workbench.EditorRegistry
+	 * @generated
+	 */
+	EClass getEditorRegistry();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.EditorRegistry#getEditor <em>Editor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Editor</em>'.
+	 * @see de.dc.javafx.xcore.workbench.EditorRegistry#getEditor()
+	 * @see #getEditorRegistry()
+	 * @generated
+	 */
+	EReference getEditorRegistry_Editor();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.Editor <em>Editor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Editor</em>'.
+	 * @see de.dc.javafx.xcore.workbench.Editor
+	 * @generated
+	 */
+	EClass getEditor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.Editor#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.workbench.Editor#getName()
+	 * @see #getEditor()
+	 * @generated
+	 */
+	EAttribute getEditor_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.Editor#getFileExtension <em>File Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>File Extension</em>'.
+	 * @see de.dc.javafx.xcore.workbench.Editor#getFileExtension()
+	 * @see #getEditor()
+	 * @generated
+	 */
+	EAttribute getEditor_FileExtension();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.Editor#getEditorUri <em>Editor Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Editor Uri</em>'.
+	 * @see de.dc.javafx.xcore.workbench.Editor#getEditorUri()
+	 * @see #getEditor()
+	 * @generated
+	 */
+	EAttribute getEditor_EditorUri();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.Perspective <em>Perspective</em>}'.
@@ -1250,6 +1426,66 @@ public interface WorkbenchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference WORKBENCH__COMMANDS = eINSTANCE.getWorkbench_Commands();
+
+		/**
+		 * The meta object literal for the '<em><b>Editor Registry</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WORKBENCH__EDITOR_REGISTRY = eINSTANCE.getWorkbench_EditorRegistry();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.EditorRegistryImpl <em>Editor Registry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.impl.EditorRegistryImpl
+		 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditorRegistry()
+		 * @generated
+		 */
+		EClass EDITOR_REGISTRY = eINSTANCE.getEditorRegistry();
+
+		/**
+		 * The meta object literal for the '<em><b>Editor</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EDITOR_REGISTRY__EDITOR = eINSTANCE.getEditorRegistry_Editor();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.EditorImpl <em>Editor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.impl.EditorImpl
+		 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditor()
+		 * @generated
+		 */
+		EClass EDITOR = eINSTANCE.getEditor();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDITOR__NAME = eINSTANCE.getEditor_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>File Extension</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDITOR__FILE_EXTENSION = eINSTANCE.getEditor_FileExtension();
+
+		/**
+		 * The meta object literal for the '<em><b>Editor Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDITOR__EDITOR_URI = eINSTANCE.getEditor_EditorUri();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.PerspectiveImpl <em>Perspective</em>}' class.

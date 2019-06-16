@@ -82,6 +82,16 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseEditorRegistry(EditorRegistry object) {
+			return createEditorRegistryAdapter();
+		}
+
+		@Override
+		public Adapter caseEditor(Editor object) {
+			return createEditorAdapter();
+		}
+
+		@Override
 		public Adapter casePerspective(Perspective object) {
 			return createPerspectiveAdapter();
 		}
@@ -194,6 +204,34 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWorkbenchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.EditorRegistry <em>Editor Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.EditorRegistry
+	 * @generated
+	 */
+	public Adapter createEditorRegistryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.Editor <em>Editor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.Editor
+	 * @generated
+	 */
+	public Adapter createEditorAdapter() {
 		return null;
 	}
 

@@ -2,8 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.provider;
 
-import de.dc.javafx.xcore.workbench.Workbench;
-import de.dc.javafx.xcore.workbench.WorkbenchFactory;
+import de.dc.javafx.xcore.workbench.Editor;
 import de.dc.javafx.xcore.workbench.WorkbenchPackage;
 
 import java.util.Collection;
@@ -13,25 +12,24 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.Workbench} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.Editor} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class EditorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -39,7 +37,7 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WorkbenchItemProvider(AdapterFactory adapterFactory) {
+	public EditorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -54,53 +52,69 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
+			addFileExtensionPropertyDescriptor(object);
+			addEditorUriPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__TOOLBAR);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__STATUSLINE);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__PERSPECTIVES);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__COMMANDS);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__EDITOR_REGISTRY);
-		}
-		return childrenFeatures;
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Editor_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Editor_name_feature", "_UI_Editor_type"),
+						WorkbenchPackage.Literals.EDITOR__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
+	 * This adds a property descriptor for the File Extension feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addFileExtensionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Editor_fileExtension_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Editor_fileExtension_feature",
+								"_UI_Editor_type"),
+						WorkbenchPackage.Literals.EDITOR__FILE_EXTENSION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns Workbench.gif.
+	 * This adds a property descriptor for the Editor Uri feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEditorUriPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Editor_editorUri_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Editor_editorUri_feature",
+								"_UI_Editor_type"),
+						WorkbenchPackage.Literals.EDITOR__EDITOR_URI, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This returns Editor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Workbench"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Editor"));
 	}
 
 	/**
@@ -121,7 +135,9 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Workbench_type");
+		String label = ((Editor) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Editor_type")
+				: getString("_UI_Editor_type") + " " + label;
 	}
 
 	/**
@@ -135,13 +151,11 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Workbench.class)) {
-		case WorkbenchPackage.WORKBENCH__TOOLBAR:
-		case WorkbenchPackage.WORKBENCH__STATUSLINE:
-		case WorkbenchPackage.WORKBENCH__PERSPECTIVES:
-		case WorkbenchPackage.WORKBENCH__COMMANDS:
-		case WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(Editor.class)) {
+		case WorkbenchPackage.EDITOR__NAME:
+		case WorkbenchPackage.EDITOR__FILE_EXTENSION:
+		case WorkbenchPackage.EDITOR__EDITOR_URI:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -157,21 +171,6 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__TOOLBAR,
-				WorkbenchFactory.eINSTANCE.createToolbar()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__STATUSLINE,
-				WorkbenchFactory.eINSTANCE.createStatusline()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__PERSPECTIVES,
-				WorkbenchFactory.eINSTANCE.createPerspective()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__COMMANDS,
-				WorkbenchFactory.eINSTANCE.createCommand()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__EDITOR_REGISTRY,
-				WorkbenchFactory.eINSTANCE.createEditorRegistry()));
 	}
 
 	/**

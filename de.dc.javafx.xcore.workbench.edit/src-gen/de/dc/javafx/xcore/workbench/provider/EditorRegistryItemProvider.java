@@ -2,7 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.provider;
 
-import de.dc.javafx.xcore.workbench.Workbench;
+import de.dc.javafx.xcore.workbench.EditorRegistry;
 import de.dc.javafx.xcore.workbench.WorkbenchFactory;
 import de.dc.javafx.xcore.workbench.WorkbenchPackage;
 
@@ -13,9 +13,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -26,12 +24,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.Workbench} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.EditorRegistry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class EditorRegistryItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -39,7 +37,7 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WorkbenchItemProvider(AdapterFactory adapterFactory) {
+	public EditorRegistryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,11 +68,7 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__TOOLBAR);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__STATUSLINE);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__PERSPECTIVES);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__COMMANDS);
-			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__EDITOR_REGISTRY);
+			childrenFeatures.add(WorkbenchPackage.Literals.EDITOR_REGISTRY__EDITOR);
 		}
 		return childrenFeatures;
 	}
@@ -93,14 +87,14 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	}
 
 	/**
-	 * This returns Workbench.gif.
+	 * This returns EditorRegistry.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Workbench"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EditorRegistry"));
 	}
 
 	/**
@@ -121,7 +115,7 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Workbench_type");
+		return getString("_UI_EditorRegistry_type");
 	}
 
 	/**
@@ -135,12 +129,8 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Workbench.class)) {
-		case WorkbenchPackage.WORKBENCH__TOOLBAR:
-		case WorkbenchPackage.WORKBENCH__STATUSLINE:
-		case WorkbenchPackage.WORKBENCH__PERSPECTIVES:
-		case WorkbenchPackage.WORKBENCH__COMMANDS:
-		case WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY:
+		switch (notification.getFeatureID(EditorRegistry.class)) {
+		case WorkbenchPackage.EDITOR_REGISTRY__EDITOR:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -158,20 +148,8 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__TOOLBAR,
-				WorkbenchFactory.eINSTANCE.createToolbar()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__STATUSLINE,
-				WorkbenchFactory.eINSTANCE.createStatusline()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__PERSPECTIVES,
-				WorkbenchFactory.eINSTANCE.createPerspective()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__COMMANDS,
-				WorkbenchFactory.eINSTANCE.createCommand()));
-
-		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__EDITOR_REGISTRY,
-				WorkbenchFactory.eINSTANCE.createEditorRegistry()));
+		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.EDITOR_REGISTRY__EDITOR,
+				WorkbenchFactory.eINSTANCE.createEditor()));
 	}
 
 	/**

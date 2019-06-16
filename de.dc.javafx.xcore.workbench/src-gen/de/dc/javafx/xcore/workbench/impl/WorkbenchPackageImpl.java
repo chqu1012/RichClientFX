@@ -4,7 +4,9 @@ package de.dc.javafx.xcore.workbench.impl;
 
 import de.dc.javafx.xcore.workbench.BottomPane;
 import de.dc.javafx.xcore.workbench.Command;
+import de.dc.javafx.xcore.workbench.Editor;
 import de.dc.javafx.xcore.workbench.EditorArea;
+import de.dc.javafx.xcore.workbench.EditorRegistry;
 import de.dc.javafx.xcore.workbench.IActionListener;
 import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.NamedElement;
@@ -54,6 +56,20 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * @generated
 	 */
 	private EClass workbenchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass editorRegistryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass editorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,6 +313,76 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	@Override
 	public EReference getWorkbench_Commands() {
 		return (EReference) workbenchEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getWorkbench_EditorRegistry() {
+		return (EReference) workbenchEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEditorRegistry() {
+		return editorRegistryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getEditorRegistry_Editor() {
+		return (EReference) editorRegistryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEditor() {
+		return editorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEditor_Name() {
+		return (EAttribute) editorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEditor_FileExtension() {
+		return (EAttribute) editorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEditor_EditorUri() {
+		return (EAttribute) editorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -581,6 +667,15 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		createEReference(workbenchEClass, WORKBENCH__STATUSLINE);
 		createEReference(workbenchEClass, WORKBENCH__PERSPECTIVES);
 		createEReference(workbenchEClass, WORKBENCH__COMMANDS);
+		createEReference(workbenchEClass, WORKBENCH__EDITOR_REGISTRY);
+
+		editorRegistryEClass = createEClass(EDITOR_REGISTRY);
+		createEReference(editorRegistryEClass, EDITOR_REGISTRY__EDITOR);
+
+		editorEClass = createEClass(EDITOR);
+		createEAttribute(editorEClass, EDITOR__NAME);
+		createEAttribute(editorEClass, EDITOR__FILE_EXTENSION);
+		createEAttribute(editorEClass, EDITOR__EDITOR_URI);
 
 		perspectiveEClass = createEClass(PERSPECTIVE);
 		createEReference(perspectiveEClass, PERSPECTIVE__LEFT_PANE);
@@ -692,6 +787,25 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		initEReference(getWorkbench_Commands(), this.getCommand(), null, "commands", null, 0, -1, Workbench.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWorkbench_EditorRegistry(), this.getEditorRegistry(), null, "editorRegistry", null, 0, 1,
+				Workbench.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(editorRegistryEClass, EditorRegistry.class, "EditorRegistry", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEditorRegistry_Editor(), this.getEditor(), null, "editor", null, 0, -1, EditorRegistry.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(editorEClass, Editor.class, "Editor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEditor_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Editor.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditor_FileExtension(), theEcorePackage.getEString(), "fileExtension", null, 0, 1,
+				Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditor_EditorUri(), theEcorePackage.getEString(), "editorUri", null, 0, 1, Editor.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(perspectiveEClass, Perspective.class, "Perspective", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

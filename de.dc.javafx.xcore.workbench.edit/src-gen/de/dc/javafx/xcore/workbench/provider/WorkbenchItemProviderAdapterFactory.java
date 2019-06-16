@@ -142,6 +142,52 @@ public class WorkbenchItemProviderAdapterFactory extends WorkbenchAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.EditorRegistry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EditorRegistryItemProvider editorRegistryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.EditorRegistry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEditorRegistryAdapter() {
+		if (editorRegistryItemProvider == null) {
+			editorRegistryItemProvider = new EditorRegistryItemProvider(this);
+		}
+
+		return editorRegistryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.Editor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EditorItemProvider editorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.Editor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEditorAdapter() {
+		if (editorItemProvider == null) {
+			editorItemProvider = new EditorItemProvider(this);
+		}
+
+		return editorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.Perspective} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,6 +528,10 @@ public class WorkbenchItemProviderAdapterFactory extends WorkbenchAdapterFactory
 			namedElementItemProvider.dispose();
 		if (workbenchItemProvider != null)
 			workbenchItemProvider.dispose();
+		if (editorRegistryItemProvider != null)
+			editorRegistryItemProvider.dispose();
+		if (editorItemProvider != null)
+			editorItemProvider.dispose();
 		if (perspectiveItemProvider != null)
 			perspectiveItemProvider.dispose();
 		if (commandItemProvider != null)

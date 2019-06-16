@@ -3,6 +3,7 @@
 package de.dc.javafx.xcore.workbench.impl;
 
 import de.dc.javafx.xcore.workbench.Command;
+import de.dc.javafx.xcore.workbench.EditorRegistry;
 import de.dc.javafx.xcore.workbench.Perspective;
 import de.dc.javafx.xcore.workbench.Statusline;
 import de.dc.javafx.xcore.workbench.Toolbar;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.WorkbenchImpl#getStatusline <em>Statusline</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.WorkbenchImpl#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.impl.WorkbenchImpl#getCommands <em>Commands</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.impl.WorkbenchImpl#getEditorRegistry <em>Editor Registry</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +83,16 @@ public class WorkbenchImpl extends MinimalEObjectImpl.Container implements Workb
 	 * @ordered
 	 */
 	protected EList<Command> commands;
+
+	/**
+	 * The cached value of the '{@link #getEditorRegistry() <em>Editor Registry</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEditorRegistry()
+	 * @generated
+	 * @ordered
+	 */
+	protected EditorRegistry editorRegistry;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,6 +250,58 @@ public class WorkbenchImpl extends MinimalEObjectImpl.Container implements Workb
 	 * @generated
 	 */
 	@Override
+	public EditorRegistry getEditorRegistry() {
+		return editorRegistry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEditorRegistry(EditorRegistry newEditorRegistry, NotificationChain msgs) {
+		EditorRegistry oldEditorRegistry = editorRegistry;
+		editorRegistry = newEditorRegistry;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY, oldEditorRegistry, newEditorRegistry);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEditorRegistry(EditorRegistry newEditorRegistry) {
+		if (newEditorRegistry != editorRegistry) {
+			NotificationChain msgs = null;
+			if (editorRegistry != null)
+				msgs = ((InternalEObject) editorRegistry).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY, null, msgs);
+			if (newEditorRegistry != null)
+				msgs = ((InternalEObject) newEditorRegistry).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY, null, msgs);
+			msgs = basicSetEditorRegistry(newEditorRegistry, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY,
+					newEditorRegistry, newEditorRegistry));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case WorkbenchPackage.WORKBENCH__TOOLBAR:
@@ -248,6 +312,8 @@ public class WorkbenchImpl extends MinimalEObjectImpl.Container implements Workb
 			return ((InternalEList<?>) getPerspectives()).basicRemove(otherEnd, msgs);
 		case WorkbenchPackage.WORKBENCH__COMMANDS:
 			return ((InternalEList<?>) getCommands()).basicRemove(otherEnd, msgs);
+		case WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY:
+			return basicSetEditorRegistry(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -268,6 +334,8 @@ public class WorkbenchImpl extends MinimalEObjectImpl.Container implements Workb
 			return getPerspectives();
 		case WorkbenchPackage.WORKBENCH__COMMANDS:
 			return getCommands();
+		case WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY:
+			return getEditorRegistry();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,6 +363,9 @@ public class WorkbenchImpl extends MinimalEObjectImpl.Container implements Workb
 			getCommands().clear();
 			getCommands().addAll((Collection<? extends Command>) newValue);
 			return;
+		case WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY:
+			setEditorRegistry((EditorRegistry) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -319,6 +390,9 @@ public class WorkbenchImpl extends MinimalEObjectImpl.Container implements Workb
 		case WorkbenchPackage.WORKBENCH__COMMANDS:
 			getCommands().clear();
 			return;
+		case WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY:
+			setEditorRegistry((EditorRegistry) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,6 +413,8 @@ public class WorkbenchImpl extends MinimalEObjectImpl.Container implements Workb
 			return perspectives != null && !perspectives.isEmpty();
 		case WorkbenchPackage.WORKBENCH__COMMANDS:
 			return commands != null && !commands.isEmpty();
+		case WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY:
+			return editorRegistry != null;
 		}
 		return super.eIsSet(featureID);
 	}

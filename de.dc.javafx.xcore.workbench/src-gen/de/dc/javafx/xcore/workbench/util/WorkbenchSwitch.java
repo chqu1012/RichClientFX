@@ -87,6 +87,20 @@ public class WorkbenchSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case WorkbenchPackage.EDITOR_REGISTRY: {
+			EditorRegistry editorRegistry = (EditorRegistry) theEObject;
+			T result = caseEditorRegistry(editorRegistry);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case WorkbenchPackage.EDITOR: {
+			Editor editor = (Editor) theEObject;
+			T result = caseEditor(editor);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case WorkbenchPackage.PERSPECTIVE: {
 			Perspective perspective = (Perspective) theEObject;
 			T result = casePerspective(perspective);
@@ -233,6 +247,36 @@ public class WorkbenchSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseWorkbench(Workbench object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Editor Registry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Editor Registry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEditorRegistry(EditorRegistry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Editor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Editor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEditor(Editor object) {
 		return null;
 	}
 

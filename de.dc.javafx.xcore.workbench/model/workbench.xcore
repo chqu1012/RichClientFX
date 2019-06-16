@@ -25,6 +25,17 @@ class Workbench{
 	
 	contains Perspective[0..*] perspectives
 	contains Command[0..*] commands
+	contains EditorRegistry editorRegistry
+}
+
+class EditorRegistry{
+	contains Editor[0..*] editor
+}
+
+class Editor{
+	String name
+	String fileExtension
+	String editorUri
 }
 
 class Perspective extends NamedElement{
