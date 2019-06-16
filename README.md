@@ -29,7 +29,12 @@ This application contains on the generation:
 * Addons:
 	* Realtime Chart Rendering
 		* LineChart
+		* BarChart
+		* ScatterChart
+		* AreaChart
+		* PieChart
 	* Thymeleaf Blog Template Generator
+* Editor Registry for several types
 
 ### Flat History View
 This view shows all command calls. Via the context menu, the user can undo or redo this action.
@@ -42,6 +47,10 @@ This view is an extended history view. A lot of information is displayed in cell
 ### RealTime LineChart Rendering
 This addon supports rendering of chart files. The chart file is defined in EMF Xcore, so to create a chart the EMFTreeModelView can be used.
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-LineChart2.png)
+
+### RealTime BarChart Rendering
+BarChart Rendering showing history view, editor part and emf model tree.
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-BarChart.png)
 
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
