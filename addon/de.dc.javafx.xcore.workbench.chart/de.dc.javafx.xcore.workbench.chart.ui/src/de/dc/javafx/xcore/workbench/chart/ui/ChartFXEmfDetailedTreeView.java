@@ -42,7 +42,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewController implements ChangeListener<TreeItem<Object>>, IEmfFileService, IEmfEditorPart{
+public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewController implements ChangeListener<TreeItem<Object>>, IEmfFileService<ChartProject>, IEmfEditorPart{
 	
 	private ObservableList<Boolean> values = FXCollections.observableArrayList();
 	private EditingDomain editingDomain;
@@ -252,6 +252,11 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 	@Override
 	public void save(File file) {
 		treeView.save(file);
+	}
+
+	@Override
+	public ChartProject load(File file) {
+		return treeView.load(file);
 	}
 }
 

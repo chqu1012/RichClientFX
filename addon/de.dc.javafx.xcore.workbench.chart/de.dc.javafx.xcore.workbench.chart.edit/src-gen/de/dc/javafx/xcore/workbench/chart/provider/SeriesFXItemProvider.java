@@ -113,11 +113,12 @@ public class SeriesFXItemProvider extends ItemProviderAdapter
 	 * This returns SeriesFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SeriesFX"));
+//		return overlayImage(object, getResourceLocator().getImage("full/obj16/SeriesFX"));
+		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-liste-16.png"));
 	}
 
 	/**

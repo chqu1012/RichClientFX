@@ -15,9 +15,6 @@ import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ui.control.EmfTreeModelView;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.TreeCell;
-import javafx.scene.control.TreeView;
-import javafx.util.Callback;
 
 public class CommandEmfTreeView extends EmfTreeModelView<EmfCommandHistory> {
 
@@ -26,12 +23,7 @@ public class CommandEmfTreeView extends EmfTreeModelView<EmfCommandHistory> {
 		addEditableFor(CommandPackage.eINSTANCE.getEmfCommand_Name());
 		addEditableFor(CommandPackage.eINSTANCE.getEmfResult_Name());
 		
-		treeView.setCellFactory(new Callback<TreeView<Object>, TreeCell<Object>>() {
-			@Override
-			public TreeCell call(TreeView<Object> param) {
-				return new CommandCellFactory(manager.getAdapterFactory());
-			}
-		});
+		treeView.setCellFactory(param -> new CommandCellFactory(manager.getAdapterFactory()));
 		
 		DIPlatform.getInstance(IEventBroker.class).register(this);
 

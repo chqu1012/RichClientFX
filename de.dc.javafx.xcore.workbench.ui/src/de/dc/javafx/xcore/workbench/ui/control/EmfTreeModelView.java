@@ -62,7 +62,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object>, IEmfFileService {
+public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object>, IEmfFileService<T> {
 
 	private Logger log = Logger.getLogger(EmfTreeModelView.class.getSimpleName());
 
@@ -158,12 +158,15 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		treeView.setRoot(rootItem);
 	}
 
-	public void load(File f) {
-		load(f.getAbsolutePath());
+	@Override
+	public T load(File file) {
+		return load(file.getAbsolutePath());
 	}
 
-	public void load(String filepath) {
-		load(file.load(filepath));
+	public T load(String filepath) {
+		T model = file.load(filepath);
+		load(model);
+		return model;
 	}
 
 	private void initTreeView() {
