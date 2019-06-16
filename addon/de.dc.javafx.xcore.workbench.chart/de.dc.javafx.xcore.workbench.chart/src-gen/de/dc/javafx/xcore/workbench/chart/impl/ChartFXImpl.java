@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getXAxisLabel <em>XAxis Label</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getYAxisLabel <em>YAxis Label</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getConfig <em>Config</em>}</li>
  * </ul>
  *
@@ -49,6 +51,46 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getXAxisLabel() <em>XAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXAxisLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String XAXIS_LABEL_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getXAxisLabel() <em>XAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXAxisLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String xAxisLabel = XAXIS_LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getYAxisLabel() <em>YAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYAxisLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String YAXIS_LABEL_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getYAxisLabel() <em>YAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYAxisLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String yAxisLabel = YAXIS_LABEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
@@ -100,6 +142,54 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.CHART_FX__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getXAxisLabel() {
+		return xAxisLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setXAxisLabel(String newXAxisLabel) {
+		String oldXAxisLabel = xAxisLabel;
+		xAxisLabel = newXAxisLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.CHART_FX__XAXIS_LABEL, oldXAxisLabel,
+					xAxisLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getYAxisLabel() {
+		return yAxisLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setYAxisLabel(String newYAxisLabel) {
+		String oldYAxisLabel = yAxisLabel;
+		yAxisLabel = newYAxisLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.CHART_FX__YAXIS_LABEL, oldYAxisLabel,
+					yAxisLabel));
 	}
 
 	/**
@@ -177,6 +267,10 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 		case ChartPackage.CHART_FX__NAME:
 			return getName();
+		case ChartPackage.CHART_FX__XAXIS_LABEL:
+			return getXAxisLabel();
+		case ChartPackage.CHART_FX__YAXIS_LABEL:
+			return getYAxisLabel();
 		case ChartPackage.CHART_FX__CONFIG:
 			return getConfig();
 		}
@@ -193,6 +287,12 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 		case ChartPackage.CHART_FX__NAME:
 			setName((String) newValue);
+			return;
+		case ChartPackage.CHART_FX__XAXIS_LABEL:
+			setXAxisLabel((String) newValue);
+			return;
+		case ChartPackage.CHART_FX__YAXIS_LABEL:
+			setYAxisLabel((String) newValue);
 			return;
 		case ChartPackage.CHART_FX__CONFIG:
 			setConfig((ChartFXConfig) newValue);
@@ -212,6 +312,12 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		case ChartPackage.CHART_FX__NAME:
 			setName(NAME_EDEFAULT);
 			return;
+		case ChartPackage.CHART_FX__XAXIS_LABEL:
+			setXAxisLabel(XAXIS_LABEL_EDEFAULT);
+			return;
+		case ChartPackage.CHART_FX__YAXIS_LABEL:
+			setYAxisLabel(YAXIS_LABEL_EDEFAULT);
+			return;
 		case ChartPackage.CHART_FX__CONFIG:
 			setConfig((ChartFXConfig) null);
 			return;
@@ -229,6 +335,10 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 		case ChartPackage.CHART_FX__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ChartPackage.CHART_FX__XAXIS_LABEL:
+			return XAXIS_LABEL_EDEFAULT == null ? xAxisLabel != null : !XAXIS_LABEL_EDEFAULT.equals(xAxisLabel);
+		case ChartPackage.CHART_FX__YAXIS_LABEL:
+			return YAXIS_LABEL_EDEFAULT == null ? yAxisLabel != null : !YAXIS_LABEL_EDEFAULT.equals(yAxisLabel);
 		case ChartPackage.CHART_FX__CONFIG:
 			return config != null;
 		}
@@ -248,6 +358,10 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", xAxisLabel: ");
+		result.append(xAxisLabel);
+		result.append(", yAxisLabel: ");
+		result.append(yAxisLabel);
 		result.append(')');
 		return result.toString();
 	}

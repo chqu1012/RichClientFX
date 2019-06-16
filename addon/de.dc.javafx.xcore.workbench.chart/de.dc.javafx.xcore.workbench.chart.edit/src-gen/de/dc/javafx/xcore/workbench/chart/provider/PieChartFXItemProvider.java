@@ -2,8 +2,6 @@
  */
 package de.dc.javafx.xcore.workbench.chart.provider;
 
-import de.dc.javafx.xcore.workbench.chart.ChartFactory;
-import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.PieChartFX;
 
 import java.util.Collection;
@@ -11,10 +9,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.PieChartFX} object.
@@ -22,7 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PieChartFXItemProvider extends ChartFXItemProvider {
+public class PieChartFXItemProvider extends CategoryChartFXItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -49,36 +44,6 @@ public class PieChartFXItemProvider extends ChartFXItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ChartPackage.Literals.PIE_CHART_FX__VALUES);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns PieChartFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,7 +51,7 @@ public class PieChartFXItemProvider extends ChartFXItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/PieChartFX"));
+		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/PieChartFX"));
 		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-ring-diagramm-16.png"));
 	}
 
@@ -123,12 +88,6 @@ public class PieChartFXItemProvider extends ChartFXItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(PieChartFX.class)) {
-		case ChartPackage.PIE_CHART_FX__VALUES:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -142,9 +101,6 @@ public class PieChartFXItemProvider extends ChartFXItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.PIE_CHART_FX__VALUES,
-				ChartFactory.eINSTANCE.createCategoryValueFX()));
 	}
 
 }

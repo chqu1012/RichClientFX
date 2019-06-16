@@ -13,10 +13,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -47,42 +44,8 @@ public class XYChartFXItemProvider extends ChartFXItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXAxisLabelPropertyDescriptor(object);
-			addYAxisLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the XAxis Label feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addXAxisLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_XYChartFX_xAxisLabel_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_XYChartFX_xAxisLabel_feature",
-								"_UI_XYChartFX_type"),
-						ChartPackage.Literals.XY_CHART_FX__XAXIS_LABEL, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the YAxis Label feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYAxisLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_XYChartFX_yAxisLabel_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_XYChartFX_yAxisLabel_feature",
-								"_UI_XYChartFX_type"),
-						ChartPackage.Literals.XY_CHART_FX__YAXIS_LABEL, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -150,10 +113,6 @@ public class XYChartFXItemProvider extends ChartFXItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XYChartFX.class)) {
-		case ChartPackage.XY_CHART_FX__XAXIS_LABEL:
-		case ChartPackage.XY_CHART_FX__YAXIS_LABEL:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
 		case ChartPackage.XY_CHART_FX__SERIES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;

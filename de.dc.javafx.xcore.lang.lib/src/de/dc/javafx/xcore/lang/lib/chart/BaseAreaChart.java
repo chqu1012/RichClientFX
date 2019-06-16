@@ -12,6 +12,9 @@ public class BaseAreaChart<X, Y> extends BaseXYChart<X, Y> {
 
 	@Override
 	protected XYChart<X, Y> getChart(Axis<X> xAxis, Axis<Y> yAxis) {
-		return new AreaChart<>(xAxis, yAxis);
+		if (chart==null) {
+			chart = new AreaChart<>(xAxis, yAxis);
+		}
+		return chart;
 	}
 }

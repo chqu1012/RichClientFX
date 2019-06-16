@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getName <em>Name</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getXAxisLabel <em>XAxis Label</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getYAxisLabel <em>YAxis Label</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getConfig <em>Config</em>}</li>
  * </ul>
  *
@@ -43,6 +45,52 @@ public interface ChartFX extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>XAxis Label</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>XAxis Label</em>' attribute.
+	 * @see #setXAxisLabel(String)
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getChartFX_XAxisLabel()
+	 * @model default="" unique="false"
+	 * @generated
+	 */
+	String getXAxisLabel();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getXAxisLabel <em>XAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>XAxis Label</em>' attribute.
+	 * @see #getXAxisLabel()
+	 * @generated
+	 */
+	void setXAxisLabel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>YAxis Label</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>YAxis Label</em>' attribute.
+	 * @see #setYAxisLabel(String)
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getChartFX_YAxisLabel()
+	 * @model default="" unique="false"
+	 * @generated
+	 */
+	String getYAxisLabel();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getYAxisLabel <em>YAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>YAxis Label</em>' attribute.
+	 * @see #getYAxisLabel()
+	 * @generated
+	 */
+	void setYAxisLabel(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Config</b></em>' containment reference.

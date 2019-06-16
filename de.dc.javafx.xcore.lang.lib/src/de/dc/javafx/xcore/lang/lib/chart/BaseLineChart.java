@@ -12,6 +12,9 @@ public class BaseLineChart<X, Y> extends BaseXYChart<X, Y> {
 
 	@Override
 	protected XYChart<X, Y> getChart(Axis<X> xAxis, Axis<Y> yAxis) {
-		return new LineChart<X, Y>(xAxis, yAxis);
+		if (chart==null) {
+			chart = new LineChart<X, Y>(xAxis, yAxis);
+		}
+		return chart;
 	}
 }

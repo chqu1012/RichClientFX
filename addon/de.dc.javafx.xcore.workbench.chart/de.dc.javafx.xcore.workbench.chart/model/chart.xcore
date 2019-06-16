@@ -18,13 +18,22 @@ class ChartProject{
 
 abstract class ChartFX{
 	String name
+	String xAxisLabel = ""
+	String yAxisLabel = ""
 	contains ChartFXConfig config
 }
 
 abstract class XYChartFX extends ChartFX{
-	String xAxisLabel = ""
-	String yAxisLabel = ""
 	contains SeriesFX[0..*] series	
+}
+
+abstract class CategoryChartFX extends ChartFX{
+	contains CategorySeriesFX[0..*] series
+}
+
+class CategorySeriesFX{
+	String name
+	contains CategoryValueFX[0..*] values
 }
 
 class SeriesFX{
@@ -47,9 +56,8 @@ class AreaChartFX extends XYChartFX{}
 class ScatterChartFX extends XYChartFX{}
 class BubbleChartFX extends XYChartFX{}
 
-class PieChartFX extends ChartFX{
-	contains CategoryValueFX[0..*] values
-}
+class BarChartFX extends CategoryChartFX{}
+class PieChartFX extends CategoryChartFX{}
 
 class ChartFXConfig{
 	ChartSide sideLegend

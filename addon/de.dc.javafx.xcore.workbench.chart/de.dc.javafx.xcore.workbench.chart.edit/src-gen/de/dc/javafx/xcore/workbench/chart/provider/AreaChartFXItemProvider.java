@@ -52,7 +52,7 @@ public class AreaChartFXItemProvider extends XYChartFXItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/AreaChartFX"));
+		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/AreaChartFX"));
 		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-flächendiagramm-16.png"));
 	}
 

@@ -219,6 +219,9 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 				ChartFactory.eINSTANCE.createBubbleChartFX()));
 
 		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
+				ChartFactory.eINSTANCE.createBarChartFX()));
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
 				ChartFactory.eINSTANCE.createPieChartFX()));
 	}
 

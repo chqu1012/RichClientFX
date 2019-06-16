@@ -25,6 +25,8 @@ public class ExtendedChartFXFactoryImpl extends ChartFactoryImpl implements Exte
 		switch (classifierId) {
 		case ChartPackage.CHART_PROJECT:
 			return createChartProject();
+		case ChartPackage.CATEGORY_SERIES_FX:
+			return createCategorySeriesFX();
 		case ChartPackage.SERIES_FX:
 			return createSeriesFX();
 		case ChartPackage.XY_VALUE_FX:
@@ -39,6 +41,8 @@ public class ExtendedChartFXFactoryImpl extends ChartFactoryImpl implements Exte
 			return createScatterChartFX();
 		case ChartPackage.BUBBLE_CHART_FX:
 			return createBubbleChartFX();
+		case ChartPackage.BAR_CHART_FX:
+			return createBarChartFX();
 		case ChartPackage.PIE_CHART_FX:
 			return createPieChartFX();
 		case ChartPackage.CHART_FX_CONFIG:

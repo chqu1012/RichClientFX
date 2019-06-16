@@ -31,6 +31,15 @@ public interface ChartFactory extends EFactory {
 	ChartProject createChartProject();
 
 	/**
+	 * Returns a new object of class '<em>Category Series FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Category Series FX</em>'.
+	 * @generated
+	 */
+	CategorySeriesFX createCategorySeriesFX();
+
+	/**
 	 * Returns a new object of class '<em>Series FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +101,15 @@ public interface ChartFactory extends EFactory {
 	 * @generated
 	 */
 	BubbleChartFX createBubbleChartFX();
+
+	/**
+	 * Returns a new object of class '<em>Bar Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bar Chart FX</em>'.
+	 * @generated
+	 */
+	BarChartFX createBarChartFX();
 
 	/**
 	 * Returns a new object of class '<em>Pie Chart FX</em>'.

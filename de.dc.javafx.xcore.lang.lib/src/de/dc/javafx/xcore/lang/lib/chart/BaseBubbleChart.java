@@ -12,7 +12,10 @@ public class BaseBubbleChart<X,Y> extends BaseXYChart<X, Y> {
 
 	@Override
 	protected XYChart<X, Y> getChart(Axis<X> xAxis, Axis<Y> yAxis) {
-		return new BubbleChart<>(xAxis, yAxis);
+		if (chart==null) {
+			chart = new BubbleChart<>(xAxis, yAxis);
+		}
+		return chart;
 	}
 
 }

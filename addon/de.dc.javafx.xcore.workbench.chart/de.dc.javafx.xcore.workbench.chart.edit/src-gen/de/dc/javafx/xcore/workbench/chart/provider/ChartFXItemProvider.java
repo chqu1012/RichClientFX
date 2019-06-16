@@ -58,6 +58,8 @@ public class ChartFXItemProvider extends ItemProviderAdapter
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addXAxisLabelPropertyDescriptor(object);
+			addYAxisLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,6 +76,38 @@ public class ChartFXItemProvider extends ItemProviderAdapter
 						getResourceLocator(), getString("_UI_ChartFX_name_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_ChartFX_name_feature", "_UI_ChartFX_type"),
 						ChartPackage.Literals.CHART_FX__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the XAxis Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXAxisLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ChartFX_xAxisLabel_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ChartFX_xAxisLabel_feature",
+								"_UI_ChartFX_type"),
+						ChartPackage.Literals.CHART_FX__XAXIS_LABEL, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the YAxis Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addYAxisLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ChartFX_yAxisLabel_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ChartFX_yAxisLabel_feature",
+								"_UI_ChartFX_type"),
+						ChartPackage.Literals.CHART_FX__YAXIS_LABEL, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -173,6 +207,8 @@ public class ChartFXItemProvider extends ItemProviderAdapter
 
 		switch (notification.getFeatureID(ChartFX.class)) {
 		case ChartPackage.CHART_FX__NAME:
+		case ChartPackage.CHART_FX__XAXIS_LABEL:
+		case ChartPackage.CHART_FX__YAXIS_LABEL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ChartPackage.CHART_FX__CONFIG:

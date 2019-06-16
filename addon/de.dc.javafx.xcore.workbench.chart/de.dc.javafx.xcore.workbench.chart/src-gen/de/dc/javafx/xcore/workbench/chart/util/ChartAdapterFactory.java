@@ -82,6 +82,16 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCategoryChartFX(CategoryChartFX object) {
+			return createCategoryChartFXAdapter();
+		}
+
+		@Override
+		public Adapter caseCategorySeriesFX(CategorySeriesFX object) {
+			return createCategorySeriesFXAdapter();
+		}
+
+		@Override
 		public Adapter caseSeriesFX(SeriesFX object) {
 			return createSeriesFXAdapter();
 		}
@@ -114,6 +124,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBubbleChartFX(BubbleChartFX object) {
 			return createBubbleChartFXAdapter();
+		}
+
+		@Override
+		public Adapter caseBarChartFX(BarChartFX object) {
+			return createBarChartFXAdapter();
 		}
 
 		@Override
@@ -184,6 +199,34 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXYChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.CategoryChartFX <em>Category Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.CategoryChartFX
+	 * @generated
+	 */
+	public Adapter createCategoryChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.CategorySeriesFX <em>Category Series FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.CategorySeriesFX
+	 * @generated
+	 */
+	public Adapter createCategorySeriesFXAdapter() {
 		return null;
 	}
 
@@ -282,6 +325,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBubbleChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.BarChartFX <em>Bar Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.BarChartFX
+	 * @generated
+	 */
+	public Adapter createBarChartFXAdapter() {
 		return null;
 	}
 

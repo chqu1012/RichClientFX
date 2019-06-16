@@ -3,7 +3,6 @@ import com.google.common.eventbus.Subscribe;
 
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
-import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.ui.file.ChartFXFile;
 import de.dc.javafx.xcore.workbench.chart.ui.manager.ChartFXEmfManager;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
@@ -19,8 +18,10 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 
 	public ChartFXEmfTreeView() {
 		// Set edit mode for several attributes
-		addEditableFor(ChartPackage.eINSTANCE.getXYChartFX_XAxisLabel());
-		addEditableFor(ChartPackage.eINSTANCE.getXYChartFX_YAxisLabel());
+		addEditableFor(ChartPackage.eINSTANCE.getCategoryValueFX_Name());
+		addEditableFor(ChartPackage.eINSTANCE.getCategoryValueFX_Value());
+		addEditableFor(ChartPackage.eINSTANCE.getChartFX_XAxisLabel());
+		addEditableFor(ChartPackage.eINSTANCE.getChartFX_YAxisLabel());
 		addEditableFor(ChartPackage.eINSTANCE.getXYValueFX_X());
 		addEditableFor(ChartPackage.eINSTANCE.getXYValueFX_Y());
 		addEditableFor(ChartPackage.eINSTANCE.getSeriesFX_Name());

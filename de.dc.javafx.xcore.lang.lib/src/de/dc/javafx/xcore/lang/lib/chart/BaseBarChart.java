@@ -4,7 +4,7 @@ import javafx.scene.chart.Axis;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
-public abstract class BaseBarChart<X, Y> extends BaseXYChart<X, Y> {
+public class BaseBarChart<X, Y> extends BaseXYChart<X, Y> {
 
 	public BaseBarChart(Axis<X> xAxis, Axis<Y> yAxis) {
 		super(xAxis, yAxis);
@@ -12,7 +12,10 @@ public abstract class BaseBarChart<X, Y> extends BaseXYChart<X, Y> {
 	
 	@Override
 	protected XYChart<X, Y> getChart(Axis<X> xAxis, Axis<Y> yAxis) {
-		return new BarChart<>(xAxis, yAxis);
+		if (chart==null) {
+			chart = new BarChart<X, Y>(xAxis, yAxis);
+		}
+		return chart;
 	}
 
 }

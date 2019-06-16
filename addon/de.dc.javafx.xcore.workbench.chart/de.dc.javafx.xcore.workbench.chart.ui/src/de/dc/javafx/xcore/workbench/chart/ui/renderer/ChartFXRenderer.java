@@ -4,13 +4,16 @@ import org.gillius.jfxutils.chart.ChartPanManager;
 import org.gillius.jfxutils.chart.JFXChartUtil;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
+import de.dc.javafx.xcore.lang.lib.chart.BaseBarChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseBubbleChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
 import de.dc.javafx.xcore.lang.lib.chart.BasePieChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseScatterChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseXYChart;
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
+import de.dc.javafx.xcore.workbench.chart.BarChartFX;
 import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
+import de.dc.javafx.xcore.workbench.chart.CategorySeriesFX;
 import de.dc.javafx.xcore.workbench.chart.CategoryValueFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
@@ -22,6 +25,7 @@ import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.util.ChartSwitch;
 import javafx.geometry.Side;
 import javafx.scene.Node;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.Chart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -31,18 +35,32 @@ import javafx.scene.input.MouseButton;
 public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
+	
+	@Override
+	public Node caseBarChartFX(BarChartFX object) {
+		BaseBarChart<String, Number> chart = new BaseBarChart<>(new CategoryAxis(), new NumberAxis());
+		currentChart = chart.getChart();
+		caseChartFXConfig(object.getConfig());
+		for (CategorySeriesFX s : object.getSeries()) {
+			XYChart.Series<String, Number> series = new XYChart.Series<>();
+			series.setName(s.getName());
+			for (CategoryValueFX item : s.getValues()) {
+				series.getData().add(new XYChart.Data<String, Number>(String.valueOf(item.getName()), item.getValue()));
+			}
+		}
+		return chart;
+	}
 
 	@Override
 	public Node casePieChartFX(PieChartFX object) {
 		BasePieChart chart = new BasePieChart();
 		currentChart = chart;
 		caseChartFXConfig(object.getConfig());
-		for (CategoryValueFX value : object.getValues()) {
-			System.out.println(value.getValue());
-			chart.add(value.getName(), value.getValue());
+		for (CategorySeriesFX s : object.getSeries()) {
+			for (CategoryValueFX value : s.getValues()) {
+				chart.add(value.getName(), value.getValue());
+			}
 		}
-//		enablePanning(true);
-//		enableZooming(true);
 		return chart;
 	}
 	

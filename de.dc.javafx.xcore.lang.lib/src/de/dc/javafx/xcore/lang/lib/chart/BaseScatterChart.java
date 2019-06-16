@@ -12,7 +12,10 @@ public class BaseScatterChart<X, Y> extends BaseXYChart<X, Y> {
 	
 	@Override
 	protected XYChart<X, Y> getChart(Axis<X> xAxis, Axis<Y> yAxis) {
-		return new ScatterChart<>(xAxis, yAxis);
+		if (chart==null) {
+			chart = new ScatterChart<>(xAxis, yAxis);
+		}
+		return chart;
 	}
 
 }

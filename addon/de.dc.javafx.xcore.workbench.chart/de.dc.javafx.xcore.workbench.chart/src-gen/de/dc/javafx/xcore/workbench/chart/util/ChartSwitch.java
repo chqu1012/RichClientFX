@@ -89,6 +89,22 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.CATEGORY_CHART_FX: {
+			CategoryChartFX categoryChartFX = (CategoryChartFX) theEObject;
+			T result = caseCategoryChartFX(categoryChartFX);
+			if (result == null)
+				result = caseChartFX(categoryChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ChartPackage.CATEGORY_SERIES_FX: {
+			CategorySeriesFX categorySeriesFX = (CategorySeriesFX) theEObject;
+			T result = caseCategorySeriesFX(categorySeriesFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.SERIES_FX: {
 			SeriesFX seriesFX = (SeriesFX) theEObject;
 			T result = caseSeriesFX(seriesFX);
@@ -154,9 +170,22 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.BAR_CHART_FX: {
+			BarChartFX barChartFX = (BarChartFX) theEObject;
+			T result = caseBarChartFX(barChartFX);
+			if (result == null)
+				result = caseCategoryChartFX(barChartFX);
+			if (result == null)
+				result = caseChartFX(barChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.PIE_CHART_FX: {
 			PieChartFX pieChartFX = (PieChartFX) theEObject;
 			T result = casePieChartFX(pieChartFX);
+			if (result == null)
+				result = caseCategoryChartFX(pieChartFX);
 			if (result == null)
 				result = caseChartFX(pieChartFX);
 			if (result == null)
@@ -217,6 +246,36 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXYChartFX(XYChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryChartFX(CategoryChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Series FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Series FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorySeriesFX(CategorySeriesFX object) {
 		return null;
 	}
 
@@ -322,6 +381,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBubbleChartFX(BubbleChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bar Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bar Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBarChartFX(BarChartFX object) {
 		return null;
 	}
 

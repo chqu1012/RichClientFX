@@ -58,6 +58,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 		switch (eClass.getClassifierID()) {
 		case ChartPackage.CHART_PROJECT:
 			return createChartProject();
+		case ChartPackage.CATEGORY_SERIES_FX:
+			return createCategorySeriesFX();
 		case ChartPackage.SERIES_FX:
 			return createSeriesFX();
 		case ChartPackage.XY_VALUE_FX:
@@ -72,6 +74,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createScatterChartFX();
 		case ChartPackage.BUBBLE_CHART_FX:
 			return createBubbleChartFX();
+		case ChartPackage.BAR_CHART_FX:
+			return createBarChartFX();
 		case ChartPackage.PIE_CHART_FX:
 			return createPieChartFX();
 		case ChartPackage.CHART_FX_CONFIG:
@@ -120,6 +124,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public ChartProject createChartProject() {
 		ChartProjectImpl chartProject = new ChartProjectImpl();
 		return chartProject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CategorySeriesFX createCategorySeriesFX() {
+		CategorySeriesFXImpl categorySeriesFX = new CategorySeriesFXImpl();
+		return categorySeriesFX;
 	}
 
 	/**
@@ -197,6 +212,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public BubbleChartFX createBubbleChartFX() {
 		BubbleChartFXImpl bubbleChartFX = new BubbleChartFXImpl();
 		return bubbleChartFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BarChartFX createBarChartFX() {
+		BarChartFXImpl barChartFX = new BarChartFXImpl();
+		return barChartFX;
 	}
 
 	/**

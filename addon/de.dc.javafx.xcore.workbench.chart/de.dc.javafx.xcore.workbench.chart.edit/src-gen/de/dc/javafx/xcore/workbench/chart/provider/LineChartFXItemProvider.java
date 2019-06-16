@@ -52,7 +52,7 @@ public class LineChartFXItemProvider extends XYChartFXItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/LineChartFX"));
+		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/LineChartFX"));
 		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-liniendiagramm-16.png"));
 	}
 
