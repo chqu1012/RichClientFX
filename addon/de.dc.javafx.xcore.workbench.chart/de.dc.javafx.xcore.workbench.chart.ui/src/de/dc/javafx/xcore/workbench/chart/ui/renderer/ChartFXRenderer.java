@@ -42,8 +42,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 		currentChart = chart.getChart();
 		caseChartFXConfig(object.getConfig());
 		for (CategorySeriesFX s : object.getSeries()) {
-			XYChart.Series<String, Number> series = new XYChart.Series<>();
-			series.setName(s.getName());
+			Series<String,Number> series = chart.addSerie(s.getName());
 			for (CategoryValueFX item : s.getValues()) {
 				series.getData().add(new XYChart.Data<String, Number>(String.valueOf(item.getName()), item.getValue()));
 			}
