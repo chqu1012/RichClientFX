@@ -56,6 +56,7 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 
 			addXPropertyDescriptor(object);
 			addYPropertyDescriptor(object);
+			addZPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +88,21 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 						getResourceLocator(), getString("_UI_MeshNode_y_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_y_feature", "_UI_MeshNode_type"),
 						MeshPackage.Literals.MESH_NODE__Y, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+						null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Z feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addZPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MeshNode_z_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_z_feature", "_UI_MeshNode_type"),
+						MeshPackage.Literals.MESH_NODE__Z, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 						null, null));
 	}
 
@@ -156,6 +172,7 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 		switch (notification.getFeatureID(MeshNode.class)) {
 		case MeshPackage.MESH_NODE__X:
 		case MeshPackage.MESH_NODE__Y:
+		case MeshPackage.MESH_NODE__Z:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

@@ -167,8 +167,48 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMeshNode_Z() {
+		return (EAttribute) meshNodeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCoordinateSystem() {
 		return coordinateSystemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCoordinateSystem_XAxisWidth() {
+		return (EAttribute) coordinateSystemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCoordinateSystem_YAxisWidth() {
+		return (EAttribute) coordinateSystemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCoordinateSystem_ZAxisWidth() {
+		return (EAttribute) coordinateSystemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -207,8 +247,12 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		meshNodeEClass = createEClass(MESH_NODE);
 		createEAttribute(meshNodeEClass, MESH_NODE__X);
 		createEAttribute(meshNodeEClass, MESH_NODE__Y);
+		createEAttribute(meshNodeEClass, MESH_NODE__Z);
 
 		coordinateSystemEClass = createEClass(COORDINATE_SYSTEM);
+		createEAttribute(coordinateSystemEClass, COORDINATE_SYSTEM__XAXIS_WIDTH);
+		createEAttribute(coordinateSystemEClass, COORDINATE_SYSTEM__YAXIS_WIDTH);
+		createEAttribute(coordinateSystemEClass, COORDINATE_SYSTEM__ZAXIS_WIDTH);
 	}
 
 	/**
@@ -257,9 +301,20 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMeshNode_Y(), theEcorePackage.getEDouble(), "y", "0", 0, 1, MeshNode.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMeshNode_Z(), theEcorePackage.getEDouble(), "z", "0", 0, 1, MeshNode.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(coordinateSystemEClass, CoordinateSystem.class, "CoordinateSystem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCoordinateSystem_XAxisWidth(), theEcorePackage.getEDouble(), "xAxisWidth", "100", 0, 1,
+				CoordinateSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCoordinateSystem_YAxisWidth(), theEcorePackage.getEDouble(), "yAxisWidth", "100", 0, 1,
+				CoordinateSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCoordinateSystem_ZAxisWidth(), theEcorePackage.getEDouble(), "zAxisWidth", "100", 0, 1,
+				CoordinateSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

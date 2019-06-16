@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getX <em>X</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getY <em>Y</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getZ <em>Z</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,26 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected double y = Y_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getZ() <em>Z</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getZ()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double Z_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getZ() <em>Z</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getZ()
+	 * @generated
+	 * @ordered
+	 */
+	protected double z = Z_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,12 +159,37 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public double getZ() {
+		return z;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setZ(double newZ) {
+		double oldZ = z;
+		z = newZ;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_NODE__Z, oldZ, z));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case MeshPackage.MESH_NODE__X:
 			return getX();
 		case MeshPackage.MESH_NODE__Y:
 			return getY();
+		case MeshPackage.MESH_NODE__Z:
+			return getZ();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +207,9 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 			return;
 		case MeshPackage.MESH_NODE__Y:
 			setY((Double) newValue);
+			return;
+		case MeshPackage.MESH_NODE__Z:
+			setZ((Double) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +229,9 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 		case MeshPackage.MESH_NODE__Y:
 			setY(Y_EDEFAULT);
 			return;
+		case MeshPackage.MESH_NODE__Z:
+			setZ(Z_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +248,8 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 			return x != X_EDEFAULT;
 		case MeshPackage.MESH_NODE__Y:
 			return y != Y_EDEFAULT;
+		case MeshPackage.MESH_NODE__Z:
+			return z != Z_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,6 +269,8 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 		result.append(x);
 		result.append(", y: ");
 		result.append(y);
+		result.append(", z: ");
+		result.append(z);
 		result.append(')');
 		return result.toString();
 	}

@@ -3,13 +3,17 @@
 package de.dc.javafx.xcore.workbench.mesh.provider;
 
 import de.dc.javafx.xcore.workbench.mesh.CoordinateSystem;
+import de.dc.javafx.xcore.workbench.mesh.MeshPackage;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem} object.
@@ -39,8 +43,59 @@ public class CoordinateSystemItemProvider extends MeshNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addXAxisWidthPropertyDescriptor(object);
+			addYAxisWidthPropertyDescriptor(object);
+			addZAxisWidthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the XAxis Width feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXAxisWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CoordinateSystem_xAxisWidth_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CoordinateSystem_xAxisWidth_feature",
+								"_UI_CoordinateSystem_type"),
+						MeshPackage.Literals.COORDINATE_SYSTEM__XAXIS_WIDTH, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the YAxis Width feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addYAxisWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CoordinateSystem_yAxisWidth_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CoordinateSystem_yAxisWidth_feature",
+								"_UI_CoordinateSystem_type"),
+						MeshPackage.Literals.COORDINATE_SYSTEM__YAXIS_WIDTH, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the ZAxis Width feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addZAxisWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CoordinateSystem_zAxisWidth_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CoordinateSystem_zAxisWidth_feature",
+								"_UI_CoordinateSystem_type"),
+						MeshPackage.Literals.COORDINATE_SYSTEM__ZAXIS_WIDTH, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -86,6 +141,14 @@ public class CoordinateSystemItemProvider extends MeshNodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(CoordinateSystem.class)) {
+		case MeshPackage.COORDINATE_SYSTEM__XAXIS_WIDTH:
+		case MeshPackage.COORDINATE_SYSTEM__YAXIS_WIDTH:
+		case MeshPackage.COORDINATE_SYSTEM__ZAXIS_WIDTH:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

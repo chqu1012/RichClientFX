@@ -123,13 +123,22 @@ public interface MeshPackage extends EPackage {
 	int MESH_NODE__Y = 1;
 
 	/**
+	 * The feature id for the '<em><b>Z</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESH_NODE__Z = 2;
+
+	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESH_NODE_FEATURE_COUNT = 2;
+	int MESH_NODE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -169,13 +178,49 @@ public interface MeshPackage extends EPackage {
 	int COORDINATE_SYSTEM__Y = MESH_NODE__Y;
 
 	/**
+	 * The feature id for the '<em><b>Z</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COORDINATE_SYSTEM__Z = MESH_NODE__Z;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COORDINATE_SYSTEM__XAXIS_WIDTH = MESH_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COORDINATE_SYSTEM__YAXIS_WIDTH = MESH_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COORDINATE_SYSTEM__ZAXIS_WIDTH = MESH_NODE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Coordinate System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COORDINATE_SYSTEM_FEATURE_COUNT = MESH_NODE_FEATURE_COUNT + 0;
+	int COORDINATE_SYSTEM_FEATURE_COUNT = MESH_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Coordinate System</em>' class.
@@ -240,6 +285,17 @@ public interface MeshPackage extends EPackage {
 	EAttribute getMeshNode_Y();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getZ <em>Z</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Z</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshNode#getZ()
+	 * @see #getMeshNode()
+	 * @generated
+	 */
+	EAttribute getMeshNode_Z();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem <em>Coordinate System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +304,39 @@ public interface MeshPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCoordinateSystem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getXAxisWidth <em>XAxis Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>XAxis Width</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getXAxisWidth()
+	 * @see #getCoordinateSystem()
+	 * @generated
+	 */
+	EAttribute getCoordinateSystem_XAxisWidth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getYAxisWidth <em>YAxis Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>YAxis Width</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getYAxisWidth()
+	 * @see #getCoordinateSystem()
+	 * @generated
+	 */
+	EAttribute getCoordinateSystem_YAxisWidth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getZAxisWidth <em>ZAxis Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ZAxis Width</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getZAxisWidth()
+	 * @see #getCoordinateSystem()
+	 * @generated
+	 */
+	EAttribute getCoordinateSystem_ZAxisWidth();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -317,6 +406,14 @@ public interface MeshPackage extends EPackage {
 		EAttribute MESH_NODE__Y = eINSTANCE.getMeshNode_Y();
 
 		/**
+		 * The meta object literal for the '<em><b>Z</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESH_NODE__Z = eINSTANCE.getMeshNode_Z();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.CoordinateSystemImpl <em>Coordinate System</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -325,6 +422,30 @@ public interface MeshPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COORDINATE_SYSTEM = eINSTANCE.getCoordinateSystem();
+
+		/**
+		 * The meta object literal for the '<em><b>XAxis Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COORDINATE_SYSTEM__XAXIS_WIDTH = eINSTANCE.getCoordinateSystem_XAxisWidth();
+
+		/**
+		 * The meta object literal for the '<em><b>YAxis Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COORDINATE_SYSTEM__YAXIS_WIDTH = eINSTANCE.getCoordinateSystem_YAxisWidth();
+
+		/**
+		 * The meta object literal for the '<em><b>ZAxis Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COORDINATE_SYSTEM__ZAXIS_WIDTH = eINSTANCE.getCoordinateSystem_ZAxisWidth();
 
 	}
 

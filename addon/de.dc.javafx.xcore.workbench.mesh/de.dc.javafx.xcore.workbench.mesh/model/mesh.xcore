@@ -18,8 +18,11 @@ class MeshContainer{
 abstract class MeshNode{
 	double x = '0'
 	double y = '0'
+	double z = '0'
 }
 
 class CoordinateSystem extends MeshNode{
-	
+	double xAxisWidth = '100'
+	double yAxisWidth = '100'
+	double zAxisWidth = '100'
 }

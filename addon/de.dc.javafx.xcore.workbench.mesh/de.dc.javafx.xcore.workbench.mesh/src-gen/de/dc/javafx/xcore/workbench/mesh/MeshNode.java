@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getX <em>X</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getY <em>Y</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getZ <em>Z</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode()
@@ -67,5 +68,28 @@ public interface MeshNode extends EObject {
 	 * @generated
 	 */
 	void setY(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Z</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Z</em>' attribute.
+	 * @see #setZ(double)
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode_Z()
+	 * @model default="0" unique="false"
+	 * @generated
+	 */
+	double getZ();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getZ <em>Z</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Z</em>' attribute.
+	 * @see #getZ()
+	 * @generated
+	 */
+	void setZ(double value);
 
 } // MeshNode

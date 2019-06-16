@@ -22,7 +22,10 @@ public class MeshRenderer extends MeshSwitch<Node> {
 	private final Rotate rotateY = new Rotate(-45, Rotate.Y_AXIS);
 	private double mousePosX, mousePosY;
 	private double mouseOldX, mouseOldY;
-	
+
+    private final double MAX_SCALE = 20.0;
+    private final double MIN_SCALE = 0.1;
+    
 	@Override
 	public Node caseCoordinateSystem(CoordinateSystem object) {
 		Group cube = new Group();
@@ -32,18 +35,18 @@ public class MeshRenderer extends MeshSwitch<Node> {
 		Axis r;
 
 		// back face
-		r = new Axis(size);
+		r = new Axis(object.getZAxisWidth());
 		r.setFill(color.deriveColor(0.0, 1.0, (1 - 0.5 * 1), 1.0));
-		r.setTranslateX(-0.5 * size);
-		r.setTranslateY(-0.5 * size);
-		r.setTranslateZ(0.5 * size);
+		r.setTranslateX(-0.5 * object.getZAxisWidth());
+		r.setTranslateY(-0.5 * object.getZAxisWidth());
+		r.setTranslateZ(0.5 * object.getZAxisWidth());
 
 		cubeFaces.add(r);
 
 		// bottom face
-		r = new Axis(size);
+		r = new Axis(object.getXAxisWidth());
 		r.setFill(color.deriveColor(0.0, 1.0, (1 - 0.4 * 1), 1.0));
-		r.setTranslateX(-0.5 * size);
+		r.setTranslateX(-0.5 * object.getXAxisWidth());
 		r.setTranslateY(0);
 		r.setRotationAxis(Rotate.X_AXIS);
 		r.setRotate(90);
@@ -51,10 +54,10 @@ public class MeshRenderer extends MeshSwitch<Node> {
 		cubeFaces.add(r);
 
 		// left face
-		r = new Axis(size);
+		r = new Axis(object.getYAxisWidth());
 		r.setFill(color.deriveColor(0.0, 1.0, (1 - 0.2 * 1), 1.0));
 		r.setTranslateX(0);
-		r.setTranslateY(-0.5 * size);
+		r.setTranslateY(-0.5 * object.getYAxisWidth());
 		r.setRotationAxis(Rotate.Y_AXIS);
 		r.setRotate(90);
 
@@ -65,6 +68,7 @@ public class MeshRenderer extends MeshSwitch<Node> {
 
 		cube.setTranslateX(object.getX());
 		cube.setTranslateY(object.getY());
+		cube.setTranslateZ(object.getZ());
 		
 		cube.setOnMousePressed(me -> {
 			mouseOldX = me.getSceneX();
@@ -80,26 +84,27 @@ public class MeshRenderer extends MeshSwitch<Node> {
 
 		});
 
-        final double MAX_SCALE = 20.0;
-        final double MIN_SCALE = 0.1;
+        enableZooming(cube);
+		return cube;
+	}
 
-        cube.addEventFilter(ScrollEvent.ANY, event -> {
+	private void enableZooming(Group group) {
+		group.addEventFilter(ScrollEvent.ANY, event -> {
 		    double delta = 1.2;
-		    double scale = cube.getScaleX();
+		    double scale = group.getScaleX();
 		    if (event.getDeltaY() < 0) {
 		        scale /= delta;
 		    } else {
 		        scale *= delta;
 		    }
 		    scale = clamp(scale, MIN_SCALE, MAX_SCALE);
-		    cube.setScaleX(scale);
-		    cube.setScaleY(scale);
+		    group.setScaleX(scale);
+		    group.setScaleY(scale);
 		    event.consume();
 		});
-		return cube;
 	}
 	
-    public static double clamp(double value, double min, double max) {
+    public double clamp(double value, double min, double max) {
         if (Double.compare(value, min) < 0)
             return min;
         if (Double.compare(value, max) > 0)
