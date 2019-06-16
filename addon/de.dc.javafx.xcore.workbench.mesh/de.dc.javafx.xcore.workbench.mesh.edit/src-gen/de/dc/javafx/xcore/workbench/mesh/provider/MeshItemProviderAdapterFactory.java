@@ -98,6 +98,29 @@ public class MeshItemProviderAdapterFactory extends MeshAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.mesh.CameraFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CameraFXItemProvider cameraFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.mesh.CameraFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCameraFXAdapter() {
+		if (cameraFXItemProvider == null) {
+			cameraFXItemProvider = new CameraFXItemProvider(this);
+		}
+
+		return cameraFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,6 +141,29 @@ public class MeshItemProviderAdapterFactory extends MeshAdapterFactory
 		}
 
 		return coordinateSystemItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.mesh.BoxFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoxFXItemProvider boxFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.mesh.BoxFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoxFXAdapter() {
+		if (boxFXItemProvider == null) {
+			boxFXItemProvider = new BoxFXItemProvider(this);
+		}
+
+		return boxFXItemProvider;
 	}
 
 	/**
@@ -227,8 +273,12 @@ public class MeshItemProviderAdapterFactory extends MeshAdapterFactory
 	public void dispose() {
 		if (meshContainerItemProvider != null)
 			meshContainerItemProvider.dispose();
+		if (cameraFXItemProvider != null)
+			cameraFXItemProvider.dispose();
 		if (coordinateSystemItemProvider != null)
 			coordinateSystemItemProvider.dispose();
+		if (boxFXItemProvider != null)
+			boxFXItemProvider.dispose();
 	}
 
 }

@@ -2,12 +2,14 @@
  */
 package de.dc.javafx.xcore.workbench.mesh.impl;
 
+import de.dc.javafx.xcore.workbench.mesh.CameraFX;
 import de.dc.javafx.xcore.workbench.mesh.MeshContainer;
 import de.dc.javafx.xcore.workbench.mesh.MeshNode;
 import de.dc.javafx.xcore.workbench.mesh.MeshPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshContainerImpl#getNodes <em>Nodes</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshContainerImpl#getCamera <em>Camera</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +47,16 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 	 * @ordered
 	 */
 	protected EList<MeshNode> nodes;
+
+	/**
+	 * The cached value of the '{@link #getCamera() <em>Camera</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCamera()
+	 * @generated
+	 * @ordered
+	 */
+	protected CameraFX camera;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,10 +96,64 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 	 * @generated
 	 */
 	@Override
+	public CameraFX getCamera() {
+		return camera;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCamera(CameraFX newCamera, NotificationChain msgs) {
+		CameraFX oldCamera = camera;
+		camera = newCamera;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					MeshPackage.MESH_CONTAINER__CAMERA, oldCamera, newCamera);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCamera(CameraFX newCamera) {
+		if (newCamera != camera) {
+			NotificationChain msgs = null;
+			if (camera != null)
+				msgs = ((InternalEObject) camera).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - MeshPackage.MESH_CONTAINER__CAMERA, null, msgs);
+			if (newCamera != null)
+				msgs = ((InternalEObject) newCamera).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - MeshPackage.MESH_CONTAINER__CAMERA, null, msgs);
+			msgs = basicSetCamera(newCamera, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_CONTAINER__CAMERA, newCamera,
+					newCamera));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case MeshPackage.MESH_CONTAINER__NODES:
 			return ((InternalEList<?>) getNodes()).basicRemove(otherEnd, msgs);
+		case MeshPackage.MESH_CONTAINER__CAMERA:
+			return basicSetCamera(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -100,6 +168,8 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 		switch (featureID) {
 		case MeshPackage.MESH_CONTAINER__NODES:
 			return getNodes();
+		case MeshPackage.MESH_CONTAINER__CAMERA:
+			return getCamera();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,6 +187,9 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 			getNodes().clear();
 			getNodes().addAll((Collection<? extends MeshNode>) newValue);
 			return;
+		case MeshPackage.MESH_CONTAINER__CAMERA:
+			setCamera((CameraFX) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -132,6 +205,9 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 		case MeshPackage.MESH_CONTAINER__NODES:
 			getNodes().clear();
 			return;
+		case MeshPackage.MESH_CONTAINER__CAMERA:
+			setCamera((CameraFX) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -146,6 +222,8 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 		switch (featureID) {
 		case MeshPackage.MESH_CONTAINER__NODES:
 			return nodes != null && !nodes.isEmpty();
+		case MeshPackage.MESH_CONTAINER__CAMERA:
+			return camera != null;
 		}
 		return super.eIsSet(featureID);
 	}

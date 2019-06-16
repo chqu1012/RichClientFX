@@ -73,6 +73,7 @@ public class MeshContainerItemProvider extends ItemProviderAdapter
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MeshPackage.Literals.MESH_CONTAINER__NODES);
+			childrenFeatures.add(MeshPackage.Literals.MESH_CONTAINER__CAMERA);
 		}
 		return childrenFeatures;
 	}
@@ -165,6 +166,7 @@ public class MeshContainerItemProvider extends ItemProviderAdapter
 
 		switch (notification.getFeatureID(MeshContainer.class)) {
 		case MeshPackage.MESH_CONTAINER__NODES:
+		case MeshPackage.MESH_CONTAINER__CAMERA:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -183,7 +185,37 @@ public class MeshContainerItemProvider extends ItemProviderAdapter
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES,
+				MeshFactory.eINSTANCE.createCameraFX()));
+
+		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES,
 				MeshFactory.eINSTANCE.createCoordinateSystem()));
+
+		newChildDescriptors.add(
+				createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES, MeshFactory.eINSTANCE.createBoxFX()));
+
+		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__CAMERA,
+				MeshFactory.eINSTANCE.createCameraFX()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == MeshPackage.Literals.MESH_CONTAINER__NODES
+				|| childFeature == MeshPackage.Literals.MESH_CONTAINER__CAMERA;
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2",
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

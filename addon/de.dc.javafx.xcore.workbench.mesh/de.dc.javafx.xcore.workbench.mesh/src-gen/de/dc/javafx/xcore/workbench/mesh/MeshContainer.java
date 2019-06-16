@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer#getNodes <em>Nodes</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer#getCamera <em>Camera</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshContainer()
@@ -34,5 +35,27 @@ public interface MeshContainer extends EObject {
 	 * @generated
 	 */
 	EList<MeshNode> getNodes();
+
+	/**
+	 * Returns the value of the '<em><b>Camera</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Camera</em>' containment reference.
+	 * @see #setCamera(CameraFX)
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshContainer_Camera()
+	 * @model containment="true"
+	 * @generated
+	 */
+	CameraFX getCamera();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer#getCamera <em>Camera</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Camera</em>' containment reference.
+	 * @see #getCamera()
+	 * @generated
+	 */
+	void setCamera(CameraFX value);
 
 } // MeshContainer

@@ -73,6 +73,15 @@ public class MeshSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case MeshPackage.CAMERA_FX: {
+			CameraFX cameraFX = (CameraFX) theEObject;
+			T result = caseCameraFX(cameraFX);
+			if (result == null)
+				result = caseMeshNode(cameraFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case MeshPackage.MESH_NODE: {
 			MeshNode meshNode = (MeshNode) theEObject;
 			T result = caseMeshNode(meshNode);
@@ -85,6 +94,26 @@ public class MeshSwitch<T> extends Switch<T> {
 			T result = caseCoordinateSystem(coordinateSystem);
 			if (result == null)
 				result = caseMeshNode(coordinateSystem);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MeshPackage.SHAPE_FX: {
+			ShapeFX shapeFX = (ShapeFX) theEObject;
+			T result = caseShapeFX(shapeFX);
+			if (result == null)
+				result = caseMeshNode(shapeFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MeshPackage.BOX_FX: {
+			BoxFX boxFX = (BoxFX) theEObject;
+			T result = caseBoxFX(boxFX);
+			if (result == null)
+				result = caseShapeFX(boxFX);
+			if (result == null)
+				result = caseMeshNode(boxFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -106,6 +135,21 @@ public class MeshSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMeshContainer(MeshContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Camera FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Camera FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCameraFX(CameraFX object) {
 		return null;
 	}
 
@@ -136,6 +180,36 @@ public class MeshSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCoordinateSystem(CoordinateSystem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Shape FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Shape FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseShapeFX(ShapeFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Box FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Box FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoxFX(BoxFX object) {
 		return null;
 	}
 

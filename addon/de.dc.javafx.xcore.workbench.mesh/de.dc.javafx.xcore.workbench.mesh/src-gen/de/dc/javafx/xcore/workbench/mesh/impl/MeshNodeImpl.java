@@ -20,73 +20,73 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getX <em>X</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getY <em>Y</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getZ <em>Z</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getTranslateX <em>Translate X</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getTranslateY <em>Translate Y</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getTranslateZ <em>Translate Z</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implements MeshNode {
 	/**
-	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
+	 * The default value of the '{@link #getTranslateX() <em>Translate X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getX()
+	 * @see #getTranslateX()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double X_EDEFAULT = 0.0;
+	protected static final double TRANSLATE_X_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getX() <em>X</em>}' attribute.
+	 * The cached value of the '{@link #getTranslateX() <em>Translate X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getX()
+	 * @see #getTranslateX()
 	 * @generated
 	 * @ordered
 	 */
-	protected double x = X_EDEFAULT;
+	protected double translateX = TRANSLATE_X_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * The default value of the '{@link #getTranslateY() <em>Translate Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getY()
+	 * @see #getTranslateY()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double Y_EDEFAULT = 0.0;
+	protected static final double TRANSLATE_Y_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * The cached value of the '{@link #getTranslateY() <em>Translate Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getY()
+	 * @see #getTranslateY()
 	 * @generated
 	 * @ordered
 	 */
-	protected double y = Y_EDEFAULT;
+	protected double translateY = TRANSLATE_Y_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getZ() <em>Z</em>}' attribute.
+	 * The default value of the '{@link #getTranslateZ() <em>Translate Z</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getZ()
+	 * @see #getTranslateZ()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double Z_EDEFAULT = 0.0;
+	protected static final double TRANSLATE_Z_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getZ() <em>Z</em>}' attribute.
+	 * The cached value of the '{@link #getTranslateZ() <em>Translate Z</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getZ()
+	 * @see #getTranslateZ()
 	 * @generated
 	 * @ordered
 	 */
-	protected double z = Z_EDEFAULT;
+	protected double translateZ = TRANSLATE_Z_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,8 +113,8 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public double getX() {
-		return x;
+	public double getTranslateX() {
+		return translateX;
 	}
 
 	/**
@@ -123,11 +123,12 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setX(double newX) {
-		double oldX = x;
-		x = newX;
+	public void setTranslateX(double newTranslateX) {
+		double oldTranslateX = translateX;
+		translateX = newTranslateX;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_NODE__X, oldX, x));
+			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_NODE__TRANSLATE_X, oldTranslateX,
+					translateX));
 	}
 
 	/**
@@ -136,8 +137,8 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public double getY() {
-		return y;
+	public double getTranslateY() {
+		return translateY;
 	}
 
 	/**
@@ -146,11 +147,12 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setY(double newY) {
-		double oldY = y;
-		y = newY;
+	public void setTranslateY(double newTranslateY) {
+		double oldTranslateY = translateY;
+		translateY = newTranslateY;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_NODE__Y, oldY, y));
+			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_NODE__TRANSLATE_Y, oldTranslateY,
+					translateY));
 	}
 
 	/**
@@ -159,8 +161,8 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public double getZ() {
-		return z;
+	public double getTranslateZ() {
+		return translateZ;
 	}
 
 	/**
@@ -169,11 +171,12 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setZ(double newZ) {
-		double oldZ = z;
-		z = newZ;
+	public void setTranslateZ(double newTranslateZ) {
+		double oldTranslateZ = translateZ;
+		translateZ = newTranslateZ;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_NODE__Z, oldZ, z));
+			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_NODE__TRANSLATE_Z, oldTranslateZ,
+					translateZ));
 	}
 
 	/**
@@ -184,12 +187,12 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MeshPackage.MESH_NODE__X:
-			return getX();
-		case MeshPackage.MESH_NODE__Y:
-			return getY();
-		case MeshPackage.MESH_NODE__Z:
-			return getZ();
+		case MeshPackage.MESH_NODE__TRANSLATE_X:
+			return getTranslateX();
+		case MeshPackage.MESH_NODE__TRANSLATE_Y:
+			return getTranslateY();
+		case MeshPackage.MESH_NODE__TRANSLATE_Z:
+			return getTranslateZ();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,14 +205,14 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MeshPackage.MESH_NODE__X:
-			setX((Double) newValue);
+		case MeshPackage.MESH_NODE__TRANSLATE_X:
+			setTranslateX((Double) newValue);
 			return;
-		case MeshPackage.MESH_NODE__Y:
-			setY((Double) newValue);
+		case MeshPackage.MESH_NODE__TRANSLATE_Y:
+			setTranslateY((Double) newValue);
 			return;
-		case MeshPackage.MESH_NODE__Z:
-			setZ((Double) newValue);
+		case MeshPackage.MESH_NODE__TRANSLATE_Z:
+			setTranslateZ((Double) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,14 +226,14 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MeshPackage.MESH_NODE__X:
-			setX(X_EDEFAULT);
+		case MeshPackage.MESH_NODE__TRANSLATE_X:
+			setTranslateX(TRANSLATE_X_EDEFAULT);
 			return;
-		case MeshPackage.MESH_NODE__Y:
-			setY(Y_EDEFAULT);
+		case MeshPackage.MESH_NODE__TRANSLATE_Y:
+			setTranslateY(TRANSLATE_Y_EDEFAULT);
 			return;
-		case MeshPackage.MESH_NODE__Z:
-			setZ(Z_EDEFAULT);
+		case MeshPackage.MESH_NODE__TRANSLATE_Z:
+			setTranslateZ(TRANSLATE_Z_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -244,12 +247,12 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MeshPackage.MESH_NODE__X:
-			return x != X_EDEFAULT;
-		case MeshPackage.MESH_NODE__Y:
-			return y != Y_EDEFAULT;
-		case MeshPackage.MESH_NODE__Z:
-			return z != Z_EDEFAULT;
+		case MeshPackage.MESH_NODE__TRANSLATE_X:
+			return translateX != TRANSLATE_X_EDEFAULT;
+		case MeshPackage.MESH_NODE__TRANSLATE_Y:
+			return translateY != TRANSLATE_Y_EDEFAULT;
+		case MeshPackage.MESH_NODE__TRANSLATE_Z:
+			return translateZ != TRANSLATE_Z_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -265,12 +268,12 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (x: ");
-		result.append(x);
-		result.append(", y: ");
-		result.append(y);
-		result.append(", z: ");
-		result.append(z);
+		result.append(" (translateX: ");
+		result.append(translateX);
+		result.append(", translateY: ");
+		result.append(translateY);
+		result.append(", translateZ: ");
+		result.append(translateZ);
 		result.append(')');
 		return result.toString();
 	}

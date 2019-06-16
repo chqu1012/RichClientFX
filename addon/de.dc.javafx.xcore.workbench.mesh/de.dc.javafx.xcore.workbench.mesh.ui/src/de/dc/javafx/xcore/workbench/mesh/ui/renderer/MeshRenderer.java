@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.dc.javafx.xcore.workbench.chart.ui.demo.Chart3dDemo.Axis;
+import de.dc.javafx.xcore.workbench.mesh.BoxFX;
 import de.dc.javafx.xcore.workbench.mesh.CoordinateSystem;
 import de.dc.javafx.xcore.workbench.mesh.util.MeshSwitch;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.PerspectiveCamera;
-import javafx.scene.Scene;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Box;
 import javafx.scene.transform.Rotate;
 
 public class MeshRenderer extends MeshSwitch<Node> {
@@ -25,6 +24,38 @@ public class MeshRenderer extends MeshSwitch<Node> {
 
     private final double MAX_SCALE = 20.0;
     private final double MIN_SCALE = 0.1;
+    
+    @Override
+    public Node caseBoxFX(BoxFX object) {
+    	Group group = new Group();
+    	Box box = new Box(object.getWidth(), object.getHeight(), object.getDepth());
+    	box.setTranslateX(object.getTranslateX());
+    	box.setTranslateY(object.getTranslateY());
+    	box.setTranslateZ(object.getTranslateZ());
+
+    	group.getChildren().add(box);
+    	group.getTransforms().addAll(rotateX, rotateY);
+
+    	group.setTranslateX(object.getTranslateX());
+    	group.setTranslateY(object.getTranslateY());
+    	group.setTranslateZ(object.getTranslateZ());
+    	group.setOnMousePressed(me -> {
+			mouseOldX = me.getSceneX();
+			mouseOldY = me.getSceneY();
+		});
+    	group.setOnMouseDragged(me -> {
+			mousePosX = me.getSceneX();
+			mousePosY = me.getSceneY();
+			rotateX.setAngle(rotateX.getAngle() - (mousePosY - mouseOldY));
+			rotateY.setAngle(rotateY.getAngle() + (mousePosX - mouseOldX));
+			mouseOldX = mousePosX;
+			mouseOldY = mousePosY;
+
+		});
+
+        enableZooming(group);
+    	return group;
+    }
     
 	@Override
 	public Node caseCoordinateSystem(CoordinateSystem object) {
@@ -66,9 +97,9 @@ public class MeshRenderer extends MeshSwitch<Node> {
 		cube.getChildren().addAll(cubeFaces);
 		cube.getTransforms().addAll(rotateX, rotateY);
 
-		cube.setTranslateX(object.getX());
-		cube.setTranslateY(object.getY());
-		cube.setTranslateZ(object.getZ());
+		cube.setTranslateX(object.getTranslateX());
+		cube.setTranslateY(object.getTranslateY());
+		cube.setTranslateZ(object.getTranslateZ());
 		
 		cube.setOnMousePressed(me -> {
 			mouseOldX = me.getSceneX();

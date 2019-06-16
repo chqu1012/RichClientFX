@@ -13,16 +13,31 @@ package de.dc.javafx.xcore.workbench.mesh
 
 class MeshContainer{
 	contains MeshNode[0..*] nodes
+	contains CameraFX camera
+}
+
+class CameraFX extends MeshNode{
 }
 
 abstract class MeshNode{
-	double x = '0'
-	double y = '0'
-	double z = '0'
+	double translateX = '0'
+	double translateY = '0'
+	double translateZ = '0'
 }
 
 class CoordinateSystem extends MeshNode{
 	double xAxisWidth = '100'
 	double yAxisWidth = '100'
 	double zAxisWidth = '100'
+	
+	contains ShapeFX[0..*] shapes
+}
+
+abstract class ShapeFX extends MeshNode{
+}
+
+class BoxFX extends ShapeFX{
+	double width = '100'
+	double height = '100'
+	double depth = '100'
 }

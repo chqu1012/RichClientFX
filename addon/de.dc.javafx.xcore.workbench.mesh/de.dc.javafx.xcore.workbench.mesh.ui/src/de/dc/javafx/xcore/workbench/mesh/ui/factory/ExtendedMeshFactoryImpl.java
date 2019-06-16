@@ -25,8 +25,12 @@ public class ExtendedMeshFactoryImpl extends MeshFactoryImpl implements Extended
 		switch (classifierId) {
 		case MeshPackage.MESH_CONTAINER:
 			return createMeshContainer();
+		case MeshPackage.CAMERA_FX:
+			return createCameraFX();
 		case MeshPackage.COORDINATE_SYSTEM:
 			return createCoordinateSystem();
+		case MeshPackage.BOX_FX:
+			return createBoxFX();
 		default:
 			throw new IllegalArgumentException("The class '" + classifierId + "' is not a valid classifier, please enhanced the class "+getClass().getSimpleName()+"#create(classifierId) in switch case!");
 		}

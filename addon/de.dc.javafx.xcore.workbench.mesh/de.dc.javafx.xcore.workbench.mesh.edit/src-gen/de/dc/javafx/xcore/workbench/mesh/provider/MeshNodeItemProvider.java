@@ -54,56 +54,59 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXPropertyDescriptor(object);
-			addYPropertyDescriptor(object);
-			addZPropertyDescriptor(object);
+			addTranslateXPropertyDescriptor(object);
+			addTranslateYPropertyDescriptor(object);
+			addTranslateZPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the X feature.
+	 * This adds a property descriptor for the Translate X feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXPropertyDescriptor(Object object) {
+	protected void addTranslateXPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_MeshNode_x_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_x_feature", "_UI_MeshNode_type"),
-						MeshPackage.Literals.MESH_NODE__X, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-						null, null));
+						getResourceLocator(), getString("_UI_MeshNode_translateX_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_translateX_feature",
+								"_UI_MeshNode_type"),
+						MeshPackage.Literals.MESH_NODE__TRANSLATE_X, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Y feature.
+	 * This adds a property descriptor for the Translate Y feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addYPropertyDescriptor(Object object) {
+	protected void addTranslateYPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_MeshNode_y_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_y_feature", "_UI_MeshNode_type"),
-						MeshPackage.Literals.MESH_NODE__Y, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-						null, null));
+						getResourceLocator(), getString("_UI_MeshNode_translateY_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_translateY_feature",
+								"_UI_MeshNode_type"),
+						MeshPackage.Literals.MESH_NODE__TRANSLATE_Y, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Z feature.
+	 * This adds a property descriptor for the Translate Z feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addZPropertyDescriptor(Object object) {
+	protected void addTranslateZPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_MeshNode_z_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_z_feature", "_UI_MeshNode_type"),
-						MeshPackage.Literals.MESH_NODE__Z, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-						null, null));
+						getResourceLocator(), getString("_UI_MeshNode_translateZ_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_translateZ_feature",
+								"_UI_MeshNode_type"),
+						MeshPackage.Literals.MESH_NODE__TRANSLATE_Z, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -140,7 +143,7 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 	@Override
 	public String getText(Object object) {
 		MeshNode meshNode = (MeshNode) object;
-		return getString("_UI_MeshNode_type") + " " + meshNode.getX();
+		return getString("_UI_MeshNode_type") + " " + meshNode.getTranslateX();
 	}
 
 	/**
@@ -170,9 +173,9 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MeshNode.class)) {
-		case MeshPackage.MESH_NODE__X:
-		case MeshPackage.MESH_NODE__Y:
-		case MeshPackage.MESH_NODE__Z:
+		case MeshPackage.MESH_NODE__TRANSLATE_X:
+		case MeshPackage.MESH_NODE__TRANSLATE_Y:
+		case MeshPackage.MESH_NODE__TRANSLATE_Z:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

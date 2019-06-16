@@ -72,6 +72,11 @@ public class MeshAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCameraFX(CameraFX object) {
+			return createCameraFXAdapter();
+		}
+
+		@Override
 		public Adapter caseMeshNode(MeshNode object) {
 			return createMeshNodeAdapter();
 		}
@@ -79,6 +84,16 @@ public class MeshAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseCoordinateSystem(CoordinateSystem object) {
 			return createCoordinateSystemAdapter();
+		}
+
+		@Override
+		public Adapter caseShapeFX(ShapeFX object) {
+			return createShapeFXAdapter();
+		}
+
+		@Override
+		public Adapter caseBoxFX(BoxFX object) {
+			return createBoxFXAdapter();
 		}
 
 		@Override
@@ -115,6 +130,20 @@ public class MeshAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.mesh.CameraFX <em>Camera FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.mesh.CameraFX
+	 * @generated
+	 */
+	public Adapter createCameraFXAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -139,6 +168,34 @@ public class MeshAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCoordinateSystemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.mesh.ShapeFX <em>Shape FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.mesh.ShapeFX
+	 * @generated
+	 */
+	public Adapter createShapeFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.mesh.BoxFX <em>Box FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.mesh.BoxFX
+	 * @generated
+	 */
+	public Adapter createBoxFXAdapter() {
 		return null;
 	}
 

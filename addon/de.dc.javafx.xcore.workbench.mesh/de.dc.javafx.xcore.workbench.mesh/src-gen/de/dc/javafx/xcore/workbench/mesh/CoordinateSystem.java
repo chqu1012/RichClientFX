@@ -2,6 +2,8 @@
  */
 package de.dc.javafx.xcore.workbench.mesh;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Coordinate System</b></em>'.
@@ -14,6 +16,7 @@ package de.dc.javafx.xcore.workbench.mesh;
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getXAxisWidth <em>XAxis Width</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getYAxisWidth <em>YAxis Width</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getZAxisWidth <em>ZAxis Width</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem#getShapes <em>Shapes</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getCoordinateSystem()
@@ -89,5 +92,17 @@ public interface CoordinateSystem extends MeshNode {
 	 * @generated
 	 */
 	void setZAxisWidth(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Shapes</b></em>' containment reference list.
+	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.mesh.ShapeFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Shapes</em>' containment reference list.
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getCoordinateSystem_Shapes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ShapeFX> getShapes();
 
 } // CoordinateSystem

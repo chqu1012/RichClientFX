@@ -57,8 +57,12 @@ public class MeshFactoryImpl extends EFactoryImpl implements MeshFactory {
 		switch (eClass.getClassifierID()) {
 		case MeshPackage.MESH_CONTAINER:
 			return createMeshContainer();
+		case MeshPackage.CAMERA_FX:
+			return createCameraFX();
 		case MeshPackage.COORDINATE_SYSTEM:
 			return createCoordinateSystem();
+		case MeshPackage.BOX_FX:
+			return createBoxFX();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,9 +85,31 @@ public class MeshFactoryImpl extends EFactoryImpl implements MeshFactory {
 	 * @generated
 	 */
 	@Override
+	public CameraFX createCameraFX() {
+		CameraFXImpl cameraFX = new CameraFXImpl();
+		return cameraFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public CoordinateSystem createCoordinateSystem() {
 		CoordinateSystemImpl coordinateSystem = new CoordinateSystemImpl();
 		return coordinateSystem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BoxFX createBoxFX() {
+		BoxFXImpl boxFX = new BoxFXImpl();
+		return boxFX;
 	}
 
 	/**

@@ -2,11 +2,14 @@
  */
 package de.dc.javafx.xcore.workbench.mesh.impl;
 
+import de.dc.javafx.xcore.workbench.mesh.BoxFX;
+import de.dc.javafx.xcore.workbench.mesh.CameraFX;
 import de.dc.javafx.xcore.workbench.mesh.CoordinateSystem;
 import de.dc.javafx.xcore.workbench.mesh.MeshContainer;
 import de.dc.javafx.xcore.workbench.mesh.MeshFactory;
 import de.dc.javafx.xcore.workbench.mesh.MeshNode;
 import de.dc.javafx.xcore.workbench.mesh.MeshPackage;
+import de.dc.javafx.xcore.workbench.mesh.ShapeFX;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -35,6 +38,13 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass cameraFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass meshNodeEClass = null;
 
 	/**
@@ -43,6 +53,20 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	private EClass coordinateSystemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass shapeFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boxFXEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -137,6 +161,26 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getMeshContainer_Camera() {
+		return (EReference) meshContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCameraFX() {
+		return cameraFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMeshNode() {
 		return meshNodeEClass;
 	}
@@ -147,7 +191,7 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMeshNode_X() {
+	public EAttribute getMeshNode_TranslateX() {
 		return (EAttribute) meshNodeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -157,7 +201,7 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMeshNode_Y() {
+	public EAttribute getMeshNode_TranslateY() {
 		return (EAttribute) meshNodeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -167,7 +211,7 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMeshNode_Z() {
+	public EAttribute getMeshNode_TranslateZ() {
 		return (EAttribute) meshNodeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -217,6 +261,66 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getCoordinateSystem_Shapes() {
+		return (EReference) coordinateSystemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getShapeFX() {
+		return shapeFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBoxFX() {
+		return boxFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBoxFX_Width() {
+		return (EAttribute) boxFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBoxFX_Height() {
+		return (EAttribute) boxFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBoxFX_Depth() {
+		return (EAttribute) boxFXEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public MeshFactory getMeshFactory() {
 		return (MeshFactory) getEFactoryInstance();
 	}
@@ -243,16 +347,27 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		// Create classes and their features
 		meshContainerEClass = createEClass(MESH_CONTAINER);
 		createEReference(meshContainerEClass, MESH_CONTAINER__NODES);
+		createEReference(meshContainerEClass, MESH_CONTAINER__CAMERA);
+
+		cameraFXEClass = createEClass(CAMERA_FX);
 
 		meshNodeEClass = createEClass(MESH_NODE);
-		createEAttribute(meshNodeEClass, MESH_NODE__X);
-		createEAttribute(meshNodeEClass, MESH_NODE__Y);
-		createEAttribute(meshNodeEClass, MESH_NODE__Z);
+		createEAttribute(meshNodeEClass, MESH_NODE__TRANSLATE_X);
+		createEAttribute(meshNodeEClass, MESH_NODE__TRANSLATE_Y);
+		createEAttribute(meshNodeEClass, MESH_NODE__TRANSLATE_Z);
 
 		coordinateSystemEClass = createEClass(COORDINATE_SYSTEM);
 		createEAttribute(coordinateSystemEClass, COORDINATE_SYSTEM__XAXIS_WIDTH);
 		createEAttribute(coordinateSystemEClass, COORDINATE_SYSTEM__YAXIS_WIDTH);
 		createEAttribute(coordinateSystemEClass, COORDINATE_SYSTEM__ZAXIS_WIDTH);
+		createEReference(coordinateSystemEClass, COORDINATE_SYSTEM__SHAPES);
+
+		shapeFXEClass = createEClass(SHAPE_FX);
+
+		boxFXEClass = createEClass(BOX_FX);
+		createEAttribute(boxFXEClass, BOX_FX__WIDTH);
+		createEAttribute(boxFXEClass, BOX_FX__HEIGHT);
+		createEAttribute(boxFXEClass, BOX_FX__DEPTH);
 	}
 
 	/**
@@ -287,7 +402,10 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		cameraFXEClass.getESuperTypes().add(this.getMeshNode());
 		coordinateSystemEClass.getESuperTypes().add(this.getMeshNode());
+		shapeFXEClass.getESuperTypes().add(this.getMeshNode());
+		boxFXEClass.getESuperTypes().add(this.getShapeFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(meshContainerEClass, MeshContainer.class, "MeshContainer", !IS_ABSTRACT, !IS_INTERFACE,
@@ -295,14 +413,23 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		initEReference(getMeshContainer_Nodes(), this.getMeshNode(), null, "nodes", null, 0, -1, MeshContainer.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMeshContainer_Camera(), this.getCameraFX(), null, "camera", null, 0, 1, MeshContainer.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cameraFXEClass, CameraFX.class, "CameraFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(meshNodeEClass, MeshNode.class, "MeshNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMeshNode_X(), theEcorePackage.getEDouble(), "x", "0", 0, 1, MeshNode.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMeshNode_Y(), theEcorePackage.getEDouble(), "y", "0", 0, 1, MeshNode.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMeshNode_Z(), theEcorePackage.getEDouble(), "z", "0", 0, 1, MeshNode.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMeshNode_TranslateX(), theEcorePackage.getEDouble(), "translateX", "0", 0, 1, MeshNode.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getMeshNode_TranslateY(), theEcorePackage.getEDouble(), "translateY", "0", 0, 1, MeshNode.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getMeshNode_TranslateZ(), theEcorePackage.getEDouble(), "translateZ", "0", 0, 1, MeshNode.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(coordinateSystemEClass, CoordinateSystem.class, "CoordinateSystem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -315,6 +442,20 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		initEAttribute(getCoordinateSystem_ZAxisWidth(), theEcorePackage.getEDouble(), "zAxisWidth", "100", 0, 1,
 				CoordinateSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getCoordinateSystem_Shapes(), this.getShapeFX(), null, "shapes", null, 0, -1,
+				CoordinateSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(shapeFXEClass, ShapeFX.class, "ShapeFX", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(boxFXEClass, BoxFX.class, "BoxFX", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBoxFX_Width(), theEcorePackage.getEDouble(), "width", "100", 0, 1, BoxFX.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoxFX_Height(), theEcorePackage.getEDouble(), "height", "100", 0, 1, BoxFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getBoxFX_Depth(), theEcorePackage.getEDouble(), "depth", "100", 0, 1, BoxFX.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

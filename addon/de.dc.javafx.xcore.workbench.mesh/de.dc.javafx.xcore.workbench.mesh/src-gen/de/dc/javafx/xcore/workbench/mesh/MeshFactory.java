@@ -31,6 +31,15 @@ public interface MeshFactory extends EFactory {
 	MeshContainer createMeshContainer();
 
 	/**
+	 * Returns a new object of class '<em>Camera FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Camera FX</em>'.
+	 * @generated
+	 */
+	CameraFX createCameraFX();
+
+	/**
 	 * Returns a new object of class '<em>Coordinate System</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,6 +47,15 @@ public interface MeshFactory extends EFactory {
 	 * @generated
 	 */
 	CoordinateSystem createCoordinateSystem();
+
+	/**
+	 * Returns a new object of class '<em>Box FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Box FX</em>'.
+	 * @generated
+	 */
+	BoxFX createBoxFX();
 
 	/**
 	 * Returns the package supported by this factory.

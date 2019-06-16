@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getX <em>X</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getY <em>Y</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getZ <em>Z</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateX <em>Translate X</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateY <em>Translate Y</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateZ <em>Translate Z</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode()
@@ -24,72 +24,72 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface MeshNode extends EObject {
 	/**
-	 * Returns the value of the '<em><b>X</b></em>' attribute.
+	 * Returns the value of the '<em><b>Translate X</b></em>' attribute.
 	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>X</em>' attribute.
-	 * @see #setX(double)
-	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode_X()
+	 * @return the value of the '<em>Translate X</em>' attribute.
+	 * @see #setTranslateX(double)
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode_TranslateX()
 	 * @model default="0" unique="false"
 	 * @generated
 	 */
-	double getX();
+	double getTranslateX();
 
 	/**
-	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getX <em>X</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateX <em>Translate X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>X</em>' attribute.
-	 * @see #getX()
+	 * @param value the new value of the '<em>Translate X</em>' attribute.
+	 * @see #getTranslateX()
 	 * @generated
 	 */
-	void setX(double value);
+	void setTranslateX(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Y</b></em>' attribute.
+	 * Returns the value of the '<em><b>Translate Y</b></em>' attribute.
 	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Y</em>' attribute.
-	 * @see #setY(double)
-	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode_Y()
+	 * @return the value of the '<em>Translate Y</em>' attribute.
+	 * @see #setTranslateY(double)
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode_TranslateY()
 	 * @model default="0" unique="false"
 	 * @generated
 	 */
-	double getY();
+	double getTranslateY();
 
 	/**
-	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getY <em>Y</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateY <em>Translate Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Y</em>' attribute.
-	 * @see #getY()
+	 * @param value the new value of the '<em>Translate Y</em>' attribute.
+	 * @see #getTranslateY()
 	 * @generated
 	 */
-	void setY(double value);
+	void setTranslateY(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Z</b></em>' attribute.
+	 * Returns the value of the '<em><b>Translate Z</b></em>' attribute.
 	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Z</em>' attribute.
-	 * @see #setZ(double)
-	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode_Z()
+	 * @return the value of the '<em>Translate Z</em>' attribute.
+	 * @see #setTranslateZ(double)
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode_TranslateZ()
 	 * @model default="0" unique="false"
 	 * @generated
 	 */
-	double getZ();
+	double getTranslateZ();
 
 	/**
-	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getZ <em>Z</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateZ <em>Translate Z</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Z</em>' attribute.
-	 * @see #getZ()
+	 * @param value the new value of the '<em>Translate Z</em>' attribute.
+	 * @see #getTranslateZ()
 	 * @generated
 	 */
-	void setZ(double value);
+	void setTranslateZ(double value);
 
 } // MeshNode
