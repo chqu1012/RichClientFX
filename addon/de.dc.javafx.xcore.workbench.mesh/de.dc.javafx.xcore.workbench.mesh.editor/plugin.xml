@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="MeshEditorAdvisorApplication">
+      <!-- @generated mesh -->
+      <application>
+         <run class="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated mesh -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisor$Perspective"
+            id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated mesh -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated mesh -->
+      <key
+            commandId="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated mesh -->
+      <actionSet
+            label="%_UI_MeshEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="MeshEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorOpenURICommand"
+               class="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorOpenCommand"
+               class="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated mesh -->
+      <actionSet
+            label="%_UI_MeshModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshActionBarContributorActionSet">
+         <action
+               label="%_UI_MeshModelWizard_label"
+               class="de.dc.javafx.xcore.workbench.mesh.presentation.MeshActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated mesh -->
+      <editor
+            id="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditorID"
+            name="%_UI_MeshEditor_label"
+            icon="icons/full/obj16/MeshModelFile.gif"
+            extensions="mesh"
+            class="de.dc.javafx.xcore.workbench.mesh.presentation.MeshEditor"
+            contributorClass="de.dc.javafx.xcore.workbench.mesh.presentation.MeshActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,22 @@
+@Ecore(nsURI="http://www.frateranatis.org/workbench/mesh")
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.workbench.mesh.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.workbench.mesh.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="mesh", 
+	tableProviders="true", dataTypeConverters="true")
+package de.dc.javafx.xcore.workbench.mesh
+
+class MeshContainer{
+	contains MeshNode[0..*] nodes
+}
+
+abstract class MeshNode{}
+
+class CoordinateSystem extends MeshNode{
+	
+}
