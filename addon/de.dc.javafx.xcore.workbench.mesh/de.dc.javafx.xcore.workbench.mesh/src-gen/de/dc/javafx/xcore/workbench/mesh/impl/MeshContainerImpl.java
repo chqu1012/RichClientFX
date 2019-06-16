@@ -6,6 +6,7 @@ import de.dc.javafx.xcore.workbench.mesh.CameraFX;
 import de.dc.javafx.xcore.workbench.mesh.MeshContainer;
 import de.dc.javafx.xcore.workbench.mesh.MeshNode;
 import de.dc.javafx.xcore.workbench.mesh.MeshPackage;
+import de.dc.javafx.xcore.workbench.mesh.PointLightFX;
 
 import java.util.Collection;
 
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshContainerImpl#getNodes <em>Nodes</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshContainerImpl#getCamera <em>Camera</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshContainerImpl#getPointLight <em>Point Light</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,6 +59,16 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 	 * @ordered
 	 */
 	protected CameraFX camera;
+
+	/**
+	 * The cached value of the '{@link #getPointLight() <em>Point Light</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPointLight()
+	 * @generated
+	 * @ordered
+	 */
+	protected PointLightFX pointLight;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,12 +160,66 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 	 * @generated
 	 */
 	@Override
+	public PointLightFX getPointLight() {
+		return pointLight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPointLight(PointLightFX newPointLight, NotificationChain msgs) {
+		PointLightFX oldPointLight = pointLight;
+		pointLight = newPointLight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					MeshPackage.MESH_CONTAINER__POINT_LIGHT, oldPointLight, newPointLight);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPointLight(PointLightFX newPointLight) {
+		if (newPointLight != pointLight) {
+			NotificationChain msgs = null;
+			if (pointLight != null)
+				msgs = ((InternalEObject) pointLight).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - MeshPackage.MESH_CONTAINER__POINT_LIGHT, null, msgs);
+			if (newPointLight != null)
+				msgs = ((InternalEObject) newPointLight).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - MeshPackage.MESH_CONTAINER__POINT_LIGHT, null, msgs);
+			msgs = basicSetPointLight(newPointLight, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_CONTAINER__POINT_LIGHT,
+					newPointLight, newPointLight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case MeshPackage.MESH_CONTAINER__NODES:
 			return ((InternalEList<?>) getNodes()).basicRemove(otherEnd, msgs);
 		case MeshPackage.MESH_CONTAINER__CAMERA:
 			return basicSetCamera(null, msgs);
+		case MeshPackage.MESH_CONTAINER__POINT_LIGHT:
+			return basicSetPointLight(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -170,6 +236,8 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 			return getNodes();
 		case MeshPackage.MESH_CONTAINER__CAMERA:
 			return getCamera();
+		case MeshPackage.MESH_CONTAINER__POINT_LIGHT:
+			return getPointLight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,6 +258,9 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 		case MeshPackage.MESH_CONTAINER__CAMERA:
 			setCamera((CameraFX) newValue);
 			return;
+		case MeshPackage.MESH_CONTAINER__POINT_LIGHT:
+			setPointLight((PointLightFX) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -208,6 +279,9 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 		case MeshPackage.MESH_CONTAINER__CAMERA:
 			setCamera((CameraFX) null);
 			return;
+		case MeshPackage.MESH_CONTAINER__POINT_LIGHT:
+			setPointLight((PointLightFX) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -224,6 +298,8 @@ public class MeshContainerImpl extends MinimalEObjectImpl.Container implements M
 			return nodes != null && !nodes.isEmpty();
 		case MeshPackage.MESH_CONTAINER__CAMERA:
 			return camera != null;
+		case MeshPackage.MESH_CONTAINER__POINT_LIGHT:
+			return pointLight != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -57,12 +57,18 @@ public class MeshFactoryImpl extends EFactoryImpl implements MeshFactory {
 		switch (eClass.getClassifierID()) {
 		case MeshPackage.MESH_CONTAINER:
 			return createMeshContainer();
+		case MeshPackage.POINT_LIGHT_FX:
+			return createPointLightFX();
 		case MeshPackage.CAMERA_FX:
 			return createCameraFX();
 		case MeshPackage.COORDINATE_SYSTEM:
 			return createCoordinateSystem();
 		case MeshPackage.BOX_FX:
 			return createBoxFX();
+		case MeshPackage.CYLINDER_FX:
+			return createCylinderFX();
+		case MeshPackage.SPHERE_FX:
+			return createSphereFX();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -77,6 +83,17 @@ public class MeshFactoryImpl extends EFactoryImpl implements MeshFactory {
 	public MeshContainer createMeshContainer() {
 		MeshContainerImpl meshContainer = new MeshContainerImpl();
 		return meshContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PointLightFX createPointLightFX() {
+		PointLightFXImpl pointLightFX = new PointLightFXImpl();
+		return pointLightFX;
 	}
 
 	/**
@@ -110,6 +127,28 @@ public class MeshFactoryImpl extends EFactoryImpl implements MeshFactory {
 	public BoxFX createBoxFX() {
 		BoxFXImpl boxFX = new BoxFXImpl();
 		return boxFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CylinderFX createCylinderFX() {
+		CylinderFXImpl cylinderFX = new CylinderFXImpl();
+		return cylinderFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SphereFX createSphereFX() {
+		SphereFXImpl sphereFX = new SphereFXImpl();
+		return sphereFX;
 	}
 
 	/**

@@ -31,6 +31,15 @@ public interface MeshFactory extends EFactory {
 	MeshContainer createMeshContainer();
 
 	/**
+	 * Returns a new object of class '<em>Point Light FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Point Light FX</em>'.
+	 * @generated
+	 */
+	PointLightFX createPointLightFX();
+
+	/**
 	 * Returns a new object of class '<em>Camera FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +65,24 @@ public interface MeshFactory extends EFactory {
 	 * @generated
 	 */
 	BoxFX createBoxFX();
+
+	/**
+	 * Returns a new object of class '<em>Cylinder FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cylinder FX</em>'.
+	 * @generated
+	 */
+	CylinderFX createCylinderFX();
+
+	/**
+	 * Returns a new object of class '<em>Sphere FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sphere FX</em>'.
+	 * @generated
+	 */
+	SphereFX createSphereFX();
 
 	/**
 	 * Returns the package supported by this factory.

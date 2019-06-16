@@ -73,6 +73,15 @@ public class MeshSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case MeshPackage.POINT_LIGHT_FX: {
+			PointLightFX pointLightFX = (PointLightFX) theEObject;
+			T result = casePointLightFX(pointLightFX);
+			if (result == null)
+				result = caseMeshNode(pointLightFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case MeshPackage.CAMERA_FX: {
 			CameraFX cameraFX = (CameraFX) theEObject;
 			T result = caseCameraFX(cameraFX);
@@ -118,6 +127,28 @@ public class MeshSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case MeshPackage.CYLINDER_FX: {
+			CylinderFX cylinderFX = (CylinderFX) theEObject;
+			T result = caseCylinderFX(cylinderFX);
+			if (result == null)
+				result = caseShapeFX(cylinderFX);
+			if (result == null)
+				result = caseMeshNode(cylinderFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MeshPackage.SPHERE_FX: {
+			SphereFX sphereFX = (SphereFX) theEObject;
+			T result = caseSphereFX(sphereFX);
+			if (result == null)
+				result = caseShapeFX(sphereFX);
+			if (result == null)
+				result = caseMeshNode(sphereFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -135,6 +166,21 @@ public class MeshSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMeshContainer(MeshContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Point Light FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Point Light FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePointLightFX(PointLightFX object) {
 		return null;
 	}
 
@@ -210,6 +256,36 @@ public class MeshSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBoxFX(BoxFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cylinder FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cylinder FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCylinderFX(CylinderFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sphere FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sphere FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSphereFX(SphereFX object) {
 		return null;
 	}
 

@@ -200,6 +200,12 @@ public class CoordinateSystemItemProvider extends MeshNodeItemProvider {
 
 		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.COORDINATE_SYSTEM__SHAPES,
 				MeshFactory.eINSTANCE.createBoxFX()));
+
+		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.COORDINATE_SYSTEM__SHAPES,
+				MeshFactory.eINSTANCE.createCylinderFX()));
+
+		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.COORDINATE_SYSTEM__SHAPES,
+				MeshFactory.eINSTANCE.createSphereFX()));
 	}
 
 }

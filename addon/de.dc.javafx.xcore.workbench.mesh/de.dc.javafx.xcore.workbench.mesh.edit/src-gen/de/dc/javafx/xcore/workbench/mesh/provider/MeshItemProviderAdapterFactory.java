@@ -98,6 +98,29 @@ public class MeshItemProviderAdapterFactory extends MeshAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.mesh.PointLightFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PointLightFXItemProvider pointLightFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.mesh.PointLightFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPointLightFXAdapter() {
+		if (pointLightFXItemProvider == null) {
+			pointLightFXItemProvider = new PointLightFXItemProvider(this);
+		}
+
+		return pointLightFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.mesh.CameraFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,6 +187,52 @@ public class MeshItemProviderAdapterFactory extends MeshAdapterFactory
 		}
 
 		return boxFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.mesh.CylinderFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CylinderFXItemProvider cylinderFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.mesh.CylinderFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCylinderFXAdapter() {
+		if (cylinderFXItemProvider == null) {
+			cylinderFXItemProvider = new CylinderFXItemProvider(this);
+		}
+
+		return cylinderFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.mesh.SphereFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SphereFXItemProvider sphereFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.mesh.SphereFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSphereFXAdapter() {
+		if (sphereFXItemProvider == null) {
+			sphereFXItemProvider = new SphereFXItemProvider(this);
+		}
+
+		return sphereFXItemProvider;
 	}
 
 	/**
@@ -273,12 +342,18 @@ public class MeshItemProviderAdapterFactory extends MeshAdapterFactory
 	public void dispose() {
 		if (meshContainerItemProvider != null)
 			meshContainerItemProvider.dispose();
+		if (pointLightFXItemProvider != null)
+			pointLightFXItemProvider.dispose();
 		if (cameraFXItemProvider != null)
 			cameraFXItemProvider.dispose();
 		if (coordinateSystemItemProvider != null)
 			coordinateSystemItemProvider.dispose();
 		if (boxFXItemProvider != null)
 			boxFXItemProvider.dispose();
+		if (cylinderFXItemProvider != null)
+			cylinderFXItemProvider.dispose();
+		if (sphereFXItemProvider != null)
+			sphereFXItemProvider.dispose();
 	}
 
 }

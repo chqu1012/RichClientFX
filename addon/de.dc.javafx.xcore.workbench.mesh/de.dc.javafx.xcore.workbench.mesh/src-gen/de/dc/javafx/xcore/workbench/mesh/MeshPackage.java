@@ -86,13 +86,22 @@ public interface MeshPackage extends EPackage {
 	int MESH_CONTAINER__CAMERA = 1;
 
 	/**
+	 * The feature id for the '<em><b>Point Light</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESH_CONTAINER__POINT_LIGHT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESH_CONTAINER_FEATURE_COUNT = 2;
+	int MESH_CONTAINER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -111,7 +120,7 @@ public interface MeshPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getMeshNode()
 	 * @generated
 	 */
-	int MESH_NODE = 2;
+	int MESH_NODE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Translate X</b></em>' attribute.
@@ -159,6 +168,61 @@ public interface MeshPackage extends EPackage {
 	int MESH_NODE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.PointLightFXImpl <em>Point Light FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.mesh.impl.PointLightFXImpl
+	 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getPointLightFX()
+	 * @generated
+	 */
+	int POINT_LIGHT_FX = 1;
+
+	/**
+	 * The feature id for the '<em><b>Translate X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_LIGHT_FX__TRANSLATE_X = MESH_NODE__TRANSLATE_X;
+
+	/**
+	 * The feature id for the '<em><b>Translate Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_LIGHT_FX__TRANSLATE_Y = MESH_NODE__TRANSLATE_Y;
+
+	/**
+	 * The feature id for the '<em><b>Translate Z</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_LIGHT_FX__TRANSLATE_Z = MESH_NODE__TRANSLATE_Z;
+
+	/**
+	 * The number of structural features of the '<em>Point Light FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_LIGHT_FX_FEATURE_COUNT = MESH_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Point Light FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_LIGHT_FX_OPERATION_COUNT = MESH_NODE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.CameraFXImpl <em>Camera FX</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,7 +230,7 @@ public interface MeshPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getCameraFX()
 	 * @generated
 	 */
-	int CAMERA_FX = 1;
+	int CAMERA_FX = 2;
 
 	/**
 	 * The feature id for the '<em><b>Translate X</b></em>' attribute.
@@ -221,7 +285,7 @@ public interface MeshPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getCoordinateSystem()
 	 * @generated
 	 */
-	int COORDINATE_SYSTEM = 3;
+	int COORDINATE_SYSTEM = 4;
 
 	/**
 	 * The feature id for the '<em><b>Translate X</b></em>' attribute.
@@ -312,7 +376,7 @@ public interface MeshPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getShapeFX()
 	 * @generated
 	 */
-	int SHAPE_FX = 4;
+	int SHAPE_FX = 5;
 
 	/**
 	 * The feature id for the '<em><b>Translate X</b></em>' attribute.
@@ -367,7 +431,7 @@ public interface MeshPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getBoxFX()
 	 * @generated
 	 */
-	int BOX_FX = 5;
+	int BOX_FX = 6;
 
 	/**
 	 * The feature id for the '<em><b>Translate X</b></em>' attribute.
@@ -442,6 +506,143 @@ public interface MeshPackage extends EPackage {
 	int BOX_FX_OPERATION_COUNT = SHAPE_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.CylinderFXImpl <em>Cylinder FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.mesh.impl.CylinderFXImpl
+	 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getCylinderFX()
+	 * @generated
+	 */
+	int CYLINDER_FX = 7;
+
+	/**
+	 * The feature id for the '<em><b>Translate X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CYLINDER_FX__TRANSLATE_X = SHAPE_FX__TRANSLATE_X;
+
+	/**
+	 * The feature id for the '<em><b>Translate Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CYLINDER_FX__TRANSLATE_Y = SHAPE_FX__TRANSLATE_Y;
+
+	/**
+	 * The feature id for the '<em><b>Translate Z</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CYLINDER_FX__TRANSLATE_Z = SHAPE_FX__TRANSLATE_Z;
+
+	/**
+	 * The feature id for the '<em><b>Radius</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CYLINDER_FX__RADIUS = SHAPE_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CYLINDER_FX__HEIGHT = SHAPE_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Cylinder FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CYLINDER_FX_FEATURE_COUNT = SHAPE_FX_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Cylinder FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CYLINDER_FX_OPERATION_COUNT = SHAPE_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.SphereFXImpl <em>Sphere FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.mesh.impl.SphereFXImpl
+	 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getSphereFX()
+	 * @generated
+	 */
+	int SPHERE_FX = 8;
+
+	/**
+	 * The feature id for the '<em><b>Translate X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPHERE_FX__TRANSLATE_X = SHAPE_FX__TRANSLATE_X;
+
+	/**
+	 * The feature id for the '<em><b>Translate Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPHERE_FX__TRANSLATE_Y = SHAPE_FX__TRANSLATE_Y;
+
+	/**
+	 * The feature id for the '<em><b>Translate Z</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPHERE_FX__TRANSLATE_Z = SHAPE_FX__TRANSLATE_Z;
+
+	/**
+	 * The feature id for the '<em><b>Radius</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPHERE_FX__RADIUS = SHAPE_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Sphere FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPHERE_FX_FEATURE_COUNT = SHAPE_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Sphere FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPHERE_FX_OPERATION_COUNT = SHAPE_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,6 +673,27 @@ public interface MeshPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMeshContainer_Camera();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer#getPointLight <em>Point Light</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Point Light</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshContainer#getPointLight()
+	 * @see #getMeshContainer()
+	 * @generated
+	 */
+	EReference getMeshContainer_PointLight();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.mesh.PointLightFX <em>Point Light FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Point Light FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.PointLightFX
+	 * @generated
+	 */
+	EClass getPointLightFX();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.mesh.CameraFX <em>Camera FX</em>}'.
@@ -634,6 +856,59 @@ public interface MeshPackage extends EPackage {
 	EAttribute getBoxFX_Depth();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.mesh.CylinderFX <em>Cylinder FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cylinder FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.CylinderFX
+	 * @generated
+	 */
+	EClass getCylinderFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.CylinderFX#getRadius <em>Radius</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radius</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.CylinderFX#getRadius()
+	 * @see #getCylinderFX()
+	 * @generated
+	 */
+	EAttribute getCylinderFX_Radius();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.CylinderFX#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.CylinderFX#getHeight()
+	 * @see #getCylinderFX()
+	 * @generated
+	 */
+	EAttribute getCylinderFX_Height();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.mesh.SphereFX <em>Sphere FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sphere FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.SphereFX
+	 * @generated
+	 */
+	EClass getSphereFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.SphereFX#getRadius <em>Radius</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radius</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.SphereFX#getRadius()
+	 * @see #getSphereFX()
+	 * @generated
+	 */
+	EAttribute getSphereFX_Radius();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -681,6 +956,24 @@ public interface MeshPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MESH_CONTAINER__CAMERA = eINSTANCE.getMeshContainer_Camera();
+
+		/**
+		 * The meta object literal for the '<em><b>Point Light</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MESH_CONTAINER__POINT_LIGHT = eINSTANCE.getMeshContainer_PointLight();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.PointLightFXImpl <em>Point Light FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.mesh.impl.PointLightFXImpl
+		 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getPointLightFX()
+		 * @generated
+		 */
+		EClass POINT_LIGHT_FX = eINSTANCE.getPointLightFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.CameraFXImpl <em>Camera FX</em>}' class.
@@ -811,6 +1104,50 @@ public interface MeshPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOX_FX__DEPTH = eINSTANCE.getBoxFX_Depth();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.CylinderFXImpl <em>Cylinder FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.mesh.impl.CylinderFXImpl
+		 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getCylinderFX()
+		 * @generated
+		 */
+		EClass CYLINDER_FX = eINSTANCE.getCylinderFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Radius</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CYLINDER_FX__RADIUS = eINSTANCE.getCylinderFX_Radius();
+
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CYLINDER_FX__HEIGHT = eINSTANCE.getCylinderFX_Height();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.SphereFXImpl <em>Sphere FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.mesh.impl.SphereFXImpl
+		 * @see de.dc.javafx.xcore.workbench.mesh.impl.MeshPackageImpl#getSphereFX()
+		 * @generated
+		 */
+		EClass SPHERE_FX = eINSTANCE.getSphereFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Radius</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPHERE_FX__RADIUS = eINSTANCE.getSphereFX_Radius();
 
 	}
 

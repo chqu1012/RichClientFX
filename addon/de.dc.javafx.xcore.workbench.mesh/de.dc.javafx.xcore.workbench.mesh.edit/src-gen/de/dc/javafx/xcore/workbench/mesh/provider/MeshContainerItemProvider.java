@@ -74,6 +74,7 @@ public class MeshContainerItemProvider extends ItemProviderAdapter
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MeshPackage.Literals.MESH_CONTAINER__NODES);
 			childrenFeatures.add(MeshPackage.Literals.MESH_CONTAINER__CAMERA);
+			childrenFeatures.add(MeshPackage.Literals.MESH_CONTAINER__POINT_LIGHT);
 		}
 		return childrenFeatures;
 	}
@@ -167,6 +168,7 @@ public class MeshContainerItemProvider extends ItemProviderAdapter
 		switch (notification.getFeatureID(MeshContainer.class)) {
 		case MeshPackage.MESH_CONTAINER__NODES:
 		case MeshPackage.MESH_CONTAINER__CAMERA:
+		case MeshPackage.MESH_CONTAINER__POINT_LIGHT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -185,6 +187,9 @@ public class MeshContainerItemProvider extends ItemProviderAdapter
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES,
+				MeshFactory.eINSTANCE.createPointLightFX()));
+
+		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES,
 				MeshFactory.eINSTANCE.createCameraFX()));
 
 		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES,
@@ -193,8 +198,17 @@ public class MeshContainerItemProvider extends ItemProviderAdapter
 		newChildDescriptors.add(
 				createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES, MeshFactory.eINSTANCE.createBoxFX()));
 
+		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES,
+				MeshFactory.eINSTANCE.createCylinderFX()));
+
+		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__NODES,
+				MeshFactory.eINSTANCE.createSphereFX()));
+
 		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__CAMERA,
 				MeshFactory.eINSTANCE.createCameraFX()));
+
+		newChildDescriptors.add(createChildParameter(MeshPackage.Literals.MESH_CONTAINER__POINT_LIGHT,
+				MeshFactory.eINSTANCE.createPointLightFX()));
 	}
 
 	/**
@@ -209,6 +223,7 @@ public class MeshContainerItemProvider extends ItemProviderAdapter
 		Object childObject = child;
 
 		boolean qualify = childFeature == MeshPackage.Literals.MESH_CONTAINER__NODES
+				|| childFeature == MeshPackage.Literals.MESH_CONTAINER__POINT_LIGHT
 				|| childFeature == MeshPackage.Literals.MESH_CONTAINER__CAMERA;
 
 		if (qualify) {

@@ -5,11 +5,14 @@ package de.dc.javafx.xcore.workbench.mesh.impl;
 import de.dc.javafx.xcore.workbench.mesh.BoxFX;
 import de.dc.javafx.xcore.workbench.mesh.CameraFX;
 import de.dc.javafx.xcore.workbench.mesh.CoordinateSystem;
+import de.dc.javafx.xcore.workbench.mesh.CylinderFX;
 import de.dc.javafx.xcore.workbench.mesh.MeshContainer;
 import de.dc.javafx.xcore.workbench.mesh.MeshFactory;
 import de.dc.javafx.xcore.workbench.mesh.MeshNode;
 import de.dc.javafx.xcore.workbench.mesh.MeshPackage;
+import de.dc.javafx.xcore.workbench.mesh.PointLightFX;
 import de.dc.javafx.xcore.workbench.mesh.ShapeFX;
+import de.dc.javafx.xcore.workbench.mesh.SphereFX;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -32,6 +35,13 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	private EClass meshContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pointLightFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,6 +77,20 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	private EClass boxFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cylinderFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sphereFXEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -163,6 +187,26 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	@Override
 	public EReference getMeshContainer_Camera() {
 		return (EReference) meshContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMeshContainer_PointLight() {
+		return (EReference) meshContainerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPointLightFX() {
+		return pointLightFXEClass;
 	}
 
 	/**
@@ -321,6 +365,56 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getCylinderFX() {
+		return cylinderFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCylinderFX_Radius() {
+		return (EAttribute) cylinderFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCylinderFX_Height() {
+		return (EAttribute) cylinderFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSphereFX() {
+		return sphereFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSphereFX_Radius() {
+		return (EAttribute) sphereFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public MeshFactory getMeshFactory() {
 		return (MeshFactory) getEFactoryInstance();
 	}
@@ -348,6 +442,9 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		meshContainerEClass = createEClass(MESH_CONTAINER);
 		createEReference(meshContainerEClass, MESH_CONTAINER__NODES);
 		createEReference(meshContainerEClass, MESH_CONTAINER__CAMERA);
+		createEReference(meshContainerEClass, MESH_CONTAINER__POINT_LIGHT);
+
+		pointLightFXEClass = createEClass(POINT_LIGHT_FX);
 
 		cameraFXEClass = createEClass(CAMERA_FX);
 
@@ -368,6 +465,13 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		createEAttribute(boxFXEClass, BOX_FX__WIDTH);
 		createEAttribute(boxFXEClass, BOX_FX__HEIGHT);
 		createEAttribute(boxFXEClass, BOX_FX__DEPTH);
+
+		cylinderFXEClass = createEClass(CYLINDER_FX);
+		createEAttribute(cylinderFXEClass, CYLINDER_FX__RADIUS);
+		createEAttribute(cylinderFXEClass, CYLINDER_FX__HEIGHT);
+
+		sphereFXEClass = createEClass(SPHERE_FX);
+		createEAttribute(sphereFXEClass, SPHERE_FX__RADIUS);
 	}
 
 	/**
@@ -402,10 +506,13 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		pointLightFXEClass.getESuperTypes().add(this.getMeshNode());
 		cameraFXEClass.getESuperTypes().add(this.getMeshNode());
 		coordinateSystemEClass.getESuperTypes().add(this.getMeshNode());
 		shapeFXEClass.getESuperTypes().add(this.getMeshNode());
 		boxFXEClass.getESuperTypes().add(this.getShapeFX());
+		cylinderFXEClass.getESuperTypes().add(this.getShapeFX());
+		sphereFXEClass.getESuperTypes().add(this.getShapeFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(meshContainerEClass, MeshContainer.class, "MeshContainer", !IS_ABSTRACT, !IS_INTERFACE,
@@ -416,6 +523,12 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		initEReference(getMeshContainer_Camera(), this.getCameraFX(), null, "camera", null, 0, 1, MeshContainer.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMeshContainer_PointLight(), this.getPointLightFX(), null, "pointLight", null, 0, 1,
+				MeshContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pointLightFXEClass, PointLightFX.class, "PointLightFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cameraFXEClass, CameraFX.class, "CameraFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -456,6 +569,21 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 				IS_ORDERED);
 		initEAttribute(getBoxFX_Depth(), theEcorePackage.getEDouble(), "depth", "100", 0, 1, BoxFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cylinderFXEClass, CylinderFX.class, "CylinderFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCylinderFX_Radius(), theEcorePackage.getEDouble(), "radius", "50", 0, 1, CylinderFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getCylinderFX_Height(), theEcorePackage.getEDouble(), "height", "100", 0, 1, CylinderFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(sphereFXEClass, SphereFX.class, "SphereFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSphereFX_Radius(), theEcorePackage.getEDouble(), "radius", "50", 0, 1, SphereFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

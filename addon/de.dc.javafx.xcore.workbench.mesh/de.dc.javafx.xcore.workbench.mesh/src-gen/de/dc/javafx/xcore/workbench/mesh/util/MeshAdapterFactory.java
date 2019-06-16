@@ -72,6 +72,11 @@ public class MeshAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter casePointLightFX(PointLightFX object) {
+			return createPointLightFXAdapter();
+		}
+
+		@Override
 		public Adapter caseCameraFX(CameraFX object) {
 			return createCameraFXAdapter();
 		}
@@ -94,6 +99,16 @@ public class MeshAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBoxFX(BoxFX object) {
 			return createBoxFXAdapter();
+		}
+
+		@Override
+		public Adapter caseCylinderFX(CylinderFX object) {
+			return createCylinderFXAdapter();
+		}
+
+		@Override
+		public Adapter caseSphereFX(SphereFX object) {
+			return createSphereFXAdapter();
 		}
 
 		@Override
@@ -126,6 +141,20 @@ public class MeshAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMeshContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.mesh.PointLightFX <em>Point Light FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.mesh.PointLightFX
+	 * @generated
+	 */
+	public Adapter createPointLightFXAdapter() {
 		return null;
 	}
 
@@ -196,6 +225,34 @@ public class MeshAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBoxFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.mesh.CylinderFX <em>Cylinder FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.mesh.CylinderFX
+	 * @generated
+	 */
+	public Adapter createCylinderFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.mesh.SphereFX <em>Sphere FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.mesh.SphereFX
+	 * @generated
+	 */
+	public Adapter createSphereFXAdapter() {
 		return null;
 	}
 

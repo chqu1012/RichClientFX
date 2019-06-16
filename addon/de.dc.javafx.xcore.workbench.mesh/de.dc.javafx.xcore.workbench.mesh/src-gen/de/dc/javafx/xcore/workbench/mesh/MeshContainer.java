@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer#getNodes <em>Nodes</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer#getCamera <em>Camera</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer#getPointLight <em>Point Light</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshContainer()
@@ -57,5 +58,27 @@ public interface MeshContainer extends EObject {
 	 * @generated
 	 */
 	void setCamera(CameraFX value);
+
+	/**
+	 * Returns the value of the '<em><b>Point Light</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Point Light</em>' containment reference.
+	 * @see #setPointLight(PointLightFX)
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshContainer_PointLight()
+	 * @model containment="true"
+	 * @generated
+	 */
+	PointLightFX getPointLight();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshContainer#getPointLight <em>Point Light</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Point Light</em>' containment reference.
+	 * @see #getPointLight()
+	 * @generated
+	 */
+	void setPointLight(PointLightFX value);
 
 } // MeshContainer
