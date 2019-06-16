@@ -57,6 +57,7 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 			addTranslateXPropertyDescriptor(object);
 			addTranslateYPropertyDescriptor(object);
 			addTranslateZPropertyDescriptor(object);
+			addUseRotationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,6 +108,22 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 								"_UI_MeshNode_type"),
 						MeshPackage.Literals.MESH_NODE__TRANSLATE_Z, true, false, false,
 						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Use Rotation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUseRotationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MeshNode_useRotation_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_useRotation_feature",
+								"_UI_MeshNode_type"),
+						MeshPackage.Literals.MESH_NODE__USE_ROTATION, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -176,6 +193,7 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 		case MeshPackage.MESH_NODE__TRANSLATE_X:
 		case MeshPackage.MESH_NODE__TRANSLATE_Y:
 		case MeshPackage.MESH_NODE__TRANSLATE_Z:
+		case MeshPackage.MESH_NODE__USE_ROTATION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

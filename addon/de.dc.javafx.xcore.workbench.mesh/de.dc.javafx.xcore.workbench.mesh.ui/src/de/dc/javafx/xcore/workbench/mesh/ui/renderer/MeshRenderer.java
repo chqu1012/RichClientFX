@@ -8,6 +8,7 @@ import de.dc.javafx.xcore.workbench.mesh.BoxFX;
 import de.dc.javafx.xcore.workbench.mesh.CameraFX;
 import de.dc.javafx.xcore.workbench.mesh.CoordinateSystem;
 import de.dc.javafx.xcore.workbench.mesh.CylinderFX;
+import de.dc.javafx.xcore.workbench.mesh.MeshNode;
 import de.dc.javafx.xcore.workbench.mesh.PointLightFX;
 import de.dc.javafx.xcore.workbench.mesh.SphereFX;
 import de.dc.javafx.xcore.workbench.mesh.util.MeshSwitch;
@@ -53,7 +54,7 @@ public class MeshRenderer extends MeshSwitch<Node> {
 	
 	@Override
 	public Node caseCylinderFX(CylinderFX object) {
-		Group group = createGroup();
+		Group group = createGroup(object);
 		Cylinder cylinder = new Cylinder(object.getRadius(), object.getHeight());
 		cylinder.setTranslateX(object.getTranslateX());
 		cylinder.setTranslateY(object.getTranslateY());
@@ -64,7 +65,7 @@ public class MeshRenderer extends MeshSwitch<Node> {
 
 	@Override
 	public Node caseSphereFX(SphereFX object) {
-		Group group = createGroup();
+		Group group = createGroup(object);
 		Sphere sphere = new Sphere(object.getRadius());
 		sphere.setTranslateX(object.getTranslateX());
 		sphere.setTranslateY(object.getTranslateY());
@@ -75,7 +76,7 @@ public class MeshRenderer extends MeshSwitch<Node> {
 
 	@Override
 	public Node caseBoxFX(BoxFX object) {
-		Group group = createGroup();
+		Group group = createGroup(object);
 		Box box = new Box(object.getWidth(), object.getHeight(), object.getDepth());
 		box.setTranslateX(object.getTranslateX());
 		box.setTranslateY(object.getTranslateY());
@@ -84,7 +85,7 @@ public class MeshRenderer extends MeshSwitch<Node> {
 		return group;
 	}
 
-	private Group createGroup() {
+	public Group createGroup(MeshNode node) {
 		Group group = new Group();
 		group.getTransforms().addAll(rotateX, rotateY);
 		group.setOnMousePressed(me -> {
@@ -92,13 +93,14 @@ public class MeshRenderer extends MeshSwitch<Node> {
 			mouseOldY = me.getSceneY();
 		});
 		group.setOnMouseDragged(me -> {
-			mousePosX = me.getSceneX();
-			mousePosY = me.getSceneY();
-			rotateX.setAngle(rotateX.getAngle() - (mousePosY - mouseOldY));
-			rotateY.setAngle(rotateY.getAngle() + (mousePosX - mouseOldX));
-			mouseOldX = mousePosX;
-			mouseOldY = mousePosY;
-
+			if (node.isUseRotation()) {
+				mousePosX = me.getSceneX();
+				mousePosY = me.getSceneY();
+				rotateX.setAngle(rotateX.getAngle() - (mousePosY - mouseOldY));
+				rotateY.setAngle(rotateY.getAngle() + (mousePosX - mouseOldX));
+				mouseOldX = mousePosX;
+				mouseOldY = mousePosY;
+			}
 		});
 
 		enableZooming(group);
@@ -115,9 +117,9 @@ public class MeshRenderer extends MeshSwitch<Node> {
 
 	@Override
 	public Node caseCoordinateSystem(CoordinateSystem object) {
-		Group group = createGroup();
+		Group group = createGroup(object);
 
-		Color color = Color.LIGHTBLUE;
+		Color color = Color.BLUE;
 		List<Axis> cubeFaces = new ArrayList<>();
 
 		// Back
@@ -126,12 +128,14 @@ public class MeshRenderer extends MeshSwitch<Node> {
 		cubeFaces.add(zAxis);
 		// Bottom
 		Axis xAxis = createAxis(object.getXAxisWidth(), -0.5, 0, 0);
+		color = Color.RED;
 		xAxis.setFill(color.deriveColor(0.0, 1.0, (1 - 0.4 * 1), 1.0));
 		xAxis.setRotationAxis(Rotate.X_AXIS);
 		xAxis.setRotate(90);
 		cubeFaces.add(xAxis);
 		// Left
 		Axis yAxis = createAxis(object.getYAxisWidth(), 0, -0.5, 0);
+		color = Color.GREEN;
 		yAxis.setFill(color.deriveColor(0.0, 1.0, (1 - 0.4 * 1), 1.0));
 		yAxis.setRotationAxis(Rotate.Y_AXIS);
 		yAxis.setRotate(90);
@@ -143,6 +147,8 @@ public class MeshRenderer extends MeshSwitch<Node> {
 		group.setTranslateX(object.getTranslateX());
 		group.setTranslateY(object.getTranslateY());
 		group.setTranslateZ(object.getTranslateZ());
+		
+		object.getShapes().forEach(e->group.getChildren().add(doSwitch(e)));
 		return group;
 	}
 

@@ -265,6 +265,16 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMeshNode_UseRotation() {
+		return (EAttribute) meshNodeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCoordinateSystem() {
 		return coordinateSystemEClass;
 	}
@@ -452,6 +462,7 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		createEAttribute(meshNodeEClass, MESH_NODE__TRANSLATE_X);
 		createEAttribute(meshNodeEClass, MESH_NODE__TRANSLATE_Y);
 		createEAttribute(meshNodeEClass, MESH_NODE__TRANSLATE_Z);
+		createEAttribute(meshNodeEClass, MESH_NODE__USE_ROTATION);
 
 		coordinateSystemEClass = createEClass(COORDINATE_SYSTEM);
 		createEAttribute(coordinateSystemEClass, COORDINATE_SYSTEM__XAXIS_WIDTH);
@@ -543,6 +554,9 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		initEAttribute(getMeshNode_TranslateZ(), theEcorePackage.getEDouble(), "translateZ", "0", 0, 1, MeshNode.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getMeshNode_UseRotation(), theEcorePackage.getEBoolean(), "useRotation", "false", 0, 1,
+				MeshNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(coordinateSystemEClass, CoordinateSystem.class, "CoordinateSystem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

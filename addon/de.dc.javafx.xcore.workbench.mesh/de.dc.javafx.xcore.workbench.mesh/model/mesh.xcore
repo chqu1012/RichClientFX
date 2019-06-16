@@ -25,6 +25,7 @@ abstract class MeshNode{
 	double translateX = '0'
 	double translateY = '0'
 	double translateZ = '0'
+	boolean useRotation = 'false'
 }
 
 class CoordinateSystem extends MeshNode{

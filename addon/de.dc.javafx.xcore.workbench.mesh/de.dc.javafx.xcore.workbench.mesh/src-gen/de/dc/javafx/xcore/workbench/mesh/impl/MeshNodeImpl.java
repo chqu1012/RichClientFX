@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getTranslateX <em>Translate X</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getTranslateY <em>Translate Y</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#getTranslateZ <em>Translate Z</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.impl.MeshNodeImpl#isUseRotation <em>Use Rotation</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +88,26 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected double translateZ = TRANSLATE_Z_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isUseRotation() <em>Use Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean USE_ROTATION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUseRotation() <em>Use Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean useRotation = USE_ROTATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +206,30 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public boolean isUseRotation() {
+		return useRotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUseRotation(boolean newUseRotation) {
+		boolean oldUseRotation = useRotation;
+		useRotation = newUseRotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MeshPackage.MESH_NODE__USE_ROTATION, oldUseRotation,
+					useRotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case MeshPackage.MESH_NODE__TRANSLATE_X:
@@ -193,6 +238,8 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 			return getTranslateY();
 		case MeshPackage.MESH_NODE__TRANSLATE_Z:
 			return getTranslateZ();
+		case MeshPackage.MESH_NODE__USE_ROTATION:
+			return isUseRotation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -213,6 +260,9 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 			return;
 		case MeshPackage.MESH_NODE__TRANSLATE_Z:
 			setTranslateZ((Double) newValue);
+			return;
+		case MeshPackage.MESH_NODE__USE_ROTATION:
+			setUseRotation((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -235,6 +285,9 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 		case MeshPackage.MESH_NODE__TRANSLATE_Z:
 			setTranslateZ(TRANSLATE_Z_EDEFAULT);
 			return;
+		case MeshPackage.MESH_NODE__USE_ROTATION:
+			setUseRotation(USE_ROTATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -253,6 +306,8 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 			return translateY != TRANSLATE_Y_EDEFAULT;
 		case MeshPackage.MESH_NODE__TRANSLATE_Z:
 			return translateZ != TRANSLATE_Z_EDEFAULT;
+		case MeshPackage.MESH_NODE__USE_ROTATION:
+			return useRotation != USE_ROTATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -274,6 +329,8 @@ public abstract class MeshNodeImpl extends MinimalEObjectImpl.Container implemen
 		result.append(translateY);
 		result.append(", translateZ: ");
 		result.append(translateZ);
+		result.append(", useRotation: ");
+		result.append(useRotation);
 		result.append(')');
 		return result.toString();
 	}

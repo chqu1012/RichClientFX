@@ -9,8 +9,12 @@ import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.mesh.BoxFX;
+import de.dc.javafx.xcore.workbench.mesh.MeshFactory;
 import de.dc.javafx.xcore.workbench.mesh.ui.renderer.MeshRenderer;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 
 public class MeshPreview extends FXPreview {
@@ -36,7 +40,14 @@ public class MeshPreview extends FXPreview {
 			TreeItem<Object> treeItem = (TreeItem) newValue;
 			Object value = treeItem.getValue();
 			if (value instanceof EObject) {
-				setCenter(renderer.doSwitch((EObject) value));
+				BoxFX fakeBox = MeshFactory.eINSTANCE.createBoxFX();
+				fakeBox.setUseRotation(true);
+				Group group = renderer.createGroup(fakeBox);
+				Node node = renderer.doSwitch((EObject) value);
+				if (node!=null) {
+					group.getChildren().add(node);
+				}
+				setCenter(group);
 			}
 		}
 	}

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateX <em>Translate X</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateY <em>Translate Y</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getTranslateZ <em>Translate Z</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#isUseRotation <em>Use Rotation</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode()
@@ -91,5 +92,28 @@ public interface MeshNode extends EObject {
 	 * @generated
 	 */
 	void setTranslateZ(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Use Rotation</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Use Rotation</em>' attribute.
+	 * @see #setUseRotation(boolean)
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshPackage#getMeshNode_UseRotation()
+	 * @model default="false" unique="false"
+	 * @generated
+	 */
+	boolean isUseRotation();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#isUseRotation <em>Use Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Use Rotation</em>' attribute.
+	 * @see #isUseRotation()
+	 * @generated
+	 */
+	void setUseRotation(boolean value);
 
 } // MeshNode

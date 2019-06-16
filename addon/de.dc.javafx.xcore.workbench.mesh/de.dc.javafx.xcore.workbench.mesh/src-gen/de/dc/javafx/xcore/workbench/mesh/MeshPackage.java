@@ -150,13 +150,22 @@ public interface MeshPackage extends EPackage {
 	int MESH_NODE__TRANSLATE_Z = 2;
 
 	/**
+	 * The feature id for the '<em><b>Use Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESH_NODE__USE_ROTATION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESH_NODE_FEATURE_COUNT = 3;
+	int MESH_NODE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -203,6 +212,15 @@ public interface MeshPackage extends EPackage {
 	 * @ordered
 	 */
 	int POINT_LIGHT_FX__TRANSLATE_Z = MESH_NODE__TRANSLATE_Z;
+
+	/**
+	 * The feature id for the '<em><b>Use Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_LIGHT_FX__USE_ROTATION = MESH_NODE__USE_ROTATION;
 
 	/**
 	 * The number of structural features of the '<em>Point Light FX</em>' class.
@@ -260,6 +278,15 @@ public interface MeshPackage extends EPackage {
 	int CAMERA_FX__TRANSLATE_Z = MESH_NODE__TRANSLATE_Z;
 
 	/**
+	 * The feature id for the '<em><b>Use Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA_FX__USE_ROTATION = MESH_NODE__USE_ROTATION;
+
+	/**
 	 * The number of structural features of the '<em>Camera FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,6 +340,15 @@ public interface MeshPackage extends EPackage {
 	 * @ordered
 	 */
 	int COORDINATE_SYSTEM__TRANSLATE_Z = MESH_NODE__TRANSLATE_Z;
+
+	/**
+	 * The feature id for the '<em><b>Use Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COORDINATE_SYSTEM__USE_ROTATION = MESH_NODE__USE_ROTATION;
 
 	/**
 	 * The feature id for the '<em><b>XAxis Width</b></em>' attribute.
@@ -406,6 +442,15 @@ public interface MeshPackage extends EPackage {
 	int SHAPE_FX__TRANSLATE_Z = MESH_NODE__TRANSLATE_Z;
 
 	/**
+	 * The feature id for the '<em><b>Use Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_FX__USE_ROTATION = MESH_NODE__USE_ROTATION;
+
+	/**
 	 * The number of structural features of the '<em>Shape FX</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -459,6 +504,15 @@ public interface MeshPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOX_FX__TRANSLATE_Z = SHAPE_FX__TRANSLATE_Z;
+
+	/**
+	 * The feature id for the '<em><b>Use Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_FX__USE_ROTATION = SHAPE_FX__USE_ROTATION;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -543,6 +597,15 @@ public interface MeshPackage extends EPackage {
 	int CYLINDER_FX__TRANSLATE_Z = SHAPE_FX__TRANSLATE_Z;
 
 	/**
+	 * The feature id for the '<em><b>Use Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CYLINDER_FX__USE_ROTATION = SHAPE_FX__USE_ROTATION;
+
+	/**
 	 * The feature id for the '<em><b>Radius</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -614,6 +677,15 @@ public interface MeshPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPHERE_FX__TRANSLATE_Z = SHAPE_FX__TRANSLATE_Z;
+
+	/**
+	 * The feature id for the '<em><b>Use Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPHERE_FX__USE_ROTATION = SHAPE_FX__USE_ROTATION;
 
 	/**
 	 * The feature id for the '<em><b>Radius</b></em>' attribute.
@@ -747,6 +819,17 @@ public interface MeshPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMeshNode_TranslateZ();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#isUseRotation <em>Use Rotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Rotation</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshNode#isUseRotation()
+	 * @see #getMeshNode()
+	 * @generated
+	 */
+	EAttribute getMeshNode_UseRotation();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem <em>Coordinate System</em>}'.
@@ -1018,6 +1101,14 @@ public interface MeshPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MESH_NODE__TRANSLATE_Z = eINSTANCE.getMeshNode_TranslateZ();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Rotation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESH_NODE__USE_ROTATION = eINSTANCE.getMeshNode_UseRotation();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.CoordinateSystemImpl <em>Coordinate System</em>}' class.
