@@ -5,13 +5,13 @@ import org.eclipse.emf.ecore.EPackage;
 
 public interface IEmfFile<T> {
 
-	 T load(String filePath);
-	 
-	 void write(T model, String path);
-	 
-	 EPackage getEPackageEInstance();
+	T load(String filePath);
+
+	void write(T model, String path);
+
+	EPackage getEPackageEInstance();
 
 	EFactory getEFactoryEInstance();
-		
+
 	String getExtension();
 }

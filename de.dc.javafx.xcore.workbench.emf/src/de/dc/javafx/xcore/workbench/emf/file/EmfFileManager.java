@@ -2,25 +2,27 @@ package de.dc.javafx.xcore.workbench.emf.file;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.eclipse.emf.ecore.EObject;
+import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 
 public class EmfFileManager implements IEmfFileManager{
 
-	private Map<String, IEmfEditorPart> editorRegistry = new HashMap<>();
+	private Logger logger = Logger.getLogger(EmfFileManager.class.getSimpleName());
+	
+	private Map<String, IEmfEditorPart<?>> editorRegistry = new HashMap<>();
 
 	@Override
-	public void register(IEmfFile<? extends EObject> file) {
-		
+	public Optional<IEmfEditorPart<?>> getEditorByExtension(String extension) {
+		return Optional.of(editorRegistry.get(extension));
 	}
 
 	@Override
-	public IEmfEditorPart getEditorByExtension(String extension) {
-		// TODO Auto-generated method stub
-		return null;
+	public void register(IEmfEditorPart<?> editorPart) {
+		String extension = editorPart.getExtension();
+		editorRegistry.put(extension, editorPart);
+		logger.log(Level.ALL, "Registrate editor part with "+extension);
 	}
-	
-	
 }

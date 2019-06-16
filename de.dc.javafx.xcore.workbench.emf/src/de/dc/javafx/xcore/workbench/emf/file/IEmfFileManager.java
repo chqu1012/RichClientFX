@@ -1,12 +1,12 @@
 package de.dc.javafx.xcore.workbench.emf.file;
 
-import org.eclipse.emf.ecore.EObject;
+import java.util.Optional;
 
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 
 public interface IEmfFileManager {
 
-	void register(IEmfFile<? extends EObject> file);
+	void register(IEmfEditorPart<?> editorPart);
 	
-	IEmfEditorPart getEditorByExtension(String extension);
+	Optional<IEmfEditorPart<?>> getEditorByExtension(String extension);
 }

@@ -14,14 +14,14 @@ Require-Bundle: org.eclipse.core.runtime,
  de.dc.javafx.xcore.resource.ui;bundle-version="1.0.0",
  de.dc.javafx.xcore.code.preview.ui;bundle-version="1.0.0",
  de.dc.javafx.xcore.workbench.event;bundle-version="1.0.0",
- de.dc.javafx.xcore.workbench.di;bundle-version="1.0.0",
- de.dc.javafx.efxclipse.runtime;bundle-version="3.6.0",
  de.dc.javafx.xcore.runtime,
  de.dc.javafx.xcore.workbench.emf,
  org.eclipse.fx.ui.controls,
  org.eclipse.emf.ecore,
  de.dc.javafx.xcore.workbench.command;bundle-version="0.1.0",
- de.dc.javafx.xcore.workbench.command.edit;bundle-version="1.0.0"
+ de.dc.javafx.xcore.workbench.command.edit;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.di;bundle-version="1.0.0",
+ de.dc.javafx.efxclipse.runtime;bundle-version="3.6.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.workbench.ui
 Bundle-ActivationPolicy: lazy

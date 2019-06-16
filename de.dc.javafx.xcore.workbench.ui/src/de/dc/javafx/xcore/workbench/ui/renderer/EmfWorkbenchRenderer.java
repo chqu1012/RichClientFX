@@ -21,6 +21,8 @@ import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFileManager;
+import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
@@ -50,6 +52,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 	@Inject IEmfSelectionService selectionService;
 	@Inject IEventBroker eventBroker;
 	@Inject IEmfControlManager controlManager;
+	@Inject IEmfFileManager fileManager;
 	
 	public void setWorkbench(EmfWorkbench workbench) {
 		this.workbench=workbench;
@@ -210,6 +213,9 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node>{
 			}
 			
 			controlManager.registrate(object.get_Id(), view);
+			if (view instanceof IEmfEditorPart) {
+				fileManager.register((IEmfEditorPart)view);
+			}
 			return view;
 		} catch (NullPointerException | ClassNotFoundException e) {
 			log.log(Level.SEVERE, "Viewpart cannot created (id: "+object.get_Id()+"instance: "+object.getViewClass()+", name: "+object.getName()+") ");

@@ -21,7 +21,6 @@ import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.ui.controller.BaseChartFXEmfDetailedTreeViewController;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
-import de.dc.javafx.xcore.workbench.emf.file.IEmfFileService;
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
@@ -42,7 +41,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewController implements ChangeListener<TreeItem<Object>>, IEmfFileService<ChartProject>, IEmfEditorPart{
+public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewController implements ChangeListener<TreeItem<Object>>, IEmfEditorPart<ChartProject>{
 	
 	private ObservableList<Boolean> values = FXCollections.observableArrayList();
 	private EditingDomain editingDomain;

@@ -62,7 +62,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object>, IEmfFileService<T>, IEmfEditorPart {
+public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object>, IEmfEditorPart<T> {
 
 	private Logger log = Logger.getLogger(EmfTreeModelView.class.getSimpleName());
 
