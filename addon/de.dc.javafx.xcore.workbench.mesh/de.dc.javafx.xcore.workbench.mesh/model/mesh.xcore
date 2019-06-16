@@ -15,7 +15,10 @@ class MeshContainer{
 	contains MeshNode[0..*] nodes
 }
 
-abstract class MeshNode{}
+abstract class MeshNode{
+	double x = '0'
+	double y = '0'
+}
 
 class CoordinateSystem extends MeshNode{
 	

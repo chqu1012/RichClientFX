@@ -2,6 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.mesh.provider;
 
+import de.dc.javafx.xcore.workbench.mesh.CoordinateSystem;
 import java.util.Collection;
 import java.util.List;
 
@@ -71,7 +72,8 @@ public class CoordinateSystemItemProvider extends MeshNodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CoordinateSystem_type");
+		CoordinateSystem coordinateSystem = (CoordinateSystem) object;
+		return getString("_UI_CoordinateSystem_type") + " " + coordinateSystem.getX();
 	}
 
 	/**

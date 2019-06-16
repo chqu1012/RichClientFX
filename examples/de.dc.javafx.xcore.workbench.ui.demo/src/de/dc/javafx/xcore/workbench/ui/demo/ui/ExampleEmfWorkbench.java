@@ -13,6 +13,7 @@ import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.mesh.ui.MeshEmfDetailedTreeView;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
@@ -72,6 +73,8 @@ public class ExampleEmfWorkbench extends EmfWorkbench{
 //					content = new ChartFXEmfTreeView();
 //					content = new ChartFXEmfDetailTreeView();
 					content = new ChartFXEmfDetailedTreeView();
+				}else if (filename.endsWith(".mesh")) {
+					content = new MeshEmfDetailedTreeView();
 				}else {
 					StyledTextArea styledTextArea = new StyledTextArea();
 					styledTextArea.getContent().setText("This is a styled text!\nThis is the 2nd line with data\nBlaBla");

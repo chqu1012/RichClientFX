@@ -2,6 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.mesh;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -104,13 +105,31 @@ public interface MeshPackage extends EPackage {
 	int MESH_NODE = 1;
 
 	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESH_NODE__X = 0;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESH_NODE__Y = 1;
+
+	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESH_NODE_FEATURE_COUNT = 0;
+	int MESH_NODE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -130,6 +149,24 @@ public interface MeshPackage extends EPackage {
 	 * @generated
 	 */
 	int COORDINATE_SYSTEM = 2;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COORDINATE_SYSTEM__X = MESH_NODE__X;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COORDINATE_SYSTEM__Y = MESH_NODE__Y;
 
 	/**
 	 * The number of structural features of the '<em>Coordinate System</em>' class.
@@ -179,6 +216,28 @@ public interface MeshPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMeshNode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshNode#getX()
+	 * @see #getMeshNode()
+	 * @generated
+	 */
+	EAttribute getMeshNode_X();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.mesh.MeshNode#getY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @see de.dc.javafx.xcore.workbench.mesh.MeshNode#getY()
+	 * @see #getMeshNode()
+	 * @generated
+	 */
+	EAttribute getMeshNode_Y();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.mesh.CoordinateSystem <em>Coordinate System</em>}'.
@@ -240,6 +299,22 @@ public interface MeshPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MESH_NODE = eINSTANCE.getMeshNode();
+
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESH_NODE__X = eINSTANCE.getMeshNode_X();
+
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESH_NODE__Y = eINSTANCE.getMeshNode_Y();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.mesh.impl.CoordinateSystemImpl <em>Coordinate System</em>}' class.

@@ -12,7 +12,7 @@
     <items name="General Save As" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-save-16.png" command="//@commands.8"/>
     <items name="General Open" onAction="" icon="/de/dc/javafx/xcore/workbench/ui/images/icons8-opened-folder-16.png" command="//@commands.9"/>
   </toolbar>
-  <statusline/> 
+  <statusline/>
   <perspectives _Id="de.dc.javafx.xcore.JDTPerspective" name="JDT Perspective">
     <leftPane>
       <views _Id="" name="Example View 1" viewClass=""/>
@@ -80,6 +80,18 @@
       <views _Id="de.dc.javafx.xcore.workbench.chart.ui.view.ChartFXPreview" name="ChartFX Preview" viewClass="de.dc.javafx.xcore.workbench.chart.ui.view.ChartFXPreview" registrateChangeListener="true"/>
     </bottomPane>
   </perspectives>
+  <perspectives _Id="de.dc.javafx.xcore.workbench.mesh.MeshPerspective" name="Mesh Perspective">
+    <leftPane>
+      <views _Id="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedJavaExplorer" name="Java Explroer" viewClass="de.dc.javafx.xcore.workbench.ui.demo.ui.ExtendedJavaExplorer"/>
+    </leftPane>
+    <rightPane>
+      <views _Id="de.dc.javafx.xcore.workbench.command.ui.CommandEmfTreeView" name="ExtendedHistoryView" viewClass="de.dc.javafx.xcore.workbench.command.ui.CommandEmfTreeView" registrateChangeListener="true"/>
+      <views name="PropertyView" viewClass="de.dc.javafx.xcore.workbench.ui.control.EmfPropertyView"/>
+    </rightPane>
+    <bottomPane>
+      <views _Id="de.dc.javafx.xcore.workbench.mesh.ui.view.MeshPreview" name="Mesh Preview" viewClass="de.dc.javafx.xcore.workbench.mesh.ui.view.MeshPreview" registrateChangeListener="true"/>
+    </bottomPane>
+  </perspectives>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.RunCommand" name="Run"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.DebugCommand" name="Debug"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInRightPaneCommand" name="Open View RightPane" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.OpenViewInRightPaneCommand"/>
@@ -93,5 +105,6 @@
   <editorRegistry>
     <editor name="ChartFX Editor" fileExtension="chart" editorUri="de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView"/>
     <editor name="Blog Editor" fileExtension="blog" editorUri="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView"/>
+    <editor name="Mesh Editor" fileExtension="mesh" editorUri="de.dc.javafx.xcore.workbench.mesh.ui.MeshEmfDetailedTreeView"/>
   </editorRegistry>
 </workbench:Workbench>

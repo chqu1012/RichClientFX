@@ -2,6 +2,8 @@
  */
 package de.dc.javafx.xcore.workbench.mesh.provider;
 
+import de.dc.javafx.xcore.workbench.mesh.MeshNode;
+import de.dc.javafx.xcore.workbench.mesh.MeshPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -17,7 +20,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.mesh.MeshNode} object.
@@ -49,8 +54,40 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addXPropertyDescriptor(object);
+			addYPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the X feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MeshNode_x_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_x_feature", "_UI_MeshNode_type"),
+						MeshPackage.Literals.MESH_NODE__X, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+						null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Y feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addYPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MeshNode_y_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MeshNode_y_feature", "_UI_MeshNode_type"),
+						MeshPackage.Literals.MESH_NODE__Y, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+						null, null));
 	}
 
 	/**
@@ -86,7 +123,8 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_MeshNode_type");
+		MeshNode meshNode = (MeshNode) object;
+		return getString("_UI_MeshNode_type") + " " + meshNode.getX();
 	}
 
 	/**
@@ -114,6 +152,13 @@ public class MeshNodeItemProvider extends ItemProviderAdapter
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(MeshNode.class)) {
+		case MeshPackage.MESH_NODE__X:
+		case MeshPackage.MESH_NODE__Y:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -8,9 +8,11 @@ import de.dc.javafx.xcore.workbench.mesh.MeshFactory;
 import de.dc.javafx.xcore.workbench.mesh.MeshNode;
 import de.dc.javafx.xcore.workbench.mesh.MeshPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -92,6 +94,9 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theMeshPackage.createPackageContents();
 
@@ -142,6 +147,26 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMeshNode_X() {
+		return (EAttribute) meshNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMeshNode_Y() {
+		return (EAttribute) meshNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCoordinateSystem() {
 		return coordinateSystemEClass;
 	}
@@ -180,6 +205,8 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		createEReference(meshContainerEClass, MESH_CONTAINER__NODES);
 
 		meshNodeEClass = createEClass(MESH_NODE);
+		createEAttribute(meshNodeEClass, MESH_NODE__X);
+		createEAttribute(meshNodeEClass, MESH_NODE__Y);
 
 		coordinateSystemEClass = createEClass(COORDINATE_SYSTEM);
 	}
@@ -208,6 +235,9 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -223,6 +253,10 @@ public class MeshPackageImpl extends EPackageImpl implements MeshPackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(meshNodeEClass, MeshNode.class, "MeshNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMeshNode_X(), theEcorePackage.getEDouble(), "x", "0", 0, 1, MeshNode.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMeshNode_Y(), theEcorePackage.getEDouble(), "y", "0", 0, 1, MeshNode.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(coordinateSystemEClass, CoordinateSystem.class, "CoordinateSystem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
