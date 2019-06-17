@@ -20,6 +20,7 @@ abstract class ChartFX{
 	String name
 	String xAxisLabel = ""
 	String yAxisLabel = ""
+	String zAxisLabel = ""
 	contains ChartFXConfig config
 }
 

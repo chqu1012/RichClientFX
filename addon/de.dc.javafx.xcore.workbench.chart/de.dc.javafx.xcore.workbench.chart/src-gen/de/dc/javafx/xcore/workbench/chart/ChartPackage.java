@@ -142,13 +142,22 @@ public interface ChartPackage extends EPackage {
 	int CHART_FX__YAXIS_LABEL = 2;
 
 	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART_FX__ZAXIS_LABEL = 3;
+
+	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHART_FX__CONFIG = 3;
+	int CHART_FX__CONFIG = 4;
 
 	/**
 	 * The number of structural features of the '<em>FX</em>' class.
@@ -157,7 +166,7 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHART_FX_FEATURE_COUNT = 4;
+	int CHART_FX_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>FX</em>' class.
@@ -204,6 +213,15 @@ public interface ChartPackage extends EPackage {
 	 * @ordered
 	 */
 	int XY_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XY_CHART_FX__ZAXIS_LABEL = CHART_FX__ZAXIS_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -277,6 +295,15 @@ public interface ChartPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CHART_FX__ZAXIS_LABEL = CHART_FX__ZAXIS_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -536,6 +563,15 @@ public interface ChartPackage extends EPackage {
 	int LINE_CHART_FX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
 
 	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_CHART_FX__ZAXIS_LABEL = XY_CHART_FX__ZAXIS_LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,6 +643,15 @@ public interface ChartPackage extends EPackage {
 	 * @ordered
 	 */
 	int AREA_CHART_FX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART_FX__ZAXIS_LABEL = XY_CHART_FX__ZAXIS_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -682,6 +727,15 @@ public interface ChartPackage extends EPackage {
 	int SCATTER_CHART_FX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
 
 	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART_FX__ZAXIS_LABEL = XY_CHART_FX__ZAXIS_LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -753,6 +807,15 @@ public interface ChartPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUBBLE_CHART_FX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUBBLE_CHART_FX__ZAXIS_LABEL = XY_CHART_FX__ZAXIS_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -828,6 +891,15 @@ public interface ChartPackage extends EPackage {
 	int BAR_CHART_FX__YAXIS_LABEL = CATEGORY_CHART_FX__YAXIS_LABEL;
 
 	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_CHART_FX__ZAXIS_LABEL = CATEGORY_CHART_FX__ZAXIS_LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -901,6 +973,15 @@ public interface ChartPackage extends EPackage {
 	int PIE_CHART_FX__YAXIS_LABEL = CATEGORY_CHART_FX__YAXIS_LABEL;
 
 	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART_FX__ZAXIS_LABEL = CATEGORY_CHART_FX__ZAXIS_LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -972,6 +1053,15 @@ public interface ChartPackage extends EPackage {
 	 * @ordered
 	 */
 	int AREA_CHART3_DFX__YAXIS_LABEL = XY_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_CHART3_DFX__ZAXIS_LABEL = XY_CHART_FX__ZAXIS_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -1211,6 +1301,17 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getChartFX_YAxisLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getZAxisLabel <em>ZAxis Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ZAxis Label</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartFX#getZAxisLabel()
+	 * @see #getChartFX()
+	 * @generated
+	 */
+	EAttribute getChartFX_ZAxisLabel();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getConfig <em>Config</em>}'.
@@ -1675,6 +1776,14 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHART_FX__YAXIS_LABEL = eINSTANCE.getChartFX_YAxisLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>ZAxis Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHART_FX__ZAXIS_LABEL = eINSTANCE.getChartFX_ZAxisLabel();
 
 		/**
 		 * The meta object literal for the '<em><b>Config</b></em>' containment reference feature.

@@ -63,9 +63,9 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 			dataset.addSeriesAsRow(serieFX.getName(), serie);
 		}
 
-		String xAxisLabel = "";
-		String yAxisLabel = "";
-		String zAxisLabel = "";
+		String xAxisLabel = object.getXAxisLabel();
+		String yAxisLabel = object.getYAxisLabel();
+		String zAxisLabel = object.getZAxisLabel();
 		String subtitle = "";
 		Chart3D chart = Chart3DFactory.createAreaChart(object.getName(), subtitle, dataset, xAxisLabel, yAxisLabel,
 				zAxisLabel);

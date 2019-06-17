@@ -60,6 +60,7 @@ public class ChartFXItemProvider extends ItemProviderAdapter
 			addNamePropertyDescriptor(object);
 			addXAxisLabelPropertyDescriptor(object);
 			addYAxisLabelPropertyDescriptor(object);
+			addZAxisLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +109,22 @@ public class ChartFXItemProvider extends ItemProviderAdapter
 						getString("_UI_PropertyDescriptor_description", "_UI_ChartFX_yAxisLabel_feature",
 								"_UI_ChartFX_type"),
 						ChartPackage.Literals.CHART_FX__YAXIS_LABEL, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the ZAxis Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addZAxisLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ChartFX_zAxisLabel_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ChartFX_zAxisLabel_feature",
+								"_UI_ChartFX_type"),
+						ChartPackage.Literals.CHART_FX__ZAXIS_LABEL, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -209,6 +226,7 @@ public class ChartFXItemProvider extends ItemProviderAdapter
 		case ChartPackage.CHART_FX__NAME:
 		case ChartPackage.CHART_FX__XAXIS_LABEL:
 		case ChartPackage.CHART_FX__YAXIS_LABEL:
+		case ChartPackage.CHART_FX__ZAXIS_LABEL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ChartPackage.CHART_FX__CONFIG:

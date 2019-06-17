@@ -300,8 +300,18 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getChartFX_ZAxisLabel() {
+		return (EAttribute) chartFXEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getChartFX_Config() {
-		return (EReference) chartFXEClass.getEStructuralFeatures().get(3);
+		return (EReference) chartFXEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -692,6 +702,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		createEAttribute(chartFXEClass, CHART_FX__NAME);
 		createEAttribute(chartFXEClass, CHART_FX__XAXIS_LABEL);
 		createEAttribute(chartFXEClass, CHART_FX__YAXIS_LABEL);
+		createEAttribute(chartFXEClass, CHART_FX__ZAXIS_LABEL);
 		createEReference(chartFXEClass, CHART_FX__CONFIG);
 
 		xyChartFXEClass = createEClass(XY_CHART_FX);
@@ -806,6 +817,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEAttribute(getChartFX_YAxisLabel(), theEcorePackage.getEString(), "yAxisLabel", "", 0, 1, ChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getChartFX_ZAxisLabel(), theEcorePackage.getEString(), "zAxisLabel", "", 0, 1, ChartFX.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEReference(getChartFX_Config(), this.getChartFXConfig(), null, "config", null, 0, 1, ChartFX.class,

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getXAxisLabel <em>XAxis Label</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getYAxisLabel <em>YAxis Label</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getZAxisLabel <em>ZAxis Label</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getConfig <em>Config</em>}</li>
  * </ul>
  *
@@ -91,6 +92,29 @@ public interface ChartFX extends EObject {
 	 * @generated
 	 */
 	void setYAxisLabel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>ZAxis Label</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>ZAxis Label</em>' attribute.
+	 * @see #setZAxisLabel(String)
+	 * @see de.dc.javafx.xcore.workbench.chart.ChartPackage#getChartFX_ZAxisLabel()
+	 * @model default="" unique="false"
+	 * @generated
+	 */
+	String getZAxisLabel();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.chart.ChartFX#getZAxisLabel <em>ZAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>ZAxis Label</em>' attribute.
+	 * @see #getZAxisLabel()
+	 * @generated
+	 */
+	void setZAxisLabel(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Config</b></em>' containment reference.

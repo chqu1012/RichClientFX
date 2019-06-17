@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getXAxisLabel <em>XAxis Label</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getYAxisLabel <em>YAxis Label</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getZAxisLabel <em>ZAxis Label</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXImpl#getConfig <em>Config</em>}</li>
  * </ul>
  *
@@ -91,6 +92,26 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected String yAxisLabel = YAXIS_LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getZAxisLabel() <em>ZAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getZAxisLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ZAXIS_LABEL_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getZAxisLabel() <em>ZAxis Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getZAxisLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String zAxisLabel = ZAXIS_LABEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
@@ -198,6 +219,30 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
+	public String getZAxisLabel() {
+		return zAxisLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setZAxisLabel(String newZAxisLabel) {
+		String oldZAxisLabel = zAxisLabel;
+		zAxisLabel = newZAxisLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ChartPackage.CHART_FX__ZAXIS_LABEL, oldZAxisLabel,
+					zAxisLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ChartFXConfig getConfig() {
 		return config;
 	}
@@ -271,6 +316,8 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 			return getXAxisLabel();
 		case ChartPackage.CHART_FX__YAXIS_LABEL:
 			return getYAxisLabel();
+		case ChartPackage.CHART_FX__ZAXIS_LABEL:
+			return getZAxisLabel();
 		case ChartPackage.CHART_FX__CONFIG:
 			return getConfig();
 		}
@@ -293,6 +340,9 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 			return;
 		case ChartPackage.CHART_FX__YAXIS_LABEL:
 			setYAxisLabel((String) newValue);
+			return;
+		case ChartPackage.CHART_FX__ZAXIS_LABEL:
+			setZAxisLabel((String) newValue);
 			return;
 		case ChartPackage.CHART_FX__CONFIG:
 			setConfig((ChartFXConfig) newValue);
@@ -318,6 +368,9 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		case ChartPackage.CHART_FX__YAXIS_LABEL:
 			setYAxisLabel(YAXIS_LABEL_EDEFAULT);
 			return;
+		case ChartPackage.CHART_FX__ZAXIS_LABEL:
+			setZAxisLabel(ZAXIS_LABEL_EDEFAULT);
+			return;
 		case ChartPackage.CHART_FX__CONFIG:
 			setConfig((ChartFXConfig) null);
 			return;
@@ -339,6 +392,8 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 			return XAXIS_LABEL_EDEFAULT == null ? xAxisLabel != null : !XAXIS_LABEL_EDEFAULT.equals(xAxisLabel);
 		case ChartPackage.CHART_FX__YAXIS_LABEL:
 			return YAXIS_LABEL_EDEFAULT == null ? yAxisLabel != null : !YAXIS_LABEL_EDEFAULT.equals(yAxisLabel);
+		case ChartPackage.CHART_FX__ZAXIS_LABEL:
+			return ZAXIS_LABEL_EDEFAULT == null ? zAxisLabel != null : !ZAXIS_LABEL_EDEFAULT.equals(zAxisLabel);
 		case ChartPackage.CHART_FX__CONFIG:
 			return config != null;
 		}
@@ -362,6 +417,8 @@ public abstract class ChartFXImpl extends MinimalEObjectImpl.Container implement
 		result.append(xAxisLabel);
 		result.append(", yAxisLabel: ");
 		result.append(yAxisLabel);
+		result.append(", zAxisLabel: ");
+		result.append(zAxisLabel);
 		result.append(')');
 		return result.toString();
 	}
