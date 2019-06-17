@@ -1,0 +1,36 @@
+@Ecore(nsURI="http://www.frateranatis.org/workbench/ide")
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.workbench.ide.model.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.workbench.ide.model.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="ide", 
+	tableProviders="true", dataTypeConverters="true", prefix="Ide", modelName="Ide")
+package de.dc.javafx.xcore.workbench.ide.model
+
+import org.eclipse.emf.ecore.EFactory
+import org.eclipse.emf.ecore.EPackage
+import org.eclipse.emf.common.notify.AdapterFactory
+import org.eclipse.emf.ecore.util.Switch
+
+class IdeContainer{
+	String packagePath
+	String name
+	String modelName
+	String ext
+	
+	String previewName
+	
+	ModelEFactory modelEFactory 
+	ModelEPackage modelEPackage
+	AdapterEFactory modelItemProviderAdapterFactor
+	Renderer renderer
+}
+
+type ModelEFactory wraps EFactory
+type ModelEPackage wraps EPackage
+type AdapterEFactory wraps AdapterFactory
+type Renderer wraps Switch

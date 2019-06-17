@@ -13,10 +13,6 @@ import com.orsoncharts.data.category.StandardCategoryDataset3D;
 import com.orsoncharts.fx.Chart3DViewer;
 import com.orsoncharts.plot.CategoryPlot3D;
 import com.orsoncharts.renderer.category.AreaRenderer3D;
-import com.orsoncharts.style.ChartStyle;
-import com.orsoncharts.style.StandardChartStyle;
-import com.orsoncharts.table.RectanglePainter;
-import com.orsoncharts.table.StandardRectanglePainter;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseBarChart;
