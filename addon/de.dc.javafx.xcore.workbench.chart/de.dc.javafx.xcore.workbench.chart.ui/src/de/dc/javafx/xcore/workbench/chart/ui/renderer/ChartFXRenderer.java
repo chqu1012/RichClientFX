@@ -64,9 +64,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 			dataset.addSeriesAsRow(seriesName, serie);
 		}
 
-		Chart3D chart = Chart3DFactory.createBarChart("Quarterly Revenues", 
-	            "For some large IT companies", dataset, null, "Quarter", 
-	            "$billion Revenues");
+		Chart3D chart = Chart3DFactory.createBarChart(object.getName(), "", dataset, null, "Month", "Value");
 	    chart.setChartBoxColor(new Color(255, 255, 255, 127));
 	    chart.setLegendAnchor(LegendAnchor.BOTTOM_RIGHT);
 	    CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
