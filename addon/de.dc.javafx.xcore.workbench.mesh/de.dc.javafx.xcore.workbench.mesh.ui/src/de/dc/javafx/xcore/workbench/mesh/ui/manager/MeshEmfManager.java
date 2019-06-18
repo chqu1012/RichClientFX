@@ -1,16 +1,15 @@
 package de.dc.javafx.xcore.workbench.mesh.ui.manager;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EPackage;
 
 import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager;
-import de.dc.javafx.xcore.workbench.emf.factory.ExtendedFactory;
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
 import de.dc.javafx.xcore.workbench.mesh.MeshContainer;
 import de.dc.javafx.xcore.workbench.mesh.MeshFactory;
 import de.dc.javafx.xcore.workbench.mesh.MeshPackage;
 import de.dc.javafx.xcore.workbench.mesh.provider.MeshItemProviderAdapterFactory;
-import de.dc.javafx.xcore.workbench.mesh.ui.factory.ExtendedMeshFactory;
 import de.dc.javafx.xcore.workbench.mesh.ui.file.MeshFile;
 
 public class MeshEmfManager extends AbstractEmfManager<MeshContainer>{
@@ -31,8 +30,8 @@ public class MeshEmfManager extends AbstractEmfManager<MeshContainer>{
 	}
 
 	@Override
-	public ExtendedFactory getExtendedModelFactory() {
-		return ExtendedMeshFactory.eINSTANCE;
+	public EFactory getExtendedModelFactory() {
+		return MeshFactory.eINSTANCE;
 	}
 
 	@Override

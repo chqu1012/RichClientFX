@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandParameter;
@@ -32,7 +34,6 @@ import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
-import de.dc.javafx.xcore.workbench.emf.file.IEmfFileService;
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
@@ -330,11 +331,13 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 					MenuItem item = new MenuItem(menuText);
 					item.setGraphic(new ImageView(new Image(((URL)icon).toExternalForm())));
 					item.setOnAction(event -> {
+						EClassifier eClassifier = getEmfManager().getModelPackage().getEClassifier(name);
+						EObject obj = getEmfManager().getExtendedModelFactory().create((EClass) eClassifier);
+						
 						int id = EmfUtil.getValueByName(getEmfManager().getModelPackage(), name);
-						Command command = AddCommand.create(editingDomain, value, id,
-								getEmfManager().getExtendedModelFactory().create(id));
+						Command command = AddCommand.create(editingDomain, value, id, obj);
 						command.execute();
-
+						
 						eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 						treeItem.setExpanded(true);
 					});

@@ -9,6 +9,8 @@ import java.util.Map;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandParameter;
@@ -200,8 +202,12 @@ public class ChartFXEmfDetailedTreeView extends BaseChartFXEmfDetailedTreeViewCo
 					addChildButton.setOnAction(e->{
 						IEmfManager<ChartProject> emfManager = treeView.getEmfManager();
 						String name = param.getValue().getClass().getSimpleName().replace("Impl", "");
+						
+						EClassifier eClassifier = treeView.getEmfManager().getModelPackage().getEClassifier(name);
+						EObject obj = treeView.getEmfManager().getExtendedModelFactory().create((EClass) eClassifier);
+						
 						int id = EmfUtil.getValueByName(emfManager.getModelPackage(), name);
-						EObject createdObject = emfManager.getExtendedModelFactory().create(id);
+						EObject createdObject = emfManager.getExtendedModelFactory().create((EClass) obj);
 						childEattributesMap.entrySet().forEach(ks->{
 							TextField textfield = ks.getValue();
 							if (textfield.getStyle().equals(EDITED_STYLE)) {

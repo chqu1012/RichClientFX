@@ -1,14 +1,13 @@
 package de.dc.javafx.xcore.workbench.emf;
 
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.change.util.ChangeRecorder;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 import de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl;
-import de.dc.javafx.xcore.workbench.emf.factory.ExtendedFactory;
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
-import de.dc.javafx.xcore.workbench.emf.file.IEmfFileManager;
 
 public interface IEmfManager<T> {
 
@@ -41,7 +40,7 @@ public interface IEmfManager<T> {
 	 * 
 	 * @return
 	 */
-	ExtendedFactory getExtendedModelFactory();
+	EFactory getExtendedModelFactory();
 	
 	IEmfFile<T> getFile();
 

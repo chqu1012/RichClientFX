@@ -16,6 +16,5 @@ Require-Bundle: de.dc.spring.bootstrap.blog.model,
  de.dc.spring.bootstrap.blog.model.edit;bundle-version="1.0.0"
 Export-Package: de.dc.spring.bootstrap.blog.model.ui,
  de.dc.spring.bootstrap.blog.model.ui.demo,
- de.dc.spring.bootstrap.blog.model.ui.factory,
  de.dc.spring.bootstrap.blog.model.ui.file,
  de.dc.spring.bootstrap.blog.model.ui.manager

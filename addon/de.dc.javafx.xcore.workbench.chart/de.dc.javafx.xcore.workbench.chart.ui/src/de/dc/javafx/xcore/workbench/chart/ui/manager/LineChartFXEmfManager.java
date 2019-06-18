@@ -1,16 +1,15 @@
 package de.dc.javafx.xcore.workbench.chart.ui.manager;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EPackage;
 
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.provider.ChartItemProviderAdapterFactory;
-import de.dc.javafx.xcore.workbench.chart.ui.factory.ExtendedChartFXFactory;
 import de.dc.javafx.xcore.workbench.chart.ui.file.ChartFXFile;
 import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager;
-import de.dc.javafx.xcore.workbench.emf.factory.ExtendedFactory;
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
 
 public class LineChartFXEmfManager extends AbstractEmfManager<SeriesFX> {
@@ -31,8 +30,8 @@ public class LineChartFXEmfManager extends AbstractEmfManager<SeriesFX> {
 	}
 
 	@Override
-	public ExtendedFactory getExtendedModelFactory() {
-		return ExtendedChartFXFactory.eINSTANCE;
+	public EFactory getExtendedModelFactory() {
+		return ChartFactory.eINSTANCE;
 	}
 
 	@Override
