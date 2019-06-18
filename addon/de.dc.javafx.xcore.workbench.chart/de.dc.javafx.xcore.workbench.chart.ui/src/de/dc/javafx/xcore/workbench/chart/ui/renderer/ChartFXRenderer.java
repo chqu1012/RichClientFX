@@ -3,6 +3,7 @@ package de.dc.javafx.xcore.workbench.chart.ui.renderer;
 import java.awt.BasicStroke;
 import java.awt.Color;
 
+import org.eclipse.emf.common.util.EList;
 import org.gillius.jfxutils.chart.ChartPanManager;
 import org.gillius.jfxutils.chart.JFXChartUtil;
 
@@ -51,12 +52,14 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	@Override
 	public Node caseAreaChart3DFX(AreaChart3DFX object) {
 		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
-		for (SeriesFX serieFX : object.getSeries()) {
+		EList<SeriesFX> series = object.getSeries();
+		for (SeriesFX serieFX : series) {
 			DefaultKeyedValues<String, Double> serie = new DefaultKeyedValues<>();
 			for (XYValueFX valueFX : serieFX.getValues()) {
 				serie.put(String.valueOf(valueFX.getX()), valueFX.getY());
 			}
-			dataset.addSeriesAsRow(serieFX.getName(), serie);
+			String name = serieFX.getName()==null? "No Name "+series.indexOf(serieFX) : serieFX.getName();
+			dataset.addSeriesAsRow(name, serie);
 		}
 
 		String xAxisLabel = object.getXAxisLabel();
