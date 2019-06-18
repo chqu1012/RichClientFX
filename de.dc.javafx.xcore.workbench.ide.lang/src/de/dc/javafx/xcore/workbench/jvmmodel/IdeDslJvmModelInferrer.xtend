@@ -11,6 +11,10 @@ import org.eclipse.emf.ecore.EPackage
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager
+import org.eclipse.emf.common.notify.AdapterFactory
+import org.eclipse.xtext.common.types.JvmVisibility
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFile
 
 class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -32,7 +36,41 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 	
 			members += element.toMethod("getExtension", String.typeRef) [
 				annotations+=Override.annotationRef
-				body = '''return "«element.idePackage».eName";'''
+				body = '''return «element.idePackage».eNAME;'''
+			]
+		]
+		
+		acceptor.accept(element.toClass(element.packagePath+'.manager.'+element.name+"EmfManager")) [
+			superTypes += AbstractEmfManager.typeRef(element.ideRootModel)
+			
+			members += element.toMethod("getModelItemProviderAdapterFactory", AdapterFactory.typeRef) [
+				visibility = JvmVisibility.PROTECTED
+				annotations+=Override.annotationRef
+				body = '''return new «element.ideItemProviderAdapterFactory»();'''
+			]
+			
+			members += element.toMethod("initModel", element.ideRootModel) [
+				visibility = JvmVisibility.PROTECTED
+				annotations+=Override.annotationRef
+				body = '''return initModel();'''
+			]
+
+			members += element.toMethod("getModelPackage", EPackage.typeRef) [
+				visibility = JvmVisibility.PUBLIC
+				annotations+=Override.annotationRef
+				body = '''return «element.idePackage».eINSTANCE;'''
+			]
+
+			members += element.toMethod("getExtendedModelFactory", EFactory.typeRef) [
+				visibility = JvmVisibility.PUBLIC
+				annotations+=Override.annotationRef
+				body = '''return «element.ideFactory».eINSTANCE;'''
+			]
+
+			members += element.toMethod("initFile", IEmfFile.typeRef(element.ideRootModel)) [
+				visibility = JvmVisibility.PUBLIC
+				annotations+=Override.annotationRef
+				body = '''return new «(element.packagePath+'.file.'+element.name+"File").typeRef»();'''
 			]
 		]
 	}

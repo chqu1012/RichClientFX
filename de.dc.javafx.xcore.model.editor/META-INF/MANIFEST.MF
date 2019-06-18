@@ -33,5 +33,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.dc.javafx.xcore.lang.ui;bundle-version="1.0.0",
  de.dc.javafx.xcore.lang.edit;bundle-version="1.0.0",
  de.dc.javafx.xcore.lang.edit.ide;bundle-version="1.0.0",
- de.dc.javafx.xcore.lang.edit.ui;bundle-version="1.0.0"
+ de.dc.javafx.xcore.lang.edit.ui;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.ide.lang;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.ide.lang.ide;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.ide.lang.ui;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
