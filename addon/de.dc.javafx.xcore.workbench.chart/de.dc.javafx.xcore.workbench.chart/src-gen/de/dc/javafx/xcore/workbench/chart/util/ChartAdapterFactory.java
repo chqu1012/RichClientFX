@@ -137,8 +137,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAreaChart3DFX(AreaChart3DFX object) {
-			return createAreaChart3DFXAdapter();
+		public Adapter caseAreaChart3dFX(AreaChart3dFX object) {
+			return createAreaChart3dFXAdapter();
+		}
+
+		@Override
+		public Adapter caseBarChart3dFX(BarChart3dFX object) {
+			return createBarChart3dFXAdapter();
 		}
 
 		@Override
@@ -362,16 +367,30 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.AreaChart3DFX <em>Area Chart3 DFX</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.AreaChart3dFX <em>Area Chart3d FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.dc.javafx.xcore.workbench.chart.AreaChart3DFX
+	 * @see de.dc.javafx.xcore.workbench.chart.AreaChart3dFX
 	 * @generated
 	 */
-	public Adapter createAreaChart3DFXAdapter() {
+	public Adapter createAreaChart3dFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.BarChart3dFX <em>Bar Chart3d FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.BarChart3dFX
+	 * @generated
+	 */
+	public Adapter createBarChart3dFXAdapter() {
 		return null;
 	}
 

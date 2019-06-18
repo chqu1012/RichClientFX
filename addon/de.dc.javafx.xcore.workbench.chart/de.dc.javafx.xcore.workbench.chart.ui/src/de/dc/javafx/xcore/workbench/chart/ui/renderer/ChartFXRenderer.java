@@ -12,6 +12,7 @@ import com.orsoncharts.Chart3DFactory;
 import com.orsoncharts.data.DefaultKeyedValues;
 import com.orsoncharts.data.category.StandardCategoryDataset3D;
 import com.orsoncharts.fx.Chart3DViewer;
+import com.orsoncharts.legend.LegendAnchor;
 import com.orsoncharts.plot.CategoryPlot3D;
 import com.orsoncharts.renderer.category.AreaRenderer3D;
 
@@ -22,8 +23,9 @@ import de.dc.javafx.xcore.lang.lib.chart.BaseLineChart;
 import de.dc.javafx.xcore.lang.lib.chart.BasePieChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseScatterChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseXYChart;
-import de.dc.javafx.xcore.workbench.chart.AreaChart3DFX;
+import de.dc.javafx.xcore.workbench.chart.AreaChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
+import de.dc.javafx.xcore.workbench.chart.BarChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.BarChartFX;
 import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
 import de.dc.javafx.xcore.workbench.chart.CategorySeriesFX;
@@ -50,7 +52,30 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	private Chart currentChart;
 
 	@Override
-	public Node caseAreaChart3DFX(AreaChart3DFX object) {
+	public Node caseBarChart3dFX(BarChart3dFX object) {
+		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
+		EList<SeriesFX> series = object.getSeries();
+		for (SeriesFX serieFX : series) {
+			DefaultKeyedValues<String, Double> serie = new DefaultKeyedValues<>();
+			for (XYValueFX valueFX : serieFX.getValues()) {
+				serie.put(String.valueOf(valueFX.getX()), valueFX.getY());
+			}
+			String seriesName = serieFX.getName()==null? "No name "+series.indexOf(serieFX) : serieFX.getName();
+			dataset.addSeriesAsRow(seriesName, serie);
+		}
+
+		Chart3D chart = Chart3DFactory.createBarChart("Quarterly Revenues", 
+	            "For some large IT companies", dataset, null, "Quarter", 
+	            "$billion Revenues");
+	    chart.setChartBoxColor(new Color(255, 255, 255, 127));
+	    chart.setLegendAnchor(LegendAnchor.BOTTOM_RIGHT);
+	    CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
+	    plot.setGridlinePaintForValues(Color.BLACK);
+	    return new Chart3DViewer(chart);
+	}
+	
+	@Override
+	public Node caseAreaChart3dFX(AreaChart3dFX object) {
 		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
 		EList<SeriesFX> series = object.getSeries();
 		for (SeriesFX serieFX : series) {

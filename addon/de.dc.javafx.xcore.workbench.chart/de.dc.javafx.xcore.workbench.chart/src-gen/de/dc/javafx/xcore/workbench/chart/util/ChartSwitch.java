@@ -192,13 +192,24 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case ChartPackage.AREA_CHART3_DFX: {
-			AreaChart3DFX areaChart3DFX = (AreaChart3DFX) theEObject;
-			T result = caseAreaChart3DFX(areaChart3DFX);
+		case ChartPackage.AREA_CHART3D_FX: {
+			AreaChart3dFX areaChart3dFX = (AreaChart3dFX) theEObject;
+			T result = caseAreaChart3dFX(areaChart3dFX);
 			if (result == null)
-				result = caseXYChartFX(areaChart3DFX);
+				result = caseXYChartFX(areaChart3dFX);
 			if (result == null)
-				result = caseChartFX(areaChart3DFX);
+				result = caseChartFX(areaChart3dFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ChartPackage.BAR_CHART3D_FX: {
+			BarChart3dFX barChart3dFX = (BarChart3dFX) theEObject;
+			T result = caseBarChart3dFX(barChart3dFX);
+			if (result == null)
+				result = caseXYChartFX(barChart3dFX);
+			if (result == null)
+				result = caseChartFX(barChart3dFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -426,17 +437,32 @@ public class ChartSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Area Chart3 DFX</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Area Chart3d FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Area Chart3 DFX</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Area Chart3d FX</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAreaChart3DFX(AreaChart3DFX object) {
+	public T caseAreaChart3dFX(AreaChart3dFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bar Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bar Chart3d FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBarChart3dFX(BarChart3dFX object) {
 		return null;
 	}
 

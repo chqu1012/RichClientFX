@@ -305,26 +305,49 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.AreaChart3DFX} instances.
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.AreaChart3dFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AreaChart3DFXItemProvider areaChart3DFXItemProvider;
+	protected AreaChart3dFXItemProvider areaChart3dFXItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.AreaChart3DFX}.
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.AreaChart3dFX}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAreaChart3DFXAdapter() {
-		if (areaChart3DFXItemProvider == null) {
-			areaChart3DFXItemProvider = new AreaChart3DFXItemProvider(this);
+	public Adapter createAreaChart3dFXAdapter() {
+		if (areaChart3dFXItemProvider == null) {
+			areaChart3dFXItemProvider = new AreaChart3dFXItemProvider(this);
 		}
 
-		return areaChart3DFXItemProvider;
+		return areaChart3dFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.BarChart3dFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BarChart3dFXItemProvider barChart3dFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.BarChart3dFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBarChart3dFXAdapter() {
+		if (barChart3dFXItemProvider == null) {
+			barChart3dFXItemProvider = new BarChart3dFXItemProvider(this);
+		}
+
+		return barChart3dFXItemProvider;
 	}
 
 	/**
@@ -500,8 +523,10 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			barChartFXItemProvider.dispose();
 		if (pieChartFXItemProvider != null)
 			pieChartFXItemProvider.dispose();
-		if (areaChart3DFXItemProvider != null)
-			areaChart3DFXItemProvider.dispose();
+		if (areaChart3dFXItemProvider != null)
+			areaChart3dFXItemProvider.dispose();
+		if (barChart3dFXItemProvider != null)
+			barChart3dFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}

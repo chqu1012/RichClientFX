@@ -22,7 +22,7 @@ abstract class ChartFX{
 	String yAxisLabel = ""
 	String zAxisLabel = ""
 	contains ChartFXConfig config
-}
+} 
 
 abstract class XYChartFX extends ChartFX{
 	contains SeriesFX[0..*] series	
@@ -60,7 +60,8 @@ class BubbleChartFX extends XYChartFX{}
 class BarChartFX extends CategoryChartFX{}
 class PieChartFX extends CategoryChartFX{}
 
-class AreaChart3DFX extends XYChartFX{}
+class AreaChart3dFX extends XYChartFX{}
+class BarChart3dFX extends XYChartFX{}
 
 class ChartFXConfig{
 	ChartSide sideLegend

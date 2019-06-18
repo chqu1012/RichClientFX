@@ -2,8 +2,9 @@
  */
 package de.dc.javafx.xcore.workbench.chart.impl;
 
-import de.dc.javafx.xcore.workbench.chart.AreaChart3DFX;
+import de.dc.javafx.xcore.workbench.chart.AreaChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.AreaChartFX;
+import de.dc.javafx.xcore.workbench.chart.BarChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.BarChartFX;
 import de.dc.javafx.xcore.workbench.chart.BubbleChartFX;
 import de.dc.javafx.xcore.workbench.chart.CategoryChartFX;
@@ -141,7 +142,14 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass areaChart3DFXEClass = null;
+	private EClass areaChart3dFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass barChart3dFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -540,8 +548,18 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getAreaChart3DFX() {
-		return areaChart3DFXEClass;
+	public EClass getAreaChart3dFX() {
+		return areaChart3dFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBarChart3dFX() {
+		return barChart3dFXEClass;
 	}
 
 	/**
@@ -739,7 +757,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		pieChartFXEClass = createEClass(PIE_CHART_FX);
 
-		areaChart3DFXEClass = createEClass(AREA_CHART3_DFX);
+		areaChart3dFXEClass = createEClass(AREA_CHART3D_FX);
+
+		barChart3dFXEClass = createEClass(BAR_CHART3D_FX);
 
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
@@ -797,7 +817,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		bubbleChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		barChartFXEClass.getESuperTypes().add(this.getCategoryChartFX());
 		pieChartFXEClass.getESuperTypes().add(this.getCategoryChartFX());
-		areaChart3DFXEClass.getESuperTypes().add(this.getXYChartFX());
+		areaChart3dFXEClass.getESuperTypes().add(this.getXYChartFX());
+		barChart3dFXEClass.getESuperTypes().add(this.getXYChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -890,7 +911,10 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		initEClass(pieChartFXEClass, PieChartFX.class, "PieChartFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(areaChart3DFXEClass, AreaChart3DFX.class, "AreaChart3DFX", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(areaChart3dFXEClass, AreaChart3dFX.class, "AreaChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(barChart3dFXEClass, BarChart3dFX.class, "BarChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,

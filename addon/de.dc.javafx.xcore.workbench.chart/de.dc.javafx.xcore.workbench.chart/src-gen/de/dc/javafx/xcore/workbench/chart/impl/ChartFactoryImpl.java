@@ -78,8 +78,10 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createBarChartFX();
 		case ChartPackage.PIE_CHART_FX:
 			return createPieChartFX();
-		case ChartPackage.AREA_CHART3_DFX:
-			return createAreaChart3DFX();
+		case ChartPackage.AREA_CHART3D_FX:
+			return createAreaChart3dFX();
+		case ChartPackage.BAR_CHART3D_FX:
+			return createBarChart3dFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:
@@ -244,9 +246,20 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * @generated
 	 */
 	@Override
-	public AreaChart3DFX createAreaChart3DFX() {
-		AreaChart3DFXImpl areaChart3DFX = new AreaChart3DFXImpl();
-		return areaChart3DFX;
+	public AreaChart3dFX createAreaChart3dFX() {
+		AreaChart3dFXImpl areaChart3dFX = new AreaChart3dFXImpl();
+		return areaChart3dFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BarChart3dFX createBarChart3dFX() {
+		BarChart3dFXImpl barChart3dFX = new BarChart3dFXImpl();
+		return barChart3dFX;
 	}
 
 	/**

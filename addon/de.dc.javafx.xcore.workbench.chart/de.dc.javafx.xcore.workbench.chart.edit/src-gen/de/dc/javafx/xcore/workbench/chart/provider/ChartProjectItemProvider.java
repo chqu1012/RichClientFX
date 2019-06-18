@@ -225,7 +225,10 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 				ChartFactory.eINSTANCE.createPieChartFX()));
 
 		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createAreaChart3DFX()));
+				ChartFactory.eINSTANCE.createAreaChart3dFX()));
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
+				ChartFactory.eINSTANCE.createBarChart3dFX()));
 	}
 
 	/**

@@ -121,13 +121,22 @@ public interface ChartFactory extends EFactory {
 	PieChartFX createPieChartFX();
 
 	/**
-	 * Returns a new object of class '<em>Area Chart3 DFX</em>'.
+	 * Returns a new object of class '<em>Area Chart3d FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Area Chart3 DFX</em>'.
+	 * @return a new object of class '<em>Area Chart3d FX</em>'.
 	 * @generated
 	 */
-	AreaChart3DFX createAreaChart3DFX();
+	AreaChart3dFX createAreaChart3dFX();
+
+	/**
+	 * Returns a new object of class '<em>Bar Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bar Chart3d FX</em>'.
+	 * @generated
+	 */
+	BarChart3dFX createBarChart3dFX();
 
 	/**
 	 * Returns a new object of class '<em>FX Config</em>'.
