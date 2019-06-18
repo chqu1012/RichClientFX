@@ -27,12 +27,15 @@ This application contains on the generation:
 * Theme switching
 * Default dark theme
 * Addons:
-	* Realtime Chart Rendering
+	* Realtime JavaFX Chart Rendering
 		* LineChart
 		* BarChart
 		* ScatterChart
 		* AreaChart
 		* PieChart
+	* Realtime Orson Chart Rendering
+		* AreaChart 3D
+		* BarChart 3D
 	* Thymeleaf Blog Template Generator
 * Editor Registry for several types
 
@@ -52,6 +55,11 @@ This addon supports rendering of chart files. The chart file is defined in EMF X
 BarChart Rendering showing history view, editor part and emf model tree.
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-BarChart.png)
 
+### RealTime AreaChart 3D Rendering (Orson Chart)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-Orson-AreaChart3d.png)
+
+### RealTime BarChart 3D Rendering (Orson Chart)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-Orson-BarChart3d.png)
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
 Basic functions will integrate into the TreeView, ListView and TableView. The following figure will shows a generated EMF.edit TreeView with binded PropertyView and HistoryView. Only this description is required to configure the generation
