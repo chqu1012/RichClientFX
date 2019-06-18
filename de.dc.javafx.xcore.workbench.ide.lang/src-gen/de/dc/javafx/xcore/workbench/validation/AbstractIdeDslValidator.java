@@ -13,7 +13,7 @@ public abstract class AbstractIdeDslValidator extends XbaseWithAnnotationsValida
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
-		result.add(de.dc.javafx.xcore.workbench.emfSupportDsl.EmfSupportDslPackage.eINSTANCE);
+		result.add(de.dc.javafx.xcore.workbench.ide.IdePackage.eINSTANCE);
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/Xtext/Xbase/XAnnotations"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xbase"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/common/JavaVMTypes"));

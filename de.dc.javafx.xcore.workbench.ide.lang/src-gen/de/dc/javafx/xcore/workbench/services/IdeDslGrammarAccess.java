@@ -51,22 +51,28 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
 		private final Assignment cIdeItemProviderAdapterFactoryAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
 		private final RuleCall cIdeItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_8_2_0 = (RuleCall)cIdeItemProviderAdapterFactoryAssignment_8_2.eContents().get(0);
-		private final Assignment cGenerateDemoAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final Keyword cGenerateDemoGenerateDemoKeyword_9_0 = (Keyword)cGenerateDemoAssignment_9.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cIdeRootModelKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cColonKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cIdeRootModelAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cIdeRootModelJvmTypeReferenceParserRuleCall_9_2_0 = (RuleCall)cIdeRootModelAssignment_9_2.eContents().get(0);
+		private final Assignment cGenerateDemoAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final Keyword cGenerateDemoGenerateDemoKeyword_10_0 = (Keyword)cGenerateDemoAssignment_10.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//IdeContainer:
 		//	{IdeContainer}
 		//	'package' packagePath=QualifiedName
 		//	'class' name=EString
 		//	'{' ('IdeFactory' ':' ideFactory=JvmTypeReference) ('IdePackage' ':' idePackage=JvmTypeReference)
-		//	('IdeItemProviderAdapterFactory' ':' ideItemProviderAdapterFactory=JvmTypeReference) generateDemo?='generateDemo'
-		//	'}';
+		//	('IdeItemProviderAdapterFactory' ':' ideItemProviderAdapterFactory=JvmTypeReference) ('IdeRootModel' ':'
+		//	ideRootModel=JvmTypeReference) generateDemo?='generateDemo' '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{IdeContainer} 'package' packagePath=QualifiedName 'class' name=EString '{' ('IdeFactory' ':'
 		//ideFactory=JvmTypeReference) ('IdePackage' ':' idePackage=JvmTypeReference) ('IdeItemProviderAdapterFactory' ':'
-		//ideItemProviderAdapterFactory=JvmTypeReference) generateDemo?='generateDemo' '}'
+		//ideItemProviderAdapterFactory=JvmTypeReference) ('IdeRootModel' ':' ideRootModel=JvmTypeReference)
+		//generateDemo?='generateDemo' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{IdeContainer}
@@ -138,14 +144,29 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 		//JvmTypeReference
 		public RuleCall getIdeItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_8_2_0() { return cIdeItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_8_2_0; }
 		
+		//'IdeRootModel' ':' ideRootModel=JvmTypeReference
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'IdeRootModel'
+		public Keyword getIdeRootModelKeyword_9_0() { return cIdeRootModelKeyword_9_0; }
+		
+		//':'
+		public Keyword getColonKeyword_9_1() { return cColonKeyword_9_1; }
+		
+		//ideRootModel=JvmTypeReference
+		public Assignment getIdeRootModelAssignment_9_2() { return cIdeRootModelAssignment_9_2; }
+		
+		//JvmTypeReference
+		public RuleCall getIdeRootModelJvmTypeReferenceParserRuleCall_9_2_0() { return cIdeRootModelJvmTypeReferenceParserRuleCall_9_2_0; }
+		
 		//generateDemo?='generateDemo'
-		public Assignment getGenerateDemoAssignment_9() { return cGenerateDemoAssignment_9; }
+		public Assignment getGenerateDemoAssignment_10() { return cGenerateDemoAssignment_10; }
 		
 		//'generateDemo'
-		public Keyword getGenerateDemoGenerateDemoKeyword_9_0() { return cGenerateDemoGenerateDemoKeyword_9_0; }
+		public Keyword getGenerateDemoGenerateDemoKeyword_10_0() { return cGenerateDemoGenerateDemoKeyword_10_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.workbench.IdeDsl.EString");
@@ -232,8 +253,8 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'package' packagePath=QualifiedName
 	//	'class' name=EString
 	//	'{' ('IdeFactory' ':' ideFactory=JvmTypeReference) ('IdePackage' ':' idePackage=JvmTypeReference)
-	//	('IdeItemProviderAdapterFactory' ':' ideItemProviderAdapterFactory=JvmTypeReference) generateDemo?='generateDemo'
-	//	'}';
+	//	('IdeItemProviderAdapterFactory' ':' ideItemProviderAdapterFactory=JvmTypeReference) ('IdeRootModel' ':'
+	//	ideRootModel=JvmTypeReference) generateDemo?='generateDemo' '}';
 	public IdeContainerElements getIdeContainerAccess() {
 		return pIdeContainer;
 	}

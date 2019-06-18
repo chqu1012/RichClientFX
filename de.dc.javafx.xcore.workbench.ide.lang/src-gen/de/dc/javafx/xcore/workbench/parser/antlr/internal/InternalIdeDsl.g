@@ -221,10 +221,39 @@ ruleIdeContainer returns [EObject current=null]
 			)
 		)
 		(
+			otherlv_15='IdeRootModel'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getIdeContainerAccess().getIdeRootModelKeyword_9_0());
+			}
+			otherlv_16=':'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getIdeContainerAccess().getColonKeyword_9_1());
+			}
 			(
-				lv_generateDemo_15_0='generateDemo'
+				(
+					{
+						newCompositeNode(grammarAccess.getIdeContainerAccess().getIdeRootModelJvmTypeReferenceParserRuleCall_9_2_0());
+					}
+					lv_ideRootModel_17_0=ruleJvmTypeReference
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getIdeContainerRule());
+						}
+						set(
+							$current,
+							"ideRootModel",
+							lv_ideRootModel_17_0,
+							"org.eclipse.xtext.xbase.Xtype.JvmTypeReference");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		(
+			(
+				lv_generateDemo_18_0='generateDemo'
 				{
-					newLeafNode(lv_generateDemo_15_0, grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_9_0());
+					newLeafNode(lv_generateDemo_18_0, grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_10_0());
 				}
 				{
 					if ($current==null) {
@@ -234,9 +263,9 @@ ruleIdeContainer returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_16='}'
+		otherlv_19='}'
 		{
-			newLeafNode(otherlv_16, grammarAccess.getIdeContainerAccess().getRightCurlyBracketKeyword_10());
+			newLeafNode(otherlv_19, grammarAccess.getIdeContainerAccess().getRightCurlyBracketKeyword_11());
 		}
 	)
 ;

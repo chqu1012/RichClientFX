@@ -4,53 +4,97 @@
 package de.dc.javafx.xcore.workbench.jvmmodel;
 
 import com.google.inject.Inject;
-import de.dc.javafx.xcore.workbench.emfSupportDsl.IdeContainer;
+import de.dc.javafx.xcore.workbench.emf.file.EmfFile;
+import de.dc.javafx.xcore.workbench.ide.IdeContainer;
 import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.xtend2.lib.StringConcatenationClient;
+import org.eclipse.xtext.common.types.JvmAnnotationReference;
+import org.eclipse.xtext.common.types.JvmGenericType;
+import org.eclipse.xtext.common.types.JvmMember;
+import org.eclipse.xtext.common.types.JvmOperation;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
-/**
- * <p>Infers a JVM model from the source model.</p>
- * 
- * <p>The JVM model should contain all elements that would appear in the Java code
- * which is generated from the source model. Other models link against the JVM model rather than the source model.</p>
- */
 @SuppressWarnings("all")
 public class IdeDslJvmModelInferrer extends AbstractModelInferrer {
-  /**
-   * convenience API to build and initialize JVM types and their members.
-   */
   @Inject
   @Extension
   private JvmTypesBuilder _jvmTypesBuilder;
   
-  /**
-   * The dispatch method {@code infer} is called for each instance of the
-   * given element's type that is contained in a resource.
-   * 
-   * @param element
-   *            the model to create one or more
-   *            {@link org.eclipse.xtext.common.types.JvmDeclaredType declared
-   *            types} from.
-   * @param acceptor
-   *            each created
-   *            {@link org.eclipse.xtext.common.types.JvmDeclaredType type}
-   *            without a container should be passed to the acceptor in order
-   *            get attached to the current resource. The acceptor's
-   *            {@link IJvmDeclaredTypeAcceptor#accept(org.eclipse.xtext.common.types.JvmDeclaredType)
-   *            accept(..)} method takes the constructed empty type for the
-   *            pre-indexing phase. This one is further initialized in the
-   *            indexing phase using the lambda you pass as the last argument.
-   * @param isPreIndexingPhase
-   *            whether the method is called in a pre-indexing phase, i.e.
-   *            when the global index is not yet fully updated. You must not
-   *            rely on linking using the index if isPreIndexingPhase is
-   *            <code>true</code>.
-   */
   protected void _infer(final IdeContainer element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    String _packagePath = element.getPackagePath();
+    String _plus = (_packagePath + ".file.");
+    String _name = element.getName();
+    String _plus_1 = (_plus + _name);
+    String _plus_2 = (_plus_1 + "File");
+    final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+      EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(EmfFile.class, element.getIdeRootModel());
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      EList<JvmMember> _members = it.getMembers();
+      final Procedure1<JvmOperation> _function_1 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return ");
+            JvmTypeReference _idePackage = element.getIdePackage();
+            _builder.append(_idePackage);
+            _builder.append(".eINSTANCE;");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "getEPackageEInstance", this._typeReferenceBuilder.typeRef(EPackage.class), _function_1);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+      EList<JvmMember> _members_1 = it.getMembers();
+      final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return ");
+            JvmTypeReference _ideFactory = element.getIdeFactory();
+            _builder.append(_ideFactory);
+            _builder.append(".eINSTANCE;");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(element, "getEFactoryEInstance", this._typeReferenceBuilder.typeRef(EFactory.class), _function_2);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method_1);
+      EList<JvmMember> _members_2 = it.getMembers();
+      final Procedure1<JvmOperation> _function_3 = (JvmOperation it_1) -> {
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("return \"");
+            JvmTypeReference _idePackage = element.getIdePackage();
+            _builder.append(_idePackage);
+            _builder.append(".eName\";");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method_2 = this._jvmTypesBuilder.toMethod(element, "getExtension", this._typeReferenceBuilder.typeRef(String.class), _function_3);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_2);
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, _plus_2), _function);
   }
   
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {

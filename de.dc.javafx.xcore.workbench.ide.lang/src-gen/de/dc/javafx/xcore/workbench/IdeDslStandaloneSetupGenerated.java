@@ -5,7 +5,7 @@ package de.dc.javafx.xcore.workbench;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import de.dc.javafx.xcore.workbench.emfSupportDsl.EmfSupportDslPackage;
+import de.dc.javafx.xcore.workbench.ide.IdePackage;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.ISetup;
@@ -31,7 +31,7 @@ public class IdeDslStandaloneSetupGenerated implements ISetup {
 	
 	public void register(Injector injector) {
 		if (!EPackage.Registry.INSTANCE.containsKey("http://www.frateranatis.org/workbench/ide/IdeDsl")) {
-			EPackage.Registry.INSTANCE.put("http://www.frateranatis.org/workbench/ide/IdeDsl", EmfSupportDslPackage.eINSTANCE);
+			EPackage.Registry.INSTANCE.put("http://www.frateranatis.org/workbench/ide/IdeDsl", IdePackage.eINSTANCE);
 		}
 		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);

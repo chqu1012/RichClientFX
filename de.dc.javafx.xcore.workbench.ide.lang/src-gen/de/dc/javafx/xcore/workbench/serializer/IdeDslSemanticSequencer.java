@@ -4,8 +4,8 @@
 package de.dc.javafx.xcore.workbench.serializer;
 
 import com.google.inject.Inject;
-import de.dc.javafx.xcore.workbench.emfSupportDsl.EmfSupportDslPackage;
-import de.dc.javafx.xcore.workbench.emfSupportDsl.IdeContainer;
+import de.dc.javafx.xcore.workbench.ide.IdeContainer;
+import de.dc.javafx.xcore.workbench.ide.IdePackage;
 import de.dc.javafx.xcore.workbench.services.IdeDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -78,9 +78,9 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 		ParserRule rule = context.getParserRule();
 		Action action = context.getAssignedAction();
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
-		if (epackage == EmfSupportDslPackage.eINSTANCE)
+		if (epackage == IdePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EmfSupportDslPackage.IDE_CONTAINER:
+			case IdePackage.IDE_CONTAINER:
 				sequence_IdeContainer(context, (IdeContainer) semanticObject); 
 				return; 
 			}
@@ -399,23 +399,26 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *         ideFactory=JvmTypeReference 
 	 *         idePackage=JvmTypeReference 
 	 *         ideItemProviderAdapterFactory=JvmTypeReference 
+	 *         ideRootModel=JvmTypeReference 
 	 *         generateDemo?='generateDemo'
 	 *     )
 	 */
 	protected void sequence_IdeContainer(ISerializationContext context, IdeContainer semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__PACKAGE_PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__PACKAGE_PATH));
-			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__NAME));
-			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__IDE_FACTORY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__IDE_FACTORY));
-			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__IDE_PACKAGE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__IDE_PACKAGE));
-			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__IDE_ITEM_PROVIDER_ADAPTER_FACTORY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__IDE_ITEM_PROVIDER_ADAPTER_FACTORY));
-			if (transientValues.isValueTransient(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__GENERATE_DEMO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfSupportDslPackage.Literals.IDE_CONTAINER__GENERATE_DEMO));
+			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__PACKAGE_PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__PACKAGE_PATH));
+			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__NAME));
+			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_FACTORY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_FACTORY));
+			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_PACKAGE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_PACKAGE));
+			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ITEM_PROVIDER_ADAPTER_FACTORY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ITEM_PROVIDER_ADAPTER_FACTORY));
+			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ROOT_MODEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ROOT_MODEL));
+			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__GENERATE_DEMO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__GENERATE_DEMO));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getIdeContainerAccess().getPackagePathQualifiedNameParserRuleCall_2_0(), semanticObject.getPackagePath());
@@ -423,7 +426,8 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeFactoryJvmTypeReferenceParserRuleCall_6_2_0(), semanticObject.getIdeFactory());
 		feeder.accept(grammarAccess.getIdeContainerAccess().getIdePackageJvmTypeReferenceParserRuleCall_7_2_0(), semanticObject.getIdePackage());
 		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_8_2_0(), semanticObject.getIdeItemProviderAdapterFactory());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_9_0(), semanticObject.isGenerateDemo());
+		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeRootModelJvmTypeReferenceParserRuleCall_9_2_0(), semanticObject.getIdeRootModel());
+		feeder.accept(grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_10_0(), semanticObject.isGenerateDemo());
 		feeder.finish();
 	}
 	

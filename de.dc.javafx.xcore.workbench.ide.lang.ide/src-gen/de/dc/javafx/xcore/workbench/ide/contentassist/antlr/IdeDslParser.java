@@ -79,6 +79,7 @@ public class IdeDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIdeContainerAccess().getGroup_6(), "rule__IdeContainer__Group_6__0");
 			builder.put(grammarAccess.getIdeContainerAccess().getGroup_7(), "rule__IdeContainer__Group_7__0");
 			builder.put(grammarAccess.getIdeContainerAccess().getGroup_8(), "rule__IdeContainer__Group_8__0");
+			builder.put(grammarAccess.getIdeContainerAccess().getGroup_9(), "rule__IdeContainer__Group_9__0");
 			builder.put(grammarAccess.getXAnnotationAccess().getGroup(), "rule__XAnnotation__Group__0");
 			builder.put(grammarAccess.getXAnnotationAccess().getGroup_3(), "rule__XAnnotation__Group_3__0");
 			builder.put(grammarAccess.getXAnnotationAccess().getGroup_3_1_0(), "rule__XAnnotation__Group_3_1_0__0");
@@ -283,7 +284,8 @@ public class IdeDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIdeContainerAccess().getIdeFactoryAssignment_6_2(), "rule__IdeContainer__IdeFactoryAssignment_6_2");
 			builder.put(grammarAccess.getIdeContainerAccess().getIdePackageAssignment_7_2(), "rule__IdeContainer__IdePackageAssignment_7_2");
 			builder.put(grammarAccess.getIdeContainerAccess().getIdeItemProviderAdapterFactoryAssignment_8_2(), "rule__IdeContainer__IdeItemProviderAdapterFactoryAssignment_8_2");
-			builder.put(grammarAccess.getIdeContainerAccess().getGenerateDemoAssignment_9(), "rule__IdeContainer__GenerateDemoAssignment_9");
+			builder.put(grammarAccess.getIdeContainerAccess().getIdeRootModelAssignment_9_2(), "rule__IdeContainer__IdeRootModelAssignment_9_2");
+			builder.put(grammarAccess.getIdeContainerAccess().getGenerateDemoAssignment_10(), "rule__IdeContainer__GenerateDemoAssignment_10");
 			builder.put(grammarAccess.getXAnnotationAccess().getAnnotationTypeAssignment_2(), "rule__XAnnotation__AnnotationTypeAssignment_2");
 			builder.put(grammarAccess.getXAnnotationAccess().getElementValuePairsAssignment_3_1_0_0(), "rule__XAnnotation__ElementValuePairsAssignment_3_1_0_0");
 			builder.put(grammarAccess.getXAnnotationAccess().getElementValuePairsAssignment_3_1_0_1_1(), "rule__XAnnotation__ElementValuePairsAssignment_3_1_0_1_1");

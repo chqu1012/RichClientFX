@@ -16,17 +16,18 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common,
  org.eclipse.xtend.lib;bundle-version="2.14.0",
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
- org.objectweb.asm;bundle-version="[7.0.0,7.1.0)";resolution:=optional
+ org.objectweb.asm;bundle-version="[7.0.0,7.1.0)";resolution:=optional,
+ de.dc.javafx.xcore.workbench.emf;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: de.dc.javafx.xcore.workbench.emfSupportDsl.impl,
- de.dc.javafx.xcore.workbench.scoping,
+Export-Package: de.dc.javafx.xcore.workbench,
+ de.dc.javafx.xcore.workbench.ide,
+ de.dc.javafx.xcore.workbench.ide.impl,
+ de.dc.javafx.xcore.workbench.ide.util,
  de.dc.javafx.xcore.workbench.jvmmodel,
- de.dc.javafx.xcore.workbench.emfSupportDsl,
- de.dc.javafx.xcore.workbench.services,
- de.dc.javafx.xcore.workbench.emfSupportDsl.util,
- de.dc.javafx.xcore.workbench.parser.antlr.internal,
- de.dc.javafx.xcore.workbench.validation,
- de.dc.javafx.xcore.workbench,
  de.dc.javafx.xcore.workbench.parser.antlr,
- de.dc.javafx.xcore.workbench.serializer
+ de.dc.javafx.xcore.workbench.parser.antlr.internal,
+ de.dc.javafx.xcore.workbench.scoping,
+ de.dc.javafx.xcore.workbench.serializer,
+ de.dc.javafx.xcore.workbench.services,
+ de.dc.javafx.xcore.workbench.validation
 Import-Package: org.apache.log4j
