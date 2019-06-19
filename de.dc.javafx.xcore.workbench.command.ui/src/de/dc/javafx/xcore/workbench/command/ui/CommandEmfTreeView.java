@@ -34,7 +34,7 @@ public class CommandEmfTreeView extends EmfTreeModelView<EmfCommandHistory> {
 	}
 	
 	@Override
-	protected IEmfManager<EmfCommandHistory> getEmfManager() {
+	public IEmfManager<EmfCommandHistory> getEmfManager() {
 		return new CommandEmfManager();
 	}
 

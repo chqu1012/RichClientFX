@@ -15,7 +15,7 @@ public class BlogEmfTreeView extends EmfTreeModelView<Blog> {
 	}
 
 	@Override
-	protected IEmfManager<Blog> getEmfManager() {
+	public IEmfManager<Blog> getEmfManager() {
 		return new BlogModelManager();
 	}
 }

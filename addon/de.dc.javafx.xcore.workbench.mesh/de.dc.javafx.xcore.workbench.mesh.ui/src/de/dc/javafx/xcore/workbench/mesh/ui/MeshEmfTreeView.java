@@ -8,7 +8,7 @@ import de.dc.javafx.xcore.workbench.mesh.ui.manager.MeshEmfManager;
 public class MeshEmfTreeView  extends EmfTreeModelView<MeshContainer> {
 
 	@Override
-	protected IEmfManager<MeshContainer> getEmfManager() {
+	public IEmfManager<MeshContainer> getEmfManager() {
 		if (manager==null) {
 			manager = new MeshEmfManager();
 		}

@@ -375,5 +375,5 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		return treeView;
 	}
 	
-	protected abstract IEmfManager<T> getEmfManager();
+	public abstract IEmfManager<T> getEmfManager();
 }

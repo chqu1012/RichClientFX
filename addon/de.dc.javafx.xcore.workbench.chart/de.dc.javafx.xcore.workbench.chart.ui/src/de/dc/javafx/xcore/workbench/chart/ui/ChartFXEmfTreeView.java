@@ -35,7 +35,7 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 	}
 
 	@Override
-	protected IEmfManager<ChartProject> getEmfManager() {
+	public IEmfManager<ChartProject> getEmfManager() {
 		if (emfManager==null) {
 			emfManager = new ChartFXEmfManager();
 		}
