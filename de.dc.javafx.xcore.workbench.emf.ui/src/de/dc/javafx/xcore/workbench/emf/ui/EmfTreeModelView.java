@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui.control;
+package de.dc.javafx.xcore.workbench.emf.ui;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,12 +34,12 @@ import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
+import de.dc.javafx.xcore.workbench.emf.ui.factory.CommandFactory;
+import de.dc.javafx.xcore.workbench.emf.ui.handler.EAttributeCellEditHandler;
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.ui.factory.CommandFactory;
-import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

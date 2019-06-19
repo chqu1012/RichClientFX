@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui.factory;
+package de.dc.javafx.xcore.workbench.emf.ui.factory;
 
 import java.time.LocalDateTime;
 

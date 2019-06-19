@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui.handler;
+package de.dc.javafx.xcore.workbench.emf.ui.handler;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
@@ -8,10 +8,10 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryCellFactory.ICellEditHandler;
 
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.emf.ui.factory.CommandFactory;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.ui.factory.CommandFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.Cell;
 import javafx.scene.control.TextField;
