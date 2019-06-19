@@ -17,7 +17,8 @@ Require-Bundle: de.dc.javafx.xcore.workbench.chart;bundle-version="0.1.0",
  de.dc.javafx.xcore.workbench.command,
  de.dc.javafx.xcore.lang.lib;bundle-version="1.0.0",
  de.dc.javafx.xcore.workbench.common.libs;bundle-version="1.0.0",
- de.dc.javafx.xcore.code.preview.ui;bundle-version="1.0.0"
+ de.dc.javafx.xcore.code.preview.ui;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.emf.ui
 Export-Package: de.dc.javafx.xcore.workbench.chart.ui,
  de.dc.javafx.xcore.workbench.chart.ui.controller,
  de.dc.javafx.xcore.workbench.chart.ui.demo,

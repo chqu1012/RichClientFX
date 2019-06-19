@@ -9,7 +9,6 @@ import com.google.inject.Inject;
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFileManager;
 import de.dc.javafx.xcore.workbench.event.EmfCommand;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
-import de.dc.javafx.xcore.workbench.ui.control.EmfTreeModelView;
 import de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;

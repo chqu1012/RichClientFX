@@ -3,16 +3,14 @@ import com.google.common.eventbus.Subscribe;
 
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
-import de.dc.javafx.xcore.workbench.chart.ui.file.ChartFXFile;
 import de.dc.javafx.xcore.workbench.chart.ui.manager.ChartFXEmfManager;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
-import de.dc.javafx.xcore.workbench.emf.file.EmfFile;
+import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView;
 import de.dc.javafx.xcore.workbench.event.EmfCommand;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.ui.control.EmfTreeModelView;
 
 public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 

@@ -23,7 +23,9 @@ public class EmfExampleView extends EmfView implements ChangeListener{
 
 	@Override
 	public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-		button.setText(newValue.toString());
+		if (newValue!=null) {
+			button.setText(newValue.toString());
+		}
 	}
 
 }

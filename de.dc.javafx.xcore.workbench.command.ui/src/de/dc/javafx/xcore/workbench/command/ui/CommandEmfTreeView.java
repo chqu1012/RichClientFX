@@ -8,10 +8,10 @@ import de.dc.javafx.xcore.workbench.command.ui.cell.CommandCellFactory;
 import de.dc.javafx.xcore.workbench.command.ui.manager.CommandEmfManager;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
+import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.ui.control.EmfTreeModelView;
 import javafx.beans.value.ObservableValue;
 
 public class CommandEmfTreeView extends EmfTreeModelView<EmfCommandHistory> {

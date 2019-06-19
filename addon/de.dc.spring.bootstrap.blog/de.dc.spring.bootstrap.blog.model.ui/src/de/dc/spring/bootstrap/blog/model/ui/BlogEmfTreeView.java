@@ -1,7 +1,7 @@
 package de.dc.spring.bootstrap.blog.model.ui;
 
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
-import de.dc.javafx.xcore.workbench.ui.control.EmfTreeModelView;
+import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView;
 import de.dc.spring.bootstrap.blog.model.Blog;
 import de.dc.spring.bootstrap.blog.model.ModelPackage;
 import de.dc.spring.bootstrap.blog.model.ui.manager.BlogModelManager;

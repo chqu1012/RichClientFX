@@ -10,7 +10,7 @@ import org.eclipse.fx.emf.edit.ui.dnd.CellDragAdapter;
 import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
-import de.dc.javafx.xcore.workbench.ui.handler.EAttributeCellEditHandler;
+import de.dc.javafx.xcore.workbench.emf.ui.handler.EAttributeCellEditHandler;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
