@@ -113,7 +113,7 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	
 	public EmfTreeModelView() {
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("/de/dc/javafx/xcore/workbench/ui/EmfModelTreeView.fxml"));
+				getClass().getResource("/de/dc/javafx/xcore/workbench/emf/ui/EmfModelTreeView.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 

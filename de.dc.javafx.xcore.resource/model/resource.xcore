@@ -6,7 +6,7 @@
 	codeFormatting="true",
 	importerID="org.eclipse.emf.importer.ecore", 
 	runtimePlatform="RCP", 
-	fileExtensions="resource")
+	fileExtensions="resource", tableProviders="true")
 package de.dc.javafx.xcore.resource
 
 class Workspace{

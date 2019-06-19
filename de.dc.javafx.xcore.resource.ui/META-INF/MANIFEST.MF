@@ -13,7 +13,9 @@ Require-Bundle: de.dc.javafx.xcore.resource;bundle-version="0.1.0",
  com.google.inject;bundle-version="3.0.0",
  de.dc.javafx.xcore.workbench.di;bundle-version="1.0.0",
  de.dc.javafx.xcore.workbench.event;bundle-version="1.0.0",
- de.dc.javafx.xcore.workbench.emf
+ de.dc.javafx.xcore.workbench.emf,
+ com.google.guava;bundle-version="21.0.0",
+ de.dc.javafx.xcore.code.preview.ui;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.emf.ui;bundle-version="1.0.0"
 Export-Package: de.dc.javafx.xcore.resource.ui,
- de.dc.javafx.xcore.resource.ui.factory,
  de.dc.javafx.xcore.resource.ui.view

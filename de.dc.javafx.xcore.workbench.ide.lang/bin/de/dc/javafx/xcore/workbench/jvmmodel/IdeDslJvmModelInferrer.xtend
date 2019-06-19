@@ -10,9 +10,11 @@ import de.dc.javafx.xcore.workbench.di.DIPlatform
 import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager
 import de.dc.javafx.xcore.workbench.emf.file.EmfFile
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFile
+import de.dc.javafx.xcore.workbench.event.EventContext
 import de.dc.javafx.xcore.workbench.event.IEventBroker
 import de.dc.javafx.xcore.workbench.ide.IdeContainer
 import javafx.beans.value.ObservableValue
+import javafx.scene.Node
 import javafx.scene.control.TreeItem
 import org.eclipse.emf.common.notify.AdapterFactory
 import org.eclipse.emf.ecore.EFactory
@@ -22,9 +24,6 @@ import org.eclipse.xtext.common.types.JvmVisibility
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.eclipse.emf.ecore.util.Switch
-import de.dc.javafx.xcore.workbench.event.EventContext
-import javafx.scene.Node
 
 class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -65,7 +64,7 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 			members += element.toMethod("initModel", element.ideRootModel) [
 				visibility = JvmVisibility.PROTECTED
 				annotations+=Override.annotationRef
-				body = '''return initModel();'''
+				body = '''return «element.ideFactory».eINSTANCE.create«element.ideRootModel.simpleName»();'''
 			]
 
 			members += element.toMethod("getModelPackage", EPackage.typeRef) [

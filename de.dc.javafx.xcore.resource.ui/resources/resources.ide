@@ -1,0 +1,10 @@
+package de.dc.javafx.xcore.resource.ui
+
+class Resource{
+	IdeFactory: de.dc.javafx.xcore.resource.ResourceFactory
+	IdePackage: de.dc.javafx.xcore.resource.ResourcePackage
+	IdeItemProviderAdapterFactory: de.dc.javafx.xcore.resource.provider.ResourceItemProviderAdapterFactory
+	IdeRootModel: de.dc.javafx.xcore.resource.Workspace
+	IdeModelSwitch: de.dc.javafx.xcore.resource.util.ResourceSwitch
+	generateDemo 
+}

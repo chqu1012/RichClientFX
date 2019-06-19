@@ -5,9 +5,9 @@ package de.dc.javafx.xcore.lang.edit.jvmmodel;
 
 import com.google.inject.Inject;
 import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl;
-import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Ecore;
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model;
+import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;

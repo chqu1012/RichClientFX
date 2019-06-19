@@ -147,7 +147,13 @@ public class IdeDslJvmModelInferrer extends AbstractModelInferrer {
         StringConcatenationClient _client = new StringConcatenationClient() {
           @Override
           protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-            _builder.append("return initModel();");
+            _builder.append("return ");
+            JvmTypeReference _ideFactory = element.getIdeFactory();
+            _builder.append(_ideFactory);
+            _builder.append(".eINSTANCE.create");
+            String _simpleName = element.getIdeRootModel().getSimpleName();
+            _builder.append(_simpleName);
+            _builder.append("();");
           }
         };
         this._jvmTypesBuilder.setBody(it_1, _client);

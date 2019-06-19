@@ -6,16 +6,18 @@ import de.dc.javafx.xcore.lang.lib.AbstractApplication;
 import de.dc.javafx.xcore.resource.PackageFolder;
 import de.dc.javafx.xcore.resource.Project;
 import de.dc.javafx.xcore.resource.ResourceFactory;
-import de.dc.javafx.xcore.resource.ui.BaseResourceManager;
-import de.dc.javafx.xcore.resource.ui.view.ResourceModelView;
+import de.dc.javafx.xcore.resource.Workspace;
+import de.dc.javafx.xcore.resource.ui.view.JavaExplorerTreeView;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
+import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import javafx.scene.Parent;
 
 public class ResourceViewApplication extends AbstractApplication{
 
 	@Override
 	public Parent getRoot() {
-		BaseResourceManager manager = new BaseResourceManager();
+		JavaExplorerTreeView view = new JavaExplorerTreeView();
+		IEmfManager<Workspace> manager = view.getEmfManager();
 		
 		Project javProject = createProject("Java");
 		PackageFolder packageFolder = createPackage("de.dc.java.example");
@@ -30,7 +32,7 @@ public class ResourceViewApplication extends AbstractApplication{
 		manager.getRoot().getProjects().add(createProject("Dart"));
 		manager.getRoot().getProjects().add(createProject("Flutter"));
 		manager.getRoot().getProjects().add(createProject("JavaScript"));
-		return new ResourceModelView(manager);
+		return view;
 	}
 
 	private void createJavaFile(PackageFolder packageFolder, String name) {

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.dc.javafx.xcore.resource.ResourceFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.xcore.resource.edit/src-gen' editorDirectory='/de.dc.javafx.xcore.resource.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' fileExtensions='resource' basePackage='de.dc.javafx.xcore'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.xcore.resource.edit/src-gen' editorDirectory='/de.dc.javafx.xcore.resource.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' fileExtensions='resource' tableProviders='true' basePackage='de.dc.javafx.xcore'"
  * @generated
  */
 public interface ResourcePackage extends EPackage {
