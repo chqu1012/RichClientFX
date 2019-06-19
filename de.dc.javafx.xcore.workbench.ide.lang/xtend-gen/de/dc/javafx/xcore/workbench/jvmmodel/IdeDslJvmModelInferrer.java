@@ -3,12 +3,19 @@
  */
 package de.dc.javafx.xcore.workbench.jvmmodel;
 
+import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
+import de.dc.javafx.xcore.code.preview.ui.FXPreview;
+import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager;
 import de.dc.javafx.xcore.workbench.emf.file.EmfFile;
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFile;
+import de.dc.javafx.xcore.workbench.event.EventContext;
+import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ide.IdeContainer;
 import java.util.Arrays;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.TreeItem;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EFactory;
@@ -16,6 +23,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtend2.lib.StringConcatenationClient;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
+import org.eclipse.xtext.common.types.JvmConstructor;
+import org.eclipse.xtext.common.types.JvmField;
+import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmMember;
 import org.eclipse.xtext.common.types.JvmOperation;
@@ -206,6 +216,149 @@ public class IdeDslJvmModelInferrer extends AbstractModelInferrer {
       this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _method_4);
     };
     acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, _plus_5), _function_1);
+    String _packagePath_2 = element.getPackagePath();
+    String _plus_6 = (_packagePath_2 + ".renderer.");
+    String _name_2 = element.getName();
+    String _plus_7 = (_plus_6 + _name_2);
+    final String rendererClass = (_plus_7 + "Renderer");
+    final Procedure1<JvmGenericType> _function_2 = (JvmGenericType it) -> {
+      EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+      JvmTypeReference _ideModelSwitch = element.getIdeModelSwitch();
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _ideModelSwitch);
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, rendererClass), _function_2);
+    String _packagePath_3 = element.getPackagePath();
+    String _plus_8 = (_packagePath_3 + ".preview.");
+    String _name_3 = element.getName();
+    String _plus_9 = (_plus_8 + _name_3);
+    String _plus_10 = (_plus_9 + "Preview");
+    final Procedure1<JvmGenericType> _function_3 = (JvmGenericType it) -> {
+      EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(FXPreview.class);
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      EList<JvmMember> _members = it.getMembers();
+      final Procedure1<JvmField> _function_4 = (JvmField it_1) -> {
+      };
+      JvmField _field = this._jvmTypesBuilder.toField(element, "renderer ", this._typeReferenceBuilder.typeRef(rendererClass), _function_4);
+      this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
+      EList<JvmMember> _members_1 = it.getMembers();
+      final Procedure1<JvmField> _function_5 = (JvmField it_1) -> {
+        it_1.setStatic(true);
+        it_1.setFinal(true);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("\"/");
+            String _name = element.getName();
+            _builder.append(_name);
+            _builder.append("/Preview/Update\"");
+          }
+        };
+        this._jvmTypesBuilder.setInitializer(it_1, _client);
+      };
+      JvmField _field_1 = this._jvmTypesBuilder.toField(element, "PREVIEW_UPDATE_TOPIC", this._typeReferenceBuilder.typeRef(String.class), _function_5);
+      this._jvmTypesBuilder.<JvmField>operator_add(_members_1, _field_1);
+      EList<JvmMember> _members_2 = it.getMembers();
+      final Procedure1<JvmConstructor> _function_6 = (JvmConstructor it_1) -> {
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append(DIPlatform.class);
+            _builder.append(".getInstance(");
+            _builder.append(IEventBroker.class);
+            _builder.append(".class).register(this);");
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmConstructor _constructor = this._jvmTypesBuilder.toConstructor(element, _function_6);
+      this._jvmTypesBuilder.<JvmConstructor>operator_add(_members_2, _constructor);
+      EList<JvmMember> _members_3 = it.getMembers();
+      final Procedure1<JvmOperation> _function_7 = (JvmOperation it_1) -> {
+        EList<JvmFormalParameter> _parameters = it_1.getParameters();
+        JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "context", this._typeReferenceBuilder.typeRef(EventContext.class));
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+        it_1.setVisibility(JvmVisibility.PUBLIC);
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Subscribe.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("// React on event sending via EventBus with a defined topic");
+            _builder.newLine();
+            _builder.append("if (context.getEventId()!=null && context.getEventId().equals(PREVIEW_UPDATE_TOPIC)) {");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("Object input = context.getInput();");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("setCenter(renderer.doSwitch((EObject) input));");
+            _builder.newLine();
+            _builder.append("}");
+            _builder.newLine();
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(element, "update", this._typeReferenceBuilder.typeRef(void.class), _function_7);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method);
+      EList<JvmMember> _members_4 = it.getMembers();
+      final Procedure1<JvmOperation> _function_8 = (JvmOperation it_1) -> {
+        EList<JvmFormalParameter> _parameters = it_1.getParameters();
+        JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(element, "observable", this._typeReferenceBuilder.typeRef(ObservableValue.class));
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+        EList<JvmFormalParameter> _parameters_1 = it_1.getParameters();
+        JvmFormalParameter _parameter_1 = this._jvmTypesBuilder.toParameter(element, "oldValue", this._typeReferenceBuilder.typeRef(Object.class));
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_1, _parameter_1);
+        EList<JvmFormalParameter> _parameters_2 = it_1.getParameters();
+        JvmFormalParameter _parameter_2 = this._jvmTypesBuilder.toParameter(element, "newValue", this._typeReferenceBuilder.typeRef(Object.class));
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_2, _parameter_2);
+        it_1.setVisibility(JvmVisibility.PUBLIC);
+        EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+        this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("// React on selection change of the defined providers");
+            _builder.newLine();
+            _builder.append("if (newValue instanceof ");
+            _builder.append(TreeItem.class);
+            _builder.append(") {");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append(TreeItem.class, "\t");
+            _builder.append("<Object> treeItem = (");
+            _builder.append(TreeItem.class, "\t");
+            _builder.append(") newValue;");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("Object value = treeItem.getValue();");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("if (value instanceof ");
+            _builder.append(EObject.class, "\t");
+            _builder.append(") {");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
+            _builder.append("setCenter(renderer.doSwitch((");
+            _builder.append(EObject.class, "\t\t");
+            _builder.append(") value));");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("}");
+            _builder.newLine();
+            _builder.append("}");
+            _builder.newLine();
+          }
+        };
+        this._jvmTypesBuilder.setBody(it_1, _client);
+      };
+      JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(element, "changed", this._typeReferenceBuilder.typeRef(void.class), _function_8);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _method_1);
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, _plus_10), _function_3);
   }
   
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {

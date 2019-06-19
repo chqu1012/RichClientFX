@@ -22,6 +22,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdePackage <em>Ide Package</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeItemProviderAdapterFactory <em>Ide Item Provider Adapter Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeRootModel <em>Ide Root Model</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeModelSwitch <em>Ide Model Switch</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#isGenerateDemo <em>Generate Demo</em>}</li>
  * </ul>
  *
@@ -162,6 +163,28 @@ public interface IdeContainer extends EObject
    * @generated
    */
   void setIdeRootModel(JvmTypeReference value);
+
+  /**
+   * Returns the value of the '<em><b>Ide Model Switch</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ide Model Switch</em>' containment reference.
+   * @see #setIdeModelSwitch(JvmTypeReference)
+   * @see de.dc.javafx.xcore.workbench.ide.IdePackage#getIdeContainer_IdeModelSwitch()
+   * @model containment="true"
+   * @generated
+   */
+  JvmTypeReference getIdeModelSwitch();
+
+  /**
+   * Sets the value of the '{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeModelSwitch <em>Ide Model Switch</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ide Model Switch</em>' containment reference.
+   * @see #getIdeModelSwitch()
+   * @generated
+   */
+  void setIdeModelSwitch(JvmTypeReference value);
 
   /**
    * Returns the value of the '<em><b>Generate Demo</b></em>' attribute.

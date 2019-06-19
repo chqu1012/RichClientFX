@@ -13,6 +13,7 @@ IdeContainer returns IdeContainer:
 	('IdePackage' ':' idePackage=JvmTypeReference)
 	('IdeItemProviderAdapterFactory' ':' ideItemProviderAdapterFactory=JvmTypeReference)
 	('IdeRootModel' ':' ideRootModel=JvmTypeReference)
+	('IdeModelSwitch' ':' ideModelSwitch=JvmTypeReference)
 	(generateDemo?='generateDemo')
 	'}';
 

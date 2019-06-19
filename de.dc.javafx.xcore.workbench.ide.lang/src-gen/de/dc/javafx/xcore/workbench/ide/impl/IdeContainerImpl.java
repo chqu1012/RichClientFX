@@ -31,6 +31,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#getIdePackage <em>Ide Package</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#getIdeItemProviderAdapterFactory <em>Ide Item Provider Adapter Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#getIdeRootModel <em>Ide Root Model</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#getIdeModelSwitch <em>Ide Model Switch</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#isGenerateDemo <em>Generate Demo</em>}</li>
  * </ul>
  *
@@ -117,6 +118,16 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
    * @ordered
    */
   protected JvmTypeReference ideRootModel;
+
+  /**
+   * The cached value of the '{@link #getIdeModelSwitch() <em>Ide Model Switch</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdeModelSwitch()
+   * @generated
+   * @ordered
+   */
+  protected JvmTypeReference ideModelSwitch;
 
   /**
    * The default value of the '{@link #isGenerateDemo() <em>Generate Demo</em>}' attribute.
@@ -415,6 +426,56 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
    * @generated
    */
   @Override
+  public JvmTypeReference getIdeModelSwitch()
+  {
+    return ideModelSwitch;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdeModelSwitch(JvmTypeReference newIdeModelSwitch, NotificationChain msgs)
+  {
+    JvmTypeReference oldIdeModelSwitch = ideModelSwitch;
+    ideModelSwitch = newIdeModelSwitch;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH, oldIdeModelSwitch, newIdeModelSwitch);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setIdeModelSwitch(JvmTypeReference newIdeModelSwitch)
+  {
+    if (newIdeModelSwitch != ideModelSwitch)
+    {
+      NotificationChain msgs = null;
+      if (ideModelSwitch != null)
+        msgs = ((InternalEObject)ideModelSwitch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH, null, msgs);
+      if (newIdeModelSwitch != null)
+        msgs = ((InternalEObject)newIdeModelSwitch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH, null, msgs);
+      msgs = basicSetIdeModelSwitch(newIdeModelSwitch, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH, newIdeModelSwitch, newIdeModelSwitch));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public boolean isGenerateDemo()
   {
     return generateDemo;
@@ -452,6 +513,8 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
         return basicSetIdeItemProviderAdapterFactory(null, msgs);
       case IdePackage.IDE_CONTAINER__IDE_ROOT_MODEL:
         return basicSetIdeRootModel(null, msgs);
+      case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
+        return basicSetIdeModelSwitch(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -478,6 +541,8 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
         return getIdeItemProviderAdapterFactory();
       case IdePackage.IDE_CONTAINER__IDE_ROOT_MODEL:
         return getIdeRootModel();
+      case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
+        return getIdeModelSwitch();
       case IdePackage.IDE_CONTAINER__GENERATE_DEMO:
         return isGenerateDemo();
     }
@@ -511,6 +576,9 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
         return;
       case IdePackage.IDE_CONTAINER__IDE_ROOT_MODEL:
         setIdeRootModel((JvmTypeReference)newValue);
+        return;
+      case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
+        setIdeModelSwitch((JvmTypeReference)newValue);
         return;
       case IdePackage.IDE_CONTAINER__GENERATE_DEMO:
         setGenerateDemo((Boolean)newValue);
@@ -547,6 +615,9 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
       case IdePackage.IDE_CONTAINER__IDE_ROOT_MODEL:
         setIdeRootModel((JvmTypeReference)null);
         return;
+      case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
+        setIdeModelSwitch((JvmTypeReference)null);
+        return;
       case IdePackage.IDE_CONTAINER__GENERATE_DEMO:
         setGenerateDemo(GENERATE_DEMO_EDEFAULT);
         return;
@@ -576,6 +647,8 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
         return ideItemProviderAdapterFactory != null;
       case IdePackage.IDE_CONTAINER__IDE_ROOT_MODEL:
         return ideRootModel != null;
+      case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
+        return ideModelSwitch != null;
       case IdePackage.IDE_CONTAINER__GENERATE_DEMO:
         return generateDemo != GENERATE_DEMO_EDEFAULT;
     }

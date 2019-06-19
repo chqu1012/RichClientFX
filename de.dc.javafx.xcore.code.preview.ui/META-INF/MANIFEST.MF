@@ -4,9 +4,11 @@ Bundle-Name: Ui
 Bundle-SymbolicName: de.dc.javafx.xcore.code.preview.ui
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.dc.javafx.xcore.code.preview.ui.Activator
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ de.dc.javafx.xcore.runtime;bundle-version="1.8.211"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.code.preview.ui
 Bundle-ActivationPolicy: lazy
 Export-Package: de.dc.javafx.xcore.code.preview.ui,
  de.dc.javafx.xcore.code.preview.ui.styles
+Import-Package: javafx.beans.value

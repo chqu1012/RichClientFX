@@ -122,13 +122,22 @@ public interface IdePackage extends EPackage
   int IDE_CONTAINER__IDE_ROOT_MODEL = 5;
 
   /**
+   * The feature id for the '<em><b>Ide Model Switch</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDE_CONTAINER__IDE_MODEL_SWITCH = 6;
+
+  /**
    * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDE_CONTAINER__GENERATE_DEMO = 6;
+  int IDE_CONTAINER__GENERATE_DEMO = 7;
 
   /**
    * The number of structural features of the '<em>Container</em>' class.
@@ -137,7 +146,7 @@ public interface IdePackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_CONTAINER_FEATURE_COUNT = 7;
+  int IDE_CONTAINER_FEATURE_COUNT = 8;
 
 
   /**
@@ -215,6 +224,17 @@ public interface IdePackage extends EPackage
    * @generated
    */
   EReference getIdeContainer_IdeRootModel();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeModelSwitch <em>Ide Model Switch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ide Model Switch</em>'.
+   * @see de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeModelSwitch()
+   * @see #getIdeContainer()
+   * @generated
+   */
+  EReference getIdeContainer_IdeModelSwitch();
 
   /**
    * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#isGenerateDemo <em>Generate Demo</em>}'.
@@ -307,6 +327,14 @@ public interface IdePackage extends EPackage
      * @generated
      */
     EReference IDE_CONTAINER__IDE_ROOT_MODEL = eINSTANCE.getIdeContainer_IdeRootModel();
+
+    /**
+     * The meta object literal for the '<em><b>Ide Model Switch</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IDE_CONTAINER__IDE_MODEL_SWITCH = eINSTANCE.getIdeContainer_IdeModelSwitch();
 
     /**
      * The meta object literal for the '<em><b>Generate Demo</b></em>' attribute feature.

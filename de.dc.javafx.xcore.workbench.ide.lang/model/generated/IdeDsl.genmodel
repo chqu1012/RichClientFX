@@ -13,6 +13,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IdeDsl.ecore#//IdeContainer/idePackage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IdeDsl.ecore#//IdeContainer/ideItemProviderAdapterFactory"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IdeDsl.ecore#//IdeContainer/ideRootModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IdeDsl.ecore#//IdeContainer/ideModelSwitch"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IdeDsl.ecore#//IdeContainer/generateDemo"/>
     </genClasses>
   </genPackages>

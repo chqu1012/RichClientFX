@@ -400,6 +400,7 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *         idePackage=JvmTypeReference 
 	 *         ideItemProviderAdapterFactory=JvmTypeReference 
 	 *         ideRootModel=JvmTypeReference 
+	 *         ideModelSwitch=JvmTypeReference 
 	 *         generateDemo?='generateDemo'
 	 *     )
 	 */
@@ -417,6 +418,8 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ITEM_PROVIDER_ADAPTER_FACTORY));
 			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ROOT_MODEL) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ROOT_MODEL));
+			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_MODEL_SWITCH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_MODEL_SWITCH));
 			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__GENERATE_DEMO) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__GENERATE_DEMO));
 		}
@@ -427,7 +430,8 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 		feeder.accept(grammarAccess.getIdeContainerAccess().getIdePackageJvmTypeReferenceParserRuleCall_7_2_0(), semanticObject.getIdePackage());
 		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_8_2_0(), semanticObject.getIdeItemProviderAdapterFactory());
 		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeRootModelJvmTypeReferenceParserRuleCall_9_2_0(), semanticObject.getIdeRootModel());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_10_0(), semanticObject.isGenerateDemo());
+		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeModelSwitchJvmTypeReferenceParserRuleCall_10_2_0(), semanticObject.getIdeModelSwitch());
+		feeder.accept(grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_11_0(), semanticObject.isGenerateDemo());
 		feeder.finish();
 	}
 	
