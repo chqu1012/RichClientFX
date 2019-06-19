@@ -24,6 +24,7 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.emf.ecore.util.Switch
 import de.dc.javafx.xcore.workbench.event.EventContext
+import javafx.scene.Node
 
 class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 
@@ -116,7 +117,7 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 				// React on event sending via EventBus with a defined topic
 				if (context.getEventId()!=null && context.getEventId().equals(PREVIEW_UPDATE_TOPIC)) {
 					Object input = context.getInput();
-					setCenter(renderer.doSwitch((EObject) input));
+					setCenter((«Node»)renderer.doSwitch((EObject) input));
 				}
 				'''
 			]
@@ -133,7 +134,7 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 					«TreeItem»<Object> treeItem = («TreeItem») newValue;
 					Object value = treeItem.getValue();
 					if (value instanceof «EObject») {
-						setCenter(renderer.doSwitch((«EObject») value));
+						setCenter((«Node»)renderer.doSwitch((«EObject») value));
 					}
 				}
 				'''

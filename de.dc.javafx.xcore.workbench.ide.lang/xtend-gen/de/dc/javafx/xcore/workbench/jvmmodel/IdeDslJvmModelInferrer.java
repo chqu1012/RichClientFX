@@ -15,6 +15,7 @@ import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.ide.IdeContainer;
 import java.util.Arrays;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
@@ -293,8 +294,10 @@ public class IdeDslJvmModelInferrer extends AbstractModelInferrer {
             _builder.append("Object input = context.getInput();");
             _builder.newLine();
             _builder.append("\t");
-            _builder.append("setCenter(renderer.doSwitch((EObject) input));");
-            _builder.newLine();
+            _builder.append("setCenter((");
+            _builder.append(Node.class, "\t");
+            _builder.append(")renderer.doSwitch((EObject) input));");
+            _builder.newLineIfNotEmpty();
             _builder.append("}");
             _builder.newLine();
           }
@@ -342,7 +345,9 @@ public class IdeDslJvmModelInferrer extends AbstractModelInferrer {
             _builder.append(") {");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
-            _builder.append("setCenter(renderer.doSwitch((");
+            _builder.append("setCenter((");
+            _builder.append(Node.class, "\t\t");
+            _builder.append(")renderer.doSwitch((");
             _builder.append(EObject.class, "\t\t");
             _builder.append(") value));");
             _builder.newLineIfNotEmpty();
