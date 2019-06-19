@@ -97,7 +97,7 @@ public class CommandCellFactory extends TreeCell<Object> {
 			}else if( item instanceof EmfResult) {
 				EmfResult result = (EmfResult) item;
 				String owner = ((IItemLabelProvider) adapterFactory.adapt(result, IItemLabelProvider.class)).getText(result);
-				setGraphic(new Label(result.getObject()==null? "No result available" : owner));
+				setGraphic(new Label(result==null? "No result available" : owner+": "+result));
 			}
 		}
 	}

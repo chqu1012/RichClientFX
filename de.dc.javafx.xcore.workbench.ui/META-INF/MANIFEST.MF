@@ -29,6 +29,5 @@ Bundle-ActivationPolicy: lazy
 Export-Package: de.dc.javafx.xcore.workbench.ui,
  de.dc.javafx.xcore.workbench.ui.control,
  de.dc.javafx.xcore.workbench.ui.css,
- de.dc.javafx.xcore.workbench.ui.factory,
  de.dc.javafx.xcore.workbench.ui.file,
  de.dc.javafx.xcore.workbench.ui.renderer

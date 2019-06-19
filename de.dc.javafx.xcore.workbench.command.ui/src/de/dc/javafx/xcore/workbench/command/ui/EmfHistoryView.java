@@ -1,4 +1,4 @@
-package de.dc.javafx.xcore.workbench.ui.control;
+package de.dc.javafx.xcore.workbench.command.ui;
 
 import java.util.EventObject;
 import java.util.Optional;
@@ -10,6 +10,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import com.google.common.eventbus.Subscribe;
 
 import de.dc.javafx.xcore.workbench.command.EmfCommand;
+import de.dc.javafx.xcore.workbench.command.ui.cell.CommandFlatCellFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl;
@@ -17,8 +18,7 @@ import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import de.dc.javafx.xcore.workbench.ui.factory.CommandFlatCellFactory;
-import de.dc.javafx.xcore.workbench.ui.factory.CommandListCellFactory;
+import de.dc.javafx.xcore.workbench.ui.control.EmfView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;

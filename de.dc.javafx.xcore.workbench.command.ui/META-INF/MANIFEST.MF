@@ -16,6 +16,7 @@ Require-Bundle: de.dc.javafx.xcore.workbench.command;bundle-version="0.1.0",
  de.dc.javafx.xcore.workbench.ui;bundle-version="1.0.0",
  de.dc.javafx.xcore.workbench.emf.ui
 Export-Package: de.dc.javafx.xcore.workbench.command.ui,
+ de.dc.javafx.xcore.workbench.command.ui.cell,
  de.dc.javafx.xcore.workbench.command.ui.demo,
  de.dc.javafx.xcore.workbench.command.ui.file,
  de.dc.javafx.xcore.workbench.command.ui.manager
