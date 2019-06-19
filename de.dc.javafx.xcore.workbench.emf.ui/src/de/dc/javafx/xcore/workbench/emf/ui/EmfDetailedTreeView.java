@@ -17,11 +17,11 @@ import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.ui.controller.BaseEmfDetailedTreeViewController;
 import de.dc.javafx.xcore.workbench.emf.ui.factory.CommandFactory;
+import de.dc.javafx.xcore.workbench.emf.ui.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;

@@ -1,7 +1,6 @@
 package de.dc.javafx.emfsupport.website.model.ui;
 
 import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl;
-import de.dc.javafx.efxclipse.runtime.model.IEmfManager;
 import de.dc.javafx.emfsupport.website.model.ModelFactory;
 import de.dc.javafx.emfsupport.website.model.Website;
 import de.dc.javafx.emfsupport.website.model.provider.ModelItemProviderAdapterFactory;
@@ -13,7 +12,7 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 
 @SuppressWarnings("all")
-public class BaseWebsiteModelManager implements IEmfManager<Website> {
+public class BaseWebsiteModelManager implements de.dc.javafx.xcore.workbench.emf.IEmfManager {
   private Website root;
   
   private EditingDomain editingDomain;

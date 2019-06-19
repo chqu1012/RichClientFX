@@ -29,13 +29,13 @@ import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
 import org.eclipse.fx.emf.edit.ui.dnd.CellDragAdapter;
 import org.eclipse.fx.emf.edit.ui.dnd.EditingDomainCellDropAdapter;
 
-import de.dc.javafx.efxclipse.runtime.handler.CustomFeedbackHandler;
-import de.dc.javafx.efxclipse.runtime.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.emf.ui.factory.CommandFactory;
+import de.dc.javafx.xcore.workbench.emf.ui.handler.CustomFeedbackHandler;
 import de.dc.javafx.xcore.workbench.emf.ui.handler.EAttributeCellEditHandler;
+import de.dc.javafx.xcore.workbench.emf.ui.util.EmfUtil;
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;

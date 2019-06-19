@@ -4,7 +4,6 @@
 package de.dc.javafx.xcore.lang.edit.jvmmodel
 
 import com.google.inject.Inject
-import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl
 import de.dc.javafx.xcore.lang.edit.emfSupportDsl.Model
 import de.dc.javafx.xcore.workbench.emf.IEmfManager
 import org.eclipse.emf.ecore.change.util.ChangeRecorder
@@ -17,6 +16,7 @@ import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl
 
 class EmfSupportDslJvmModelInferrer extends AbstractModelInferrer {
 
