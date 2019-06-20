@@ -225,6 +225,17 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.PIE_CHART3D_FX: {
+			PieChart3dFX pieChart3dFX = (PieChart3dFX) theEObject;
+			T result = casePieChart3dFX(pieChart3dFX);
+			if (result == null)
+				result = caseCategoryChartFX(pieChart3dFX);
+			if (result == null)
+				result = caseChartFX(pieChart3dFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.CHART_FX_CONFIG: {
 			ChartFXConfig chartFXConfig = (ChartFXConfig) theEObject;
 			T result = caseChartFXConfig(chartFXConfig);
@@ -489,6 +500,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLineChart3dFX(LineChart3dFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pie Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pie Chart3d FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePieChart3dFX(PieChart3dFX object) {
 		return null;
 	}
 

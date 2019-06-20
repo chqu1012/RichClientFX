@@ -18,6 +18,7 @@ import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.ChartSide;
 import de.dc.javafx.xcore.workbench.chart.LineChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.PieChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.PieChartFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
@@ -158,6 +159,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass lineChart3dFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pieChart3dFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -586,6 +594,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getPieChart3dFX() {
+		return pieChart3dFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getChartFXConfig() {
 		return chartFXConfigEClass;
 	}
@@ -781,6 +799,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		lineChart3dFXEClass = createEClass(LINE_CHART3D_FX);
 
+		pieChart3dFXEClass = createEClass(PIE_CHART3D_FX);
+
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__TITLE_SIDE);
@@ -840,6 +860,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		areaChart3dFXEClass.getESuperTypes().add(this.getXYChartFX());
 		barChart3dFXEClass.getESuperTypes().add(this.getXYChartFX());
 		lineChart3dFXEClass.getESuperTypes().add(this.getXYChartFX());
+		pieChart3dFXEClass.getESuperTypes().add(this.getCategoryChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -939,6 +960,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(lineChart3dFXEClass, LineChart3dFX.class, "LineChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pieChart3dFXEClass, PieChart3dFX.class, "PieChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,

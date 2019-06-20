@@ -56,13 +56,14 @@ class LineChartFX extends XYChartFX{}
 class AreaChartFX extends XYChartFX{}
 class ScatterChartFX extends XYChartFX{}
 class BubbleChartFX extends XYChartFX{}
-
 class BarChartFX extends CategoryChartFX{}
 class PieChartFX extends CategoryChartFX{}
 
+// Orson Chart API
 class AreaChart3dFX extends XYChartFX{}
 class BarChart3dFX extends XYChartFX{}
 class LineChart3dFX extends XYChartFX{}
+class PieChart3dFX extends CategoryChartFX{}
 
 class ChartFXConfig{
 	ChartSide sideLegend

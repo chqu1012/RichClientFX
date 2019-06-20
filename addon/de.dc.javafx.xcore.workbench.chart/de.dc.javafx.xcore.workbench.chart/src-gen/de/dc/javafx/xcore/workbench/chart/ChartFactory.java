@@ -148,6 +148,15 @@ public interface ChartFactory extends EFactory {
 	LineChart3dFX createLineChart3dFX();
 
 	/**
+	 * Returns a new object of class '<em>Pie Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pie Chart3d FX</em>'.
+	 * @generated
+	 */
+	PieChart3dFX createPieChart3dFX();
+
+	/**
 	 * Returns a new object of class '<em>FX Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

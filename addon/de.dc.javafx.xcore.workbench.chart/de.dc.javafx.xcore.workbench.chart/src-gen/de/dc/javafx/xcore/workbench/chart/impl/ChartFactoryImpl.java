@@ -84,6 +84,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createBarChart3dFX();
 		case ChartPackage.LINE_CHART3D_FX:
 			return createLineChart3dFX();
+		case ChartPackage.PIE_CHART3D_FX:
+			return createPieChart3dFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:
@@ -273,6 +275,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public LineChart3dFX createLineChart3dFX() {
 		LineChart3dFXImpl lineChart3dFX = new LineChart3dFXImpl();
 		return lineChart3dFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PieChart3dFX createPieChart3dFX() {
+		PieChart3dFXImpl pieChart3dFX = new PieChart3dFXImpl();
+		return pieChart3dFX;
 	}
 
 	/**

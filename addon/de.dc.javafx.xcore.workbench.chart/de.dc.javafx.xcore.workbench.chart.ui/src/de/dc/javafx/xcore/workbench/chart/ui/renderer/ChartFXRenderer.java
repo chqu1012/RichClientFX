@@ -10,9 +10,11 @@ import org.gillius.jfxutils.chart.JFXChartUtil;
 import com.orsoncharts.Chart3D;
 import com.orsoncharts.Chart3DFactory;
 import com.orsoncharts.Colors;
+import com.orsoncharts.TitleAnchor;
 import com.orsoncharts.axis.NumberAxis3D;
 import com.orsoncharts.axis.NumberTickSelector;
 import com.orsoncharts.data.DefaultKeyedValues;
+import com.orsoncharts.data.StandardPieDataset3D;
 import com.orsoncharts.data.category.StandardCategoryDataset3D;
 import com.orsoncharts.fx.Chart3DViewer;
 import com.orsoncharts.graphics3d.Dimension3D;
@@ -20,6 +22,7 @@ import com.orsoncharts.graphics3d.ViewPoint3D;
 import com.orsoncharts.legend.LegendAnchor;
 import com.orsoncharts.plot.CategoryPlot3D;
 import com.orsoncharts.renderer.category.AreaRenderer3D;
+import com.orsoncharts.util.Orientation;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
 import de.dc.javafx.xcore.lang.lib.chart.BaseBarChart;
@@ -38,6 +41,7 @@ import de.dc.javafx.xcore.workbench.chart.CategoryValueFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFXConfig;
 import de.dc.javafx.xcore.workbench.chart.LineChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
+import de.dc.javafx.xcore.workbench.chart.PieChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.PieChartFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
@@ -57,6 +61,23 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
 
+	@Override
+	public Node casePieChart3dFX(PieChart3dFX object) {
+		StandardPieDataset3D<String> dataset = new StandardPieDataset3D<>();
+		for (CategorySeriesFX seriesFX : object.getSeries()) {
+			for (CategoryValueFX valueFX : seriesFX.getValues()) {
+				dataset.add(valueFX.getName(), valueFX.getValue());
+			}
+		}
+
+		String title = object.getName();
+		String subtitile = "";
+		Chart3D chart = Chart3DFactory.createPieChart(title, subtitile, dataset);
+		chart.setTitleAnchor(TitleAnchor.TOP_LEFT);
+		chart.setLegendPosition(LegendAnchor.BOTTOM_CENTER, Orientation.HORIZONTAL);
+		return new Chart3DViewer(chart);
+	}
+	
 	@Override
 	public Node caseLineChart3dFX(LineChart3dFX object) {
 		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();

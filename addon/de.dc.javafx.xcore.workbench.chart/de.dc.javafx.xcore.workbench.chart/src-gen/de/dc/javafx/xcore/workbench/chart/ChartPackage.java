@@ -1264,6 +1264,88 @@ public interface ChartPackage extends EPackage {
 	int LINE_CHART3D_FX_OPERATION_COUNT = XY_CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.PieChart3dFXImpl <em>Pie Chart3d FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.PieChart3dFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getPieChart3dFX()
+	 * @generated
+	 */
+	int PIE_CHART3D_FX = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART3D_FX__NAME = CATEGORY_CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART3D_FX__XAXIS_LABEL = CATEGORY_CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART3D_FX__YAXIS_LABEL = CATEGORY_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART3D_FX__ZAXIS_LABEL = CATEGORY_CHART_FX__ZAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART3D_FX__CONFIG = CATEGORY_CHART_FX__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART3D_FX__SERIES = CATEGORY_CHART_FX__SERIES;
+
+	/**
+	 * The number of structural features of the '<em>Pie Chart3d FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART3D_FX_FEATURE_COUNT = CATEGORY_CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Pie Chart3d FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_CHART3D_FX_OPERATION_COUNT = CATEGORY_CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1271,7 +1353,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
 	 * @generated
 	 */
-	int CHART_FX_CONFIG = 17;
+	int CHART_FX_CONFIG = 18;
 
 	/**
 	 * The feature id for the '<em><b>Side Legend</b></em>' attribute.
@@ -1389,7 +1471,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
 	 * @generated
 	 */
-	int CHART_SIDE = 18;
+	int CHART_SIDE = 19;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartProject <em>Project</em>}'.
@@ -1747,6 +1829,16 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLineChart3dFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.PieChart3dFX <em>Pie Chart3d FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pie Chart3d FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.PieChart3dFX
+	 * @generated
+	 */
+	EClass getPieChart3dFX();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig <em>FX Config</em>}'.
@@ -2206,6 +2298,16 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LINE_CHART3D_FX = eINSTANCE.getLineChart3dFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.PieChart3dFXImpl <em>Pie Chart3d FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.PieChart3dFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getPieChart3dFX()
+		 * @generated
+		 */
+		EClass PIE_CHART3D_FX = eINSTANCE.getPieChart3dFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
