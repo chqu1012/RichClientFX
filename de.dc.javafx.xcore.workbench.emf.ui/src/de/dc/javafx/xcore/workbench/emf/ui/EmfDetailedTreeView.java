@@ -32,6 +32,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -50,10 +51,10 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 	private Map<EAttribute, TextField> childEattributesMap = new HashMap<>();
 	
 	private static final String EDITED_STYLE = "-fx-background-color: red; -fx-text-fill: white;";
-	private EmfTreeModelView<T> treeView;
+	protected EmfTreeModelView<T> treeView;
 
 	public EmfDetailedTreeView() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/dc/javafx/xcore/workbench/chart/ui/ChartFXEmfDetailedTreeView.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/dc/javafx/xcore/workbench/emf/ui/EmfDetailedTreeView.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
@@ -77,6 +78,10 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 		values.add(false);
 	}
 
+	protected void addToToolbar(Node node) {
+		toolbar.getChildren().add(node);
+	}
+	
 	protected abstract EmfTreeModelView<T> initEmfModelTreeView();
 
 	@Override

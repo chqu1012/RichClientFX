@@ -31,10 +31,15 @@
                            <children>
                               <VBox prefHeight="1000.0" prefWidth="539.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label text="General">
-                                       <font>
-                                          <Font name="System Bold" size="14.0" />
-                                       </font></Label>
+                                    <HBox fx:id="toolbar" spacing="5.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="General" HBox.hgrow="ALWAYS">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
                                     <Separator prefWidth="200.0" />
                                     <Label text="Press Enter to accept the Value">
                                        <font>
