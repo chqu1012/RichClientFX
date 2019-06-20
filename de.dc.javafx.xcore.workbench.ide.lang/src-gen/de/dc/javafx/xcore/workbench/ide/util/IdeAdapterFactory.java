@@ -81,6 +81,11 @@ public class IdeAdapterFactory extends AdapterFactoryImpl
         return createIdeContainerAdapter();
       }
       @Override
+      public Adapter caseEditable(Editable object)
+      {
+        return createEditableAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -113,6 +118,21 @@ public class IdeAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIdeContainerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.ide.Editable <em>Editable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dc.javafx.xcore.workbench.ide.Editable
+   * @generated
+   */
+  public Adapter createEditableAdapter()
   {
     return null;
   }

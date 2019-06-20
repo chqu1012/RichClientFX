@@ -3,6 +3,7 @@
  */
 package de.dc.javafx.xcore.workbench.ide.impl;
 
+import de.dc.javafx.xcore.workbench.ide.Editable;
 import de.dc.javafx.xcore.workbench.ide.IdeContainer;
 import de.dc.javafx.xcore.workbench.ide.IdeFactory;
 import de.dc.javafx.xcore.workbench.ide.IdePackage;
@@ -30,6 +31,13 @@ public class IdePackageImpl extends EPackageImpl implements IdePackage
    * @generated
    */
   private EClass ideContainerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass editableEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -191,9 +199,42 @@ public class IdePackageImpl extends EPackageImpl implements IdePackage
    * @generated
    */
   @Override
+  public EReference getIdeContainer_Editables()
+  {
+    return (EReference)ideContainerEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getIdeContainer_GenerateDemo()
   {
-    return (EAttribute)ideContainerEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)ideContainerEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEditable()
+  {
+    return editableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEditable_MethodName()
+  {
+    return (EAttribute)editableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -235,7 +276,11 @@ public class IdePackageImpl extends EPackageImpl implements IdePackage
     createEReference(ideContainerEClass, IDE_CONTAINER__IDE_ITEM_PROVIDER_ADAPTER_FACTORY);
     createEReference(ideContainerEClass, IDE_CONTAINER__IDE_ROOT_MODEL);
     createEReference(ideContainerEClass, IDE_CONTAINER__IDE_MODEL_SWITCH);
+    createEReference(ideContainerEClass, IDE_CONTAINER__EDITABLES);
     createEAttribute(ideContainerEClass, IDE_CONTAINER__GENERATE_DEMO);
+
+    editableEClass = createEClass(EDITABLE);
+    createEAttribute(editableEClass, EDITABLE__METHOD_NAME);
   }
 
   /**
@@ -280,7 +325,11 @@ public class IdePackageImpl extends EPackageImpl implements IdePackage
     initEReference(getIdeContainer_IdeItemProviderAdapterFactory(), theTypesPackage.getJvmTypeReference(), null, "ideItemProviderAdapterFactory", null, 0, 1, IdeContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIdeContainer_IdeRootModel(), theTypesPackage.getJvmTypeReference(), null, "ideRootModel", null, 0, 1, IdeContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIdeContainer_IdeModelSwitch(), theTypesPackage.getJvmTypeReference(), null, "ideModelSwitch", null, 0, 1, IdeContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIdeContainer_Editables(), this.getEditable(), null, "editables", null, 0, -1, IdeContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIdeContainer_GenerateDemo(), ecorePackage.getEBoolean(), "generateDemo", null, 0, 1, IdeContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(editableEClass, Editable.class, "Editable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEditable_MethodName(), ecorePackage.getEString(), "methodName", null, 0, -1, Editable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

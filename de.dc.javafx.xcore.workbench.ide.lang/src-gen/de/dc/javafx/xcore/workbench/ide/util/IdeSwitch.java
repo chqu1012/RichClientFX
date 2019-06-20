@@ -80,6 +80,13 @@ public class IdeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case IdePackage.EDITABLE:
+      {
+        Editable editable = (Editable)theEObject;
+        T result = caseEditable(editable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -96,6 +103,22 @@ public class IdeSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIdeContainer(IdeContainer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Editable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Editable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEditable(Editable object)
   {
     return null;
   }

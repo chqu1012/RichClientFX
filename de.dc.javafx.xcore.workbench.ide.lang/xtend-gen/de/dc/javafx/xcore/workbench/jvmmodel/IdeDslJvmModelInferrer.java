@@ -235,7 +235,7 @@ public class IdeDslJvmModelInferrer extends AbstractModelInferrer {
     };
     acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, rendererClass), _function_2);
     String _packagePath_3 = element.getPackagePath();
-    String _plus_8 = (_packagePath_3 + ".preview.");
+    String _plus_8 = (_packagePath_3 + ".view.");
     String _name_3 = element.getName();
     String _plus_9 = (_plus_8 + _name_3);
     String _plus_10 = (_plus_9 + "Preview");

@@ -3,6 +3,8 @@
  */
 package de.dc.javafx.xcore.workbench.ide;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.xtext.common.types.JvmTypeReference;
@@ -23,6 +25,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeItemProviderAdapterFactory <em>Ide Item Provider Adapter Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeRootModel <em>Ide Root Model</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getIdeModelSwitch <em>Ide Model Switch</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getEditables <em>Editables</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#isGenerateDemo <em>Generate Demo</em>}</li>
  * </ul>
  *
@@ -185,6 +188,18 @@ public interface IdeContainer extends EObject
    * @generated
    */
   void setIdeModelSwitch(JvmTypeReference value);
+
+  /**
+   * Returns the value of the '<em><b>Editables</b></em>' containment reference list.
+   * The list contents are of type {@link de.dc.javafx.xcore.workbench.ide.Editable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Editables</em>' containment reference list.
+   * @see de.dc.javafx.xcore.workbench.ide.IdePackage#getIdeContainer_Editables()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Editable> getEditables();
 
   /**
    * Returns the value of the '<em><b>Generate Demo</b></em>' attribute.

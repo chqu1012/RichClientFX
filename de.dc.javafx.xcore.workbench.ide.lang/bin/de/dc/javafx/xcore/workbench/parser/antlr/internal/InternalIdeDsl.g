@@ -280,9 +280,28 @@ ruleIdeContainer returns [EObject current=null]
 		)
 		(
 			(
-				lv_generateDemo_21_0='generateDemo'
 				{
-					newLeafNode(lv_generateDemo_21_0, grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_11_0());
+					newCompositeNode(grammarAccess.getIdeContainerAccess().getEditablesEditableParserRuleCall_11_0());
+				}
+				lv_editables_21_0=ruleEditable
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getIdeContainerRule());
+					}
+					add(
+						$current,
+						"editables",
+						lv_editables_21_0,
+						"de.dc.javafx.xcore.workbench.IdeDsl.Editable");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				lv_generateDemo_22_0='generateDemo'
+				{
+					newLeafNode(lv_generateDemo_22_0, grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_12_0());
 				}
 				{
 					if ($current==null) {
@@ -292,9 +311,80 @@ ruleIdeContainer returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_22='}'
+		otherlv_23='}'
 		{
-			newLeafNode(otherlv_22, grammarAccess.getIdeContainerAccess().getRightCurlyBracketKeyword_12());
+			newLeafNode(otherlv_23, grammarAccess.getIdeContainerAccess().getRightCurlyBracketKeyword_13());
+		}
+	)
+;
+
+// Entry rule entryRuleEditable
+entryRuleEditable returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEditableRule()); }
+	iv_ruleEditable=ruleEditable
+	{ $current=$iv_ruleEditable.current; }
+	EOF;
+
+// Rule Editable
+ruleEditable returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getEditableAccess().getEditableAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='Editable'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEditableAccess().getEditableKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getEditableAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			otherlv_3='IdePackage'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getEditableAccess().getIdePackageKeyword_3_0());
+			}
+			otherlv_4='->'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getEditableAccess().getHyphenMinusGreaterThanSignKeyword_3_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEditableAccess().getMethodNameEStringParserRuleCall_3_2_0());
+					}
+					lv_methodName_5_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEditableRule());
+						}
+						add(
+							$current,
+							"methodName",
+							lv_methodName_5_0,
+							"de.dc.javafx.xcore.workbench.IdeDsl.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_6='()'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getEditableAccess().getLeftParenthesisRightParenthesisKeyword_3_3());
+			}
+		)*
+		otherlv_7='}'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getEditableAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;

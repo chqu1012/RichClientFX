@@ -61,9 +61,11 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
 		private final Assignment cIdeModelSwitchAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
 		private final RuleCall cIdeModelSwitchJvmTypeReferenceParserRuleCall_10_2_0 = (RuleCall)cIdeModelSwitchAssignment_10_2.eContents().get(0);
-		private final Assignment cGenerateDemoAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final Keyword cGenerateDemoGenerateDemoKeyword_11_0 = (Keyword)cGenerateDemoAssignment_11.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cEditablesAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cEditablesEditableParserRuleCall_11_0 = (RuleCall)cEditablesAssignment_11.eContents().get(0);
+		private final Assignment cGenerateDemoAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final Keyword cGenerateDemoGenerateDemoKeyword_12_0 = (Keyword)cGenerateDemoAssignment_12.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//IdeContainer:
 		//	{IdeContainer}
@@ -71,14 +73,14 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	'class' name=EString
 		//	'{' ('IdeFactory' ':' ideFactory=JvmTypeReference) ('IdePackage' ':' idePackage=JvmTypeReference)
 		//	('IdeItemProviderAdapterFactory' ':' ideItemProviderAdapterFactory=JvmTypeReference) ('IdeRootModel' ':'
-		//	ideRootModel=JvmTypeReference) ('IdeModelSwitch' ':' ideModelSwitch=JvmTypeReference) generateDemo?='generateDemo'
-		//	'}';
+		//	ideRootModel=JvmTypeReference) ('IdeModelSwitch' ':' ideModelSwitch=JvmTypeReference) editables+=Editable?
+		//	generateDemo?='generateDemo' '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{IdeContainer} 'package' packagePath=QualifiedName 'class' name=EString '{' ('IdeFactory' ':'
 		//ideFactory=JvmTypeReference) ('IdePackage' ':' idePackage=JvmTypeReference) ('IdeItemProviderAdapterFactory' ':'
 		//ideItemProviderAdapterFactory=JvmTypeReference) ('IdeRootModel' ':' ideRootModel=JvmTypeReference) ('IdeModelSwitch'
-		//':' ideModelSwitch=JvmTypeReference) generateDemo?='generateDemo' '}'
+		//':' ideModelSwitch=JvmTypeReference) editables+=Editable? generateDemo?='generateDemo' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{IdeContainer}
@@ -180,14 +182,73 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 		//JvmTypeReference
 		public RuleCall getIdeModelSwitchJvmTypeReferenceParserRuleCall_10_2_0() { return cIdeModelSwitchJvmTypeReferenceParserRuleCall_10_2_0; }
 		
+		//editables+=Editable?
+		public Assignment getEditablesAssignment_11() { return cEditablesAssignment_11; }
+		
+		//Editable
+		public RuleCall getEditablesEditableParserRuleCall_11_0() { return cEditablesEditableParserRuleCall_11_0; }
+		
 		//generateDemo?='generateDemo'
-		public Assignment getGenerateDemoAssignment_11() { return cGenerateDemoAssignment_11; }
+		public Assignment getGenerateDemoAssignment_12() { return cGenerateDemoAssignment_12; }
 		
 		//'generateDemo'
-		public Keyword getGenerateDemoGenerateDemoKeyword_11_0() { return cGenerateDemoGenerateDemoKeyword_11_0; }
+		public Keyword getGenerateDemoGenerateDemoKeyword_12_0() { return cGenerateDemoGenerateDemoKeyword_12_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+	}
+	public class EditableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.workbench.IdeDsl.Editable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEditableAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cEditableKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cIdePackageKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cMethodNameAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cMethodNameEStringParserRuleCall_3_2_0 = (RuleCall)cMethodNameAssignment_3_2.eContents().get(0);
+		private final Keyword cLeftParenthesisRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Editable:
+		//	{Editable}
+		//	'Editable' '{' ('IdePackage' '->' methodName+=EString '()')*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Editable} 'Editable' '{' ('IdePackage' '->' methodName+=EString '()')* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{Editable}
+		public Action getEditableAction_0() { return cEditableAction_0; }
+		
+		//'Editable'
+		public Keyword getEditableKeyword_1() { return cEditableKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('IdePackage' '->' methodName+=EString '()')*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'IdePackage'
+		public Keyword getIdePackageKeyword_3_0() { return cIdePackageKeyword_3_0; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_3_1() { return cHyphenMinusGreaterThanSignKeyword_3_1; }
+		
+		//methodName+=EString
+		public Assignment getMethodNameAssignment_3_2() { return cMethodNameAssignment_3_2; }
+		
+		//EString
+		public RuleCall getMethodNameEStringParserRuleCall_3_2_0() { return cMethodNameEStringParserRuleCall_3_2_0; }
+		
+		//'()'
+		public Keyword getLeftParenthesisRightParenthesisKeyword_3_3() { return cLeftParenthesisRightParenthesisKeyword_3_3; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dc.javafx.xcore.workbench.IdeDsl.EString");
@@ -211,6 +272,7 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final IdeContainerElements pIdeContainer;
+	private final EditableElements pEditable;
 	private final EStringElements pEString;
 	
 	private final Grammar grammar;
@@ -231,6 +293,7 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaXbase = gaXbase;
 		this.gaXtype = gaXtype;
 		this.pIdeContainer = new IdeContainerElements();
+		this.pEditable = new EditableElements();
 		this.pEString = new EStringElements();
 	}
 	
@@ -275,14 +338,26 @@ public class IdeDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'class' name=EString
 	//	'{' ('IdeFactory' ':' ideFactory=JvmTypeReference) ('IdePackage' ':' idePackage=JvmTypeReference)
 	//	('IdeItemProviderAdapterFactory' ':' ideItemProviderAdapterFactory=JvmTypeReference) ('IdeRootModel' ':'
-	//	ideRootModel=JvmTypeReference) ('IdeModelSwitch' ':' ideModelSwitch=JvmTypeReference) generateDemo?='generateDemo'
-	//	'}';
+	//	ideRootModel=JvmTypeReference) ('IdeModelSwitch' ':' ideModelSwitch=JvmTypeReference) editables+=Editable?
+	//	generateDemo?='generateDemo' '}';
 	public IdeContainerElements getIdeContainerAccess() {
 		return pIdeContainer;
 	}
 	
 	public ParserRule getIdeContainerRule() {
 		return getIdeContainerAccess().getRule();
+	}
+	
+	//Editable:
+	//	{Editable}
+	//	'Editable' '{' ('IdePackage' '->' methodName+=EString '()')*
+	//	'}';
+	public EditableElements getEditableAccess() {
+		return pEditable;
+	}
+	
+	public ParserRule getEditableRule() {
+		return getEditableAccess().getRule();
 	}
 	
 	//EString:

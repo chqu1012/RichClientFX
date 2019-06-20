@@ -81,6 +81,8 @@ public class IdeDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIdeContainerAccess().getGroup_8(), "rule__IdeContainer__Group_8__0");
 			builder.put(grammarAccess.getIdeContainerAccess().getGroup_9(), "rule__IdeContainer__Group_9__0");
 			builder.put(grammarAccess.getIdeContainerAccess().getGroup_10(), "rule__IdeContainer__Group_10__0");
+			builder.put(grammarAccess.getEditableAccess().getGroup(), "rule__Editable__Group__0");
+			builder.put(grammarAccess.getEditableAccess().getGroup_3(), "rule__Editable__Group_3__0");
 			builder.put(grammarAccess.getXAnnotationAccess().getGroup(), "rule__XAnnotation__Group__0");
 			builder.put(grammarAccess.getXAnnotationAccess().getGroup_3(), "rule__XAnnotation__Group_3__0");
 			builder.put(grammarAccess.getXAnnotationAccess().getGroup_3_1_0(), "rule__XAnnotation__Group_3_1_0__0");
@@ -287,7 +289,9 @@ public class IdeDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIdeContainerAccess().getIdeItemProviderAdapterFactoryAssignment_8_2(), "rule__IdeContainer__IdeItemProviderAdapterFactoryAssignment_8_2");
 			builder.put(grammarAccess.getIdeContainerAccess().getIdeRootModelAssignment_9_2(), "rule__IdeContainer__IdeRootModelAssignment_9_2");
 			builder.put(grammarAccess.getIdeContainerAccess().getIdeModelSwitchAssignment_10_2(), "rule__IdeContainer__IdeModelSwitchAssignment_10_2");
-			builder.put(grammarAccess.getIdeContainerAccess().getGenerateDemoAssignment_11(), "rule__IdeContainer__GenerateDemoAssignment_11");
+			builder.put(grammarAccess.getIdeContainerAccess().getEditablesAssignment_11(), "rule__IdeContainer__EditablesAssignment_11");
+			builder.put(grammarAccess.getIdeContainerAccess().getGenerateDemoAssignment_12(), "rule__IdeContainer__GenerateDemoAssignment_12");
+			builder.put(grammarAccess.getEditableAccess().getMethodNameAssignment_3_2(), "rule__Editable__MethodNameAssignment_3_2");
 			builder.put(grammarAccess.getXAnnotationAccess().getAnnotationTypeAssignment_2(), "rule__XAnnotation__AnnotationTypeAssignment_2");
 			builder.put(grammarAccess.getXAnnotationAccess().getElementValuePairsAssignment_3_1_0_0(), "rule__XAnnotation__ElementValuePairsAssignment_3_1_0_0");
 			builder.put(grammarAccess.getXAnnotationAccess().getElementValuePairsAssignment_3_1_0_1_1(), "rule__XAnnotation__ElementValuePairsAssignment_3_1_0_1_1");

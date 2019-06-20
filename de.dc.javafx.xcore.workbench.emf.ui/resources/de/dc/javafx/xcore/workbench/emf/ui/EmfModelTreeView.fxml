@@ -21,6 +21,8 @@
                        </items>
                     </Menu>
                     <SeparatorMenuItem mnemonicParsing="false" />
+                  <Menu fx:id="openWithMenu" mnemonicParsing="false" text="Open With" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
                     <MenuItem mnemonicParsing="false" onAction="#onUndoMenuItemClicked" text="Undo">
                        <accelerator>
                           <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />

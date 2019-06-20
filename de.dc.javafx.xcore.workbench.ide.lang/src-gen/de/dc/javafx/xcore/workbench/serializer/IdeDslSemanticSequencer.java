@@ -4,6 +4,7 @@
 package de.dc.javafx.xcore.workbench.serializer;
 
 import com.google.inject.Inject;
+import de.dc.javafx.xcore.workbench.ide.Editable;
 import de.dc.javafx.xcore.workbench.ide.IdeContainer;
 import de.dc.javafx.xcore.workbench.ide.IdePackage;
 import de.dc.javafx.xcore.workbench.services.IdeDslGrammarAccess;
@@ -23,8 +24,6 @@ import org.eclipse.xtext.common.types.JvmUpperBound;
 import org.eclipse.xtext.common.types.JvmWildcardTypeReference;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipse.xtext.xbase.XAssignment;
 import org.eclipse.xtext.xbase.XBasicForLoopExpression;
 import org.eclipse.xtext.xbase.XBinaryOperation;
@@ -80,6 +79,9 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == IdePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case IdePackage.EDITABLE:
+				sequence_Editable(context, (Editable) semanticObject); 
+				return; 
 			case IdePackage.IDE_CONTAINER:
 				sequence_IdeContainer(context, (IdeContainer) semanticObject); 
 				return; 
@@ -390,6 +392,18 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Editable returns Editable
+	 *
+	 * Constraint:
+	 *     methodName+=EString*
+	 */
+	protected void sequence_Editable(ISerializationContext context, Editable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     IdeContainer returns IdeContainer
 	 *
 	 * Constraint:
@@ -401,38 +415,12 @@ public class IdeDslSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *         ideItemProviderAdapterFactory=JvmTypeReference 
 	 *         ideRootModel=JvmTypeReference 
 	 *         ideModelSwitch=JvmTypeReference 
+	 *         editables+=Editable? 
 	 *         generateDemo?='generateDemo'
 	 *     )
 	 */
 	protected void sequence_IdeContainer(ISerializationContext context, IdeContainer semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__PACKAGE_PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__PACKAGE_PATH));
-			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__NAME));
-			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_FACTORY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_FACTORY));
-			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_PACKAGE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_PACKAGE));
-			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ITEM_PROVIDER_ADAPTER_FACTORY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ITEM_PROVIDER_ADAPTER_FACTORY));
-			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ROOT_MODEL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_ROOT_MODEL));
-			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_MODEL_SWITCH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__IDE_MODEL_SWITCH));
-			if (transientValues.isValueTransient(semanticObject, IdePackage.Literals.IDE_CONTAINER__GENERATE_DEMO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdePackage.Literals.IDE_CONTAINER__GENERATE_DEMO));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIdeContainerAccess().getPackagePathQualifiedNameParserRuleCall_2_0(), semanticObject.getPackagePath());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getNameEStringParserRuleCall_4_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeFactoryJvmTypeReferenceParserRuleCall_6_2_0(), semanticObject.getIdeFactory());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getIdePackageJvmTypeReferenceParserRuleCall_7_2_0(), semanticObject.getIdePackage());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeItemProviderAdapterFactoryJvmTypeReferenceParserRuleCall_8_2_0(), semanticObject.getIdeItemProviderAdapterFactory());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeRootModelJvmTypeReferenceParserRuleCall_9_2_0(), semanticObject.getIdeRootModel());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getIdeModelSwitchJvmTypeReferenceParserRuleCall_10_2_0(), semanticObject.getIdeModelSwitch());
-		feeder.accept(grammarAccess.getIdeContainerAccess().getGenerateDemoGenerateDemoKeyword_11_0(), semanticObject.isGenerateDemo());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

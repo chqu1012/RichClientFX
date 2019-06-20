@@ -66,6 +66,7 @@ public class IdeFactoryImpl extends EFactoryImpl implements IdeFactory
     switch (eClass.getClassifierID())
     {
       case IdePackage.IDE_CONTAINER: return createIdeContainer();
+      case IdePackage.EDITABLE: return createEditable();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -81,6 +82,18 @@ public class IdeFactoryImpl extends EFactoryImpl implements IdeFactory
   {
     IdeContainerImpl ideContainer = new IdeContainerImpl();
     return ideContainer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Editable createEditable()
+  {
+    EditableImpl editable = new EditableImpl();
+    return editable;
   }
 
   /**

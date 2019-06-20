@@ -1,9 +1,11 @@
 package de.dc.javafx.xcore.workbench.chart.ui;
 import com.google.common.eventbus.Subscribe;
 
+import de.dc.javafx.xcore.code.preview.ui.FXPreview;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.ui.manager.ChartFXEmfManager;
+import de.dc.javafx.xcore.workbench.chart.ui.view.ChartFXPreview;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView;
@@ -11,6 +13,7 @@ import de.dc.javafx.xcore.workbench.event.EmfCommand;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import javafx.scene.control.MenuItem;
 
 public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 
@@ -31,6 +34,12 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 //			}
 //		});
 
+		MenuItem openPreviewMenuItem = new MenuItem(getEmfManager().getModelPackage().getName()+" Preview");
+		openPreviewMenuItem.setOnAction(e->{
+			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<FXPreview>("open.preview", new ChartFXPreview()));
+		});
+		openWithMenu.getItems().add(openPreviewMenuItem);
+		
 		DIPlatform.getInstance(IEventBroker.class).register(this);
 	}
 

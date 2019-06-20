@@ -4,10 +4,16 @@
 package de.dc.javafx.xcore.workbench;
 
 import de.dc.javafx.xcore.workbench.AbstractIdeDslRuntimeModule;
+import de.dc.javafx.xcore.workbench.generator.IdeGenerator;
+import org.eclipse.xtext.generator.IGenerator;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
 public class IdeDslRuntimeModule extends AbstractIdeDslRuntimeModule {
+  @Override
+  public Class<? extends IGenerator> bindIGenerator() {
+    return IdeGenerator.class;
+  }
 }

@@ -33,6 +33,15 @@ public interface IdeFactory extends EFactory
   IdeContainer createIdeContainer();
 
   /**
+   * Returns a new object of class '<em>Editable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Editable</em>'.
+   * @generated
+   */
+  Editable createEditable();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

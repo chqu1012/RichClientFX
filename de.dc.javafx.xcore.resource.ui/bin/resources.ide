@@ -6,5 +6,11 @@ class Resource{
 	IdeItemProviderAdapterFactory: de.dc.javafx.xcore.resource.provider.ResourceItemProviderAdapterFactory
 	IdeRootModel: de.dc.javafx.xcore.resource.Workspace
 	IdeModelSwitch: de.dc.javafx.xcore.resource.util.ResourceSwitch
-	generateDemo 
+	
+	Editable {
+		IdePackage->getFile_Name()
+		IdePackage->getProject_Name()
+	}
+	
+	generateDemo
 }

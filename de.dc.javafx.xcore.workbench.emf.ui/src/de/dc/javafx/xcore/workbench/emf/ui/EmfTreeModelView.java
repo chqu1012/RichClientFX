@@ -68,6 +68,9 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	private Logger log = Logger.getLogger(EmfTreeModelView.class.getSimpleName());
 
 	@FXML
+	protected Menu openWithMenu;
+	
+	@FXML
 	protected ContextMenu contextMenu;
 	
 	@FXML

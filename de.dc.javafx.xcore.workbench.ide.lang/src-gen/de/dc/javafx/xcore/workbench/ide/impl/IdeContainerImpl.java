@@ -3,17 +3,25 @@
  */
 package de.dc.javafx.xcore.workbench.ide.impl;
 
+import de.dc.javafx.xcore.workbench.ide.Editable;
 import de.dc.javafx.xcore.workbench.ide.IdeContainer;
 import de.dc.javafx.xcore.workbench.ide.IdePackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
@@ -32,6 +40,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#getIdeItemProviderAdapterFactory <em>Ide Item Provider Adapter Factory</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#getIdeRootModel <em>Ide Root Model</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#getIdeModelSwitch <em>Ide Model Switch</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#getEditables <em>Editables</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.ide.impl.IdeContainerImpl#isGenerateDemo <em>Generate Demo</em>}</li>
  * </ul>
  *
@@ -128,6 +137,16 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
    * @ordered
    */
   protected JvmTypeReference ideModelSwitch;
+
+  /**
+   * The cached value of the '{@link #getEditables() <em>Editables</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEditables()
+   * @generated
+   * @ordered
+   */
+  protected EList<Editable> editables;
 
   /**
    * The default value of the '{@link #isGenerateDemo() <em>Generate Demo</em>}' attribute.
@@ -476,6 +495,21 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
    * @generated
    */
   @Override
+  public EList<Editable> getEditables()
+  {
+    if (editables == null)
+    {
+      editables = new EObjectContainmentEList<Editable>(Editable.class, this, IdePackage.IDE_CONTAINER__EDITABLES);
+    }
+    return editables;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public boolean isGenerateDemo()
   {
     return generateDemo;
@@ -515,6 +549,8 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
         return basicSetIdeRootModel(null, msgs);
       case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
         return basicSetIdeModelSwitch(null, msgs);
+      case IdePackage.IDE_CONTAINER__EDITABLES:
+        return ((InternalEList<?>)getEditables()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -543,6 +579,8 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
         return getIdeRootModel();
       case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
         return getIdeModelSwitch();
+      case IdePackage.IDE_CONTAINER__EDITABLES:
+        return getEditables();
       case IdePackage.IDE_CONTAINER__GENERATE_DEMO:
         return isGenerateDemo();
     }
@@ -554,6 +592,7 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -579,6 +618,10 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
         return;
       case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
         setIdeModelSwitch((JvmTypeReference)newValue);
+        return;
+      case IdePackage.IDE_CONTAINER__EDITABLES:
+        getEditables().clear();
+        getEditables().addAll((Collection<? extends Editable>)newValue);
         return;
       case IdePackage.IDE_CONTAINER__GENERATE_DEMO:
         setGenerateDemo((Boolean)newValue);
@@ -618,6 +661,9 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
       case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
         setIdeModelSwitch((JvmTypeReference)null);
         return;
+      case IdePackage.IDE_CONTAINER__EDITABLES:
+        getEditables().clear();
+        return;
       case IdePackage.IDE_CONTAINER__GENERATE_DEMO:
         setGenerateDemo(GENERATE_DEMO_EDEFAULT);
         return;
@@ -649,6 +695,8 @@ public class IdeContainerImpl extends MinimalEObjectImpl.Container implements Id
         return ideRootModel != null;
       case IdePackage.IDE_CONTAINER__IDE_MODEL_SWITCH:
         return ideModelSwitch != null;
+      case IdePackage.IDE_CONTAINER__EDITABLES:
+        return editables != null && !editables.isEmpty();
       case IdePackage.IDE_CONTAINER__GENERATE_DEMO:
         return generateDemo != GENERATE_DEMO_EDEFAULT;
     }

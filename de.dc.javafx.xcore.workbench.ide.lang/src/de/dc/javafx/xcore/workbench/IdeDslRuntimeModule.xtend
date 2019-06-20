@@ -3,9 +3,14 @@
  */
 package de.dc.javafx.xcore.workbench
 
+import de.dc.javafx.xcore.workbench.generator.IdeGenerator
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class IdeDslRuntimeModule extends AbstractIdeDslRuntimeModule {
+	
+	override bindIGenerator() {
+		IdeGenerator
+	}
 }

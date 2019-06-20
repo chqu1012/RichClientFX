@@ -8,13 +8,16 @@ import com.google.inject.Inject
 import de.dc.javafx.xcore.code.preview.ui.FXPreview
 import de.dc.javafx.xcore.workbench.di.DIPlatform
 import de.dc.javafx.xcore.workbench.emf.AbstractEmfManager
+import de.dc.javafx.xcore.workbench.emf.IEmfManager
 import de.dc.javafx.xcore.workbench.emf.file.EmfFile
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFile
+import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView
 import de.dc.javafx.xcore.workbench.event.EventContext
 import de.dc.javafx.xcore.workbench.event.IEventBroker
 import de.dc.javafx.xcore.workbench.ide.IdeContainer
 import javafx.beans.value.ObservableValue
 import javafx.scene.Node
+import javafx.scene.control.MenuItem
 import javafx.scene.control.TreeItem
 import org.eclipse.emf.common.notify.AdapterFactory
 import org.eclipse.emf.ecore.EFactory
@@ -93,7 +96,7 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 		]
 		
 		// Preview
-		acceptor.accept(element.toClass(element.packagePath+'.preview.'+element.name+"Preview")) [
+		acceptor.accept(element.toClass(element.packagePath+'.view.'+element.name+"Preview")) [
 			superTypes += FXPreview.typeRef
 			
 			members += element.toField('renderer ', rendererClass.typeRef)[]
@@ -139,5 +142,36 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 				'''
 			]
 		]
+		
+		// EmfModelTreeView
+//		acceptor.accept(element.toClass(element.packagePath+'.view.'+element.name+"EmfTreeModelView")) [
+//			superTypes += EmfTreeModelView.typeRef(element.ideRootModel)
+//			
+//			members += element.toConstructor[
+//				body = '''
+//				// Set edit mode for several attributes
+//				// addEditableFor(«element.idePackage».eINSTANCE.get%OBJECT_ATTRIBUTE_NAME%());
+//				
+//				«MenuItem» openPreviewMenuItem = new MenuItem(getEmfManager().getModelPackage().getName()+" Preview");
+//				openPreviewMenuItem.setOnAction(e->{
+//					«DIPlatform».getInstance(«IEventBroker».class).post(new «EventContext»<«FXPreview»>("open.preview", new ChartFXPreview()));
+//				});
+//				openWithMenu.getItems().add(openPreviewMenuItem);
+//				
+//				«DIPlatform».getInstance(«IEventBroker».class).register(this);				
+//				'''
+//			]
+//			
+//			members += element.toMethod("getEmfManager", IEmfManager.typeRef(element.ideRootModel)) [
+//				visibility = JvmVisibility.PUBLIC
+//				annotations+=Override.annotationRef
+//				body = '''
+//				if (emfManager==null) {
+//					emfManager = new «element.name»EmfManager();
+//				}
+//				return emfManager;
+//				'''
+//			]
+//		]
 	}
 }

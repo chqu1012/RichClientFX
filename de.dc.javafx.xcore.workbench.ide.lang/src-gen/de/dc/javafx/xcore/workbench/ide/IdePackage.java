@@ -131,13 +131,22 @@ public interface IdePackage extends EPackage
   int IDE_CONTAINER__IDE_MODEL_SWITCH = 6;
 
   /**
+   * The feature id for the '<em><b>Editables</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDE_CONTAINER__EDITABLES = 7;
+
+  /**
    * The feature id for the '<em><b>Generate Demo</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDE_CONTAINER__GENERATE_DEMO = 7;
+  int IDE_CONTAINER__GENERATE_DEMO = 8;
 
   /**
    * The number of structural features of the '<em>Container</em>' class.
@@ -146,7 +155,35 @@ public interface IdePackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDE_CONTAINER_FEATURE_COUNT = 8;
+  int IDE_CONTAINER_FEATURE_COUNT = 9;
+
+  /**
+   * The meta object id for the '{@link de.dc.javafx.xcore.workbench.ide.impl.EditableImpl <em>Editable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dc.javafx.xcore.workbench.ide.impl.EditableImpl
+   * @see de.dc.javafx.xcore.workbench.ide.impl.IdePackageImpl#getEditable()
+   * @generated
+   */
+  int EDITABLE = 1;
+
+  /**
+   * The feature id for the '<em><b>Method Name</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITABLE__METHOD_NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Editable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITABLE_FEATURE_COUNT = 1;
 
 
   /**
@@ -237,6 +274,17 @@ public interface IdePackage extends EPackage
   EReference getIdeContainer_IdeModelSwitch();
 
   /**
+   * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#getEditables <em>Editables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Editables</em>'.
+   * @see de.dc.javafx.xcore.workbench.ide.IdeContainer#getEditables()
+   * @see #getIdeContainer()
+   * @generated
+   */
+  EReference getIdeContainer_Editables();
+
+  /**
    * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.ide.IdeContainer#isGenerateDemo <em>Generate Demo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -246,6 +294,27 @@ public interface IdePackage extends EPackage
    * @generated
    */
   EAttribute getIdeContainer_GenerateDemo();
+
+  /**
+   * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.ide.Editable <em>Editable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Editable</em>'.
+   * @see de.dc.javafx.xcore.workbench.ide.Editable
+   * @generated
+   */
+  EClass getEditable();
+
+  /**
+   * Returns the meta object for the attribute list '{@link de.dc.javafx.xcore.workbench.ide.Editable#getMethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Method Name</em>'.
+   * @see de.dc.javafx.xcore.workbench.ide.Editable#getMethodName()
+   * @see #getEditable()
+   * @generated
+   */
+  EAttribute getEditable_MethodName();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -337,12 +406,38 @@ public interface IdePackage extends EPackage
     EReference IDE_CONTAINER__IDE_MODEL_SWITCH = eINSTANCE.getIdeContainer_IdeModelSwitch();
 
     /**
+     * The meta object literal for the '<em><b>Editables</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IDE_CONTAINER__EDITABLES = eINSTANCE.getIdeContainer_Editables();
+
+    /**
      * The meta object literal for the '<em><b>Generate Demo</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute IDE_CONTAINER__GENERATE_DEMO = eINSTANCE.getIdeContainer_GenerateDemo();
+
+    /**
+     * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.ide.impl.EditableImpl <em>Editable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dc.javafx.xcore.workbench.ide.impl.EditableImpl
+     * @see de.dc.javafx.xcore.workbench.ide.impl.IdePackageImpl#getEditable()
+     * @generated
+     */
+    EClass EDITABLE = eINSTANCE.getEditable();
+
+    /**
+     * The meta object literal for the '<em><b>Method Name</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EDITABLE__METHOD_NAME = eINSTANCE.getEditable_MethodName();
 
   }
 

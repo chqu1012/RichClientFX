@@ -14,8 +14,18 @@ IdeContainer returns IdeContainer:
 	('IdeItemProviderAdapterFactory' ':' ideItemProviderAdapterFactory=JvmTypeReference)
 	('IdeRootModel' ':' ideRootModel=JvmTypeReference)
 	('IdeModelSwitch' ':' ideModelSwitch=JvmTypeReference)
+	(editables+=Editable)?
+	
 	(generateDemo?='generateDemo')
 	'}';
+
+Editable:
+	{Editable}
+	'Editable' 
+	'{'
+		('IdePackage' '->' methodName+=EString '()')*
+	'}'
+;
 
 EString returns ecore::EString:
 	STRING | ID;
