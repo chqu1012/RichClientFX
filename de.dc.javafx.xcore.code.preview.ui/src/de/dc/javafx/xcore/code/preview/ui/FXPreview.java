@@ -10,7 +10,8 @@ import javafx.scene.web.WebView;
 public class FXPreview extends BorderPane implements ChangeListener<Object> {
 
 	private WebEngine engine;
-
+	private String title = "Preview";
+	
 	public FXPreview() {
 		Platform.runLater(() -> initWebView());
 	}
@@ -52,5 +53,13 @@ public class FXPreview extends BorderPane implements ChangeListener<Object> {
 	public void changed(ObservableValue<? extends Object> obs, Object oldValue, Object newValue) {
 		String code = "public class Address{\n\n public static final String name = \"Hello World\";\n\n}";
 		setContent(code);
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title=title;
 	}
 }

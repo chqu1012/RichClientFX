@@ -2,6 +2,7 @@ package de.dc.javafx.xcore.resource.ui.view;
 
 import com.google.common.eventbus.Subscribe;
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
+import de.dc.javafx.xcore.resource.ResourcePackage;
 import de.dc.javafx.xcore.resource.ui.renderer.ResourceRenderer;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.event.EventContext;
@@ -19,6 +20,7 @@ public class ResourcePreview extends FXPreview {
   
   public ResourcePreview() {
     DIPlatform.getInstance(IEventBroker.class).register(this);
+    setTitle(ResourcePackage.eNAME+" Preview");
   }
   
   @Subscribe

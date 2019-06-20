@@ -205,8 +205,8 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	@Subscribe
 	public void openPreview(EventContext<FXPreview> context) {
 		if (context.getEventId()!=null && context.getEventId().equals("open.preview")) {
-			Tab preview = new Tab("Preview");
 			FXPreview input = context.getInput();
+			Tab preview = new Tab(input.getTitle());
 			DIPlatform.getInstance(IEmfSelectionService.class).addListener(input);
 			preview.setContent(input);
 			bottomTabPane.getTabs().add(preview);
