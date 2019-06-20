@@ -10,6 +10,7 @@ import org.eclipse.fx.ui.controls.styledtext.StyledTextArea;
 import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
+import de.dc.javafx.xcore.code.preview.ui.FXPreview;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
@@ -199,6 +200,17 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 			}
 			getTabByName(filename).ifPresent(e -> editorArea.getSelectionModel().select(e));
 		}
+	}
+	
+	@Subscribe
+	public void openPreview(EventContext<FXPreview> context) {
+		if (context.getEventId()!=null && context.getEventId().equals("open.preview")) {
+			Tab preview = new Tab("Preview");
+			FXPreview input = context.getInput();
+			DIPlatform.getInstance(IEmfSelectionService.class).addListener(input);
+			preview.setContent(input);
+			bottomTabPane.getTabs().add(preview);
+		}		
 	}
 	
 	protected abstract String showTabTextByObject(Object input);

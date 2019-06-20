@@ -1,9 +1,9 @@
 package de.dc.javafx.emfsupport.website.model.ui;
 
-import de.dc.javafx.efxclipse.runtime.command.CommandStackImpl;
 import de.dc.javafx.emfsupport.website.model.ModelFactory;
 import de.dc.javafx.emfsupport.website.model.Website;
 import de.dc.javafx.emfsupport.website.model.provider.ModelItemProviderAdapterFactory;
+import de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl;
 import org.eclipse.emf.ecore.change.util.ChangeRecorder;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -21,7 +21,7 @@ public class BaseWebsiteModelManager implements de.dc.javafx.xcore.workbench.emf
   
   private ChangeRecorder changeRecorder;
   
-  private CommandStackImpl commandStack;
+  private de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl commandStack;
   
   public BaseWebsiteModelManager() {
     adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -53,7 +53,7 @@ public class BaseWebsiteModelManager implements de.dc.javafx.xcore.workbench.emf
     return this.changeRecorder;
   }
   
-  public CommandStackImpl getCommandStack() {
+  public de.dc.javafx.xcore.workbench.emf.command.CommandStackImpl getCommandStack() {
     return this.commandStack;
   }
 }
