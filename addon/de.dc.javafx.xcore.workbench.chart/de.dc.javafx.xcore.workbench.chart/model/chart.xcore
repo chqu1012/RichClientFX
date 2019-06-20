@@ -62,6 +62,7 @@ class PieChartFX extends CategoryChartFX{}
 
 class AreaChart3dFX extends XYChartFX{}
 class BarChart3dFX extends XYChartFX{}
+class LineChart3dFX extends XYChartFX{}
 
 class ChartFXConfig{
 	ChartSide sideLegend

@@ -351,6 +351,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.LineChart3dFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LineChart3dFXItemProvider lineChart3dFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.LineChart3dFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLineChart3dFXAdapter() {
+		if (lineChart3dFXItemProvider == null) {
+			lineChart3dFXItemProvider = new LineChart3dFXItemProvider(this);
+		}
+
+		return lineChart3dFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.BarChartFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -527,6 +550,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			areaChart3dFXItemProvider.dispose();
 		if (barChart3dFXItemProvider != null)
 			barChart3dFXItemProvider.dispose();
+		if (lineChart3dFXItemProvider != null)
+			lineChart3dFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}

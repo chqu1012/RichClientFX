@@ -139,6 +139,15 @@ public interface ChartFactory extends EFactory {
 	BarChart3dFX createBarChart3dFX();
 
 	/**
+	 * Returns a new object of class '<em>Line Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line Chart3d FX</em>'.
+	 * @generated
+	 */
+	LineChart3dFX createLineChart3dFX();
+
+	/**
 	 * Returns a new object of class '<em>FX Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
