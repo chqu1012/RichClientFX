@@ -210,6 +210,7 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 			DIPlatform.getInstance(IEmfSelectionService.class).addListener(input);
 			preview.setContent(input);
 			bottomTabPane.getTabs().add(preview);
+			bottomTabPane.getSelectionModel().select(preview);
 		}		
 	}
 	
