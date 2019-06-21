@@ -27,13 +27,6 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 		addEditableFor(ChartPackage.eINSTANCE.getXYValueFX_Y());
 		addEditableFor(ChartPackage.eINSTANCE.getSeriesFX_Name());
 		
-//		treeView.setCellFactory(new Callback<TreeView<Object>, TreeCell<Object>>() {
-//			@Override
-//			public TreeCell call(TreeView<Object> param) {
-//				return new CommandCellFactory(manager.getAdapterFactory());
-//			}
-//		});
-
 		MenuItem openPreviewMenuItem = new MenuItem(getEmfManager().getModelPackage().getName()+" Preview");
 		openPreviewMenuItem.setOnAction(e->{
 			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<FXPreview>("open.preview", new ChartFXPreview()));

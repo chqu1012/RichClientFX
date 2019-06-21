@@ -124,7 +124,7 @@ public class CommandCellFactory extends TreeCell<Object> {
 			AddCommand addCommand = (AddCommand) command;
 			String owner = ((IItemLabelProvider) adapterFactory.adapt(addCommand.getOwner(), IItemLabelProvider.class))
 					.getText(addCommand.getOwner());
-			name = "Add new " + owner;
+			name = "Add new " + addCommand.getFeature().getEType().getName() +" to "+owner;
 			imageView.setImage(new Image(getClass().getResourceAsStream("/de/dc/javafx/xcore/workbench/command/ui/cell/icons8-file-32-add.png")));
 		} else if (command instanceof DeleteCommand) {
 			DeleteCommand aCommand = (DeleteCommand) command;

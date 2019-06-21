@@ -47,16 +47,13 @@
                                        </font>
                                     </Label>
                                     <VBox fx:id="attributeContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" />
-                                    <HBox fx:id="childToolbar" spacing="5.0">
-                                       <children>
-                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Child Properties" HBox.hgrow="ALWAYS">
-                                             <font>
-                                                <Font name="System Bold" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Child Properties">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
                                     <Separator prefWidth="200.0" />
+                                    <HBox fx:id="childToolbar" spacing="5.0" />
                                     <VBox fx:id="tableContainer" spacing="5.0">
                                        <children>
                                           <HBox fx:id="childAttributeContainer" />
