@@ -342,6 +342,134 @@ public interface ChartPackage extends EPackage {
 	int CATEGORY_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYZChartFXImpl <em>XYZ Chart FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.XYZChartFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYZChartFX()
+	 * @generated
+	 */
+	int XYZ_CHART_FX = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_CHART_FX__NAME = CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_CHART_FX__XAXIS_LABEL = CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_CHART_FX__YAXIS_LABEL = CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_CHART_FX__ZAXIS_LABEL = CHART_FX__ZAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_CHART_FX__CONFIG = CHART_FX__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_CHART_FX__SERIES = CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>XYZ Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_CHART_FX_FEATURE_COUNT = CHART_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>XYZ Chart FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_CHART_FX_OPERATION_COUNT = CHART_FX_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYZSeriesFXImpl <em>XYZ Series FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.XYZSeriesFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYZSeriesFX()
+	 * @generated
+	 */
+	int XYZ_SERIES_FX = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_SERIES_FX__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_SERIES_FX__VALUES = 1;
+
+	/**
+	 * The number of structural features of the '<em>XYZ Series FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_SERIES_FX_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>XYZ Series FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_SERIES_FX_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.CategorySeriesFXImpl <em>Category Series FX</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,7 +477,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getCategorySeriesFX()
 	 * @generated
 	 */
-	int CATEGORY_SERIES_FX = 4;
+	int CATEGORY_SERIES_FX = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -395,7 +523,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getSeriesFX()
 	 * @generated
 	 */
-	int SERIES_FX = 5;
+	int SERIES_FX = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -441,7 +569,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYValueFX()
 	 * @generated
 	 */
-	int XY_VALUE_FX = 6;
+	int XY_VALUE_FX = 8;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -480,6 +608,61 @@ public interface ChartPackage extends EPackage {
 	int XY_VALUE_FX_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYZValueFXImpl <em>XYZ Value FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.XYZValueFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYZValueFX()
+	 * @generated
+	 */
+	int XYZ_VALUE_FX = 9;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_VALUE_FX__X = XY_VALUE_FX__X;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_VALUE_FX__Y = XY_VALUE_FX__Y;
+
+	/**
+	 * The feature id for the '<em><b>Z</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_VALUE_FX__Z = XY_VALUE_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>XYZ Value FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_VALUE_FX_FEATURE_COUNT = XY_VALUE_FX_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>XYZ Value FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_VALUE_FX_OPERATION_COUNT = XY_VALUE_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.CategoryValueFXImpl <em>Category Value FX</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,7 +670,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getCategoryValueFX()
 	 * @generated
 	 */
-	int CATEGORY_VALUE_FX = 7;
+	int CATEGORY_VALUE_FX = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -533,7 +716,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getLineChartFX()
 	 * @generated
 	 */
-	int LINE_CHART_FX = 8;
+	int LINE_CHART_FX = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -615,7 +798,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getAreaChartFX()
 	 * @generated
 	 */
-	int AREA_CHART_FX = 9;
+	int AREA_CHART_FX = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -697,7 +880,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getScatterChartFX()
 	 * @generated
 	 */
-	int SCATTER_CHART_FX = 10;
+	int SCATTER_CHART_FX = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -779,7 +962,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getBubbleChartFX()
 	 * @generated
 	 */
-	int BUBBLE_CHART_FX = 11;
+	int BUBBLE_CHART_FX = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -861,7 +1044,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getBarChartFX()
 	 * @generated
 	 */
-	int BAR_CHART_FX = 12;
+	int BAR_CHART_FX = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -943,7 +1126,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getPieChartFX()
 	 * @generated
 	 */
-	int PIE_CHART_FX = 13;
+	int PIE_CHART_FX = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1025,7 +1208,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getAreaChart3dFX()
 	 * @generated
 	 */
-	int AREA_CHART3D_FX = 14;
+	int AREA_CHART3D_FX = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1107,7 +1290,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getBarChart3dFX()
 	 * @generated
 	 */
-	int BAR_CHART3D_FX = 15;
+	int BAR_CHART3D_FX = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1189,7 +1372,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getLineChart3dFX()
 	 * @generated
 	 */
-	int LINE_CHART3D_FX = 16;
+	int LINE_CHART3D_FX = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1271,7 +1454,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getPieChart3dFX()
 	 * @generated
 	 */
-	int PIE_CHART3D_FX = 17;
+	int PIE_CHART3D_FX = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1346,6 +1529,88 @@ public interface ChartPackage extends EPackage {
 	int PIE_CHART3D_FX_OPERATION_COUNT = CATEGORY_CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ScatterChart3dFXImpl <em>Scatter Chart3d FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ScatterChart3dFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getScatterChart3dFX()
+	 * @generated
+	 */
+	int SCATTER_CHART3D_FX = 21;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART3D_FX__NAME = XYZ_CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART3D_FX__XAXIS_LABEL = XYZ_CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART3D_FX__YAXIS_LABEL = XYZ_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART3D_FX__ZAXIS_LABEL = XYZ_CHART_FX__ZAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART3D_FX__CONFIG = XYZ_CHART_FX__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART3D_FX__SERIES = XYZ_CHART_FX__SERIES;
+
+	/**
+	 * The number of structural features of the '<em>Scatter Chart3d FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART3D_FX_FEATURE_COUNT = XYZ_CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Scatter Chart3d FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_CHART3D_FX_OPERATION_COUNT = XYZ_CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1353,7 +1618,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
 	 * @generated
 	 */
-	int CHART_FX_CONFIG = 18;
+	int CHART_FX_CONFIG = 22;
 
 	/**
 	 * The feature id for the '<em><b>Side Legend</b></em>' attribute.
@@ -1471,7 +1736,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
 	 * @generated
 	 */
-	int CHART_SIDE = 19;
+	int CHART_SIDE = 23;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartProject <em>Project</em>}'.
@@ -1613,6 +1878,59 @@ public interface ChartPackage extends EPackage {
 	EReference getCategoryChartFX_Series();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.XYZChartFX <em>XYZ Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XYZ Chart FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZChartFX
+	 * @generated
+	 */
+	EClass getXYZChartFX();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.chart.XYZChartFX#getSeries <em>Series</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Series</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZChartFX#getSeries()
+	 * @see #getXYZChartFX()
+	 * @generated
+	 */
+	EReference getXYZChartFX_Series();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.XYZSeriesFX <em>XYZ Series FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XYZ Series FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZSeriesFX
+	 * @generated
+	 */
+	EClass getXYZSeriesFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.XYZSeriesFX#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZSeriesFX#getName()
+	 * @see #getXYZSeriesFX()
+	 * @generated
+	 */
+	EAttribute getXYZSeriesFX_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.chart.XYZSeriesFX#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZSeriesFX#getValues()
+	 * @see #getXYZSeriesFX()
+	 * @generated
+	 */
+	EReference getXYZSeriesFX_Values();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.CategorySeriesFX <em>Category Series FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1707,6 +2025,27 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getXYValueFX_Y();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.XYZValueFX <em>XYZ Value FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XYZ Value FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZValueFX
+	 * @generated
+	 */
+	EClass getXYZValueFX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.chart.XYZValueFX#getZ <em>Z</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Z</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZValueFX#getZ()
+	 * @see #getXYZValueFX()
+	 * @generated
+	 */
+	EAttribute getXYZValueFX_Z();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.CategoryValueFX <em>Category Value FX</em>}'.
@@ -1839,6 +2178,16 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPieChart3dFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX <em>Scatter Chart3d FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scatter Chart3d FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX
+	 * @generated
+	 */
+	EClass getScatterChart3dFX();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartFXConfig <em>FX Config</em>}'.
@@ -2106,6 +2455,50 @@ public interface ChartPackage extends EPackage {
 		EReference CATEGORY_CHART_FX__SERIES = eINSTANCE.getCategoryChartFX_Series();
 
 		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYZChartFXImpl <em>XYZ Chart FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.XYZChartFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYZChartFX()
+		 * @generated
+		 */
+		EClass XYZ_CHART_FX = eINSTANCE.getXYZChartFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Series</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XYZ_CHART_FX__SERIES = eINSTANCE.getXYZChartFX_Series();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYZSeriesFXImpl <em>XYZ Series FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.XYZSeriesFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYZSeriesFX()
+		 * @generated
+		 */
+		EClass XYZ_SERIES_FX = eINSTANCE.getXYZSeriesFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XYZ_SERIES_FX__NAME = eINSTANCE.getXYZSeriesFX_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XYZ_SERIES_FX__VALUES = eINSTANCE.getXYZSeriesFX_Values();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.CategorySeriesFXImpl <em>Category Series FX</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2182,6 +2575,24 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute XY_VALUE_FX__Y = eINSTANCE.getXYValueFX_Y();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYZValueFXImpl <em>XYZ Value FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.XYZValueFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYZValueFX()
+		 * @generated
+		 */
+		EClass XYZ_VALUE_FX = eINSTANCE.getXYZValueFX();
+
+		/**
+		 * The meta object literal for the '<em><b>Z</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XYZ_VALUE_FX__Z = eINSTANCE.getXYZValueFX_Z();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.CategoryValueFXImpl <em>Category Value FX</em>}' class.
@@ -2308,6 +2719,16 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PIE_CHART3D_FX = eINSTANCE.getPieChart3dFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ScatterChart3dFXImpl <em>Scatter Chart3d FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ScatterChart3dFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getScatterChart3dFX()
+		 * @generated
+		 */
+		EClass SCATTER_CHART3D_FX = eINSTANCE.getScatterChart3dFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.ChartFXConfigImpl <em>FX Config</em>}' class.

@@ -16,12 +16,17 @@ import com.orsoncharts.axis.NumberTickSelector;
 import com.orsoncharts.data.DefaultKeyedValues;
 import com.orsoncharts.data.StandardPieDataset3D;
 import com.orsoncharts.data.category.StandardCategoryDataset3D;
+import com.orsoncharts.data.xyz.XYZSeries;
+import com.orsoncharts.data.xyz.XYZSeriesCollection;
 import com.orsoncharts.fx.Chart3DViewer;
 import com.orsoncharts.graphics3d.Dimension3D;
 import com.orsoncharts.graphics3d.ViewPoint3D;
+import com.orsoncharts.label.StandardXYZLabelGenerator;
 import com.orsoncharts.legend.LegendAnchor;
 import com.orsoncharts.plot.CategoryPlot3D;
+import com.orsoncharts.plot.XYZPlot;
 import com.orsoncharts.renderer.category.AreaRenderer3D;
+import com.orsoncharts.renderer.xyz.ScatterXYZRenderer;
 import com.orsoncharts.util.Orientation;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
@@ -43,10 +48,13 @@ import de.dc.javafx.xcore.workbench.chart.LineChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.PieChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.PieChartFX;
+import de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
+import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
+import de.dc.javafx.xcore.workbench.chart.XYZValueFX;
 import de.dc.javafx.xcore.workbench.chart.util.ChartSwitch;
 import javafx.geometry.Side;
 import javafx.scene.Node;
@@ -60,6 +68,33 @@ import javafx.scene.input.MouseButton;
 public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
+
+	@Override
+	public Node caseScatterChart3dFX(ScatterChart3dFX object) {
+		XYZSeriesCollection<String> dataset = new XYZSeriesCollection<>();
+		for (XYZSeriesFX seriesFX : object.getSeries()) {
+			String name = seriesFX.getName();
+			XYZSeries<String> series = new XYZSeries<>(name);
+			for (XYZValueFX valueFX : seriesFX.getValues()) {
+				series.add(valueFX.getX(), valueFX.getY(), valueFX.getZ());		
+			}
+			dataset.add(series);
+		}
+		String title = object.getName();
+		String subtitle = "";
+		String xAxisLabel = "X";
+		String yAxisLabel = "Y";
+		String zAxisLabel = "Z";
+		Chart3D chart = Chart3DFactory.createScatterChart(title, subtitle, dataset, xAxisLabel, yAxisLabel, zAxisLabel);
+		XYZPlot plot = (XYZPlot) chart.getPlot();
+		plot.setDimensions(new Dimension3D(10.0, 4.0, 4.0));
+		plot.setLegendLabelGenerator(new StandardXYZLabelGenerator(StandardXYZLabelGenerator.COUNT_TEMPLATE));
+		ScatterXYZRenderer renderer = (ScatterXYZRenderer) plot.getRenderer();
+		renderer.setSize(0.15);
+		renderer.setColors(Colors.createIntenseColors());
+		chart.setViewPoint(ViewPoint3D.createAboveLeftViewPoint(40));
+		return new Chart3DViewer(chart);
+	}
 
 	@Override
 	public Node casePieChart3dFX(PieChart3dFX object) {
@@ -77,7 +112,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 		chart.setLegendPosition(LegendAnchor.BOTTOM_CENTER, Orientation.HORIZONTAL);
 		return new Chart3DViewer(chart);
 	}
-	
+
 	@Override
 	public Node caseLineChart3dFX(LineChart3dFX object) {
 		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
@@ -87,24 +122,24 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 			for (XYValueFX valueFX : serieFX.getValues()) {
 				serie.put(String.valueOf(valueFX.getX()), valueFX.getY());
 			}
-			String seriesName = serieFX.getName()==null? "No name "+series.indexOf(serieFX) : serieFX.getName();
+			String seriesName = serieFX.getName() == null ? "No name " + series.indexOf(serieFX) : serieFX.getName();
 			dataset.addSeriesAsRow(seriesName, serie);
 		}
-		
+
 		String title = object.getName();
 		String subtitle = "";
 		String valueAxisLabel = object.getXAxisLabel();
 		Chart3D chart = Chart3DFactory.createLineChart(title, subtitle, dataset, null, null, valueAxisLabel);
-	    CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
-	    plot.setDimensions(new Dimension3D(18, 8, 4));
-	    plot.getRowAxis().setVisible(false);
-	    NumberAxis3D valueAxis = (NumberAxis3D) plot.getValueAxis();
-	    valueAxis.setTickSelector(new NumberTickSelector(true));
-	    plot.getRenderer().setColors(Colors.createFancyDarkColors());
-	    chart.setViewPoint(ViewPoint3D.createAboveViewPoint(30));
-	    return new Chart3DViewer(chart);
+		CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
+		plot.setDimensions(new Dimension3D(18, 8, 4));
+		plot.getRowAxis().setVisible(false);
+		NumberAxis3D valueAxis = (NumberAxis3D) plot.getValueAxis();
+		valueAxis.setTickSelector(new NumberTickSelector(true));
+		plot.getRenderer().setColors(Colors.createFancyDarkColors());
+		chart.setViewPoint(ViewPoint3D.createAboveViewPoint(30));
+		return new Chart3DViewer(chart);
 	}
-	
+
 	@Override
 	public Node caseBarChart3dFX(BarChart3dFX object) {
 		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
@@ -114,18 +149,18 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 			for (XYValueFX valueFX : serieFX.getValues()) {
 				serie.put(String.valueOf(valueFX.getX()), valueFX.getY());
 			}
-			String seriesName = serieFX.getName()==null? "No name "+series.indexOf(serieFX) : serieFX.getName();
+			String seriesName = serieFX.getName() == null ? "No name " + series.indexOf(serieFX) : serieFX.getName();
 			dataset.addSeriesAsRow(seriesName, serie);
 		}
 
 		Chart3D chart = Chart3DFactory.createBarChart(object.getName(), "", dataset, null, "Month", "Value");
-	    chart.setChartBoxColor(new Color(255, 255, 255, 127));
-	    chart.setLegendAnchor(LegendAnchor.BOTTOM_RIGHT);
-	    CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
-	    plot.setGridlinePaintForValues(Color.BLACK);
-	    return new Chart3DViewer(chart);
+		chart.setChartBoxColor(new Color(255, 255, 255, 127));
+		chart.setLegendAnchor(LegendAnchor.BOTTOM_RIGHT);
+		CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
+		plot.setGridlinePaintForValues(Color.BLACK);
+		return new Chart3DViewer(chart);
 	}
-	
+
 	@Override
 	public Node caseAreaChart3dFX(AreaChart3dFX object) {
 		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
@@ -135,7 +170,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 			for (XYValueFX valueFX : serieFX.getValues()) {
 				serie.put(String.valueOf(valueFX.getX()), valueFX.getY());
 			}
-			String name = serieFX.getName()==null? "No Name "+series.indexOf(serieFX) : serieFX.getName();
+			String name = serieFX.getName() == null ? "No Name " + series.indexOf(serieFX) : serieFX.getName();
 			dataset.addSeriesAsRow(name, serie);
 		}
 

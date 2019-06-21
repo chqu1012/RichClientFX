@@ -4,7 +4,7 @@ package de.dc.javafx.xcore.workbench.chart.provider;
 
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
-import de.dc.javafx.xcore.workbench.chart.ChartProject;
+import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.ChartProject} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.XYZSeriesFX} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChartProjectItemProvider extends ItemProviderAdapter
+public class XYZSeriesFXItemProvider extends ItemProviderAdapter
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
 		IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider {
 	/**
@@ -43,7 +43,7 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChartProjectItemProvider(AdapterFactory adapterFactory) {
+	public XYZSeriesFXItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,10 +72,10 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ChartProject_name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ChartProject_name_feature",
-								"_UI_ChartProject_type"),
-						ChartPackage.Literals.CHART_PROJECT__NAME, true, false, false,
+						getResourceLocator(), getString("_UI_XYZSeriesFX_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_XYZSeriesFX_name_feature",
+								"_UI_XYZSeriesFX_type"),
+						ChartPackage.Literals.XYZ_SERIES_FX__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -91,7 +91,7 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ChartPackage.Literals.CHART_PROJECT__CHARTS);
+			childrenFeatures.add(ChartPackage.Literals.XYZ_SERIES_FX__VALUES);
 		}
 		return childrenFeatures;
 	}
@@ -110,14 +110,14 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 	}
 
 	/**
-	 * This returns ChartProject.gif.
+	 * This returns XYZSeriesFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ChartProject"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XYZSeriesFX"));
 	}
 
 	/**
@@ -153,9 +153,9 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ChartProject) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ChartProject_type")
-				: getString("_UI_ChartProject_type") + " " + label;
+		String label = ((XYZSeriesFX) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_XYZSeriesFX_type")
+				: getString("_UI_XYZSeriesFX_type") + " " + label;
 	}
 
 	/**
@@ -184,11 +184,11 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ChartProject.class)) {
-		case ChartPackage.CHART_PROJECT__NAME:
+		switch (notification.getFeatureID(XYZSeriesFX.class)) {
+		case ChartPackage.XYZ_SERIES_FX__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case ChartPackage.CHART_PROJECT__CHARTS:
+		case ChartPackage.XYZ_SERIES_FX__VALUES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -206,38 +206,8 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createLineChartFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createAreaChartFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createScatterChartFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createBubbleChartFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createBarChartFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createPieChartFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createAreaChart3dFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createBarChart3dFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createLineChart3dFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createPieChart3dFX()));
-
-		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
-				ChartFactory.eINSTANCE.createScatterChart3dFX()));
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.XYZ_SERIES_FX__VALUES,
+				ChartFactory.eINSTANCE.createXYZValueFX()));
 	}
 
 	/**

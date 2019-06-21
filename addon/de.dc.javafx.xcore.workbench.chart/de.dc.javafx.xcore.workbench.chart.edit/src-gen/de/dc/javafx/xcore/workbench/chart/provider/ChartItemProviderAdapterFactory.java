@@ -98,6 +98,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.XYZSeriesFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XYZSeriesFXItemProvider xyzSeriesFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.XYZSeriesFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXYZSeriesFXAdapter() {
+		if (xyzSeriesFXItemProvider == null) {
+			xyzSeriesFXItemProvider = new XYZSeriesFXItemProvider(this);
+		}
+
+		return xyzSeriesFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.CategorySeriesFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,6 +187,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 		}
 
 		return xyValueFXItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.XYZValueFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XYZValueFXItemProvider xyzValueFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.XYZValueFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXYZValueFXAdapter() {
+		if (xyzValueFXItemProvider == null) {
+			xyzValueFXItemProvider = new XYZValueFXItemProvider(this);
+		}
+
+		return xyzValueFXItemProvider;
 	}
 
 	/**
@@ -397,6 +443,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScatterChart3dFXItemProvider scatterChart3dFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScatterChart3dFXAdapter() {
+		if (scatterChart3dFXItemProvider == null) {
+			scatterChart3dFXItemProvider = new ScatterChart3dFXItemProvider(this);
+		}
+
+		return scatterChart3dFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.BarChartFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -549,12 +618,16 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	public void dispose() {
 		if (chartProjectItemProvider != null)
 			chartProjectItemProvider.dispose();
+		if (xyzSeriesFXItemProvider != null)
+			xyzSeriesFXItemProvider.dispose();
 		if (categorySeriesFXItemProvider != null)
 			categorySeriesFXItemProvider.dispose();
 		if (seriesFXItemProvider != null)
 			seriesFXItemProvider.dispose();
 		if (xyValueFXItemProvider != null)
 			xyValueFXItemProvider.dispose();
+		if (xyzValueFXItemProvider != null)
+			xyzValueFXItemProvider.dispose();
 		if (categoryValueFXItemProvider != null)
 			categoryValueFXItemProvider.dispose();
 		if (lineChartFXItemProvider != null)
@@ -577,6 +650,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			lineChart3dFXItemProvider.dispose();
 		if (pieChart3dFXItemProvider != null)
 			pieChart3dFXItemProvider.dispose();
+		if (scatterChart3dFXItemProvider != null)
+			scatterChart3dFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}

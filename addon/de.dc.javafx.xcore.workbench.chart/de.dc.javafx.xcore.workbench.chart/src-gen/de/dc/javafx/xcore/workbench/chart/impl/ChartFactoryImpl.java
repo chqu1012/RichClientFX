@@ -58,12 +58,16 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 		switch (eClass.getClassifierID()) {
 		case ChartPackage.CHART_PROJECT:
 			return createChartProject();
+		case ChartPackage.XYZ_SERIES_FX:
+			return createXYZSeriesFX();
 		case ChartPackage.CATEGORY_SERIES_FX:
 			return createCategorySeriesFX();
 		case ChartPackage.SERIES_FX:
 			return createSeriesFX();
 		case ChartPackage.XY_VALUE_FX:
 			return createXYValueFX();
+		case ChartPackage.XYZ_VALUE_FX:
+			return createXYZValueFX();
 		case ChartPackage.CATEGORY_VALUE_FX:
 			return createCategoryValueFX();
 		case ChartPackage.LINE_CHART_FX:
@@ -86,6 +90,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createLineChart3dFX();
 		case ChartPackage.PIE_CHART3D_FX:
 			return createPieChart3dFX();
+		case ChartPackage.SCATTER_CHART3D_FX:
+			return createScatterChart3dFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:
@@ -140,6 +146,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * @generated
 	 */
 	@Override
+	public XYZSeriesFX createXYZSeriesFX() {
+		XYZSeriesFXImpl xyzSeriesFX = new XYZSeriesFXImpl();
+		return xyzSeriesFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public CategorySeriesFX createCategorySeriesFX() {
 		CategorySeriesFXImpl categorySeriesFX = new CategorySeriesFXImpl();
 		return categorySeriesFX;
@@ -165,6 +182,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public XYValueFX createXYValueFX() {
 		XYValueFXImpl xyValueFX = new XYValueFXImpl();
 		return xyValueFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XYZValueFX createXYZValueFX() {
+		XYZValueFXImpl xyzValueFX = new XYZValueFXImpl();
+		return xyzValueFX;
 	}
 
 	/**
@@ -286,6 +314,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public PieChart3dFX createPieChart3dFX() {
 		PieChart3dFXImpl pieChart3dFX = new PieChart3dFXImpl();
 		return pieChart3dFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ScatterChart3dFX createScatterChart3dFX() {
+		ScatterChart3dFXImpl scatterChart3dFX = new ScatterChart3dFXImpl();
+		return scatterChart3dFX;
 	}
 
 	/**

@@ -32,6 +32,15 @@ abstract class CategoryChartFX extends ChartFX{
 	contains CategorySeriesFX[0..*] series
 }
 
+abstract class XYZChartFX extends ChartFX{
+	contains XYZSeriesFX[0..*] series
+}
+
+class XYZSeriesFX{
+	String name
+	contains XYZValueFX[0..*] values
+}
+
 class CategorySeriesFX{
 	String name
 	contains CategoryValueFX[0..*] values
@@ -45,6 +54,10 @@ class SeriesFX{
 class XYValueFX{
 	double x ='0'
 	double y = '0'
+}
+
+class XYZValueFX extends XYValueFX{
+	double z = '0'
 }
 
 class CategoryValueFX{
@@ -64,6 +77,7 @@ class AreaChart3dFX extends XYChartFX{}
 class BarChart3dFX extends XYChartFX{}
 class LineChart3dFX extends XYChartFX{}
 class PieChart3dFX extends CategoryChartFX{}
+class ScatterChart3dFX extends XYZChartFX{}
 
 class ChartFXConfig{
 	ChartSide sideLegend

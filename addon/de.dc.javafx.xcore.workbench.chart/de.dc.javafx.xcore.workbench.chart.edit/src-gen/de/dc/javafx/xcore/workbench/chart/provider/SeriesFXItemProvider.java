@@ -209,6 +209,9 @@ public class SeriesFXItemProvider extends ItemProviderAdapter
 
 		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.SERIES_FX__VALUES,
 				ChartFactory.eINSTANCE.createXYValueFX()));
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.SERIES_FX__VALUES,
+				ChartFactory.eINSTANCE.createXYZValueFX()));
 	}
 
 	/**

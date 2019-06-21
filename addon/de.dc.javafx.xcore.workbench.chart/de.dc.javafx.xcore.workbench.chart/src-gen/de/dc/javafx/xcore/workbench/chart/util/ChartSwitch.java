@@ -98,6 +98,22 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.XYZ_CHART_FX: {
+			XYZChartFX xyzChartFX = (XYZChartFX) theEObject;
+			T result = caseXYZChartFX(xyzChartFX);
+			if (result == null)
+				result = caseChartFX(xyzChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ChartPackage.XYZ_SERIES_FX: {
+			XYZSeriesFX xyzSeriesFX = (XYZSeriesFX) theEObject;
+			T result = caseXYZSeriesFX(xyzSeriesFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.CATEGORY_SERIES_FX: {
 			CategorySeriesFX categorySeriesFX = (CategorySeriesFX) theEObject;
 			T result = caseCategorySeriesFX(categorySeriesFX);
@@ -115,6 +131,15 @@ public class ChartSwitch<T> extends Switch<T> {
 		case ChartPackage.XY_VALUE_FX: {
 			XYValueFX xyValueFX = (XYValueFX) theEObject;
 			T result = caseXYValueFX(xyValueFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ChartPackage.XYZ_VALUE_FX: {
+			XYZValueFX xyzValueFX = (XYZValueFX) theEObject;
+			T result = caseXYZValueFX(xyzValueFX);
+			if (result == null)
+				result = caseXYValueFX(xyzValueFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -236,6 +261,17 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.SCATTER_CHART3D_FX: {
+			ScatterChart3dFX scatterChart3dFX = (ScatterChart3dFX) theEObject;
+			T result = caseScatterChart3dFX(scatterChart3dFX);
+			if (result == null)
+				result = caseXYZChartFX(scatterChart3dFX);
+			if (result == null)
+				result = caseChartFX(scatterChart3dFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.CHART_FX_CONFIG: {
 			ChartFXConfig chartFXConfig = (ChartFXConfig) theEObject;
 			T result = caseChartFXConfig(chartFXConfig);
@@ -309,6 +345,36 @@ public class ChartSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XYZ Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XYZ Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXYZChartFX(XYZChartFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XYZ Series FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XYZ Series FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXYZSeriesFX(XYZSeriesFX object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Category Series FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -350,6 +416,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXYValueFX(XYValueFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XYZ Value FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XYZ Value FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXYZValueFX(XYZValueFX object) {
 		return null;
 	}
 
@@ -515,6 +596,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePieChart3dFX(PieChart3dFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scatter Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scatter Chart3d FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseScatterChart3dFX(ScatterChart3dFX object) {
 		return null;
 	}
 

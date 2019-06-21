@@ -87,6 +87,16 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseXYZChartFX(XYZChartFX object) {
+			return createXYZChartFXAdapter();
+		}
+
+		@Override
+		public Adapter caseXYZSeriesFX(XYZSeriesFX object) {
+			return createXYZSeriesFXAdapter();
+		}
+
+		@Override
 		public Adapter caseCategorySeriesFX(CategorySeriesFX object) {
 			return createCategorySeriesFXAdapter();
 		}
@@ -99,6 +109,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseXYValueFX(XYValueFX object) {
 			return createXYValueFXAdapter();
+		}
+
+		@Override
+		public Adapter caseXYZValueFX(XYZValueFX object) {
+			return createXYZValueFXAdapter();
 		}
 
 		@Override
@@ -154,6 +169,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter casePieChart3dFX(PieChart3dFX object) {
 			return createPieChart3dFXAdapter();
+		}
+
+		@Override
+		public Adapter caseScatterChart3dFX(ScatterChart3dFX object) {
+			return createScatterChart3dFXAdapter();
 		}
 
 		@Override
@@ -237,6 +257,34 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.XYZChartFX <em>XYZ Chart FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZChartFX
+	 * @generated
+	 */
+	public Adapter createXYZChartFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.XYZSeriesFX <em>XYZ Series FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZSeriesFX
+	 * @generated
+	 */
+	public Adapter createXYZSeriesFXAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.CategorySeriesFX <em>Category Series FX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -275,6 +323,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXYValueFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.XYZValueFX <em>XYZ Value FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZValueFX
+	 * @generated
+	 */
+	public Adapter createXYZValueFXAdapter() {
 		return null;
 	}
 
@@ -429,6 +491,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPieChart3dFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX <em>Scatter Chart3d FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX
+	 * @generated
+	 */
+	public Adapter createScatterChart3dFXAdapter() {
 		return null;
 	}
 

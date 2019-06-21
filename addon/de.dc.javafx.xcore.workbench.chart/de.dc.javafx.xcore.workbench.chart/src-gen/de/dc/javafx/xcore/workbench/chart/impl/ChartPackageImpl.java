@@ -20,10 +20,14 @@ import de.dc.javafx.xcore.workbench.chart.LineChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.LineChartFX;
 import de.dc.javafx.xcore.workbench.chart.PieChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.PieChartFX;
+import de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
+import de.dc.javafx.xcore.workbench.chart.XYZChartFX;
+import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
+import de.dc.javafx.xcore.workbench.chart.XYZValueFX;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -74,6 +78,20 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass xyzChartFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xyzSeriesFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass categorySeriesFXEClass = null;
 
 	/**
@@ -89,6 +107,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass xyValueFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xyzValueFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,6 +191,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass pieChart3dFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scatterChart3dFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -384,6 +416,56 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getXYZChartFX() {
+		return xyzChartFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getXYZChartFX_Series() {
+		return (EReference) xyzChartFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getXYZSeriesFX() {
+		return xyzSeriesFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getXYZSeriesFX_Name() {
+		return (EAttribute) xyzSeriesFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getXYZSeriesFX_Values() {
+		return (EReference) xyzSeriesFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCategorySeriesFX() {
 		return categorySeriesFXEClass;
 	}
@@ -466,6 +548,26 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	@Override
 	public EAttribute getXYValueFX_Y() {
 		return (EAttribute) xyValueFXEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getXYZValueFX() {
+		return xyzValueFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getXYZValueFX_Z() {
+		return (EAttribute) xyzValueFXEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -596,6 +698,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	@Override
 	public EClass getPieChart3dFX() {
 		return pieChart3dFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getScatterChart3dFX() {
+		return scatterChart3dFXEClass;
 	}
 
 	/**
@@ -765,6 +877,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		categoryChartFXEClass = createEClass(CATEGORY_CHART_FX);
 		createEReference(categoryChartFXEClass, CATEGORY_CHART_FX__SERIES);
 
+		xyzChartFXEClass = createEClass(XYZ_CHART_FX);
+		createEReference(xyzChartFXEClass, XYZ_CHART_FX__SERIES);
+
+		xyzSeriesFXEClass = createEClass(XYZ_SERIES_FX);
+		createEAttribute(xyzSeriesFXEClass, XYZ_SERIES_FX__NAME);
+		createEReference(xyzSeriesFXEClass, XYZ_SERIES_FX__VALUES);
+
 		categorySeriesFXEClass = createEClass(CATEGORY_SERIES_FX);
 		createEAttribute(categorySeriesFXEClass, CATEGORY_SERIES_FX__NAME);
 		createEReference(categorySeriesFXEClass, CATEGORY_SERIES_FX__VALUES);
@@ -776,6 +895,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		xyValueFXEClass = createEClass(XY_VALUE_FX);
 		createEAttribute(xyValueFXEClass, XY_VALUE_FX__X);
 		createEAttribute(xyValueFXEClass, XY_VALUE_FX__Y);
+
+		xyzValueFXEClass = createEClass(XYZ_VALUE_FX);
+		createEAttribute(xyzValueFXEClass, XYZ_VALUE_FX__Z);
 
 		categoryValueFXEClass = createEClass(CATEGORY_VALUE_FX);
 		createEAttribute(categoryValueFXEClass, CATEGORY_VALUE_FX__NAME);
@@ -800,6 +922,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		lineChart3dFXEClass = createEClass(LINE_CHART3D_FX);
 
 		pieChart3dFXEClass = createEClass(PIE_CHART3D_FX);
+
+		scatterChart3dFXEClass = createEClass(SCATTER_CHART3D_FX);
 
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
@@ -851,6 +975,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		// Add supertypes to classes
 		xyChartFXEClass.getESuperTypes().add(this.getChartFX());
 		categoryChartFXEClass.getESuperTypes().add(this.getChartFX());
+		xyzChartFXEClass.getESuperTypes().add(this.getChartFX());
+		xyzValueFXEClass.getESuperTypes().add(this.getXYValueFX());
 		lineChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		areaChartFXEClass.getESuperTypes().add(this.getXYChartFX());
 		scatterChartFXEClass.getESuperTypes().add(this.getXYChartFX());
@@ -861,6 +987,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		barChart3dFXEClass.getESuperTypes().add(this.getXYChartFX());
 		lineChart3dFXEClass.getESuperTypes().add(this.getXYChartFX());
 		pieChart3dFXEClass.getESuperTypes().add(this.getCategoryChartFX());
+		scatterChart3dFXEClass.getESuperTypes().add(this.getXYZChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -901,6 +1028,21 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				CategoryChartFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(xyzChartFXEClass, XYZChartFX.class, "XYZChartFX", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getXYZChartFX_Series(), this.getXYZSeriesFX(), null, "series", null, 0, -1, XYZChartFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(xyzSeriesFXEClass, XYZSeriesFX.class, "XYZSeriesFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXYZSeriesFX_Name(), theEcorePackage.getEString(), "name", null, 0, 1, XYZSeriesFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getXYZSeriesFX_Values(), this.getXYZValueFX(), null, "values", null, 0, -1, XYZSeriesFX.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(categorySeriesFXEClass, CategorySeriesFX.class, "CategorySeriesFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCategorySeriesFX_Name(), theEcorePackage.getEString(), "name", null, 0, 1,
@@ -924,6 +1066,11 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		initEAttribute(getXYValueFX_X(), theEcorePackage.getEDouble(), "x", "0", 0, 1, XYValueFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXYValueFX_Y(), theEcorePackage.getEDouble(), "y", "0", 0, 1, XYValueFX.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(xyzValueFXEClass, XYZValueFX.class, "XYZValueFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXYZValueFX_Z(), theEcorePackage.getEDouble(), "z", "0", 0, 1, XYZValueFX.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categoryValueFXEClass, CategoryValueFX.class, "CategoryValueFX", !IS_ABSTRACT, !IS_INTERFACE,
@@ -963,6 +1110,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pieChart3dFXEClass, PieChart3dFX.class, "PieChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(scatterChart3dFXEClass, ScatterChart3dFX.class, "ScatterChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,

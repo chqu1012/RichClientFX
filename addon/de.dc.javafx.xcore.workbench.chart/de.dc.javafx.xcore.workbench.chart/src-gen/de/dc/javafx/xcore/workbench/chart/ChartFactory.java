@@ -31,6 +31,15 @@ public interface ChartFactory extends EFactory {
 	ChartProject createChartProject();
 
 	/**
+	 * Returns a new object of class '<em>XYZ Series FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XYZ Series FX</em>'.
+	 * @generated
+	 */
+	XYZSeriesFX createXYZSeriesFX();
+
+	/**
 	 * Returns a new object of class '<em>Category Series FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +65,15 @@ public interface ChartFactory extends EFactory {
 	 * @generated
 	 */
 	XYValueFX createXYValueFX();
+
+	/**
+	 * Returns a new object of class '<em>XYZ Value FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XYZ Value FX</em>'.
+	 * @generated
+	 */
+	XYZValueFX createXYZValueFX();
 
 	/**
 	 * Returns a new object of class '<em>Category Value FX</em>'.
@@ -155,6 +173,15 @@ public interface ChartFactory extends EFactory {
 	 * @generated
 	 */
 	PieChart3dFX createPieChart3dFX();
+
+	/**
+	 * Returns a new object of class '<em>Scatter Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scatter Chart3d FX</em>'.
+	 * @generated
+	 */
+	ScatterChart3dFX createScatterChart3dFX();
 
 	/**
 	 * Returns a new object of class '<em>FX Config</em>'.
