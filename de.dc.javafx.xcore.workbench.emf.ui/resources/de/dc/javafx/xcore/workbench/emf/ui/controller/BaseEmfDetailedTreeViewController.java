@@ -10,6 +10,9 @@ import javafx.scene.layout.VBox;
 public abstract class BaseEmfDetailedTreeViewController extends SplitPane {
 
 	@FXML
+	protected HBox childToolbar;
+	
+	@FXML
 	protected HBox toolbar;
 	
 	@FXML
