@@ -15,6 +15,8 @@ import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
+import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
+import de.dc.javafx.xcore.workbench.chart.XYZValueFX;
 import de.dc.javafx.xcore.workbench.chart.ui.view.ChartFXPreview;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.ui.EmfDetailedTreeView;
@@ -56,6 +58,16 @@ public class ChartFXEmfDetailedTreeView extends EmfDetailedTreeView<ChartProject
 				value.setValue(random.nextDouble());
 				values.add(value);
 			}
+		}else if (selection.getValue() instanceof XYZSeriesFX) {
+			series = (XYZSeriesFX) selection.getValue();
+			for (int i = 0; i < 50; i++) {
+				XYZValueFX value = ChartFactory.eINSTANCE.createXYZValueFX();
+				value.setX(i+5);
+				value.setY(random.nextDouble());
+				value.setZ(random.nextDouble());
+				values.add(value);
+			}
+			
 		}
 		
 		if (series!=null) {

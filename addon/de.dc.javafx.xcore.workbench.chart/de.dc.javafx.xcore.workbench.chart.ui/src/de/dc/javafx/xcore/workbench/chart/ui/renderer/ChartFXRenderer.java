@@ -73,7 +73,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	public Node caseScatterChart3dFX(ScatterChart3dFX object) {
 		XYZSeriesCollection<String> dataset = new XYZSeriesCollection<>();
 		for (XYZSeriesFX seriesFX : object.getSeries()) {
-			String name = seriesFX.getName();
+			String name = seriesFX.getName()==null? "Test "+object.getSeries().indexOf(seriesFX) : seriesFX.getName();
 			XYZSeries<String> series = new XYZSeries<>(name);
 			for (XYZValueFX valueFX : seriesFX.getValues()) {
 				series.add(valueFX.getX(), valueFX.getY(), valueFX.getZ());		
