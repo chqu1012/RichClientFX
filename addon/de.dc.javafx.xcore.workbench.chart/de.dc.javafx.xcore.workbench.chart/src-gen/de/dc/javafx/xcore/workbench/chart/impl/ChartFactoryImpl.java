@@ -62,6 +62,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createXYZSeriesFX();
 		case ChartPackage.CATEGORY_SERIES_FX:
 			return createCategorySeriesFX();
+		case ChartPackage.CATEGORY_ROW_SERIES_FX:
+			return createCategoryRowSeriesFX();
 		case ChartPackage.SERIES_FX:
 			return createSeriesFX();
 		case ChartPackage.XY_VALUE_FX:
@@ -92,6 +94,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createPieChart3dFX();
 		case ChartPackage.SCATTER_CHART3D_FX:
 			return createScatterChart3dFX();
+		case ChartPackage.STACKED_BAR_CHART3D_FX:
+			return createStackedBarChart3dFX();
 		case ChartPackage.CHART_FX_CONFIG:
 			return createChartFXConfig();
 		default:
@@ -160,6 +164,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public CategorySeriesFX createCategorySeriesFX() {
 		CategorySeriesFXImpl categorySeriesFX = new CategorySeriesFXImpl();
 		return categorySeriesFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CategoryRowSeriesFX createCategoryRowSeriesFX() {
+		CategoryRowSeriesFXImpl categoryRowSeriesFX = new CategoryRowSeriesFXImpl();
+		return categoryRowSeriesFX;
 	}
 
 	/**
@@ -325,6 +340,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public ScatterChart3dFX createScatterChart3dFX() {
 		ScatterChart3dFXImpl scatterChart3dFX = new ScatterChart3dFXImpl();
 		return scatterChart3dFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StackedBarChart3dFX createStackedBarChart3dFX() {
+		StackedBarChart3dFXImpl stackedBarChart3dFX = new StackedBarChart3dFXImpl();
+		return stackedBarChart3dFX;
 	}
 
 	/**

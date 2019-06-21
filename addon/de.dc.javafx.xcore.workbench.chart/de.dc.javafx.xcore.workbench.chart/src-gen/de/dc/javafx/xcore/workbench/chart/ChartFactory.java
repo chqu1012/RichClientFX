@@ -49,6 +49,15 @@ public interface ChartFactory extends EFactory {
 	CategorySeriesFX createCategorySeriesFX();
 
 	/**
+	 * Returns a new object of class '<em>Category Row Series FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Category Row Series FX</em>'.
+	 * @generated
+	 */
+	CategoryRowSeriesFX createCategoryRowSeriesFX();
+
+	/**
 	 * Returns a new object of class '<em>Series FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +191,15 @@ public interface ChartFactory extends EFactory {
 	 * @generated
 	 */
 	ScatterChart3dFX createScatterChart3dFX();
+
+	/**
+	 * Returns a new object of class '<em>Stacked Bar Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stacked Bar Chart3d FX</em>'.
+	 * @generated
+	 */
+	StackedBarChart3dFX createStackedBarChart3dFX();
 
 	/**
 	 * Returns a new object of class '<em>FX Config</em>'.

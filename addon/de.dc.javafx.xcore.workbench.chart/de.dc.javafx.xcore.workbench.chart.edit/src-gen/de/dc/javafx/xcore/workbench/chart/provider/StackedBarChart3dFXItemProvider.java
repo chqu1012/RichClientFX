@@ -2,7 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.chart.provider;
 
-import de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX;
+import de.dc.javafx.xcore.workbench.chart.StackedBarChart3dFX;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,19 +13,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.StackedBarChart3dFX} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
+public class StackedBarChart3dFXItemProvider extends CategoryRowChartFXItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ScatterChart3dFXItemProvider(AdapterFactory adapterFactory) {
+	public StackedBarChart3dFXItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,15 +45,15 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 	}
 
 	/**
-	 * This returns ScatterChart3dFX.gif.
+	 * This returns StackedBarChart3dFX.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated not
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-streudiagramm-16-3d.png"));
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/ScatterChart3dFX"));
+//		return overlayImage(object, getResourceLocator().getImage("full/obj16/StackedBarChart3dFX"));
+		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-balkendiagramm-3d-2-16.png"));
 	}
 
 	/**
@@ -74,9 +74,9 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ScatterChart3dFX) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ScatterChart3dFX_type")
-				: getString("_UI_ScatterChart3dFX_type") + " " + label;
+		String label = ((StackedBarChart3dFX) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_StackedBarChart3dFX_type")
+				: getString("_UI_StackedBarChart3dFX_type") + " " + label;
 	}
 
 	/**

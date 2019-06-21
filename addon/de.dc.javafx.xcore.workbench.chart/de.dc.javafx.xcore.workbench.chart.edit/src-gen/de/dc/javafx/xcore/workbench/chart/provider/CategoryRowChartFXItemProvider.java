@@ -2,7 +2,9 @@
  */
 package de.dc.javafx.xcore.workbench.chart.provider;
 
-import de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX;
+import de.dc.javafx.xcore.workbench.chart.CategoryRowChartFX;
+import de.dc.javafx.xcore.workbench.chart.ChartFactory;
+import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,22 +12,25 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.CategoryRowChartFX} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
+public class CategoryRowChartFXItemProvider extends ChartFXItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ScatterChart3dFXItemProvider(AdapterFactory adapterFactory) {
+	public CategoryRowChartFXItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,15 +50,33 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 	}
 
 	/**
-	 * This returns ScatterChart3dFX.gif.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated not
+	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-streudiagramm-16-3d.png"));
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/ScatterChart3dFX"));
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ChartPackage.Literals.CATEGORY_ROW_CHART_FX__SERIES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -74,9 +97,9 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ScatterChart3dFX) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ScatterChart3dFX_type")
-				: getString("_UI_ScatterChart3dFX_type") + " " + label;
+		String label = ((CategoryRowChartFX) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_CategoryRowChartFX_type")
+				: getString("_UI_CategoryRowChartFX_type") + " " + label;
 	}
 
 	/**
@@ -89,6 +112,12 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(CategoryRowChartFX.class)) {
+		case ChartPackage.CATEGORY_ROW_CHART_FX__SERIES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -102,6 +131,9 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CATEGORY_ROW_CHART_FX__SERIES,
+				ChartFactory.eINSTANCE.createCategoryRowSeriesFX()));
 	}
 
 }

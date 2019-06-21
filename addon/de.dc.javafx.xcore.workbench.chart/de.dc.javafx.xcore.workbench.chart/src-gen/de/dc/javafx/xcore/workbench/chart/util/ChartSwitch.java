@@ -98,6 +98,15 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.CATEGORY_ROW_CHART_FX: {
+			CategoryRowChartFX categoryRowChartFX = (CategoryRowChartFX) theEObject;
+			T result = caseCategoryRowChartFX(categoryRowChartFX);
+			if (result == null)
+				result = caseChartFX(categoryRowChartFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.XYZ_CHART_FX: {
 			XYZChartFX xyzChartFX = (XYZChartFX) theEObject;
 			T result = caseXYZChartFX(xyzChartFX);
@@ -117,6 +126,15 @@ public class ChartSwitch<T> extends Switch<T> {
 		case ChartPackage.CATEGORY_SERIES_FX: {
 			CategorySeriesFX categorySeriesFX = (CategorySeriesFX) theEObject;
 			T result = caseCategorySeriesFX(categorySeriesFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ChartPackage.CATEGORY_ROW_SERIES_FX: {
+			CategoryRowSeriesFX categoryRowSeriesFX = (CategoryRowSeriesFX) theEObject;
+			T result = caseCategoryRowSeriesFX(categoryRowSeriesFX);
+			if (result == null)
+				result = caseCategorySeriesFX(categoryRowSeriesFX);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -272,6 +290,17 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.STACKED_BAR_CHART3D_FX: {
+			StackedBarChart3dFX stackedBarChart3dFX = (StackedBarChart3dFX) theEObject;
+			T result = caseStackedBarChart3dFX(stackedBarChart3dFX);
+			if (result == null)
+				result = caseCategoryRowChartFX(stackedBarChart3dFX);
+			if (result == null)
+				result = caseChartFX(stackedBarChart3dFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.CHART_FX_CONFIG: {
 			ChartFXConfig chartFXConfig = (ChartFXConfig) theEObject;
 			T result = caseChartFXConfig(chartFXConfig);
@@ -345,6 +374,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Row Chart FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Row Chart FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryRowChartFX(CategoryRowChartFX object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>XYZ Chart FX</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -386,6 +430,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCategorySeriesFX(CategorySeriesFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Row Series FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Row Series FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryRowSeriesFX(CategoryRowSeriesFX object) {
 		return null;
 	}
 
@@ -611,6 +670,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseScatterChart3dFX(ScatterChart3dFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stacked Bar Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stacked Bar Chart3d FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStackedBarChart3dFX(StackedBarChart3dFX object) {
 		return null;
 	}
 

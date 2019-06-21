@@ -149,6 +149,9 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 
 					DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 					treeView.getTreeView().getSelectionModel().getSelectedItem().setExpanded(true);
+					
+					ObservableList<TreeItem<Object>> children = treeView.getTreeView().getSelectionModel().getSelectedItem().getChildren();
+					treeView.getTreeView().getSelectionModel().select(children.get(children.size()-1));
 				});
 				childToolbar.getChildren().add(button);
 			}

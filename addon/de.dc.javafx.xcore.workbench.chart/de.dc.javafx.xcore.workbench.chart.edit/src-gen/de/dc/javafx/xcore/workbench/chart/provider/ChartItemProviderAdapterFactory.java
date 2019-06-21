@@ -144,6 +144,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.CategoryRowSeriesFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CategoryRowSeriesFXItemProvider categoryRowSeriesFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.CategoryRowSeriesFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCategoryRowSeriesFXAdapter() {
+		if (categoryRowSeriesFXItemProvider == null) {
+			categoryRowSeriesFXItemProvider = new CategoryRowSeriesFXItemProvider(this);
+		}
+
+		return categoryRowSeriesFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.SeriesFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -466,6 +489,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.StackedBarChart3dFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StackedBarChart3dFXItemProvider stackedBarChart3dFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.StackedBarChart3dFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStackedBarChart3dFXAdapter() {
+		if (stackedBarChart3dFXItemProvider == null) {
+			stackedBarChart3dFXItemProvider = new StackedBarChart3dFXItemProvider(this);
+		}
+
+		return stackedBarChart3dFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.BarChartFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -622,6 +668,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			xyzSeriesFXItemProvider.dispose();
 		if (categorySeriesFXItemProvider != null)
 			categorySeriesFXItemProvider.dispose();
+		if (categoryRowSeriesFXItemProvider != null)
+			categoryRowSeriesFXItemProvider.dispose();
 		if (seriesFXItemProvider != null)
 			seriesFXItemProvider.dispose();
 		if (xyValueFXItemProvider != null)
@@ -652,6 +700,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			pieChart3dFXItemProvider.dispose();
 		if (scatterChart3dFXItemProvider != null)
 			scatterChart3dFXItemProvider.dispose();
+		if (stackedBarChart3dFXItemProvider != null)
+			stackedBarChart3dFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)
 			chartFXConfigItemProvider.dispose();
 	}

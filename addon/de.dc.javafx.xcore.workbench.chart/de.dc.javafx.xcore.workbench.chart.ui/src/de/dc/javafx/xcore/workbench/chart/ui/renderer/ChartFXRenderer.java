@@ -51,6 +51,7 @@ import de.dc.javafx.xcore.workbench.chart.PieChartFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
+import de.dc.javafx.xcore.workbench.chart.StackedBarChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
@@ -70,13 +71,32 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	private Chart currentChart;
 
 	@Override
+	public Node caseStackedBarChart3dFX(StackedBarChart3dFX object) {
+		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
+
+		object.getSeries().forEach(series->{
+			DefaultKeyedValues<String, Double> s = new DefaultKeyedValues<>();
+			series.getValues().forEach(v->s.put(v.getName(), v.getValue()));
+			String name = series.getName() == null? "Test "+object.getSeries().indexOf(series): series.getName();
+			String rowKey = series.getRowKey() == null? "Row" : series.getRowKey();
+			dataset.addSeriesAsRow(name, rowKey, s);
+		});
+
+		String title = "Stacked Bar Chart";
+		String subtitle = "Put the data source here";
+		Chart3D chart = Chart3DFactory.createStackedBarChart(title, subtitle, dataset, null, null, "Value");
+		return new Chart3DViewer(chart);
+	}
+
+	@Override
 	public Node caseScatterChart3dFX(ScatterChart3dFX object) {
 		XYZSeriesCollection<String> dataset = new XYZSeriesCollection<>();
 		for (XYZSeriesFX seriesFX : object.getSeries()) {
-			String name = seriesFX.getName()==null? "Test "+object.getSeries().indexOf(seriesFX) : seriesFX.getName();
+			String name = seriesFX.getName() == null ? "Test " + object.getSeries().indexOf(seriesFX)
+					: seriesFX.getName();
 			XYZSeries<String> series = new XYZSeries<>(name);
 			for (XYZValueFX valueFX : seriesFX.getValues()) {
-				series.add(valueFX.getX(), valueFX.getY(), valueFX.getZ());		
+				series.add(valueFX.getX(), valueFX.getY(), valueFX.getZ());
 			}
 			dataset.add(series);
 		}

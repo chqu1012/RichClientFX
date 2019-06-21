@@ -25,6 +25,7 @@ import de.dc.javafx.xcore.workbench.emf.ui.factory.CommandFactory;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.TreeItem;
 
@@ -76,6 +77,9 @@ public class ChartFXEmfDetailedTreeView extends EmfDetailedTreeView<ChartProject
 			
 			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(ChartFXPreview.PEVIEW_UPDATE, series.eContainer()));
+			
+			ObservableList<TreeItem<Object>> children = selection.getChildren();
+			treeView.getTreeView().getSelectionModel().select(children.get(children.size()-1));
 		}
 		
 	}

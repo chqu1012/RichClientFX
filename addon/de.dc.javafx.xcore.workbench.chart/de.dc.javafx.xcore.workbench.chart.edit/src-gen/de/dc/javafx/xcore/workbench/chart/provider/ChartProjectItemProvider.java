@@ -238,6 +238,9 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 
 		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
 				ChartFactory.eINSTANCE.createScatterChart3dFX()));
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
+				ChartFactory.eINSTANCE.createStackedBarChart3dFX()));
 	}
 
 	/**

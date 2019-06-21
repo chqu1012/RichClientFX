@@ -134,6 +134,9 @@ public class CategoryChartFXItemProvider extends ChartFXItemProvider {
 
 		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CATEGORY_CHART_FX__SERIES,
 				ChartFactory.eINSTANCE.createCategorySeriesFX()));
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CATEGORY_CHART_FX__SERIES,
+				ChartFactory.eINSTANCE.createCategoryRowSeriesFX()));
 	}
 
 }
