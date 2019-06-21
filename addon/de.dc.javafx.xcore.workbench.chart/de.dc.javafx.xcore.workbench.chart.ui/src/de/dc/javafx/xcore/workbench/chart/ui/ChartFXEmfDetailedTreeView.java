@@ -8,8 +8,6 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 
-import com.google.inject.Inject;
-
 import de.dc.javafx.xcore.workbench.chart.CategorySeriesFX;
 import de.dc.javafx.xcore.workbench.chart.CategoryValueFX;
 import de.dc.javafx.xcore.workbench.chart.ChartFactory;
@@ -17,6 +15,7 @@ import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
+import de.dc.javafx.xcore.workbench.chart.ui.view.ChartFXPreview;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.ui.EmfDetailedTreeView;
 import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView;
@@ -28,8 +27,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TreeItem;
 
 public class ChartFXEmfDetailedTreeView extends EmfDetailedTreeView<ChartProject>{
-	
-	@Inject IEventBroker eventBroker;
 	
 	private Random random = new Random();
 
@@ -60,11 +57,15 @@ public class ChartFXEmfDetailedTreeView extends EmfDetailedTreeView<ChartProject
 				values.add(value);
 			}
 		}
-		Command command = AddCommand.create(treeView.getEmfManager().getEditingDomain(), series, ChartPackage.XY_VALUE_FX, values);
-		treeView.getEmfManager().getCommandStack().execute(command);
-
-		DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
-		eventBroker.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+		
+		if (series!=null) {
+			Command command = AddCommand.create(treeView.getEmfManager().getEditingDomain(), series, ChartPackage.XY_VALUE_FX, values);
+			treeView.getEmfManager().getCommandStack().execute(command);
+			
+			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(ChartFXPreview.PEVIEW_UPDATE, series.eContainer()));
+		}
+		
 	}
 	
 	@Override
