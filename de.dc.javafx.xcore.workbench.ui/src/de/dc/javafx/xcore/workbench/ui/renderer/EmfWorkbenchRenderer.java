@@ -51,16 +51,11 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 
 	private Map<String, Perspective> perspectives = new HashMap<>();
 
-	@Inject
-	EmfCommandManager commands;
-	@Inject
-	IEmfSelectionService selectionService;
-	@Inject
-	IEventBroker eventBroker;
-	@Inject
-	IEmfControlManager controlManager;
-	@Inject
-	IEmfFileManager fileManager;
+	@Inject EmfCommandManager commands;
+	@Inject IEmfSelectionService selectionService;
+	@Inject IEventBroker eventBroker;
+	@Inject IEmfControlManager controlManager;
+	@Inject IEmfFileManager fileManager;
 
 	public void setWorkbench(EmfWorkbench workbench) {
 		this.workbench = workbench;

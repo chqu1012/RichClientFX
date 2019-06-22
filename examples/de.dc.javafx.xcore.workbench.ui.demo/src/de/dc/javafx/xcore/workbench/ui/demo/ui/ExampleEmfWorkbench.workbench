@@ -102,6 +102,7 @@
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand" name="Save As Blog" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand" name="General Save As" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralOpenCommand" name="General Open" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralOpenCommand"/>
+  <commands _Id="de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler" name="Generate Dummy Values" commandClass="de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler"/>
   <editorRegistry>
     <editor name="ChartFX Editor" fileExtension="chart" editorUri="de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView"/>
     <editor name="Blog Editor" fileExtension="blog" editorUri="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView"/>

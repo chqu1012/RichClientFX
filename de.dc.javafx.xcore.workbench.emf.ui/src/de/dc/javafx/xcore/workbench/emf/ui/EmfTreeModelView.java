@@ -176,7 +176,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		TreeItem<Object> rootItem = new AdapterFactoryTreeItem<>(manager.getRoot(), manager.getAdapterFactory());
 
 		treeView.setRoot(rootItem);
-
 		treeCellFactory = new AdapterFactoryTreeCellFactory<>(manager.getAdapterFactory());
 
 		// adds drag support
@@ -203,6 +202,11 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		if (event.getCode() == KeyCode.F2) {
 			activateEditModeForSelection();
 		}
+		onTreeKeyBinding(event.getCode());
+	}
+
+	protected void onTreeKeyBinding(KeyCode code) {
+		
 	}
 
 	private void activateEditModeForSelection() {
