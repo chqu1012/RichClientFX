@@ -102,10 +102,22 @@
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand" name="Save As Blog" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.SaveBlogCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand" name="General Save As" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralSaveAsCommand"/>
   <commands _Id="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralOpenCommand" name="General Open" commandClass="de.dc.javafx.xcore.workbench.ui.demo.command.GeneralOpenCommand"/>
-  <commands _Id="de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler" name="Generate Dummy Values" commandClass="de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler"/>
   <editorRegistry>
     <editor name="ChartFX Editor" fileExtension="chart" editorUri="de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView"/>
     <editor name="Blog Editor" fileExtension="blog" editorUri="de.dc.spring.bootstrap.blog.model.ui.BlogEmfTreeView"/>
     <editor name="Mesh Editor" fileExtension="mesh" editorUri="de.dc.javafx.xcore.workbench.mesh.ui.MeshEmfDetailedTreeView"/>
   </editorRegistry>
+  <commandRegistry>
+    <usedCommands href="#//@commands.1"/>
+    <usedCommands href="#//@commands.9"/>
+    <usedCommands href="#//@commands.8"/>
+    <usedCommands href="#//@commands.6"/>
+    <usedCommands href="#//@commands.4"/>
+    <usedCommands href="#//@commands.5"/>
+    <usedCommands href="#//@commands.3"/>
+    <usedCommands href="#//@commands.2"/>
+    <usedCommands href="#//@commands.0"/>
+    <usedCommands href="#//@commands.7"/>
+    <usedCommands href="../../../../../../../../../../../addon/de.dc.javafx.xcore.workbench.chart/de.dc.javafx.xcore.workbench.chart.ui/chart.workbench#//@commands.0"/>
+  </commandRegistry>
 </workbench:Workbench>

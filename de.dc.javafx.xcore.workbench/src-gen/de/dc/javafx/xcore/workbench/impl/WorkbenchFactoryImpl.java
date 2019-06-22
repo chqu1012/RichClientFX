@@ -62,6 +62,8 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 			return createNamedElement();
 		case WorkbenchPackage.WORKBENCH:
 			return createWorkbench();
+		case WorkbenchPackage.COMMAND_REGISTRY:
+			return createCommandRegistry();
 		case WorkbenchPackage.EDITOR_REGISTRY:
 			return createEditorRegistry();
 		case WorkbenchPackage.EDITOR:
@@ -122,6 +124,17 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 	public Workbench createWorkbench() {
 		WorkbenchImpl workbench = new WorkbenchImpl();
 		return workbench;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CommandRegistry createCommandRegistry() {
+		CommandRegistryImpl commandRegistry = new CommandRegistryImpl();
+		return commandRegistry;
 	}
 
 	/**

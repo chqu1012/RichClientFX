@@ -196,13 +196,22 @@ public interface WorkbenchPackage extends EPackage {
 	int WORKBENCH__EDITOR_REGISTRY = 4;
 
 	/**
+	 * The feature id for the '<em><b>Command Registry</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH__COMMAND_REGISTRY = 5;
+
+	/**
 	 * The number of structural features of the '<em>Workbench</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORKBENCH_FEATURE_COUNT = 5;
+	int WORKBENCH_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Workbench</em>' class.
@@ -214,6 +223,43 @@ public interface WorkbenchPackage extends EPackage {
 	int WORKBENCH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.impl.CommandRegistryImpl <em>Command Registry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.impl.CommandRegistryImpl
+	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getCommandRegistry()
+	 * @generated
+	 */
+	int COMMAND_REGISTRY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Used Commands</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_REGISTRY__USED_COMMANDS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Command Registry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_REGISTRY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Command Registry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_REGISTRY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.impl.EditorRegistryImpl <em>Editor Registry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,7 +267,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditorRegistry()
 	 * @generated
 	 */
-	int EDITOR_REGISTRY = 3;
+	int EDITOR_REGISTRY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Editor</b></em>' containment reference list.
@@ -258,7 +304,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditor()
 	 * @generated
 	 */
-	int EDITOR = 4;
+	int EDITOR = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -313,7 +359,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getPerspective()
 	 * @generated
 	 */
-	int PERSPECTIVE = 5;
+	int PERSPECTIVE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -395,7 +441,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getCommand()
 	 * @generated
 	 */
-	int COMMAND = 6;
+	int COMMAND = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -450,7 +496,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getViewContainer()
 	 * @generated
 	 */
-	int VIEW_CONTAINER = 7;
+	int VIEW_CONTAINER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -487,7 +533,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getView()
 	 * @generated
 	 */
-	int VIEW = 8;
+	int VIEW = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -569,7 +615,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getEditorArea()
 	 * @generated
 	 */
-	int EDITOR_AREA = 9;
+	int EDITOR_AREA = 10;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -606,7 +652,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getLeftPane()
 	 * @generated
 	 */
-	int LEFT_PANE = 10;
+	int LEFT_PANE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -643,7 +689,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getRightPane()
 	 * @generated
 	 */
-	int RIGHT_PANE = 11;
+	int RIGHT_PANE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -680,7 +726,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getBottomPane()
 	 * @generated
 	 */
-	int BOTTOM_PANE = 12;
+	int BOTTOM_PANE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -717,7 +763,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getToolbar()
 	 * @generated
 	 */
-	int TOOLBAR = 13;
+	int TOOLBAR = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -772,7 +818,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getToolbarItem()
 	 * @generated
 	 */
-	int TOOLBAR_ITEM = 14;
+	int TOOLBAR_ITEM = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -845,7 +891,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getStatusline()
 	 * @generated
 	 */
-	int STATUSLINE = 15;
+	int STATUSLINE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1000,6 +1046,38 @@ public interface WorkbenchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getWorkbench_EditorRegistry();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.Workbench#getCommandRegistry <em>Command Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Command Registry</em>'.
+	 * @see de.dc.javafx.xcore.workbench.Workbench#getCommandRegistry()
+	 * @see #getWorkbench()
+	 * @generated
+	 */
+	EReference getWorkbench_CommandRegistry();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.CommandRegistry <em>Command Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Command Registry</em>'.
+	 * @see de.dc.javafx.xcore.workbench.CommandRegistry
+	 * @generated
+	 */
+	EClass getCommandRegistry();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.CommandRegistry#getUsedCommands <em>Used Commands</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Used Commands</em>'.
+	 * @see de.dc.javafx.xcore.workbench.CommandRegistry#getUsedCommands()
+	 * @see #getCommandRegistry()
+	 * @generated
+	 */
+	EReference getCommandRegistry_UsedCommands();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.EditorRegistry <em>Editor Registry</em>}'.
@@ -1434,6 +1512,32 @@ public interface WorkbenchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference WORKBENCH__EDITOR_REGISTRY = eINSTANCE.getWorkbench_EditorRegistry();
+
+		/**
+		 * The meta object literal for the '<em><b>Command Registry</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WORKBENCH__COMMAND_REGISTRY = eINSTANCE.getWorkbench_CommandRegistry();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.CommandRegistryImpl <em>Command Registry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.impl.CommandRegistryImpl
+		 * @see de.dc.javafx.xcore.workbench.impl.WorkbenchPackageImpl#getCommandRegistry()
+		 * @generated
+		 */
+		EClass COMMAND_REGISTRY = eINSTANCE.getCommandRegistry();
+
+		/**
+		 * The meta object literal for the '<em><b>Used Commands</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMAND_REGISTRY__USED_COMMANDS = eINSTANCE.getCommandRegistry_UsedCommands();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.impl.EditorRegistryImpl <em>Editor Registry</em>}' class.

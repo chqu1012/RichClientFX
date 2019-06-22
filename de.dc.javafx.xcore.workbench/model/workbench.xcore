@@ -26,6 +26,11 @@ class Workbench{
 	contains Perspective[0..*] perspectives
 	contains Command[0..*] commands
 	contains EditorRegistry editorRegistry
+	contains CommandRegistry commandRegistry
+}
+
+class CommandRegistry{
+	refers Command[0..*] usedCommands
 }
 
 class EditorRegistry{

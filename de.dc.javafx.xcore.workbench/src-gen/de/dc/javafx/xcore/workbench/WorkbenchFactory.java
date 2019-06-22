@@ -49,6 +49,15 @@ public interface WorkbenchFactory extends EFactory {
 	Workbench createWorkbench();
 
 	/**
+	 * Returns a new object of class '<em>Command Registry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Command Registry</em>'.
+	 * @generated
+	 */
+	CommandRegistry createCommandRegistry();
+
+	/**
 	 * Returns a new object of class '<em>Editor Registry</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

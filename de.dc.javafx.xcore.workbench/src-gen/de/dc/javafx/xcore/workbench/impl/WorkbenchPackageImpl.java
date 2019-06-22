@@ -4,6 +4,7 @@ package de.dc.javafx.xcore.workbench.impl;
 
 import de.dc.javafx.xcore.workbench.BottomPane;
 import de.dc.javafx.xcore.workbench.Command;
+import de.dc.javafx.xcore.workbench.CommandRegistry;
 import de.dc.javafx.xcore.workbench.Editor;
 import de.dc.javafx.xcore.workbench.EditorArea;
 import de.dc.javafx.xcore.workbench.EditorRegistry;
@@ -56,6 +57,13 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * @generated
 	 */
 	private EClass workbenchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commandRegistryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +331,36 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	@Override
 	public EReference getWorkbench_EditorRegistry() {
 		return (EReference) workbenchEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getWorkbench_CommandRegistry() {
+		return (EReference) workbenchEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCommandRegistry() {
+		return commandRegistryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCommandRegistry_UsedCommands() {
+		return (EReference) commandRegistryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -668,6 +706,10 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		createEReference(workbenchEClass, WORKBENCH__PERSPECTIVES);
 		createEReference(workbenchEClass, WORKBENCH__COMMANDS);
 		createEReference(workbenchEClass, WORKBENCH__EDITOR_REGISTRY);
+		createEReference(workbenchEClass, WORKBENCH__COMMAND_REGISTRY);
+
+		commandRegistryEClass = createEClass(COMMAND_REGISTRY);
+		createEReference(commandRegistryEClass, COMMAND_REGISTRY__USED_COMMANDS);
 
 		editorRegistryEClass = createEClass(EDITOR_REGISTRY);
 		createEReference(editorRegistryEClass, EDITOR_REGISTRY__EDITOR);
@@ -789,6 +831,15 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWorkbench_EditorRegistry(), this.getEditorRegistry(), null, "editorRegistry", null, 0, 1,
 				Workbench.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWorkbench_CommandRegistry(), this.getCommandRegistry(), null, "commandRegistry", null, 0, 1,
+				Workbench.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commandRegistryEClass, CommandRegistry.class, "CommandRegistry", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCommandRegistry_UsedCommands(), this.getCommand(), null, "usedCommands", null, 0, -1,
+				CommandRegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editorRegistryEClass, EditorRegistry.class, "EditorRegistry", !IS_ABSTRACT, !IS_INTERFACE,

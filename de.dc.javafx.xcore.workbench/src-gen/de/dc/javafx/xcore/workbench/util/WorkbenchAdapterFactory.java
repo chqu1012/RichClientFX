@@ -82,6 +82,11 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCommandRegistry(CommandRegistry object) {
+			return createCommandRegistryAdapter();
+		}
+
+		@Override
 		public Adapter caseEditorRegistry(EditorRegistry object) {
 			return createEditorRegistryAdapter();
 		}
@@ -204,6 +209,20 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWorkbenchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.CommandRegistry <em>Command Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.CommandRegistry
+	 * @generated
+	 */
+	public Adapter createCommandRegistryAdapter() {
 		return null;
 	}
 

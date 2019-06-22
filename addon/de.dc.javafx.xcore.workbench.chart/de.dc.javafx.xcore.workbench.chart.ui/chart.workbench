@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench:Workbench xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:workbench="http://www.frateranatis.org/workbench">
+  <perspectives _Id="de.dc.javafx.xcore.workbench.chart.ui.ChartPerspective" name="de.dc.javafx.xcore.workbench.chart.ui.ChartPerspective">
+    <rightPane>
+      <views _Id="de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView" name="Chart Detailed View" viewClass="de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView"/>
+    </rightPane>
+  </perspectives>
+  <commands _Id="de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler" name="Generate Dummy Values" commandClass="de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler"/>
+</workbench:Workbench>

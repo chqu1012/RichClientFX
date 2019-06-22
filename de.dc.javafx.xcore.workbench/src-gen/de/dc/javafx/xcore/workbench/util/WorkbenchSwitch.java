@@ -87,6 +87,13 @@ public class WorkbenchSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case WorkbenchPackage.COMMAND_REGISTRY: {
+			CommandRegistry commandRegistry = (CommandRegistry) theEObject;
+			T result = caseCommandRegistry(commandRegistry);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case WorkbenchPackage.EDITOR_REGISTRY: {
 			EditorRegistry editorRegistry = (EditorRegistry) theEObject;
 			T result = caseEditorRegistry(editorRegistry);
@@ -247,6 +254,21 @@ public class WorkbenchSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseWorkbench(Workbench object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Command Registry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Command Registry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommandRegistry(CommandRegistry object) {
 		return null;
 	}
 

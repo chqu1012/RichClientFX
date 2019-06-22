@@ -75,6 +75,7 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__PERSPECTIVES);
 			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__COMMANDS);
 			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__EDITOR_REGISTRY);
+			childrenFeatures.add(WorkbenchPackage.Literals.WORKBENCH__COMMAND_REGISTRY);
 		}
 		return childrenFeatures;
 	}
@@ -141,6 +142,7 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 		case WorkbenchPackage.WORKBENCH__PERSPECTIVES:
 		case WorkbenchPackage.WORKBENCH__COMMANDS:
 		case WorkbenchPackage.WORKBENCH__EDITOR_REGISTRY:
+		case WorkbenchPackage.WORKBENCH__COMMAND_REGISTRY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -172,6 +174,9 @@ public class WorkbenchItemProvider extends ItemProviderAdapter implements IEditi
 
 		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__EDITOR_REGISTRY,
 				WorkbenchFactory.eINSTANCE.createEditorRegistry()));
+
+		newChildDescriptors.add(createChildParameter(WorkbenchPackage.Literals.WORKBENCH__COMMAND_REGISTRY,
+				WorkbenchFactory.eINSTANCE.createCommandRegistry()));
 	}
 
 	/**

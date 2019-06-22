@@ -102,6 +102,8 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 	}
 
 	private void populateCommands(Workbench object) {
+		
+		// Registrate commands in workbench
 		for (Command c : object.getCommands()) {
 			try {
 				Class<IEmfCommand> commandClass = (Class<IEmfCommand>) Class.forName(c.get_Id());
@@ -111,6 +113,17 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 				log.log(Level.SEVERE, "Error on register command id " + c.get_Id() + ", message: " + e.getMessage());
 			}
 		}
+		
+		// Registrate all commands in registry
+		object.getCommandRegistry().getUsedCommands().forEach(c->{
+			try {
+				Class<IEmfCommand> commandClass = (Class<IEmfCommand>) Class.forName(c.get_Id());
+				IEmfCommand command = DIPlatform.getInstance(commandClass);
+				commands.register(c.get_Id(), command);
+			} catch (ClassNotFoundException e) {
+				log.log(Level.SEVERE, "Error on register command id " + c.get_Id() + ", message: " + e.getMessage());
+			}
+		});
 	}
 
 	@Override

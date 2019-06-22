@@ -142,6 +142,29 @@ public class WorkbenchItemProviderAdapterFactory extends WorkbenchAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.CommandRegistry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommandRegistryItemProvider commandRegistryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.CommandRegistry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommandRegistryAdapter() {
+		if (commandRegistryItemProvider == null) {
+			commandRegistryItemProvider = new CommandRegistryItemProvider(this);
+		}
+
+		return commandRegistryItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.EditorRegistry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -528,6 +551,8 @@ public class WorkbenchItemProviderAdapterFactory extends WorkbenchAdapterFactory
 			namedElementItemProvider.dispose();
 		if (workbenchItemProvider != null)
 			workbenchItemProvider.dispose();
+		if (commandRegistryItemProvider != null)
+			commandRegistryItemProvider.dispose();
 		if (editorRegistryItemProvider != null)
 			editorRegistryItemProvider.dispose();
 		if (editorItemProvider != null)
