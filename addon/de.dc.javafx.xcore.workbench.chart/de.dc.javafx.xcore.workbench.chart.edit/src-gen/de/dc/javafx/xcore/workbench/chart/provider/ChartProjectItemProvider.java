@@ -246,6 +246,9 @@ public class ChartProjectItemProvider extends ItemProviderAdapter
 				ChartFactory.eINSTANCE.createXYZBarChart3dFX()));
 
 		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
+				ChartFactory.eINSTANCE.createXYZLineChart3dFX()));
+
+		newChildDescriptors.add(createChildParameter(ChartPackage.Literals.CHART_PROJECT__CHARTS,
 				ChartFactory.eINSTANCE.createSurfaceChart3dFX()));
 	}
 

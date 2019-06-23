@@ -98,6 +98,8 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 			return createStackedBarChart3dFX();
 		case ChartPackage.XYZ_BAR_CHART3D_FX:
 			return createXYZBarChart3dFX();
+		case ChartPackage.XYZ_LINE_CHART3D_FX:
+			return createXYZLineChart3dFX();
 		case ChartPackage.SURFACE_CHART3D_FX:
 			return createSurfaceChart3dFX();
 		case ChartPackage.CHART_FX_CONFIG:
@@ -366,6 +368,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	public XYZBarChart3dFX createXYZBarChart3dFX() {
 		XYZBarChart3dFXImpl xyzBarChart3dFX = new XYZBarChart3dFXImpl();
 		return xyzBarChart3dFX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XYZLineChart3dFX createXYZLineChart3dFX() {
+		XYZLineChart3dFXImpl xyzLineChart3dFX = new XYZLineChart3dFXImpl();
+		return xyzLineChart3dFX;
 	}
 
 	/**

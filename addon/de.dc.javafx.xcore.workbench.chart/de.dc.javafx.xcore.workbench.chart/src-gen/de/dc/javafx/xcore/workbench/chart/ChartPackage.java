@@ -1912,6 +1912,88 @@ public interface ChartPackage extends EPackage {
 	int XYZ_BAR_CHART3D_FX_OPERATION_COUNT = XYZ_CHART_FX_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYZLineChart3dFXImpl <em>XYZ Line Chart3d FX</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.XYZLineChart3dFXImpl
+	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYZLineChart3dFX()
+	 * @generated
+	 */
+	int XYZ_LINE_CHART3D_FX = 26;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_LINE_CHART3D_FX__NAME = XYZ_CHART_FX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_LINE_CHART3D_FX__XAXIS_LABEL = XYZ_CHART_FX__XAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>YAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_LINE_CHART3D_FX__YAXIS_LABEL = XYZ_CHART_FX__YAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ZAxis Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_LINE_CHART3D_FX__ZAXIS_LABEL = XYZ_CHART_FX__ZAXIS_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_LINE_CHART3D_FX__CONFIG = XYZ_CHART_FX__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_LINE_CHART3D_FX__SERIES = XYZ_CHART_FX__SERIES;
+
+	/**
+	 * The number of structural features of the '<em>XYZ Line Chart3d FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_LINE_CHART3D_FX_FEATURE_COUNT = XYZ_CHART_FX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>XYZ Line Chart3d FX</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XYZ_LINE_CHART3D_FX_OPERATION_COUNT = XYZ_CHART_FX_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.chart.impl.SurfaceChart3dFXImpl <em>Surface Chart3d FX</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1919,7 +2001,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getSurfaceChart3dFX()
 	 * @generated
 	 */
-	int SURFACE_CHART3D_FX = 26;
+	int SURFACE_CHART3D_FX = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2010,7 +2092,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartFXConfig()
 	 * @generated
 	 */
-	int CHART_FX_CONFIG = 27;
+	int CHART_FX_CONFIG = 28;
 
 	/**
 	 * The feature id for the '<em><b>Side Legend</b></em>' attribute.
@@ -2128,7 +2210,7 @@ public interface ChartPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getChartSide()
 	 * @generated
 	 */
-	int CHART_SIDE = 28;
+	int CHART_SIDE = 29;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.ChartProject <em>Project</em>}'.
@@ -2642,6 +2724,16 @@ public interface ChartPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXYZBarChart3dFX();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.XYZLineChart3dFX <em>XYZ Line Chart3d FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XYZ Line Chart3d FX</em>'.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZLineChart3dFX
+	 * @generated
+	 */
+	EClass getXYZLineChart3dFX();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX <em>Surface Chart3d FX</em>}'.
@@ -3260,6 +3352,16 @@ public interface ChartPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XYZ_BAR_CHART3D_FX = eINSTANCE.getXYZBarChart3dFX();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.XYZLineChart3dFXImpl <em>XYZ Line Chart3d FX</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.XYZLineChart3dFXImpl
+		 * @see de.dc.javafx.xcore.workbench.chart.impl.ChartPackageImpl#getXYZLineChart3dFX()
+		 * @generated
+		 */
+		EClass XYZ_LINE_CHART3D_FX = eINSTANCE.getXYZLineChart3dFX();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.chart.impl.SurfaceChart3dFXImpl <em>Surface Chart3d FX</em>}' class.

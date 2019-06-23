@@ -31,6 +31,7 @@ import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.XYZBarChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.XYZChartFX;
+import de.dc.javafx.xcore.workbench.chart.XYZLineChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYZValueFX;
 
@@ -231,6 +232,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass xyzBarChart3dFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xyzLineChart3dFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -816,6 +824,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getXYZLineChart3dFX() {
+		return xyzLineChart3dFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSurfaceChart3dFX() {
 		return surfaceChart3dFXEClass;
 	}
@@ -1055,6 +1073,8 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		xyzBarChart3dFXEClass = createEClass(XYZ_BAR_CHART3D_FX);
 
+		xyzLineChart3dFXEClass = createEClass(XYZ_LINE_CHART3D_FX);
+
 		surfaceChart3dFXEClass = createEClass(SURFACE_CHART3D_FX);
 		createEAttribute(surfaceChart3dFXEClass, SURFACE_CHART3D_FX__FUNCTION);
 
@@ -1125,6 +1145,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		scatterChart3dFXEClass.getESuperTypes().add(this.getXYZChartFX());
 		stackedBarChart3dFXEClass.getESuperTypes().add(this.getCategoryRowChartFX());
 		xyzBarChart3dFXEClass.getESuperTypes().add(this.getXYZChartFX());
+		xyzLineChart3dFXEClass.getESuperTypes().add(this.getXYZChartFX());
 		surfaceChart3dFXEClass.getESuperTypes().add(this.getCategoryRowChartFX());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1269,6 +1290,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(xyzBarChart3dFXEClass, XYZBarChart3dFX.class, "XYZBarChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(xyzLineChart3dFXEClass, XYZLineChart3dFX.class, "XYZLineChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(surfaceChart3dFXEClass, SurfaceChart3dFX.class, "SurfaceChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,

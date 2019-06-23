@@ -65,6 +65,7 @@ import de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.XYZChartFX;
+import de.dc.javafx.xcore.workbench.chart.XYZLineChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYZValueFX;
 import de.dc.javafx.xcore.workbench.chart.util.ChartSwitch;
@@ -83,10 +84,32 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	private ScriptEngineManager scriptManager = new ScriptEngineManager();
 
 	@Override
+	public Node caseXYZLineChart3dFX(XYZLineChart3dFX object) {
+		XYZSeriesCollection<String> dataset = new XYZSeriesCollection<>();
+		for (XYZSeriesFX seriesFX : object.getSeries()) {
+			String name = seriesFX.getName() == null ? "" : seriesFX.getName();
+			XYZSeries<String> series = new XYZSeries<>(name);
+			for (XYZValueFX valueFX : seriesFX.getValues()) {
+				series.add(valueFX.getX(), valueFX.getY(), valueFX.getZ());
+			}
+			dataset.add(series);
+		}
+		String title = object.getName();
+		String subtitle = "";
+		String x = object.getXAxisLabel();
+		String y = object.getYAxisLabel();
+		String z = object.getZAxisLabel();
+		Chart3D chart = Chart3DFactory.createXYZBarChart(title, subtitle, dataset, x, y, z);
+		chart.setViewPoint(ViewPoint3D.createAboveRightViewPoint(40));
+		chart.setAntiAlias(true);
+		return new Chart3DViewer(chart);
+	}
+
+	@Override
 	public Node caseXYZChartFX(XYZChartFX object) {
 		XYZSeriesCollection<String> dataset = new XYZSeriesCollection<>();
 		for (XYZSeriesFX seriesFX : object.getSeries()) {
-			String name = seriesFX.getName()==null?"": seriesFX.getName();
+			String name = seriesFX.getName() == null ? "Data "+object.getSeries().indexOf(seriesFX) : seriesFX.getName();
 			XYZSeries<String> series = new XYZSeries<>(name);
 			for (XYZValueFX valueFX : seriesFX.getValues()) {
 				series.add(valueFX.getX(), valueFX.getY(), valueFX.getZ());
