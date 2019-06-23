@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="ExtensionsEditorAdvisorApplication">
+      <!-- @generated extension -->
+      <application>
+         <run class="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated extension -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisor$Perspective"
+            id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated extension -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated extension -->
+      <key
+            commandId="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated extension -->
+      <actionSet
+            label="%_UI_ExtensionsEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="ExtensionsEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorOpenURICommand"
+               class="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorOpenCommand"
+               class="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated extension -->
+      <actionSet
+            label="%_UI_ExtensionsModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsActionBarContributorActionSet">
+         <action
+               label="%_UI_ExtensionsModelWizard_label"
+               class="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated extension -->
+      <editor
+            id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorID"
+            name="%_UI_ExtensionsEditor_label"
+            icon="icons/full/obj16/ExtensionsModelFile.gif"
+            extensions="extension"
+            class="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditor"
+            contributorClass="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

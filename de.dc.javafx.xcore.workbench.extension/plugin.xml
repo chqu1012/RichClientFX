@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated extension -->
+      <package
+            uri="http://www.frateranatis.org/workbench/extensions"
+            class="de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage"
+            genModel="model/extension.xcore"/>
+   </extension>
+
+</plugin>

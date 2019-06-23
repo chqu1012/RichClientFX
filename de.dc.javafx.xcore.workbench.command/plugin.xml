@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated command -->
       <package
-            uri="http://www.frateranatis.org/"
+            uri="http://www.frateranatis.org/workbench/commands"
             class="de.dc.javafx.xcore.workbench.command.CommandPackage"
             genModel="model/command.xcore"/>
    </extension>

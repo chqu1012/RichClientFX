@@ -1,4 +1,4 @@
-@Ecore(nsURI="http://www.frateranatis.org/")
+@Ecore(nsURI="http://www.frateranatis.org/workbench/commands")
 @GenModel(multipleEditorPages="false", 
 	creationIcons="false", 
 	editDirectory="/de.dc.javafx.xcore.workbench.command.edit/src-gen",

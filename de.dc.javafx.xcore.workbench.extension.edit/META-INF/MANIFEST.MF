@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.dc.javafx.xcore.workbench.extension.edit;singleton:=true
+Automatic-Module-Name: de.dc.javafx.xcore.workbench.extension.edit
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: de.dc.javafx.xcore.workbench.extensions.provider.ExtensionsEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.dc.javafx.xcore.workbench.extensions.provider
+Require-Bundle: org.eclipse.core.runtime,
+ de.dc.javafx.xcore.workbench.extension;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy

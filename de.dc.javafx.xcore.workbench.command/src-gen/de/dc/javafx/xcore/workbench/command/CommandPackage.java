@@ -41,7 +41,7 @@ public interface CommandPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.frateranatis.org/";
+	String eNS_URI = "http://www.frateranatis.org/workbench/commands";
 
 	/**
 	 * The package namespace name.

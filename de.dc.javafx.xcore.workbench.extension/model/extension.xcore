@@ -1,0 +1,47 @@
+@Ecore(nsURI="http://www.frateranatis.org/workbench/extensions")
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.workbench.extension.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.workbench.extension.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="extension")
+package de.dc.javafx.xcore.workbench.extensions
+
+class ExtensionManager{
+	contains ExtensionPoint[0..*] extensionPoints
+}
+
+abstract class Extension{
+	String Id
+	String name
+	String extensionUri
+}
+
+abstract class ExtensionPoint{
+	String Id
+	String name
+}
+
+class ViewExtension extends ExtensionPoint{
+	contains View[0..*] views
+}
+
+class EditorExtension extends ExtensionPoint{
+	contains Editor[0..*] editors
+}
+
+class MenuExtension extends ExtensionPoint{}
+class ToolbarExtension extends ExtensionPoint{}
+class PerspectiveExtension extends ExtensionPoint{}
+
+class View extends Extension{
+	String icon
+}
+
+class Editor extends Extension{
+	String icon
+	String fileExtension	
+}
