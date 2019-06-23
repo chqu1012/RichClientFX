@@ -2,7 +2,8 @@
  */
 package de.dc.javafx.xcore.workbench.chart.provider;
 
-import de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX;
+import de.dc.javafx.xcore.workbench.chart.ChartPackage;
+import de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,22 +11,25 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
+public class SurfaceChart3dFXItemProvider extends CategoryRowChartFXItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ScatterChart3dFXItemProvider(AdapterFactory adapterFactory) {
+	public SurfaceChart3dFXItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -40,20 +44,36 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFunctionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns ScatterChart3dFX.gif.
+	 * This adds a property descriptor for the Function feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated not
+	 * @generated
+	 */
+	protected void addFunctionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SurfaceChart3dFX_function_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_SurfaceChart3dFX_function_feature",
+								"_UI_SurfaceChart3dFX_type"),
+						ChartPackage.Literals.SURFACE_CHART3D_FX__FUNCTION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This returns SurfaceChart3dFX.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-streudiagramm-16-3d.png"));
-		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/ScatterChart3dFX"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SurfaceChart3dFX"));
 	}
 
 	/**
@@ -74,9 +94,9 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ScatterChart3dFX) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ScatterChart3dFX_type")
-				: getString("_UI_ScatterChart3dFX_type") + " " + label;
+		String label = ((SurfaceChart3dFX) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_SurfaceChart3dFX_type")
+				: getString("_UI_SurfaceChart3dFX_type") + " " + label;
 	}
 
 	/**
@@ -89,6 +109,12 @@ public class ScatterChart3dFXItemProvider extends XYZChartFXItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(SurfaceChart3dFX.class)) {
+		case ChartPackage.SURFACE_CHART3D_FX__FUNCTION:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

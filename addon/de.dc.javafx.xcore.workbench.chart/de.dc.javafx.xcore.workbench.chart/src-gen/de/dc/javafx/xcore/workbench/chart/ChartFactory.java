@@ -202,6 +202,15 @@ public interface ChartFactory extends EFactory {
 	StackedBarChart3dFX createStackedBarChart3dFX();
 
 	/**
+	 * Returns a new object of class '<em>Surface Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Surface Chart3d FX</em>'.
+	 * @generated
+	 */
+	SurfaceChart3dFX createSurfaceChart3dFX();
+
+	/**
 	 * Returns a new object of class '<em>FX Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -301,6 +301,17 @@ public class ChartSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ChartPackage.SURFACE_CHART3D_FX: {
+			SurfaceChart3dFX surfaceChart3dFX = (SurfaceChart3dFX) theEObject;
+			T result = caseSurfaceChart3dFX(surfaceChart3dFX);
+			if (result == null)
+				result = caseCategoryRowChartFX(surfaceChart3dFX);
+			if (result == null)
+				result = caseChartFX(surfaceChart3dFX);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ChartPackage.CHART_FX_CONFIG: {
 			ChartFXConfig chartFXConfig = (ChartFXConfig) theEObject;
 			T result = caseChartFXConfig(chartFXConfig);
@@ -685,6 +696,21 @@ public class ChartSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStackedBarChart3dFX(StackedBarChart3dFX object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Surface Chart3d FX</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Surface Chart3d FX</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSurfaceChart3dFX(SurfaceChart3dFX object) {
 		return null;
 	}
 

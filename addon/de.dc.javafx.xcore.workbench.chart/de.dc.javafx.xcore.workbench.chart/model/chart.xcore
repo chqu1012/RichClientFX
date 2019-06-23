@@ -87,6 +87,9 @@ class LineChart3dFX extends XYChartFX{}
 class PieChart3dFX extends CategoryChartFX{}
 class ScatterChart3dFX extends XYZChartFX{}
 class StackedBarChart3dFX extends CategoryRowChartFX{}
+class SurfaceChart3dFX extends CategoryRowChartFX{
+	String function = 'Math.cos(x) * Math.sin(z)'
+}
 
 class ChartFXConfig{
 	ChartSide sideLegend

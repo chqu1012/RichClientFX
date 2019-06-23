@@ -192,6 +192,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSurfaceChart3dFX(SurfaceChart3dFX object) {
+			return createSurfaceChart3dFXAdapter();
+		}
+
+		@Override
 		public Adapter caseChartFXConfig(ChartFXConfig object) {
 			return createChartFXConfigAdapter();
 		}
@@ -562,6 +567,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStackedBarChart3dFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX <em>Surface Chart3d FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX
+	 * @generated
+	 */
+	public Adapter createSurfaceChart3dFXAdapter() {
 		return null;
 	}
 

@@ -3,6 +3,10 @@ package de.dc.javafx.xcore.workbench.chart.ui.renderer;
 import java.awt.BasicStroke;
 import java.awt.Color;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 import org.eclipse.emf.common.util.EList;
 import org.gillius.jfxutils.chart.ChartPanManager;
 import org.gillius.jfxutils.chart.JFXChartUtil;
@@ -10,12 +14,15 @@ import org.gillius.jfxutils.chart.JFXChartUtil;
 import com.orsoncharts.Chart3D;
 import com.orsoncharts.Chart3DFactory;
 import com.orsoncharts.Colors;
+import com.orsoncharts.Range;
 import com.orsoncharts.TitleAnchor;
 import com.orsoncharts.axis.NumberAxis3D;
 import com.orsoncharts.axis.NumberTickSelector;
+import com.orsoncharts.axis.ValueAxis3D;
 import com.orsoncharts.data.DefaultKeyedValues;
 import com.orsoncharts.data.StandardPieDataset3D;
 import com.orsoncharts.data.category.StandardCategoryDataset3D;
+import com.orsoncharts.data.function.Function3D;
 import com.orsoncharts.data.xyz.XYZSeries;
 import com.orsoncharts.data.xyz.XYZSeriesCollection;
 import com.orsoncharts.fx.Chart3DViewer;
@@ -25,8 +32,10 @@ import com.orsoncharts.label.StandardXYZLabelGenerator;
 import com.orsoncharts.legend.LegendAnchor;
 import com.orsoncharts.plot.CategoryPlot3D;
 import com.orsoncharts.plot.XYZPlot;
+import com.orsoncharts.renderer.GradientColorScale;
 import com.orsoncharts.renderer.category.AreaRenderer3D;
 import com.orsoncharts.renderer.xyz.ScatterXYZRenderer;
+import com.orsoncharts.renderer.xyz.SurfaceRenderer;
 import com.orsoncharts.util.Orientation;
 
 import de.dc.javafx.xcore.lang.lib.chart.BaseAreaChart;
@@ -52,6 +61,7 @@ import de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.StackedBarChart3dFX;
+import de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
@@ -69,16 +79,49 @@ import javafx.scene.input.MouseButton;
 public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
+	private ScriptEngineManager scriptManager = new ScriptEngineManager();
+	
+	@Override
+	public Node caseSurfaceChart3dFX(SurfaceChart3dFX object) {
+		ScriptEngine engine = scriptManager.getEngineByName("nashorn");
+		Function3D function = (x, z) -> {
+			engine.put("x", x);
+			engine.put("z", z);
+			try {
+				return (double) engine.eval(object.getFunction());
+			} catch (ScriptException e) {
+				e.printStackTrace();
+			}
+			return -1;
+		};
+
+		String title = object.getName();
+		String subtitle = object.getFunction();
+		String x = object.getXAxisLabel();
+		String y = object.getYAxisLabel();
+		String z = object.getZAxisLabel();
+		Chart3D chart = Chart3DFactory.createSurfaceChart(title, subtitle, function, x, y, z);
+		XYZPlot plot = (XYZPlot) chart.getPlot();
+		plot.setDimensions(new Dimension3D(10, 5, 10));
+		ValueAxis3D xAxis = plot.getXAxis();
+		xAxis.setRange(-Math.PI, Math.PI);
+		ValueAxis3D zAxis = plot.getZAxis();
+		zAxis.setRange(-Math.PI, Math.PI);
+		SurfaceRenderer renderer = (SurfaceRenderer) plot.getRenderer();
+		renderer.setDrawFaceOutlines(false);
+		renderer.setColorScale(new GradientColorScale(new Range(-1.0, 1.0), Color.RED, Color.YELLOW));
+		return new Chart3DViewer(chart);
+	}
 
 	@Override
 	public Node caseStackedBarChart3dFX(StackedBarChart3dFX object) {
 		StandardCategoryDataset3D<String, String, String> dataset = new StandardCategoryDataset3D<>();
 
-		object.getSeries().forEach(series->{
+		object.getSeries().forEach(series -> {
 			DefaultKeyedValues<String, Double> s = new DefaultKeyedValues<>();
-			series.getValues().forEach(v->s.put(v.getName(), v.getValue()));
-			String name = series.getName() == null? "Test "+object.getSeries().indexOf(series): series.getName();
-			String rowKey = series.getRowKey() == null? "Row" : series.getRowKey();
+			series.getValues().forEach(v -> s.put(v.getName(), v.getValue()));
+			String name = series.getName() == null ? "Test " + object.getSeries().indexOf(series) : series.getName();
+			String rowKey = series.getRowKey() == null ? "Row" : series.getRowKey();
 			dataset.addSeriesAsRow(name, rowKey, s);
 		});
 

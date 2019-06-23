@@ -26,6 +26,7 @@ import de.dc.javafx.xcore.workbench.chart.ScatterChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.ScatterChartFX;
 import de.dc.javafx.xcore.workbench.chart.SeriesFX;
 import de.dc.javafx.xcore.workbench.chart.StackedBarChart3dFX;
+import de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
 import de.dc.javafx.xcore.workbench.chart.XYZChartFX;
@@ -222,6 +223,13 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	private EClass stackedBarChart3dFXEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass surfaceChart3dFXEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -790,6 +798,26 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getSurfaceChart3dFX() {
+		return surfaceChart3dFXEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSurfaceChart3dFX_Function() {
+		return (EAttribute) surfaceChart3dFXEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getChartFXConfig() {
 		return chartFXConfigEClass;
 	}
@@ -1007,6 +1035,9 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		stackedBarChart3dFXEClass = createEClass(STACKED_BAR_CHART3D_FX);
 
+		surfaceChart3dFXEClass = createEClass(SURFACE_CHART3D_FX);
+		createEAttribute(surfaceChart3dFXEClass, SURFACE_CHART3D_FX__FUNCTION);
+
 		chartFXConfigEClass = createEClass(CHART_FX_CONFIG);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__SIDE_LEGEND);
 		createEAttribute(chartFXConfigEClass, CHART_FX_CONFIG__TITLE_SIDE);
@@ -1073,6 +1104,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 		pieChart3dFXEClass.getESuperTypes().add(this.getCategoryChartFX());
 		scatterChart3dFXEClass.getESuperTypes().add(this.getXYZChartFX());
 		stackedBarChart3dFXEClass.getESuperTypes().add(this.getCategoryRowChartFX());
+		surfaceChart3dFXEClass.getESuperTypes().add(this.getCategoryRowChartFX());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(chartProjectEClass, ChartProject.class, "ChartProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1214,6 +1246,12 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 
 		initEClass(stackedBarChart3dFXEClass, StackedBarChart3dFX.class, "StackedBarChart3dFX", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(surfaceChart3dFXEClass, SurfaceChart3dFX.class, "SurfaceChart3dFX", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSurfaceChart3dFX_Function(), theEcorePackage.getEString(), "function",
+				"Math.cos(x) * Math.sin(z)", 0, 1, SurfaceChart3dFX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chartFXConfigEClass, ChartFXConfig.class, "ChartFXConfig", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

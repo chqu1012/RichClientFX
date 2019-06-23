@@ -52,7 +52,7 @@ public class StackedBarChart3dFXItemProvider extends CategoryRowChartFXItemProvi
 	 */
 	@Override
 	public Object getImage(Object object) {
-//		return overlayImage(object, getResourceLocator().getImage("full/obj16/StackedBarChart3dFX"));
+		//		return overlayImage(object, getResourceLocator().getImage("full/obj16/StackedBarChart3dFX"));
 		return overlayImage(object, getResourceLocator().getImage("icons8/icons8-balkendiagramm-3d-2-16.png"));
 	}
 
