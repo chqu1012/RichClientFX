@@ -36,6 +36,12 @@ This application contains on the generation:
 	* Realtime Orson Chart Rendering
 		* AreaChart 3D
 		* BarChart 3D
+		* LineChart 3D
+		* PieChart 3D
+		* ScatterChart 3D
+		* XYZLineChart
+		* XYZBarChart
+		* SurfacePlotter
 	* Thymeleaf Blog Template Generator
 * Editor Registry for several types
 
@@ -60,6 +66,13 @@ BarChart Rendering showing history view, editor part and emf model tree.
 
 ### RealTime BarChart 3D Rendering (Orson Chart)
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-Orson-BarChart3d.png)
+
+### RealTime Surface 3D Plotter (Orson Chart)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-Orson-SurfacePlotter.png)
+
+### RealTime BarChart 3D Rendering (Orson Chart)
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-Orson-XYZBarChart3d.png)
+
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
 Basic functions will integrate into the TreeView, ListView and TableView. The following figure will shows a generated EMF.edit TreeView with binded PropertyView and HistoryView. Only this description is required to configure the generation
