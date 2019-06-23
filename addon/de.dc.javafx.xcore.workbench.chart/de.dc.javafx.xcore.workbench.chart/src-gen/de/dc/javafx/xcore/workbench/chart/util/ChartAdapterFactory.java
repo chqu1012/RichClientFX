@@ -192,6 +192,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseXYZBarChart3dFX(XYZBarChart3dFX object) {
+			return createXYZBarChart3dFXAdapter();
+		}
+
+		@Override
 		public Adapter caseSurfaceChart3dFX(SurfaceChart3dFX object) {
 			return createSurfaceChart3dFXAdapter();
 		}
@@ -567,6 +572,20 @@ public class ChartAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStackedBarChart3dFXAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.chart.XYZBarChart3dFX <em>XYZ Bar Chart3d FX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.chart.XYZBarChart3dFX
+	 * @generated
+	 */
+	public Adapter createXYZBarChart3dFXAdapter() {
 		return null;
 	}
 

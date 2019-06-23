@@ -512,6 +512,29 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.XYZBarChart3dFX} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XYZBarChart3dFXItemProvider xyzBarChart3dFXItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.chart.XYZBarChart3dFX}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXYZBarChart3dFXAdapter() {
+		if (xyzBarChart3dFXItemProvider == null) {
+			xyzBarChart3dFXItemProvider = new XYZBarChart3dFXItemProvider(this);
+		}
+
+		return xyzBarChart3dFXItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -725,6 +748,8 @@ public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
 			scatterChart3dFXItemProvider.dispose();
 		if (stackedBarChart3dFXItemProvider != null)
 			stackedBarChart3dFXItemProvider.dispose();
+		if (xyzBarChart3dFXItemProvider != null)
+			xyzBarChart3dFXItemProvider.dispose();
 		if (surfaceChart3dFXItemProvider != null)
 			surfaceChart3dFXItemProvider.dispose();
 		if (chartFXConfigItemProvider != null)

@@ -64,6 +64,7 @@ import de.dc.javafx.xcore.workbench.chart.StackedBarChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.SurfaceChart3dFX;
 import de.dc.javafx.xcore.workbench.chart.XYChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYValueFX;
+import de.dc.javafx.xcore.workbench.chart.XYZChartFX;
 import de.dc.javafx.xcore.workbench.chart.XYZSeriesFX;
 import de.dc.javafx.xcore.workbench.chart.XYZValueFX;
 import de.dc.javafx.xcore.workbench.chart.util.ChartSwitch;
@@ -80,7 +81,29 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 
 	private Chart currentChart;
 	private ScriptEngineManager scriptManager = new ScriptEngineManager();
-	
+
+	@Override
+	public Node caseXYZChartFX(XYZChartFX object) {
+		XYZSeriesCollection<String> dataset = new XYZSeriesCollection<>();
+		for (XYZSeriesFX seriesFX : object.getSeries()) {
+			String name = seriesFX.getName()==null?"": seriesFX.getName();
+			XYZSeries<String> series = new XYZSeries<>(name);
+			for (XYZValueFX valueFX : seriesFX.getValues()) {
+				series.add(valueFX.getX(), valueFX.getY(), valueFX.getZ());
+			}
+			dataset.add(series);
+		}
+		String title = object.getName();
+		String subtitle = "";
+		String x = object.getXAxisLabel();
+		String y = object.getYAxisLabel();
+		String z = object.getZAxisLabel();
+		Chart3D chart = Chart3DFactory.createXYZBarChart(title, subtitle, dataset, x, y, z);
+		chart.setViewPoint(ViewPoint3D.createAboveRightViewPoint(40));
+		chart.setAntiAlias(true);
+		return new Chart3DViewer(chart);
+	}
+
 	@Override
 	public Node caseSurfaceChart3dFX(SurfaceChart3dFX object) {
 		ScriptEngine engine = scriptManager.getEngineByName("nashorn");
@@ -110,6 +133,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 		SurfaceRenderer renderer = (SurfaceRenderer) plot.getRenderer();
 		renderer.setDrawFaceOutlines(false);
 		renderer.setColorScale(new GradientColorScale(new Range(-1.0, 1.0), Color.RED, Color.YELLOW));
+		chart.setAntiAlias(true);
 		return new Chart3DViewer(chart);
 	}
 
