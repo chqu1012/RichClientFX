@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensions:ExtensionManager xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensions="http://www.frateranatis.org/workbench/extensions">
+  <extensionPoints xsi:type="extensions:ViewExtension" Id="">
+    <views Id="de.dc.javafx.xcore.resource.ui.view.RecentlyOpenFileHistoryView" name="Recently Open Files History" extensionUri="de.dc.javafx.xcore.resource.ui.view.RecentlyOpenFileHistoryView"/>
+  </extensionPoints>
+  <extensionPoints xsi:type="extensions:PerspectiveExtension">
+    <perspectives Id="de.dc.javafx.xcore.resource.ui.ExtensionPerspective" name="Extension Perspective" left="//@extensionPoints.0/@views.0"/>
+  </extensionPoints>
+</extensions:ExtensionManager>
