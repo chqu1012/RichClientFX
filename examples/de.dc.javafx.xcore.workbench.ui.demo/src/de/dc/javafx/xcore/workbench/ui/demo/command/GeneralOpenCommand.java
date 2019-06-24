@@ -45,6 +45,7 @@ public class GeneralOpenCommand extends EmfCommand {
 			openFile.setPath(file.getAbsolutePath());
 			openFile.setTimestamp(LocalDateTime.now().toString());
 			view.getEmfManager().getRoot().getFiles().add(openFile);
+			view.save();
 			
 			fileManager.getEditorByExtension(FilenameUtils.getExtension(file.getName())).ifPresent(e->{
 				Tab editorTab = new Tab(file.getName());

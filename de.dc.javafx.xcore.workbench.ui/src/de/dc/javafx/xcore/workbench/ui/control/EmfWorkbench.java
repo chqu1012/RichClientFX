@@ -128,10 +128,12 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 		editorArea.getSelectionModel().selectedItemProperty()
 				.addListener((ChangeListener<Tab>) (observable, oldValue, newValue) -> {
-					Node content = newValue.getContent();
-					if (content instanceof IEmfEditorPart) {
-						IEmfEditorPart<?> editor = (IEmfEditorPart<?>) content;
-						DIPlatform.getInstance(IEmfFileManager.class).setCurrentEditor(editor);
+					if (newValue!=null) {
+						Node content = newValue.getContent();
+						if (content instanceof IEmfEditorPart) {
+							IEmfEditorPart<?> editor = (IEmfEditorPart<?>) content;
+							DIPlatform.getInstance(IEmfFileManager.class).setCurrentEditor(editor);
+						}
 					}
 				});
 	}
