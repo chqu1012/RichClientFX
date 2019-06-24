@@ -211,6 +211,52 @@ public class ExtensionsItemProviderAdapterFactory extends ExtensionsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.extensions.CommandExtension} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommandExtensionItemProvider commandExtensionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.extensions.CommandExtension}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommandExtensionAdapter() {
+		if (commandExtensionItemProvider == null) {
+			commandExtensionItemProvider = new CommandExtensionItemProvider(this);
+		}
+
+		return commandExtensionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.extensions.Command} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommandItemProvider commandItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.extensions.Command}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommandAdapter() {
+		if (commandItemProvider == null) {
+			commandItemProvider = new CommandItemProvider(this);
+		}
+
+		return commandItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.extensions.View} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,6 +442,10 @@ public class ExtensionsItemProviderAdapterFactory extends ExtensionsAdapterFacto
 			toolbarExtensionItemProvider.dispose();
 		if (perspectiveExtensionItemProvider != null)
 			perspectiveExtensionItemProvider.dispose();
+		if (commandExtensionItemProvider != null)
+			commandExtensionItemProvider.dispose();
+		if (commandItemProvider != null)
+			commandItemProvider.dispose();
 		if (viewItemProvider != null)
 			viewItemProvider.dispose();
 		if (editorItemProvider != null)

@@ -76,6 +76,24 @@ public interface ExtensionsFactory extends EFactory {
 	PerspectiveExtension createPerspectiveExtension();
 
 	/**
+	 * Returns a new object of class '<em>Command Extension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Command Extension</em>'.
+	 * @generated
+	 */
+	CommandExtension createCommandExtension();
+
+	/**
+	 * Returns a new object of class '<em>Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Command</em>'.
+	 * @generated
+	 */
+	Command createCommand();
+
+	/**
 	 * Returns a new object of class '<em>View</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

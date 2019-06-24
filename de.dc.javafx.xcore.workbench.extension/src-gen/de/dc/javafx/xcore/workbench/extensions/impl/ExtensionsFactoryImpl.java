@@ -68,6 +68,10 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 			return createToolbarExtension();
 		case ExtensionsPackage.PERSPECTIVE_EXTENSION:
 			return createPerspectiveExtension();
+		case ExtensionsPackage.COMMAND_EXTENSION:
+			return createCommandExtension();
+		case ExtensionsPackage.COMMAND:
+			return createCommand();
 		case ExtensionsPackage.VIEW:
 			return createView();
 		case ExtensionsPackage.EDITOR:
@@ -143,6 +147,28 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 	public PerspectiveExtension createPerspectiveExtension() {
 		PerspectiveExtensionImpl perspectiveExtension = new PerspectiveExtensionImpl();
 		return perspectiveExtension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CommandExtension createCommandExtension() {
+		CommandExtensionImpl commandExtension = new CommandExtensionImpl();
+		return commandExtension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Command createCommand() {
+		CommandImpl command = new CommandImpl();
+		return command;
 	}
 
 	/**

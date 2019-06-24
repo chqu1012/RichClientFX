@@ -132,6 +132,24 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ExtensionsPackage.COMMAND_EXTENSION: {
+			CommandExtension commandExtension = (CommandExtension) theEObject;
+			T result = caseCommandExtension(commandExtension);
+			if (result == null)
+				result = caseExtensionPoint(commandExtension);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExtensionsPackage.COMMAND: {
+			Command command = (Command) theEObject;
+			T result = caseCommand(command);
+			if (result == null)
+				result = caseExtension(command);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ExtensionsPackage.VIEW: {
 			View view = (View) theEObject;
 			T result = caseView(view);
@@ -281,6 +299,36 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePerspectiveExtension(PerspectiveExtension object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Command Extension</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Command Extension</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommandExtension(CommandExtension object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommand(Command object) {
 		return null;
 	}
 

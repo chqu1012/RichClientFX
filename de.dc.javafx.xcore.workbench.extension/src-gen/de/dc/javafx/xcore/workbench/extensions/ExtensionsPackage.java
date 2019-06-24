@@ -453,6 +453,125 @@ public interface ExtensionsPackage extends EPackage {
 	int PERSPECTIVE_EXTENSION_OPERATION_COUNT = EXTENSION_POINT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.CommandExtensionImpl <em>Command Extension</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.extensions.impl.CommandExtensionImpl
+	 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getCommandExtension()
+	 * @generated
+	 */
+	int COMMAND_EXTENSION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXTENSION__ID = EXTENSION_POINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXTENSION__NAME = EXTENSION_POINT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Commands</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXTENSION__COMMANDS = EXTENSION_POINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Command Extension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXTENSION_FEATURE_COUNT = EXTENSION_POINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Command Extension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXTENSION_OPERATION_COUNT = EXTENSION_POINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.CommandImpl <em>Command</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.extensions.impl.CommandImpl
+	 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getCommand()
+	 * @generated
+	 */
+	int COMMAND = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__ID = EXTENSION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__NAME = EXTENSION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extension Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__EXTENSION_URI = EXTENSION__EXTENSION_URI;
+
+	/**
+	 * The feature id for the '<em><b>Handler</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__HANDLER = EXTENSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_FEATURE_COUNT = EXTENSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_OPERATION_COUNT = EXTENSION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.ViewImpl <em>View</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -460,7 +579,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getView()
 	 * @generated
 	 */
-	int VIEW = 8;
+	int VIEW = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -524,7 +643,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getEditor()
 	 * @generated
 	 */
-	int EDITOR = 9;
+	int EDITOR = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -597,7 +716,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getPerspective()
 	 * @generated
 	 */
-	int PERSPECTIVE = 10;
+	int PERSPECTIVE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -858,6 +977,48 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPerspectiveExtension_Perspectives();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.extensions.CommandExtension <em>Command Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Command Extension</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.CommandExtension
+	 * @generated
+	 */
+	EClass getCommandExtension();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.extensions.CommandExtension#getCommands <em>Commands</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Commands</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.CommandExtension#getCommands()
+	 * @see #getCommandExtension()
+	 * @generated
+	 */
+	EReference getCommandExtension_Commands();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.extensions.Command <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Command</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.Command
+	 * @generated
+	 */
+	EClass getCommand();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.extensions.Command#getHandler <em>Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Handler</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.Command#getHandler()
+	 * @see #getCommand()
+	 * @generated
+	 */
+	EAttribute getCommand_Handler();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.extensions.View <em>View</em>}'.
@@ -1140,6 +1301,42 @@ public interface ExtensionsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PERSPECTIVE_EXTENSION__PERSPECTIVES = eINSTANCE.getPerspectiveExtension_Perspectives();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.CommandExtensionImpl <em>Command Extension</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.extensions.impl.CommandExtensionImpl
+		 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getCommandExtension()
+		 * @generated
+		 */
+		EClass COMMAND_EXTENSION = eINSTANCE.getCommandExtension();
+
+		/**
+		 * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMAND_EXTENSION__COMMANDS = eINSTANCE.getCommandExtension_Commands();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.CommandImpl <em>Command</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.extensions.impl.CommandImpl
+		 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getCommand()
+		 * @generated
+		 */
+		EClass COMMAND = eINSTANCE.getCommand();
+
+		/**
+		 * The meta object literal for the '<em><b>Handler</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMAND__HANDLER = eINSTANCE.getCommand_Handler();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.ViewImpl <em>View</em>}' class.

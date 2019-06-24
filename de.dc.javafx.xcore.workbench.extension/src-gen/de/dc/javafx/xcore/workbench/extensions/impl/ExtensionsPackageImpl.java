@@ -2,6 +2,8 @@
  */
 package de.dc.javafx.xcore.workbench.extensions.impl;
 
+import de.dc.javafx.xcore.workbench.extensions.Command;
+import de.dc.javafx.xcore.workbench.extensions.CommandExtension;
 import de.dc.javafx.xcore.workbench.extensions.Editor;
 import de.dc.javafx.xcore.workbench.extensions.EditorExtension;
 import de.dc.javafx.xcore.workbench.extensions.Extension;
@@ -86,6 +88,20 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * @generated
 	 */
 	private EClass perspectiveExtensionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commandExtensionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commandEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -351,6 +367,46 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * @generated
 	 */
 	@Override
+	public EClass getCommandExtension() {
+		return commandExtensionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCommandExtension_Commands() {
+		return (EReference) commandExtensionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCommand() {
+		return commandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommand_Handler() {
+		return (EAttribute) commandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getView() {
 		return viewEClass;
 	}
@@ -500,6 +556,12 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		perspectiveExtensionEClass = createEClass(PERSPECTIVE_EXTENSION);
 		createEReference(perspectiveExtensionEClass, PERSPECTIVE_EXTENSION__PERSPECTIVES);
 
+		commandExtensionEClass = createEClass(COMMAND_EXTENSION);
+		createEReference(commandExtensionEClass, COMMAND_EXTENSION__COMMANDS);
+
+		commandEClass = createEClass(COMMAND);
+		createEAttribute(commandEClass, COMMAND__HANDLER);
+
 		viewEClass = createEClass(VIEW);
 		createEAttribute(viewEClass, VIEW__ICON);
 
@@ -551,6 +613,8 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		menuExtensionEClass.getESuperTypes().add(this.getExtensionPoint());
 		toolbarExtensionEClass.getESuperTypes().add(this.getExtensionPoint());
 		perspectiveExtensionEClass.getESuperTypes().add(this.getExtensionPoint());
+		commandExtensionEClass.getESuperTypes().add(this.getExtensionPoint());
+		commandEClass.getESuperTypes().add(this.getExtension());
 		viewEClass.getESuperTypes().add(this.getExtension());
 		editorEClass.getESuperTypes().add(this.getExtension());
 		perspectiveEClass.getESuperTypes().add(this.getExtension());
@@ -606,6 +670,17 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		initEReference(getPerspectiveExtension_Perspectives(), this.getPerspective(), null, "perspectives", null, 0, -1,
 				PerspectiveExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commandExtensionEClass, CommandExtension.class, "CommandExtension", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCommandExtension_Commands(), this.getCommand(), null, "commands", null, 0, -1,
+				CommandExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommand_Handler(), theEcorePackage.getEString(), "handler", null, 0, 1, Command.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getView_Icon(), theEcorePackage.getEString(), "icon", null, 0, 1, View.class, !IS_TRANSIENT,

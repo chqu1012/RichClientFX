@@ -40,6 +40,14 @@ class PerspectiveExtension extends ExtensionPoint{
 	contains Perspective[0..*] perspectives
 }
 
+class CommandExtension extends ExtensionPoint{
+	contains Command[0..*] commands
+}
+
+class Command extends Extension{
+	String handler
+}
+
 class View extends Extension{
 	String icon
 }

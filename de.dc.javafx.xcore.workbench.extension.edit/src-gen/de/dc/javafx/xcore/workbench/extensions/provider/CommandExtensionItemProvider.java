@@ -2,7 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.extensions.provider;
 
-import de.dc.javafx.xcore.workbench.extensions.ExtensionManager;
+import de.dc.javafx.xcore.workbench.extensions.CommandExtension;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionsFactory;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage;
 
@@ -12,34 +12,25 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.extensions.ExtensionManager} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.extensions.CommandExtension} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExtensionManagerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CommandExtensionItemProvider extends ExtensionPointItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtensionManagerItemProvider(AdapterFactory adapterFactory) {
+	public CommandExtensionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,7 +61,7 @@ public class ExtensionManagerItemProvider extends ItemProviderAdapter implements
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ExtensionsPackage.Literals.EXTENSION_MANAGER__EXTENSION_POINTS);
+			childrenFeatures.add(ExtensionsPackage.Literals.COMMAND_EXTENSION__COMMANDS);
 		}
 		return childrenFeatures;
 	}
@@ -89,14 +80,14 @@ public class ExtensionManagerItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
-	 * This returns ExtensionManager.gif.
+	 * This returns CommandExtension.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtensionManager"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CommandExtension"));
 	}
 
 	/**
@@ -117,7 +108,9 @@ public class ExtensionManagerItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtensionManager_type");
+		String label = ((CommandExtension) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_CommandExtension_type")
+				: getString("_UI_CommandExtension_type") + " " + label;
 	}
 
 	/**
@@ -131,8 +124,8 @@ public class ExtensionManagerItemProvider extends ItemProviderAdapter implements
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ExtensionManager.class)) {
-		case ExtensionsPackage.EXTENSION_MANAGER__EXTENSION_POINTS:
+		switch (notification.getFeatureID(CommandExtension.class)) {
+		case ExtensionsPackage.COMMAND_EXTENSION__COMMANDS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -150,34 +143,8 @@ public class ExtensionManagerItemProvider extends ItemProviderAdapter implements
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(ExtensionsPackage.Literals.EXTENSION_MANAGER__EXTENSION_POINTS,
-				ExtensionsFactory.eINSTANCE.createViewExtension()));
-
-		newChildDescriptors.add(createChildParameter(ExtensionsPackage.Literals.EXTENSION_MANAGER__EXTENSION_POINTS,
-				ExtensionsFactory.eINSTANCE.createEditorExtension()));
-
-		newChildDescriptors.add(createChildParameter(ExtensionsPackage.Literals.EXTENSION_MANAGER__EXTENSION_POINTS,
-				ExtensionsFactory.eINSTANCE.createMenuExtension()));
-
-		newChildDescriptors.add(createChildParameter(ExtensionsPackage.Literals.EXTENSION_MANAGER__EXTENSION_POINTS,
-				ExtensionsFactory.eINSTANCE.createToolbarExtension()));
-
-		newChildDescriptors.add(createChildParameter(ExtensionsPackage.Literals.EXTENSION_MANAGER__EXTENSION_POINTS,
-				ExtensionsFactory.eINSTANCE.createPerspectiveExtension()));
-
-		newChildDescriptors.add(createChildParameter(ExtensionsPackage.Literals.EXTENSION_MANAGER__EXTENSION_POINTS,
-				ExtensionsFactory.eINSTANCE.createCommandExtension()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ExtensionsEditPlugin.INSTANCE;
+		newChildDescriptors.add(createChildParameter(ExtensionsPackage.Literals.COMMAND_EXTENSION__COMMANDS,
+				ExtensionsFactory.eINSTANCE.createCommand()));
 	}
 
 }

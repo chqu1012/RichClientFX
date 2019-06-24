@@ -107,6 +107,16 @@ public class ExtensionsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCommandExtension(CommandExtension object) {
+			return createCommandExtensionAdapter();
+		}
+
+		@Override
+		public Adapter caseCommand(Command object) {
+			return createCommandAdapter();
+		}
+
+		@Override
 		public Adapter caseView(View object) {
 			return createViewAdapter();
 		}
@@ -249,6 +259,34 @@ public class ExtensionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPerspectiveExtensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.extensions.CommandExtension <em>Command Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.extensions.CommandExtension
+	 * @generated
+	 */
+	public Adapter createCommandExtensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.extensions.Command <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.extensions.Command
+	 * @generated
+	 */
+	public Adapter createCommandAdapter() {
 		return null;
 	}
 
