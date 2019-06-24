@@ -426,40 +426,13 @@ public interface ExtensionsPackage extends EPackage {
 	int PERSPECTIVE_EXTENSION__NAME = EXTENSION_POINT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Left</b></em>' reference list.
+	 * The feature id for the '<em><b>Perspectives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSPECTIVE_EXTENSION__LEFT = EXTENSION_POINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Right</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSPECTIVE_EXTENSION__RIGHT = EXTENSION_POINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Bottom</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSPECTIVE_EXTENSION__BOTTOM = EXTENSION_POINT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Editor Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSPECTIVE_EXTENSION__EDITOR_AREA = EXTENSION_POINT_FEATURE_COUNT + 3;
+	int PERSPECTIVE_EXTENSION__PERSPECTIVES = EXTENSION_POINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Perspective Extension</em>' class.
@@ -468,7 +441,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSPECTIVE_EXTENSION_FEATURE_COUNT = EXTENSION_POINT_FEATURE_COUNT + 4;
+	int PERSPECTIVE_EXTENSION_FEATURE_COUNT = EXTENSION_POINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Perspective Extension</em>' class.
@@ -615,6 +588,97 @@ public interface ExtensionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EDITOR_OPERATION_COUNT = EXTENSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveImpl <em>Perspective</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveImpl
+	 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getPerspective()
+	 * @generated
+	 */
+	int PERSPECTIVE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE__ID = EXTENSION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE__NAME = EXTENSION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extension Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE__EXTENSION_URI = EXTENSION__EXTENSION_URI;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE__LEFT = EXTENSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE__RIGHT = EXTENSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Bottom</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE__BOTTOM = EXTENSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Editor Area</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE__EDITOR_AREA = EXTENSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Perspective</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE_FEATURE_COUNT = EXTENSION_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Perspective</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE_OPERATION_COUNT = EXTENSION_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.extensions.ExtensionManager <em>Extension Manager</em>}'.
@@ -785,48 +849,15 @@ public interface ExtensionsPackage extends EPackage {
 	EClass getPerspectiveExtension();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getLeft <em>Left</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getPerspectives <em>Perspectives</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Left</em>'.
-	 * @see de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getLeft()
+	 * @return the meta object for the containment reference list '<em>Perspectives</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getPerspectives()
 	 * @see #getPerspectiveExtension()
 	 * @generated
 	 */
-	EReference getPerspectiveExtension_Left();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getRight <em>Right</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Right</em>'.
-	 * @see de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getRight()
-	 * @see #getPerspectiveExtension()
-	 * @generated
-	 */
-	EReference getPerspectiveExtension_Right();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getBottom <em>Bottom</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Bottom</em>'.
-	 * @see de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getBottom()
-	 * @see #getPerspectiveExtension()
-	 * @generated
-	 */
-	EReference getPerspectiveExtension_Bottom();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getEditorArea <em>Editor Area</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Editor Area</em>'.
-	 * @see de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getEditorArea()
-	 * @see #getPerspectiveExtension()
-	 * @generated
-	 */
-	EReference getPerspectiveExtension_EditorArea();
+	EReference getPerspectiveExtension_Perspectives();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.extensions.View <em>View</em>}'.
@@ -880,6 +911,60 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEditor_FileExtension();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.extensions.Perspective <em>Perspective</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Perspective</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.Perspective
+	 * @generated
+	 */
+	EClass getPerspective();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.extensions.Perspective#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Left</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.Perspective#getLeft()
+	 * @see #getPerspective()
+	 * @generated
+	 */
+	EReference getPerspective_Left();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.extensions.Perspective#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Right</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.Perspective#getRight()
+	 * @see #getPerspective()
+	 * @generated
+	 */
+	EReference getPerspective_Right();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.extensions.Perspective#getBottom <em>Bottom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Bottom</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.Perspective#getBottom()
+	 * @see #getPerspective()
+	 * @generated
+	 */
+	EReference getPerspective_Bottom();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.dc.javafx.xcore.workbench.extensions.Perspective#getEditorArea <em>Editor Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Editor Area</em>'.
+	 * @see de.dc.javafx.xcore.workbench.extensions.Perspective#getEditorArea()
+	 * @see #getPerspective()
+	 * @generated
+	 */
+	EReference getPerspective_EditorArea();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1049,36 +1134,12 @@ public interface ExtensionsPackage extends EPackage {
 		EClass PERSPECTIVE_EXTENSION = eINSTANCE.getPerspectiveExtension();
 
 		/**
-		 * The meta object literal for the '<em><b>Left</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Perspectives</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PERSPECTIVE_EXTENSION__LEFT = eINSTANCE.getPerspectiveExtension_Left();
-
-		/**
-		 * The meta object literal for the '<em><b>Right</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PERSPECTIVE_EXTENSION__RIGHT = eINSTANCE.getPerspectiveExtension_Right();
-
-		/**
-		 * The meta object literal for the '<em><b>Bottom</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PERSPECTIVE_EXTENSION__BOTTOM = eINSTANCE.getPerspectiveExtension_Bottom();
-
-		/**
-		 * The meta object literal for the '<em><b>Editor Area</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PERSPECTIVE_EXTENSION__EDITOR_AREA = eINSTANCE.getPerspectiveExtension_EditorArea();
+		EReference PERSPECTIVE_EXTENSION__PERSPECTIVES = eINSTANCE.getPerspectiveExtension_Perspectives();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.ViewImpl <em>View</em>}' class.
@@ -1123,6 +1184,48 @@ public interface ExtensionsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EDITOR__FILE_EXTENSION = eINSTANCE.getEditor_FileExtension();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveImpl <em>Perspective</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveImpl
+		 * @see de.dc.javafx.xcore.workbench.extensions.impl.ExtensionsPackageImpl#getPerspective()
+		 * @generated
+		 */
+		EClass PERSPECTIVE = eINSTANCE.getPerspective();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSPECTIVE__LEFT = eINSTANCE.getPerspective_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSPECTIVE__RIGHT = eINSTANCE.getPerspective_Right();
+
+		/**
+		 * The meta object literal for the '<em><b>Bottom</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSPECTIVE__BOTTOM = eINSTANCE.getPerspective_Bottom();
+
+		/**
+		 * The meta object literal for the '<em><b>Editor Area</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSPECTIVE__EDITOR_AREA = eINSTANCE.getPerspective_EditorArea();
 
 	}
 

@@ -94,6 +94,15 @@ public interface ExtensionsFactory extends EFactory {
 	Editor createEditor();
 
 	/**
+	 * Returns a new object of class '<em>Perspective</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Perspective</em>'.
+	 * @generated
+	 */
+	Perspective createPerspective();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

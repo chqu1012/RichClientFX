@@ -257,6 +257,29 @@ public class ExtensionsItemProviderAdapterFactory extends ExtensionsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.extensions.Perspective} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PerspectiveItemProvider perspectiveItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.extensions.Perspective}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPerspectiveAdapter() {
+		if (perspectiveItemProvider == null) {
+			perspectiveItemProvider = new PerspectiveItemProvider(this);
+		}
+
+		return perspectiveItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,6 +400,8 @@ public class ExtensionsItemProviderAdapterFactory extends ExtensionsAdapterFacto
 			viewItemProvider.dispose();
 		if (editorItemProvider != null)
 			editorItemProvider.dispose();
+		if (perspectiveItemProvider != null)
+			perspectiveItemProvider.dispose();
 	}
 
 }

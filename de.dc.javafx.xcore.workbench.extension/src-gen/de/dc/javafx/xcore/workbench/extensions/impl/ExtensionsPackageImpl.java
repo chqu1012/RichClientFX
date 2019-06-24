@@ -10,6 +10,7 @@ import de.dc.javafx.xcore.workbench.extensions.ExtensionPoint;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionsFactory;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage;
 import de.dc.javafx.xcore.workbench.extensions.MenuExtension;
+import de.dc.javafx.xcore.workbench.extensions.Perspective;
 import de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension;
 import de.dc.javafx.xcore.workbench.extensions.ToolbarExtension;
 import de.dc.javafx.xcore.workbench.extensions.View;
@@ -99,6 +100,13 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * @generated
 	 */
 	private EClass editorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass perspectiveEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -333,38 +341,8 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * @generated
 	 */
 	@Override
-	public EReference getPerspectiveExtension_Left() {
+	public EReference getPerspectiveExtension_Perspectives() {
 		return (EReference) perspectiveExtensionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPerspectiveExtension_Right() {
-		return (EReference) perspectiveExtensionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPerspectiveExtension_Bottom() {
-		return (EReference) perspectiveExtensionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPerspectiveExtension_EditorArea() {
-		return (EReference) perspectiveExtensionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -423,6 +401,56 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * @generated
 	 */
 	@Override
+	public EClass getPerspective() {
+		return perspectiveEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPerspective_Left() {
+		return (EReference) perspectiveEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPerspective_Right() {
+		return (EReference) perspectiveEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPerspective_Bottom() {
+		return (EReference) perspectiveEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPerspective_EditorArea() {
+		return (EReference) perspectiveEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ExtensionsFactory getExtensionsFactory() {
 		return (ExtensionsFactory) getEFactoryInstance();
 	}
@@ -470,10 +498,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		toolbarExtensionEClass = createEClass(TOOLBAR_EXTENSION);
 
 		perspectiveExtensionEClass = createEClass(PERSPECTIVE_EXTENSION);
-		createEReference(perspectiveExtensionEClass, PERSPECTIVE_EXTENSION__LEFT);
-		createEReference(perspectiveExtensionEClass, PERSPECTIVE_EXTENSION__RIGHT);
-		createEReference(perspectiveExtensionEClass, PERSPECTIVE_EXTENSION__BOTTOM);
-		createEReference(perspectiveExtensionEClass, PERSPECTIVE_EXTENSION__EDITOR_AREA);
+		createEReference(perspectiveExtensionEClass, PERSPECTIVE_EXTENSION__PERSPECTIVES);
 
 		viewEClass = createEClass(VIEW);
 		createEAttribute(viewEClass, VIEW__ICON);
@@ -481,6 +506,12 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		editorEClass = createEClass(EDITOR);
 		createEAttribute(editorEClass, EDITOR__ICON);
 		createEAttribute(editorEClass, EDITOR__FILE_EXTENSION);
+
+		perspectiveEClass = createEClass(PERSPECTIVE);
+		createEReference(perspectiveEClass, PERSPECTIVE__LEFT);
+		createEReference(perspectiveEClass, PERSPECTIVE__RIGHT);
+		createEReference(perspectiveEClass, PERSPECTIVE__BOTTOM);
+		createEReference(perspectiveEClass, PERSPECTIVE__EDITOR_AREA);
 	}
 
 	/**
@@ -522,6 +553,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		perspectiveExtensionEClass.getESuperTypes().add(this.getExtensionPoint());
 		viewEClass.getESuperTypes().add(this.getExtension());
 		editorEClass.getESuperTypes().add(this.getExtension());
+		perspectiveEClass.getESuperTypes().add(this.getExtension());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(extensionManagerEClass, ExtensionManager.class, "ExtensionManager", !IS_ABSTRACT, !IS_INTERFACE,
@@ -571,18 +603,9 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 
 		initEClass(perspectiveExtensionEClass, PerspectiveExtension.class, "PerspectiveExtension", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPerspectiveExtension_Left(), this.getView(), null, "left", null, 0, -1,
-				PerspectiveExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPerspectiveExtension_Right(), this.getView(), null, "right", null, 0, -1,
-				PerspectiveExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPerspectiveExtension_Bottom(), this.getView(), null, "bottom", null, 0, -1,
-				PerspectiveExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPerspectiveExtension_EditorArea(), this.getEditor(), null, "editorArea", null, 0, -1,
-				PerspectiveExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerspectiveExtension_Perspectives(), this.getPerspective(), null, "perspectives", null, 0, -1,
+				PerspectiveExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getView_Icon(), theEcorePackage.getEString(), "icon", null, 0, 1, View.class, !IS_TRANSIENT,
@@ -594,6 +617,21 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		initEAttribute(getEditor_FileExtension(), theEcorePackage.getEString(), "fileExtension", null, 0, 1,
 				Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(perspectiveEClass, Perspective.class, "Perspective", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPerspective_Left(), this.getView(), null, "left", null, 0, -1, Perspective.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerspective_Right(), this.getView(), null, "right", null, 0, -1, Perspective.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerspective_Bottom(), this.getView(), null, "bottom", null, 0, -1, Perspective.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerspective_EditorArea(), this.getEditor(), null, "editorArea", null, 0, -1,
+				Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

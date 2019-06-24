@@ -2,6 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.extensions.provider;
 
+import de.dc.javafx.xcore.workbench.extensions.ExtensionsFactory;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage;
 import de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension;
 
@@ -11,8 +12,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension} object.
@@ -42,72 +44,38 @@ public class PerspectiveExtensionItemProvider extends ExtensionPointItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLeftPropertyDescriptor(object);
-			addRightPropertyDescriptor(object);
-			addBottomPropertyDescriptor(object);
-			addEditorAreaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Left feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLeftPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_PerspectiveExtension_left_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_PerspectiveExtension_left_feature",
-								"_UI_PerspectiveExtension_type"),
-						ExtensionsPackage.Literals.PERSPECTIVE_EXTENSION__LEFT, true, false, true, null, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ExtensionsPackage.Literals.PERSPECTIVE_EXTENSION__PERSPECTIVES);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Right feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_PerspectiveExtension_right_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_PerspectiveExtension_right_feature",
-								"_UI_PerspectiveExtension_type"),
-						ExtensionsPackage.Literals.PERSPECTIVE_EXTENSION__RIGHT, true, false, true, null, null, null));
-	}
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-	/**
-	 * This adds a property descriptor for the Bottom feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBottomPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_PerspectiveExtension_bottom_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_PerspectiveExtension_bottom_feature",
-								"_UI_PerspectiveExtension_type"),
-						ExtensionsPackage.Literals.PERSPECTIVE_EXTENSION__BOTTOM, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Editor Area feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEditorAreaPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PerspectiveExtension_editorArea_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PerspectiveExtension_editorArea_feature",
-						"_UI_PerspectiveExtension_type"),
-				ExtensionsPackage.Literals.PERSPECTIVE_EXTENSION__EDITOR_AREA, true, false, true, null, null, null));
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -154,6 +122,12 @@ public class PerspectiveExtensionItemProvider extends ExtensionPointItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(PerspectiveExtension.class)) {
+		case ExtensionsPackage.PERSPECTIVE_EXTENSION__PERSPECTIVES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -167,6 +141,9 @@ public class PerspectiveExtensionItemProvider extends ExtensionPointItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(ExtensionsPackage.Literals.PERSPECTIVE_EXTENSION__PERSPECTIVES,
+				ExtensionsFactory.eINSTANCE.createPerspective()));
 	}
 
 }

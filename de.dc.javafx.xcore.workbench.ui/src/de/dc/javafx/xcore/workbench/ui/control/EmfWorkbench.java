@@ -124,7 +124,7 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 		for (URL url : urls) {
 			String file = url.getFile();
-			file = file + "resource.extensions";
+			file = file + "plugin.extensions";
 			java.io.File extensionFile = new java.io.File(file);
 			if (extensionFile.exists()) {
 				ExtensionFile efile = new ExtensionFile();
@@ -135,22 +135,23 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 					if (point instanceof PerspectiveExtension) {
 						PerspectiveExtension perspectiveExtions = (PerspectiveExtension) point;
 						
-						Perspective perspective = WorkbenchFactory.eINSTANCE.createPerspective();
-						perspective.setName(perspectiveExtions.getName());
-						perspective.set_Id(perspectiveExtions.getId());
-
-						LeftPane leftPane = WorkbenchFactory.eINSTANCE.createLeftPane();
-						perspective.setLeftPane(leftPane);
-						
-						for (de.dc.javafx.xcore.workbench.extensions.View view : perspectiveExtions.getLeft()) {
-							de.dc.javafx.xcore.workbench.View currentView = WorkbenchFactory.eINSTANCE.createView();
-							currentView.set_Id(view.getId());
-							currentView.setName(view.getName());
-							currentView.setRegistrateChangeListener(true);
-							currentView.setViewClass(view.getExtensionUri());
-							leftPane.getViews().add(currentView);
+						for (de.dc.javafx.xcore.workbench.extensions.Perspective p : perspectiveExtions.getPerspectives()) {
+							Perspective perspective = WorkbenchFactory.eINSTANCE.createPerspective();
+							perspective.setName(p.getName());
+							perspective.set_Id(p.getId());
+							
+							LeftPane leftPane = WorkbenchFactory.eINSTANCE.createLeftPane();
+							perspective.setLeftPane(leftPane);
+							for (de.dc.javafx.xcore.workbench.extensions.View view : p.getLeft()) {
+								de.dc.javafx.xcore.workbench.View currentView = WorkbenchFactory.eINSTANCE.createView();
+								currentView.set_Id(view.getId());
+								currentView.setName(view.getName());
+								currentView.setRegistrateChangeListener(true);
+								currentView.setViewClass(view.getExtensionUri());
+								leftPane.getViews().add(currentView);
+							}
+							DIPlatform.getInstance(EmfWorkbenchRenderer.class).createPerspective(perspective);
 						}
-						DIPlatform.getInstance(EmfWorkbenchRenderer.class).createPerspective(perspective);
 					}				
 				}
 			}

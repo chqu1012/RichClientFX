@@ -13,10 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getLeft <em>Left</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getRight <em>Right</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getBottom <em>Bottom</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getEditorArea <em>Editor Area</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension#getPerspectives <em>Perspectives</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage#getPerspectiveExtension()
@@ -25,51 +22,15 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface PerspectiveExtension extends ExtensionPoint {
 	/**
-	 * Returns the value of the '<em><b>Left</b></em>' reference list.
-	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.extensions.View}.
+	 * Returns the value of the '<em><b>Perspectives</b></em>' containment reference list.
+	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.extensions.Perspective}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Left</em>' reference list.
-	 * @see de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage#getPerspectiveExtension_Left()
-	 * @model
+	 * @return the value of the '<em>Perspectives</em>' containment reference list.
+	 * @see de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage#getPerspectiveExtension_Perspectives()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<View> getLeft();
-
-	/**
-	 * Returns the value of the '<em><b>Right</b></em>' reference list.
-	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.extensions.View}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Right</em>' reference list.
-	 * @see de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage#getPerspectiveExtension_Right()
-	 * @model
-	 * @generated
-	 */
-	EList<View> getRight();
-
-	/**
-	 * Returns the value of the '<em><b>Bottom</b></em>' reference list.
-	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.extensions.View}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bottom</em>' reference list.
-	 * @see de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage#getPerspectiveExtension_Bottom()
-	 * @model
-	 * @generated
-	 */
-	EList<View> getBottom();
-
-	/**
-	 * Returns the value of the '<em><b>Editor Area</b></em>' reference list.
-	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.extensions.Editor}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Editor Area</em>' reference list.
-	 * @see de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage#getPerspectiveExtension_EditorArea()
-	 * @model
-	 * @generated
-	 */
-	EList<Editor> getEditorArea();
+	EList<Perspective> getPerspectives();
 
 } // PerspectiveExtension

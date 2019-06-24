@@ -37,10 +37,7 @@ class MenuExtension extends ExtensionPoint{}
 class ToolbarExtension extends ExtensionPoint{}
 
 class PerspectiveExtension extends ExtensionPoint{
-	refers View[0..*] left
-	refers View[0..*] right
-	refers View[0..*] bottom
-	refers Editor[0..*] editorArea
+	contains Perspective[0..*] perspectives
 }
 
 class View extends Extension{
@@ -50,4 +47,11 @@ class View extends Extension{
 class Editor extends Extension{
 	String icon
 	String fileExtension	
+}
+
+class Perspective extends Extension{
+	refers View[0..*] left
+	refers View[0..*] right
+	refers View[0..*] bottom
+	refers Editor[0..*] editorArea
 }

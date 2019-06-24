@@ -2,18 +2,21 @@
  */
 package de.dc.javafx.xcore.workbench.extensions.impl;
 
-import de.dc.javafx.xcore.workbench.extensions.Editor;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage;
+import de.dc.javafx.xcore.workbench.extensions.Perspective;
 import de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension;
-import de.dc.javafx.xcore.workbench.extensions.View;
 
 import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,54 +26,21 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveExtensionImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveExtensionImpl#getRight <em>Right</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveExtensionImpl#getBottom <em>Bottom</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveExtensionImpl#getEditorArea <em>Editor Area</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.extensions.impl.PerspectiveExtensionImpl#getPerspectives <em>Perspectives</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PerspectiveExtensionImpl extends ExtensionPointImpl implements PerspectiveExtension {
 	/**
-	 * The cached value of the '{@link #getLeft() <em>Left</em>}' reference list.
+	 * The cached value of the '{@link #getPerspectives() <em>Perspectives</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLeft()
+	 * @see #getPerspectives()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<View> left;
-
-	/**
-	 * The cached value of the '{@link #getRight() <em>Right</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRight()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<View> right;
-
-	/**
-	 * The cached value of the '{@link #getBottom() <em>Bottom</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBottom()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<View> bottom;
-
-	/**
-	 * The cached value of the '{@link #getEditorArea() <em>Editor Area</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEditorArea()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Editor> editorArea;
+	protected EList<Perspective> perspectives;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,11 +67,12 @@ public class PerspectiveExtensionImpl extends ExtensionPointImpl implements Pers
 	 * @generated
 	 */
 	@Override
-	public EList<View> getLeft() {
-		if (left == null) {
-			left = new EObjectResolvingEList<View>(View.class, this, ExtensionsPackage.PERSPECTIVE_EXTENSION__LEFT);
+	public EList<Perspective> getPerspectives() {
+		if (perspectives == null) {
+			perspectives = new EObjectContainmentEList<Perspective>(Perspective.class, this,
+					ExtensionsPackage.PERSPECTIVE_EXTENSION__PERSPECTIVES);
 		}
-		return left;
+		return perspectives;
 	}
 
 	/**
@@ -110,38 +81,12 @@ public class PerspectiveExtensionImpl extends ExtensionPointImpl implements Pers
 	 * @generated
 	 */
 	@Override
-	public EList<View> getRight() {
-		if (right == null) {
-			right = new EObjectResolvingEList<View>(View.class, this, ExtensionsPackage.PERSPECTIVE_EXTENSION__RIGHT);
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case ExtensionsPackage.PERSPECTIVE_EXTENSION__PERSPECTIVES:
+			return ((InternalEList<?>) getPerspectives()).basicRemove(otherEnd, msgs);
 		}
-		return right;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<View> getBottom() {
-		if (bottom == null) {
-			bottom = new EObjectResolvingEList<View>(View.class, this, ExtensionsPackage.PERSPECTIVE_EXTENSION__BOTTOM);
-		}
-		return bottom;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Editor> getEditorArea() {
-		if (editorArea == null) {
-			editorArea = new EObjectResolvingEList<Editor>(Editor.class, this,
-					ExtensionsPackage.PERSPECTIVE_EXTENSION__EDITOR_AREA);
-		}
-		return editorArea;
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -152,14 +97,8 @@ public class PerspectiveExtensionImpl extends ExtensionPointImpl implements Pers
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__LEFT:
-			return getLeft();
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__RIGHT:
-			return getRight();
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__BOTTOM:
-			return getBottom();
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__EDITOR_AREA:
-			return getEditorArea();
+		case ExtensionsPackage.PERSPECTIVE_EXTENSION__PERSPECTIVES:
+			return getPerspectives();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,21 +112,9 @@ public class PerspectiveExtensionImpl extends ExtensionPointImpl implements Pers
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__LEFT:
-			getLeft().clear();
-			getLeft().addAll((Collection<? extends View>) newValue);
-			return;
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__RIGHT:
-			getRight().clear();
-			getRight().addAll((Collection<? extends View>) newValue);
-			return;
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__BOTTOM:
-			getBottom().clear();
-			getBottom().addAll((Collection<? extends View>) newValue);
-			return;
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__EDITOR_AREA:
-			getEditorArea().clear();
-			getEditorArea().addAll((Collection<? extends Editor>) newValue);
+		case ExtensionsPackage.PERSPECTIVE_EXTENSION__PERSPECTIVES:
+			getPerspectives().clear();
+			getPerspectives().addAll((Collection<? extends Perspective>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -201,17 +128,8 @@ public class PerspectiveExtensionImpl extends ExtensionPointImpl implements Pers
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__LEFT:
-			getLeft().clear();
-			return;
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__RIGHT:
-			getRight().clear();
-			return;
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__BOTTOM:
-			getBottom().clear();
-			return;
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__EDITOR_AREA:
-			getEditorArea().clear();
+		case ExtensionsPackage.PERSPECTIVE_EXTENSION__PERSPECTIVES:
+			getPerspectives().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -225,14 +143,8 @@ public class PerspectiveExtensionImpl extends ExtensionPointImpl implements Pers
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__LEFT:
-			return left != null && !left.isEmpty();
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__RIGHT:
-			return right != null && !right.isEmpty();
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__BOTTOM:
-			return bottom != null && !bottom.isEmpty();
-		case ExtensionsPackage.PERSPECTIVE_EXTENSION__EDITOR_AREA:
-			return editorArea != null && !editorArea.isEmpty();
+		case ExtensionsPackage.PERSPECTIVE_EXTENSION__PERSPECTIVES:
+			return perspectives != null && !perspectives.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -72,6 +72,8 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 			return createView();
 		case ExtensionsPackage.EDITOR:
 			return createEditor();
+		case ExtensionsPackage.PERSPECTIVE:
+			return createPerspective();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -163,6 +165,17 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 	public Editor createEditor() {
 		EditorImpl editor = new EditorImpl();
 		return editor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Perspective createPerspective() {
+		PerspectiveImpl perspective = new PerspectiveImpl();
+		return perspective;
 	}
 
 	/**
