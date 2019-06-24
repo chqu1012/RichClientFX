@@ -35,7 +35,13 @@ class EditorExtension extends ExtensionPoint{
 
 class MenuExtension extends ExtensionPoint{}
 class ToolbarExtension extends ExtensionPoint{}
-class PerspectiveExtension extends ExtensionPoint{}
+
+class PerspectiveExtension extends ExtensionPoint{
+	refers View[0..*] left
+	refers View[0..*] right
+	refers View[0..*] bottom
+	refers Editor[0..*] editorArea
+}
 
 class View extends Extension{
 	String icon
