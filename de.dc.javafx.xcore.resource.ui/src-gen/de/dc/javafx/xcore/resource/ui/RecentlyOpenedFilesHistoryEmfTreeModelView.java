@@ -42,7 +42,7 @@ public class RecentlyOpenedFilesHistoryEmfTreeModelView extends EmfTreeModelView
 			}
 		}
 	}
-
+	
 	@Override
 	public IEmfManager<RecentlyOpenFileHistory> initEmfManager() {
 		return new RecentlyOpenedFilesHistoryEmfManager();

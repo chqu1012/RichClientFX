@@ -3,7 +3,7 @@ package de.dc.javafx.xcore.resource.ui;
 import com.google.common.eventbus.Subscribe;
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
 import de.dc.javafx.xcore.resource.ResourcePackage;
-import de.dc.javafx.xcore.resource.RecentlyOpenFileHistory;
+import de.dc.javafx.xcore.resource.Workspace;
 import de.dc.javafx.xcore.resource.ui.manager.*;
 import de.dc.javafx.xcore.resource.ui.view.*;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
@@ -11,11 +11,12 @@ import de.dc.javafx.xcore.workbench.emf.IEmfManager;
 import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView;
 import de.dc.javafx.xcore.workbench.event.*;
 import javafx.scene.control.MenuItem;
-public class ResourceEmfTreeModelView extends EmfTreeModelView<RecentlyOpenFileHistory> {
+public class ResourceEmfTreeModelView extends EmfTreeModelView<Workspace> {
 	
 	public ResourceEmfTreeModelView() {
 		// Set edit mode for several attributes
-		addEditableFor(ResourcePackage.eINSTANCE.getOpenedFile_Path());
+		addEditableFor(ResourcePackage.eINSTANCE.getFile_Name());
+		addEditableFor(ResourcePackage.eINSTANCE.getProject_Name());
 
 		MenuItem openPreviewMenuItem = new MenuItem(getEmfManager().getModelPackage().getName()+" Preview");
 		openPreviewMenuItem.setOnAction(e->{
@@ -27,7 +28,7 @@ public class ResourceEmfTreeModelView extends EmfTreeModelView<RecentlyOpenFileH
 	}
 
 	@Override
-	public IEmfManager<RecentlyOpenFileHistory> getEmfManager() {
+	public IEmfManager<Workspace> getEmfManager() {
 		if (manager==null) {
 			manager = new ResourceEmfManager();
 		}
@@ -42,9 +43,9 @@ public class ResourceEmfTreeModelView extends EmfTreeModelView<RecentlyOpenFileH
 			}
 		}
 	}
-
+	
 	@Override
-	public IEmfManager<RecentlyOpenFileHistory> initEmfManager() {
+	public IEmfManager<Workspace> initEmfManager() {
 		return new ResourceEmfManager();
 	}
 }

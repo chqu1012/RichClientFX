@@ -1,0 +1,10 @@
+package de.dc.javafx.xcore.workbench.extensions
+
+class Extension{
+	IdeFactory: de.dc.javafx.xcore.workbench.extensions.ExtensionsFactory
+	IdePackage: de.dc.javafx.xcore.workbench.extensions.ExtensionsPackage
+	IdeItemProviderAdapterFactory: de.dc.javafx.xcore.workbench.extensions.provider.ExtensionsItemProviderAdapterFactory
+	IdeRootModel: de.dc.javafx.xcore.workbench.extensions.ExtensionManager
+	IdeModelSwitch: de.dc.javafx.xcore.workbench.extensions.util.ExtensionsSwitch
+	generateDemo 
+} 
