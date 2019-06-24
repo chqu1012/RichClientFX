@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 
 public class ChartFXEmfDetailedTreeView extends EmfDetailedTreeView<ChartProject>{
 	
+	public static final String ID = "de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView";
+	
 	public ChartFXEmfDetailedTreeView() {
 		EmfCommandManager commandManager = DIPlatform.getInstance(EmfCommandManager.class);
 		Button generateButtton = new Button("Generate Random Values");

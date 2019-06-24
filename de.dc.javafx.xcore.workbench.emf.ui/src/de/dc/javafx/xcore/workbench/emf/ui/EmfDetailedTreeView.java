@@ -38,7 +38,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.TreeItem;
@@ -86,6 +85,10 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 		values.add(false);
 	}
 
+	public EmfTreeModelView<T> getTreeView(){
+		return treeView;
+	}
+	
 	protected void addToToolbar(Node node) {
 		toolbar.getChildren().add(node);
 	}
