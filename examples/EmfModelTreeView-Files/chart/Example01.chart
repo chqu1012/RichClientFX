@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="ASCII"?>
+<chart:ChartProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:chart="http://www.frateranatis.org/workbench/chart">
+  <charts xsi:type="chart:LineChartFX" name="Mein LineChart" xAxisLabel="Monate" yAxisLabel="Betrag">
+    <series>
+      <values x="1.0" y="1.0"/>
+      <values x="2.0" y="2.0"/>
+      <values x="3.0" y="1.0"/>
+      <values x="4.0" y="4.0"/>
+      <values x="5.0" y="3.0"/>
+      <values x="6.0" y="7.0"/>
+      <values x="7.0" y="19.0"/>
+    </series>
+  </charts>
+  <charts xsi:type="chart:AreaChartFX">
+    <series>
+      <values x="1.0" y="5.0"/>
+      <values x="2.0" y="2.0"/>
+      <values x="3.0" y="5.0"/>
+      <values x="4.0" y="4.0"/>
+      <values x="5.0" y="1.0"/>
+      <values x="6.0" y="23.0"/>
+      <values x="7.0" y="19.0"/>
+    </series>
+    <series>
+      <values x="1.0" y="1.0"/>
+      <values x="2.0" y="2.0"/>
+      <values x="3.0" y="1.0"/>
+      <values x="4.0" y="4.0"/>
+      <values x="5.0" y="3.0"/>
+      <values x="6.0" y="7.0"/>
+      <values x="7.0" y="19.0"/>
+    </series>
+  </charts>
+  <charts xsi:type="chart:BarChartFX" name="Obst Bar Chart" xAxisLabel="Verteilung" yAxisLabel="Anzahl">
+    <series name="Obst Spanien">
+      <values name="Apfel" value="33.0"/>
+      <values name="Birne" value="14.0"/>
+      <values name="Trauben" value="13.0"/>
+    </series>
+    <series name="Obst Deutschland">
+      <values name="Apfel" value="12.0"/>
+      <values name="Birne" value="23.0"/>
+      <values name="Trauben" value="33.0"/>
+    </series>
+    <series name="Obst Italien">
+      <values name="Apfel" value="32.0"/>
+      <values name="Birne" value="12.0"/>
+      <values name="Trauben" value="7.0"/>
+    </series>
+    <series name="Obst Frankreich">
+      <values name="Apfel" value="10.0"/>
+      <values name="Birne" value="20.0"/>
+      <values name="Trauben" value="5.0"/>
+    </series>
+  </charts>
+  <charts xsi:type="chart:AreaChart3dFX" name="Orsan AreaChart 3D" xAxisLabel="Monate" yAxisLabel="Werte">
+    <series name="Test1">
+      <values x="1.0" y="1.0"/>
+      <values x="2.0" y="2.0"/>
+      <values x="3.0" y="1.0"/>
+      <values x="4.0" y="4.0"/>
+      <values x="5.0" y="3.0"/>
+      <values x="6.0" y="7.0"/>
+      <values x="7.0" y="19.0"/>
+    </series>
+    <series name="Test2">
+      <values x="1.0" y="1.0"/>
+      <values x="2.0" y="2.0"/>
+      <values x="3.0" y="1.0"/>
+      <values x="4.0" y="4.0"/>
+      <values x="5.0" y="3.0"/>
+      <values x="6.0" y="7.0"/>
+      <values x="7.0" y="19.0"/>
+    </series>
+  </charts>
+  <charts xsi:type="chart:BarChart3dFX">
+    <series name="Test1">
+      <values x="1.0" y="1.0"/>
+      <values x="2.0" y="2.0"/>
+      <values x="3.0" y="1.0"/>
+      <values x="4.0" y="4.0"/>
+      <values x="5.0" y="3.0"/>
+      <values x="6.0" y="7.0"/>
+      <values x="7.0" y="19.0"/>
+    </series>
+    <series name="Test2">
+      <values x="1.0" y="1.0"/>
+      <values x="2.0" y="2.0"/>
+      <values x="3.0" y="1.0"/>
+      <values x="4.0" y="4.0"/>
+      <values x="5.0" y="3.0"/>
+      <values x="6.0" y="7.0"/>
+      <values x="7.0" y="19.0"/>
+    </series>
+  </charts>
+  <charts xsi:type="chart:StackedBarChart3dFX">
+    <series>
+      <values name="Test 0" value="0.7946063819025012"/>
+      <values name="Test 1" value="0.308160512716138"/>
+      <values name="Test 2" value="0.7746497695945019"/>
+      <values name="Test 3" value="0.5148444953319145"/>
+      <values name="Test 4" value="0.5007576898665353"/>
+      <values name="Test 5" value="0.8068408016145455"/>
+      <values name="Test 6" value="0.9909877622253519"/>
+      <values name="Test 7" value="0.6135160826514263"/>
+      <values name="Test 8" value="0.08192362848220891"/>
+      <values name="Test 9" value="0.19082942002538306"/>
+      <values name="Test 10" value="0.9367100140289805"/>
+      <values name="Test 11" value="0.3455349296997754"/>
+      <values name="Test 12" value="0.1527220636092771"/>
+      <values name="Test 13" value="0.6533975909003069"/>
+      <values name="Test 14" value="0.6327000911505366"/>
+      <values name="Test 15" value="0.28102518820058386"/>
+      <values name="Test 16" value="0.8117882599447316"/>
+      <values name="Test 17" value="0.7610814325523921"/>
+      <values name="Test 18" value="0.8643687576436635"/>
+      <values name="Test 19" value="0.890702455928414"/>
+    </series>
+    <series>
+      <values name="Test 0" value="0.9662615465961576"/>
+      <values name="Test 1" value="0.648085655316705"/>
+      <values name="Test 2" value="0.20527406781301383"/>
+      <values name="Test 3" value="0.9307782293191041"/>
+      <values name="Test 4" value="0.039867459148033246"/>
+      <values name="Test 5" value="0.4926060199695652"/>
+      <values name="Test 6" value="0.3536122992284013"/>
+      <values name="Test 7" value="0.6290243245889601"/>
+      <values name="Test 8" value="0.7720232841209644"/>
+      <values name="Test 9" value="0.5706328095743849"/>
+      <values name="Test 10" value="0.45629319873380636"/>
+      <values name="Test 11" value="0.7825013362340526"/>
+      <values name="Test 12" value="0.6015278364393333"/>
+      <values name="Test 13" value="0.22674380711588804"/>
+      <values name="Test 14" value="0.2095700656312962"/>
+      <values name="Test 15" value="0.374525405214268"/>
+      <values name="Test 16" value="0.8207790827694075"/>
+      <values name="Test 17" value="0.3015899478221583"/>
+      <values name="Test 18" value="0.045703891395437846"/>
+      <values name="Test 19" value="0.4717684361274851"/>
+    </series>
+    <series>
+      <values name="Test 0" value="0.2850960621815427"/>
+      <values name="Test 1" value="0.9122222222341756"/>
+      <values name="Test 2" value="0.64189761199511"/>
+      <values name="Test 3" value="0.9719564513928824"/>
+      <values name="Test 4" value="0.9666042419104514"/>
+      <values name="Test 5" value="0.994104126632755"/>
+      <values name="Test 6" value="0.32074542617213886"/>
+      <values name="Test 7" value="0.2384519513188128"/>
+      <values name="Test 8" value="0.053276367466806085"/>
+      <values name="Test 9" value="0.682598605565111"/>
+      <values name="Test 10" value="0.650698918524767"/>
+      <values name="Test 11" value="0.7800753260466027"/>
+      <values name="Test 12" value="0.6111038143754316"/>
+      <values name="Test 13" value="0.436914495421557"/>
+      <values name="Test 14" value="0.7005601699623882"/>
+      <values name="Test 15" value="0.9128421580970006"/>
+      <values name="Test 16" value="0.051005857135892896"/>
+      <values name="Test 17" value="0.7909420674718368"/>
+      <values name="Test 18" value="0.9537697707516275"/>
+      <values name="Test 19" value="0.7748620746653755"/>
+    </series>
+  </charts>
+  <charts xsi:type="chart:SurfaceChart3dFX"/>
+</chart:ChartProject>
