@@ -16,6 +16,8 @@ public class EmfFileManager implements IEmfFileManager{
 	
 	private Map<String, IEmfEditorPart<?>> editorRegistry = new HashMap<>();
 
+	private IEmfEditorPart<?> currentEditor;
+
 	@Override
 	public Optional<IEmfEditorPart<?>> getEditorByExtension(String extension) {
 		return Optional.of(editorRegistry.get(extension));
@@ -31,6 +33,16 @@ public class EmfFileManager implements IEmfFileManager{
 	@Override
 	public List<String> getAllExtensions() {
 		return editorRegistry.keySet().stream().collect(Collectors.toList());
+	}
+	
+	@Override
+	public Optional<IEmfEditorPart<?>> getActiveEditor() {
+		return Optional.of(currentEditor);
+	}
+
+	@Override
+	public void setCurrentEditor(IEmfEditorPart<?> currentEditor) {
+		this.currentEditor = currentEditor;
 	}
 	
 }

@@ -16,11 +16,12 @@ import com.google.inject.Inject;
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
 import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.Perspective;
-import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.WorkbenchFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFileManager;
+import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
@@ -36,6 +37,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -43,7 +45,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 
-public abstract class EmfWorkbench extends AbstractFxmlControl implements ChangeListener<Object>{
+public abstract class EmfWorkbench extends AbstractFxmlControl implements ChangeListener<Object> {
 
 	public static final String ID = "de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench";
 	public static final String TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Toolbar";
@@ -53,7 +55,7 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	public static final String BOTTOM_PANE_ID = "de.dc.javafx.xcore.workbench.ui.control.BottomPane";
 	public static final String EDITOR_AREA_ID = "de.dc.javafx.xcore.workbench.ui.control.EditorArea";
 	public static final String STATUSLINE_ID = "de.dc.javafx.xcore.workbench.ui.control.Statusline";
-	
+
 	@FXML
 	protected BorderPane root;
 
@@ -80,29 +82,29 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 	@FXML
 	protected TextField searchText;
-	
+
 	@FXML
 	protected Label statusLineLabel;
-	
+
 	@FXML
 	protected Label statusLinePerspectiveLabel;
-	
+
 	@Inject
 	protected EmfWorkbenchFile workbenchFile;
 
 	protected IEventBroker eventBroker;
 
 	protected IEmfSelectionService selectionService;
-	
+
 	protected Workbench workbench;
 
 	public EmfWorkbench() {
 		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
-		
+
 		selectionService.addListener(this);
 		eventBroker.register(this);
-		
+
 		IEmfControlManager controlManager = DIPlatform.getInstance(IEmfControlManager.class);
 		controlManager.registrate(BOTTOM_PANE_ID, getBottomTabPane());
 		controlManager.registrate(LEFT_PANE_ID, getLeftTabPane());
@@ -110,14 +112,23 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		controlManager.registrate(EDITOR_AREA_ID, getEditorArea());
 		controlManager.registrate(TOOLBAR_ID, getToolBar());
 		controlManager.registrate(PERSPECTIVE_TOOLBAR_ID, getPerspectiveToolBar());
-		
+
 		// TabPane dnd support
 		DraggingTabPaneSupport support = new DraggingTabPaneSupport();
 		support.addSupport(bottomTabPane);
 		support.addSupport(rightTabPane);
 		support.addSupport(leftTabPane);
+
+		editorArea.getSelectionModel().selectedItemProperty()
+				.addListener((ChangeListener<Tab>) (observable, oldValue, newValue) -> {
+					Node content = newValue.getContent();
+					if (content instanceof IEmfEditorPart) {
+						IEmfEditorPart<?> editor = (IEmfEditorPart<?>) content;
+						DIPlatform.getInstance(IEmfFileManager.class).setCurrentEditor(editor);
+					}
+				});
 	}
-	
+
 	public void registerExtensions() {
 		ClassLoader cl = ClassLoader.getSystemClassLoader();
 		URL[] urls = ((URLClassLoader) cl).getURLs();
@@ -129,16 +140,16 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 			if (extensionFile.exists()) {
 				ExtensionFile efile = new ExtensionFile();
 				ExtensionManager mgr = efile.load(extensionFile.getAbsolutePath());
-				
+
 				EList<ExtensionPoint> extensionPoints = mgr.getExtensionPoints();
 				for (ExtensionPoint point : extensionPoints) {
 					if (point instanceof PerspectiveExtension) {
 						PerspectiveExtension perspectiveExtions = (PerspectiveExtension) point;
 						initPerspective(perspectiveExtions);
-					}			
+					}
 				}
 			}
-		}		
+		}
 	}
 
 	private void initPerspective(PerspectiveExtension perspectiveExtions) {
@@ -146,7 +157,7 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 			Perspective perspective = WorkbenchFactory.eINSTANCE.createPerspective();
 			perspective.setName(p.getName());
 			perspective.set_Id(p.getId());
-			
+
 			LeftPane leftPane = WorkbenchFactory.eINSTANCE.createLeftPane();
 			perspective.setLeftPane(leftPane);
 			for (de.dc.javafx.xcore.workbench.extensions.View view : p.getLeft()) {
@@ -160,7 +171,7 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 			DIPlatform.getInstance(EmfWorkbenchRenderer.class).createPerspective(perspective);
 		}
 	}
-	
+
 	public Workbench getWorkbench() {
 		if (workbench == null) {
 			String name = getClass().getResource(getClass().getSimpleName() + ".workbench").getPath();
@@ -184,11 +195,11 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	public TabPane getEditorArea() {
 		return editorArea;
 	}
-	
+
 	public ToolBar getToolBar() {
 		return toolbar;
 	}
-	
+
 	public ToolBar getPerspectiveToolBar() {
 		return perspectiveToolbar;
 	}
@@ -223,32 +234,30 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 	@Override
 	public void changed(ObservableValue<?> observable, Object oldValue, Object newValue) {
-		statusLineLabel.setText("Selection: "+newValue.toString());		
+		statusLineLabel.setText("Selection: " + newValue.toString());
 	}
-	
+
 	@Subscribe
 	public void updateStatusLinePerspectiveLabel(EventContext<String> context) {
-		if (context.getEventId()==null) {
+		if (context.getEventId() == null) {
 			return;
 		}
 		if (context.getEventId().equals("switch.perspective")) {
 			statusLinePerspectiveLabel.setText(context.getInput());
 		}
 	}
-	
+
 	@Subscribe
 	public void openFile(EventContext<?> context) {
 		Object input = context.getInput();
-		if (context.getEventTopic() == EventTopic.OPEN_EDITOR ) {
-			String filename = showTabTextByObject(input)== null ? "" : showTabTextByObject(input);
+		if (context.getEventTopic() == EventTopic.OPEN_EDITOR) {
+			String filename = showTabTextByObject(input) == null ? "" : showTabTextByObject(input);
 			if (!filename.isEmpty() && !isFileOpen(filename)) {
 				StyledTextArea styledTextArea = new StyledTextArea();
 				styledTextArea.getContent().setText("This is a styled text!\nThis is the 2nd line with data\nBlaBla");
-				styledTextArea.setStyleRanges(
-				    new StyleRange("text-highlight",0,30,null,null)
-				  , new StyleRange("text-highlight",34,5,null,null)
-				);
-				
+				styledTextArea.setStyleRanges(new StyleRange("text-highlight", 0, 30, null, null),
+						new StyleRange("text-highlight", 34, 5, null, null));
+
 				Tab editorTab = new Tab(filename);
 				editorTab.setContent(styledTextArea);
 				editorArea.getTabs().add(editorTab);
@@ -256,19 +265,19 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 			getTabByName(filename).ifPresent(e -> editorArea.getSelectionModel().select(e));
 		}
 	}
-	
+
 	@Subscribe
 	public void openPreview(EventContext<FXPreview> context) {
-		if (context.getEventId()!=null && context.getEventId().equals("open.preview")) {
+		if (context.getEventId() != null && context.getEventId().equals("open.preview")) {
 			FXPreview input = context.getInput();
 			Tab preview = new Tab(input.getTitle());
 			DIPlatform.getInstance(IEmfSelectionService.class).addListener(input);
 			preview.setContent(input);
 			bottomTabPane.getTabs().add(preview);
 			bottomTabPane.getSelectionModel().select(preview);
-		}		
+		}
 	}
-	
+
 	protected abstract String showTabTextByObject(Object input);
 
 	public boolean isFileOpen(String name) {

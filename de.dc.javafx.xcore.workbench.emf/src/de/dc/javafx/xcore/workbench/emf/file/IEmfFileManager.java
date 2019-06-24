@@ -12,4 +12,8 @@ public interface IEmfFileManager {
 	Optional<IEmfEditorPart<?>> getEditorByExtension(String extension);
 	
 	List<String> getAllExtensions();
+	
+	Optional<IEmfEditorPart<?>> getActiveEditor();
+
+	void setCurrentEditor(IEmfEditorPart<?> currentEditor);
 }
