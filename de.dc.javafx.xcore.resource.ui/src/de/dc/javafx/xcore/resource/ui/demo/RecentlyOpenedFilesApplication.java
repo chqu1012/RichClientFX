@@ -21,7 +21,7 @@ public class RecentlyOpenedFilesApplication extends AbstractApplication{
 			e.setName("Hello World Opened File "+i);
 			root.getFiles().add(e);
 		}
-		view.getEmfManager().setRoot(root);
+		view.setInput(root);
 		return view;
 	}
 

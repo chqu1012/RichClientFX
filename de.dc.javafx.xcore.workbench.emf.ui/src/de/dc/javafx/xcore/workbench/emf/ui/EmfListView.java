@@ -40,6 +40,11 @@ public abstract class EmfListView<T> extends ListView<T>{
 		getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 	}
 	
+	public void setInput(T input) {
+		manager.setRoot(input);
+		setItems(new AdapterFactoryObservableList<T>(adapterFactory, manager.getRoot()));
+	}
+	
 	public void addEditableFor(EAttribute attribute) {
 		listCellFactory.addCellEditHandler(new EAttributeCellEditHandler(attribute, editingDomain));
 	}
