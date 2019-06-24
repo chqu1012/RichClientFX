@@ -1,9 +1,12 @@
 package de.dc.javafx.xcore.workbench.ui.control;
 
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.fx.ui.controls.styledtext.StyleRange;
 import org.eclipse.fx.ui.controls.styledtext.StyledTextArea;
 
@@ -11,15 +14,24 @@ import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
+import de.dc.javafx.xcore.workbench.LeftPane;
+import de.dc.javafx.xcore.workbench.Perspective;
+import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.Workbench;
+import de.dc.javafx.xcore.workbench.WorkbenchFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.extensions.ExtensionManager;
+import de.dc.javafx.xcore.workbench.extensions.ExtensionPoint;
+import de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension;
+import de.dc.javafx.xcore.workbench.extensions.file.ExtensionFile;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.dnd.DraggingTabPaneSupport;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
+import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -104,6 +116,45 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		support.addSupport(bottomTabPane);
 		support.addSupport(rightTabPane);
 		support.addSupport(leftTabPane);
+	}
+	
+	public void registerExtensions() {
+		ClassLoader cl = ClassLoader.getSystemClassLoader();
+		URL[] urls = ((URLClassLoader) cl).getURLs();
+
+		for (URL url : urls) {
+			String file = url.getFile();
+			file = file + "resource.extensions";
+			java.io.File extensionFile = new java.io.File(file);
+			if (extensionFile.exists()) {
+				ExtensionFile efile = new ExtensionFile();
+				ExtensionManager mgr = efile.load(extensionFile.getAbsolutePath());
+				
+				EList<ExtensionPoint> extensionPoints = mgr.getExtensionPoints();
+				for (ExtensionPoint point : extensionPoints) {
+					if (point instanceof PerspectiveExtension) {
+						PerspectiveExtension perspectiveExtions = (PerspectiveExtension) point;
+						
+						Perspective perspective = WorkbenchFactory.eINSTANCE.createPerspective();
+						perspective.setName(perspectiveExtions.getName());
+						perspective.set_Id(perspectiveExtions.getId());
+
+						LeftPane leftPane = WorkbenchFactory.eINSTANCE.createLeftPane();
+						perspective.setLeftPane(leftPane);
+						
+						for (de.dc.javafx.xcore.workbench.extensions.View view : perspectiveExtions.getLeft()) {
+							de.dc.javafx.xcore.workbench.View currentView = WorkbenchFactory.eINSTANCE.createView();
+							currentView.set_Id(view.getId());
+							currentView.setName(view.getName());
+							currentView.setRegistrateChangeListener(true);
+							currentView.setViewClass(view.getExtensionUri());
+							leftPane.getViews().add(currentView);
+						}
+						DIPlatform.getInstance(EmfWorkbenchRenderer.class).createPerspective(perspective);
+					}				
+				}
+			}
+		}		
 	}
 	
 	public Workbench getWorkbench() {

@@ -16,3 +16,8 @@ Require-Bundle: de.dc.javafx.xcore.workbench.extension;bundle-version="0.1.0",
  de.dc.javafx.xcore.workbench.emf.ui;bundle-version="1.0.0",
  de.dc.javafx.xcore.runtime;bundle-version="1.8.211",
  de.dc.javafx.efxclipse.runtime;bundle-version="3.6.0"
+Export-Package: de.dc.javafx.xcore.workbench.extensions,
+ de.dc.javafx.xcore.workbench.extensions.file,
+ de.dc.javafx.xcore.workbench.extensions.manager,
+ de.dc.javafx.xcore.workbench.extensions.renderer,
+ de.dc.javafx.xcore.workbench.extensions.view

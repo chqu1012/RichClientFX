@@ -22,6 +22,7 @@ public class EmfWorkbenchDemo extends AbstractDemoApplication {
 		DIPlatform.init();
 		workbench = DIPlatform.getInstance(ExampleEmfWorkbench.class);
 		workbench.render();
+		workbench.registerExtensions();
 		launch(args);
 	}
 }

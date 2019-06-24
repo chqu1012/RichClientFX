@@ -24,7 +24,6 @@ import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFileManager;
-import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView;
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.IEmfCommand;
@@ -76,17 +75,21 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 
 	private void populatePerspectives(Workbench object) {
 		for (Perspective perspective : object.getPerspectives()) {
-			Button perspectiveButton = new Button(perspective.getName());
-			perspectiveButton.setId(perspective.get_Id());
-			perspectiveButton.setOnAction(e -> switchPerspective(perspectiveButton.getId()));
-			workbench.getPerspectiveToolBar().getItems().add(perspectiveButton);
-
-			perspectives.put(perspective.get_Id(), perspective);
-			switchPerspective(perspective.get_Id());
-			eventBroker.post(new EventContext<>("switch.perspective", perspective.getName()));
-
-			controlManager.registrate(perspective.get_Id(), perspectiveButton);
+			createPerspective(perspective);
 		}
+	}
+
+	public void createPerspective(Perspective perspective) {
+		Button perspectiveButton = new Button(perspective.getName());
+		perspectiveButton.setId(perspective.get_Id());
+		perspectiveButton.setOnAction(e -> switchPerspective(perspectiveButton.getId()));
+		workbench.getPerspectiveToolBar().getItems().add(perspectiveButton);
+
+		perspectives.put(perspective.get_Id(), perspective);
+		switchPerspective(perspective.get_Id());
+		eventBroker.post(new EventContext<>("switch.perspective", perspective.getName()));
+
+		controlManager.registrate(perspective.get_Id(), perspectiveButton);
 	}
 
 	private void switchPerspective(String id) {

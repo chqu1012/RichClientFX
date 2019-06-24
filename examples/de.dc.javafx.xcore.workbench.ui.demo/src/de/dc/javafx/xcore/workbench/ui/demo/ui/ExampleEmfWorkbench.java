@@ -6,9 +6,7 @@ import org.eclipse.fx.ui.controls.styledtext.StyledTextArea;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.resource.File;
-import de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailTreeView;
 import de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView;
-import de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfTreeView;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
