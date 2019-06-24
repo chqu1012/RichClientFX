@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.commons.io.FilenameUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.fx.ui.controls.styledtext.StyleRange;
 import org.eclipse.fx.ui.controls.styledtext.StyledTextArea;
@@ -53,7 +54,7 @@ import javafx.scene.layout.BorderPane;
 public abstract class EmfWorkbench extends AbstractFxmlControl implements ChangeListener<Object> {
 
 	private Logger log = Logger.getLogger(EmfWorkbench.class.getSimpleName());
-	
+
 	public static final String ID = "de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench";
 	public static final String TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Toolbar";
 	public static final String PERSPECTIVE_TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Perspective";
@@ -128,7 +129,7 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 		editorArea.getSelectionModel().selectedItemProperty()
 				.addListener((ChangeListener<Tab>) (observable, oldValue, newValue) -> {
-					if (newValue!=null) {
+					if (newValue != null) {
 						Node content = newValue.getContent();
 						if (content instanceof IEmfEditorPart) {
 							IEmfEditorPart<?> editor = (IEmfEditorPart<?>) content;
@@ -155,7 +156,7 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 					if (point instanceof PerspectiveExtension) {
 						PerspectiveExtension perspectiveExtions = (PerspectiveExtension) point;
 						initPerspective(perspectiveExtions);
-					}else if (point instanceof CommandExtension) {
+					} else if (point instanceof CommandExtension) {
 						CommandExtension commandExtension = (CommandExtension) point;
 						initCommand(commandExtension);
 					}
@@ -277,6 +278,15 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		if (context.getEventTopic() == EventTopic.OPEN_EDITOR) {
 			String filename = showTabTextByObject(input) == null ? "" : showTabTextByObject(input);
 			if (!filename.isEmpty() && !isFileOpen(filename)) {
+				Optional<IEmfEditorPart<?>> editorPart = DIPlatform.getInstance(IEmfFileManager.class)
+						.getEditorByExtension(FilenameUtils.getExtension(filename));
+				editorPart.ifPresent(editor -> {
+					Tab editorTab = new Tab((String) input);
+					editor.load(new java.io.File((String) input));
+					editorTab.setContent((Node) editor);
+					editorArea.getTabs().add(editorTab);
+				});
+			} else {
 				StyledTextArea styledTextArea = new StyledTextArea();
 				styledTextArea.getContent().setText("This is a styled text!\nThis is the 2nd line with data\nBlaBla");
 				styledTextArea.setStyleRanges(new StyleRange("text-highlight", 0, 30, null, null),

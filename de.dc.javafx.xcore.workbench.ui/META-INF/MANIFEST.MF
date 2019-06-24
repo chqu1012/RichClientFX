@@ -33,3 +33,4 @@ Export-Package: de.dc.javafx.xcore.workbench.ui,
  de.dc.javafx.xcore.workbench.ui.css,
  de.dc.javafx.xcore.workbench.ui.file,
  de.dc.javafx.xcore.workbench.ui.renderer
+Import-Package: org.apache.commons.io
