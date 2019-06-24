@@ -87,7 +87,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 	public Node caseXYZLineChart3dFX(XYZLineChart3dFX object) {
 		XYZSeriesCollection<String> dataset = new XYZSeriesCollection<>();
 		for (XYZSeriesFX seriesFX : object.getSeries()) {
-			String name = seriesFX.getName() == null ? "" : seriesFX.getName();
+			String name = seriesFX.getName() == null ? "Serie "+object.getSeries().indexOf(seriesFX) : seriesFX.getName();
 			XYZSeries<String> series = new XYZSeries<>(name);
 			for (XYZValueFX valueFX : seriesFX.getValues()) {
 				series.add(valueFX.getX(), valueFX.getY(), valueFX.getZ());
@@ -99,7 +99,7 @@ public class ChartFXRenderer extends ChartSwitch<Node> {
 		String x = object.getXAxisLabel();
 		String y = object.getYAxisLabel();
 		String z = object.getZAxisLabel();
-		Chart3D chart = Chart3DFactory.createXYZBarChart(title, subtitle, dataset, x, y, z);
+		Chart3D chart = Chart3DFactory.createXYZLineChart(title, subtitle, dataset, x, y, z);
 		chart.setViewPoint(ViewPoint3D.createAboveRightViewPoint(40));
 		chart.setAntiAlias(true);
 		return new Chart3DViewer(chart);
