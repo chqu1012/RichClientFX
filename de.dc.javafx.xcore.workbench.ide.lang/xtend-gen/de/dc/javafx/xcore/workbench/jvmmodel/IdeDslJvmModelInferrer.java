@@ -276,8 +276,8 @@ public class IdeDslJvmModelInferrer extends AbstractModelInferrer {
             _builder.append(".class).register(this);");
             _builder.newLineIfNotEmpty();
             _builder.append("setTitle(");
-            String _simpleName = element.getIdePackage().getSimpleName();
-            _builder.append(_simpleName);
+            JvmTypeReference _idePackage = element.getIdePackage();
+            _builder.append(_idePackage);
             _builder.append(".eNAME+\" Preview\");");
             _builder.newLineIfNotEmpty();
           }

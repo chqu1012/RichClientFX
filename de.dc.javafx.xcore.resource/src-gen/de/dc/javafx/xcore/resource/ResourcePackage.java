@@ -362,6 +362,98 @@ public interface ResourcePackage extends EPackage {
 	int PACKAGE_FOLDER_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.RecentlyOpenFileHistoryImpl <em>Recently Open File History</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.RecentlyOpenFileHistoryImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getRecentlyOpenFileHistory()
+	 * @generated
+	 */
+	int RECENTLY_OPEN_FILE_HISTORY = 7;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECENTLY_OPEN_FILE_HISTORY__FILES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Recently Open File History</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECENTLY_OPEN_FILE_HISTORY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Recently Open File History</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECENTLY_OPEN_FILE_HISTORY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.resource.impl.OpenedFileImpl <em>Opened File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.resource.impl.OpenedFileImpl
+	 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getOpenedFile()
+	 * @generated
+	 */
+	int OPENED_FILE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPENED_FILE__TIMESTAMP = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPENED_FILE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPENED_FILE__PATH = 2;
+
+	/**
+	 * The number of structural features of the '<em>Opened File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPENED_FILE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Opened File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPENED_FILE_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.Workspace <em>Workspace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -564,6 +656,70 @@ public interface ResourcePackage extends EPackage {
 	EReference getPackageFolder_Resources();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.RecentlyOpenFileHistory <em>Recently Open File History</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Recently Open File History</em>'.
+	 * @see de.dc.javafx.xcore.resource.RecentlyOpenFileHistory
+	 * @generated
+	 */
+	EClass getRecentlyOpenFileHistory();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.resource.RecentlyOpenFileHistory#getFiles <em>Files</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Files</em>'.
+	 * @see de.dc.javafx.xcore.resource.RecentlyOpenFileHistory#getFiles()
+	 * @see #getRecentlyOpenFileHistory()
+	 * @generated
+	 */
+	EReference getRecentlyOpenFileHistory_Files();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.resource.OpenedFile <em>Opened File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Opened File</em>'.
+	 * @see de.dc.javafx.xcore.resource.OpenedFile
+	 * @generated
+	 */
+	EClass getOpenedFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.OpenedFile#getTimestamp <em>Timestamp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Timestamp</em>'.
+	 * @see de.dc.javafx.xcore.resource.OpenedFile#getTimestamp()
+	 * @see #getOpenedFile()
+	 * @generated
+	 */
+	EAttribute getOpenedFile_Timestamp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.OpenedFile#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.dc.javafx.xcore.resource.OpenedFile#getName()
+	 * @see #getOpenedFile()
+	 * @generated
+	 */
+	EAttribute getOpenedFile_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.OpenedFile#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see de.dc.javafx.xcore.resource.OpenedFile#getPath()
+	 * @see #getOpenedFile()
+	 * @generated
+	 */
+	EAttribute getOpenedFile_Path();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -751,6 +907,58 @@ public interface ResourcePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE_FOLDER__RESOURCES = eINSTANCE.getPackageFolder_Resources();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.RecentlyOpenFileHistoryImpl <em>Recently Open File History</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.RecentlyOpenFileHistoryImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getRecentlyOpenFileHistory()
+		 * @generated
+		 */
+		EClass RECENTLY_OPEN_FILE_HISTORY = eINSTANCE.getRecentlyOpenFileHistory();
+
+		/**
+		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECENTLY_OPEN_FILE_HISTORY__FILES = eINSTANCE.getRecentlyOpenFileHistory_Files();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.resource.impl.OpenedFileImpl <em>Opened File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.resource.impl.OpenedFileImpl
+		 * @see de.dc.javafx.xcore.resource.impl.ResourcePackageImpl#getOpenedFile()
+		 * @generated
+		 */
+		EClass OPENED_FILE = eINSTANCE.getOpenedFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPENED_FILE__TIMESTAMP = eINSTANCE.getOpenedFile_Timestamp();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPENED_FILE__NAME = eINSTANCE.getOpenedFile_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPENED_FILE__PATH = eINSTANCE.getOpenedFile_Path();
 
 	}
 

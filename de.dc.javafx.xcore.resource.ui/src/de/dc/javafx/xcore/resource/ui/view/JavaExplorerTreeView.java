@@ -17,7 +17,7 @@ public class JavaExplorerTreeView extends EmfTreeModelView<Workspace> {
 	}
 
 	@Override
-	public IEmfManager<Workspace> getEmfManager() {
+	public IEmfManager<Workspace> initEmfManager() {
 		return new ResourceEmfManager();
 	}
 }

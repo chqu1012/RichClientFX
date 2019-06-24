@@ -110,7 +110,7 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 			members += element.toConstructor[
 				body = '''
 				«DIPlatform».getInstance(«IEventBroker».class).register(this);
-				setTitle(«element.idePackage.simpleName».eNAME+" Preview");
+				setTitle(«element.idePackage».eNAME+" Preview");
 				'''
 			]
 			

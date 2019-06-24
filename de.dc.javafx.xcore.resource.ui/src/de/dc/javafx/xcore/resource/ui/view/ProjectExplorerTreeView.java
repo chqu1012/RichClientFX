@@ -35,7 +35,7 @@ public class ProjectExplorerTreeView extends EmfTreeModelView<Workspace> {
 	}
 
 	@Override
-	public IEmfManager<Workspace> getEmfManager() {
+	public IEmfManager<Workspace> initEmfManager() {
 		return new ResourceEmfManager();
 	}
 }

@@ -68,6 +68,10 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 			return createFile();
 		case ResourcePackage.PACKAGE_FOLDER:
 			return createPackageFolder();
+		case ResourcePackage.RECENTLY_OPEN_FILE_HISTORY:
+			return createRecentlyOpenFileHistory();
+		case ResourcePackage.OPENED_FILE:
+			return createOpenedFile();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -137,6 +141,28 @@ public class ResourceFactoryImpl extends EFactoryImpl implements ResourceFactory
 	public PackageFolder createPackageFolder() {
 		PackageFolderImpl packageFolder = new PackageFolderImpl();
 		return packageFolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RecentlyOpenFileHistory createRecentlyOpenFileHistory() {
+		RecentlyOpenFileHistoryImpl recentlyOpenFileHistory = new RecentlyOpenFileHistoryImpl();
+		return recentlyOpenFileHistory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OpenedFile createOpenedFile() {
+		OpenedFileImpl openedFile = new OpenedFileImpl();
+		return openedFile;
 	}
 
 	/**

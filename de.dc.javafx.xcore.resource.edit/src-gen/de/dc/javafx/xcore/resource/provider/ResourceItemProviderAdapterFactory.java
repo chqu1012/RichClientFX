@@ -213,6 +213,52 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.RecentlyOpenFileHistory} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RecentlyOpenFileHistoryItemProvider recentlyOpenFileHistoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.RecentlyOpenFileHistory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecentlyOpenFileHistoryAdapter() {
+		if (recentlyOpenFileHistoryItemProvider == null) {
+			recentlyOpenFileHistoryItemProvider = new RecentlyOpenFileHistoryItemProvider(this);
+		}
+
+		return recentlyOpenFileHistoryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.resource.OpenedFile} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OpenedFileItemProvider openedFileItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.resource.OpenedFile}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOpenedFileAdapter() {
+		if (openedFileItemProvider == null) {
+			openedFileItemProvider = new OpenedFileItemProvider(this);
+		}
+
+		return openedFileItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,6 +375,10 @@ public class ResourceItemProviderAdapterFactory extends ResourceAdapterFactory
 			fileItemProvider.dispose();
 		if (packageFolderItemProvider != null)
 			packageFolderItemProvider.dispose();
+		if (recentlyOpenFileHistoryItemProvider != null)
+			recentlyOpenFileHistoryItemProvider.dispose();
+		if (openedFileItemProvider != null)
+			openedFileItemProvider.dispose();
 	}
 
 }

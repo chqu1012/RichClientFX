@@ -53,10 +53,10 @@ class IdeGenerator implements IGenerator {
 			
 				@Override
 				public IEmfManager<«model»> getEmfManager() {
-					if (emfManager==null) {
-						emfManager = new «ide.name»EmfManager();
+					if (manager==null) {
+						manager = new «ide.name»EmfManager();
 					}
-					return emfManager;
+					return manager;
 				}
 			
 				@Subscribe
@@ -66,6 +66,11 @@ class IdeGenerator implements IGenerator {
 			//				manager.getRoot().getValues().add(context.getInput());
 						}
 					}
+				}
+				
+				@Override
+				public IEmfManager<«model»> initEmfManager() {
+					return new «ide.name»EmfManager();
 				}
 			}
 			'''

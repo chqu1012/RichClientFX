@@ -76,6 +76,24 @@ public interface ResourceFactory extends EFactory {
 	PackageFolder createPackageFolder();
 
 	/**
+	 * Returns a new object of class '<em>Recently Open File History</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recently Open File History</em>'.
+	 * @generated
+	 */
+	RecentlyOpenFileHistory createRecentlyOpenFileHistory();
+
+	/**
+	 * Returns a new object of class '<em>Opened File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Opened File</em>'.
+	 * @generated
+	 */
+	OpenedFile createOpenedFile();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

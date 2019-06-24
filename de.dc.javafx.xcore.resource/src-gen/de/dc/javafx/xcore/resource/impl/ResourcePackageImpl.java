@@ -5,8 +5,10 @@ package de.dc.javafx.xcore.resource.impl;
 import de.dc.javafx.xcore.resource.File;
 import de.dc.javafx.xcore.resource.Folder;
 import de.dc.javafx.xcore.resource.Nature;
+import de.dc.javafx.xcore.resource.OpenedFile;
 import de.dc.javafx.xcore.resource.PackageFolder;
 import de.dc.javafx.xcore.resource.Project;
+import de.dc.javafx.xcore.resource.RecentlyOpenFileHistory;
 import de.dc.javafx.xcore.resource.Resource;
 import de.dc.javafx.xcore.resource.ResourceFactory;
 import de.dc.javafx.xcore.resource.ResourcePackage;
@@ -75,6 +77,20 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	private EClass packageFolderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass recentlyOpenFileHistoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass openedFileEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -339,6 +355,66 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
+	public EClass getRecentlyOpenFileHistory() {
+		return recentlyOpenFileHistoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRecentlyOpenFileHistory_Files() {
+		return (EReference) recentlyOpenFileHistoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getOpenedFile() {
+		return openedFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOpenedFile_Timestamp() {
+		return (EAttribute) openedFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOpenedFile_Name() {
+		return (EAttribute) openedFileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOpenedFile_Path() {
+		return (EAttribute) openedFileEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ResourceFactory getResourceFactory() {
 		return (ResourceFactory) getEFactoryInstance();
 	}
@@ -388,6 +464,14 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		packageFolderEClass = createEClass(PACKAGE_FOLDER);
 		createEAttribute(packageFolderEClass, PACKAGE_FOLDER__NAME);
 		createEReference(packageFolderEClass, PACKAGE_FOLDER__RESOURCES);
+
+		recentlyOpenFileHistoryEClass = createEClass(RECENTLY_OPEN_FILE_HISTORY);
+		createEReference(recentlyOpenFileHistoryEClass, RECENTLY_OPEN_FILE_HISTORY__FILES);
+
+		openedFileEClass = createEClass(OPENED_FILE);
+		createEAttribute(openedFileEClass, OPENED_FILE__TIMESTAMP);
+		createEAttribute(openedFileEClass, OPENED_FILE__NAME);
+		createEAttribute(openedFileEClass, OPENED_FILE__PATH);
 	}
 
 	/**
@@ -475,6 +559,24 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		initEReference(getPackageFolder_Resources(), this.getResource(), null, "resources", null, 0, -1,
 				PackageFolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(recentlyOpenFileHistoryEClass, RecentlyOpenFileHistory.class, "RecentlyOpenFileHistory",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRecentlyOpenFileHistory_Files(), this.getOpenedFile(), null, "files", null, 0, -1,
+				RecentlyOpenFileHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(openedFileEClass, OpenedFile.class, "OpenedFile", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOpenedFile_Timestamp(), theEcorePackage.getEString(), "timestamp", null, 0, 1,
+				OpenedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpenedFile_Name(), theEcorePackage.getEString(), "name", null, 0, 1, OpenedFile.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getOpenedFile_Path(), theEcorePackage.getEString(), "path", null, 0, 1, OpenedFile.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

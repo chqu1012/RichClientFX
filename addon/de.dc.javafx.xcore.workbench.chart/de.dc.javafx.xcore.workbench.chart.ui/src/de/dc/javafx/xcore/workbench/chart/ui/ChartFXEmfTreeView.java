@@ -1,4 +1,5 @@
 package de.dc.javafx.xcore.workbench.chart.ui;
+
 import com.google.common.eventbus.Subscribe;
 
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
@@ -29,22 +30,20 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 		addEditableFor(ChartPackage.eINSTANCE.getXYValueFX_X());
 		addEditableFor(ChartPackage.eINSTANCE.getXYValueFX_Y());
 		addEditableFor(ChartPackage.eINSTANCE.getSeriesFX_Name());
-		
-		MenuItem openPreviewMenuItem = new MenuItem(getEmfManager().getModelPackage().getName()+" Preview");
-		openPreviewMenuItem.setOnAction(e->{
-			DIPlatform.getInstance(IEventBroker.class).post(new EventContext<FXPreview>("open.preview", new ChartFXPreview()));
+
+		MenuItem openPreviewMenuItem = new MenuItem(getEmfManager().getModelPackage().getName() + " Preview");
+		openPreviewMenuItem.setOnAction(e -> {
+			DIPlatform.getInstance(IEventBroker.class)
+					.post(new EventContext<FXPreview>("open.preview", new ChartFXPreview()));
 		});
 		openWithMenu.getItems().add(openPreviewMenuItem);
-		
+
 		DIPlatform.getInstance(IEventBroker.class).register(this);
 	}
 
 	@Override
-	public IEmfManager<ChartProject> getEmfManager() {
-		if (emfManager==null) {
-			emfManager = new ChartFXEmfManager();
-		}
-		return emfManager;
+	public IEmfManager<ChartProject> initEmfManager() {
+		return new ChartFXEmfManager();
 	}
 
 	@Override
@@ -57,10 +56,10 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 			break;
 		}
 	}
-	
+
 	@Subscribe
 	public void updateViewByEventBroker(EventContext<EmfCommand> context) {
-		if (context.getEventTopic()==EventTopic.COMMAND_STACK_REFRESH) {
+		if (context.getEventTopic() == EventTopic.COMMAND_STACK_REFRESH) {
 			if (context.getInput() instanceof EmfCommand) {
 //				manager.getRoot().getValues().add(context.getInput());
 			}

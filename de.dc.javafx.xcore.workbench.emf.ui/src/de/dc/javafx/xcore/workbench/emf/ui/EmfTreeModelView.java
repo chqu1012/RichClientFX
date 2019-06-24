@@ -1,6 +1,5 @@
 package de.dc.javafx.xcore.workbench.emf.ui;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -22,7 +20,6 @@ import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.CopyToClipboardCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.PasteFromClipboardCommand;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryTreeItem;
@@ -36,11 +33,9 @@ import de.dc.javafx.xcore.workbench.emf.ui.factory.CommandFactory;
 import de.dc.javafx.xcore.workbench.emf.ui.handler.CustomFeedbackHandler;
 import de.dc.javafx.xcore.workbench.emf.ui.handler.EAttributeCellEditHandler;
 import de.dc.javafx.xcore.workbench.emf.ui.util.EmfUtil;
-import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -61,9 +56,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 
-public abstract class EmfTreeModelView<T> extends VBox implements CommandStackListener, ChangeListener<Object>, IEmfEditorPart<T> {
+public abstract class EmfTreeModelView<T> extends EmfModelView<T> {
 
 	private Logger log = Logger.getLogger(EmfTreeModelView.class.getSimpleName());
 
@@ -100,10 +94,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	@FXML
 	protected TreeView<Object> treeView;
 
-	protected EObject currentEObject;
-	protected IEmfManager<T> manager;
-	protected EditingDomain editingDomain;
-
 	protected ObservableList<MenuItem> defaultMenuItems = FXCollections.observableArrayList();
 	
 	protected AdapterFactoryTreeCellFactory<Object> treeCellFactory;
@@ -112,8 +102,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 
 	protected IEventBroker eventBroker;
 
-	protected IEmfManager<T> emfManager;
-	
 	public EmfTreeModelView() {
 		FXMLLoader fxmlLoader = new FXMLLoader(
 				getClass().getResource("/de/dc/javafx/xcore/workbench/emf/ui/EmfModelTreeView.fxml"));
@@ -152,20 +140,12 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 		initTreeView();
 	}
 
-	public void load(T input) {
-		manager.setRoot(input);
-		TreeItem<Object> rootItem = new AdapterFactoryTreeItem<>(manager.getRoot(), manager.getAdapterFactory());
-		treeView.setRoot(rootItem);
-	}
-
 	@Override
-	public T load(File file) {
-		return load(file.getAbsolutePath());
-	}
-
 	public T load(String filepath) {
 		T model = manager.getFile().load(filepath);
-		load(model);
+		manager.setRoot(model);
+		TreeItem<Object> rootItem = new AdapterFactoryTreeItem<>(manager.getRoot(), manager.getAdapterFactory());
+		treeView.setRoot(rootItem);
 		return model;
 	}
 
@@ -355,17 +335,6 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	}
 
 	@Override
-	public void save(File f) {
-		manager.getFile().write(manager.getRoot(), f.getAbsolutePath());
-		log.log(Level.INFO, "Write emf model to path " + f.getAbsolutePath());
-	}
-	
-	@Override
-	public String getExtension() {
-		return manager.getFile().getExtension();
-	}
-	
-	@Override
 	public void commandStackChanged(EventObject event) {
 	}
 
@@ -381,6 +350,4 @@ public abstract class EmfTreeModelView<T> extends VBox implements CommandStackLi
 	public TreeView<Object> getTreeView(){
 		return treeView;
 	}
-	
-	public abstract IEmfManager<T> getEmfManager();
 }

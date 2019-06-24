@@ -14,15 +14,15 @@ import de.dc.javafx.xcore.workbench.emf.ui.handler.CustomFeedbackHandler;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 
-public class EmfListView<T> extends ListView<T>{
+public abstract class EmfListView<T> extends ListView<T>{
 
 	protected IEmfManager<T> manager;
 	protected EditingDomain editingDomain;
 	protected ComposedAdapterFactory adapterFactory;
 	private AdapterFactoryListCellFactory<T> listCellFactory;
 
-	public EmfListView(IEmfManager<T> manager) {
-		this.manager = manager;
+	public EmfListView() {
+		this.manager = initEmfManager();
 		this.adapterFactory = manager.getAdapterFactory();
 		this.editingDomain = manager.getEditingDomain();
 		setEditable(true);
@@ -42,5 +42,11 @@ public class EmfListView<T> extends ListView<T>{
 	
 	public void addEditableFor(EAttribute attribute) {
 		listCellFactory.addCellEditHandler(new EAttributeCellEditHandler(attribute, editingDomain));
+	}
+	
+	public abstract IEmfManager<T> initEmfManager();
+	
+	public IEmfManager<T> getEmfManager(){
+		return manager;
 	}
 }

@@ -121,6 +121,20 @@ public class ResourceSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ResourcePackage.RECENTLY_OPEN_FILE_HISTORY: {
+			RecentlyOpenFileHistory recentlyOpenFileHistory = (RecentlyOpenFileHistory) theEObject;
+			T result = caseRecentlyOpenFileHistory(recentlyOpenFileHistory);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ResourcePackage.OPENED_FILE: {
+			OpenedFile openedFile = (OpenedFile) theEObject;
+			T result = caseOpenedFile(openedFile);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -228,6 +242,36 @@ public class ResourceSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePackageFolder(PackageFolder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recently Open File History</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recently Open File History</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecentlyOpenFileHistory(RecentlyOpenFileHistory object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Opened File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Opened File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOpenedFile(OpenedFile object) {
 		return null;
 	}
 

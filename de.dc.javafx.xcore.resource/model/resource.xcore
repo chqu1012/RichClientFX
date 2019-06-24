@@ -9,6 +9,8 @@
 	fileExtensions="resource", tableProviders="true")
 package de.dc.javafx.xcore.resource
 
+import org.eclipse.emf.ecore.xml.^type.Time
+
 class Workspace{
 	contains Project[0..*] projects
 }
@@ -40,4 +42,14 @@ class File extends Resource{
 class PackageFolder extends Resource{
 	String name
 	contains Resource[0..*] resources
+}
+
+class RecentlyOpenFileHistory{
+	contains OpenedFile[0..*] files
+}
+
+class OpenedFile{
+	String timestamp
+	String name
+	String path
 }
