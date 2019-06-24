@@ -5,6 +5,7 @@ import com.google.common.eventbus.Subscribe;
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
 import de.dc.javafx.xcore.workbench.chart.ChartPackage;
 import de.dc.javafx.xcore.workbench.chart.ChartProject;
+import de.dc.javafx.xcore.workbench.chart.ui.command.CreateChildrenHandler;
 import de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler;
 import de.dc.javafx.xcore.workbench.chart.ui.manager.ChartFXEmfManager;
 import de.dc.javafx.xcore.workbench.chart.ui.view.ChartFXPreview;
@@ -51,6 +52,9 @@ public class ChartFXEmfTreeView extends EmfTreeModelView<ChartProject> {
 		switch (code) {
 		case F6:
 			DIPlatform.getInstance(EmfCommandManager.class).execute(GenerateDummyValuesHandler.ID);
+			break;
+		case F5:
+			DIPlatform.getInstance(EmfCommandManager.class).execute(CreateChildrenHandler.ID);
 			break;
 		default:
 			break;

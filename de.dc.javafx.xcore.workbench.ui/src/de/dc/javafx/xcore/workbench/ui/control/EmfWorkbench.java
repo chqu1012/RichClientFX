@@ -5,6 +5,8 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.fx.ui.controls.styledtext.StyleRange;
@@ -24,11 +26,14 @@ import de.dc.javafx.xcore.workbench.emf.file.IEmfFileManager;
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
+import de.dc.javafx.xcore.workbench.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
+import de.dc.javafx.xcore.workbench.extensions.CommandExtension;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionManager;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionPoint;
 import de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension;
 import de.dc.javafx.xcore.workbench.extensions.file.ExtensionFile;
+import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
 import de.dc.javafx.xcore.workbench.ui.dnd.DraggingTabPaneSupport;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
@@ -47,6 +52,8 @@ import javafx.scene.layout.BorderPane;
 
 public abstract class EmfWorkbench extends AbstractFxmlControl implements ChangeListener<Object> {
 
+	private Logger log = Logger.getLogger(EmfWorkbench.class.getSimpleName());
+	
 	public static final String ID = "de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench";
 	public static final String TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Toolbar";
 	public static final String PERSPECTIVE_TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Perspective";
@@ -146,8 +153,23 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 					if (point instanceof PerspectiveExtension) {
 						PerspectiveExtension perspectiveExtions = (PerspectiveExtension) point;
 						initPerspective(perspectiveExtions);
+					}else if (point instanceof CommandExtension) {
+						CommandExtension commandExtension = (CommandExtension) point;
+						initCommand(commandExtension);
 					}
 				}
+			}
+		}
+	}
+
+	private void initCommand(CommandExtension commandExtension) {
+		for (de.dc.javafx.xcore.workbench.extensions.Command c : commandExtension.getCommands()) {
+			try {
+				Class<IEmfCommand> commandClass = (Class<IEmfCommand>) Class.forName(c.getId());
+				IEmfCommand command = DIPlatform.getInstance(commandClass);
+				DIPlatform.getInstance(EmfCommandManager.class).register(c.getId(), command);
+			} catch (ClassNotFoundException e) {
+				log.log(Level.SEVERE, "Error on register command id " + c.getId() + ", message: " + e.getMessage());
 			}
 		}
 	}

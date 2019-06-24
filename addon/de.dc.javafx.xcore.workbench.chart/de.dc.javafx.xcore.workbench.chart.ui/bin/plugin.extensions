@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensions:ExtensionManager xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensions="http://www.frateranatis.org/workbench/extensions">
+  <extensionPoints xsi:type="extensions:CommandExtension">
+    <commands Id="de.dc.javafx.xcore.workbench.chart.ui.command.CreateChildrenHandler" name="Create Children" extensionUri="de.dc.javafx.xcore.workbench.chart.ui.command.CreateChildrenHandler"/>
+    <commands Id="de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler" name="Generate Dummy Values" extensionUri="de.dc.javafx.xcore.workbench.chart.ui.command.GenerateDummyValuesHandler"/>
+  </extensionPoints>
+  <extensionPoints xsi:type="extensions:EditorExtension">
+    <editors Id="de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView" name="ChartFX Editor" extensionUri="de.dc.javafx.xcore.workbench.chart.ui.ChartFXEmfDetailedTreeView" fileExtension="chart"/>
+  </extensionPoints>
+</extensions:ExtensionManager>
