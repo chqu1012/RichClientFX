@@ -62,12 +62,20 @@ public class ExampleEmfWorkbench extends EmfWorkbench {
 			if (!filename.isEmpty() && !isFileOpen(filename)) {
 				Optional<IEmfEditorPart<?>> editorPart = DIPlatform.getInstance(IEmfFileManager.class)
 						.getEditorByExtension(FilenameUtils.getExtension(filename));
-				editorPart.ifPresent(editor -> {
-					Tab editorTab = new Tab((String) input);
-					editor.load(new java.io.File((String) input));
-					editorTab.setContent((Node) editor);
-					getCurrentPerspective().getEditorArea().getTabs().add(editorTab);
-				});
+				if (editorPart!=null) {
+					editorPart.ifPresent(editor -> {
+						if (input instanceof File) {
+							File fileInput = (File) input;
+							Tab editorTab = new Tab(fileInput.getName());
+							getCurrentPerspective().getEditorArea().getTabs().add(editorTab);
+						}else if (input instanceof String) {
+							Tab editorTab = new Tab((String) input);
+							editor.load(new java.io.File((String) input));
+							editorTab.setContent((Node) editor);
+							getCurrentPerspective().getEditorArea().getTabs().add(editorTab);
+						}
+					});
+				}
 			}
 			getTabByName(filename).ifPresent(e -> getCurrentPerspective().getEditorArea().getSelectionModel().select(e));
 		}
