@@ -61,10 +61,10 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	public static final String PERSPECTIVE_TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Perspective";
 	public static final String STATUSLINE_ID = "de.dc.javafx.xcore.workbench.ui.control.Statusline";
 	public static final String EDITOR_AREA_ID = "de.dc.javafx.xcore.workbench.ui.control.EditorArea";
-	
+
 	@FXML
 	protected StackPane perspectiveArea;
-	
+
 	@FXML
 	protected BorderPane root;
 
@@ -96,9 +96,9 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	protected Workbench workbench;
 
 	protected EmfPerspective currentPerspective;
-	
+
 	protected Map<String, Optional<EmfPerspective>> perspectiveManager = new HashMap<>();
-	
+
 	public EmfWorkbench() {
 		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
@@ -252,7 +252,8 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	}
 
 	public Optional<Tab> getTabByName(String name) {
-		return currentPerspective.getEditorArea().getTabs().stream().filter(e -> e.getText().equalsIgnoreCase(name)).findAny();
+		return currentPerspective.getEditorArea().getTabs().stream().filter(e -> e.getText().equalsIgnoreCase(name))
+				.findAny();
 	}
 
 	public EmfPerspective getCurrentPerspective() {
@@ -264,17 +265,17 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		RightPane rightPane = perspective.getRightPane();
 		LeftPane leftPane = perspective.getLeftPane();
 		BottomPane bottomPane = perspective.getBottomPane();
-		if (leftPane!=null) {
+		if (leftPane != null) {
 			for (View view : leftPane.getViews()) {
 				currentPerspective.addToLeft(createTab(view));
 			}
 		}
-		if (rightPane!=null) {
+		if (rightPane != null) {
 			for (View view : rightPane.getViews()) {
 				currentPerspective.addToRight(createTab(view));
 			}
 		}
-		if (bottomPane!=null) {
+		if (bottomPane != null) {
 			for (View view : bottomPane.getViews()) {
 				currentPerspective.addToBottom(createTab(view));
 			}
@@ -282,14 +283,14 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		perspectiveArea.getChildren().add(currentPerspective);
 		perspectiveManager.put(perspective.get_Id(), Optional.of(currentPerspective));
 	}
-	
+
 	private Tab createTab(View e) {
 		Tab tab = new Tab(e.getName());
 		tab.setClosable(e.isIsClosable());
 		tab.setContent(caseView(e));
 		return tab;
 	}
-	
+
 	public Node caseView(View object) {
 		try {
 			Class<?> clazz = Class.forName(object.getViewClass());
@@ -308,11 +309,15 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		}
 		return new Label("ViewPart cannot be created!");
 	}
-	
+
 	public void switchPerspective(String id) {
 		Optional<EmfPerspective> optionalPerspective = perspectiveManager.get(id);
-		if (optionalPerspective!=null) {
-			optionalPerspective.ifPresent(perspective-> perspective.toFront());
+		if (optionalPerspective != null) {
+			optionalPerspective.ifPresent(perspective -> {
+				currentPerspective = perspective;
+				DIPlatform.getInstance(IEmfControlManager.class).registrate(EmfWorkbench.EDITOR_AREA_ID, currentPerspective.getEditorArea());
+				perspective.toFront();
+			});
 		}
 	}
 }
