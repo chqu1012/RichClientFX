@@ -17,6 +17,7 @@ import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
+import de.dc.javafx.xcore.workbench.BottomPane;
 import de.dc.javafx.xcore.workbench.LeftPane;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.WorkbenchFactory;
@@ -32,6 +33,7 @@ import de.dc.javafx.xcore.workbench.extensions.CommandExtension;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionManager;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionPoint;
 import de.dc.javafx.xcore.workbench.Perspective;
+import de.dc.javafx.xcore.workbench.RightPane;
 import de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension;
 import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.extensions.file.ExtensionFile;
@@ -259,8 +261,23 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 	public void addPerspective(Perspective perspective) {
 		currentPerspective = new EmfPerspective();
-		for (View view : perspective.getLeftPane().getViews()) {
-			currentPerspective.addToLeft(createTab(view));
+		RightPane rightPane = perspective.getRightPane();
+		LeftPane leftPane = perspective.getLeftPane();
+		BottomPane bottomPane = perspective.getBottomPane();
+		if (leftPane!=null) {
+			for (View view : leftPane.getViews()) {
+				currentPerspective.addToLeft(createTab(view));
+			}
+		}
+		if (rightPane!=null) {
+			for (View view : rightPane.getViews()) {
+				currentPerspective.addToRight(createTab(view));
+			}
+		}
+		if (bottomPane!=null) {
+			for (View view : bottomPane.getViews()) {
+				currentPerspective.addToBottom(createTab(view));
+			}
 		}
 		perspectiveArea.getChildren().add(currentPerspective);
 		perspectiveManager.put(perspective.get_Id(), Optional.of(currentPerspective));
@@ -275,12 +292,12 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	
 	public Node caseView(View object) {
 		try {
-			Class clazz = Class.forName(object.getViewClass());
+			Class<?> clazz = Class.forName(object.getViewClass());
 			Node view = (Node) DIPlatform.getInstance(clazz);
 
 			boolean isChangeListener = ChangeListener.class.isAssignableFrom(view.getClass());
 			if (isChangeListener && object.isRegistrateChangeListener()) {
-				selectionService.addListener((ChangeListener) view);
+				selectionService.addListener((ChangeListener<?>) view);
 			}
 
 			DIPlatform.getInstance(IEmfControlManager.class).registrate(object.get_Id(), view);

@@ -82,33 +82,17 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 	public void createPerspective(Perspective perspective) {
 		Button perspectiveButton = new Button(perspective.getName());
 		perspectiveButton.setId(perspective.get_Id());
-		perspectiveButton.setOnAction(e -> switchPerspective(perspectiveButton.getId()));
+		perspectiveButton.setOnAction(e -> {
+			workbench.switchPerspective(perspectiveButton.getId());	
+			eventBroker.post(new EventContext<>("switch.perspective", perspective.getName()));
+		});
 		workbench.getPerspectiveToolBar().getItems().add(perspectiveButton);
-
 		workbench.addPerspective(perspective);
-
 		perspectives.put(perspective.get_Id(), perspective);
-		switchPerspective(perspective.get_Id());
-		eventBroker.post(new EventContext<>("switch.perspective", perspective.getName()));
-
-		
 		controlManager.registrate(perspective.get_Id(), perspectiveButton);
 	}
 
-	private void switchPerspective(String id) {
-//		workbench.getCurrentPerspective().getTabs().clear();
-//		workbench.getRightTabPane().getTabs().clear();
-//		workbench.getBottomTabPane().getTabs().clear();
-//		workbench.getEditorArea().getTabs().clear();
-
-		Perspective perspective = perspectives.get(id);
-		doSwitch(perspective);
-		eventBroker.post(new EventContext<>("switch.perspective", perspective.getName()));
-
-	}
-
 	private void populateCommands(Workbench object) {
-		
 		// Registrate commands in workbench
 		for (Command c : object.getCommands()) {
 			try {
