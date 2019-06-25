@@ -409,13 +409,22 @@ public interface ResourcePackage extends EPackage {
 	int OPENED_FILE = 8;
 
 	/**
+	 * The feature id for the '<em><b>Perspective Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPENED_FILE__PERSPECTIVE_ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPENED_FILE__TIMESTAMP = 0;
+	int OPENED_FILE__TIMESTAMP = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -424,7 +433,7 @@ public interface ResourcePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPENED_FILE__NAME = 1;
+	int OPENED_FILE__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -433,7 +442,7 @@ public interface ResourcePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPENED_FILE__PATH = 2;
+	int OPENED_FILE__PATH = 3;
 
 	/**
 	 * The number of structural features of the '<em>Opened File</em>' class.
@@ -442,7 +451,7 @@ public interface ResourcePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPENED_FILE_FEATURE_COUNT = 3;
+	int OPENED_FILE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Opened File</em>' class.
@@ -685,6 +694,17 @@ public interface ResourcePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOpenedFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.OpenedFile#getPerspectiveId <em>Perspective Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Perspective Id</em>'.
+	 * @see de.dc.javafx.xcore.resource.OpenedFile#getPerspectiveId()
+	 * @see #getOpenedFile()
+	 * @generated
+	 */
+	EAttribute getOpenedFile_PerspectiveId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.resource.OpenedFile#getTimestamp <em>Timestamp</em>}'.
@@ -935,6 +955,14 @@ public interface ResourcePackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPENED_FILE = eINSTANCE.getOpenedFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Perspective Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPENED_FILE__PERSPECTIVE_ID = eINSTANCE.getOpenedFile_PerspectiveId();
 
 		/**
 		 * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.

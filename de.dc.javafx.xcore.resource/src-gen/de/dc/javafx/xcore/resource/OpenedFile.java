@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link de.dc.javafx.xcore.resource.OpenedFile#getPerspectiveId <em>Perspective Id</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.OpenedFile#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.OpenedFile#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.OpenedFile#getPath <em>Path</em>}</li>
@@ -23,6 +24,28 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface OpenedFile extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Perspective Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Perspective Id</em>' attribute.
+	 * @see #setPerspectiveId(String)
+	 * @see de.dc.javafx.xcore.resource.ResourcePackage#getOpenedFile_PerspectiveId()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getPerspectiveId();
+
+	/**
+	 * Sets the value of the '{@link de.dc.javafx.xcore.resource.OpenedFile#getPerspectiveId <em>Perspective Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Perspective Id</em>' attribute.
+	 * @see #getPerspectiveId()
+	 * @generated
+	 */
+	void setPerspectiveId(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->

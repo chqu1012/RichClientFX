@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.dc.javafx.xcore.resource.impl.OpenedFileImpl#getPerspectiveId <em>Perspective Id</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.impl.OpenedFileImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.impl.OpenedFileImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.resource.impl.OpenedFileImpl#getPath <em>Path</em>}</li>
@@ -28,6 +29,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class OpenedFileImpl extends MinimalEObjectImpl.Container implements OpenedFile {
+	/**
+	 * The default value of the '{@link #getPerspectiveId() <em>Perspective Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPerspectiveId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PERSPECTIVE_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPerspectiveId() <em>Perspective Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPerspectiveId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String perspectiveId = PERSPECTIVE_ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getTimestamp() <em>Timestamp</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -113,6 +134,30 @@ public class OpenedFileImpl extends MinimalEObjectImpl.Container implements Open
 	 * @generated
 	 */
 	@Override
+	public String getPerspectiveId() {
+		return perspectiveId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPerspectiveId(String newPerspectiveId) {
+		String oldPerspectiveId = perspectiveId;
+		perspectiveId = newPerspectiveId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcePackage.OPENED_FILE__PERSPECTIVE_ID,
+					oldPerspectiveId, perspectiveId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getTimestamp() {
 		return timestamp;
 	}
@@ -185,6 +230,8 @@ public class OpenedFileImpl extends MinimalEObjectImpl.Container implements Open
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case ResourcePackage.OPENED_FILE__PERSPECTIVE_ID:
+			return getPerspectiveId();
 		case ResourcePackage.OPENED_FILE__TIMESTAMP:
 			return getTimestamp();
 		case ResourcePackage.OPENED_FILE__NAME:
@@ -203,6 +250,9 @@ public class OpenedFileImpl extends MinimalEObjectImpl.Container implements Open
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case ResourcePackage.OPENED_FILE__PERSPECTIVE_ID:
+			setPerspectiveId((String) newValue);
+			return;
 		case ResourcePackage.OPENED_FILE__TIMESTAMP:
 			setTimestamp((String) newValue);
 			return;
@@ -224,6 +274,9 @@ public class OpenedFileImpl extends MinimalEObjectImpl.Container implements Open
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case ResourcePackage.OPENED_FILE__PERSPECTIVE_ID:
+			setPerspectiveId(PERSPECTIVE_ID_EDEFAULT);
+			return;
 		case ResourcePackage.OPENED_FILE__TIMESTAMP:
 			setTimestamp(TIMESTAMP_EDEFAULT);
 			return;
@@ -245,6 +298,9 @@ public class OpenedFileImpl extends MinimalEObjectImpl.Container implements Open
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case ResourcePackage.OPENED_FILE__PERSPECTIVE_ID:
+			return PERSPECTIVE_ID_EDEFAULT == null ? perspectiveId != null
+					: !PERSPECTIVE_ID_EDEFAULT.equals(perspectiveId);
 		case ResourcePackage.OPENED_FILE__TIMESTAMP:
 			return TIMESTAMP_EDEFAULT == null ? timestamp != null : !TIMESTAMP_EDEFAULT.equals(timestamp);
 		case ResourcePackage.OPENED_FILE__NAME:
@@ -266,7 +322,9 @@ public class OpenedFileImpl extends MinimalEObjectImpl.Container implements Open
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (timestamp: ");
+		result.append(" (perspectiveId: ");
+		result.append(perspectiveId);
+		result.append(", timestamp: ");
 		result.append(timestamp);
 		result.append(", name: ");
 		result.append(name);

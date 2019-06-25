@@ -9,8 +9,6 @@
 	fileExtensions="resource", tableProviders="true")
 package de.dc.javafx.xcore.resource
 
-import org.eclipse.emf.ecore.xml.^type.Time
-
 class Workspace{
 	contains Project[0..*] projects
 }
@@ -49,6 +47,7 @@ class RecentlyOpenFileHistory{
 }
 
 class OpenedFile{
+	String perspectiveId
 	String timestamp
 	String name
 	String path

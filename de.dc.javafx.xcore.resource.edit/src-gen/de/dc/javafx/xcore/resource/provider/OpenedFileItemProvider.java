@@ -55,11 +55,28 @@ public class OpenedFileItemProvider extends ItemProviderAdapter
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPerspectiveIdPropertyDescriptor(object);
 			addTimestampPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Perspective Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPerspectiveIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_OpenedFile_perspectiveId_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OpenedFile_perspectiveId_feature",
+								"_UI_OpenedFile_type"),
+						ResourcePackage.Literals.OPENED_FILE__PERSPECTIVE_ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -186,6 +203,7 @@ public class OpenedFileItemProvider extends ItemProviderAdapter
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(OpenedFile.class)) {
+		case ResourcePackage.OPENED_FILE__PERSPECTIVE_ID:
 		case ResourcePackage.OPENED_FILE__TIMESTAMP:
 		case ResourcePackage.OPENED_FILE__NAME:
 		case ResourcePackage.OPENED_FILE__PATH:

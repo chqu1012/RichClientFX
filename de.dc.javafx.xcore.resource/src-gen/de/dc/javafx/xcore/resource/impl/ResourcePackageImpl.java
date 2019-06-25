@@ -385,7 +385,7 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOpenedFile_Timestamp() {
+	public EAttribute getOpenedFile_PerspectiveId() {
 		return (EAttribute) openedFileEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -395,7 +395,7 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOpenedFile_Name() {
+	public EAttribute getOpenedFile_Timestamp() {
 		return (EAttribute) openedFileEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -405,8 +405,18 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOpenedFile_Path() {
+	public EAttribute getOpenedFile_Name() {
 		return (EAttribute) openedFileEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOpenedFile_Path() {
+		return (EAttribute) openedFileEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -469,6 +479,7 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 		createEReference(recentlyOpenFileHistoryEClass, RECENTLY_OPEN_FILE_HISTORY__FILES);
 
 		openedFileEClass = createEClass(OPENED_FILE);
+		createEAttribute(openedFileEClass, OPENED_FILE__PERSPECTIVE_ID);
 		createEAttribute(openedFileEClass, OPENED_FILE__TIMESTAMP);
 		createEAttribute(openedFileEClass, OPENED_FILE__NAME);
 		createEAttribute(openedFileEClass, OPENED_FILE__PATH);
@@ -568,6 +579,9 @@ public class ResourcePackageImpl extends EPackageImpl implements ResourcePackage
 
 		initEClass(openedFileEClass, OpenedFile.class, "OpenedFile", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOpenedFile_PerspectiveId(), theEcorePackage.getEString(), "perspectiveId", null, 0, 1,
+				OpenedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOpenedFile_Timestamp(), theEcorePackage.getEString(), "timestamp", null, 0, 1,
 				OpenedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
