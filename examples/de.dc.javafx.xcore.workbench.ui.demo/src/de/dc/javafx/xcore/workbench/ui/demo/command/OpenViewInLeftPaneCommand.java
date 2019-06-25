@@ -14,8 +14,8 @@ public class OpenViewInLeftPaneCommand extends EmfCommand {
 	
 	@Override
 	public void execute() {
-		TabPane leftPane = controlManager.findBy(EmfWorkbench.LEFT_PANE_ID);
-		leftPane.getTabs().add(new Tab("New Left View*"));
+//		TabPane leftPane = controlManager.findBy(EmfWorkbench.LEFT_PANE_ID);
+//		leftPane.getTabs().add(new Tab("New Left View*"));
 	}
 
 }

@@ -85,18 +85,21 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 		perspectiveButton.setOnAction(e -> switchPerspective(perspectiveButton.getId()));
 		workbench.getPerspectiveToolBar().getItems().add(perspectiveButton);
 
+		workbench.addPerspective(perspective);
+
 		perspectives.put(perspective.get_Id(), perspective);
 		switchPerspective(perspective.get_Id());
 		eventBroker.post(new EventContext<>("switch.perspective", perspective.getName()));
 
+		
 		controlManager.registrate(perspective.get_Id(), perspectiveButton);
 	}
 
 	private void switchPerspective(String id) {
-		workbench.getLeftTabPane().getTabs().clear();
-		workbench.getRightTabPane().getTabs().clear();
-		workbench.getBottomTabPane().getTabs().clear();
-		workbench.getEditorArea().getTabs().clear();
+//		workbench.getCurrentPerspective().getTabs().clear();
+//		workbench.getRightTabPane().getTabs().clear();
+//		workbench.getBottomTabPane().getTabs().clear();
+//		workbench.getEditorArea().getTabs().clear();
 
 		Perspective perspective = perspectives.get(id);
 		doSwitch(perspective);
@@ -198,7 +201,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 	@Override
 	public Node caseLeftPane(LeftPane object) {
 		if (workbench != null) {
-			object.getViews().stream().forEach(e -> workbench.getLeftTabPane().getTabs().add(createTab(e)));
+			object.getViews().stream().forEach(e -> workbench.getCurrentPerspective().addToLeft(createTab(e)));
 		}
 		return super.caseLeftPane(object);
 	}
@@ -206,7 +209,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 	@Override
 	public Node caseRightPane(RightPane object) {
 		if (workbench != null) {
-			object.getViews().stream().forEach(e -> workbench.getRightTabPane().getTabs().add(createTab(e)));
+			object.getViews().stream().forEach(e -> workbench.getCurrentPerspective().addToRight(createTab(e)));
 		}
 		return super.caseRightPane(object);
 	}
@@ -214,7 +217,7 @@ public class EmfWorkbenchRenderer extends WorkbenchSwitch<Node> {
 	@Override
 	public Node caseBottomPane(BottomPane object) {
 		if (workbench != null) {
-			object.getViews().stream().forEach(e -> workbench.getBottomTabPane().getTabs().add(createTab(e)));
+			object.getViews().stream().forEach(e -> workbench.getCurrentPerspective().addToBottom(createTab(e)));
 		}
 		return super.caseBottomPane(object);
 	}

@@ -2,8 +2,8 @@ package de.dc.javafx.xcore.workbench.ui.control;
 
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +18,6 @@ import com.google.inject.Inject;
 
 import de.dc.javafx.xcore.code.preview.ui.FXPreview;
 import de.dc.javafx.xcore.workbench.LeftPane;
-import de.dc.javafx.xcore.workbench.Perspective;
 import de.dc.javafx.xcore.workbench.Workbench;
 import de.dc.javafx.xcore.workbench.WorkbenchFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
@@ -32,24 +31,24 @@ import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.extensions.CommandExtension;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionManager;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionPoint;
+import de.dc.javafx.xcore.workbench.Perspective;
 import de.dc.javafx.xcore.workbench.extensions.PerspectiveExtension;
+import de.dc.javafx.xcore.workbench.View;
 import de.dc.javafx.xcore.workbench.extensions.file.ExtensionFile;
 import de.dc.javafx.xcore.workbench.ui.EmfCommandManager;
 import de.dc.javafx.xcore.workbench.ui.IEmfControlManager;
-import de.dc.javafx.xcore.workbench.ui.dnd.DraggingTabPaneSupport;
 import de.dc.javafx.xcore.workbench.ui.file.EmfWorkbenchFile;
 import de.dc.javafx.xcore.workbench.ui.renderer.EmfWorkbenchRenderer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 
 public abstract class EmfWorkbench extends AbstractFxmlControl implements ChangeListener<Object> {
 
@@ -58,26 +57,14 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	public static final String ID = "de.dc.javafx.xcore.workbench.ui.control.EmfWorkbench";
 	public static final String TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Toolbar";
 	public static final String PERSPECTIVE_TOOLBAR_ID = "de.dc.javafx.xcore.workbench.ui.control.Perspective";
-	public static final String LEFT_PANE_ID = "de.dc.javafx.xcore.workbench.ui.control.LeftPane";
-	public static final String RIGHT_PANE_ID = "de.dc.javafx.xcore.workbench.ui.control.RightPane";
-	public static final String BOTTOM_PANE_ID = "de.dc.javafx.xcore.workbench.ui.control.BottomPane";
-	public static final String EDITOR_AREA_ID = "de.dc.javafx.xcore.workbench.ui.control.EditorArea";
 	public static final String STATUSLINE_ID = "de.dc.javafx.xcore.workbench.ui.control.Statusline";
-
+	public static final String EDITOR_AREA_ID = "de.dc.javafx.xcore.workbench.ui.control.EditorArea";
+	
+	@FXML
+	protected StackPane perspectiveArea;
+	
 	@FXML
 	protected BorderPane root;
-
-	@FXML
-	protected TabPane leftTabPane;
-
-	@FXML
-	protected TabPane editorArea;
-
-	@FXML
-	protected TabPane rightTabPane;
-
-	@FXML
-	protected TabPane bottomTabPane;
 
 	@FXML
 	protected ToolBar toolbar;
@@ -106,6 +93,10 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 	protected Workbench workbench;
 
+	protected EmfPerspective currentPerspective;
+	
+	protected Map<String, Optional<EmfPerspective>> perspectiveManager = new HashMap<>();
+	
 	public EmfWorkbench() {
 		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
@@ -114,29 +105,8 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		eventBroker.register(this);
 
 		IEmfControlManager controlManager = DIPlatform.getInstance(IEmfControlManager.class);
-		controlManager.registrate(BOTTOM_PANE_ID, getBottomTabPane());
-		controlManager.registrate(LEFT_PANE_ID, getLeftTabPane());
-		controlManager.registrate(RIGHT_PANE_ID, getRightTabPane());
-		controlManager.registrate(EDITOR_AREA_ID, getEditorArea());
 		controlManager.registrate(TOOLBAR_ID, getToolBar());
 		controlManager.registrate(PERSPECTIVE_TOOLBAR_ID, getPerspectiveToolBar());
-
-		// TabPane dnd support
-		DraggingTabPaneSupport support = new DraggingTabPaneSupport();
-		support.addSupport(bottomTabPane);
-		support.addSupport(rightTabPane);
-		support.addSupport(leftTabPane);
-
-		editorArea.getSelectionModel().selectedItemProperty()
-				.addListener((ChangeListener<Tab>) (observable, oldValue, newValue) -> {
-					if (newValue != null) {
-						Node content = newValue.getContent();
-						if (content instanceof IEmfEditorPart) {
-							IEmfEditorPart<?> editor = (IEmfEditorPart<?>) content;
-							DIPlatform.getInstance(IEmfFileManager.class).setCurrentEditor(editor);
-						}
-					}
-				});
 	}
 
 	public void registerExtensions() {
@@ -205,51 +175,12 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		return workbench;
 	}
 
-	public TabPane getLeftTabPane() {
-		return leftTabPane;
-	}
-
-	public TabPane getRightTabPane() {
-		return rightTabPane;
-	}
-
-	public TabPane getBottomTabPane() {
-		return bottomTabPane;
-	}
-
-	public TabPane getEditorArea() {
-		return editorArea;
-	}
-
 	public ToolBar getToolBar() {
 		return toolbar;
 	}
 
 	public ToolBar getPerspectiveToolBar() {
 		return perspectiveToolbar;
-	}
-
-	@FXML
-	protected void onEditorAreaCloseMenuItem(ActionEvent event) {
-		Tab selection = editorArea.getSelectionModel().getSelectedItem();
-		editorArea.getTabs().remove(selection);
-	}
-
-	@FXML
-	protected void onEditorAreaCloseOthersMenuItem(ActionEvent event) {
-		Tab selection = editorArea.getSelectionModel().getSelectedItem();
-		List<Tab> toRemoveTabs = new ArrayList<>();
-		for (Tab tab : editorArea.getTabs()) {
-			if (tab != selection) {
-				toRemoveTabs.add(tab);
-			}
-		}
-		editorArea.getTabs().removeAll(toRemoveTabs);
-	}
-
-	@FXML
-	protected void onEditorAreaCloseAllMenuItem(ActionEvent event) {
-		editorArea.getTabs().clear();
 	}
 
 	@Override
@@ -284,7 +215,7 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 					Tab editorTab = new Tab((String) input);
 					editor.load(new java.io.File((String) input));
 					editorTab.setContent((Node) editor);
-					editorArea.getTabs().add(editorTab);
+					currentPerspective.getEditorArea().getTabs().add(editorTab);
 				});
 			} else {
 				StyledTextArea styledTextArea = new StyledTextArea();
@@ -294,9 +225,9 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 				Tab editorTab = new Tab(filename);
 				editorTab.setContent(styledTextArea);
-				editorArea.getTabs().add(editorTab);
+				currentPerspective.getEditorArea().getTabs().add(editorTab);
 			}
-			getTabByName(filename).ifPresent(e -> editorArea.getSelectionModel().select(e));
+			getTabByName(filename).ifPresent(e -> currentPerspective.getEditorArea().getSelectionModel().select(e));
 		}
 	}
 
@@ -307,18 +238,64 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 			Tab preview = new Tab(input.getTitle());
 			DIPlatform.getInstance(IEmfSelectionService.class).addListener(input);
 			preview.setContent(input);
-			bottomTabPane.getTabs().add(preview);
-			bottomTabPane.getSelectionModel().select(preview);
+			currentPerspective.getBottomTabPane().getTabs().add(preview);
+			currentPerspective.getBottomTabPane().getSelectionModel().select(preview);
 		}
 	}
 
 	protected abstract String showTabTextByObject(Object input);
 
 	public boolean isFileOpen(String name) {
-		return editorArea.getTabs().stream().anyMatch(e -> e.getText().equalsIgnoreCase(name));
+		return currentPerspective.getEditorArea().getTabs().stream().anyMatch(e -> e.getText().equalsIgnoreCase(name));
 	}
 
 	public Optional<Tab> getTabByName(String name) {
-		return editorArea.getTabs().stream().filter(e -> e.getText().equalsIgnoreCase(name)).findAny();
+		return currentPerspective.getEditorArea().getTabs().stream().filter(e -> e.getText().equalsIgnoreCase(name)).findAny();
+	}
+
+	public EmfPerspective getCurrentPerspective() {
+		return currentPerspective;
+	}
+
+	public void addPerspective(Perspective perspective) {
+		currentPerspective = new EmfPerspective();
+		for (View view : perspective.getLeftPane().getViews()) {
+			currentPerspective.addToLeft(createTab(view));
+		}
+		perspectiveArea.getChildren().add(currentPerspective);
+		perspectiveManager.put(perspective.get_Id(), Optional.of(currentPerspective));
+	}
+	
+	private Tab createTab(View e) {
+		Tab tab = new Tab(e.getName());
+		tab.setClosable(e.isIsClosable());
+		tab.setContent(caseView(e));
+		return tab;
+	}
+	
+	public Node caseView(View object) {
+		try {
+			Class clazz = Class.forName(object.getViewClass());
+			Node view = (Node) DIPlatform.getInstance(clazz);
+
+			boolean isChangeListener = ChangeListener.class.isAssignableFrom(view.getClass());
+			if (isChangeListener && object.isRegistrateChangeListener()) {
+				selectionService.addListener((ChangeListener) view);
+			}
+
+			DIPlatform.getInstance(IEmfControlManager.class).registrate(object.get_Id(), view);
+			return view;
+		} catch (NullPointerException | ClassNotFoundException e) {
+			log.log(Level.SEVERE, "Viewpart cannot created (id: " + object.get_Id() + "instance: "
+					+ object.getViewClass() + ", name: " + object.getName() + ") ");
+		}
+		return new Label("ViewPart cannot be created!");
+	}
+	
+	public void switchPerspective(String id) {
+		Optional<EmfPerspective> optionalPerspective = perspectiveManager.get(id);
+		if (optionalPerspective!=null) {
+			optionalPerspective.ifPresent(perspective-> perspective.toFront());
+		}
 	}
 }

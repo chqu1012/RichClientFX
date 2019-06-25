@@ -50,15 +50,6 @@ public class ExampleEmfWorkbench extends EmfWorkbench {
 	}
 
 	@Override
-	protected void onEditorAreaCloseMenuItem(ActionEvent event) {
-		super.onEditorAreaCloseMenuItem(event);
-		System.out.println("IEmfControlManager Instance: " + manager);
-		System.out.println("ISelectionService Instance: " + selectionService);
-		System.out.println("ISelectionService Instance: " + eventBroker);
-		System.out.println("EmfWorkbenchRenderer Instance: " + renderer);
-	}
-
-	@Override
 	public void changed(ObservableValue<? extends Object> arg0, Object arg1, Object arg2) {
 
 	}
@@ -75,10 +66,10 @@ public class ExampleEmfWorkbench extends EmfWorkbench {
 					Tab editorTab = new Tab((String) input);
 					editor.load(new java.io.File((String) input));
 					editorTab.setContent((Node) editor);
-					editorArea.getTabs().add(editorTab);
+					getCurrentPerspective().getEditorArea().getTabs().add(editorTab);
 				});
 			}
-			getTabByName(filename).ifPresent(e -> editorArea.getSelectionModel().select(e));
+			getTabByName(filename).ifPresent(e -> getCurrentPerspective().getEditorArea().getSelectionModel().select(e));
 		}
 	}
 

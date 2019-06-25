@@ -14,8 +14,8 @@ public class OpenViewInRightPaneCommand extends EmfCommand {
 	
 	@Override
 	public void execute() {
-		TabPane pane = controlManager.findBy(EmfWorkbench.RIGHT_PANE_ID);
-		pane.getTabs().add(new Tab("New Example View*"));
+//		TabPane pane = controlManager.findBy(EmfWorkbench.RIGHT_PANE_ID);
+//		pane.getTabs().add(new Tab("New Example View*"));
 	}
 
 }
