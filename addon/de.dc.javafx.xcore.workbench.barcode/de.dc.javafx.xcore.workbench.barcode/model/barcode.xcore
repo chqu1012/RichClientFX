@@ -1,0 +1,24 @@
+@Ecore(nsURI="http://www.frateranatis.org/workbench/barcode")
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.workbench.barcode.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.workbench.barcode.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="barcode", 
+	tableProviders="true", dataTypeConverters="true")
+package de.dc.javafx.xcore.workbench.barcode
+
+class BarcodeFXProject{
+	contains BarcodeFX[0..*] barcodes
+}
+
+abstract class BarcodeFX{
+	String name
+}
+
+class QRCodeFX extends BarcodeFX{
+	
+}

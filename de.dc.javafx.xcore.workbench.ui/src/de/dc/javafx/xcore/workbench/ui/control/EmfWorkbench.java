@@ -24,12 +24,15 @@ import de.dc.javafx.xcore.workbench.WorkbenchFactory;
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.event.IEmfSelectionService;
 import de.dc.javafx.xcore.workbench.emf.file.IEmfFileManager;
+import de.dc.javafx.xcore.workbench.emf.file.IEmfFileService;
 import de.dc.javafx.xcore.workbench.emf.view.IEmfEditorPart;
 import de.dc.javafx.xcore.workbench.event.EventContext;
 import de.dc.javafx.xcore.workbench.event.EventTopic;
 import de.dc.javafx.xcore.workbench.event.IEmfCommand;
 import de.dc.javafx.xcore.workbench.event.IEventBroker;
 import de.dc.javafx.xcore.workbench.extensions.CommandExtension;
+import de.dc.javafx.xcore.workbench.extensions.Editor;
+import de.dc.javafx.xcore.workbench.extensions.EditorExtension;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionManager;
 import de.dc.javafx.xcore.workbench.extensions.ExtensionPoint;
 import de.dc.javafx.xcore.workbench.Perspective;
@@ -131,8 +134,23 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 					} else if (point instanceof CommandExtension) {
 						CommandExtension commandExtension = (CommandExtension) point;
 						initCommand(commandExtension);
+					} else if (point instanceof EditorExtension) {
+						EditorExtension editorExtension = (EditorExtension) point;
+						initEditors(editorExtension);
 					}
 				}
+			}
+		}
+	}
+
+	private void initEditors(EditorExtension editorExtension) {
+		for (Editor editor : editorExtension.getEditors()) {
+			try {
+				Class<?> clazz = Class.forName(editor.getExtensionUri());
+				IEmfEditorPart<?> view = (IEmfEditorPart) DIPlatform.getInstance(clazz);
+				DIPlatform.getInstance(IEmfFileManager.class).register(view);
+			} catch (NullPointerException | ClassNotFoundException e) {
+				e.printStackTrace();
 			}
 		}
 	}
@@ -156,17 +174,27 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 			perspective.set_Id(p.getId());
 
 			LeftPane leftPane = WorkbenchFactory.eINSTANCE.createLeftPane();
+			RightPane rightPane = WorkbenchFactory.eINSTANCE.createRightPane();
+			BottomPane bottomPane = WorkbenchFactory.eINSTANCE.createBottomPane();
 			perspective.setLeftPane(leftPane);
-			for (de.dc.javafx.xcore.workbench.extensions.View view : p.getLeft()) {
-				de.dc.javafx.xcore.workbench.View currentView = WorkbenchFactory.eINSTANCE.createView();
-				currentView.set_Id(view.getId());
-				currentView.setName(view.getName());
-				currentView.setRegistrateChangeListener(true);
-				currentView.setViewClass(view.getExtensionUri());
-				leftPane.getViews().add(currentView);
-			}
+			perspective.setRightPane(rightPane);
+			perspective.setBottomPane(bottomPane);
+
+			p.getLeft().forEach(e-> leftPane.getViews().add(createView(e)));
+			p.getRight().forEach(e-> rightPane.getViews().add(createView(e)));
+			p.getBottom().forEach(e-> bottomPane.getViews().add(createView(e)));
+			
 			DIPlatform.getInstance(EmfWorkbenchRenderer.class).createPerspective(perspective);
 		}
+	}
+
+	private de.dc.javafx.xcore.workbench.View createView(de.dc.javafx.xcore.workbench.extensions.View view) {
+		de.dc.javafx.xcore.workbench.View currentView = WorkbenchFactory.eINSTANCE.createView();
+		currentView.set_Id(view.getId());
+		currentView.setName(view.getName());
+		currentView.setRegistrateChangeListener(true);
+		currentView.setViewClass(view.getExtensionUri());
+		return currentView;
 	}
 
 	public Workbench getWorkbench() {

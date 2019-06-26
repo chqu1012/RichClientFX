@@ -1,0 +1,15 @@
+package de.dc.javafx.xcore.workbench.barcode.ui
+
+class Barcode{
+	IdeFactory: de.dc.javafx.xcore.workbench.barcode.BarcodeFactory
+	IdePackage: de.dc.javafx.xcore.workbench.barcode.BarcodePackage
+	IdeItemProviderAdapterFactory: de.dc.javafx.xcore.workbench.barcode.provider.BarcodeItemProviderAdapterFactory
+	IdeRootModel: de.dc.javafx.xcore.workbench.barcode.BarcodeFXProject
+	IdeModelSwitch: de.dc.javafx.xcore.workbench.barcode.util.BarcodeSwitch
+	
+	Editable{
+		IdePackage->getBarcodeFX_Name()
+	}
+	
+	generateDemo
+}

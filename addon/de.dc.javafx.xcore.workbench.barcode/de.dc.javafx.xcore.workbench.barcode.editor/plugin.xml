@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="BarcodeEditorAdvisorApplication">
+      <!-- @generated barcode -->
+      <application>
+         <run class="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated barcode -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisor$Perspective"
+            id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated barcode -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated barcode -->
+      <key
+            commandId="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated barcode -->
+      <actionSet
+            label="%_UI_BarcodeEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="BarcodeEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorOpenURICommand"
+               class="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorOpenCommand"
+               class="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated barcode -->
+      <actionSet
+            label="%_UI_BarcodeModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeActionBarContributorActionSet">
+         <action
+               label="%_UI_BarcodeModelWizard_label"
+               class="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated barcode -->
+      <editor
+            id="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditorID"
+            name="%_UI_BarcodeEditor_label"
+            icon="icons/full/obj16/BarcodeModelFile.gif"
+            extensions="barcode"
+            class="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeEditor"
+            contributorClass="de.dc.javafx.xcore.workbench.barcode.presentation.BarcodeActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

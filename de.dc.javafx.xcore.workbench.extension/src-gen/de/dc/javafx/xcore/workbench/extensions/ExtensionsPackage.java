@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.dc.javafx.xcore.workbench.extensions.ExtensionsFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.xcore.workbench.extension.edit/src-gen' editorDirectory='/de.dc.javafx.xcore.workbench.extension.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' fileExtensions='extension' basePackage='de.dc.javafx.xcore.workbench'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel multipleEditorPages='false' creationIcons='false' editDirectory='/de.dc.javafx.xcore.workbench.extension.edit/src-gen' editorDirectory='/de.dc.javafx.xcore.workbench.extension.editor/src-gen' richClientPlatform='true' codeFormatting='true' importerID='org.eclipse.emf.importer.ecore' runtimePlatform='RCP' fileExtensions='extensions' basePackage='de.dc.javafx.xcore.workbench'"
  * @generated
  */
 public interface ExtensionsPackage extends EPackage {

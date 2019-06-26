@@ -7,7 +7,7 @@
 	codeFormatting="true",
 	importerID="org.eclipse.emf.importer.ecore", 
 	runtimePlatform="RCP", 
-	fileExtensions="extension")
+	fileExtensions="extensions")
 package de.dc.javafx.xcore.workbench.extensions
 
 class ExtensionManager{
