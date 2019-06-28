@@ -11,4 +11,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: de.dc.javafx.xcore.workbench.event
 Bundle-ActivationPolicy: lazy
-Export-Package: de.dc.javafx.xcore.workbench.event
+Export-Package: de.dc.javafx.xcore.workbench.event,
+ de.dc.javafx.xcore.workbench.event.ui

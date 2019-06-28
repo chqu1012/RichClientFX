@@ -52,6 +52,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
@@ -315,7 +316,15 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 	private Tab createTab(View e) {
 		Tab tab = new Tab(e.getName());
 		tab.setClosable(e.isIsClosable());
-		tab.setContent(caseView(e));
+		AnchorPane pane = new AnchorPane();
+		pane.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		Node node = caseView(e);
+		AnchorPane.setBottomAnchor(node, 0d);
+		AnchorPane.setTopAnchor(node, 0d);
+		AnchorPane.setLeftAnchor(node, 0d);
+		AnchorPane.setRightAnchor(node, 0d);
+		pane.getChildren().add(node);
+		tab.setContent(pane);
 		return tab;
 	}
 
