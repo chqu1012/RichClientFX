@@ -2,9 +2,11 @@ package de.dc.javafx.xcore.workbench.event.ui;
 
 import java.io.IOException;
 
+import de.dc.javafx.xcore.workbench.event.ui.model.SelectionProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -18,40 +20,43 @@ public class SelectionViewer extends VBox {
 	public static final String ID = "de.dc.javafx.xcore.workbench.event.ui.SelectionViewer";
 	
 	@FXML
+	protected CheckBox showNullValuesCheckBox;
+	
+	@FXML
 	protected TextField searchText;
 
 	@FXML
 	protected Label selectedTypeLabel;
 
 	@FXML
-	protected TableView<?> attributeTableView;
+	protected TableView<SelectionProperty> attributeTableView;
 
 	@FXML
-	protected TableColumn<?, ?> attributeNameColumn;
+	protected TableColumn<SelectionProperty, String> attributeNameColumn;
 
 	@FXML
-	protected TableColumn<?, ?> attributeValueColumn;
+	protected TableColumn<SelectionProperty, String> attributeValueColumn;
 
 	@FXML
-	protected TableView<?> methodTableVIew;
+	protected TableView<SelectionProperty> methodTableVIew;
 
 	@FXML
-	protected TableColumn<?, ?> methodNameColumn;
+	protected TableColumn<SelectionProperty, String> methodNameColumn;
 
 	@FXML
-	protected TableColumn<?, ?> methodValueColumn;
+	protected TableColumn<SelectionProperty, String> methodValueColumn;
 
 	@FXML
-	protected TreeTableView<?> typeTreeTableView;
+	protected TreeTableView<SelectionProperty> typeTreeTableView;
 
 	@FXML
-	protected TreeTableColumn<?, ?> typeNameColumn;
+	protected TreeTableColumn<SelectionProperty, String> typeNameColumn;
 
 	@FXML
-	protected TreeTableColumn<?, ?> typeMethodColumn;
+	protected TreeTableColumn<SelectionProperty, String> typeMethodColumn;
 
 	@FXML
-	protected TreeTableColumn<?, ?> typeValueColumn;
+	protected TreeTableColumn<SelectionProperty, String> typeValueColumn;
 
 	public SelectionViewer() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/dc/javafx/xcore/workbench/event/ui/SelectionViewer.fxml"));

@@ -3,7 +3,7 @@
   <extensionPoints xsi:type="extensions:ViewExtension">
     <views Id="de.dc.javafx.xcore.workbench.barcode.ui.view.BarcodePreview" name="Barcode Preview" extensionUri="de.dc.javafx.xcore.workbench.barcode.ui.view.BarcodePreview"/>
     <views Id="de.dc.javafx.xcore.resource.ui.view.RecentlyOpenFileHistoryView" name="Recently Open Files History" extensionUri="de.dc.javafx.xcore.resource.ui.view.RecentlyOpenFileHistoryView"/>
-    <views Id="de.dc.javafx.xcore.workbench.event.ui.SelectionViewer" name="Selection Viewer" extensionUri="de.dc.javafx.xcore.workbench.event.ui.SelectionViewer"/>
+    <views Id="de.dc.javafx.xcore.workbench.emf.ui.EmfSelectionViewer" name="Selection Viewer" extensionUri="de.dc.javafx.xcore.workbench.emf.ui.EmfSelectionViewer"/>
   </extensionPoints>
   <extensionPoints xsi:type="extensions:PerspectiveExtension">
     <perspectives Id="de.dc.javafx.xcore.workbench.barcode.ui.BarcodePerspective" name="Barcode Perspective" left="//@extensionPoints.0/@views.1" right="//@extensionPoints.0/@views.2" bottom="//@extensionPoints.0/@views.0"/>

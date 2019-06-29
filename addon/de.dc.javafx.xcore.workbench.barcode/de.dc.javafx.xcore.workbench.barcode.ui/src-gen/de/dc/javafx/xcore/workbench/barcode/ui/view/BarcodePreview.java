@@ -22,7 +22,7 @@ public class BarcodePreview extends FXPreview {
 	private static final String PREVIEW_UPDATE_TOPIC = "/Barcode/Preview/Update";
 	private AnimatedZoomOperator zoomOperator = new AnimatedZoomOperator();
 	private double zoomFactor = 1.5;
-	
+
 	public BarcodePreview() {
 		DIPlatform.getInstance(IEventBroker.class).register(this);
 		setTitle(BarcodePackage.eNAME + " Preview");
@@ -34,8 +34,10 @@ public class BarcodePreview extends FXPreview {
 		if (context.getEventId() != null && context.getEventId().equals(PREVIEW_UPDATE_TOPIC)) {
 			Object input = context.getInput();
 			Node node = (Node) renderer.doSwitch((EObject) input);
-			node.setOnScroll(event -> zoom(node, event));
-			setCenter(node);
+			if (node!=null) {
+				node.setOnScroll(event -> zoom(node, event));
+				setCenter(node);
+			}
 		}
 	}
 
@@ -47,19 +49,19 @@ public class BarcodePreview extends FXPreview {
 			Object value = treeItem.getValue();
 			if (value instanceof EObject) {
 				Node node = (Node) renderer.doSwitch((EObject) value);
-				node.setOnScroll(event -> zoom(node, event));
-				setCenter(node);
+				if (node!=null) {
+					node.setOnScroll(event -> zoom(node, event));
+					setCenter(node);
+				}
 			}
 		}
 	}
 
 	private void zoom(Node node, ScrollEvent event) {
-		if (node!=null) {
-			if (event.getDeltaY() <= 0) {
-				zoomFactor = 1 / zoomFactor;
-			}
-			zoomOperator.zoom(node, zoomFactor, event.getSceneX(), event.getSceneY());
+		if (event.getDeltaY() <= 0) {
+			zoomFactor = 1 / zoomFactor;
 		}
+		zoomOperator.zoom(node, zoomFactor, event.getSceneX(), event.getSceneY());
 	}
 
 }
