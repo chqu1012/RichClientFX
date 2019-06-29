@@ -243,8 +243,9 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 				Optional<IEmfEditorPart<?>> editorPart = DIPlatform.getInstance(IEmfFileManager.class)
 						.getEditorByExtension(FilenameUtils.getExtension(filename));
 				editorPart.ifPresent(editor -> {
-					Tab editorTab = new Tab((String) input);
-					editor.load(new java.io.File((String) input));
+					java.io.File file = new java.io.File((String) input);
+					Tab editorTab = new Tab(file.getName());
+					editor.load(file);
 					editorTab.setContent((Node) editor);
 					currentPerspective.getEditorArea().getTabs().add(editorTab);
 				});
