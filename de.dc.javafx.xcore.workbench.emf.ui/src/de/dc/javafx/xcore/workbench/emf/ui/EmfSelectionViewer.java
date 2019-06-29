@@ -21,6 +21,8 @@ import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class EmfSelectionViewer extends SelectionViewer implements ChangeListener<Object> {
 
@@ -34,6 +36,9 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 	private FilteredList<SelectionProperty> fitleredMethodsProperties = new FilteredList<>(methodsProperties,
 			p -> true);
 
+
+	private static final Image classIcon = new Image(EmfSelectionViewer.class.getResourceAsStream("/de/dc/javafx/xcore/workbench/emf/ui/icons/class_obj.png"));
+	private static final Image methodIcon = new Image(EmfSelectionViewer.class.getResourceAsStream("/de/dc/javafx/xcore/workbench/emf/ui/icons/methpub_obj.png"));
 	private TreeItem<SelectionProperty> root = new TreeItem<>();
 
 	public EmfSelectionViewer() {
@@ -47,8 +52,7 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 		methodValueColumn.setCellValueFactory(new PropertyValueFactory<SelectionProperty, String>("value"));
 		methodTableVIew.setItems(fitleredMethodsProperties);
 
-		typeNameColumn.setCellValueFactory(new TreeItemPropertyValueFactory<SelectionProperty, String>("className"));
-		typeMethodColumn.setCellValueFactory(new TreeItemPropertyValueFactory<SelectionProperty, String>("name"));
+		typeNameColumn.setCellValueFactory(new TreeItemPropertyValueFactory<SelectionProperty, String>("name"));
 		typeValueColumn.setCellValueFactory(new TreeItemPropertyValueFactory<SelectionProperty, String>("value"));
 		typeTreeTableView.setRoot(root);
 
@@ -87,8 +91,9 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 
 	private void initTreeMethods(Object newValue) {
 		SelectionProperty value = new SelectionProperty();
-		value.setClassName(newValue.getClass().getSimpleName());
+		value.setName(newValue.getClass().getSimpleName());
 		root.setValue(value);
+		root.setGraphic(new ImageView(classIcon));
 		root.setExpanded(true);
 		initTreeMethod(root, newValue);
 	}
@@ -97,8 +102,8 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 		Class<?> clazz = newValue.getClass();
 		while (clazz != Object.class && clazz != MinimalEObjectImpl.class) {
 			SelectionProperty newRoot = new SelectionProperty();
-			newRoot.setClassName(newValue.getClass().getSimpleName());
-			TreeItem<SelectionProperty> newRootItem = new TreeItem<>(newRoot);
+			newRoot.setName(newValue.getClass().getSimpleName());
+			TreeItem<SelectionProperty> newRootItem = new TreeItem<>(newRoot, new ImageView(classIcon));
 			newRootItem.setExpanded(true);
 			root.getChildren().add(newRootItem);
 
@@ -111,16 +116,16 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 					if (method.getParameterCount() == 0) {
 						value = method.invoke(newValue);
 					}
-					item.setName(name);
+					item.setName(name+"()");
 					item.setValue(String.valueOf(value));
 					item.setObject(newValue);
-					newRootItem.getChildren().add(new TreeItem<SelectionProperty>(item));
+					newRootItem.getChildren().add(new TreeItem<SelectionProperty>(item, new ImageView(methodIcon)));
 				} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
 					e.printStackTrace();
 				}
 			}
 			clazz = clazz.getSuperclass();
-			newRoot.setClassName(clazz.getSimpleName());
+			newRoot.setName(clazz.getSimpleName());
 		}
 
 	}

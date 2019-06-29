@@ -3,7 +3,6 @@ package de.dc.javafx.xcore.workbench.event.ui.model;
 public class SelectionProperty {
 
 	private String name;
-	private String className;
 	private String value;
 	private Object object;
 
@@ -16,14 +15,6 @@ public class SelectionProperty {
 		this.object = object;
 	}
 	
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
 	public String getName() {
 		return name;
 	}

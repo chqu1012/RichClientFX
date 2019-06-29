@@ -56,9 +56,6 @@ public class SelectionViewer extends VBox {
 	protected TreeTableColumn<SelectionProperty, String> typeNameColumn;
 
 	@FXML
-	protected TreeTableColumn<SelectionProperty, String> typeMethodColumn;
-
-	@FXML
 	protected TreeTableColumn<SelectionProperty, String> typeValueColumn;
 
 	public SelectionViewer() {
