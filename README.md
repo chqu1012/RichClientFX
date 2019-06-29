@@ -43,6 +43,7 @@ This application contains on the generation:
 		* XYZBarChart
 		* SurfacePlotter
 	* Thymeleaf Blog Template Generator
+	* Barcode Renderer used OkapiBarcode
 * Editor Registry for several types
 
 ### Flat History View
@@ -72,6 +73,10 @@ BarChart Rendering showing history view, editor part and emf model tree.
 
 ### RealTime BarChart 3D Rendering (Orson Chart)
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/13-Addon-Orson-XYZBarChart3d.png)
+
+### Generic Selection Viewer 
+Shows all provided selections as fields and methods in tables and hierachical view.
+![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/11-EmfEdit-SelectionViewer.png)
 
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
@@ -257,6 +262,12 @@ LineChart{
 
 ![LineChart Example](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.emf.javafx.model.res/images/05-LineChartView-With-3-Series.png)
 
+## Third Libaries
+* Xtext & Xtend, https://www.eclipse.org/Xtext/
+* Xcore, https://wiki.eclipse.org/Xcore
+* Emf, Eclipse Modelling Framework https://www.eclipse.org/modeling/emf/
+* OkapiBarcode, BarCode API https://github.com/woo-j/OkapiBarcode
+* Orson Chart, https://github.com/jfree/orson-charts-fx
 
 ## ChangeLog
 
