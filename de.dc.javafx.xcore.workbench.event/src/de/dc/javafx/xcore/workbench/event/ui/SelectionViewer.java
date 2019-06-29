@@ -20,6 +20,9 @@ public class SelectionViewer extends VBox {
 	public static final String ID = "de.dc.javafx.xcore.workbench.event.ui.SelectionViewer";
 	
 	@FXML
+	protected CheckBox showAllSuperClassFieldsCheckBox;
+	
+	@FXML
 	protected CheckBox showNullValuesCheckBox;
 	
 	@FXML

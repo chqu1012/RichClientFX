@@ -62,6 +62,11 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 						fitleredAttributeProperties.setPredicate(t -> !t.getValue().equals("null"));
 					}
 				});
+		
+		searchText.textProperty().addListener((ChangeListener<String>) (arg0, arg1, newValue) -> {
+			fitleredAttributeProperties.setPredicate(p-> p.getName().toLowerCase().contains(newValue));
+			fitleredMethodsProperties.setPredicate(p->p.getName().toLowerCase().contains(newValue));
+		});
 	}
 
 	@Override
@@ -167,7 +172,11 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 		Class<?> clazz = t.getClass();
 		while (clazz != Object.class) {
 			fields.addAll(Arrays.asList(clazz.getDeclaredFields()));
-			clazz = clazz.getSuperclass();
+			if (showAllSuperClassFieldsCheckBox.isSelected()) {
+				clazz = clazz.getSuperclass();
+			}else {
+				clazz = Object.class;
+			}
 		}
 		return fields;
 	}
@@ -177,7 +186,11 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 		Class<?> clazz = t.getClass();
 		while (clazz != Object.class) {
 			methods.addAll(Arrays.asList(clazz.getDeclaredMethods()));
-			clazz = clazz.getSuperclass();
+			if (showAllSuperClassFieldsCheckBox.isSelected()) {
+				clazz = clazz.getSuperclass();
+			}else {
+				clazz = Object.class;
+			}
 		}
 		return methods;
 	}

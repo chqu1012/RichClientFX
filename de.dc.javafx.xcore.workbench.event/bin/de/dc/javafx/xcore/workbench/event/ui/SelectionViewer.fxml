@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
@@ -25,7 +26,12 @@
             <Label fx:id="selectedTypeLabel" text="---" />
          </children>
       </HBox>
-      <CheckBox fx:id="showNullValuesCheckBox" mnemonicParsing="false" text="Show Null Values" />
+      <ButtonBar>
+         <buttons>
+            <CheckBox fx:id="showNullValuesCheckBox" mnemonicParsing="false" selected="true" text="Show Null Values" />
+            <CheckBox fx:id="showAllSuperClassFieldsCheckBox" mnemonicParsing="false" text="Show All SuperClass Fields" />
+         </buttons>
+      </ButtonBar>
       <TabPane side="RIGHT" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
         <tabs>
           <Tab text="Attributes">
