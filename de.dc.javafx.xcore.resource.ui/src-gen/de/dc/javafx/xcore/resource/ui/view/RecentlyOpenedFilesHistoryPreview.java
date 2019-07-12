@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 
 @SuppressWarnings("all")
 public class RecentlyOpenedFilesHistoryPreview extends FXPreview {
-  private RecentlyOpenedFilesHistoryRenderer renderer ;
+  private RecentlyOpenedFilesHistoryRenderer renderer  = new RecentlyOpenedFilesHistoryRenderer();
   
   private static final String PREVIEW_UPDATE_TOPIC = "/RecentlyOpenedFilesHistory/Preview/Update";
   

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 
 @SuppressWarnings("all")
 public class ResourcePreview extends FXPreview {
-  private ResourceRenderer renderer ;
+  private ResourceRenderer renderer  = new ResourceRenderer();
   
   private static final String PREVIEW_UPDATE_TOPIC = "/Resource/Preview/Update";
   

@@ -1,6 +1,7 @@
 package de.dc.javafx.xcore.workbench.generator
 
 import com.google.inject.Inject
+import de.dc.javafx.xcore.workbench.generator.template.EmfDetailedTreeViewTemplate
 import de.dc.javafx.xcore.workbench.ide.IdeContainer
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
@@ -12,6 +13,8 @@ class IdeGenerator implements IGenerator {
 	
 	@Inject package JvmModelGenerator jvmModelGenerator
 	@Inject extension IQualifiedNameProvider
+
+	@Inject EmfDetailedTreeViewTemplate detailedTreeViewTemplate
 
 	override void doGenerate(Resource input, IFileSystemAccess fsa) { 
 		jvmModelGenerator.doGenerate(input, fsa)
@@ -75,6 +78,7 @@ class IdeGenerator implements IGenerator {
 			}
 			'''
 			fsa.generateFile(path, code)
+			fsa.generateFile(ide.packagePath.replace('.', '/')+"/"+ide.name+"EmfDetailedTreeView.java", detailedTreeViewTemplate.gen(ide))
 		}
 	}
 }

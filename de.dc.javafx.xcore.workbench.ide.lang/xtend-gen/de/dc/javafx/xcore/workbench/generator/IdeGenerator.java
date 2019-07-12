@@ -2,6 +2,7 @@ package de.dc.javafx.xcore.workbench.generator;
 
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import de.dc.javafx.xcore.workbench.generator.template.EmfDetailedTreeViewTemplate;
 import de.dc.javafx.xcore.workbench.ide.Editable;
 import de.dc.javafx.xcore.workbench.ide.IdeContainer;
 import org.eclipse.emf.common.util.EList;
@@ -23,6 +24,9 @@ public class IdeGenerator implements IGenerator {
   @Inject
   @Extension
   private IQualifiedNameProvider _iQualifiedNameProvider;
+  
+  @Inject
+  private EmfDetailedTreeViewTemplate detailedTreeViewTemplate;
   
   @Override
   public void doGenerate(final Resource input, final IFileSystemAccess fsa) {
@@ -218,6 +222,12 @@ public class IdeGenerator implements IGenerator {
         _builder_1.newLine();
         final String code = _builder_1.toString();
         fsa.generateFile(path, code);
+        String _replace_1 = ide.getPackagePath().replace(".", "/");
+        String _plus = (_replace_1 + "/");
+        String _name_6 = ide.getName();
+        String _plus_1 = (_plus + _name_6);
+        String _plus_2 = (_plus_1 + "EmfDetailedTreeView.java");
+        fsa.generateFile(_plus_2, this.detailedTreeViewTemplate.gen(ide));
       }
     }
   }

@@ -170,7 +170,7 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 //			members += element.toMethod("getEmfManager", IEmfManager.typeRef(element.ideRootModel)) [
 //				visibility = JvmVisibility.PUBLIC
 //				annotations+=Override.annotationRef
-//				body = '''
+//				body = ''' 
 //				if (emfManager==null) {
 //					emfManager = new «element.name»EmfManager();
 //				}

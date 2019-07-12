@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 
 @SuppressWarnings("all")
 public class BarcodePreview extends FXPreview {
-  private BarcodeRenderer renderer = new BarcodeRenderer();
+  private BarcodeRenderer renderer  = new BarcodeRenderer();
   
   private static final String PREVIEW_UPDATE_TOPIC = "/Barcode/Preview/Update";
   
