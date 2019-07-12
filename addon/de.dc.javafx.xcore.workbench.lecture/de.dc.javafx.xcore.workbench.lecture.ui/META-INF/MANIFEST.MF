@@ -16,7 +16,11 @@ Require-Bundle: org.eclipse.emf.edit;bundle-version="2.14.0",
  de.dc.javafx.xcore.workbench.lecture.edit;bundle-version="1.0.0",
  de.dc.javafx.xcore.code.preview.ui;bundle-version="1.0.0",
  com.google.guava;bundle-version="21.0.0",
- org.apache.log4j;bundle-version="1.2.15"
+ org.apache.log4j;bundle-version="1.2.15",
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.apache.commons.io;bundle-version="2.6.0"
 Export-Package: de.dc.javafx.xcore.workbench.lecture.ui,
  de.dc.javafx.xcore.workbench.lecture.ui.file,
  de.dc.javafx.xcore.workbench.lecture.ui.manager,
