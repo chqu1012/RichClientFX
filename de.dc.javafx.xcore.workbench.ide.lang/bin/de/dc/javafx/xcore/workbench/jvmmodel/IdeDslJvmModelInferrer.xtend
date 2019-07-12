@@ -99,7 +99,9 @@ class IdeDslJvmModelInferrer extends AbstractModelInferrer {
 		acceptor.accept(element.toClass(element.packagePath+'.view.'+element.name+"Preview")) [
 			superTypes += FXPreview.typeRef
 			
-			members += element.toField('renderer ', rendererClass.typeRef)[]
+			members += element.toField('renderer ', rendererClass.typeRef)[
+				initializer = '''new «rendererClass.typeRef.simpleName»()''';
+			]
 
 			members += element.toField('PREVIEW_UPDATE_TOPIC', String.typeRef)[
 				static = true

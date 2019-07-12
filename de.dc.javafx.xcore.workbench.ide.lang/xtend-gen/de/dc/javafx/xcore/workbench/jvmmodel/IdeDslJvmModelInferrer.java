@@ -245,6 +245,16 @@ public class IdeDslJvmModelInferrer extends AbstractModelInferrer {
       this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
       EList<JvmMember> _members = it.getMembers();
       final Procedure1<JvmField> _function_4 = (JvmField it_1) -> {
+        StringConcatenationClient _client = new StringConcatenationClient() {
+          @Override
+          protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+            _builder.append("new ");
+            String _simpleName = IdeDslJvmModelInferrer.this._typeReferenceBuilder.typeRef(rendererClass).getSimpleName();
+            _builder.append(_simpleName);
+            _builder.append("()");
+          }
+        };
+        this._jvmTypesBuilder.setInitializer(it_1, _client);
       };
       JvmField _field = this._jvmTypesBuilder.toField(element, "renderer ", this._typeReferenceBuilder.typeRef(rendererClass), _function_4);
       this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
