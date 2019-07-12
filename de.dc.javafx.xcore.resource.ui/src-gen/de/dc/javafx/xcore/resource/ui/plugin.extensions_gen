@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensions:ExtensionManager xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensions="http://www.frateranatis.org/workbench/extensions">
+  <extensionPoints xsi:type="extensions:ViewExtension">
+    <views Id="de.dc.javafx.xcore.workbench.lecture.ui.view.ResourcePreview" name="Resource Preview" extensionUri="de.dc.javafx.xcore.workbench.lecture.ui.view.LecturePreview"/>
+    <views Id="de.dc.javafx.xcore.resource.ui.view.RecentlyOpenFileHistoryView" name="Recently Open Files History" extensionUri="de.dc.javafx.xcore.resource.ui.view.RecentlyOpenFileHistoryView"/>
+    <views Id="de.dc.javafx.xcore.workbench.emf.ui.EmfSelectionViewer" name="Selection Viewer" extensionUri="de.dc.javafx.xcore.workbench.emf.ui.EmfSelectionViewer"/>
+  </extensionPoints>
+  <extensionPoints xsi:type="extensions:PerspectiveExtension">
+    <perspectives Id="de.dc.javafx.xcore.resource.ui.ResourcePerspective" name="Resource Perspective" left="//@extensionPoints.0/@views.1" right="//@extensionPoints.0/@views.2" bottom="//@extensionPoints.0/@views.0"/>
+  </extensionPoints>
+  <extensionPoints xsi:type="extensions:EditorExtension">
+    <editors Id="de.dc.javafx.xcore.resource.ui.ResourceEmfDetailedTreeView" name="Resource Editor" extensionUri="de.dc.javafx.xcore.resource.ui.ResourceEmfDetailedTreeView" fileExtension="resource"/>
+  </extensionPoints>
+</extensions:ExtensionManager>

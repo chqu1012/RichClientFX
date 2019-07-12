@@ -9,7 +9,7 @@ import javafx.scene.web.WebView;
 
 public class FXPreview extends BorderPane implements ChangeListener<Object> {
 
-	private WebEngine engine;
+	protected WebEngine engine;
 	private String title = "Preview";
 	
 	public FXPreview() {
