@@ -1,0 +1,10 @@
+.split-pane-divider {
+	-fx-padding: 1;
+	-fx-background-color: #2D3338;
+}
+
+.smalltab-pane {
+    -fx-tab-min-height: 20; /* 22 */
+    -fx-tab-min-width: 22;
+    -fx-tab-max-height: 1.8333em; /* 22 */
+}

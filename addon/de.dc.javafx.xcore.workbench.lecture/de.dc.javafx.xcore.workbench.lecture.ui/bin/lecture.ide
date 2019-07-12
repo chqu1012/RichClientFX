@@ -1,0 +1,15 @@
+package de.dc.javafx.xcore.workbench.lecture.ui
+
+class Lecture{
+	IdeFactory: de.dc.javafx.xcore.workbench.lecture.LectureFactory
+	IdePackage: de.dc.javafx.xcore.workbench.lecture.LecturePackage
+	IdeItemProviderAdapterFactory: de.dc.javafx.xcore.workbench.lecture.provider.LectureItemProviderAdapterFactory
+	IdeRootModel: de.dc.javafx.xcore.workbench.lecture.LectureProject
+	IdeModelSwitch: de.dc.javafx.xcore.workbench.lecture.util.LectureSwitch
+	
+	Editable{
+		IdePackage->getSection_Name()
+	}
+	
+	generateDemo
+}

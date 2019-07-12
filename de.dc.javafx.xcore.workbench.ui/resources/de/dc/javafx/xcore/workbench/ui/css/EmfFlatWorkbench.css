@@ -1,0 +1,255 @@
+.perspective-tab{
+	-fx-background-color: #0078D7;
+	-fx-text-fill: white;
+}
+
+.navigation{
+	-fx-background-color: #2B2B2B;
+}
+
+.tool-bar-buttons{
+	-fx-background-color: #2B2B2B;
+	-fx-text-fill: white;
+}
+
+.tool-bar-buttons:pressed{
+	-fx-background-color: #717171;
+	-fx-text-fill: white;
+}
+
+.tool-bar:vertical { /* left */
+    -fx-background-color:
+        -fx-outer-border,
+        linear-gradient(to right, derive(-fx-base,0%) 0%, derive(-fx-base,10%) 50%, derive(-fx-base,0%) 100%);
+    -fx-background-insets: 0, 0 0 0 1;
+    -fx-padding: 0.5em 0.416667em 0.5em 0.416667em; /* 6 5 6 5 */
+    -fx-spacing: 0.333em; /* 4 */
+    -fx-alignment: TOP_LEFT;
+}
+.tool-bar { /* top */
+    -fx-background-color: linear-gradient(to right, derive(#2B2B2B ,0%) 0%, derive(#2B2B2B ,10%) 50%, derive(#2B2B2B ,0%) 100%);
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-spacing: 0.333em; /* 4 */
+    -fx-alignment: CENTER_LEFT;
+}
+.tool-bar:vertical.right {
+    -fx-background-insets: 0, 0 1 0 0;
+}
+.tool-bar.bottom {
+    -fx-background-color:
+        -fx-outer-border,
+        derive(TOP-COLOR,25%),
+        linear-gradient(to bottom, TOP-COLOR 2%, derive(-fx-base,-2.1%) 95%);
+    -fx-background-insets: 0, 1 0 0 0, 2 0 0 0;
+}
+.tool-bar > .container > .separator {
+    -fx-orientation: vertical;
+}
+.tool-bar:vertical > .container > .separator {
+    -fx-orientation: horizontal;
+}
+.tool-bar-overflow-button {
+    -fx-padding: 0 0.75em 0 0 ;
+}
+.tool-bar:vertical > .tool-bar-overflow-button {
+    -fx-padding: 0 0 0.75em 0 ;
+}
+.tool-bar-overflow-button > .arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.666667em 0.916667em 0em 0em; /* 8 11 0 0 */
+    -fx-shape: "M337.273,297.622l-0.016,1.069l2.724,2.639l-2.723,2.628l0.015,1.048h0.881l3.81-3.685l-3.788-3.699H337.273z M343.783,297.622h-0.902l-0.015,1.069l2.724,2.639l-2.724,2.628l0.015,1.048h0.882l3.809-3.685L343.783,297.622z" ;
+}
+
+.tool-bar-overflow-button:focused > .arrow {
+    -fx-background-color: -fx-mark-highlight-color, derive(-fx-accent, -15%);
+    -fx-background-insets: 1 0 -1 0, 0;
+}
+
+.tool-bar-overflow-button:hover > .arrow {
+    -fx-background-color: -fx-mark-highlight-color, derive(-fx-hover-base, -35%);
+    -fx-background-insets: 1 0 -1 0, 0;
+}
+
+
+
+.tab-pane > .tab-header-area > .control-buttons-tab > .container > .tab-down-button:hover {
+    -fx-color: -fx-hover-base;
+}
+
+.tab-pane > .tab-header-area > .control-buttons-tab > .container > .tab-down-button:pressed {
+    -fx-color: -fx-pressed-base;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:disabled{
+    -fx-opacity: 0.4;
+}
+
+.tab-pane > .tab-header-area > .control-buttons-tab > .container > .tab-down-button > .arrow  {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 0 0 -1 0, 0;
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em; /* 2 4 2 4 */
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}
+
+.tab-pane > * > .scroll-pane {
+    -fx-background-color: -fx-background;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.tab-pane > * > .scroll-pane > .scroll-bar,
+.titled-pane > .content > .scroll-pane > .scroll-bar {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.tab-pane > * > .scroll-pane > .scroll-bar > .increment-button,
+.tab-pane > * > .scroll-pane > .scroll-bar > .decrement-button{
+    -fx-padding: 0.25em; /* 3px */
+}
+
+.tab-pane {
+    -fx-tab-min-height: 40; /* 22 */
+    -fx-tab-min-width: 250; /* 22 */
+    -fx-tab-max-height: 1.8333em; /* 22 */
+}
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0 20 0 0;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:top {
+    -fx-background-color: #0078D7;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:right {
+    -fx-background-color: -fx-outer-border, -fx-inner-border-bottomup, -fx-body-color-bottomup;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:bottom {
+    -fx-background-color: -fx-outer-border, -fx-inner-border-bottomup, -fx-body-color-bottomup;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:left {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:hover {
+    -fx-color: -fx-hover-base;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-background;
+    -fx-background-insets: 0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .tab-container > .tab-label{
+    -fx-text-fill: #0078D7;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 0;
+    -fx-border-color: -fx-focus-color, -fx-faint-focus-color;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0; /* looks sharper if outer border has a tighter radius (2 instead of 3) */
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:bottom:selected .focus-indicator {
+    -fx-border-insets: -6 -5 -4 -4, -5 -3 -2 -2;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:disabled:hover {
+    -fx-color: -fx-base;
+}
+.tab-pane > .tab-header-area > .tab-header-background {
+    /* TODO should not be using text-box-border I think? */
+    -fx-background-color:
+        #0078D7
+        linear-gradient(from 0px 0px to 0px 5px, -fx-text-box-border, derive(-fx-text-box-border, 30%));
+}
+.tab-pane:top > .tab-header-area > .tab-header-background {
+    -fx-background-insets: 0 0 0 0;
+}
+.tab-pane:bottom > .tab-header-area > .tab-header-background {
+    -fx-background-insets: 0, 1 0 0 0, 1;
+}
+.tab-pane:left > .tab-header-area > .tab-header-background {
+    -fx-background-insets: 0, 0 1 0 0, 1;
+}
+.tab-pane:right > .tab-header-area > .tab-header-background {
+    -fx-background-insets: 0, 0 0 0 1, 1;
+}
+.tab-pane:top > .tab-header-area {
+    /*-fx-padding: 0.416667em 0.166667em 0.0em 0.416667em; *//* 5 2 0 5 */
+    -fx-padding: 0;
+}
+.tab-pane:bottom > .tab-header-area {
+    -fx-padding: 0 0.166667em 0.416667em 0.416667em; /* 0 2 5 5 */
+}
+.tab-pane:left > .tab-header-area {
+    -fx-padding: 0.416667em 0.0em 0.166667em 0.416667em; /* 5 0 2 5 */
+}
+.tab-pane:right > .tab-header-area {
+    -fx-padding: 0.416667em 0.416667em 0.166667em 0.0em; /* 5 5 2 0 */
+}
+/* TODO: scaling the shape seems to make it way too large */
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-close-button {
+    -fx-background-color: white;
+    -fx-shape: "M 0,0 H1 L 4,3 7,0 H8 V1 L 5,4 8,7 V8 H7 L 4,5 1,8 H0 V7 L 3,4 0,1 Z";
+    -fx-scale-shape: false;
+    -fx-effect: dropshadow(two-pass-box , rgba(255, 255, 255, 0.4), 1, 0.0 , 0, 1);
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected > .tab-container > .tab-close-button {
+    -fx-background-color: #0078D7;
+    -fx-shape: "M 0,0 H1 L 4,3 7,0 H8 V1 L 5,4 8,7 V8 H7 L 4,5 1,8 H0 V7 L 3,4 0,1 Z";
+    -fx-scale-shape: false;
+    -fx-effect: dropshadow(two-pass-box , rgba(255, 255, 255, 0.4), 1, 0.0 , 0, 1);
+}
+
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-close-button:hover {
+    -fx-background-color: derive(-fx-mark-color, -30%);
+}
+
+/* CONTROL BUTTONS */
+.tab-pane > .tab-header-area > .control-buttons-tab > .container {
+    -fx-padding: 3 0 40 0;
+}
+.tab-pane > .tab-header-area > .control-buttons-tab > .container > .tab-down-button {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: -1 0 5 0, 0 1 6 1, 1 2 7 2;
+    -fx-padding: 4 4 9 4;
+    -fx-background-radius: 10;
+}
+.tab-pane:bottom > .tab-header-area > .control-buttons-tab > .container > .tab-down-button {
+    -fx-padding: -5 4 4 4; /* TODO convert to ems */
+}
+/* FLOATING TABS CUSTOMISATION */
+.tab-pane.floating > .tab-header-area > .tab-header-background {
+    -fx-background-color: null;
+}
+.tab-pane.floating > .tab-header-area {
+    -fx-background-color: null;
+}
+.tab-pane.floating > .tab-content-area {
+    -fx-background-color: -fx-outer-border, -fx-background;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 2, 0;
+    -fx-padding: 2;
+}
+
+.tab-pane > * > .scroll-pane > .corner {
+     -fx-background-insets: 0;  /* Fix for RT-35067 */
+}
+.tab-pane.floating > * > .table-view,
+.tab-pane.floating > * > .tree-table-view,
+.tab-pane.floating > * > .list-view,
+.tab-pane.floating > * > .tree-view,
+.tab-pane.floating > * > .scroll-pane,
+.tab-pane.floating > * > .split-pane,
+.tab-pane.floating > * > .text-area,
+.tab-pane.floating > * > .html-editor {
+    -fx-background-insets: 0, 0;
+    -fx-padding: -1;
+}

@@ -16,6 +16,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
@@ -38,21 +39,21 @@ public class MeshRenderer extends MeshSwitch<Node> {
 	@Override
 	public Node caseCameraFX(CameraFX object) {
 		PerspectiveCamera camera = new PerspectiveCamera(false);
-        camera.setTranslateX(object.getTranslateX());
-        camera.setTranslateY(object.getTranslateY());
-        camera.setTranslateZ(object.getTranslateZ());
-        return camera;
+		camera.setTranslateX(object.getTranslateX());
+		camera.setTranslateY(object.getTranslateY());
+		camera.setTranslateZ(object.getTranslateZ());
+		return camera;
 	}
-	
+
 	@Override
 	public Node casePointLightFX(PointLightFX object) {
 		PointLight light = new PointLight();
-        light.setTranslateX(object.getTranslateX());
-        light.setTranslateY(object.getTranslateY());
-        light.setTranslateZ(object.getTranslateZ());
-        return light;
+		light.setTranslateX(object.getTranslateX());
+		light.setTranslateY(object.getTranslateY());
+		light.setTranslateZ(object.getTranslateZ());
+		return light;
 	}
-	
+
 	@Override
 	public Node caseCylinderFX(CylinderFX object) {
 		Group group = createGroup(object);
@@ -148,8 +149,8 @@ public class MeshRenderer extends MeshSwitch<Node> {
 		group.setTranslateX(object.getTranslateX());
 		group.setTranslateY(object.getTranslateY());
 		group.setTranslateZ(object.getTranslateZ());
-		
-		object.getShapes().forEach(e->group.getChildren().add(doSwitch(e)));
+
+		object.getShapes().forEach(e -> group.getChildren().add(doSwitch(e)));
 		return group;
 	}
 

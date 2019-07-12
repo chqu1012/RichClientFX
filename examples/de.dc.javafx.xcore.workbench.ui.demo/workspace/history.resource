@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <resource:RecentlyOpenFileHistory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resource="http://www.frateranatis.org/project">
+  <files timestamp="2019-07-02T22:54:16.560" name="Example01.mesh" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\mesh\Example01.mesh"/>
+  <files timestamp="2019-07-02T22:53:12.243" name="Example01.mesh" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\mesh\Example01.mesh"/>
+  <files timestamp="2019-07-02T22:52:33.427" name="Example01.mesh" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\mesh\Example01.mesh"/>
+  <files timestamp="2019-06-26T22:49:59.359" name="Example01.barcode" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\barcode\Example01.barcode"/>
   <files timestamp="2019-06-26T22:49:05.337" name="Example01.barcode" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\barcode\Example01.barcode"/>
   <files timestamp="2019-06-26T22:41:47.202" name="Example01.barcode" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\barcode\Example01.barcode"/>
   <files timestamp="2019-06-26T22:40:47.393" name="Example01.barcode" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\barcode\Example01.barcode"/>
@@ -10,5 +14,5 @@
   <files timestamp="2019-06-24T21:57:16.921" name="Example01.blog" path="C:\Users\Dim\Desktop\Emf-based-Files\Example01.blog"/>
   <files timestamp="2019-06-24T21:49:24.866" name="Example01.chart" path="C:\Users\Dim\Desktop\Emf-based-Files\Example01.chart"/>
   <files name="Test File" path="c:\text-file.txt"/>
-  <files timestamp="2019-06-26T22:49:59.359" name="Example01.barcode" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\barcode\Example01.barcode"/>
+  <files timestamp="2019-07-12T11:16:19.500" name="Example01.lecture" path="E:\Repository\Git\de.dc.emf.javafx.xtext.lang\examples\EmfModelTreeView-Files\lecture\Example01.lecture"/>
 </resource:RecentlyOpenFileHistory>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
@@ -27,6 +28,8 @@ import javafx.scene.image.ImageView;
 
 public class EmfSelectionViewer extends SelectionViewer implements ChangeListener<Object> {
 
+	private static final Logger LOG = Logger.getLogger(EmfSelectionViewer.class); 
+	
 	public static final String ID = "de.dc.javafx.xcore.workbench.emf.ui.EmfSelectionViewer";
 
 	private ObservableList<SelectionProperty> attributeProperties = FXCollections.observableArrayList();
@@ -201,7 +204,7 @@ public class EmfSelectionViewer extends SelectionViewer implements ChangeListene
 				item.setObject(newValue);
 				methodsProperties.add(item);
 			} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
-				e.printStackTrace();
+				LOG.error("Failed to invoke method "+method.getName() +" for the class "+newValue.getClass().getName(), e);
 			}
 		}
 		methodsProperties.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));

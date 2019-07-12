@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lecture:LectureProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:lecture="http://www.frateranatis.org/workbench/lecture">
+  <sections name="Hello World 1"/>
+  <sections name="Hello World 2"/>
+  <sections name="Hello World 3"/>
+</lecture:LectureProject>

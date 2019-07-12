@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="LectureEditorAdvisorApplication">
+      <!-- @generated lecture -->
+      <application>
+         <run class="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated lecture -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisor$Perspective"
+            id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated lecture -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated lecture -->
+      <key
+            commandId="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated lecture -->
+      <actionSet
+            label="%_UI_LectureEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="LectureEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorOpenURICommand"
+               class="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorOpenCommand"
+               class="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated lecture -->
+      <actionSet
+            label="%_UI_LectureModelWizard_ActionSet_label"
+            visible="true"
+            id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureActionBarContributorActionSet">
+         <action
+               label="%_UI_LectureModelWizard_label"
+               class="de.dc.javafx.xcore.workbench.lecture.presentation.LectureActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated lecture -->
+      <editor
+            id="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditorID"
+            name="%_UI_LectureEditor_label"
+            icon="icons/full/obj16/LectureModelFile.gif"
+            extensions="lecture"
+            class="de.dc.javafx.xcore.workbench.lecture.presentation.LectureEditor"
+            contributorClass="de.dc.javafx.xcore.workbench.lecture.presentation.LectureActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

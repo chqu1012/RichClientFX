@@ -1,0 +1,20 @@
+@Ecore(nsURI="http://www.frateranatis.org/workbench/lecture")
+@GenModel(multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.javafx.xcore.workbench.lecture.edit/src-gen",
+	editorDirectory="/de.dc.javafx.xcore.workbench.lecture.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP", 
+	fileExtensions="lecture", 
+	tableProviders="true", dataTypeConverters="true")
+package de.dc.javafx.xcore.workbench.lecture
+
+class LectureProject{
+	contains Section[0..*] sections
+}
+
+class Section{
+	String name
+}
