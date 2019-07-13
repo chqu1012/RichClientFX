@@ -45,6 +45,12 @@ public class EmfPerspective extends SplitPane {
 	@FXML
 	private TabPane bottomPane;
 
+	@FXML
+	private AnchorPane leftAnchorPane;
+	
+	@FXML
+	private SplitPane topSplitPane;
+	
 	private IEventBroker eventBroker;
 
 	public EmfPerspective() {
@@ -125,6 +131,32 @@ public class EmfPerspective extends SplitPane {
 		editorArea.getTabs().clear();
 	}
 
+	public void hideLeft(boolean hide) {
+		if (hide) {
+			topSplitPane.getItems().remove(topSplitPane.getItems().indexOf(leftAnchorPane));
+		}else {
+			topSplitPane.getItems().add(0, leftAnchorPane);
+		}
+	}
+	
+	public void hideRight(boolean hide) {
+		if (hide) {
+			topSplitPane.getItems().remove(topSplitPane.getItems().indexOf(rightPane));
+		}else {
+			topSplitPane.getItems().add(rightPane);
+		}
+	}
+
+	public void hideBottom(boolean hide) {
+		if (hide) {
+			perspective.getItems().remove(perspective.getItems().indexOf(bottomPane));
+		}else {
+			perspective.getItems().add(bottomPane);
+		}
+	}
+	
+	
+	
 	public void addToRight(Tab tab) {
 		rightTabPane.getTabs().add(tab);
 	}

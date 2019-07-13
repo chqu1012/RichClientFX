@@ -103,6 +103,8 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 
 	protected Map<String, Optional<EmfPerspective>> perspectiveManager = new HashMap<>();
 
+	private double leftWidth = 150d;
+	
 	public EmfWorkbench() {
 		selectionService = DIPlatform.getInstance(IEmfSelectionService.class);
 		eventBroker = DIPlatform.getInstance(IEventBroker.class);
@@ -224,6 +226,30 @@ public abstract class EmfWorkbench extends AbstractFxmlControl implements Change
 		statusLineLabel.setText("Selection: " + newValue.toString());
 	}
 
+	@Subscribe
+	public void hideBottomTabPane(EventContext<Boolean> context) {
+		if (context.getEventTopic()==null && context.getEventId().equals("workbench/hide/bottom")) {
+			Boolean hide = (Boolean) context.getInput();
+			currentPerspective.hideBottom(hide);
+		}
+	}
+	
+	@Subscribe
+	public void hideLeftTabPane(EventContext<Boolean> context) {
+		if (context.getEventTopic()==null && context.getEventId().equals("workbench/hide/left")) {
+			Boolean hide = (Boolean) context.getInput();
+			currentPerspective.hideLeft(hide);
+		}
+	}
+
+	@Subscribe
+	public void hideRightTabPane(EventContext<Boolean> context) {
+		if (context.getEventTopic()==null && context.getEventId().equals("workbench/hide/right")) {
+			Boolean hide = (Boolean) context.getInput();
+			currentPerspective.hideRight(hide);
+		}
+	}
+	
 	@Subscribe
 	public void updateStatusLinePerspectiveLabel(EventContext<String> context) {
 		if (context.getEventId() == null) {
