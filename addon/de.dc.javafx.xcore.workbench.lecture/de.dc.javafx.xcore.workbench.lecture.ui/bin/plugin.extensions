@@ -10,6 +10,6 @@
     <perspectives Id="de.dc.javafx.xcore.workbench.lecture.ui.LecturePerspective" name="Lecture Perspective" left="//@extensionPoints.0/@views.1" right="//@extensionPoints.0/@views.2" bottom="//@extensionPoints.0/@views.0"/>
   </extensionPoints>
   <extensionPoints xsi:type="extensions:EditorExtension">
-    <editors Id="de.dc.javafx.xcore.workbench.lecture.ui.LectureEmfDetailedTreeView" name="Lecture Editor" extensionUri="de.dc.javafx.xcore.workbench.lecture.ui.LectureEmfDetailedTreeView" fileExtension="lecture"/>
+    <editors Id="de.dc.javafx.xcore.workbench.lecture.ui.LectureEmfDetailedTreeViewFX" name="Lecture Editor" extensionUri="de.dc.javafx.xcore.workbench.lecture.ui.LectureEmfDetailedTreeViewFX" fileExtension="lecture"/>
   </extensionPoints>
 </extensions:ExtensionManager>

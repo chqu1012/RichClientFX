@@ -16,7 +16,7 @@ import javafx.scene.web.WebEngine;
 
 public class LectureContentSwitch extends LectureSwitch<Void>{
 
-	private static DecimalFormat df = new DecimalFormat("000");
+	public static DecimalFormat df = new DecimalFormat("000");
 	private static LectureTemplate template = new LectureTemplate();
 	private WebEngine engine;
 	
