@@ -82,6 +82,11 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseListContent(ListContent object) {
+			return createListContentAdapter();
+		}
+
+		@Override
 		public Adapter caseFileContent(FileContent object) {
 			return createFileContentAdapter();
 		}
@@ -89,6 +94,11 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseStringContent(StringContent object) {
 			return createStringContentAdapter();
+		}
+
+		@Override
+		public Adapter caseListItem(ListItem object) {
+			return createListItemAdapter();
 		}
 
 		@Override
@@ -153,6 +163,20 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.ListContent <em>List Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.lecture.ListContent
+	 * @generated
+	 */
+	public Adapter createListContentAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.FileContent <em>File Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -177,6 +201,20 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringContentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.ListItem <em>List Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.lecture.ListItem
+	 * @generated
+	 */
+	public Adapter createListItemAdapter() {
 		return null;
 	}
 

@@ -6,14 +6,21 @@ import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.Section;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +32,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl#isUseMarkDown <em>Use Mark Down</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,14 +79,14 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 	protected boolean useMarkDown = USE_MARK_DOWN_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
+	 * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContent()
+	 * @see #getContents()
 	 * @generated
 	 * @ordered
 	 */
-	protected Content content;
+	protected EList<Content> contents;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,50 +160,11 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 	 * @generated
 	 */
 	@Override
-	public Content getContent() {
-		return content;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetContent(Content newContent, NotificationChain msgs) {
-		Content oldContent = content;
-		content = newContent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					LecturePackage.SECTION__CONTENT, oldContent, newContent);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<Content> getContents() {
+		if (contents == null) {
+			contents = new EObjectContainmentEList<Content>(Content.class, this, LecturePackage.SECTION__CONTENTS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setContent(Content newContent) {
-		if (newContent != content) {
-			NotificationChain msgs = null;
-			if (content != null)
-				msgs = ((InternalEObject) content).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - LecturePackage.SECTION__CONTENT, null, msgs);
-			if (newContent != null)
-				msgs = ((InternalEObject) newContent).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - LecturePackage.SECTION__CONTENT, null, msgs);
-			msgs = basicSetContent(newContent, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LecturePackage.SECTION__CONTENT, newContent,
-					newContent));
+		return contents;
 	}
 
 	/**
@@ -207,8 +175,8 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case LecturePackage.SECTION__CONTENT:
-			return basicSetContent(null, msgs);
+		case LecturePackage.SECTION__CONTENTS:
+			return ((InternalEList<?>) getContents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -225,8 +193,8 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 			return getName();
 		case LecturePackage.SECTION__USE_MARK_DOWN:
 			return isUseMarkDown();
-		case LecturePackage.SECTION__CONTENT:
-			return getContent();
+		case LecturePackage.SECTION__CONTENTS:
+			return getContents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +204,7 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -245,8 +214,9 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 		case LecturePackage.SECTION__USE_MARK_DOWN:
 			setUseMarkDown((Boolean) newValue);
 			return;
-		case LecturePackage.SECTION__CONTENT:
-			setContent((Content) newValue);
+		case LecturePackage.SECTION__CONTENTS:
+			getContents().clear();
+			getContents().addAll((Collection<? extends Content>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -266,8 +236,8 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 		case LecturePackage.SECTION__USE_MARK_DOWN:
 			setUseMarkDown(USE_MARK_DOWN_EDEFAULT);
 			return;
-		case LecturePackage.SECTION__CONTENT:
-			setContent((Content) null);
+		case LecturePackage.SECTION__CONTENTS:
+			getContents().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -285,8 +255,8 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case LecturePackage.SECTION__USE_MARK_DOWN:
 			return useMarkDown != USE_MARK_DOWN_EDEFAULT;
-		case LecturePackage.SECTION__CONTENT:
-			return content != null;
+		case LecturePackage.SECTION__CONTENTS:
+			return contents != null && !contents.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

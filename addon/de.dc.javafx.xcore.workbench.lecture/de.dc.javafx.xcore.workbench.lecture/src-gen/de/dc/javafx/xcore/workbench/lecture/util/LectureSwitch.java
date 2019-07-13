@@ -87,6 +87,15 @@ public class LectureSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case LecturePackage.LIST_CONTENT: {
+			ListContent listContent = (ListContent) theEObject;
+			T result = caseListContent(listContent);
+			if (result == null)
+				result = caseContent(listContent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case LecturePackage.FILE_CONTENT: {
 			FileContent fileContent = (FileContent) theEObject;
 			T result = caseFileContent(fileContent);
@@ -101,6 +110,13 @@ public class LectureSwitch<T> extends Switch<T> {
 			T result = caseStringContent(stringContent);
 			if (result == null)
 				result = caseContent(stringContent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case LecturePackage.LIST_ITEM: {
+			ListItem listItem = (ListItem) theEObject;
+			T result = caseListItem(listItem);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -156,6 +172,21 @@ public class LectureSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseListContent(ListContent object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>File Content</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -182,6 +213,21 @@ public class LectureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStringContent(StringContent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseListItem(ListItem object) {
 		return null;
 	}
 

@@ -121,6 +121,29 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.ListContent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListContentItemProvider listContentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.ListContent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListContentAdapter() {
+		if (listContentItemProvider == null) {
+			listContentItemProvider = new ListContentItemProvider(this);
+		}
+
+		return listContentItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.FileContent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,6 +187,29 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 		}
 
 		return stringContentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.ListItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListItemItemProvider listItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.ListItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListItemAdapter() {
+		if (listItemItemProvider == null) {
+			listItemItemProvider = new ListItemItemProvider(this);
+		}
+
+		return listItemItemProvider;
 	}
 
 	/**
@@ -275,10 +321,14 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 			lectureProjectItemProvider.dispose();
 		if (sectionItemProvider != null)
 			sectionItemProvider.dispose();
+		if (listContentItemProvider != null)
+			listContentItemProvider.dispose();
 		if (fileContentItemProvider != null)
 			fileContentItemProvider.dispose();
 		if (stringContentItemProvider != null)
 			stringContentItemProvider.dispose();
+		if (listItemItemProvider != null)
+			listItemItemProvider.dispose();
 	}
 
 }

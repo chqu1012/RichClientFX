@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<lecture:LectureProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:lecture="http://www.frateranatis.org/workbench/lecture">
-  <sections name="Hello World 1 -aaa"/>
+<lecture:LectureProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lecture="http://www.frateranatis.org/workbench/lecture">
+  <sections name="Chapter One" useMarkDown="false">
+    <contents xsi:type="lecture:StringContent" body="List Items"/>
+    <contents xsi:type="lecture:ListContent">
+      <item value="One Item"/>
+      <item value="Two Item"/>
+      <item value="Three"/>
+      <item value="Four"/>
+    </contents>
+  </sections>
   <sections name="Hello World 2"/>
   <sections name="Hello World 3"/>
 </lecture:LectureProject>

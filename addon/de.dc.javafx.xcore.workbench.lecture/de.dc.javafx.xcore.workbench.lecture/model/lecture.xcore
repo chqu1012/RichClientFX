@@ -18,10 +18,14 @@ class LectureProject{
 class Section{
 	String name
 	boolean useMarkDown = 'true'
-	contains Content content
+	contains Content[0..*] contents
 }
 
 abstract class Content{
+}
+
+class ListContent extends Content{
+	contains ListItem[0..*] item
 }
 
 class FileContent extends Content{
@@ -30,4 +34,8 @@ class FileContent extends Content{
 
 class StringContent extends Content{
 	String body
+}
+
+class ListItem{
+	String value
 }

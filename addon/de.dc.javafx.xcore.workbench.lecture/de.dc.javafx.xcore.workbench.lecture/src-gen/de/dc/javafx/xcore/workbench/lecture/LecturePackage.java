@@ -123,13 +123,13 @@ public interface LecturePackage extends EPackage {
 	int SECTION__USE_MARK_DOWN = 1;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION__CONTENT = 2;
+	int SECTION__CONTENTS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Section</em>' class.
@@ -178,6 +178,43 @@ public interface LecturePackage extends EPackage {
 	int CONTENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListContentImpl <em>List Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.ListContentImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListContent()
+	 * @generated
+	 */
+	int LIST_CONTENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Item</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_CONTENT__ITEM = CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>List Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_CONTENT_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>List Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.FileContentImpl <em>File Content</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,7 +222,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getFileContent()
 	 * @generated
 	 */
-	int FILE_CONTENT = 3;
+	int FILE_CONTENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -222,7 +259,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getStringContent()
 	 * @generated
 	 */
-	int STRING_CONTENT = 4;
+	int STRING_CONTENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -250,6 +287,43 @@ public interface LecturePackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl <em>List Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListItem()
+	 * @generated
+	 */
+	int LIST_ITEM = 6;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ITEM__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>List Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ITEM_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>List Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ITEM_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.LectureProject <em>Project</em>}'.
@@ -305,15 +379,15 @@ public interface LecturePackage extends EPackage {
 	EAttribute getSection_UseMarkDown();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.lecture.Section#getContent <em>Content</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.lecture.Section#getContents <em>Contents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Content</em>'.
-	 * @see de.dc.javafx.xcore.workbench.lecture.Section#getContent()
+	 * @return the meta object for the containment reference list '<em>Contents</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Section#getContents()
 	 * @see #getSection()
 	 * @generated
 	 */
-	EReference getSection_Content();
+	EReference getSection_Contents();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.Content <em>Content</em>}'.
@@ -324,6 +398,27 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContent();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.ListContent <em>List Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>List Content</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.ListContent
+	 * @generated
+	 */
+	EClass getListContent();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.lecture.ListContent#getItem <em>Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Item</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.ListContent#getItem()
+	 * @see #getListContent()
+	 * @generated
+	 */
+	EReference getListContent_Item();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.FileContent <em>File Content</em>}'.
@@ -366,6 +461,27 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStringContent_Body();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.ListItem <em>List Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>List Item</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.ListItem
+	 * @generated
+	 */
+	EClass getListItem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.ListItem#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.ListItem#getValue()
+	 * @see #getListItem()
+	 * @generated
+	 */
+	EAttribute getListItem_Value();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -435,12 +551,12 @@ public interface LecturePackage extends EPackage {
 		EAttribute SECTION__USE_MARK_DOWN = eINSTANCE.getSection_UseMarkDown();
 
 		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECTION__CONTENT = eINSTANCE.getSection_Content();
+		EReference SECTION__CONTENTS = eINSTANCE.getSection_Contents();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl <em>Content</em>}' class.
@@ -451,6 +567,24 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTENT = eINSTANCE.getContent();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListContentImpl <em>List Content</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.ListContentImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListContent()
+		 * @generated
+		 */
+		EClass LIST_CONTENT = eINSTANCE.getListContent();
+
+		/**
+		 * The meta object literal for the '<em><b>Item</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST_CONTENT__ITEM = eINSTANCE.getListContent_Item();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.FileContentImpl <em>File Content</em>}' class.
@@ -487,6 +621,24 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRING_CONTENT__BODY = eINSTANCE.getStringContent_Body();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl <em>List Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListItem()
+		 * @generated
+		 */
+		EClass LIST_ITEM = eINSTANCE.getListItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST_ITEM__VALUE = eINSTANCE.getListItem_Value();
 
 	}
 

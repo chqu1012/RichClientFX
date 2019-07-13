@@ -101,19 +101,36 @@ public class LectureTemplate {
         _builder.append("<section ");
         _builder.append(useMarkDown, "\t\t\t\t");
         _builder.append(">");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t\t\t");
+        _builder.append("<h1>");
         String _name = section.getName();
         _builder.append(_name, "\t\t\t\t");
+        _builder.append("</h1>");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t\t\t\t");
+        _builder.newLine();
+        _builder.append("\t\t\t\t");
+        _builder.append("<p>");
+        _builder.newLine();
         {
-          Content _content = section.getContent();
-          boolean _tripleNotEquals = (_content != null);
+          EList<Content> _contents = section.getContents();
+          boolean _tripleNotEquals = (_contents != null);
           if (_tripleNotEquals) {
-            _builder.append("\t\t\t\t");
-            String _doSwitch = this.stringSwitch.doSwitch(section.getContent());
-            _builder.append(_doSwitch, "\t\t\t\t");
-            _builder.newLineIfNotEmpty();
+            {
+              EList<Content> _contents_1 = section.getContents();
+              for(final Content content : _contents_1) {
+                _builder.append("\t\t\t\t");
+                String _doSwitch = this.stringSwitch.doSwitch(content);
+                _builder.append(_doSwitch, "\t\t\t\t");
+                _builder.newLineIfNotEmpty();
+              }
+            }
           }
         }
+        _builder.append("\t\t\t\t");
+        _builder.append("</p>");
+        _builder.newLine();
         _builder.append("\t\t\t\t");
         _builder.append("</section>");
         _builder.newLine();

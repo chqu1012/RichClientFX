@@ -187,7 +187,7 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 					EObject obj = treeView.getEmfManager().getExtendedModelFactory().create((EClass) eClassifier);
 
 					int id = EmfUtil.getValueByName(emfManager.getModelPackage(), name);
-					EObject createdObject = emfManager.getExtendedModelFactory().create((EClass) obj);
+					EObject createdObject = emfManager.getExtendedModelFactory().create(obj.eClass());
 					childEattributesMap.entrySet().forEach(ks -> {
 						TextField textfield = ks.getValue();
 						if (textfield.getStyle().equals(EDITED_STYLE)) {

@@ -2,9 +2,8 @@
  */
 package de.dc.javafx.xcore.workbench.lecture.provider;
 
-import de.dc.javafx.xcore.workbench.lecture.LectureFactory;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
-import de.dc.javafx.xcore.workbench.lecture.Section;
+import de.dc.javafx.xcore.workbench.lecture.ListItem;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,7 +13,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.lecture.Section} object.
+ * This is the item provider adapter for a {@link de.dc.javafx.xcore.workbench.lecture.ListItem} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SectionItemProvider extends ItemProviderAdapter
+public class ListItemItemProvider extends ItemProviderAdapter
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
 		IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider {
 	/**
@@ -42,7 +40,7 @@ public class SectionItemProvider extends ItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SectionItemProvider(AdapterFactory adapterFactory) {
+	public ListItemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,82 +55,36 @@ public class SectionItemProvider extends ItemProviderAdapter
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addUseMarkDownPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Section_name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Section_name_feature", "_UI_Section_type"),
-						LecturePackage.Literals.SECTION__NAME, true, false, false,
+						getResourceLocator(), getString("_UI_ListItem_value_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ListItem_value_feature",
+								"_UI_ListItem_type"),
+						LecturePackage.Literals.LIST_ITEM__VALUE, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Use Mark Down feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUseMarkDownPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Section_useMarkDown_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Section_useMarkDown_feature",
-								"_UI_Section_type"),
-						LecturePackage.Literals.SECTION__USE_MARK_DOWN, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(LecturePackage.Literals.SECTION__CONTENTS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Section.gif.
+	 * This returns ListItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Section"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ListItem"));
 	}
 
 	/**
@@ -168,9 +120,9 @@ public class SectionItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Section) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Section_type")
-				: getString("_UI_Section_type") + " " + label;
+		String label = ((ListItem) object).getValue();
+		return label == null || label.length() == 0 ? getString("_UI_ListItem_type")
+				: getString("_UI_ListItem_type") + " " + label;
 	}
 
 	/**
@@ -199,13 +151,9 @@ public class SectionItemProvider extends ItemProviderAdapter
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Section.class)) {
-		case LecturePackage.SECTION__NAME:
-		case LecturePackage.SECTION__USE_MARK_DOWN:
+		switch (notification.getFeatureID(ListItem.class)) {
+		case LecturePackage.LIST_ITEM__VALUE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		case LecturePackage.SECTION__CONTENTS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -221,15 +169,6 @@ public class SectionItemProvider extends ItemProviderAdapter
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
-				LectureFactory.eINSTANCE.createListContent()));
-
-		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
-				LectureFactory.eINSTANCE.createFileContent()));
-
-		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
-				LectureFactory.eINSTANCE.createStringContent()));
 	}
 
 	/**

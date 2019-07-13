@@ -7,6 +7,8 @@ import de.dc.javafx.xcore.workbench.lecture.FileContent;
 import de.dc.javafx.xcore.workbench.lecture.LectureFactory;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
+import de.dc.javafx.xcore.workbench.lecture.ListContent;
+import de.dc.javafx.xcore.workbench.lecture.ListItem;
 import de.dc.javafx.xcore.workbench.lecture.Section;
 import de.dc.javafx.xcore.workbench.lecture.StringContent;
 
@@ -51,6 +53,13 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass listContentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass fileContentEClass = null;
 
 	/**
@@ -59,6 +68,13 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	private EClass stringContentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass listItemEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -183,7 +199,7 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSection_Content() {
+	public EReference getSection_Contents() {
 		return (EReference) sectionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -195,6 +211,26 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	@Override
 	public EClass getContent() {
 		return contentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getListContent() {
+		return listContentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getListContent_Item() {
+		return (EReference) listContentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -243,6 +279,26 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getListItem() {
+		return listItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getListItem_Value() {
+		return (EAttribute) listItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public LectureFactory getLectureFactory() {
 		return (LectureFactory) getEFactoryInstance();
 	}
@@ -273,15 +329,21 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		sectionEClass = createEClass(SECTION);
 		createEAttribute(sectionEClass, SECTION__NAME);
 		createEAttribute(sectionEClass, SECTION__USE_MARK_DOWN);
-		createEReference(sectionEClass, SECTION__CONTENT);
+		createEReference(sectionEClass, SECTION__CONTENTS);
 
 		contentEClass = createEClass(CONTENT);
+
+		listContentEClass = createEClass(LIST_CONTENT);
+		createEReference(listContentEClass, LIST_CONTENT__ITEM);
 
 		fileContentEClass = createEClass(FILE_CONTENT);
 		createEAttribute(fileContentEClass, FILE_CONTENT__PATH);
 
 		stringContentEClass = createEClass(STRING_CONTENT);
 		createEAttribute(stringContentEClass, STRING_CONTENT__BODY);
+
+		listItemEClass = createEClass(LIST_ITEM);
+		createEAttribute(listItemEClass, LIST_ITEM__VALUE);
 	}
 
 	/**
@@ -316,6 +378,7 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		listContentEClass.getESuperTypes().add(this.getContent());
 		fileContentEClass.getESuperTypes().add(this.getContent());
 		stringContentEClass.getESuperTypes().add(this.getContent());
 
@@ -333,11 +396,17 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		initEAttribute(getSection_UseMarkDown(), theEcorePackage.getEBoolean(), "useMarkDown", "true", 0, 1,
 				Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getSection_Content(), this.getContent(), null, "content", null, 0, 1, Section.class,
+		initEReference(getSection_Contents(), this.getContent(), null, "contents", null, 0, -1, Section.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contentEClass, Content.class, "Content", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(listContentEClass, ListContent.class, "ListContent", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getListContent_Item(), this.getListItem(), null, "item", null, 0, -1, ListContent.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileContentEClass, FileContent.class, "FileContent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -348,6 +417,12 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		initEClass(stringContentEClass, StringContent.class, "StringContent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringContent_Body(), theEcorePackage.getEString(), "body", null, 0, 1, StringContent.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(listItemEClass, ListItem.class, "ListItem", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getListItem_Value(), theEcorePackage.getEString(), "value", null, 0, 1, ListItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

@@ -2,6 +2,8 @@
  */
 package de.dc.javafx.xcore.workbench.lecture;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.dc.javafx.xcore.workbench.lecture.Section#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.lecture.Section#isUseMarkDown <em>Use Mark Down</em>}</li>
- *   <li>{@link de.dc.javafx.xcore.workbench.lecture.Section#getContent <em>Content</em>}</li>
+ *   <li>{@link de.dc.javafx.xcore.workbench.lecture.Section#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.lecture.LecturePackage#getSection()
@@ -69,25 +71,15 @@ public interface Section extends EObject {
 	void setUseMarkDown(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Content</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
+	 * The list contents are of type {@link de.dc.javafx.xcore.workbench.lecture.Content}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Content</em>' containment reference.
-	 * @see #setContent(Content)
-	 * @see de.dc.javafx.xcore.workbench.lecture.LecturePackage#getSection_Content()
+	 * @return the value of the '<em>Contents</em>' containment reference list.
+	 * @see de.dc.javafx.xcore.workbench.lecture.LecturePackage#getSection_Contents()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Content getContent();
-
-	/**
-	 * Sets the value of the '{@link de.dc.javafx.xcore.workbench.lecture.Section#getContent <em>Content</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Content</em>' containment reference.
-	 * @see #getContent()
-	 * @generated
-	 */
-	void setContent(Content value);
+	EList<Content> getContents();
 
 } // Section
