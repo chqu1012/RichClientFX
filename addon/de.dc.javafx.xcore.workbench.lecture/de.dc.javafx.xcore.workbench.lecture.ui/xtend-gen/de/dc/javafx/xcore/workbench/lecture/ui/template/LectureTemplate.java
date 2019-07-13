@@ -1,6 +1,5 @@
 package de.dc.javafx.xcore.workbench.lecture.ui.template;
 
-import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.Section;
 import de.dc.javafx.xcore.workbench.lecture.ui.template.LectureStringSwitch;
@@ -88,52 +87,9 @@ public class LectureTemplate {
       EList<Section> _sections = p.getSections();
       for(final Section section : _sections) {
         _builder.append("\t\t\t\t");
-        StringConcatenation _builder_1 = new StringConcatenation();
-        {
-          boolean _isUseMarkDown = section.isUseMarkDown();
-          if (_isUseMarkDown) {
-            _builder_1.append("data-markdown");
-          }
-        }
-        final String useMarkDown = _builder_1.toString();
+        String _doSwitch = this.stringSwitch.doSwitch(section);
+        _builder.append(_doSwitch, "\t\t\t\t");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t\t\t");
-        _builder.append("<section ");
-        _builder.append(useMarkDown, "\t\t\t\t");
-        _builder.append(">");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t\t\t");
-        _builder.append("<h1>");
-        String _name = section.getName();
-        _builder.append(_name, "\t\t\t\t");
-        _builder.append("</h1>");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t\t\t");
-        _builder.newLine();
-        _builder.append("\t\t\t\t");
-        _builder.append("<p>");
-        _builder.newLine();
-        {
-          EList<Content> _contents = section.getContents();
-          boolean _tripleNotEquals = (_contents != null);
-          if (_tripleNotEquals) {
-            {
-              EList<Content> _contents_1 = section.getContents();
-              for(final Content content : _contents_1) {
-                _builder.append("\t\t\t\t");
-                String _doSwitch = this.stringSwitch.doSwitch(content);
-                _builder.append(_doSwitch, "\t\t\t\t");
-                _builder.newLineIfNotEmpty();
-              }
-            }
-          }
-        }
-        _builder.append("\t\t\t\t");
-        _builder.append("</p>");
-        _builder.newLine();
-        _builder.append("\t\t\t\t");
-        _builder.append("</section>");
-        _builder.newLine();
       }
     }
     _builder.append("\t\t\t");

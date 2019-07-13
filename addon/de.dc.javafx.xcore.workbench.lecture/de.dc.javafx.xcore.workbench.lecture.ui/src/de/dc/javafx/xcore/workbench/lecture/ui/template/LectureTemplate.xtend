@@ -35,18 +35,19 @@ class LectureTemplate {
 			<div class="reveal">
 				<div class="slides">
 					«FOR section : p.sections»
-					«val useMarkDown = '''«IF section.useMarkDown»data-markdown«ENDIF»'''»
-					<section «useMarkDown»>
-					<h1>«section.name»</h1>
-					
-					<p>
-					«IF section.contents!==null»
-					«FOR content : section.contents»
-					«stringSwitch.doSwitch(content)»
-					«ENDFOR»
-					«ENDIF»
-					</p>
-					</section>
+					«stringSwitch.doSwitch(section)»
+«««					«val useMarkDown = '''«IF section.useMarkDown»data-markdown«ENDIF»'''»
+«««					<section «useMarkDown»>
+«««					<h1>«section.name»</h1>
+«««					
+«««					<p>
+«««					«IF section.contents!==null»
+«««					«FOR content : section.contents»
+«««					«stringSwitch.doSwitch(content)»
+«««					«ENDFOR»
+«««					«ENDIF»
+«««					</p>
+«««					</section>
 					«ENDFOR»
 				</div>
 			</div>
