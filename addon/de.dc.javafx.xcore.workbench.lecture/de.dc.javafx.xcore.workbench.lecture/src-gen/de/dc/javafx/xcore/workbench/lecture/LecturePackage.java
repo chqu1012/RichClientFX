@@ -215,6 +215,80 @@ public interface LecturePackage extends EPackage {
 	int LIST_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.OrderedListContentImpl <em>Ordered List Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.OrderedListContentImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getOrderedListContent()
+	 * @generated
+	 */
+	int ORDERED_LIST_CONTENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Item</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_LIST_CONTENT__ITEM = LIST_CONTENT__ITEM;
+
+	/**
+	 * The number of structural features of the '<em>Ordered List Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_LIST_CONTENT_FEATURE_COUNT = LIST_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Ordered List Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_LIST_CONTENT_OPERATION_COUNT = LIST_CONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.UnorderedListContentImpl <em>Unordered List Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.UnorderedListContentImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getUnorderedListContent()
+	 * @generated
+	 */
+	int UNORDERED_LIST_CONTENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Item</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNORDERED_LIST_CONTENT__ITEM = LIST_CONTENT__ITEM;
+
+	/**
+	 * The number of structural features of the '<em>Unordered List Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNORDERED_LIST_CONTENT_FEATURE_COUNT = LIST_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Unordered List Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNORDERED_LIST_CONTENT_OPERATION_COUNT = LIST_CONTENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.FileContentImpl <em>File Content</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,7 +296,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getFileContent()
 	 * @generated
 	 */
-	int FILE_CONTENT = 4;
+	int FILE_CONTENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -259,7 +333,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getStringContent()
 	 * @generated
 	 */
-	int STRING_CONTENT = 5;
+	int STRING_CONTENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -296,7 +370,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListItem()
 	 * @generated
 	 */
-	int LIST_ITEM = 6;
+	int LIST_ITEM = 8;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -419,6 +493,26 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getListContent_Item();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.OrderedListContent <em>Ordered List Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ordered List Content</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.OrderedListContent
+	 * @generated
+	 */
+	EClass getOrderedListContent();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.UnorderedListContent <em>Unordered List Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unordered List Content</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.UnorderedListContent
+	 * @generated
+	 */
+	EClass getUnorderedListContent();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.FileContent <em>File Content</em>}'.
@@ -585,6 +679,26 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EReference LIST_CONTENT__ITEM = eINSTANCE.getListContent_Item();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.OrderedListContentImpl <em>Ordered List Content</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.OrderedListContentImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getOrderedListContent()
+		 * @generated
+		 */
+		EClass ORDERED_LIST_CONTENT = eINSTANCE.getOrderedListContent();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.UnorderedListContentImpl <em>Unordered List Content</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.UnorderedListContentImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getUnorderedListContent()
+		 * @generated
+		 */
+		EClass UNORDERED_LIST_CONTENT = eINSTANCE.getUnorderedListContent();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.FileContentImpl <em>File Content</em>}' class.

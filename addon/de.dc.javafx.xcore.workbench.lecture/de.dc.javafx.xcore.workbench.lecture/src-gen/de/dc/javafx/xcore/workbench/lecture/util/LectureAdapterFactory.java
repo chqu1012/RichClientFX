@@ -87,6 +87,16 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseOrderedListContent(OrderedListContent object) {
+			return createOrderedListContentAdapter();
+		}
+
+		@Override
+		public Adapter caseUnorderedListContent(UnorderedListContent object) {
+			return createUnorderedListContentAdapter();
+		}
+
+		@Override
 		public Adapter caseFileContent(FileContent object) {
 			return createFileContentAdapter();
 		}
@@ -173,6 +183,34 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createListContentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.OrderedListContent <em>Ordered List Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.lecture.OrderedListContent
+	 * @generated
+	 */
+	public Adapter createOrderedListContentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.UnorderedListContent <em>Unordered List Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.lecture.UnorderedListContent
+	 * @generated
+	 */
+	public Adapter createUnorderedListContentAdapter() {
 		return null;
 	}
 

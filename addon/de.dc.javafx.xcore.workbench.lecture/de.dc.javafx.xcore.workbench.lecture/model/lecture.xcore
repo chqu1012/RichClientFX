@@ -24,8 +24,14 @@ class Section{
 abstract class Content{
 }
 
-class ListContent extends Content{
+abstract class ListContent extends Content{
 	contains ListItem[0..*] item
+}
+
+class OrderedListContent extends ListContent{
+}
+
+class UnorderedListContent extends ListContent{
 }
 
 class FileContent extends Content{

@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ListContentImpl extends ContentImpl implements ListContent {
+public abstract class ListContentImpl extends ContentImpl implements ListContent {
 	/**
 	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

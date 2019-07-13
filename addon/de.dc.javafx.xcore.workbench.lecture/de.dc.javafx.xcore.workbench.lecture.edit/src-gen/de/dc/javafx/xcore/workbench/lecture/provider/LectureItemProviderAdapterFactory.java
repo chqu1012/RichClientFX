@@ -121,26 +121,49 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.ListContent} instances.
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.OrderedListContent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ListContentItemProvider listContentItemProvider;
+	protected OrderedListContentItemProvider orderedListContentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.ListContent}.
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.OrderedListContent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createListContentAdapter() {
-		if (listContentItemProvider == null) {
-			listContentItemProvider = new ListContentItemProvider(this);
+	public Adapter createOrderedListContentAdapter() {
+		if (orderedListContentItemProvider == null) {
+			orderedListContentItemProvider = new OrderedListContentItemProvider(this);
 		}
 
-		return listContentItemProvider;
+		return orderedListContentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.UnorderedListContent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnorderedListContentItemProvider unorderedListContentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.UnorderedListContent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnorderedListContentAdapter() {
+		if (unorderedListContentItemProvider == null) {
+			unorderedListContentItemProvider = new UnorderedListContentItemProvider(this);
+		}
+
+		return unorderedListContentItemProvider;
 	}
 
 	/**
@@ -321,8 +344,10 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 			lectureProjectItemProvider.dispose();
 		if (sectionItemProvider != null)
 			sectionItemProvider.dispose();
-		if (listContentItemProvider != null)
-			listContentItemProvider.dispose();
+		if (orderedListContentItemProvider != null)
+			orderedListContentItemProvider.dispose();
+		if (unorderedListContentItemProvider != null)
+			unorderedListContentItemProvider.dispose();
 		if (fileContentItemProvider != null)
 			fileContentItemProvider.dispose();
 		if (stringContentItemProvider != null)

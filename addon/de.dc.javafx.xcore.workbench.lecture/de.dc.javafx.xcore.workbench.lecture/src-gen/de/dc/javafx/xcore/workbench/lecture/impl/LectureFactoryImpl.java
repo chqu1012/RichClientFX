@@ -60,8 +60,10 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 			return createLectureProject();
 		case LecturePackage.SECTION:
 			return createSection();
-		case LecturePackage.LIST_CONTENT:
-			return createListContent();
+		case LecturePackage.ORDERED_LIST_CONTENT:
+			return createOrderedListContent();
+		case LecturePackage.UNORDERED_LIST_CONTENT:
+			return createUnorderedListContent();
 		case LecturePackage.FILE_CONTENT:
 			return createFileContent();
 		case LecturePackage.STRING_CONTENT:
@@ -101,9 +103,20 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 	 * @generated
 	 */
 	@Override
-	public ListContent createListContent() {
-		ListContentImpl listContent = new ListContentImpl();
-		return listContent;
+	public OrderedListContent createOrderedListContent() {
+		OrderedListContentImpl orderedListContent = new OrderedListContentImpl();
+		return orderedListContent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public UnorderedListContent createUnorderedListContent() {
+		UnorderedListContentImpl unorderedListContent = new UnorderedListContentImpl();
+		return unorderedListContent;
 	}
 
 	/**

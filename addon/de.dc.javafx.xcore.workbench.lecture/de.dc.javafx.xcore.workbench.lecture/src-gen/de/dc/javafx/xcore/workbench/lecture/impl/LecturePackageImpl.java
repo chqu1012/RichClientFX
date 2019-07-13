@@ -9,8 +9,10 @@ import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.ListContent;
 import de.dc.javafx.xcore.workbench.lecture.ListItem;
+import de.dc.javafx.xcore.workbench.lecture.OrderedListContent;
 import de.dc.javafx.xcore.workbench.lecture.Section;
 import de.dc.javafx.xcore.workbench.lecture.StringContent;
+import de.dc.javafx.xcore.workbench.lecture.UnorderedListContent;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -54,6 +56,20 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	private EClass listContentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass orderedListContentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unorderedListContentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -239,6 +255,26 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getOrderedListContent() {
+		return orderedListContentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getUnorderedListContent() {
+		return unorderedListContentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFileContent() {
 		return fileContentEClass;
 	}
@@ -336,6 +372,10 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		listContentEClass = createEClass(LIST_CONTENT);
 		createEReference(listContentEClass, LIST_CONTENT__ITEM);
 
+		orderedListContentEClass = createEClass(ORDERED_LIST_CONTENT);
+
+		unorderedListContentEClass = createEClass(UNORDERED_LIST_CONTENT);
+
 		fileContentEClass = createEClass(FILE_CONTENT);
 		createEAttribute(fileContentEClass, FILE_CONTENT__PATH);
 
@@ -379,6 +419,8 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 
 		// Add supertypes to classes
 		listContentEClass.getESuperTypes().add(this.getContent());
+		orderedListContentEClass.getESuperTypes().add(this.getListContent());
+		unorderedListContentEClass.getESuperTypes().add(this.getListContent());
 		fileContentEClass.getESuperTypes().add(this.getContent());
 		stringContentEClass.getESuperTypes().add(this.getContent());
 
@@ -402,11 +444,17 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 
 		initEClass(contentEClass, Content.class, "Content", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(listContentEClass, ListContent.class, "ListContent", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(listContentEClass, ListContent.class, "ListContent", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getListContent_Item(), this.getListItem(), null, "item", null, 0, -1, ListContent.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(orderedListContentEClass, OrderedListContent.class, "OrderedListContent", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(unorderedListContentEClass, UnorderedListContent.class, "UnorderedListContent", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(fileContentEClass, FileContent.class, "FileContent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

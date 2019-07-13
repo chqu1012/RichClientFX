@@ -2,13 +2,26 @@
 <lecture:LectureProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lecture="http://www.frateranatis.org/workbench/lecture">
   <sections name="Chapter One" useMarkDown="false">
     <contents xsi:type="lecture:StringContent" body="List Items"/>
-    <contents xsi:type="lecture:ListContent">
-      <item value="One Item"/>
-      <item value="Two Item"/>
-      <item value="Three"/>
-      <item value="Four"/>
+    <contents xsi:type="lecture:OrderedListContent">
+      <item value="Windows"/>
+      <item value="Linunx"/>
+      <item value="MacOs"/>
+      <item value="Android"/>
+      <item value="IOs"/>
+      <item value="WIndows CE"/>
     </contents>
   </sections>
-  <sections name="Hello World 2"/>
+  <sections name="Chapter Two" useMarkDown="false">
+    <contents xsi:type="lecture:StringContent" body="Unordered List"/>
+    <contents xsi:type="lecture:UnorderedListContent">
+      <item value="WIndows CE"/>
+      <item value="Linunx"/>
+      <item value="MacOs"/>
+      <item value="Android"/>
+      <item value="Android"/>
+      <item value="IOs"/>
+      <item value="WIndows CE"/>
+    </contents>
+  </sections>
   <sections name="Hello World 3"/>
 </lecture:LectureProject>

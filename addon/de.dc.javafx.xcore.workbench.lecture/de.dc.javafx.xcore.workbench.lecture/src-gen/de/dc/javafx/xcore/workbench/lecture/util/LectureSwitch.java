@@ -96,6 +96,28 @@ public class LectureSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case LecturePackage.ORDERED_LIST_CONTENT: {
+			OrderedListContent orderedListContent = (OrderedListContent) theEObject;
+			T result = caseOrderedListContent(orderedListContent);
+			if (result == null)
+				result = caseListContent(orderedListContent);
+			if (result == null)
+				result = caseContent(orderedListContent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case LecturePackage.UNORDERED_LIST_CONTENT: {
+			UnorderedListContent unorderedListContent = (UnorderedListContent) theEObject;
+			T result = caseUnorderedListContent(unorderedListContent);
+			if (result == null)
+				result = caseListContent(unorderedListContent);
+			if (result == null)
+				result = caseContent(unorderedListContent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case LecturePackage.FILE_CONTENT: {
 			FileContent fileContent = (FileContent) theEObject;
 			T result = caseFileContent(fileContent);
@@ -183,6 +205,36 @@ public class LectureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseListContent(ListContent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ordered List Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ordered List Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrderedListContent(OrderedListContent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unordered List Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unordered List Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnorderedListContent(UnorderedListContent object) {
 		return null;
 	}
 

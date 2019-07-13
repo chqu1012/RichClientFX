@@ -40,13 +40,22 @@ public interface LectureFactory extends EFactory {
 	Section createSection();
 
 	/**
-	 * Returns a new object of class '<em>List Content</em>'.
+	 * Returns a new object of class '<em>Ordered List Content</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>List Content</em>'.
+	 * @return a new object of class '<em>Ordered List Content</em>'.
 	 * @generated
 	 */
-	ListContent createListContent();
+	OrderedListContent createOrderedListContent();
+
+	/**
+	 * Returns a new object of class '<em>Unordered List Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unordered List Content</em>'.
+	 * @generated
+	 */
+	UnorderedListContent createUnorderedListContent();
 
 	/**
 	 * Returns a new object of class '<em>File Content</em>'.

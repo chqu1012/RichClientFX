@@ -223,7 +223,10 @@ public class SectionItemProvider extends ItemProviderAdapter
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
-				LectureFactory.eINSTANCE.createListContent()));
+				LectureFactory.eINSTANCE.createOrderedListContent()));
+
+		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
+				LectureFactory.eINSTANCE.createUnorderedListContent()));
 
 		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
 				LectureFactory.eINSTANCE.createFileContent()));

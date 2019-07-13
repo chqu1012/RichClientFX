@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see de.dc.javafx.xcore.workbench.lecture.LecturePackage#getListContent()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ListContent extends Content {
