@@ -76,6 +76,15 @@ public interface LectureFactory extends EFactory {
 	StringContent createStringContent();
 
 	/**
+	 * Returns a new object of class '<em>Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Header</em>'.
+	 * @generated
+	 */
+	Header createHeader();
+
+	/**
 	 * Returns a new object of class '<em>List Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

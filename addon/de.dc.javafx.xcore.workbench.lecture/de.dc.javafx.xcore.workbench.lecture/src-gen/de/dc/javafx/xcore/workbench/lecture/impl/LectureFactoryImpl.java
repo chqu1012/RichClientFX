@@ -68,6 +68,8 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 			return createFileContent();
 		case LecturePackage.STRING_CONTENT:
 			return createStringContent();
+		case LecturePackage.HEADER:
+			return createHeader();
 		case LecturePackage.LIST_ITEM:
 			return createListItem();
 		default:
@@ -139,6 +141,17 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 	public StringContent createStringContent() {
 		StringContentImpl stringContent = new StringContentImpl();
 		return stringContent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Header createHeader() {
+		HeaderImpl header = new HeaderImpl();
+		return header;
 	}
 
 	/**

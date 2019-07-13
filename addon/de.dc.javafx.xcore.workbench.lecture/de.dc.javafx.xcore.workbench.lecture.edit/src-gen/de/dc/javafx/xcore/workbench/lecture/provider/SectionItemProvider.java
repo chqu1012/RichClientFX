@@ -233,6 +233,9 @@ public class SectionItemProvider extends ItemProviderAdapter
 
 		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
 				LectureFactory.eINSTANCE.createStringContent()));
+
+		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
+				LectureFactory.eINSTANCE.createHeader()));
 	}
 
 	/**

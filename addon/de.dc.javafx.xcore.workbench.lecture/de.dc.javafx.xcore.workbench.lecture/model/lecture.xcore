@@ -42,6 +42,11 @@ class StringContent extends Content{
 	String body
 }
 
+class Header extends Content{
+	int level
+	String value
+}
+
 class ListItem{
 	String value
 }

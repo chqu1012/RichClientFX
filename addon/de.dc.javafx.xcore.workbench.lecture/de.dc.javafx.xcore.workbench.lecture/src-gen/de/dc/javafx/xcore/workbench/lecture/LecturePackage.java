@@ -363,6 +363,52 @@ public interface LecturePackage extends EPackage {
 	int STRING_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.HeaderImpl <em>Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.HeaderImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getHeader()
+	 * @generated
+	 */
+	int HEADER = 8;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__LEVEL = CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__VALUE = CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Header</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Header</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl <em>List Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,7 +416,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListItem()
 	 * @generated
 	 */
-	int LIST_ITEM = 8;
+	int LIST_ITEM = 9;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -557,6 +603,38 @@ public interface LecturePackage extends EPackage {
 	EAttribute getStringContent_Body();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.Header <em>Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Header</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Header
+	 * @generated
+	 */
+	EClass getHeader();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.Header#getLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Level</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Header#getLevel()
+	 * @see #getHeader()
+	 * @generated
+	 */
+	EAttribute getHeader_Level();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.Header#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Header#getValue()
+	 * @see #getHeader()
+	 * @generated
+	 */
+	EAttribute getHeader_Value();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.ListItem <em>List Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -735,6 +813,32 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRING_CONTENT__BODY = eINSTANCE.getStringContent_Body();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.HeaderImpl <em>Header</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.HeaderImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getHeader()
+		 * @generated
+		 */
+		EClass HEADER = eINSTANCE.getHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HEADER__LEVEL = eINSTANCE.getHeader_Level();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HEADER__VALUE = eINSTANCE.getHeader_Value();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl <em>List Item</em>}' class.

@@ -213,6 +213,29 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.Header} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HeaderItemProvider headerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.Header}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHeaderAdapter() {
+		if (headerItemProvider == null) {
+			headerItemProvider = new HeaderItemProvider(this);
+		}
+
+		return headerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.ListItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,6 +375,8 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 			fileContentItemProvider.dispose();
 		if (stringContentItemProvider != null)
 			stringContentItemProvider.dispose();
+		if (headerItemProvider != null)
+			headerItemProvider.dispose();
 		if (listItemItemProvider != null)
 			listItemItemProvider.dispose();
 	}

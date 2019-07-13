@@ -244,31 +244,13 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 					case SHIFT:
 						break;
 					case ENTER:
-						Command command = null;
-						if (eAttribute.getEType().getName().contains("Double")) {
-							command = new SetCommand(editingDomain, eObject, eAttribute,
-									Double.parseDouble(textField.getText()));
-						} else {
-							command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
-						}
-						executeCommand(command);
-						textField.setStyle(null);
+						setValue(eObject, eAttribute, textField);
 						break;
 					default:
 						textField.setStyle(EDITED_STYLE);
 					}
 				});
-				acceptButton.setOnAction(event -> {
-					Command command = null;
-					if (eAttribute.getEType().getName().contains("Double")) {
-						command = new SetCommand(editingDomain, eObject, eAttribute,
-								Double.parseDouble(textField.getText()));
-					} else {
-						command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
-					}
-					executeCommand(command);
-					textField.setStyle(null);
-				});
+				acceptButton.setOnAction(event -> setValue(eObject, eAttribute, textField));
 
 				eattributeUIMap.put(eAttribute, textField);
 				hbox.getChildren().add(textField);
@@ -281,19 +263,26 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 		acceptAllButton.setOnAction(event -> {
 			eattributeUIMap.entrySet().stream().forEach(e -> {
 				if (e.getValue().getStyle().equals(EDITED_STYLE)) {
-					Command command = null;
-					if (e.getKey().getEType().getName().contains("Double")) {
-						command = new SetCommand(editingDomain, eObject, e.getKey(),
-								Double.parseDouble(e.getValue().getText()));
-					} else {
-						command = new SetCommand(editingDomain, eObject, e.getKey(), e.getValue().getText());
-					}
-					executeCommand(command);
-					e.getValue().setStyle(null);
+					setValue(eObject, e.getKey(),  e.getValue());
 				}
 			});
 		});
 		attributeContainer.getChildren().add(acceptAllButton);
+	}
+
+	private void setValue(EObject eObject, EAttribute eAttribute, TextField textField) {
+		Command command = null;
+		if (eAttribute.getEType().getName().contains("Double")) {
+			command = new SetCommand(editingDomain, eObject, eAttribute,
+					Double.parseDouble(textField.getText()));
+		} else if (eAttribute.getEType().getName().contains("Integer") || eAttribute.getEType().getName().contains("Int")) {
+			command = new SetCommand(editingDomain, eObject, eAttribute,
+					Integer.parseInt(textField.getText()));
+		}else {
+			command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
+		}
+		executeCommand(command);
+		textField.setStyle(null);
 	}
 
 	private void clearAllFields() {

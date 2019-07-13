@@ -1,10 +1,12 @@
 package de.dc.javafx.xcore.workbench.lecture.ui.template;
 
+import static java.lang.String.format;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.FileContent;
+import de.dc.javafx.xcore.workbench.lecture.Header;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.ListItem;
 import de.dc.javafx.xcore.workbench.lecture.OrderedListContent;
@@ -21,6 +23,13 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 		LectureProject project = (LectureProject) section.eContainer();
 		int indexOf = project.getSections().indexOf(section);
 		return "sections/Section_"+LectureContentSwitch.df.format(indexOf)+"/"+object.getPath();
+	}
+	
+	@Override
+	public String caseHeader(Header object) {
+		int lvl = object.getLevel();
+		String value = object.getValue();
+		return format("<h%s>%s</h%s>", lvl, value, lvl);
 	}
 
 	@Override

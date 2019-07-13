@@ -4,6 +4,7 @@ package de.dc.javafx.xcore.workbench.lecture.impl;
 
 import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.FileContent;
+import de.dc.javafx.xcore.workbench.lecture.Header;
 import de.dc.javafx.xcore.workbench.lecture.LectureFactory;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
@@ -84,6 +85,13 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	private EClass stringContentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass headerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -315,6 +323,36 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getHeader() {
+		return headerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHeader_Level() {
+		return (EAttribute) headerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHeader_Value() {
+		return (EAttribute) headerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getListItem() {
 		return listItemEClass;
 	}
@@ -382,6 +420,10 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		stringContentEClass = createEClass(STRING_CONTENT);
 		createEAttribute(stringContentEClass, STRING_CONTENT__BODY);
 
+		headerEClass = createEClass(HEADER);
+		createEAttribute(headerEClass, HEADER__LEVEL);
+		createEAttribute(headerEClass, HEADER__VALUE);
+
 		listItemEClass = createEClass(LIST_ITEM);
 		createEAttribute(listItemEClass, LIST_ITEM__VALUE);
 	}
@@ -423,6 +465,7 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		unorderedListContentEClass.getESuperTypes().add(this.getListContent());
 		fileContentEClass.getESuperTypes().add(this.getContent());
 		stringContentEClass.getESuperTypes().add(this.getContent());
+		headerEClass.getESuperTypes().add(this.getContent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(lectureProjectEClass, LectureProject.class, "LectureProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -465,6 +508,13 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		initEClass(stringContentEClass, StringContent.class, "StringContent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringContent_Body(), theEcorePackage.getEString(), "body", null, 0, 1, StringContent.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHeader_Level(), theEcorePackage.getEInt(), "level", null, 0, 1, Header.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeader_Value(), theEcorePackage.getEString(), "value", null, 0, 1, Header.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
