@@ -158,14 +158,29 @@ public class EmfPerspective extends SplitPane {
 	
 	
 	public void addToRight(Tab tab) {
+		tab.setOnClosed(event -> {
+			if (rightTabPane.getTabs().isEmpty()) {
+				hideRight(true);
+			}
+		});
 		rightTabPane.getTabs().add(tab);
 	}
 
 	public void addToLeft(Tab tab) {
+		tab.setOnClosed(event -> {
+			if (leftTabPane.getTabs().isEmpty()) {
+				hideLeft(true);
+			}
+		});
 		leftTabPane.getTabs().add(tab);
 	}
 
 	public void addToBottom(Tab tab) {
+		tab.setOnClosed(event -> {
+			if (bottomPane.getTabs().isEmpty()) {
+				hideBottom(true);
+			}
+		});
 		bottomPane.getTabs().add(tab);
 	}
 

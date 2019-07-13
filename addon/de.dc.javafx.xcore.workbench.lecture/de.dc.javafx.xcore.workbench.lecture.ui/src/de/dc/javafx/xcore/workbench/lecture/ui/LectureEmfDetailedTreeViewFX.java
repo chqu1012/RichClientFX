@@ -27,7 +27,7 @@ public class LectureEmfDetailedTreeViewFX extends LectureEmfDetailedTreeView {
 	private Button openSectionFolderButton = new Button("Open Section Folder");
 	private Button hideLeftFolderButton = new Button("Hide Left");
 	private Button hideRightFolderButton = new Button("Hide Right");
-	private Button hideBottomFolderButton = new Button("Hide Right");
+	private Button hideBottomFolderButton = new Button("Hide Bottom");
 
 	public LectureEmfDetailedTreeViewFX() {
 		initToolbar();
