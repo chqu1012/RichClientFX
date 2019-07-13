@@ -23,5 +23,8 @@
       <item value="WIndows CE"/>
     </contents>
   </sections>
-  <sections name="Hello World 3"/>
+  <sections name="Chapter Three">
+    <contents xsi:type="lecture:StringContent" body="File Markdown Content"/>
+    <contents xsi:type="lecture:FileContent" path="03_MarkDownExample"/>
+  </sections>
 </lecture:LectureProject>

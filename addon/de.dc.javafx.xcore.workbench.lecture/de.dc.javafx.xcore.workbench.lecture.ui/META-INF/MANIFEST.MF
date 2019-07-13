@@ -27,3 +27,4 @@ Export-Package: de.dc.javafx.xcore.workbench.lecture.ui,
  de.dc.javafx.xcore.workbench.lecture.ui.manager,
  de.dc.javafx.xcore.workbench.lecture.ui.renderer,
  de.dc.javafx.xcore.workbench.lecture.ui.view
+Import-Package: de.dc.javafx.xcore.resource

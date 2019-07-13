@@ -44,7 +44,9 @@ public class LectureContentSwitch extends LectureSwitch<Void>{
 		try {
 			String path = getClass().getResource("/reveal.js-3.8.0/").toURI().getPath();
 			File setionFolder = new File(path+"sections/"+format);
-			setionFolder.mkdirs();
+			if (!setionFolder.exists()) {
+				setionFolder.mkdirs();
+			}
 		} catch ( URISyntaxException e) {
 			e.printStackTrace();
 		}

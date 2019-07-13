@@ -10,8 +10,10 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 
 import de.dc.javafx.xcore.workbench.lecture.FileContent;
+import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.ListItem;
 import de.dc.javafx.xcore.workbench.lecture.OrderedListContent;
+import de.dc.javafx.xcore.workbench.lecture.Section;
 import de.dc.javafx.xcore.workbench.lecture.StringContent;
 import de.dc.javafx.xcore.workbench.lecture.UnorderedListContent;
 import de.dc.javafx.xcore.workbench.lecture.util.LectureSwitch;
@@ -21,7 +23,11 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 	@Override
 	public String caseFileContent(FileContent object) {
 		try {
-			String path = getClass().getResource("/reveal.js-3.8.0/sections/"+object.getPath()).getFile();
+			Section section = (Section) object.eContainer();
+			LectureProject project = (LectureProject) section.eContainer();
+			int indexOf = project.getSections().indexOf(section);
+			String basePath = "/reveal.js-3.8.0/sections/Section_"+LectureContentSwitch.df.format(indexOf);
+			String path = getClass().getResource(basePath+"/"+object.getPath()).getFile();
 			return FileUtils.readFileToString(new File(path), UTF_8);
 		} catch (IOException e) {
 			return EMPTY;
@@ -31,7 +37,7 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 	@Override
 	public String caseOrderedListContent(OrderedListContent object) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("<ol>\n");
+		sb.append("<ol>").append("\n");
 		for (ListItem item : object.getItem()) {
 			sb.append(caseListItem(item));
 		}
@@ -42,7 +48,7 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 	@Override
 	public String caseUnorderedListContent(UnorderedListContent object) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("<ul>");
+		sb.append("<ul>").append("\n");
 		for (ListItem item : object.getItem()) {
 			sb.append(caseListItem(item));
 		}
