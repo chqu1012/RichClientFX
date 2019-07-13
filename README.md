@@ -44,6 +44,7 @@ This application contains on the generation:
 		* SurfacePlotter
 	* Thymeleaf Blog Template Generator
 	* Barcode Renderer used OkapiBarcode
+	* Lecture: Declarative defining presentation slides via tree view, markdown or html
 * Editor Registry for several types
 
 ### Flat History View
@@ -77,6 +78,10 @@ BarChart Rendering showing history view, editor part and emf model tree.
 ### Generic Selection Viewer 
 Shows all provided selections as fields and methods in tables and hierachical view.
 ![Running Application](https://github.com/chqu1012/de.dc.emf.javafx.xtext.lang/blob/master/de.dc.javafx.xcore.resources/images/11-EmfEdit-SelectionViewer.png)
+
+### Lecture Presentation Slides Editor
+Defining presentation slides can be declare by emf treeview, html or markdown. Running the slides in JavaFX Tab or external browser with the reveal.js api.
+![Running Application](https://github.com/chqu1012/RichClientFX/blob/master/de.dc.javafx.xcore.resources/images/15-Addon-Lecture-Icons.png)
 
 ### EMF.edit for undo, redo, editing and drag&drop support.
 
