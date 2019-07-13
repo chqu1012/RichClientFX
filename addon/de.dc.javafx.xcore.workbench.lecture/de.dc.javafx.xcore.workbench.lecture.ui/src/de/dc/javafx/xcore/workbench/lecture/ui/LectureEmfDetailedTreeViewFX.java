@@ -3,7 +3,10 @@ package de.dc.javafx.xcore.workbench.lecture.ui;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+
+import org.apache.log4j.Logger;
 
 import de.dc.javafx.xcore.workbench.di.DIPlatform;
 import de.dc.javafx.xcore.workbench.emf.ui.EmfTreeModelView;
@@ -14,26 +17,54 @@ import de.dc.javafx.xcore.workbench.lecture.Section;
 import de.dc.javafx.xcore.workbench.lecture.ui.template.LectureContentSwitch;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.TreeItem;
+import javafx.scene.image.ImageView;
 
 public class LectureEmfDetailedTreeViewFX extends LectureEmfDetailedTreeView {
 
+	private static final Logger LOG = Logger.getLogger(LectureEmfDetailedTreeViewFX.class);
+	
 	private boolean hideLeft = true;
 	private boolean hideRight = true;
 	private boolean hideBottom = true;
 
-	private Button showSlideButton = new Button("Show Slide");
-	private Button openProjectFolderButton = new Button("Open Project Folder");
-	private Button openSectionFolderButton = new Button("Open Section Folder");
-	private Button hideLeftFolderButton = new Button("Hide Left");
-	private Button hideRightFolderButton = new Button("Hide Right");
-	private Button hideBottomFolderButton = new Button("Hide Bottom");
+	private Button showSlideButton = new Button();
+	private Button openProjectFolderButton = new Button();
+	private Button openSectionFolderButton = new Button();
+	private Button hideLeftFolderButton = new Button();
+	private Button hideRightFolderButton = new Button();
+	private Button hideBottomFolderButton = new Button();
 
 	public LectureEmfDetailedTreeViewFX() {
 		initToolbar();
 	}
 
 	private void initToolbar() {
+		try {
+			showSlideButton.setGraphic(new ImageView(getClass().getResource("/images/icons8-präsentation-24.png").toURI().toURL().toExternalForm()));
+			showSlideButton.setTooltip(new Tooltip("Show Slides in External Browser"));
+
+			openProjectFolderButton.setGraphic(new ImageView(getClass().getResource("/images/icons8-ms-project-24.png").toURI().toURL().toExternalForm()));
+			openProjectFolderButton.setTooltip(new Tooltip("Open Project Folder"));
+			openProjectFolderButton.setDisable(true);
+			
+			openSectionFolderButton.setGraphic(new ImageView(getClass().getResource("/images/icons8-mappe-24.png").toURI().toURL().toExternalForm()));
+			openSectionFolderButton.setTooltip(new Tooltip("Open Project Folder"));
+			openSectionFolderButton.setDisable(true);
+
+			hideLeftFolderButton.setGraphic(new ImageView(getClass().getResource("/images/icons8-ausschalten-24.png").toURI().toURL().toExternalForm()));
+			hideLeftFolderButton.setTooltip(new Tooltip("Show / Hide Left View Part"));
+
+			hideRightFolderButton.setGraphic(new ImageView(getClass().getResource("/images/icons8-ausschalten-24 (1).png").toURI().toURL().toExternalForm()));
+			hideRightFolderButton.setTooltip(new Tooltip("Show / Hide Right View Part"));
+			
+			hideBottomFolderButton.setGraphic(new ImageView(getClass().getResource("/images/icons8-ausschalten-24 (2).png").toURI().toURL().toExternalForm()));
+			hideBottomFolderButton.setTooltip(new Tooltip("Show / Hide Bottom View Part"));
+		} catch (MalformedURLException | URISyntaxException e1) {
+			LOG.error("Failed to initialize toolbar with icons", e1);
+		}
+		
 		addToToolbar(showSlideButton);
 		addToToolbar(openProjectFolderButton);
 		addToToolbar(openSectionFolderButton);
