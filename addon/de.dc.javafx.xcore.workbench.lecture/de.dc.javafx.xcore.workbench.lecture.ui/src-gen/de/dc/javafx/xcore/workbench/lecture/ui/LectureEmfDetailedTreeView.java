@@ -3,6 +3,7 @@ package de.dc.javafx.xcore.workbench.lecture.ui;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -17,6 +18,7 @@ import javafx.scene.control.TreeItem;
 
 public class LectureEmfDetailedTreeView extends EmfDetailedTreeView<LectureProject>{
 
+	private Button showSlideButton = new Button("Show Slide");
 	private Button openProjectFolderButton = new Button("Open Project Folder");
 	private Button openSectionFolderButton = new Button("Open Section Folder");
 
@@ -25,13 +27,23 @@ public class LectureEmfDetailedTreeView extends EmfDetailedTreeView<LectureProje
 	}
 
 	private void initToolbar() {
+		addToToolbar(showSlideButton);
 		addToToolbar(openProjectFolderButton);
 		addToToolbar(openSectionFolderButton);
 		
+		showSlideButton.setOnAction(e-> showSlide());
 		openProjectFolderButton.setOnAction(e-> openProjectFolder());
 		openSectionFolderButton.setOnAction(e-> openSectionFolder());
 	}
 	
+	private void showSlide() {
+		try {
+			Desktop.getDesktop().browse(getClass().getResource("/reveal.js-3.8.0/demo.html").toURI());
+		} catch (IOException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+	}
+
 	private void openSectionFolder() {
 		Object value = treeView.getTreeView().getSelectionModel().getSelectedItem().getValue();
 		if (value instanceof Section) {
