@@ -114,13 +114,31 @@ public interface LecturePackage extends EPackage {
 	int SECTION__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Use Mark Down</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__USE_MARK_DOWN = 1;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__CONTENT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Section</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION_FEATURE_COUNT = 1;
+	int SECTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Section</em>' class.
@@ -130,6 +148,108 @@ public interface LecturePackage extends EPackage {
 	 * @ordered
 	 */
 	int SECTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl <em>Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getContent()
+	 * @generated
+	 */
+	int CONTENT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.FileContentImpl <em>File Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.FileContentImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getFileContent()
+	 * @generated
+	 */
+	int FILE_CONTENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_CONTENT__PATH = CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>File Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_CONTENT_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>File Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.StringContentImpl <em>String Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.StringContentImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getStringContent()
+	 * @generated
+	 */
+	int STRING_CONTENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONTENT__BODY = CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONTENT_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>String Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.LectureProject <em>Project</em>}'.
@@ -172,6 +292,80 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSection_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.Section#isUseMarkDown <em>Use Mark Down</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Mark Down</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Section#isUseMarkDown()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EAttribute getSection_UseMarkDown();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.javafx.xcore.workbench.lecture.Section#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Content</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Section#getContent()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EReference getSection_Content();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.Content <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Content</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Content
+	 * @generated
+	 */
+	EClass getContent();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.FileContent <em>File Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File Content</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.FileContent
+	 * @generated
+	 */
+	EClass getFileContent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.FileContent#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.FileContent#getPath()
+	 * @see #getFileContent()
+	 * @generated
+	 */
+	EAttribute getFileContent_Path();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.StringContent <em>String Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Content</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.StringContent
+	 * @generated
+	 */
+	EClass getStringContent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.StringContent#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Body</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.StringContent#getBody()
+	 * @see #getStringContent()
+	 * @generated
+	 */
+	EAttribute getStringContent_Body();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -231,6 +425,68 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SECTION__NAME = eINSTANCE.getSection_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Mark Down</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECTION__USE_MARK_DOWN = eINSTANCE.getSection_UseMarkDown();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECTION__CONTENT = eINSTANCE.getSection_Content();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl <em>Content</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getContent()
+		 * @generated
+		 */
+		EClass CONTENT = eINSTANCE.getContent();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.FileContentImpl <em>File Content</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.FileContentImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getFileContent()
+		 * @generated
+		 */
+		EClass FILE_CONTENT = eINSTANCE.getFileContent();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILE_CONTENT__PATH = eINSTANCE.getFileContent_Path();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.StringContentImpl <em>String Content</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.StringContentImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getStringContent()
+		 * @generated
+		 */
+		EClass STRING_CONTENT = eINSTANCE.getStringContent();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_CONTENT__BODY = eINSTANCE.getStringContent_Body();
 
 	}
 

@@ -2,6 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.lecture.provider;
 
+import de.dc.javafx.xcore.workbench.lecture.LectureFactory;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.Section;
 
@@ -13,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -56,6 +58,7 @@ public class SectionItemProvider extends ItemProviderAdapter
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addUseMarkDownPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,6 +76,52 @@ public class SectionItemProvider extends ItemProviderAdapter
 						getString("_UI_PropertyDescriptor_description", "_UI_Section_name_feature", "_UI_Section_type"),
 						LecturePackage.Literals.SECTION__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Use Mark Down feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUseMarkDownPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Section_useMarkDown_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Section_useMarkDown_feature",
+								"_UI_Section_type"),
+						LecturePackage.Literals.SECTION__USE_MARK_DOWN, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(LecturePackage.Literals.SECTION__CONTENT);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -152,7 +201,11 @@ public class SectionItemProvider extends ItemProviderAdapter
 
 		switch (notification.getFeatureID(Section.class)) {
 		case LecturePackage.SECTION__NAME:
+		case LecturePackage.SECTION__USE_MARK_DOWN:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case LecturePackage.SECTION__CONTENT:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -168,6 +221,12 @@ public class SectionItemProvider extends ItemProviderAdapter
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENT,
+				LectureFactory.eINSTANCE.createFileContent()));
+
+		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENT,
+				LectureFactory.eINSTANCE.createStringContent()));
 	}
 
 	/**

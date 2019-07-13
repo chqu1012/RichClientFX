@@ -77,6 +77,21 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseContent(Content object) {
+			return createContentAdapter();
+		}
+
+		@Override
+		public Adapter caseFileContent(FileContent object) {
+			return createFileContentAdapter();
+		}
+
+		@Override
+		public Adapter caseStringContent(StringContent object) {
+			return createStringContentAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -120,6 +135,48 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.Content <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Content
+	 * @generated
+	 */
+	public Adapter createContentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.FileContent <em>File Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.lecture.FileContent
+	 * @generated
+	 */
+	public Adapter createFileContentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.StringContent <em>String Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.lecture.StringContent
+	 * @generated
+	 */
+	public Adapter createStringContentAdapter() {
 		return null;
 	}
 

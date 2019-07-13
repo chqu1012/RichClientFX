@@ -1,12 +1,16 @@
 package de.dc.javafx.xcore.workbench.lecture.ui.template;
 
+import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.Section;
+import de.dc.javafx.xcore.workbench.lecture.ui.template.LectureStringSwitch;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
 public class LectureTemplate {
+  private LectureStringSwitch stringSwitch = new LectureStringSwitch();
+  
   public String gen(final LectureProject p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<!doctype html>");
@@ -84,11 +88,35 @@ public class LectureTemplate {
       EList<Section> _sections = p.getSections();
       for(final Section section : _sections) {
         _builder.append("\t\t\t\t");
-        _builder.append("<section>");
+        StringConcatenation _builder_1 = new StringConcatenation();
+        {
+          boolean _isUseMarkDown = section.isUseMarkDown();
+          if (_isUseMarkDown) {
+            _builder_1.append("data-markdown");
+          }
+        }
+        final String useMarkDown = _builder_1.toString();
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t\t\t");
+        _builder.append("<section ");
+        _builder.append(useMarkDown, "\t\t\t\t");
+        _builder.append(">");
         String _name = section.getName();
         _builder.append(_name, "\t\t\t\t");
-        _builder.append("</section>");
         _builder.newLineIfNotEmpty();
+        {
+          Content _content = section.getContent();
+          boolean _tripleNotEquals = (_content != null);
+          if (_tripleNotEquals) {
+            _builder.append("\t\t\t\t");
+            String _doSwitch = this.stringSwitch.doSwitch(section.getContent());
+            _builder.append(_doSwitch, "\t\t\t\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t\t\t\t");
+        _builder.append("</section>");
+        _builder.newLine();
       }
     }
     _builder.append("\t\t\t");

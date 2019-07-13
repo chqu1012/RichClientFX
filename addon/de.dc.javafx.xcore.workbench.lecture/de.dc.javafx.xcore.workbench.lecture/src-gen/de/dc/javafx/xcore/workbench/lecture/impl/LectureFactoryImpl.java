@@ -60,6 +60,10 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 			return createLectureProject();
 		case LecturePackage.SECTION:
 			return createSection();
+		case LecturePackage.FILE_CONTENT:
+			return createFileContent();
+		case LecturePackage.STRING_CONTENT:
+			return createStringContent();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,6 +89,28 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 	public Section createSection() {
 		SectionImpl section = new SectionImpl();
 		return section;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FileContent createFileContent() {
+		FileContentImpl fileContent = new FileContentImpl();
+		return fileContent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StringContent createStringContent() {
+		StringContentImpl stringContent = new StringContentImpl();
+		return stringContent;
 	}
 
 	/**

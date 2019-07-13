@@ -4,6 +4,8 @@ import de.dc.javafx.xcore.workbench.lecture.LectureProject
 
 class LectureTemplate {
 	
+	LectureStringSwitch stringSwitch = new LectureStringSwitch
+	
 	def String gen(LectureProject p)'''
 	<!doctype html>
 	<html>
@@ -33,7 +35,12 @@ class LectureTemplate {
 			<div class="reveal">
 				<div class="slides">
 					«FOR section : p.sections»
-					<section>«section.name»</section>
+					«val useMarkDown = '''«IF section.useMarkDown»data-markdown«ENDIF»'''»
+					<section «useMarkDown»>«section.name»
+					«IF section.content!==null»
+					«stringSwitch.doSwitch(section.content)»
+					«ENDIF»
+					</section>
 					«ENDFOR»
 				</div>
 			</div>

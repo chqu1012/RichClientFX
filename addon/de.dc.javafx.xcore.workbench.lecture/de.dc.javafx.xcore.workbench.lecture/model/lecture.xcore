@@ -17,4 +17,17 @@ class LectureProject{
 
 class Section{
 	String name
+	boolean useMarkDown = 'true'
+	contains Content content
+}
+
+abstract class Content{
+}
+
+class FileContent extends Content{
+	String path
+}
+
+class StringContent extends Content{
+	String body
 }

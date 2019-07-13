@@ -121,6 +121,52 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.FileContent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FileContentItemProvider fileContentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.FileContent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFileContentAdapter() {
+		if (fileContentItemProvider == null) {
+			fileContentItemProvider = new FileContentItemProvider(this);
+		}
+
+		return fileContentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.StringContent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringContentItemProvider stringContentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.StringContent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringContentAdapter() {
+		if (stringContentItemProvider == null) {
+			stringContentItemProvider = new StringContentItemProvider(this);
+		}
+
+		return stringContentItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,6 +275,10 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 			lectureProjectItemProvider.dispose();
 		if (sectionItemProvider != null)
 			sectionItemProvider.dispose();
+		if (fileContentItemProvider != null)
+			fileContentItemProvider.dispose();
+		if (stringContentItemProvider != null)
+			stringContentItemProvider.dispose();
 	}
 
 }

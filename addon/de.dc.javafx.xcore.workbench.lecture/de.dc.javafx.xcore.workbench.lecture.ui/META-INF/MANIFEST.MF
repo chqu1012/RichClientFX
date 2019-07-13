@@ -20,7 +20,8 @@ Require-Bundle: org.eclipse.emf.edit;bundle-version="2.14.0",
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.apache.commons.io;bundle-version="2.6.0"
+ org.apache.commons.io;bundle-version="2.6.0",
+ org.apache.commons.lang3;bundle-version="3.1.0"
 Export-Package: de.dc.javafx.xcore.workbench.lecture.ui,
  de.dc.javafx.xcore.workbench.lecture.ui.file,
  de.dc.javafx.xcore.workbench.lecture.ui.manager,

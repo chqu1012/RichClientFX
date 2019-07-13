@@ -40,6 +40,24 @@ public interface LectureFactory extends EFactory {
 	Section createSection();
 
 	/**
+	 * Returns a new object of class '<em>File Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Content</em>'.
+	 * @generated
+	 */
+	FileContent createFileContent();
+
+	/**
+	 * Returns a new object of class '<em>String Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Content</em>'.
+	 * @generated
+	 */
+	StringContent createStringContent();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

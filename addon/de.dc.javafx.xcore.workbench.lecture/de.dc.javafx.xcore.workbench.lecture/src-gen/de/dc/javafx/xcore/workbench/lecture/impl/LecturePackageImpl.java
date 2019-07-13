@@ -2,10 +2,13 @@
  */
 package de.dc.javafx.xcore.workbench.lecture.impl;
 
+import de.dc.javafx.xcore.workbench.lecture.Content;
+import de.dc.javafx.xcore.workbench.lecture.FileContent;
 import de.dc.javafx.xcore.workbench.lecture.LectureFactory;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.Section;
+import de.dc.javafx.xcore.workbench.lecture.StringContent;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -35,6 +38,27 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	private EClass sectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fileContentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringContentEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -149,6 +173,76 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSection_UseMarkDown() {
+		return (EAttribute) sectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSection_Content() {
+		return (EReference) sectionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContent() {
+		return contentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getFileContent() {
+		return fileContentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFileContent_Path() {
+		return (EAttribute) fileContentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStringContent() {
+		return stringContentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStringContent_Body() {
+		return (EAttribute) stringContentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public LectureFactory getLectureFactory() {
 		return (LectureFactory) getEFactoryInstance();
 	}
@@ -178,6 +272,16 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 
 		sectionEClass = createEClass(SECTION);
 		createEAttribute(sectionEClass, SECTION__NAME);
+		createEAttribute(sectionEClass, SECTION__USE_MARK_DOWN);
+		createEReference(sectionEClass, SECTION__CONTENT);
+
+		contentEClass = createEClass(CONTENT);
+
+		fileContentEClass = createEClass(FILE_CONTENT);
+		createEAttribute(fileContentEClass, FILE_CONTENT__PATH);
+
+		stringContentEClass = createEClass(STRING_CONTENT);
+		createEAttribute(stringContentEClass, STRING_CONTENT__BODY);
 	}
 
 	/**
@@ -212,6 +316,8 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		fileContentEClass.getESuperTypes().add(this.getContent());
+		stringContentEClass.getESuperTypes().add(this.getContent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(lectureProjectEClass, LectureProject.class, "LectureProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -222,6 +328,26 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 
 		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSection_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Section.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSection_UseMarkDown(), theEcorePackage.getEBoolean(), "useMarkDown", "true", 0, 1,
+				Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getSection_Content(), this.getContent(), null, "content", null, 0, 1, Section.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(contentEClass, Content.class, "Content", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(fileContentEClass, FileContent.class, "FileContent", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFileContent_Path(), theEcorePackage.getEString(), "path", null, 0, 1, FileContent.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(stringContentEClass, StringContent.class, "StringContent", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringContent_Body(), theEcorePackage.getEString(), "body", null, 0, 1, StringContent.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

@@ -80,6 +80,31 @@ public class LectureSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case LecturePackage.CONTENT: {
+			Content content = (Content) theEObject;
+			T result = caseContent(content);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case LecturePackage.FILE_CONTENT: {
+			FileContent fileContent = (FileContent) theEObject;
+			T result = caseFileContent(fileContent);
+			if (result == null)
+				result = caseContent(fileContent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case LecturePackage.STRING_CONTENT: {
+			StringContent stringContent = (StringContent) theEObject;
+			T result = caseStringContent(stringContent);
+			if (result == null)
+				result = caseContent(stringContent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -112,6 +137,51 @@ public class LectureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSection(Section object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContent(Content object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileContent(FileContent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringContent(StringContent object) {
 		return null;
 	}
 
