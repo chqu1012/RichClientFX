@@ -24,7 +24,7 @@ public class LecturePreview extends FXPreview {
   }
   
   @Subscribe
-  public void update(final EventContext context) {
+  public void update(final EventContext<?> context) {
     // React on event sending via EventBus with a defined topic
     if (context.getEventId()!=null && context.getEventId().equals(PREVIEW_UPDATE_TOPIC)) {
     	Object input = context.getInput();
@@ -33,7 +33,7 @@ public class LecturePreview extends FXPreview {
   }
   
   @Override
-  public void changed(final ObservableValue observable, final Object oldValue, final Object newValue) {
+  public void changed(final ObservableValue<?> observable, final Object oldValue, final Object newValue) {
     // React on selection change of the defined providers
     if (newValue instanceof TreeItem) {
     	TreeItem<Object> treeItem = (TreeItem) newValue;
