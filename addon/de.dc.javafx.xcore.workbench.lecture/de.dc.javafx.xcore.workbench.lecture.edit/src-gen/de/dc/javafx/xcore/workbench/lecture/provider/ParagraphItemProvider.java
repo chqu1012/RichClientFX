@@ -86,22 +86,6 @@ public class ParagraphItemProvider extends ContentItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_HtmlElement_value_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_HtmlElement_value_feature",
-								"_UI_HtmlElement_type"),
-						LecturePackage.Literals.HTML_ELEMENT__VALUE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -204,6 +188,9 @@ public class ParagraphItemProvider extends ContentItemProvider {
 
 		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.PARAGRAPH__CHILDREN,
 				LectureFactory.eINSTANCE.createSpan()));
+
+		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.PARAGRAPH__CHILDREN,
+				LectureFactory.eINSTANCE.createCodeBlock()));
 	}
 
 }

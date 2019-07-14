@@ -172,6 +172,15 @@ public class LectureSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case LecturePackage.CODE_BLOCK: {
+			CodeBlock codeBlock = (CodeBlock) theEObject;
+			T result = caseCodeBlock(codeBlock);
+			if (result == null)
+				result = caseHtmlElement(codeBlock);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case LecturePackage.LIST_ITEM: {
 			ListItem listItem = (ListItem) theEObject;
 			T result = caseListItem(listItem);
@@ -361,6 +370,21 @@ public class LectureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSpan(Span object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Code Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Code Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCodeBlock(CodeBlock object) {
 		return null;
 	}
 

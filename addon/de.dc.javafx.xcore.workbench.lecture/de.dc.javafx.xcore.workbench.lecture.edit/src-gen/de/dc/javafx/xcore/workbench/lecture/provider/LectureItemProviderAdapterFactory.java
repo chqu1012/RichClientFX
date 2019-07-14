@@ -282,6 +282,29 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.CodeBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CodeBlockItemProvider codeBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.CodeBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCodeBlockAdapter() {
+		if (codeBlockItemProvider == null) {
+			codeBlockItemProvider = new CodeBlockItemProvider(this);
+		}
+
+		return codeBlockItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.ListItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -427,6 +450,8 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 			paragraphItemProvider.dispose();
 		if (spanItemProvider != null)
 			spanItemProvider.dispose();
+		if (codeBlockItemProvider != null)
+			codeBlockItemProvider.dispose();
 		if (listItemItemProvider != null)
 			listItemItemProvider.dispose();
 	}

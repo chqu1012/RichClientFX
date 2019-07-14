@@ -60,6 +60,10 @@ class Paragraph extends Content, HtmlElement{
 class Span extends HtmlElement{
 }
 
+class CodeBlock extends HtmlElement{
+	String language = 'java'
+}
+
 class ListItem{
 	String value = ''
 }

@@ -4,6 +4,7 @@ import static java.lang.String.format;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
+import de.dc.javafx.xcore.workbench.lecture.CodeBlock;
 import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.FileContent;
 import de.dc.javafx.xcore.workbench.lecture.Header;
@@ -102,5 +103,11 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 		}
 		sb.append("</section>");
 		return sb.toString();
+	}
+	
+	@Override
+	public String caseCodeBlock(CodeBlock object) {
+		String language = object.getLanguage();
+		return "<pre><code class=\"hljs "+language +"\" style=\"word-wrap: break-word;\">"+object.getValue()+"</code></pre>";
 	}
 }

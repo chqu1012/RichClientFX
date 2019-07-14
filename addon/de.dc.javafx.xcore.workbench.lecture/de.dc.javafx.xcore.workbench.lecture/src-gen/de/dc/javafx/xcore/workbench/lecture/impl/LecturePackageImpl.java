@@ -2,6 +2,7 @@
  */
 package de.dc.javafx.xcore.workbench.lecture.impl;
 
+import de.dc.javafx.xcore.workbench.lecture.CodeBlock;
 import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.FileContent;
 import de.dc.javafx.xcore.workbench.lecture.Header;
@@ -116,6 +117,13 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	private EClass spanEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass codeBlockEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -437,6 +445,26 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getCodeBlock() {
+		return codeBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCodeBlock_Language() {
+		return (EAttribute) codeBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getListItem() {
 		return listItemEClass;
 	}
@@ -517,6 +545,9 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 
 		spanEClass = createEClass(SPAN);
 
+		codeBlockEClass = createEClass(CODE_BLOCK);
+		createEAttribute(codeBlockEClass, CODE_BLOCK__LANGUAGE);
+
 		listItemEClass = createEClass(LIST_ITEM);
 		createEAttribute(listItemEClass, LIST_ITEM__VALUE);
 	}
@@ -562,6 +593,7 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		paragraphEClass.getESuperTypes().add(this.getContent());
 		paragraphEClass.getESuperTypes().add(this.getHtmlElement());
 		spanEClass.getESuperTypes().add(this.getHtmlElement());
+		codeBlockEClass.getESuperTypes().add(this.getHtmlElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(lectureProjectEClass, LectureProject.class, "LectureProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -629,6 +661,12 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(spanEClass, Span.class, "Span", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(codeBlockEClass, CodeBlock.class, "CodeBlock", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCodeBlock_Language(), theEcorePackage.getEString(), "language", "java", 0, 1, CodeBlock.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(listItemEClass, ListItem.class, "ListItem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
