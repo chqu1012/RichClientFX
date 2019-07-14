@@ -136,11 +136,38 @@ public class LectureSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case LecturePackage.HTML_ELEMENT: {
+			HtmlElement htmlElement = (HtmlElement) theEObject;
+			T result = caseHtmlElement(htmlElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case LecturePackage.HEADER: {
 			Header header = (Header) theEObject;
 			T result = caseHeader(header);
 			if (result == null)
 				result = caseContent(header);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case LecturePackage.PARAGRAPH: {
+			Paragraph paragraph = (Paragraph) theEObject;
+			T result = caseParagraph(paragraph);
+			if (result == null)
+				result = caseContent(paragraph);
+			if (result == null)
+				result = caseHtmlElement(paragraph);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case LecturePackage.SPAN: {
+			Span span = (Span) theEObject;
+			T result = caseSpan(span);
+			if (result == null)
+				result = caseHtmlElement(span);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -278,6 +305,21 @@ public class LectureSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Html Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Html Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHtmlElement(HtmlElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Header</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -289,6 +331,36 @@ public class LectureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHeader(Header object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Paragraph</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParagraph(Paragraph object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Span</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Span</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpan(Span object) {
 		return null;
 	}
 

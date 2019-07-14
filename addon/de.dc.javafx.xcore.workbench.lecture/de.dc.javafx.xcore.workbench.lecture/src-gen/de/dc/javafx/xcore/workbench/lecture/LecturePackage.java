@@ -363,6 +363,52 @@ public interface LecturePackage extends EPackage {
 	int STRING_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.HtmlElementImpl <em>Html Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.HtmlElementImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getHtmlElement()
+	 * @generated
+	 */
+	int HTML_ELEMENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Style Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTML_ELEMENT__STYLE_CLASS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTML_ELEMENT__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Html Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTML_ELEMENT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Html Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTML_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.HeaderImpl <em>Header</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,7 +416,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getHeader()
 	 * @generated
 	 */
-	int HEADER = 8;
+	int HEADER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -409,6 +455,107 @@ public interface LecturePackage extends EPackage {
 	int HEADER_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ParagraphImpl <em>Paragraph</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.ParagraphImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getParagraph()
+	 * @generated
+	 */
+	int PARAGRAPH = 10;
+
+	/**
+	 * The feature id for the '<em><b>Style Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__STYLE_CLASS = CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__VALUE = CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__CHILDREN = CONTENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.SpanImpl <em>Span</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.SpanImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getSpan()
+	 * @generated
+	 */
+	int SPAN = 11;
+
+	/**
+	 * The feature id for the '<em><b>Style Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPAN__STYLE_CLASS = HTML_ELEMENT__STYLE_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPAN__VALUE = HTML_ELEMENT__VALUE;
+
+	/**
+	 * The number of structural features of the '<em>Span</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPAN_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Span</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPAN_OPERATION_COUNT = HTML_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl <em>List Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,7 +563,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListItem()
 	 * @generated
 	 */
-	int LIST_ITEM = 9;
+	int LIST_ITEM = 12;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -603,6 +750,38 @@ public interface LecturePackage extends EPackage {
 	EAttribute getStringContent_Body();
 
 	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.HtmlElement <em>Html Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Html Element</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.HtmlElement
+	 * @generated
+	 */
+	EClass getHtmlElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.HtmlElement#getStyleClass <em>Style Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Style Class</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.HtmlElement#getStyleClass()
+	 * @see #getHtmlElement()
+	 * @generated
+	 */
+	EAttribute getHtmlElement_StyleClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.HtmlElement#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.HtmlElement#getValue()
+	 * @see #getHtmlElement()
+	 * @generated
+	 */
+	EAttribute getHtmlElement_Value();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.Header <em>Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -633,6 +812,37 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHeader_Value();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.Paragraph <em>Paragraph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Paragraph</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Paragraph
+	 * @generated
+	 */
+	EClass getParagraph();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.javafx.xcore.workbench.lecture.Paragraph#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Paragraph#getChildren()
+	 * @see #getParagraph()
+	 * @generated
+	 */
+	EReference getParagraph_Children();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.Span <em>Span</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Span</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Span
+	 * @generated
+	 */
+	EClass getSpan();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.ListItem <em>List Item</em>}'.
@@ -815,6 +1025,32 @@ public interface LecturePackage extends EPackage {
 		EAttribute STRING_CONTENT__BODY = eINSTANCE.getStringContent_Body();
 
 		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.HtmlElementImpl <em>Html Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.HtmlElementImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getHtmlElement()
+		 * @generated
+		 */
+		EClass HTML_ELEMENT = eINSTANCE.getHtmlElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Style Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTML_ELEMENT__STYLE_CLASS = eINSTANCE.getHtmlElement_StyleClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTML_ELEMENT__VALUE = eINSTANCE.getHtmlElement_Value();
+
+		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.HeaderImpl <em>Header</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -839,6 +1075,34 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HEADER__VALUE = eINSTANCE.getHeader_Value();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ParagraphImpl <em>Paragraph</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.ParagraphImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getParagraph()
+		 * @generated
+		 */
+		EClass PARAGRAPH = eINSTANCE.getParagraph();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAGRAPH__CHILDREN = eINSTANCE.getParagraph_Children();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.SpanImpl <em>Span</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.SpanImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getSpan()
+		 * @generated
+		 */
+		EClass SPAN = eINSTANCE.getSpan();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl <em>List Item</em>}' class.

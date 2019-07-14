@@ -70,6 +70,10 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 			return createStringContent();
 		case LecturePackage.HEADER:
 			return createHeader();
+		case LecturePackage.PARAGRAPH:
+			return createParagraph();
+		case LecturePackage.SPAN:
+			return createSpan();
 		case LecturePackage.LIST_ITEM:
 			return createListItem();
 		default:
@@ -152,6 +156,28 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 	public Header createHeader() {
 		HeaderImpl header = new HeaderImpl();
 		return header;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Paragraph createParagraph() {
+		ParagraphImpl paragraph = new ParagraphImpl();
+		return paragraph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Span createSpan() {
+		SpanImpl span = new SpanImpl();
+		return span;
 	}
 
 	/**

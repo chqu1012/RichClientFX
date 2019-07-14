@@ -85,6 +85,24 @@ public interface LectureFactory extends EFactory {
 	Header createHeader();
 
 	/**
+	 * Returns a new object of class '<em>Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Paragraph</em>'.
+	 * @generated
+	 */
+	Paragraph createParagraph();
+
+	/**
+	 * Returns a new object of class '<em>Span</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Span</em>'.
+	 * @generated
+	 */
+	Span createSpan();
+
+	/**
 	 * Returns a new object of class '<em>List Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

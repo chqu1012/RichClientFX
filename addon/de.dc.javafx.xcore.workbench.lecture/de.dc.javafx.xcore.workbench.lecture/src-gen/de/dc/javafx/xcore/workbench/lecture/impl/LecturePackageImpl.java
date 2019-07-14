@@ -5,13 +5,16 @@ package de.dc.javafx.xcore.workbench.lecture.impl;
 import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.FileContent;
 import de.dc.javafx.xcore.workbench.lecture.Header;
+import de.dc.javafx.xcore.workbench.lecture.HtmlElement;
 import de.dc.javafx.xcore.workbench.lecture.LectureFactory;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.ListContent;
 import de.dc.javafx.xcore.workbench.lecture.ListItem;
 import de.dc.javafx.xcore.workbench.lecture.OrderedListContent;
+import de.dc.javafx.xcore.workbench.lecture.Paragraph;
 import de.dc.javafx.xcore.workbench.lecture.Section;
+import de.dc.javafx.xcore.workbench.lecture.Span;
 import de.dc.javafx.xcore.workbench.lecture.StringContent;
 import de.dc.javafx.xcore.workbench.lecture.UnorderedListContent;
 
@@ -91,7 +94,28 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass htmlElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass headerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass paragraphEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass spanEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +347,36 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getHtmlElement() {
+		return htmlElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHtmlElement_StyleClass() {
+		return (EAttribute) htmlElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHtmlElement_Value() {
+		return (EAttribute) htmlElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getHeader() {
 		return headerEClass;
 	}
@@ -345,6 +399,36 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	@Override
 	public EAttribute getHeader_Value() {
 		return (EAttribute) headerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParagraph() {
+		return paragraphEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParagraph_Children() {
+		return (EReference) paragraphEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSpan() {
+		return spanEClass;
 	}
 
 	/**
@@ -420,9 +504,18 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		stringContentEClass = createEClass(STRING_CONTENT);
 		createEAttribute(stringContentEClass, STRING_CONTENT__BODY);
 
+		htmlElementEClass = createEClass(HTML_ELEMENT);
+		createEAttribute(htmlElementEClass, HTML_ELEMENT__STYLE_CLASS);
+		createEAttribute(htmlElementEClass, HTML_ELEMENT__VALUE);
+
 		headerEClass = createEClass(HEADER);
 		createEAttribute(headerEClass, HEADER__LEVEL);
 		createEAttribute(headerEClass, HEADER__VALUE);
+
+		paragraphEClass = createEClass(PARAGRAPH);
+		createEReference(paragraphEClass, PARAGRAPH__CHILDREN);
+
+		spanEClass = createEClass(SPAN);
 
 		listItemEClass = createEClass(LIST_ITEM);
 		createEAttribute(listItemEClass, LIST_ITEM__VALUE);
@@ -466,6 +559,9 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		fileContentEClass.getESuperTypes().add(this.getContent());
 		stringContentEClass.getESuperTypes().add(this.getContent());
 		headerEClass.getESuperTypes().add(this.getContent());
+		paragraphEClass.getESuperTypes().add(this.getContent());
+		paragraphEClass.getESuperTypes().add(this.getHtmlElement());
+		spanEClass.getESuperTypes().add(this.getHtmlElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(lectureProjectEClass, LectureProject.class, "LectureProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -507,20 +603,36 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 
 		initEClass(stringContentEClass, StringContent.class, "StringContent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringContent_Body(), theEcorePackage.getEString(), "body", null, 0, 1, StringContent.class,
+		initEAttribute(getStringContent_Body(), theEcorePackage.getEString(), "body", "", 0, 1, StringContent.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHtmlElement_StyleClass(), theEcorePackage.getEString(), "styleClass", "", 0, 1,
+				HtmlElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHtmlElement_Value(), theEcorePackage.getEString(), "value", "", 0, 1, HtmlElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHeader_Level(), theEcorePackage.getEInt(), "level", null, 0, 1, Header.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHeader_Value(), theEcorePackage.getEString(), "value", null, 0, 1, Header.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEAttribute(getHeader_Value(), theEcorePackage.getEString(), "value", "", 0, 1, Header.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParagraph_Children(), this.getHtmlElement(), null, "children", null, 0, -1, Paragraph.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(spanEClass, Span.class, "Span", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(listItemEClass, ListItem.class, "ListItem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getListItem_Value(), theEcorePackage.getEString(), "value", null, 0, 1, ListItem.class,
+		initEAttribute(getListItem_Value(), theEcorePackage.getEString(), "value", "", 0, 1, ListItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

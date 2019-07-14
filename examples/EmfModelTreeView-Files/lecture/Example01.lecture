@@ -27,4 +27,21 @@
     <contents xsi:type="lecture:StringContent" body="File Markdown Content"/>
     <contents xsi:type="lecture:FileContent" path="03_MarkDownExample"/>
   </sections>
+  <sections name="Header Level" useMarkDown="false">
+    <contents xsi:type="lecture:Header" level="1" value="Level 1"/>
+    <contents xsi:type="lecture:Header" level="2" value="Level 2"/>
+    <contents xsi:type="lecture:Header" level="3" value="Level 3"/>
+    <contents xsi:type="lecture:Header" level="4" value="Level 4"/>
+    <contents xsi:type="lecture:Header" level="5" value="Level 5"/>
+    <contents xsi:type="lecture:Header" level="6" value="Level 6"/>
+  </sections>
+  <sections name="Html Span" useMarkDown="false">
+    <contents xsi:type="lecture:Paragraph" value="Hit the next arrow..."/>
+    <contents xsi:type="lecture:Paragraph" styleClass="fragment" value="... to step through ..."/>
+    <contents xsi:type="lecture:Paragraph">
+      <children xsi:type="lecture:Span" styleClass="fragment" value="... a"/>
+      <children xsi:type="lecture:Span" styleClass="fragment" value="fragmented"/>
+      <children xsi:type="lecture:Span" styleClass="fragment" value="slide."/>
+    </contents>
+  </sections>
 </lecture:LectureProject>

@@ -236,6 +236,52 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.Paragraph} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParagraphItemProvider paragraphItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.Paragraph}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParagraphAdapter() {
+		if (paragraphItemProvider == null) {
+			paragraphItemProvider = new ParagraphItemProvider(this);
+		}
+
+		return paragraphItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.Span} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpanItemProvider spanItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.Span}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpanAdapter() {
+		if (spanItemProvider == null) {
+			spanItemProvider = new SpanItemProvider(this);
+		}
+
+		return spanItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.ListItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,6 +423,10 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 			stringContentItemProvider.dispose();
 		if (headerItemProvider != null)
 			headerItemProvider.dispose();
+		if (paragraphItemProvider != null)
+			paragraphItemProvider.dispose();
+		if (spanItemProvider != null)
+			spanItemProvider.dispose();
 		if (listItemItemProvider != null)
 			listItemItemProvider.dispose();
 	}

@@ -39,14 +39,27 @@ class FileContent extends Content{
 }
 
 class StringContent extends Content{
-	String body
+	String body = ''
 }
+
+abstract class HtmlElement{
+	String styleClass = ''
+	String value = ''
+}
+
 
 class Header extends Content{
 	int level
-	String value
+	String value = ''
+}
+
+class Paragraph extends Content, HtmlElement{
+	contains HtmlElement[0..*] children
+}
+
+class Span extends HtmlElement{
 }
 
 class ListItem{
-	String value
+	String value = ''
 }

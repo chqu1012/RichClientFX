@@ -7,10 +7,13 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.FileContent;
 import de.dc.javafx.xcore.workbench.lecture.Header;
+import de.dc.javafx.xcore.workbench.lecture.HtmlElement;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.ListItem;
 import de.dc.javafx.xcore.workbench.lecture.OrderedListContent;
+import de.dc.javafx.xcore.workbench.lecture.Paragraph;
 import de.dc.javafx.xcore.workbench.lecture.Section;
+import de.dc.javafx.xcore.workbench.lecture.Span;
 import de.dc.javafx.xcore.workbench.lecture.StringContent;
 import de.dc.javafx.xcore.workbench.lecture.UnorderedListContent;
 import de.dc.javafx.xcore.workbench.lecture.util.LectureSwitch;
@@ -62,6 +65,23 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 	@Override
 	public String caseStringContent(StringContent object) {
 		return ofNullable(object.getBody()).orElse(EMPTY);
+	}
+	
+	@Override
+	public String caseParagraph(Paragraph object) {
+		String styleClass = object.getStyleClass().isEmpty()? "": "class=\""+object.getStyleClass()+"\"";
+		
+		StringBuilder sb = new StringBuilder();
+		for (HtmlElement element : object.getChildren()) {
+			sb.append(doSwitch(element)).append("\n");
+		}
+		return "<p "+styleClass+">"+object.getValue()+sb.toString()+"</p>";
+	}
+	
+	@Override
+	public String caseSpan(Span object) {
+		String styleClass = object.getStyleClass().isEmpty()? "": "class=\""+object.getStyleClass()+"\"";
+		return "<span "+styleClass+">"+object.getValue()+"</span>";
 	}
 	
 	@Override

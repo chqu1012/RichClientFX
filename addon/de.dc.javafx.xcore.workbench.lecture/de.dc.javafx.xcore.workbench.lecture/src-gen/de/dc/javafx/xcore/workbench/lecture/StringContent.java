@@ -21,12 +21,13 @@ package de.dc.javafx.xcore.workbench.lecture;
 public interface StringContent extends Content {
 	/**
 	 * Returns the value of the '<em><b>Body</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Body</em>' attribute.
 	 * @see #setBody(String)
 	 * @see de.dc.javafx.xcore.workbench.lecture.LecturePackage#getStringContent_Body()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getBody();

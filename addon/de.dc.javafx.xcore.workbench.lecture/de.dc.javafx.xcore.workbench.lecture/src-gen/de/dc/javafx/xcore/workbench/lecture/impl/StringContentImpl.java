@@ -33,7 +33,7 @@ public class StringContentImpl extends ContentImpl implements StringContent {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BODY_EDEFAULT = null;
+	protected static final String BODY_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
