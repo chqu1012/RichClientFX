@@ -4,6 +4,7 @@ package de.dc.javafx.xcore.workbench.lecture;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -95,6 +96,43 @@ public interface LecturePackage extends EPackage {
 	int LECTURE_PROJECT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.TransitionElementImpl <em>Transition Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.TransitionElementImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getTransitionElement()
+	 * @generated
+	 */
+	int TRANSITION_ELEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Transition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_ELEMENT__TRANSITION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Transition Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Transition Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl <em>Section</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,13 +143,22 @@ public interface LecturePackage extends EPackage {
 	int SECTION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Transition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__TRANSITION = TRANSITION_ELEMENT__TRANSITION;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION__NAME = 0;
+	int SECTION__NAME = TRANSITION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Use Mark Down</b></em>' attribute.
@@ -120,7 +167,7 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION__USE_MARK_DOWN = 1;
+	int SECTION__USE_MARK_DOWN = TRANSITION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -129,7 +176,7 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION__CONTENTS = 2;
+	int SECTION__CONTENTS = TRANSITION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Section</em>' class.
@@ -138,7 +185,7 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION_FEATURE_COUNT = 3;
+	int SECTION_FEATURE_COUNT = TRANSITION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Section</em>' class.
@@ -147,7 +194,7 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION_OPERATION_COUNT = 0;
+	int SECTION_OPERATION_COUNT = TRANSITION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl <em>Content</em>}' class.
@@ -157,7 +204,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getContent()
 	 * @generated
 	 */
-	int CONTENT = 2;
+	int CONTENT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Content</em>' class.
@@ -185,7 +232,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListContent()
 	 * @generated
 	 */
-	int LIST_CONTENT = 3;
+	int LIST_CONTENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Item</b></em>' containment reference list.
@@ -222,7 +269,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getOrderedListContent()
 	 * @generated
 	 */
-	int ORDERED_LIST_CONTENT = 4;
+	int ORDERED_LIST_CONTENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Item</b></em>' containment reference list.
@@ -259,7 +306,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getUnorderedListContent()
 	 * @generated
 	 */
-	int UNORDERED_LIST_CONTENT = 5;
+	int UNORDERED_LIST_CONTENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Item</b></em>' containment reference list.
@@ -296,7 +343,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getFileContent()
 	 * @generated
 	 */
-	int FILE_CONTENT = 6;
+	int FILE_CONTENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -333,7 +380,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getStringContent()
 	 * @generated
 	 */
-	int STRING_CONTENT = 7;
+	int STRING_CONTENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -370,7 +417,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getHtmlElement()
 	 * @generated
 	 */
-	int HTML_ELEMENT = 8;
+	int HTML_ELEMENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Style Class</b></em>' attribute.
@@ -416,7 +463,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getHeader()
 	 * @generated
 	 */
-	int HEADER = 9;
+	int HEADER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -462,7 +509,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getParagraph()
 	 * @generated
 	 */
-	int PARAGRAPH = 10;
+	int PARAGRAPH = 11;
 
 	/**
 	 * The feature id for the '<em><b>Style Class</b></em>' attribute.
@@ -517,7 +564,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getSpan()
 	 * @generated
 	 */
-	int SPAN = 11;
+	int SPAN = 12;
 
 	/**
 	 * The feature id for the '<em><b>Style Class</b></em>' attribute.
@@ -563,7 +610,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getCodeBlock()
 	 * @generated
 	 */
-	int CODE_BLOCK = 12;
+	int CODE_BLOCK = 13;
 
 	/**
 	 * The feature id for the '<em><b>Style Class</b></em>' attribute.
@@ -618,7 +665,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListItem()
 	 * @generated
 	 */
-	int LIST_ITEM = 13;
+	int LIST_ITEM = 14;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -646,6 +693,16 @@ public interface LecturePackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_ITEM_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.Transition <em>Transition</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.Transition
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getTransition()
+	 * @generated
+	 */
+	int TRANSITION = 15;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.LectureProject <em>Project</em>}'.
@@ -710,6 +767,27 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSection_Contents();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.TransitionElement <em>Transition Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Transition Element</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.TransitionElement
+	 * @generated
+	 */
+	EClass getTransitionElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.TransitionElement#getTransition <em>Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Transition</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.TransitionElement#getTransition()
+	 * @see #getTransitionElement()
+	 * @generated
+	 */
+	EAttribute getTransitionElement_Transition();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.Content <em>Content</em>}'.
@@ -942,6 +1020,16 @@ public interface LecturePackage extends EPackage {
 	EAttribute getListItem_Value();
 
 	/**
+	 * Returns the meta object for enum '{@link de.dc.javafx.xcore.workbench.lecture.Transition <em>Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Transition</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Transition
+	 * @generated
+	 */
+	EEnum getTransition();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,6 +1103,24 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SECTION__CONTENTS = eINSTANCE.getSection_Contents();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.TransitionElementImpl <em>Transition Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.TransitionElementImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getTransitionElement()
+		 * @generated
+		 */
+		EClass TRANSITION_ELEMENT = eINSTANCE.getTransitionElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Transition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSITION_ELEMENT__TRANSITION = eINSTANCE.getTransitionElement_Transition();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl <em>Content</em>}' class.
@@ -1215,6 +1321,16 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LIST_ITEM__VALUE = eINSTANCE.getListItem_Value();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.Transition <em>Transition</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.Transition
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getTransition()
+		 * @generated
+		 */
+		EEnum TRANSITION = eINSTANCE.getTransition();
 
 	}
 

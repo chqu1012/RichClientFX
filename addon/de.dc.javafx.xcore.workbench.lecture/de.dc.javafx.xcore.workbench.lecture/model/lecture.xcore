@@ -15,10 +15,14 @@ class LectureProject{
 	contains Section[0..*] sections
 }
 
-class Section{
+class Section extends TransitionElement{
 	String name
 	boolean useMarkDown = 'true'
 	contains Content[0..*] contents
+}
+
+abstract class TransitionElement{
+	Transition transition = 'SLIDE'
 }
 
 abstract class Content{
@@ -66,4 +70,13 @@ class CodeBlock extends HtmlElement{
 
 class ListItem{
 	String value = ''
+}
+
+enum Transition{
+	NONE as "none"
+	SLIDE as "slide"
+	FADE as "fade"
+	CONVEX as "convex"
+	CONCAVE as "concave"
+	ZOOM as "zoom"
 }

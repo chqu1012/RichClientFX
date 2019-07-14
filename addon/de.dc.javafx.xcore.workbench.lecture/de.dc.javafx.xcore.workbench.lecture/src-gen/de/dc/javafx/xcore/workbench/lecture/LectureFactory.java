@@ -121,6 +121,26 @@ public interface LectureFactory extends EFactory {
 	ListItem createListItem();
 
 	/**
+	 * Returns an instance of data type '<em>Transition</em>' corresponding the given literal.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param literal a literal of the data type.
+	 * @return a new instance value of the data type.
+	 * @generated
+	 */
+	Transition createTransition(String literal);
+
+	/**
+	 * Returns a literal representation of an instance of data type '<em>Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param instanceValue an instance value of the data type.
+	 * @return a literal representation of the instance value.
+	 * @generated
+	 */
+	String convertTransition(Transition instanceValue);
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

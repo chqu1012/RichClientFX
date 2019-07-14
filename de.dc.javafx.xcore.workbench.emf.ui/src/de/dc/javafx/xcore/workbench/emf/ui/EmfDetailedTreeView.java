@@ -9,9 +9,12 @@ import java.util.Map;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandParameter;
@@ -217,7 +220,7 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 			Label label = new Label(eAttribute.getName());
 			label.setPrefWidth(100);
 			hbox.getChildren().add(label);
-
+			
 			if (eAttribute.getEType().getName().equals("EBoolean")) {
 				Boolean booleanValue = eObject.eGet(eAttribute) == null ? true : (boolean) eObject.eGet(eAttribute);
 
@@ -230,7 +233,22 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 							executeCommand(command);
 						});
 				hbox.getChildren().add(comboBox);
-			} else {
+			}else if (eAttribute.getEType() instanceof EEnum) {
+				EEnum enumeration = (EEnum) eAttribute.getEAttributeType();
+				EList<EEnumLiteral> literals = enumeration.getELiterals();
+
+				EEnumLiteral selectedLiteral = enumeration.getEEnumLiteral(eAttribute.getDefaultValueLiteral());
+				
+				ComboBox<Enumerator> enumCombo = new ComboBox<>(FXCollections.observableArrayList(literals));
+				enumCombo.getSelectionModel().select(selectedLiteral);
+				enumCombo.getSelectionModel().selectedItemProperty()
+						.addListener((ChangeListener<Enumerator>) (observable1, oldValue1, newValue1) -> {
+							Enumerator selection = enumCombo.getSelectionModel().getSelectedItem();
+							Command command = new SetCommand(editingDomain, eObject, eAttribute, selection);
+							executeCommand(command);
+						});
+				hbox.getChildren().add(enumCombo);
+			}else {
 				Button acceptButton = new Button("Accept");
 				String stringValue = eObject.eGet(eAttribute) == null ? "" : eObject.eGet(eAttribute).toString();
 				TextField textField = new TextField(stringValue);

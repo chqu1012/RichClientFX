@@ -1,5 +1,6 @@
 package de.dc.javafx.xcore.workbench.lecture.ui.template;
 
+import static de.dc.javafx.xcore.workbench.lecture.Transition.NONE;
 import static java.lang.String.format;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
@@ -16,6 +17,7 @@ import de.dc.javafx.xcore.workbench.lecture.Paragraph;
 import de.dc.javafx.xcore.workbench.lecture.Section;
 import de.dc.javafx.xcore.workbench.lecture.Span;
 import de.dc.javafx.xcore.workbench.lecture.StringContent;
+import de.dc.javafx.xcore.workbench.lecture.Transition;
 import de.dc.javafx.xcore.workbench.lecture.UnorderedListContent;
 import de.dc.javafx.xcore.workbench.lecture.util.LectureSwitch;
 
@@ -92,7 +94,9 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 			markdown = "data-markdown=\""+caseFileContent((FileContent) section.getContents().stream().filter(e-> e instanceof FileContent).findFirst().get())+"\"";
 			markdown = markdown + " data-separator=\"^\\r?\\n\\r?\\n\\r?\\n\" data-separator-vertical=\"^\\r?\\n\\r?\\n\"";
 		}
-		StringBuilder sb = new StringBuilder("<section "+markdown+">");
+		String transistion = section.getTransition()!= NONE ? " data-transition=\""+section.getTransition().name()+"\"" : EMPTY;
+		
+		StringBuilder sb = new StringBuilder("<section "+markdown+transistion+">");
 		if (!section.isUseMarkDown()) {
 			sb.append("<h1>"+section.getName()+"</h1>").append("\n");
 			sb.append("<p>").append("\n");

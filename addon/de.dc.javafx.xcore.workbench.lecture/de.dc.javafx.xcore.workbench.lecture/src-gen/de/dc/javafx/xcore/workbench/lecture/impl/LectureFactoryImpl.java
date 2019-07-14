@@ -5,6 +5,7 @@ package de.dc.javafx.xcore.workbench.lecture.impl;
 import de.dc.javafx.xcore.workbench.lecture.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -80,6 +81,36 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 			return createListItem();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+		case LecturePackage.TRANSITION:
+			return createTransitionFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+		case LecturePackage.TRANSITION:
+			return convertTransitionToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -202,6 +233,48 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 	public ListItem createListItem() {
 		ListItemImpl listItem = new ListItemImpl();
 		return listItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Transition createTransition(String literal) {
+		Transition result = Transition.get(literal);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '"
+					+ LecturePackage.Literals.TRANSITION.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Transition createTransitionFromString(EDataType eDataType, String initialValue) {
+		return createTransition(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertTransition(Transition instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTransitionToString(EDataType eDataType, Object instanceValue) {
+		return convertTransition((Transition) instanceValue);
 	}
 
 	/**

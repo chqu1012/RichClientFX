@@ -17,10 +17,13 @@ import de.dc.javafx.xcore.workbench.lecture.Paragraph;
 import de.dc.javafx.xcore.workbench.lecture.Section;
 import de.dc.javafx.xcore.workbench.lecture.Span;
 import de.dc.javafx.xcore.workbench.lecture.StringContent;
+import de.dc.javafx.xcore.workbench.lecture.Transition;
+import de.dc.javafx.xcore.workbench.lecture.TransitionElement;
 import de.dc.javafx.xcore.workbench.lecture.UnorderedListContent;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -47,6 +50,13 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	private EClass sectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass transitionElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,6 +141,13 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	private EClass listItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum transitionEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -257,6 +274,26 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	@Override
 	public EReference getSection_Contents() {
 		return (EReference) sectionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTransitionElement() {
+		return transitionElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransitionElement_Transition() {
+		return (EAttribute) transitionElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -485,6 +522,16 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getTransition() {
+		return transitionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public LectureFactory getLectureFactory() {
 		return (LectureFactory) getEFactoryInstance();
 	}
@@ -516,6 +563,9 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		createEAttribute(sectionEClass, SECTION__NAME);
 		createEAttribute(sectionEClass, SECTION__USE_MARK_DOWN);
 		createEReference(sectionEClass, SECTION__CONTENTS);
+
+		transitionElementEClass = createEClass(TRANSITION_ELEMENT);
+		createEAttribute(transitionElementEClass, TRANSITION_ELEMENT__TRANSITION);
 
 		contentEClass = createEClass(CONTENT);
 
@@ -550,6 +600,9 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 
 		listItemEClass = createEClass(LIST_ITEM);
 		createEAttribute(listItemEClass, LIST_ITEM__VALUE);
+
+		// Create enums
+		transitionEEnum = createEEnum(TRANSITION);
 	}
 
 	/**
@@ -584,6 +637,7 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sectionEClass.getESuperTypes().add(this.getTransitionElement());
 		listContentEClass.getESuperTypes().add(this.getContent());
 		orderedListContentEClass.getESuperTypes().add(this.getListContent());
 		unorderedListContentEClass.getESuperTypes().add(this.getListContent());
@@ -612,6 +666,12 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		initEReference(getSection_Contents(), this.getContent(), null, "contents", null, 0, -1, Section.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(transitionElementEClass, TransitionElement.class, "TransitionElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTransitionElement_Transition(), this.getTransition(), "transition", "SLIDE", 0, 1,
+				TransitionElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(contentEClass, Content.class, "Content", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -673,6 +733,15 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		initEAttribute(getListItem_Value(), theEcorePackage.getEString(), "value", "", 0, 1, ListItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(transitionEEnum, Transition.class, "Transition");
+		addEEnumLiteral(transitionEEnum, Transition.NONE);
+		addEEnumLiteral(transitionEEnum, Transition.SLIDE);
+		addEEnumLiteral(transitionEEnum, Transition.FADE);
+		addEEnumLiteral(transitionEEnum, Transition.CONVEX);
+		addEEnumLiteral(transitionEEnum, Transition.CONCAVE);
+		addEEnumLiteral(transitionEEnum, Transition.ZOOM);
 
 		// Create resource
 		createResource(eNS_URI);

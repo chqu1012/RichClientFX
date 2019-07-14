@@ -77,6 +77,11 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseTransitionElement(TransitionElement object) {
+			return createTransitionElementAdapter();
+		}
+
+		@Override
 		public Adapter caseContent(Content object) {
 			return createContentAdapter();
 		}
@@ -180,6 +185,20 @@ public class LectureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.javafx.xcore.workbench.lecture.TransitionElement <em>Transition Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.javafx.xcore.workbench.lecture.TransitionElement
+	 * @generated
+	 */
+	public Adapter createTransitionElementAdapter() {
 		return null;
 	}
 
