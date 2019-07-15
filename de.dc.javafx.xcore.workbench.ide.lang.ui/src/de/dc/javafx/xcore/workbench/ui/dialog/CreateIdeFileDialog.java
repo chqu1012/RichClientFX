@@ -52,6 +52,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 	 */
 	public CreateIdeFileDialog(Shell parentShell) {
 		super(parentShell);
+		setBlockOnOpen(false);
 	}
 
 	/**

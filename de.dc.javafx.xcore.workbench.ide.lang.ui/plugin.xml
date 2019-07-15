@@ -4,13 +4,14 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="de.dc.javafx.xcore.workbench.ui.IdeDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
-			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-			default="true"
-			extensions="ide"
-			id="de.dc.javafx.xcore.workbench.IdeDsl"
-			matchingStrategy="de.dc.javafx.xcore.workbench.ui.IdeDslExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.editor.JavaEditorInputMatcher"
-			name="IdeDsl Editor">
+        class="de.dc.javafx.xcore.workbench.ui.IdeDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+        contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+        default="true"
+        extensions="ide"
+        icon="icons/icons8-einheit-16.png"
+        id="de.dc.javafx.xcore.workbench.IdeDsl"
+        matchingStrategy="de.dc.javafx.xcore.workbench.ui.IdeDslExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.editor.JavaEditorInputMatcher"
+        name="IdeDsl Editor">
 		</editor>
 	</extension>
 	<extension
@@ -598,6 +599,7 @@
           locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
        <command
              commandId="de.dc.javafx.xcore.workbench.ide.lang.ui.CreateIdeFileCommand"
+             icon="icons/icons8-einheit-16.png"
              label="Create Ide File"
              style="push">
           <visibleWhen
