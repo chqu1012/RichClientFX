@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <lecture:LectureProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lecture="http://www.frateranatis.org/workbench/lecture">
-  <sections name="Chapter One" useMarkDown="false">
+  <sections transition="slide" name="Chapter One">
     <contents xsi:type="lecture:StringContent" body="List Items"/>
     <contents xsi:type="lecture:OrderedListContent">
       <item value="Windows"/>
@@ -11,7 +11,7 @@
       <item value="WIndows CE"/>
     </contents>
   </sections>
-  <sections name="Chapter Two" useMarkDown="false">
+  <sections name="Chapter Two">
     <contents xsi:type="lecture:StringContent" body="Unordered List"/>
     <contents xsi:type="lecture:UnorderedListContent">
       <item value="WIndows CE"/>
@@ -27,7 +27,7 @@
     <contents xsi:type="lecture:StringContent" body="File Markdown Content"/>
     <contents xsi:type="lecture:FileContent" path="03_MarkDownExample"/>
   </sections>
-  <sections name="Header Level" useMarkDown="false">
+  <sections name="Header Level">
     <contents xsi:type="lecture:Header" level="1" value="Level 1"/>
     <contents xsi:type="lecture:Header" level="2" value="Level 2"/>
     <contents xsi:type="lecture:Header" level="3" value="Level 3"/>
@@ -35,7 +35,7 @@
     <contents xsi:type="lecture:Header" level="5" value="Level 5"/>
     <contents xsi:type="lecture:Header" level="6" value="Level 6"/>
   </sections>
-  <sections name="Html Span" useMarkDown="false">
+  <sections name="Html Span">
     <contents xsi:type="lecture:Paragraph" value="Hit the next arrow..."/>
     <contents xsi:type="lecture:Paragraph" styleClass="fragment" value="... to step through ..."/>
     <contents xsi:type="lecture:Paragraph">

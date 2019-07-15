@@ -88,10 +88,10 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 		values.add(false);
 	}
 
-	public EmfTreeModelView<T> getTreeView(){
+	public EmfTreeModelView<T> getTreeView() {
 		return treeView;
 	}
-	
+
 	protected void addToToolbar(Node node) {
 		toolbar.getChildren().add(node);
 	}
@@ -141,7 +141,7 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 						IItemLabelProvider.class)).getText(commandParameter.getValue());
 				Object icon = ((IItemLabelProvider) manager.getAdapterFactory().adapt(commandParameter.getValue(),
 						IItemLabelProvider.class)).getImage(commandParameter.getValue());
-				
+
 				Button button = new Button();
 				button.setTooltip(new Tooltip(menuText));
 				button.setGraphic(new ImageView(new Image(((URL) icon).toExternalForm())));
@@ -153,11 +153,13 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 					Command command = AddCommand.create(editingDomain, eObject, id, obj);
 					command.execute();
 
-					DIPlatform.getInstance(IEventBroker.class).post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
+					DIPlatform.getInstance(IEventBroker.class)
+							.post(new EventContext<>(EventTopic.COMMAND_STACK_REFRESH, CommandFactory.create(command)));
 					treeView.getTreeView().getSelectionModel().getSelectedItem().setExpanded(true);
-					
-					ObservableList<TreeItem<Object>> children = treeView.getTreeView().getSelectionModel().getSelectedItem().getChildren();
-					treeView.getTreeView().getSelectionModel().select(children.get(children.size()-1));
+
+					ObservableList<TreeItem<Object>> children = treeView.getTreeView().getSelectionModel()
+							.getSelectedItem().getChildren();
+					treeView.getTreeView().getSelectionModel().select(children.get(children.size() - 1));
 				});
 				childToolbar.getChildren().add(button);
 			}
@@ -220,7 +222,7 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 			Label label = new Label(eAttribute.getName());
 			label.setPrefWidth(100);
 			hbox.getChildren().add(label);
-			
+
 			if (eAttribute.getEType().getName().equals("EBoolean")) {
 				Boolean booleanValue = eObject.eGet(eAttribute) == null ? true : (boolean) eObject.eGet(eAttribute);
 
@@ -233,22 +235,25 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 							executeCommand(command);
 						});
 				hbox.getChildren().add(comboBox);
-			}else if (eAttribute.getEType() instanceof EEnum) {
+			} else if (eAttribute.getEType() instanceof EEnum) {
 				EEnum enumeration = (EEnum) eAttribute.getEAttributeType();
 				EList<EEnumLiteral> literals = enumeration.getELiterals();
 
 				EEnumLiteral selectedLiteral = enumeration.getEEnumLiteral(eAttribute.getDefaultValueLiteral());
-				
-				ComboBox<Enumerator> enumCombo = new ComboBox<>(FXCollections.observableArrayList(literals));
+
+				ComboBox<EEnumLiteral> enumCombo = new ComboBox<>(FXCollections.observableArrayList(literals));
 				enumCombo.getSelectionModel().select(selectedLiteral);
 				enumCombo.getSelectionModel().selectedItemProperty()
-						.addListener((ChangeListener<Enumerator>) (observable1, oldValue1, newValue1) -> {
+						.addListener((ChangeListener<EEnumLiteral>) (observable1, oldValue1, newValue1) -> {
 							Enumerator selection = enumCombo.getSelectionModel().getSelectedItem();
-							Command command = new SetCommand(editingDomain, eObject, eAttribute, selection);
+							EEnumLiteral enumLiteral = enumeration.getEEnumLiteral(selection.getName());
+							Command command = new SetCommand(editingDomain, eObject, eAttribute,
+									enumLiteral.getInstance());
 							executeCommand(command);
 						});
+
 				hbox.getChildren().add(enumCombo);
-			}else {
+			} else {
 				Button acceptButton = new Button("Accept");
 				String stringValue = eObject.eGet(eAttribute) == null ? "" : eObject.eGet(eAttribute).toString();
 				TextField textField = new TextField(stringValue);
@@ -281,7 +286,7 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 		acceptAllButton.setOnAction(event -> {
 			eattributeUIMap.entrySet().stream().forEach(e -> {
 				if (e.getValue().getStyle().equals(EDITED_STYLE)) {
-					setValue(eObject, e.getKey(),  e.getValue());
+					setValue(eObject, e.getKey(), e.getValue());
 				}
 			});
 		});
@@ -291,12 +296,11 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 	private void setValue(EObject eObject, EAttribute eAttribute, TextField textField) {
 		Command command = null;
 		if (eAttribute.getEType().getName().contains("Double")) {
-			command = new SetCommand(editingDomain, eObject, eAttribute,
-					Double.parseDouble(textField.getText()));
-		} else if (eAttribute.getEType().getName().contains("Integer") || eAttribute.getEType().getName().contains("Int")) {
-			command = new SetCommand(editingDomain, eObject, eAttribute,
-					Integer.parseInt(textField.getText()));
-		}else {
+			command = new SetCommand(editingDomain, eObject, eAttribute, Double.parseDouble(textField.getText()));
+		} else if (eAttribute.getEType().getName().contains("Integer")
+				|| eAttribute.getEType().getName().contains("Int")) {
+			command = new SetCommand(editingDomain, eObject, eAttribute, Integer.parseInt(textField.getText()));
+		} else {
 			command = new SetCommand(editingDomain, eObject, eAttribute, textField.getText());
 		}
 		executeCommand(command);
