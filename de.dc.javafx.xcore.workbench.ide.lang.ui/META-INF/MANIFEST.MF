@@ -18,8 +18,11 @@ Require-Bundle: de.dc.javafx.xcore.workbench.ide.lang,
  org.eclipse.ui,
  org.eclipse.xtext.xbase.ui,
  org.eclipse.compare,
- org.eclipse.xtext.builder,org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional,
- org.eclipse.jdt.debug.ui
+ org.eclipse.xtext.builder,
+ org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional,
+ org.eclipse.jdt.debug.ui,
+ org.eclipse.jdt.ui,
+ org.eclipse.jdt.core
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.dc.javafx.xcore.workbench.ui.quickfix,

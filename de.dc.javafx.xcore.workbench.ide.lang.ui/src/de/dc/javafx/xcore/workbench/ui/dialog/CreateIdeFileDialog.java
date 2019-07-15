@@ -1,5 +1,8 @@
 package de.dc.javafx.xcore.workbench.ui.dialog;
 
+import org.eclipse.jdt.core.search.IJavaSearchConstants;
+import org.eclipse.jdt.internal.ui.JavaUIMessages;
+import org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.ListViewer;
@@ -9,7 +12,15 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.SelectionDialog;
 
 public class CreateIdeFileDialog extends TitleAreaDialog {
 
@@ -63,6 +74,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		ecoreFileButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+
 			}
 		});
 		ecoreFileButton.setText("...");
@@ -81,6 +93,22 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button factoryButton = new Button(container, SWT.NONE);
 		factoryButton.setText("...");
+		factoryButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
+						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
+				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
+				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
+
+				int result = dialog.open();
+				if (result == SWT.OK) {
+					for (Object obj : dialog.getResult()) {
+						System.out.println(obj);
+					}
+				}
+			}
+		});
 
 		Label lblIdePackage = new Label(container, SWT.NONE);
 		lblIdePackage.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
@@ -92,7 +120,23 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		Button packageButton = new Button(container, SWT.NONE);
 		packageButton.setText("...");
 		new Label(container, SWT.NONE);
+		packageButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
+						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
+				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
+				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
 
+				int result = dialog.open();
+				if (result == SWT.OK) {
+					for (Object obj : dialog.getResult()) {
+						System.out.println(obj);
+					}
+				}
+			}
+		});
+		
 		Label lblNewLabel = new Label(container, SWT.NONE);
 		lblNewLabel.setText("Generate ItemProviderAdapterFactory");
 		new Label(container, SWT.NONE);
@@ -106,7 +150,23 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button itemProviderAdapterFactoryButton = new Button(container, SWT.NONE);
 		itemProviderAdapterFactoryButton.setText("...");
+		itemProviderAdapterFactoryButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
+						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
+				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
+				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
 
+				int result = dialog.open();
+				if (result == SWT.OK) {
+					for (Object obj : dialog.getResult()) {
+						System.out.println(obj);
+					}
+				}
+			}
+		});
+		
 		Label lblIdeRootmodel = new Label(container, SWT.NONE);
 		lblIdeRootmodel.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblIdeRootmodel.setText("Ide RootModel:");
@@ -116,7 +176,23 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button rootModelButton = new Button(container, SWT.NONE);
 		rootModelButton.setText("...");
+		rootModelButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
+						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
+				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
+				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
 
+				int result = dialog.open();
+				if (result == SWT.OK) {
+					for (Object obj : dialog.getResult()) {
+						System.out.println(obj);
+					}
+				}
+			}
+		});
+		
 		Label lblIdeModelswitchl = new Label(container, SWT.NONE);
 		lblIdeModelswitchl.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblIdeModelswitchl.setText("Ide ModelSwitch:");
@@ -126,7 +202,23 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button modelSwitchButton = new Button(container, SWT.NONE);
 		modelSwitchButton.setText("...");
+		modelSwitchButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
+						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
+				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
+				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
 
+				int result = dialog.open();
+				if (result == SWT.OK) {
+					for (Object obj : dialog.getResult()) {
+						System.out.println(obj);
+					}
+				}
+			}
+		});
+		
 		Label lblEditableAttributes = new Label(container, SWT.NONE);
 		lblEditableAttributes.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
 		lblEditableAttributes.setText("Editable Attributes");
