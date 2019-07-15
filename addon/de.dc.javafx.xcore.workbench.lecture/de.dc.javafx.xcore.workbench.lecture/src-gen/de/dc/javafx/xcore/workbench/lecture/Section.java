@@ -25,12 +25,13 @@ import org.eclipse.emf.common.util.EList;
 public interface Section extends TransitionElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.dc.javafx.xcore.workbench.lecture.LecturePackage#getSection_Name()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getName();
