@@ -47,13 +47,13 @@ public interface Section extends TransitionElement {
 
 	/**
 	 * Returns the value of the '<em><b>Use Mark Down</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Use Mark Down</em>' attribute.
 	 * @see #setUseMarkDown(boolean)
 	 * @see de.dc.javafx.xcore.workbench.lecture.LecturePackage#getSection_UseMarkDown()
-	 * @model default="true" unique="false"
+	 * @model default="false" unique="false"
 	 * @generated
 	 */
 	boolean isUseMarkDown();

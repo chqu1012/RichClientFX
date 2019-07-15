@@ -660,7 +660,7 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		initEAttribute(getSection_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Section.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getSection_UseMarkDown(), theEcorePackage.getEBoolean(), "useMarkDown", "true", 0, 1,
+		initEAttribute(getSection_UseMarkDown(), theEcorePackage.getEBoolean(), "useMarkDown", "false", 0, 1,
 				Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getSection_Contents(), this.getContent(), null, "contents", null, 0, -1, Section.class,
@@ -669,7 +669,7 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 
 		initEClass(transitionElementEClass, TransitionElement.class, "TransitionElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTransitionElement_Transition(), this.getTransition(), "transition", "SLIDE", 0, 1,
+		initEAttribute(getTransitionElement_Transition(), this.getTransition(), "transition", null, 0, 1,
 				TransitionElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 

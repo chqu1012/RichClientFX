@@ -65,7 +65,7 @@ public class SectionImpl extends TransitionElementImpl implements Section {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean USE_MARK_DOWN_EDEFAULT = true;
+	protected static final boolean USE_MARK_DOWN_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #isUseMarkDown() <em>Use Mark Down</em>}' attribute.

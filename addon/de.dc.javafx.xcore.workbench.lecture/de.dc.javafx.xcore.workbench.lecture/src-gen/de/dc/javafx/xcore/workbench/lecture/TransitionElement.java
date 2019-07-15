@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
 public interface TransitionElement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Transition</b></em>' attribute.
-	 * The default value is <code>"SLIDE"</code>.
 	 * The literals are from the enumeration {@link de.dc.javafx.xcore.workbench.lecture.Transition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,7 +30,7 @@ public interface TransitionElement extends EObject {
 	 * @see de.dc.javafx.xcore.workbench.lecture.Transition
 	 * @see #setTransition(Transition)
 	 * @see de.dc.javafx.xcore.workbench.lecture.LecturePackage#getTransitionElement_Transition()
-	 * @model default="SLIDE" unique="false"
+	 * @model unique="false"
 	 * @generated
 	 */
 	Transition getTransition();

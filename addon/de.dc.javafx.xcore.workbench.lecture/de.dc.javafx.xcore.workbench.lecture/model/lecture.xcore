@@ -17,12 +17,12 @@ class LectureProject{
 
 class Section extends TransitionElement{
 	String name
-	boolean useMarkDown = 'true'
+	boolean useMarkDown = 'false'
 	contains Content[0..*] contents
 }
 
 abstract class TransitionElement{
-	Transition transition = 'SLIDE'
+	Transition transition
 }
 
 abstract class Content{
