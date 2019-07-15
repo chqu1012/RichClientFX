@@ -2,6 +2,8 @@ package de.dc.javafx.xcore.workbench.ui.dialog;
 
 import java.util.function.Consumer;
 
+import org.eclipse.emf.common.ui.dialogs.ResourceDialog;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.search.IJavaSearchConstants;
 import org.eclipse.jdt.internal.core.CompilationUnit;
@@ -78,7 +80,12 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		ecoreFileButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-
+				ResourceDialog dialog = new EcoreResourceDialog(new Shell(), "Select an Ecore Resource", SWT.OPEN | SWT.MULTI);
+				if (dialog.open() == ResourceDialog.OK) {
+					for (URI uri : dialog.getURIs()) {
+						ecoreFileText.setText(uri.toFileString());
+					}
+				}
 			}
 		});
 		ecoreFileButton.setText("...");
