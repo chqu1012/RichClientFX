@@ -590,4 +590,29 @@
 			type="text">
 		</fileTypes>
 	</extension>
+	
+	 <extension
+       point="org.eclipse.ui.menus">
+    <menuContribution
+          allPopups="false"
+          locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+       <command
+             commandId="de.dc.javafx.xcore.workbench.ide.lang.ui.CreateIdeFileCommand"
+             label="Create Ide File"
+             style="push">
+          <visibleWhen
+                checkEnabled="false">
+             <with
+                   variable="activeMenuSelection">
+                <iterate
+                      ifEmpty="false">
+                   <adapt
+                         type="org.eclipse.core.resources.IResource">
+                   </adapt>
+                </iterate>
+             </with>
+          </visibleWhen>
+       </command>
+    </menuContribution>
+ </extension>
 </plugin>
