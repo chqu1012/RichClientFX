@@ -11,13 +11,13 @@ import de.dc.javafx.xcore.workbench.lecture.FileContent;
 import de.dc.javafx.xcore.workbench.lecture.Header;
 import de.dc.javafx.xcore.workbench.lecture.HtmlElement;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
+import de.dc.javafx.xcore.workbench.lecture.Link;
 import de.dc.javafx.xcore.workbench.lecture.ListItem;
 import de.dc.javafx.xcore.workbench.lecture.OrderedListContent;
 import de.dc.javafx.xcore.workbench.lecture.Paragraph;
 import de.dc.javafx.xcore.workbench.lecture.Section;
 import de.dc.javafx.xcore.workbench.lecture.Span;
 import de.dc.javafx.xcore.workbench.lecture.StringContent;
-import de.dc.javafx.xcore.workbench.lecture.Transition;
 import de.dc.javafx.xcore.workbench.lecture.UnorderedListContent;
 import de.dc.javafx.xcore.workbench.lecture.util.LectureSwitch;
 
@@ -113,5 +113,10 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 	public String caseCodeBlock(CodeBlock object) {
 		String language = object.getLanguage();
 		return "<pre><code class=\"hljs "+language +"\" style=\"word-wrap: break-word;\">"+object.getValue()+"</code></pre>";
+	}
+	
+	@Override
+	public String caseLink(Link object) {
+		return "<a href=\""+object.getHref()+"\" class=\""+object.getStyleClass()+"\">"+object.getValue()+"</a>";
 	}
 }
