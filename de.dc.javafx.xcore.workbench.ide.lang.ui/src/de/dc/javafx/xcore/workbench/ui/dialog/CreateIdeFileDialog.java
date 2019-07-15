@@ -1,6 +1,11 @@
 package de.dc.javafx.xcore.workbench.ui.dialog;
 
+import java.util.function.Consumer;
+
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.search.IJavaSearchConstants;
+import org.eclipse.jdt.internal.core.CompilationUnit;
+import org.eclipse.jdt.internal.core.SourceType;
 import org.eclipse.jdt.internal.ui.JavaUIMessages;
 import org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -93,22 +98,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button factoryButton = new Button(container, SWT.NONE);
 		factoryButton.setText("...");
-		factoryButton.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
-						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
-				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
-				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
-
-				int result = dialog.open();
-				if (result == SWT.OK) {
-					for (Object obj : dialog.getResult()) {
-						System.out.println(obj);
-					}
-				}
-			}
-		});
+		factoryButton.addListener(SWT.Selection, event -> openTypeDialog(value-> factoryText.setText(value)));
 
 		Label lblIdePackage = new Label(container, SWT.NONE);
 		lblIdePackage.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
@@ -120,23 +110,8 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		Button packageButton = new Button(container, SWT.NONE);
 		packageButton.setText("...");
 		new Label(container, SWT.NONE);
-		packageButton.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
-						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
-				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
-				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
+		packageButton.addListener(SWT.Selection, event -> openTypeDialog(value-> packageText.setText(value)));
 
-				int result = dialog.open();
-				if (result == SWT.OK) {
-					for (Object obj : dialog.getResult()) {
-						System.out.println(obj);
-					}
-				}
-			}
-		});
-		
 		Label lblNewLabel = new Label(container, SWT.NONE);
 		lblNewLabel.setText("Generate ItemProviderAdapterFactory");
 		new Label(container, SWT.NONE);
@@ -150,23 +125,8 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button itemProviderAdapterFactoryButton = new Button(container, SWT.NONE);
 		itemProviderAdapterFactoryButton.setText("...");
-		itemProviderAdapterFactoryButton.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
-						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
-				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
-				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
+		itemProviderAdapterFactoryButton.addListener(SWT.Selection, event -> openTypeDialog(value-> itemProviderAdapterFactoryText.setText(value)));
 
-				int result = dialog.open();
-				if (result == SWT.OK) {
-					for (Object obj : dialog.getResult()) {
-						System.out.println(obj);
-					}
-				}
-			}
-		});
-		
 		Label lblIdeRootmodel = new Label(container, SWT.NONE);
 		lblIdeRootmodel.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblIdeRootmodel.setText("Ide RootModel:");
@@ -176,23 +136,8 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button rootModelButton = new Button(container, SWT.NONE);
 		rootModelButton.setText("...");
-		rootModelButton.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
-						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
-				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
-				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
+		rootModelButton.addListener(SWT.Selection, event -> openTypeDialog(value-> rootModelText.setText(value)));
 
-				int result = dialog.open();
-				if (result == SWT.OK) {
-					for (Object obj : dialog.getResult()) {
-						System.out.println(obj);
-					}
-				}
-			}
-		});
-		
 		Label lblIdeModelswitchl = new Label(container, SWT.NONE);
 		lblIdeModelswitchl.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblIdeModelswitchl.setText("Ide ModelSwitch:");
@@ -202,23 +147,8 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button modelSwitchButton = new Button(container, SWT.NONE);
 		modelSwitchButton.setText("...");
-		modelSwitchButton.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				SelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
-						PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.TYPE);
-				dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
-				dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
+		modelSwitchButton.addListener(SWT.Selection, event -> openTypeDialog(value-> modelSwitchText.setText(value)));
 
-				int result = dialog.open();
-				if (result == SWT.OK) {
-					for (Object obj : dialog.getResult()) {
-						System.out.println(obj);
-					}
-				}
-			}
-		});
-		
 		Label lblEditableAttributes = new Label(container, SWT.NONE);
 		lblEditableAttributes.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
 		lblEditableAttributes.setText("Editable Attributes");
@@ -252,6 +182,30 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		return area;
 	}
 
+	private void openTypeDialog(Consumer<String> consumer) {
+		OpenTypeSelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
+				PlatformUI.getWorkbench().getProgressService(), null, IJavaSearchConstants.INTERFACE);
+		dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
+		dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
+		dialog.setInitialPattern("*Switch");
+		
+		int result = dialog.open();
+		if (result == SWT.OK) {
+			for (Object obj : dialog.getResult()) {
+				if (obj instanceof SourceType) {
+					SourceType type = (SourceType) obj;
+					CompilationUnit element = (CompilationUnit) type.getParent();
+					try {
+						consumer.accept(element.getPackageDeclarations()[0].getElementName() + "."
+								+ element.getElementName());
+					} catch (JavaModelException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		}
+	}
+	
 	/**
 	 * Create contents of the button bar.
 	 * 
