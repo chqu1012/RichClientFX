@@ -32,7 +32,7 @@ public class EcoreResourceDialog extends ResourceDialog {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
 				FileDialog fileDialog = new FileDialog(getShell(), style);
-				fileDialog.setFilterExtensions(new String[] { "*.ecore" });
+				fileDialog.setFilterExtensions(new String[] { "*.ecore", "*.xcore" });
 				fileDialog.open();
 
 				String filterPath = fileDialog.getFilterPath();
