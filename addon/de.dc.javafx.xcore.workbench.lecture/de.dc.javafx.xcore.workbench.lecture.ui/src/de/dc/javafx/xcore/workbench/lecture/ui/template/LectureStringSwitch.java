@@ -94,7 +94,7 @@ public class LectureStringSwitch extends LectureSwitch<String>{
 			markdown = "data-markdown=\""+caseFileContent((FileContent) section.getContents().stream().filter(e-> e instanceof FileContent).findFirst().get())+"\"";
 			markdown = markdown + " data-separator=\"^\\r?\\n\\r?\\n\\r?\\n\" data-separator-vertical=\"^\\r?\\n\\r?\\n\"";
 		}
-		String transistion = section.getTransition()!= NONE ? " data-transition=\""+section.getTransition().name()+"\"" : EMPTY;
+		String transistion = section.getTransition()!= NONE ? " data-transition=\""+section.getTransition().getLiteral()+"\"" : EMPTY;
 		
 		StringBuilder sb = new StringBuilder("<section "+markdown+transistion+">");
 		if (!section.isUseMarkDown()) {
