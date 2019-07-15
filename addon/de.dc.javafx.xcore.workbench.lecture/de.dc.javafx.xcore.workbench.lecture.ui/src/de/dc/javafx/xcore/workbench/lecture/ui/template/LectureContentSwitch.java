@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 
 import org.apache.commons.io.FileUtils;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
 import de.dc.javafx.xcore.workbench.lecture.Section;
@@ -38,7 +39,7 @@ public class LectureContentSwitch extends LectureSwitch<Void>{
 	
 	@Override
 	public Void caseSection(Section section) {
-		LectureProject project = (LectureProject) section.eContainer();
+		LectureProject project = (LectureProject) EcoreUtil.getRootContainer(section);
 		int indexOf = project.getSections().indexOf(section);
 		String format = "Section_"+df.format(indexOf);
 		try {
