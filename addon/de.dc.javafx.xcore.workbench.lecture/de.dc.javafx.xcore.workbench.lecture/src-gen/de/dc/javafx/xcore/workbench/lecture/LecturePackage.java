@@ -96,6 +96,98 @@ public interface LecturePackage extends EPackage {
 	int LECTURE_PROJECT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl <em>Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getContent()
+	 * @generated
+	 */
+	int CONTENT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl <em>Section</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getSection()
+	 * @generated
+	 */
+	int SECTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Transition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__TRANSITION = CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__NAME = CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Use Mark Down</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__USE_MARK_DOWN = CONTENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__CONTENTS = CONTENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.TransitionElementImpl <em>Transition Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,98 +223,6 @@ public interface LecturePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRANSITION_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl <em>Section</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl
-	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getSection()
-	 * @generated
-	 */
-	int SECTION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Transition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTION__TRANSITION = TRANSITION_ELEMENT__TRANSITION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTION__NAME = TRANSITION_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Use Mark Down</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTION__USE_MARK_DOWN = TRANSITION_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTION__CONTENTS = TRANSITION_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Section</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTION_FEATURE_COUNT = TRANSITION_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Section</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTION_OPERATION_COUNT = TRANSITION_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl <em>Content</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.dc.javafx.xcore.workbench.lecture.impl.ContentImpl
-	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getContent()
-	 * @generated
-	 */
-	int CONTENT = 3;
-
-	/**
-	 * The number of structural features of the '<em>Content</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Content</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListContentImpl <em>List Content</em>}' class.

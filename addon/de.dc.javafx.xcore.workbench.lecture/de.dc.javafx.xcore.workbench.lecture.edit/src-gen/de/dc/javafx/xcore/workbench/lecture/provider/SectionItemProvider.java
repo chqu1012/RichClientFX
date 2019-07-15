@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SectionItemProvider extends TransitionElementItemProvider {
+public class SectionItemProvider extends ContentItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -45,10 +45,27 @@ public class SectionItemProvider extends TransitionElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTransitionPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addUseMarkDownPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Transition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTransitionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_TransitionElement_transition_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_TransitionElement_transition_feature",
+								"_UI_TransitionElement_type"),
+						LecturePackage.Literals.TRANSITION_ELEMENT__TRANSITION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -158,6 +175,7 @@ public class SectionItemProvider extends TransitionElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Section.class)) {
+		case LecturePackage.SECTION__TRANSITION:
 		case LecturePackage.SECTION__NAME:
 		case LecturePackage.SECTION__USE_MARK_DOWN:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -179,6 +197,9 @@ public class SectionItemProvider extends TransitionElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
+				LectureFactory.eINSTANCE.createSection()));
 
 		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
 				LectureFactory.eINSTANCE.createOrderedListContent()));

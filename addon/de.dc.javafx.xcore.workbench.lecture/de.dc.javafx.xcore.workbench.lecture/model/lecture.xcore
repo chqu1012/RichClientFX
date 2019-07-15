@@ -15,7 +15,7 @@ class LectureProject{
 	contains Section[0..*] sections
 }
 
-class Section extends TransitionElement{
+class Section extends Content, TransitionElement{
 	String name = ''
 	boolean useMarkDown = 'false'
 	contains Content[0..*] contents

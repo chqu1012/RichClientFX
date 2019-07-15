@@ -5,6 +5,8 @@ package de.dc.javafx.xcore.workbench.lecture.impl;
 import de.dc.javafx.xcore.workbench.lecture.Content;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.Section;
+import de.dc.javafx.xcore.workbench.lecture.Transition;
+import de.dc.javafx.xcore.workbench.lecture.TransitionElement;
 
 import java.util.Collection;
 
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl#getTransition <em>Transition</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl#isUseMarkDown <em>Use Mark Down</em>}</li>
  *   <li>{@link de.dc.javafx.xcore.workbench.lecture.impl.SectionImpl#getContents <em>Contents</em>}</li>
@@ -36,7 +39,27 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SectionImpl extends TransitionElementImpl implements Section {
+public class SectionImpl extends ContentImpl implements Section {
+	/**
+	 * The default value of the '{@link #getTransition() <em>Transition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Transition TRANSITION_EDEFAULT = Transition.NONE;
+
+	/**
+	 * The cached value of the '{@link #getTransition() <em>Transition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransition()
+	 * @generated
+	 * @ordered
+	 */
+	protected Transition transition = TRANSITION_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -104,6 +127,30 @@ public class SectionImpl extends TransitionElementImpl implements Section {
 	@Override
 	protected EClass eStaticClass() {
 		return LecturePackage.Literals.SECTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Transition getTransition() {
+		return transition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTransition(Transition newTransition) {
+		Transition oldTransition = transition;
+		transition = newTransition == null ? TRANSITION_EDEFAULT : newTransition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LecturePackage.SECTION__TRANSITION, oldTransition,
+					transition));
 	}
 
 	/**
@@ -188,6 +235,8 @@ public class SectionImpl extends TransitionElementImpl implements Section {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case LecturePackage.SECTION__TRANSITION:
+			return getTransition();
 		case LecturePackage.SECTION__NAME:
 			return getName();
 		case LecturePackage.SECTION__USE_MARK_DOWN:
@@ -207,6 +256,9 @@ public class SectionImpl extends TransitionElementImpl implements Section {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case LecturePackage.SECTION__TRANSITION:
+			setTransition((Transition) newValue);
+			return;
 		case LecturePackage.SECTION__NAME:
 			setName((String) newValue);
 			return;
@@ -229,6 +281,9 @@ public class SectionImpl extends TransitionElementImpl implements Section {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case LecturePackage.SECTION__TRANSITION:
+			setTransition(TRANSITION_EDEFAULT);
+			return;
 		case LecturePackage.SECTION__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -250,6 +305,8 @@ public class SectionImpl extends TransitionElementImpl implements Section {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case LecturePackage.SECTION__TRANSITION:
+			return transition != TRANSITION_EDEFAULT;
 		case LecturePackage.SECTION__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case LecturePackage.SECTION__USE_MARK_DOWN:
@@ -266,12 +323,50 @@ public class SectionImpl extends TransitionElementImpl implements Section {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == TransitionElement.class) {
+			switch (derivedFeatureID) {
+			case LecturePackage.SECTION__TRANSITION:
+				return LecturePackage.TRANSITION_ELEMENT__TRANSITION;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == TransitionElement.class) {
+			switch (baseFeatureID) {
+			case LecturePackage.TRANSITION_ELEMENT__TRANSITION:
+				return LecturePackage.SECTION__TRANSITION;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy())
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
+		result.append(" (transition: ");
+		result.append(transition);
+		result.append(", name: ");
 		result.append(name);
 		result.append(", useMarkDown: ");
 		result.append(useMarkDown);

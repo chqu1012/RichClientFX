@@ -77,6 +77,8 @@ public class LectureSwitch<T> extends Switch<T> {
 			Section section = (Section) theEObject;
 			T result = caseSection(section);
 			if (result == null)
+				result = caseContent(section);
+			if (result == null)
 				result = caseTransitionElement(section);
 			if (result == null)
 				result = defaultCase(theEObject);

@@ -637,6 +637,7 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sectionEClass.getESuperTypes().add(this.getContent());
 		sectionEClass.getESuperTypes().add(this.getTransitionElement());
 		listContentEClass.getESuperTypes().add(this.getContent());
 		orderedListContentEClass.getESuperTypes().add(this.getListContent());
