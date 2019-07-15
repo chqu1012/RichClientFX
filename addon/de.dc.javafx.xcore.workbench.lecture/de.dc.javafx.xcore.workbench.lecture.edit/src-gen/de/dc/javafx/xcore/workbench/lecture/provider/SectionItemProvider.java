@@ -218,6 +218,9 @@ public class SectionItemProvider extends ContentItemProvider {
 
 		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.SECTION__CONTENTS,
 				LectureFactory.eINSTANCE.createParagraph()));
+
+		newChildDescriptors.add(
+				createChildParameter(LecturePackage.Literals.SECTION__CONTENTS, LectureFactory.eINSTANCE.createLink()));
 	}
 
 }

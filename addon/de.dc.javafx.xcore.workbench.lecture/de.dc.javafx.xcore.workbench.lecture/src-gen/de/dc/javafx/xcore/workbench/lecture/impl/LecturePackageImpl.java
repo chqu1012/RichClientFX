@@ -10,6 +10,7 @@ import de.dc.javafx.xcore.workbench.lecture.HtmlElement;
 import de.dc.javafx.xcore.workbench.lecture.LectureFactory;
 import de.dc.javafx.xcore.workbench.lecture.LecturePackage;
 import de.dc.javafx.xcore.workbench.lecture.LectureProject;
+import de.dc.javafx.xcore.workbench.lecture.Link;
 import de.dc.javafx.xcore.workbench.lecture.ListContent;
 import de.dc.javafx.xcore.workbench.lecture.ListItem;
 import de.dc.javafx.xcore.workbench.lecture.OrderedListContent;
@@ -134,6 +135,13 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	private EClass codeBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -502,6 +510,36 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getLink() {
+		return linkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLink_Href() {
+		return (EAttribute) linkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLink_Alt() {
+		return (EAttribute) linkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getListItem() {
 		return listItemEClass;
 	}
@@ -598,6 +636,10 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		codeBlockEClass = createEClass(CODE_BLOCK);
 		createEAttribute(codeBlockEClass, CODE_BLOCK__LANGUAGE);
 
+		linkEClass = createEClass(LINK);
+		createEAttribute(linkEClass, LINK__HREF);
+		createEAttribute(linkEClass, LINK__ALT);
+
 		listItemEClass = createEClass(LIST_ITEM);
 		createEAttribute(listItemEClass, LIST_ITEM__VALUE);
 
@@ -649,6 +691,8 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		paragraphEClass.getESuperTypes().add(this.getHtmlElement());
 		spanEClass.getESuperTypes().add(this.getHtmlElement());
 		codeBlockEClass.getESuperTypes().add(this.getHtmlElement());
+		linkEClass.getESuperTypes().add(this.getHtmlElement());
+		linkEClass.getESuperTypes().add(this.getContent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(lectureProjectEClass, LectureProject.class, "LectureProject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -727,6 +771,12 @@ public class LecturePackageImpl extends EPackageImpl implements LecturePackage {
 		initEAttribute(getCodeBlock_Language(), theEcorePackage.getEString(), "language", "java", 0, 1, CodeBlock.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+
+		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLink_Href(), theEcorePackage.getEString(), "href", "", 0, 1, Link.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLink_Alt(), theEcorePackage.getEString(), "alt", "", 0, 1, Link.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(listItemEClass, ListItem.class, "ListItem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

@@ -305,6 +305,29 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.Link} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkItemProvider linkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.javafx.xcore.workbench.lecture.Link}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkAdapter() {
+		if (linkItemProvider == null) {
+			linkItemProvider = new LinkItemProvider(this);
+		}
+
+		return linkItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.javafx.xcore.workbench.lecture.ListItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -452,6 +475,8 @@ public class LectureItemProviderAdapterFactory extends LectureAdapterFactory
 			spanItemProvider.dispose();
 		if (codeBlockItemProvider != null)
 			codeBlockItemProvider.dispose();
+		if (linkItemProvider != null)
+			linkItemProvider.dispose();
 		if (listItemItemProvider != null)
 			listItemItemProvider.dispose();
 	}

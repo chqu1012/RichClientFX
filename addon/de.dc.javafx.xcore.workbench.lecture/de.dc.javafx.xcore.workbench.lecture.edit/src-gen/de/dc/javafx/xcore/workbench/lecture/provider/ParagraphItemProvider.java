@@ -191,6 +191,9 @@ public class ParagraphItemProvider extends ContentItemProvider {
 
 		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.PARAGRAPH__CHILDREN,
 				LectureFactory.eINSTANCE.createCodeBlock()));
+
+		newChildDescriptors.add(createChildParameter(LecturePackage.Literals.PARAGRAPH__CHILDREN,
+				LectureFactory.eINSTANCE.createLink()));
 	}
 
 }

@@ -68,6 +68,11 @@ class CodeBlock extends HtmlElement{
 	String language = 'java'
 }
 
+class Link extends HtmlElement, Content{
+	String href = ''
+	String alt = ''
+}
+
 class ListItem{
 	String value = ''
 }

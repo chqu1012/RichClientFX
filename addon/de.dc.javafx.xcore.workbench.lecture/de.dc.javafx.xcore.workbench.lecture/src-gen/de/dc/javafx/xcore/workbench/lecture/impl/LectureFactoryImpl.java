@@ -77,6 +77,8 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 			return createSpan();
 		case LecturePackage.CODE_BLOCK:
 			return createCodeBlock();
+		case LecturePackage.LINK:
+			return createLink();
 		case LecturePackage.LIST_ITEM:
 			return createListItem();
 		default:
@@ -222,6 +224,17 @@ public class LectureFactoryImpl extends EFactoryImpl implements LectureFactory {
 	public CodeBlock createCodeBlock() {
 		CodeBlockImpl codeBlock = new CodeBlockImpl();
 		return codeBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Link createLink() {
+		LinkImpl link = new LinkImpl();
+		return link;
 	}
 
 	/**

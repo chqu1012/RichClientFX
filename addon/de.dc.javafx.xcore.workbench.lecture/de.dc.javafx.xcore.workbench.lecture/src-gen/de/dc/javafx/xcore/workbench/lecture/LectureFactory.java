@@ -112,6 +112,15 @@ public interface LectureFactory extends EFactory {
 	CodeBlock createCodeBlock();
 
 	/**
+	 * Returns a new object of class '<em>Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link</em>'.
+	 * @generated
+	 */
+	Link createLink();
+
+	/**
 	 * Returns a new object of class '<em>List Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

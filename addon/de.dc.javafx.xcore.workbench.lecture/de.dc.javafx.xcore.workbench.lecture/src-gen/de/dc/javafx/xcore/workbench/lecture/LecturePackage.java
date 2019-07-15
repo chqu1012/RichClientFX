@@ -658,6 +658,70 @@ public interface LecturePackage extends EPackage {
 	int CODE_BLOCK_OPERATION_COUNT = HTML_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.LinkImpl <em>Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LinkImpl
+	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getLink()
+	 * @generated
+	 */
+	int LINK = 14;
+
+	/**
+	 * The feature id for the '<em><b>Style Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__STYLE_CLASS = HTML_ELEMENT__STYLE_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__VALUE = HTML_ELEMENT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Href</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__HREF = HTML_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Alt</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__ALT = HTML_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_OPERATION_COUNT = HTML_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl <em>List Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -665,7 +729,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getListItem()
 	 * @generated
 	 */
-	int LIST_ITEM = 14;
+	int LIST_ITEM = 15;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -702,7 +766,7 @@ public interface LecturePackage extends EPackage {
 	 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getTransition()
 	 * @generated
 	 */
-	int TRANSITION = 15;
+	int TRANSITION = 16;
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.LectureProject <em>Project</em>}'.
@@ -997,6 +1061,38 @@ public interface LecturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCodeBlock_Language();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.Link <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Link</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Link
+	 * @generated
+	 */
+	EClass getLink();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.Link#getHref <em>Href</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Href</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Link#getHref()
+	 * @see #getLink()
+	 * @generated
+	 */
+	EAttribute getLink_Href();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.javafx.xcore.workbench.lecture.Link#getAlt <em>Alt</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alt</em>'.
+	 * @see de.dc.javafx.xcore.workbench.lecture.Link#getAlt()
+	 * @see #getLink()
+	 * @generated
+	 */
+	EAttribute getLink_Alt();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.javafx.xcore.workbench.lecture.ListItem <em>List Item</em>}'.
@@ -1303,6 +1399,32 @@ public interface LecturePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CODE_BLOCK__LANGUAGE = eINSTANCE.getCodeBlock_Language();
+
+		/**
+		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.LinkImpl <em>Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LinkImpl
+		 * @see de.dc.javafx.xcore.workbench.lecture.impl.LecturePackageImpl#getLink()
+		 * @generated
+		 */
+		EClass LINK = eINSTANCE.getLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Href</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINK__HREF = eINSTANCE.getLink_Href();
+
+		/**
+		 * The meta object literal for the '<em><b>Alt</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINK__ALT = eINSTANCE.getLink_Alt();
 
 		/**
 		 * The meta object literal for the '{@link de.dc.javafx.xcore.workbench.lecture.impl.ListItemImpl <em>List Item</em>}' class.
