@@ -239,12 +239,13 @@ public abstract class EmfDetailedTreeView<T> extends BaseEmfDetailedTreeViewCont
 				EEnum enumeration = (EEnum) eAttribute.getEAttributeType();
 				EList<EEnumLiteral> literals = enumeration.getELiterals();
 
-				EEnumLiteral selectedLiteral = enumeration.getEEnumLiteral(eAttribute.getDefaultValueLiteral());
+				Object currentSelection = eObject.eGet(eAttribute) == null ? literals.get(0) : eObject.eGet(eAttribute);
+				EEnumLiteral selectedLiteral = enumeration.getEEnumLiteralByLiteral(String.valueOf(currentSelection));
 
-				ComboBox<EEnumLiteral> enumCombo = new ComboBox<>(FXCollections.observableArrayList(literals));
-				enumCombo.getSelectionModel().select(selectedLiteral);
+				ComboBox<Enumerator> enumCombo = new ComboBox<>(FXCollections.observableArrayList(literals));
+				enumCombo.getSelectionModel().select(selectedLiteral.getInstance());
 				enumCombo.getSelectionModel().selectedItemProperty()
-						.addListener((ChangeListener<EEnumLiteral>) (observable1, oldValue1, newValue1) -> {
+						.addListener((ChangeListener<Enumerator>) (observable1, oldValue1, newValue1) -> {
 							Enumerator selection = enumCombo.getSelectionModel().getSelectedItem();
 							EEnumLiteral enumLiteral = enumeration.getEEnumLiteral(selection.getName());
 							Command command = new SetCommand(editingDomain, eObject, eAttribute,
