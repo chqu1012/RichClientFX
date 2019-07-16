@@ -23,13 +23,16 @@ import org.eclipse.jdt.internal.core.CompilationUnit;
 import org.eclipse.jdt.internal.core.SourceType;
 import org.eclipse.jdt.internal.ui.JavaUIMessages;
 import org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog;
-import org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControl;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -57,6 +60,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 	private java.util.List<IMethod> availableAttributes = new ArrayList<>();
 	private java.util.List<IMethod> usedAttributes = new ArrayList<>();
 	private ListViewer editableAttributesListViewer;
+	private ListViewer usedAttributeListViewer;
 	/**
 	 * Create the dialog.
 	 * 
@@ -207,10 +211,22 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		lblEditableAttributes.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
 		lblEditableAttributes.setText("Editable Attributes");
 
-		editableAttributesListViewer = new ListViewer(container, SWT.BORDER | SWT.V_SCROLL);
+		Composite composite_1 = new Composite(container, SWT.NONE);
+		composite_1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		composite_1.setLayout(new GridLayout(3, false));
+
+		Label lblAvailableAttributes = new Label(composite_1, SWT.NONE);
+		lblAvailableAttributes.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		lblAvailableAttributes.setText("Available Attributes");
+		new Label(composite_1, SWT.NONE);
+
+		Label lblUsedAttributesFor = new Label(composite_1, SWT.NONE);
+		lblUsedAttributesFor.setText("Used Attributes for Editing");
+
+		editableAttributesListViewer = new ListViewer(composite_1, SWT.BORDER | SWT.V_SCROLL);
 		List editableAttributesListView = editableAttributesListViewer.getList();
-		GridData gd_editableAttributesListView = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_editableAttributesListView.heightHint = 113;
+		GridData gd_editableAttributesListView = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		gd_editableAttributesListView.widthHint = 250;
 		editableAttributesListView.setLayoutData(gd_editableAttributesListView);
 		editableAttributesListViewer.setLabelProvider(new LabelProvider() {
 			public String getText(Object element) {
@@ -219,32 +235,67 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 					return method.getElementName();
 				}
 				return String.valueOf(element);
-			}
+			};
 		});
 		editableAttributesListViewer.setContentProvider(ArrayContentProvider.getInstance());
 		editableAttributesListViewer.setInput(availableAttributes);
-
-		Composite composite = new Composite(container, SWT.NONE);
+		
+		Composite composite = new Composite(composite_1, SWT.NONE);
 		composite.setLayout(new GridLayout(1, false));
-		composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
-
-		Button addAttributeButton = new Button(composite, SWT.NONE);
-		addAttributeButton.setText("Add");
-		addAttributeButton.addListener(SWT.Selection, e->{
-			JavaOutlineInformationControl dialog = new JavaOutlineInformationControl(new Shell(), SWT.NONE, SWT.NONE, null);
-			dialog.setSize(400, 600);
-			dialog.setInput(ePackage);
-			dialog.open();
+		
+		Button addButton = new Button(composite, SWT.NONE);
+		addButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ISelection selection = editableAttributesListViewer.getSelection();
+				if (selection instanceof IStructuredSelection) {
+					IStructuredSelection ss = (IStructuredSelection) selection;
+					usedAttributes.add((IMethod) ss.getFirstElement());
+					availableAttributes.remove(ss.getFirstElement());
+					editableAttributesListViewer.refresh();
+					usedAttributeListViewer.refresh();
+				}
+			}
 		});
-
-		Button delAttributeButton = new Button(composite, SWT.NONE);
-		delAttributeButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		delAttributeButton.setText("Del");
-
-		Button editAttributeButton = new Button(composite, SWT.NONE);
-		editAttributeButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		editAttributeButton.setText("Edit");
+		addButton.setBounds(0, 0, 75, 25);
+		addButton.setText("->");
+		
+		Button removeButton = new Button(composite, SWT.NONE);
+		removeButton.setText("<-");
+		removeButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ISelection selection = usedAttributeListViewer.getSelection();
+				if (selection instanceof IStructuredSelection) {
+					IStructuredSelection ss = (IStructuredSelection) selection;
+					IMethod method = (IMethod) ss.getFirstElement();
+					availableAttributes.add(method);
+					usedAttributes.remove(method);
+					editableAttributesListViewer.refresh();
+					usedAttributeListViewer.refresh();
+				}
+			}
+		});
+		
+		usedAttributeListViewer = new ListViewer(composite_1, SWT.BORDER | SWT.V_SCROLL);
+		List usedAttributeListView = usedAttributeListViewer.getList();
+		GridData gd_usedAttributeListView = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		gd_usedAttributeListView.widthHint = 250;
+		usedAttributeListView.setLayoutData(gd_usedAttributeListView);
 		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		usedAttributeListViewer.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				if (element instanceof IMethod) {
+					IMethod method = (IMethod) element;
+					return method.getElementName();
+				}
+				return String.valueOf(element);
+			};
+		});
+		usedAttributeListViewer.setContentProvider(ArrayContentProvider.getInstance());
+		usedAttributeListViewer.setInput(usedAttributes);
 
 		Button generateDemoButton = new Button(container, SWT.CHECK);
 		generateDemoButton.setText("Generate Demo");
