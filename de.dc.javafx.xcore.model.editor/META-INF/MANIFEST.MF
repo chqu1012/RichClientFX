@@ -39,5 +39,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.dc.javafx.xcore.workbench.ide.lang.ui;bundle-version="1.0.0",
  de.dc.javafx.xcore.workbench.di;bundle-version="1.0.0",
  com.google.inject;bundle-version="3.0.0",
- com.google.guava;bundle-version="21.0.0"
+ com.google.guava;bundle-version="21.0.0",
+ de.dc.javafx.xcore.workbench.extension;bundle-version="0.1.0",
+ de.dc.javafx.xcore.workbench.extension.edit;bundle-version="1.0.0",
+ de.dc.javafx.xcore.workbench.extension.editor;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

@@ -95,7 +95,7 @@
       <editor
             id="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditorID"
             name="%_UI_ExtensionsEditor_label"
-            icon="icons/full/obj16/ExtensionsModelFile.gif"
+            icon="icons/icons8-einheit-16.png"
             extensions="extensions"
             class="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsEditor"
             contributorClass="de.dc.javafx.xcore.workbench.extensions.presentation.ExtensionsActionBarContributor">

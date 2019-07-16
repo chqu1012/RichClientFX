@@ -26,6 +26,7 @@
       <plugin id="com.jcraft.jsch"/>
       <plugin id="com.jcraft.jzlib"/>
       <plugin id="de.dc.javafx.efxclipse.runtime"/>
+      <plugin id="de.dc.javafx.xcore.code.preview.ui"/>
       <plugin id="de.dc.javafx.xcore.lang"/>
       <plugin id="de.dc.javafx.xcore.lang.edit"/>
       <plugin id="de.dc.javafx.xcore.lang.edit.ide"/>
@@ -36,7 +37,19 @@
       <plugin id="de.dc.javafx.xcore.model"/>
       <plugin id="de.dc.javafx.xcore.model.edit"/>
       <plugin id="de.dc.javafx.xcore.model.editor"/>
+      <plugin id="de.dc.javafx.xcore.resource"/>
       <plugin id="de.dc.javafx.xcore.runtime"/>
+      <plugin id="de.dc.javafx.xcore.workbench.command"/>
+      <plugin id="de.dc.javafx.xcore.workbench.di"/>
+      <plugin id="de.dc.javafx.xcore.workbench.emf"/>
+      <plugin id="de.dc.javafx.xcore.workbench.emf.ui"/>
+      <plugin id="de.dc.javafx.xcore.workbench.event"/>
+      <plugin id="de.dc.javafx.xcore.workbench.extension"/>
+      <plugin id="de.dc.javafx.xcore.workbench.extension.edit"/>
+      <plugin id="de.dc.javafx.xcore.workbench.extension.editor"/>
+      <plugin id="de.dc.javafx.xcore.workbench.ide.lang"/>
+      <plugin id="de.dc.javafx.xcore.workbench.ide.lang.ide"/>
+      <plugin id="de.dc.javafx.xcore.workbench.ide.lang.ui"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
@@ -69,6 +82,7 @@
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
       <plugin id="org.eclipse.core.databinding.observable"/>
       <plugin id="org.eclipse.core.databinding.property"/>
       <plugin id="org.eclipse.core.expressions"/>
@@ -108,13 +122,18 @@
       <plugin id="org.eclipse.e4.ui.workbench3"/>
       <plugin id="org.eclipse.emf.codegen"/>
       <plugin id="org.eclipse.emf.codegen.ecore"/>
+      <plugin id="org.eclipse.emf.codegen.ecore.ui"/>
+      <plugin id="org.eclipse.emf.codegen.ecore.xtext"/>
+      <plugin id="org.eclipse.emf.codegen.ecore.xtext.ui"/>
       <plugin id="org.eclipse.emf.common"/>
       <plugin id="org.eclipse.emf.common.ui"/>
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.change"/>
       <plugin id="org.eclipse.emf.ecore.edit"/>
       <plugin id="org.eclipse.emf.ecore.editor"/>
+      <plugin id="org.eclipse.emf.ecore.xcore"/>
       <plugin id="org.eclipse.emf.ecore.xcore.lib"/>
+      <plugin id="org.eclipse.emf.ecore.xcore.ui"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
       <plugin id="org.eclipse.emf.edit"/>
       <plugin id="org.eclipse.emf.edit.ui"/>
@@ -156,6 +175,9 @@
       <plugin id="org.eclipse.equinox.security.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.equinox.simpleconfigurator"/>
       <plugin id="org.eclipse.equinox.simpleconfigurator.manipulator"/>
+      <plugin id="org.eclipse.fx.ide.ui"/>
+      <plugin id="org.eclipse.fx.ide.ui.preview"/>
+      <plugin id="org.eclipse.fx.osgi" fragment="true"/>
       <plugin id="org.eclipse.help"/>
       <plugin id="org.eclipse.help.base"/>
       <plugin id="org.eclipse.help.ui"/>
