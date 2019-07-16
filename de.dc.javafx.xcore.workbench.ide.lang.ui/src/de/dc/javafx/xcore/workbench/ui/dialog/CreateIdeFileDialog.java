@@ -49,6 +49,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 
+import de.dc.javafx.xcore.workbench.ui.dialog.model.IdeModel;
+
 public class CreateIdeFileDialog extends TitleAreaDialog {
 
 	private Text ecoreFileText;
@@ -65,6 +67,9 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 	private java.util.List<IMethod> usedAttributes = new ArrayList<>();
 	private ListViewer editableAttributesListViewer;
 	private ListViewer usedAttributeListViewer;
+	
+	private IdeModel model = new IdeModel();
+	
 	/**
 	 * Create the dialog.
 	 * 
@@ -346,6 +351,20 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		new Label(container, SWT.NONE);
 
 		return area;
+	}
+	
+	@Override
+	protected void buttonPressed(int buttonId) {
+		if(buttonId==IDialogConstants.OK_ID){
+			model.setName(filenameText.getText());
+			model.getEditableAttributes().addAll(usedAttributes);
+			model.setItemProviderAdapterFactory(itemProviderAdapterFactoryText.getText());
+			model.setModelSwitch(modelSwitchText.getText());
+			model.seteFactory(factoryText.getText());
+			model.setePackage(packageText.getText());
+			
+		}
+		super.buttonPressed(buttonId);
 	}
 
 	private CompilationUnit openTypeDialog(int type,String filterPattern, Consumer<String> consumer) {
