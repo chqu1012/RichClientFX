@@ -4,6 +4,7 @@ import static org.eclipse.jdt.core.search.IJavaSearchConstants.INTERFACE;
 import static org.eclipse.jdt.core.search.IJavaSearchConstants.TYPE;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.function.Consumer;
 
@@ -14,13 +15,18 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.core.CompilationUnit;
 import org.eclipse.jdt.internal.core.SourceType;
 import org.eclipse.jdt.internal.ui.JavaUIMessages;
 import org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog;
+import org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControl;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
@@ -45,6 +51,8 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 	private Text rootModelText;
 	private Text modelSwitchText;
 
+	private ArrayList<String> input = new ArrayList<>();
+	private CompilationUnit ePackage;
 	/**
 	 * Create the dialog.
 	 * 
@@ -131,7 +139,9 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		Button packageButton = new Button(container, SWT.NONE);
 		packageButton.setText("...");
 		new Label(container, SWT.NONE);
-		packageButton.addListener(SWT.Selection, event -> openTypeDialog(INTERFACE, "Package", value-> packageText.setText(value)));
+		packageButton.addListener(SWT.Selection, event ->{ 
+			ePackage = openTypeDialog(INTERFACE, "Package", value-> packageText.setText(value));
+		});
 
 		Label lblNewLabel = new Label(container, SWT.NONE);
 		lblNewLabel.setText("Generate ItemProviderAdapterFactory");
@@ -179,6 +189,13 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		GridData gd_editableAttributesListView = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_editableAttributesListView.heightHint = 113;
 		editableAttributesListView.setLayoutData(gd_editableAttributesListView);
+		listViewer.setLabelProvider(new LabelProvider() {
+			public String getText(Object element) {
+				return String.valueOf(element);
+			};
+		});
+		listViewer.setContentProvider(ArrayContentProvider.getInstance());
+		listViewer.setInput(input);
 
 		Composite composite = new Composite(container, SWT.NONE);
 		composite.setLayout(new GridLayout(1, false));
@@ -186,6 +203,12 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button addAttributeButton = new Button(composite, SWT.NONE);
 		addAttributeButton.setText("Add");
+		addAttributeButton.addListener(SWT.Selection, e->{
+			JavaOutlineInformationControl dialog = new JavaOutlineInformationControl(new Shell(), SWT.NONE, SWT.NONE, null);
+			dialog.setSize(400, 600);
+			dialog.setInput(ePackage);
+			dialog.open();
+		});
 
 		Button delAttributeButton = new Button(composite, SWT.NONE);
 		delAttributeButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
@@ -203,7 +226,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		return area;
 	}
 
-	private void openTypeDialog(int type,String filterPattern, Consumer<String> consumer) {
+	private CompilationUnit openTypeDialog(int type,String filterPattern, Consumer<String> consumer) {
 		OpenTypeSelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
 				PlatformUI.getWorkbench().getProgressService(), null, type);
 		dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
@@ -219,12 +242,14 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 					try {
 						consumer.accept(element.getPackageDeclarations()[0].getElementName() + "."
 								+ element.getElementName());
+						return element;
 					} catch (JavaModelException e1) {
 						e1.printStackTrace();
 					}
 				}
 			}
 		}
+		return null;
 	}
 	
 	/**
