@@ -355,6 +355,6 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(450, 560);
+		return new Point(650, 600);
 	}
 }
