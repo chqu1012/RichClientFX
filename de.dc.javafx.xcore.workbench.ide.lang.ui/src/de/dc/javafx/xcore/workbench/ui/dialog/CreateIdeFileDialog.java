@@ -9,7 +9,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.function.Consumer;
 
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.ui.dialogs.ResourceDialog;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -17,6 +19,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xcore.XPackage;
+import org.eclipse.emf.ecore.xcore.mappings.XPackageMapping;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
@@ -114,14 +117,22 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 						resource.load(Collections.emptyMap());
 						EObject eObject = resource.getContents().get(0);
 						if (eObject instanceof XPackage) {
-							XPackage pack = (XPackage) eObject;
-							System.out.println("Name: "+pack.getName());
-							System.out.println("CLASSIFIER -------------------------------------------");
-							pack.getClassifiers().forEach(e-> System.out.println(e));
-							System.out.println("ANNOTATION -------------------------------------------");
-							pack.getAnnotations().forEach(e-> System.out.println(e));
+							XPackage xPackage = (XPackage) eObject;
+							EList<Adapter> adapters = xPackage.eAdapters();
+							Adapter adapter = adapters.get(2);
+							if (adapter instanceof XPackageMapping) {
+								XPackageMapping mapping = (XPackageMapping) adapter;
+								String basePackage = mapping.getGenPackage().getBasePackage();
+
+								String fileExtensions=xPackage.getAnnotations().get(1).getDetails().get("fileExtensions");
+								
+								packageText.setText(basePackage+"."+fileExtensions+"Package");
+								factoryText.setText(basePackage+"."+fileExtensions+"Factory");
+								itemProviderAdapterFactoryText.setText(basePackage+".provider."+fileExtensions+"ItemAdapterFactory");
+								modelSwitchText.setText(basePackage+".util."+fileExtensions+"Switch");
+								filenameText.setText(fileExtensions);
+							}
 						}
-						System.out.println(eObject);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
