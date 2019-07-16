@@ -127,7 +127,10 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button factoryButton = new Button(container, SWT.NONE);
 		factoryButton.setText("...");
-		factoryButton.addListener(SWT.Selection, event -> openTypeDialog(INTERFACE,"Factory", value-> factoryText.setText(value)));
+		factoryButton.addListener(SWT.Selection, event -> {
+			String pattern = factoryText.getText().isEmpty() ? "Factory" : factoryText.getText()+"Factory";	
+			openTypeDialog(INTERFACE, pattern, value-> factoryText.setText(value));
+		});
 
 		Label lblIdePackage = new Label(container, SWT.NONE);
 		lblIdePackage.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
@@ -139,10 +142,11 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		Button packageButton = new Button(container, SWT.NONE);
 		packageButton.setText("...");
 		new Label(container, SWT.NONE);
-		packageButton.addListener(SWT.Selection, event ->{ 
-			ePackage = openTypeDialog(INTERFACE, "Package", value-> packageText.setText(value));
+		packageButton.addListener(SWT.Selection, event -> { 
+			String pattern = packageText.getText().isEmpty() ? "Package" : packageText.getText()+"Package";	
+			ePackage = openTypeDialog(INTERFACE, pattern, value-> packageText.setText(value));
 		});
-
+		
 		Label lblNewLabel = new Label(container, SWT.NONE);
 		lblNewLabel.setText("Generate ItemProviderAdapterFactory");
 		new Label(container, SWT.NONE);
@@ -156,7 +160,10 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button itemProviderAdapterFactoryButton = new Button(container, SWT.NONE);
 		itemProviderAdapterFactoryButton.setText("...");
-		itemProviderAdapterFactoryButton.addListener(SWT.Selection, event -> openTypeDialog(INTERFACE, "ItemProviderAdapterFactory", value-> itemProviderAdapterFactoryText.setText(value)));
+		itemProviderAdapterFactoryButton.addListener(SWT.Selection, event -> {
+			String pattern = itemProviderAdapterFactoryText.getText().isEmpty() ? "ItemProviderAdapterFactory" : itemProviderAdapterFactoryText.getText()+"ItemProviderAdapterFactory";	
+			openTypeDialog(INTERFACE, pattern, value-> itemProviderAdapterFactoryText.setText(value));
+		});
 
 		Label lblIdeRootmodel = new Label(container, SWT.NONE);
 		lblIdeRootmodel.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
@@ -178,7 +185,10 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		Button modelSwitchButton = new Button(container, SWT.NONE);
 		modelSwitchButton.setText("...");
-		modelSwitchButton.addListener(SWT.Selection, event -> openTypeDialog(TYPE, "Switch", value-> modelSwitchText.setText(value)));
+		modelSwitchButton.addListener(SWT.Selection, event -> {
+			String pattern = modelSwitchText.getText().isEmpty() ? "Switch" : modelSwitchText.getText()+"Switch";	
+			openTypeDialog(TYPE, pattern, value-> modelSwitchText.setText(value));
+		});
 
 		Label lblEditableAttributes = new Label(container, SWT.NONE);
 		lblEditableAttributes.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
@@ -192,7 +202,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		listViewer.setLabelProvider(new LabelProvider() {
 			public String getText(Object element) {
 				return String.valueOf(element);
-			};
+			}
 		});
 		listViewer.setContentProvider(ArrayContentProvider.getInstance());
 		listViewer.setInput(input);
