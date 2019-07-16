@@ -221,7 +221,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		lblEditableAttributes.setText("Editable Attributes");
 
 		Composite composite_1 = new Composite(container, SWT.NONE);
-		composite_1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		composite_1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		composite_1.setLayout(new GridLayout(3, false));
 
 		Label lblAvailableAttributes = new Label(composite_1, SWT.NONE);
@@ -234,7 +234,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 
 		editableAttributesListViewer = new ListViewer(composite_1, SWT.BORDER | SWT.V_SCROLL);
 		List editableAttributesListView = editableAttributesListViewer.getList();
-		GridData gd_editableAttributesListView = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		GridData gd_editableAttributesListView = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
 		gd_editableAttributesListView.widthHint = 250;
 		editableAttributesListView.setLayoutData(gd_editableAttributesListView);
 		editableAttributesListViewer.setLabelProvider(new LabelProvider() {
@@ -253,6 +253,7 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		composite.setLayout(new GridLayout(1, false));
 		
 		Button addButton = new Button(composite, SWT.NONE);
+		addButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		addButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -269,17 +270,41 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		addButton.setBounds(0, 0, 75, 25);
 		addButton.setText("->");
 		
+		Button addAllButton = new Button(composite, SWT.NONE);
+		addAllButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				usedAttributes.addAll(availableAttributes);
+				availableAttributes.clear();
+				editableAttributesListViewer.refresh();
+				usedAttributeListViewer.refresh();
+			}
+		});
+		addAllButton.setText("=>");
+		
 		Button removeButton = new Button(composite, SWT.NONE);
+		removeButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		removeButton.setText("<-");
+		
+		Button removeAllButton = new Button(composite, SWT.NONE);
+		removeAllButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				availableAttributes.addAll(usedAttributes);
+				usedAttributes.clear();
+				editableAttributesListViewer.refresh();
+				usedAttributeListViewer.refresh();
+			}
+		});
+		removeAllButton.setText("<=");
 		removeButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				ISelection selection = usedAttributeListViewer.getSelection();
 				if (selection instanceof IStructuredSelection) {
 					IStructuredSelection ss = (IStructuredSelection) selection;
-					IMethod method = (IMethod) ss.getFirstElement();
-					availableAttributes.add(method);
-					usedAttributes.remove(method);
+					availableAttributes.add((IMethod) ss.getFirstElement());
+					usedAttributes.remove(ss.getFirstElement());
 					editableAttributesListViewer.refresh();
 					usedAttributeListViewer.refresh();
 				}
@@ -288,13 +313,12 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		
 		usedAttributeListViewer = new ListViewer(composite_1, SWT.BORDER | SWT.V_SCROLL);
 		List usedAttributeListView = usedAttributeListViewer.getList();
-		GridData gd_usedAttributeListView = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		GridData gd_usedAttributeListView = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
 		gd_usedAttributeListView.widthHint = 250;
 		usedAttributeListView.setLayoutData(gd_usedAttributeListView);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		usedAttributeListViewer.setLabelProvider(new LabelProvider() {
-			@Override
 			public String getText(Object element) {
 				if (element instanceof IMethod) {
 					IMethod method = (IMethod) element;
