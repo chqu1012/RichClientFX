@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xcore.XPackage;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
@@ -112,6 +113,14 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 						Resource resource = resourceSet.getResource(uri, true);
 						resource.load(Collections.emptyMap());
 						EObject eObject = resource.getContents().get(0);
+						if (eObject instanceof XPackage) {
+							XPackage pack = (XPackage) eObject;
+							System.out.println("Name: "+pack.getName());
+							System.out.println("CLASSIFIER -------------------------------------------");
+							pack.getClassifiers().forEach(e-> System.out.println(e));
+							System.out.println("ANNOTATION -------------------------------------------");
+							pack.getAnnotations().forEach(e-> System.out.println(e));
+						}
 						System.out.println(eObject);
 					} catch (IOException e1) {
 						e1.printStackTrace();
