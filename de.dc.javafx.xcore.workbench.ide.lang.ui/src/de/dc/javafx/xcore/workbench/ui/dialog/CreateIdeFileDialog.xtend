@@ -111,11 +111,12 @@ class CreateIdeFileDialog extends TitleAreaDialog {
 						if (adapter instanceof XPackageMapping) {
 							var mapping = adapter as XPackageMapping
 							var basePackage = mapping.genPackage.basePackage
-							var fileExtensions = xPackage.annotations.get(1).details.get("fileExtensions").toFirstUpper
-							packageText.setText('''«basePackage».«fileExtensions»Package''')
-							factoryText.setText('''«basePackage».«fileExtensions»Factory''')
-							itemProviderAdapterFactoryText.text ='''«basePackage».provider.«fileExtensions»ItemAdapterFactory'''
-							modelSwitchText.text = '''«basePackage».util.«fileExtensions»Switch'''
+							var fileExtensions = xPackage.annotations.get(1).details.get("fileExtensions")
+							model.packagePath = basePackage+'.'+fileExtensions
+							packageText.setText('''«basePackage».«fileExtensions».«fileExtensions.toFirstUpper»Package''')
+							factoryText.setText('''«basePackage».«fileExtensions».«fileExtensions.toFirstUpper»Factory''')
+							itemProviderAdapterFactoryText.text ='''«basePackage».«fileExtensions».provider.«fileExtensions.toFirstUpper»ItemProviderAdapterFactory'''
+							modelSwitchText.text = '''«basePackage».«fileExtensions».util.«fileExtensions.toFirstUpper»Switch'''
 							filenameText.text = fileExtensions
 						}
 					}
@@ -286,8 +287,8 @@ class CreateIdeFileDialog extends TitleAreaDialog {
 		usedAttributeListViewer.setLabelProvider(new LabelProvider() {
 			override String getText(Object element) {
 				if (element instanceof IMethod) {
-					var IMethod method = (element as IMethod)
-					return method.getElementName()
+					var method = (element as IMethod)
+					return method.elementName
 				}
 				return String.valueOf(element)
 			}
@@ -310,45 +311,31 @@ class CreateIdeFileDialog extends TitleAreaDialog {
 		super.buttonPressed(buttonId)
 	}
 
-	def private CompilationUnit openTypeDialog(int type, String filterPattern, Consumer<String> consumer) {
-		var OpenTypeSelectionDialog dialog = new OpenTypeSelectionDialog(new Shell(), true,
-			PlatformUI.getWorkbench().getProgressService(), null, type)
+	def CompilationUnit openTypeDialog(int type, String filterPattern, Consumer<String> consumer) {
+		var dialog = new OpenTypeSelectionDialog(new Shell, true, PlatformUI.workbench.progressService, null, type)
 		dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle)
 		dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage)
 		dialog.setInitialPattern('''*«filterPattern»''')
-		var int result = dialog.open()
+		var result = dialog.open
 		if (result === 0) {
-			for (Object obj : dialog.getResult()) {
+			for (Object obj : dialog.result) {
 				if (obj instanceof SourceType) {
-					var SourceType sourceType = (obj as SourceType)
-					var CompilationUnit element = (sourceType.getParent() as CompilationUnit)
-					try {
-						consumer.
-							accept('''«element.getPackageDeclarations().get(0).getElementName()».«element.getElementName()»''')
-						return element
-					} catch (JavaModelException e1) {
-						e1.printStackTrace()
-					}
-
+					var sourceType = obj as SourceType
+					var element = sourceType.parent as CompilationUnit
+					consumer.accept('''«element.packageDeclarations.get(0).elementName».«element.elementName»''')
+					return element
 				}
 			}
 		}
 		return null
 	}
 
-	/** 
-	 * Create contents of the button bar.
-	 * @param parent
-	 */
-	override protected void createButtonsForButtonBar(Composite parent) {
+	override protected createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true)
 		createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false)
 	}
 
-	/** 
-	 * Return the initial size of the dialog.
-	 */
-	override protected Point getInitialSize() {
-		return new Point(650, 600)
+	override protected getInitialSize() {
+		new Point(650, 600)
 	}
 }

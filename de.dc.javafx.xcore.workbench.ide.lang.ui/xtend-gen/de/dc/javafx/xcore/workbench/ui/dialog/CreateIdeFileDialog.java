@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.xcore.mappings.XPackageMapping;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.search.IJavaSearchConstants;
 import org.eclipse.jdt.internal.core.CompilationUnit;
 import org.eclipse.jdt.internal.core.SourceType;
@@ -146,29 +145,42 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
                 if ((adapter instanceof XPackageMapping)) {
                   XPackageMapping mapping = ((XPackageMapping) adapter);
                   String basePackage = mapping.getGenPackage().getBasePackage();
-                  String fileExtensions = StringExtensions.toFirstUpper(xPackage.getAnnotations().get(1).getDetails().get("fileExtensions"));
+                  String fileExtensions = xPackage.getAnnotations().get(1).getDetails().get("fileExtensions");
+                  this.model.setPackagePath(((basePackage + ".") + fileExtensions));
                   StringConcatenation _builder = new StringConcatenation();
                   _builder.append(basePackage);
                   _builder.append(".");
                   _builder.append(fileExtensions);
+                  _builder.append(".");
+                  String _firstUpper = StringExtensions.toFirstUpper(fileExtensions);
+                  _builder.append(_firstUpper);
                   _builder.append("Package");
                   this.packageText.setText(_builder.toString());
                   StringConcatenation _builder_1 = new StringConcatenation();
                   _builder_1.append(basePackage);
                   _builder_1.append(".");
                   _builder_1.append(fileExtensions);
+                  _builder_1.append(".");
+                  String _firstUpper_1 = StringExtensions.toFirstUpper(fileExtensions);
+                  _builder_1.append(_firstUpper_1);
                   _builder_1.append("Factory");
                   this.factoryText.setText(_builder_1.toString());
                   StringConcatenation _builder_2 = new StringConcatenation();
                   _builder_2.append(basePackage);
-                  _builder_2.append(".provider.");
+                  _builder_2.append(".");
                   _builder_2.append(fileExtensions);
-                  _builder_2.append("ItemAdapterFactory");
+                  _builder_2.append(".provider.");
+                  String _firstUpper_2 = StringExtensions.toFirstUpper(fileExtensions);
+                  _builder_2.append(_firstUpper_2);
+                  _builder_2.append("ItemProviderAdapterFactory");
                   this.itemProviderAdapterFactoryText.setText(_builder_2.toString());
                   StringConcatenation _builder_3 = new StringConcatenation();
                   _builder_3.append(basePackage);
-                  _builder_3.append(".util.");
+                  _builder_3.append(".");
                   _builder_3.append(fileExtensions);
+                  _builder_3.append(".util.");
+                  String _firstUpper_3 = StringExtensions.toFirstUpper(fileExtensions);
+                  _builder_3.append(_firstUpper_3);
                   _builder_3.append("Switch");
                   this.modelSwitchText.setText(_builder_3.toString());
                   this.filenameText.setText(fileExtensions);
@@ -468,25 +480,25 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
     super.buttonPressed(buttonId);
   }
   
-  private CompilationUnit openTypeDialog(final int type, final String filterPattern, final Consumer<String> consumer) {
-    Shell _shell = new Shell();
-    IProgressService _progressService = PlatformUI.getWorkbench().getProgressService();
-    OpenTypeSelectionDialog dialog = new OpenTypeSelectionDialog(_shell, true, _progressService, null, type);
-    dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
-    dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("*");
-    _builder.append(filterPattern);
-    dialog.setInitialPattern(_builder.toString());
-    int result = dialog.open();
-    if ((result == 0)) {
-      Object[] _result = dialog.getResult();
-      for (final Object obj : _result) {
-        if ((obj instanceof SourceType)) {
-          SourceType sourceType = ((SourceType) obj);
-          IJavaElement _parent = sourceType.getParent();
-          CompilationUnit element = ((CompilationUnit) _parent);
-          try {
+  public CompilationUnit openTypeDialog(final int type, final String filterPattern, final Consumer<String> consumer) {
+    try {
+      Shell _shell = new Shell();
+      IProgressService _progressService = PlatformUI.getWorkbench().getProgressService();
+      OpenTypeSelectionDialog dialog = new OpenTypeSelectionDialog(_shell, true, _progressService, null, type);
+      dialog.setTitle(JavaUIMessages.OpenTypeAction_dialogTitle);
+      dialog.setMessage(JavaUIMessages.OpenTypeAction_dialogMessage);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("*");
+      _builder.append(filterPattern);
+      dialog.setInitialPattern(_builder.toString());
+      int result = dialog.open();
+      if ((result == 0)) {
+        Object[] _result = dialog.getResult();
+        for (final Object obj : _result) {
+          if ((obj instanceof SourceType)) {
+            SourceType sourceType = ((SourceType) obj);
+            IJavaElement _parent = sourceType.getParent();
+            CompilationUnit element = ((CompilationUnit) _parent);
             StringConcatenation _builder_1 = new StringConcatenation();
             String _elementName = element.getPackageDeclarations()[0].getElementName();
             _builder_1.append(_elementName);
@@ -495,33 +507,21 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
             _builder_1.append(_elementName_1);
             consumer.accept(_builder_1.toString());
             return element;
-          } catch (final Throwable _t) {
-            if (_t instanceof JavaModelException) {
-              final JavaModelException e1 = (JavaModelException)_t;
-              e1.printStackTrace();
-            } else {
-              throw Exceptions.sneakyThrow(_t);
-            }
           }
         }
       }
+      return null;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    return null;
   }
   
-  /**
-   * Create contents of the button bar.
-   * @param parent
-   */
   @Override
   protected void createButtonsForButtonBar(final Composite parent) {
     this.createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
     this.createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
   }
   
-  /**
-   * Return the initial size of the dialog.
-   */
   @Override
   protected Point getInitialSize() {
     return new Point(650, 600);
