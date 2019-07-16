@@ -5,9 +5,9 @@ import de.dc.javafx.xcore.workbench.ui.dialog.model.IdeModel
 class IdeFileContentTemplate {
 
 	def static String getContent(IdeModel model)'''
-	package «model.packagePath»
+	package «model.packagePath».ui
 	
-	class «model.name»{
+	class «model.name.toFirstUpper»{
 		IdeFactory: «model.geteFactory»
 		IdePackage: «model.getePackage»
 		IdeItemProviderAdapterFactory: «model.itemProviderAdapterFactory»
@@ -16,7 +16,7 @@ class IdeFileContentTemplate {
 		
 		Editable{
 			«FOR n : model.editableAttributes»
-			IdePackage->«n»()
+			IdePackage->«n.elementName»()
 			«ENDFOR»
 		}
 		

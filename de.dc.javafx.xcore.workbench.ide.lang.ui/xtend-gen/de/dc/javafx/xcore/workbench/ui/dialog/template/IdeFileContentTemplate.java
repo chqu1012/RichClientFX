@@ -4,6 +4,7 @@ import de.dc.javafx.xcore.workbench.ui.dialog.model.IdeModel;
 import java.util.List;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 @SuppressWarnings("all")
 public class IdeFileContentTemplate {
@@ -12,11 +13,12 @@ public class IdeFileContentTemplate {
     _builder.append("package ");
     String _packagePath = model.getPackagePath();
     _builder.append(_packagePath);
+    _builder.append(".ui");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("class ");
-    String _name = model.getName();
-    _builder.append(_name);
+    String _firstUpper = StringExtensions.toFirstUpper(model.getName());
+    _builder.append(_firstUpper);
     _builder.append("{");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -54,7 +56,8 @@ public class IdeFileContentTemplate {
       for(final IMethod n : _editableAttributes) {
         _builder.append("\t\t");
         _builder.append("IdePackage->");
-        _builder.append(n, "\t\t");
+        String _elementName = n.getElementName();
+        _builder.append(_elementName, "\t\t");
         _builder.append("()");
         _builder.newLineIfNotEmpty();
       }

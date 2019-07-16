@@ -625,4 +625,13 @@
            name="Create Ide File">
      </command>
   </extension>
+  
+	<extension
+        point="org.eclipse.emf.ecore.extension_parser">
+        <parser
+            class="org.eclipse.emf.ecore.xcore.ui.XcoreExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+            type="xcore">
+        </parser>
+    </extension>  
+
 </plugin>
