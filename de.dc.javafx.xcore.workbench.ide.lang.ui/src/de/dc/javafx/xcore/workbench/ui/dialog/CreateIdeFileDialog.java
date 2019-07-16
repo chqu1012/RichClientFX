@@ -5,6 +5,7 @@ import static org.eclipse.jdt.core.search.IJavaSearchConstants.TYPE;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.function.Consumer;
 
@@ -51,8 +52,11 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 	private Text rootModelText;
 	private Text modelSwitchText;
 
-	private ArrayList<String> input = new ArrayList<>();
 	private CompilationUnit ePackage;
+	
+	private java.util.List<IMethod> availableAttributes = new ArrayList<>();
+	private java.util.List<IMethod> usedAttributes = new ArrayList<>();
+	private ListViewer editableAttributesListViewer;
 	/**
 	 * Create the dialog.
 	 * 
@@ -145,6 +149,15 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		packageButton.addListener(SWT.Selection, event -> { 
 			String pattern = packageText.getText().isEmpty() ? "Package" : packageText.getText()+"Package";	
 			ePackage = openTypeDialog(INTERFACE, pattern, value-> packageText.setText(value));
+			try {
+				availableAttributes.clear();
+				for (IType type : ePackage.getAllTypes()) {
+					availableAttributes.addAll(Arrays.asList(type.getMethods()));
+				}
+				editableAttributesListViewer.refresh();
+			} catch (JavaModelException e1) {
+				e1.printStackTrace();
+			}
 		});
 		
 		Label lblNewLabel = new Label(container, SWT.NONE);
@@ -194,18 +207,22 @@ public class CreateIdeFileDialog extends TitleAreaDialog {
 		lblEditableAttributes.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
 		lblEditableAttributes.setText("Editable Attributes");
 
-		ListViewer listViewer = new ListViewer(container, SWT.BORDER | SWT.V_SCROLL);
-		List editableAttributesListView = listViewer.getList();
+		editableAttributesListViewer = new ListViewer(container, SWT.BORDER | SWT.V_SCROLL);
+		List editableAttributesListView = editableAttributesListViewer.getList();
 		GridData gd_editableAttributesListView = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_editableAttributesListView.heightHint = 113;
 		editableAttributesListView.setLayoutData(gd_editableAttributesListView);
-		listViewer.setLabelProvider(new LabelProvider() {
+		editableAttributesListViewer.setLabelProvider(new LabelProvider() {
 			public String getText(Object element) {
+				if (element instanceof IMethod) {
+					IMethod method = (IMethod) element;
+					return method.getElementName();
+				}
 				return String.valueOf(element);
 			}
 		});
-		listViewer.setContentProvider(ArrayContentProvider.getInstance());
-		listViewer.setInput(input);
+		editableAttributesListViewer.setContentProvider(ArrayContentProvider.getInstance());
+		editableAttributesListViewer.setInput(availableAttributes);
 
 		Composite composite = new Composite(container, SWT.NONE);
 		composite.setLayout(new GridLayout(1, false));
